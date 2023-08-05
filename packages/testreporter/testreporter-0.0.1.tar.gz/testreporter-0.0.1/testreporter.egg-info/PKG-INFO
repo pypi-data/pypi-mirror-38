@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: testreporter
+Version: 0.0.1
+Summary: Get pretty output for your Django unit tests
+Home-page: https://gitlab.com/SchoolOrchestration/libs/dj-testreporter
+Author: Christo Crampton
+Author-email: christo@appointmentguru.co
+License: UNKNOWN
+Description: # dj-testreporter
+        
+        A think wrapper around the default Django `DiscoverRunner` which can generate pretty reports from your tests
+        
+        ## Usage
+        
+        **Once off**
+        
+        ```
+        python manage.py test --testrunner=dj_testreporter.runners.BDDTestRunner
+        ```
+        
+        **Always use it**
+        
+        `settings.py`
+        ```
+        TEST_RUNNER='dj_testreporter.runners.BDDTestRunner'
+        ```
+        
+        Example output:
+        
+        ```
+        * ************
+        * TEST SUMMARY
+        * ************
+        * -
+        * ---------------------
+        * MYPROJECT.TESTS.TEST_MODELS
+        * ---------------------
+        *
+        *  SomeModelTestCase:
+        *  ---------------------
+        *   ✓ a test that passes
+        *   ✗ a test that fails
+        ```
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
