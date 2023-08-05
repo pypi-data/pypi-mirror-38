@@ -1,0 +1,121 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+import chronologicon, chronologicon.output, chronologicon.maintenance, sys
+py3 = sys.version_info[0] > 2
+
+if not py3:
+	print("You are running Chronologicon on python v" + str(sys.version_info[0]) + "." + str(sys.version_info[0]) + "\nPlease be aware that, while it may run with no issues, it is not extensively tested with this version.")
+
+HELP_TEXT = """
+Usage:
+  chron <command> <options>
+
+Commands:
+  start <options>         Start a new log timer.
+  stop                    Complete the current log.
+  status                  Check whether a log is in progress.
+  cancel                  Abort the current entry.
+  stats <options>         View stats & graphs.
+  list                    Show the 10 most recent logs.
+  backup                  Backup the log data file.
+  edit <options>          Edit an attribute of a specific log.
+  directory <options>     Change the save directory.
+
+For detailed usage:
+  https://github.com/rutherfordcraze/chronologicon
+"""
+
+# Logging and entry
+START_COMMANDS = ['start', 'begin', 's', '-s']
+STOP_COMMANDS = ['stop', 'end', 'x', '-x']
+ABORT_COMMANDS = ['abort', 'cancel']
+STATUS_COMMANDS = ['status']
+
+# Stats and graphs
+STATS_COMMANDS = ['stats', 'graphs', 'v', '-v']
+
+# Maintenance
+BACKUP_COMMANDS = ['backup', 'b', '-b']
+LIST_COMMANDS = ['list']
+EDIT_COMMANDS = ['edit']
+DIRECTORY_COMMANDS = ['directory', 'd', '-d']
+
+# Help
+HELP_COMMANDS = ['help', 'h', '--help', '-h']
+
+# --------------------------------------------------
+
+if len(sys.argv) > 1:
+	mainCommand = sys.argv[1] #sys.argv[0] is the name of the script
+	options = sys.argv[2:]
+	preflightsPassed = True
+
+	if mainCommand in DIRECTORY_COMMANDS:
+		# Change directory to the one provided, or if none is provided, ask for one
+		if len(options) > 0:
+			chronologicon.ChangeSaveDir(options[0])
+		else:
+			if py3:
+				response = input("New save directory: ")
+			else:
+				response = raw_input("New save directory: ")
+
+			chronologicon.ChangeSaveDir(response)
+
+		preflightsPassed = chronologicon.Preflights()
+		exit()
+	else:
+		if chronologicon.Preflights() is False:
+			exit()
+
+	# Logging and entry
+	if mainCommand in START_COMMANDS:
+		chronologicon.StartLog(options)
+
+	elif mainCommand in STOP_COMMANDS:
+		chronologicon.StopLog()
+
+	elif mainCommand in ABORT_COMMANDS:
+		if py3:
+			response = input("Cancel the log in progress? (y/n): ")
+		else:
+			response = raw_input("Cancel the log in progress? (y/n): ")
+
+		if response == 'y':
+			chronologicon.CancelLog()
+		else:
+			print("Log not cancelled.")
+
+	elif mainCommand in STATUS_COMMANDS:
+		chronologicon.Status()
+
+	# Stats and graphs
+	elif mainCommand in STATS_COMMANDS:
+		chronologicon.output.ViewStats(options)
+
+	# Maintenance
+	elif mainCommand in BACKUP_COMMANDS:
+		chronologicon.Backup()
+
+	elif mainCommand in LIST_COMMANDS:
+		if 'verbose' in options:
+			chronologicon.maintenance.List(True)
+		else:
+			chronologicon.maintenance.List()
+
+	elif mainCommand in EDIT_COMMANDS:
+		if len(options) > 2:
+			chronologicon.maintenance.Edit(options[0], options[1], options[2])
+		else:
+			print("Unexpected input. Usage:\n$ chron edit <logID> <attribute> <newValue>")
+
+	# Help
+	elif mainCommand in HELP_COMMANDS:
+		print(HELP_TEXT)
+
+	else:
+		print("Command not recognised.")
+
+else:
+	print("Not enough arguments.\n" + HELP_TEXT)
