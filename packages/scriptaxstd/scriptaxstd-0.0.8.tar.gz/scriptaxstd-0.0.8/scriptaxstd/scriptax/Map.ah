@@ -1,0 +1,14 @@
+sig(map={});
+
+
+script has(key, sMap=null)
+{
+  r = null;
+  if(sMap)
+  {
+    r = ct("std map has --key '" + key + "' --map \"" + sMap + "\"");
+  } else {
+    r = ct("std map has --key '" + key + "' --map \"" + parent.map + "\"");
+  }
+  return r.response.result;
+}
