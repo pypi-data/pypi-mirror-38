@@ -1,0 +1,14 @@
+{% extends 'agadmator/base.html' %}
+
+{% block content %}
+  <h2>Series</h2>
+  <div class="mb-4">
+    {% for serie in series %}
+
+      <h4><a href="{% url 'agadmator:series_detail' serie.id %}">{{ serie.title }}</a></h4>
+      <p>{{ serie.description }}</p>
+      <p>{{ serie.videos.all.count }} videos</p>
+    {% endfor %}
+  </div>
+
+{% endblock content %}

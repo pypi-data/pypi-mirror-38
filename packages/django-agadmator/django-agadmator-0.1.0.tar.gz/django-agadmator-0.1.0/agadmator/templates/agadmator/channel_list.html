@@ -1,0 +1,11 @@
+{% extends 'agadmator/base.html' %}
+
+{% block content %}
+  <h2>Channels</h2>
+  <div class="mb-4">
+  {% for channel in channels %}
+    {% include 'agadmator/_channel_media_large.html' %}
+  {% endfor %}
+  </div>
+
+{% endblock content %}
