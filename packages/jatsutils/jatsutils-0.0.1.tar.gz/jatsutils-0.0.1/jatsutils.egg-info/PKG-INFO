@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: jatsutils
+Version: 0.0.1
+Summary: Utility for obtain JATS XML data
+Home-page: https://github.com/cccaballero/jatsutils
+Author: Carlos Cesar Caballero
+Author-email: ccesar@daxslab.com
+License: UNKNOWN
+Description: # jatsutils
+        
+        [![Build Status](https://travis-ci.com/daxslab/jatsutils.svg?branch=master)](https://travis-ci.com/daxslab/jatsutils)
+        
+        Utility for obtaining data from JATS XML
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Provides-Extra: dev

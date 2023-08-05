@@ -1,0 +1,13 @@
+README.md
+setup.py
+jatsutils/__init__.py
+jatsutils/jats.py
+jatsutils.egg-info/PKG-INFO
+jatsutils.egg-info/SOURCES.txt
+jatsutils.egg-info/dependency_links.txt
+jatsutils.egg-info/requires.txt
+jatsutils.egg-info/top_level.txt
+tests/__init__.py
+tests/conftest.py
+tests/test_front_data.py
+tests/test_load.py
