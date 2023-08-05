@@ -1,0 +1,13 @@
+README.md
+setup.py
+empatican/__init__.py
+empatican/cli.py
+empatican.egg-info/PKG-INFO
+empatican.egg-info/SOURCES.txt
+empatican.egg-info/dependency_links.txt
+empatican.egg-info/entry_points.txt
+empatican.egg-info/requires.txt
+empatican.egg-info/top_level.txt
+empatican.egg-info/zip-safe
+test/test_connect.py
+test/test_e4.py
