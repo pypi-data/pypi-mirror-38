@@ -1,0 +1,3 @@
+[console_scripts]
+shiftmemory = shiftmemory.cli.console:cli
+
