@@ -1,0 +1,199 @@
+description: pong plug-in.
+version: 0.1
+author: "M.M.Span"
+url: "http://osdoc.cogsci.nl/"
+category: "Visual stimuli"
+date: "2018"
+controls:
+-
+    type: "line_edit"
+    var: "_ballsize"
+    label: "Ball - Size"
+    min_val: 1
+    max_val: 50
+    name: "ballsize_widget"
+    prefix: ""
+    suffix: " pixels"
+    tooltip: "ballsize (1-50)"
+-
+    type: "line_edit"
+    var: "_ballspeed"
+    label: "Speed"
+    min_val: 1
+    max_val: 10
+    name: "ballspeed_widget"
+    prefix: ""
+    suffix: ""
+    tooltip: "ballspeed (1-10)"
+-
+    type: "line_edit"
+    var: "_ballpos"
+    label: "StartPosition (on the x-axis)"
+    min_val: 1
+    max_val: 100
+    name: "ballposition_widget"
+    prefix: ""
+    suffix: " %"
+    tooltip: "ballposition (1-100%)"
+-
+    type: "line_edit"
+    var: "_yballpos"
+    label: "StartPosition (height)"
+    min_val: -50
+    max_val: 100
+    name: "yballposition_widget"
+    prefix: ""
+    suffix: " %"
+    tooltip: "ballposition (-5 - 100%)"
+-
+    type: "line_edit"
+    var: "_ballangle"
+    label: "Angle"
+    min_val: -90
+    max_val: 90
+    name: "ballangle_widget"
+    prefix: ""
+    suffix: " deg"
+    tooltip: "ballangle (-90 - 90)"
+-
+    type: "color_edit"
+    var: "_ballcolor"
+    label: "Color"
+    name: "ballcolor_widget"
+    tooltip: "what color does the ball have"
+
+-
+    type: "line_edit"
+    var: "_paddlesize"
+    label: "Paddle - Size"
+    min_val: 1
+    max_val: 100
+    name: "paddlesize_widget"
+    prefix: ""
+    suffix: " %"
+    tooltip: "paddlesize (1-100)"
+-
+    type: "color_edit"
+    var: "_paddlecolor"
+    label: "Color"
+    name: "paddlecolor_widget"
+    tooltip: "what color does the paddle have"
+-
+    type: "color_edit"
+    var: "_backcolor"
+    label: "BackGround Color"
+    name: "backcolor_widget"
+    tooltip: "what color does the background have"
+- 
+    type: "checkbox"
+    var: "have_endline"
+    label: "Use an Horizontal endline"
+    tooltip: "Indicates whether you want to use a horizontal enline"
+-
+    type: "line_edit"
+    var: "_endlineloc"
+    label: "Horizontal Endline Location"
+    min_val: 1
+    max_val: 100
+    name: "henlineloc_widget"
+    prefix: ""
+    suffix: "%"
+    tooltip: "Horizontal Endline location (0-100%)"
+-
+    type: "color_edit"
+    var: "_endlinecolor"
+    label: "Horizontal Endline Color"
+    name: "hendlinecolor_widget"
+    tooltip: "what color does the endline have"
+- 
+    type: "checkbox"
+    var: "have_vendline"
+    label: "Use an Vertical endline"
+    tooltip: "Indicates whether you want to use a vertical enline"
+-
+    type: "line_edit"
+    var: "_vendlineloc"
+    label: "Vertical Endline Location"
+    min_val: 1
+    max_val: 100
+    name: "venlineloc_widget"
+    prefix: ""
+    suffix: "%"
+    tooltip: "Vertical Endline location (0-100%)"
+-
+    type: "color_edit"
+    var: "_vendlinecolor"
+    label: "Endline Color"
+    name: "vendlinecolor_widget"
+    tooltip: "what color does the Vertical endline have"
+-
+    type: "line_edit"
+    var: "_Delay"
+    label: "Delay after start of trial upto ballfall"
+    min_val: 0
+    max_val: 2500
+    name: "Delay_widget"
+    prefix: ""
+    suffix: ""
+    tooltip: "Delay after start of trial upto ballfall"
+-
+    type: "line_edit"
+    var: "minax"
+    label: "Leftmost position"
+    min_val: -2500
+    max_val: 2500
+    name: "min_widget"
+    prefix: ""
+    suffix: ""
+    tooltip: "lowest value to be obtained from the joystick, corresponds to leftmost position"
+-
+    type: "line_edit"
+    var: "maxax"
+    label: "Rightmost position"
+    min_val: -2500
+    max_val: 2500
+    name: "max_widget"
+    prefix: ""
+    suffix: ""
+    tooltip: "highest value to be obtained from the joystick, corresponds to rightmost position"
+- 
+    type: "checkbox"
+    var: "have_startbox"
+    label: "Use an StartBox"
+    tooltip: "Indicates whether you want to use a box to start the trial from"
+-
+    type: "line_edit"
+    var: "_startboxloc"
+    label: "Startbox Location"
+    min_val: 1
+    max_val: 100
+    name: "startboxloc_widget"
+    prefix: ""
+    suffix: "%"
+    tooltip: "Startbox location (0-100%)"
+-
+    type: "color_edit"
+    var: "_startboxcolor"
+    label: "StartBox Color"
+    name: "StartBoxcolor_widget"
+    tooltip: "what color does the startbox have"
+-
+    type: "line_edit"
+    var: "_startboxsize"
+    label: "Startbox Size"
+    min_val: 1
+    max_val: 100
+    name: "startboxsize_widget"
+    prefix: ""
+    suffix: "%"
+    tooltip: "Startbox size (0-100%)"
+-
+    type: "line_edit"
+    var: "_startboxtime"
+    label: "Startbox duration"
+    min_val: 1
+    max_val: 10000
+    name: "startboxtime_widget"
+    prefix: ""
+    suffix: "ms"
+    tooltip: "How long does the paddle need to stay in the startbox before start of trial"
