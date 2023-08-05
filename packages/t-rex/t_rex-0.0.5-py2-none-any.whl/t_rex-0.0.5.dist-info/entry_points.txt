@@ -1,0 +1,6 @@
+
+        [console_scripts]
+        t_rex=t_rex.main:run
+        t-rex=t_rex.main:run
+        trex=t_rex.main:run
+    
