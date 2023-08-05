@@ -1,0 +1,4 @@
+[console_scripts]
+license=MIT
+pytest11=pytest-doc=pytest_docs.plugin
+
