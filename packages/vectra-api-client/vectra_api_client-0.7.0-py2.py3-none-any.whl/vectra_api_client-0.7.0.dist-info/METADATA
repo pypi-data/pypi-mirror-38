@@ -1,0 +1,77 @@
+Metadata-Version: 2.1
+Name: vectra-api-client
+Version: 0.7.0
+Summary: Vectra API Client
+Home-page: https://github.com/vicyap/vectra_api_client
+Author: Victor Yap
+Author-email: victor@vicyap.com
+License: MIT license
+Keywords: vectra_api_client
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: certifi (>=14.05.14)
+Requires-Dist: python-dateutil (>=2.5.3)
+Requires-Dist: requests (==2.20.0)
+Requires-Dist: setuptools (>=21.0.0)
+Requires-Dist: six (>=1.10)
+Requires-Dist: urllib3 (>=1.15.1)
+
+=================
+Vectra API Client
+=================
+
+
+.. image:: https://img.shields.io/pypi/v/vectra-api-client.svg
+        :target: https://pypi.python.org/pypi/vectra-api-client
+
+.. image:: https://img.shields.io/travis/vicyap/vectra-api-client.svg
+        :target: https://travis-ci.org/vicyap/vectra-api-client
+
+.. image:: https://readthedocs.org/projects/vectra-api-client/badge/?version=latest
+        :target: https://vectra-api-client.readthedocs.io/en/latest/?badge=latest
+        :alt: Documentation Status
+
+
+
+
+Vectra API Client
+
+
+* Free software: MIT license
+* Documentation: https://vectra-api-client.readthedocs.io.
+
+
+Features
+--------
+
+* TODO
+
+Credits
+-------
+
+This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+
+.. _Cookiecutter: https://github.com/audreyr/cookiecutter
+.. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+
+
+=======
+History
+=======
+
+0.1.0 (2018-11-03)
+------------------
+
+* First release on PyPI.
+
+
