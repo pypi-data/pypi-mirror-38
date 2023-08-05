@@ -1,0 +1,1 @@
+msg = "NTNU KT course"
