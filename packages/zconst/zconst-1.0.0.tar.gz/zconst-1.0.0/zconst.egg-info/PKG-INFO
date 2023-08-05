@@ -1,0 +1,56 @@
+Metadata-Version: 2.1
+Name: zconst
+Version: 1.0.0
+Summary: 常量常用包,包括三种常量实现方式, 1:基类继承, 2:装饰器, 3:元类metaclass
+Home-page: https://pypi.org/
+Author: zlyuan
+Author-email: 1277260932@qq.com
+License: GNU GENERAL PUBLIC LICENSE
+Description: # 常量常用包
+        
+        ### 包括三种常量实现方式
+        
+        ##### 1.基类继承
+        ```
+        from zconst.const_base import const
+        
+        class my_const(const):
+            a = 1
+        my_const = my_const()
+        
+        print(my_const.a)
+        my_const.a = 1
+        ```
+        
+        ##### 2.装饰器
+        ```
+        from zconst.const_decorator import const
+        
+        @const
+        class my_const():
+            a = 1
+        
+        print(my_const.a)
+        my_const.a = 1
+        ```
+        
+        ##### 3.元类metaclass
+        ```
+        from zconst.const_metaclass import const
+        
+        class my_const(metaclass=const):
+            a = 1
+        
+        print(my_const.a)
+        my_const.a = 1
+        ```
+        
+Platform: all
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Description-Content-Type: text/markdown
