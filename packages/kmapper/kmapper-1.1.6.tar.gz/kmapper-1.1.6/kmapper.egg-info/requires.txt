@@ -1,0 +1,12 @@
+scikit-learn
+numpy
+scipy
+Jinja2
+
+[testing]
+pytest
+networkx
+matplotlib
+python-igraph
+plotly
+ipywidgets
