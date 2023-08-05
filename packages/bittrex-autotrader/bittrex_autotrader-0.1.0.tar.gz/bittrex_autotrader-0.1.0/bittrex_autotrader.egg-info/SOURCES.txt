@@ -1,0 +1,11 @@
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+bittrex_autotrader/__init__.py
+bittrex_autotrader/bittrex_autotrader
+bittrex_autotrader.egg-info/PKG-INFO
+bittrex_autotrader.egg-info/SOURCES.txt
+bittrex_autotrader.egg-info/dependency_links.txt
+bittrex_autotrader.egg-info/requires.txt
+bittrex_autotrader.egg-info/top_level.txt
