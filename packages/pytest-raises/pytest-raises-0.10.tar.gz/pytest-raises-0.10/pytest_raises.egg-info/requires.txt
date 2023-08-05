@@ -1,0 +1,5 @@
+pytest>=3.2.2
+
+[develop]
+pylint==1.7.2
+pytest-cov
