@@ -1,0 +1,13 @@
+README.md
+setup.py
+solr_dsl/__init__.py
+solr_dsl/add.py
+solr_dsl/cursor.py
+solr_dsl/delete.py
+solr_dsl/query.py
+solr_dsl/search.py
+solr_dsl/solr.py
+solr_dsl.egg-info/PKG-INFO
+solr_dsl.egg-info/SOURCES.txt
+solr_dsl.egg-info/dependency_links.txt
+solr_dsl.egg-info/top_level.txt
