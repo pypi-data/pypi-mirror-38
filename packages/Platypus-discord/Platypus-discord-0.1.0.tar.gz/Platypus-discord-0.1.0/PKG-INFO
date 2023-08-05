@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: Platypus-discord
+Version: 0.1.0
+Summary: A toolkit for the discord.py library.
+Home-page: https://github.com/LyricLy/Platypus
+Author: LyricLy
+Author-email: gulliverhanson@gmail.com
+License: MIT
+Description: # Platypus
+        A toolkit for discord.py bots.
+        
+Keywords: discord.py,toolkit,discord
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Internet
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
