@@ -1,0 +1,3 @@
+[console_scripts]
+tweetynet-cli = tweetynet.__main__:main
+
