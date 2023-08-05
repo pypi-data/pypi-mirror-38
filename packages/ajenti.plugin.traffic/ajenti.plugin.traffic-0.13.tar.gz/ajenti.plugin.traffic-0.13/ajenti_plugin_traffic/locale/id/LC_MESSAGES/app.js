@@ -1,0 +1,1 @@
+{"": "", "Interface": "Antarmuka", "/s": "/s", "Traffic": "Trafik"}
