@@ -1,0 +1,18 @@
+name: pypi-mobans
+nick_name: pypi-mobans
+copyright_year: 2018
+file_type: file type
+author: C.W.
+organisation: moremoban
+contact: wangc_2011@hotmail.com
+license: NEW BSD
+company: Onni Software Ltd.
+branch: master
+description: Scaffolding templates for your Python project.
+release: 0.0.0
+gitter_room: chfw_moban/Lobby
+setup_py: false
+rsrcdir: docs/source
+rbuilddir: docs/_build
+version: 0.1.1rc3
+mastertocmaxdepth: 3

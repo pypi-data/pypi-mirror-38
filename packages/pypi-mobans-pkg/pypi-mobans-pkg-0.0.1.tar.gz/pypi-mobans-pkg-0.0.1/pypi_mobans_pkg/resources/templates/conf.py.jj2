@@ -1,0 +1,54 @@
+# -*- coding: utf-8 -*-
+{%block additional_imports%}
+{%endblock%}
+DESCRIPTION = (
+{% for i in range(0, description|length, 70) %}
+    '{{ description[i:(70+i)] }}' +
+{% endfor %}
+    ''
+)
+{% set project_str = name %}
+{% set copyright_str = '{0} {1}'.format(copyright_year, company) %}
+{% set author_str = author %}
+{% set author = company %}
+{% set version_str = release %}
+{% set release_str = version %}
+{% if sphinx_extensions %}
+{%   set extensions = sphinx_extensions %}
+{% else %}
+{%   set extensions = ['sphinx.ext.autodoc', 'sphinx.ext.doctest', 'sphinx.ext.intersphinx', 'sphinx.ext.viewcode'] %}
+{% endif %}
+{% set project_fn = name %}
+{% set dot = '_' %}
+{% set suffix = '.rst' %}
+{% set master_str = 'index' %}
+{% set language = 'en' %}
+{% set project_doc_str = name + ' Documentation' %}
+{# TeX config #}
+{% set project_doc_texescaped_str = project_doc_str %}
+{% set author_texescaped_str = author %}
+{# Man config #}
+{% set project_manpage = name %}
+{% include 'docs/conf.py_t' %}
+
+# TODO: html_theme not configurable upstream
+{%block custom_doc_theme%}
+{% if sphinx_html_theme %}
+html_theme = '{{ sphinx_html_theme }}'
+{% else %}
+html_theme = 'default'
+{% endif %}
+{%endblock%}
+
+# TODO: DESCRIPTION not configurable upstream
+texinfo_documents = [
+    ('index', '{{name}}',
+     '{{name}} Documentation',
+     '{{company}}', '{{name}}',
+     DESCRIPTION,
+     'Miscellaneous'),
+]
+intersphinx_mapping.update({
+{% block intersphinx_mapping %}
+{% endblock %}
+})
