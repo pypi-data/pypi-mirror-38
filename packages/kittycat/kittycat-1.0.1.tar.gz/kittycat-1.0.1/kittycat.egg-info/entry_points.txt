@@ -1,0 +1,4 @@
+[console_scripts]
+k = kittycat:command_runner
+kittycat = kittycat:command_runner
+
