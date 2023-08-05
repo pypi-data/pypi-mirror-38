@@ -1,0 +1,163 @@
+% include(header_path)
+
+<div class="content">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-md-4 col-sm-12">
+            <div class="card">
+                <div class="card-header card-header-info card-header-icon">
+                    <div class="card-icon">
+                        <i class="material-icons">search</i>
+                    </div>
+                    <h4 class="card-title">Search</h4>
+                </div>
+                <div class="card-body">
+                    <div class="card-title form-group has-info">
+                        <input type="search" class="form-control" id="datatable-search">
+                    </div>
+                </div>
+            </div>
+            </div>
+            <!--<div class="col-md-4 col-sm-12">
+            <div class="card card-stats">
+                <div class="card-header card-header-info card-header-icon">
+                <div class="card-icon">
+                    <i class="material-icons">date_range</i>
+                </div>
+                <p class="card-category">Date Range</p>
+                <div class="card-title form-group bmd-form-group has-info is-filled">
+                    <input type="text" class="form-control datepicker" value="10/06/2018" id="datatable-datepicker">
+                </div>
+                </div>
+            </div>
+            </div>-->
+            <div class="col-md-8 col-sm-12">
+            <div class="card">
+                <div class="card-header card-header-info card-header-icon">
+                    <div class="card-icon">
+                        <i class="material-icons">date_range</i>
+                    </div>
+                    <h4 class="card-title">Date Range</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12">
+                            <div class="form-group bmd-form-group has-info is-filled">
+                                <input type="text" class="form-control datepicker" value="01/06/2018" id="datatable-datepicker-start">
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="form-group bmd-form-group has-info is-filled">
+                                <input type="text" class="form-control datepicker" value="31/10/2018" id="datatable-datepicker-end">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                <div class="card-header card-header-icon card-header-info">
+                    <div class="card-icon">
+                        <i class="material-icons">view_list</i>
+                    </div>
+                    <h4 class="card-title">All Sessions</h4>
+                </div>
+                <div class="card-body">
+                    <div class="material-datatables">
+                    <table class="table table-hover table-no-bordered data-table">
+                        <thead>
+                        <tr>
+                            <th class="no-sort"></th>
+                            <th>Status</th>
+                            <th>Start date</th>
+                            <th>Duration</th>
+                            <th>Loss</th>
+                            <th>Accuracy</th>
+                            <th class="no-sort"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        % for session in list_sessions:
+                        % id, index, start_date = session['id'], session['index'], session['start_date']
+                        % is_active = session['is_active']
+                        % is_favorite, id_project = session['is_favorite'], session['id_project']
+                        % name = session['name']
+                        <tr class="clickable-row" data-href="sessions/{{ id }}">
+                            <th class="text-center">{{ index }}</th>
+                            <td>
+                                % if is_active:
+                                <i class="fa fa-spinner spin text-info" rel="tooltip" title="Running"></i>
+                                % else:
+                                <i class="material-icons text-success" rel="tooltip" title="Finished">check</i>
+                                % end
+                            </td>
+                            <td>{{ start_date }}</td>
+                            <td>
+                                % if 'duration' in session.keys():
+                                % duration = session['duration']
+                                {{ duration }}
+                                % else:
+                                -
+                                % end
+                            </td>
+                            <td>
+                                % if 'loss' in session.keys():
+                                % loss = session['loss']
+                                {{ loss }}
+                                % if 'loss_state' in session.keys():
+                                % if session['loss_state'] == 'positive':
+                                <i class="material-icons text-success">arrow_drop_down</i>
+                                % elif session['loss_state'] == 'negative':
+                                <i class="material-icons text-rose">arrow_drop_up</i>
+                                % end
+                                % end
+                                % else:
+                                -
+                                % end
+                            </td>
+                            <td>
+                                % if 'acc' in session.keys():
+                                % acc = session['acc']
+                                {{ acc }}
+                                % if 'acc_state' in session.keys():
+                                % if session['acc_state'] == 'positive':
+                                <i class="material-icons text-success">arrow_drop_up</i>
+                                % elif session['acc_state'] == 'negative':
+                                <i class="material-icons text-rose">arrow_drop_down</i>
+                                % end
+                                % end
+                                % else:
+                                -
+                                % end
+                            </td>
+                            <td class="text-right">
+                                <button type="button" class="btn btn-link btn-just-icon btn-toggle">
+                                    % attr = 'checked' if is_favorite else ''
+                                    <input type="checkbox" class="mark-session" data-id-project="{{ id_project }}" data-id-session="{{ id }}" {{ attr }}>
+                                    <span class="icons">
+                                        <i rel="tooltip" class="material-icons" title="Mark as favorite">favorite_border</i>
+                                        <i rel="tooltip" class="material-icons text-rose" title="Unmark as favorite">favorite</i>
+                                    </span>
+                                </button>
+                                <button type="button" rel="tooltip" class="btn btn-link btn-just-icon" title="Delete Session {{ name }}" onclick="mambas.deleteSession('{{ name }}', '{{ id_project }}', '{{ id }}')">
+                                    <i class="material-icons">delete</i>
+                                </button>
+                            </td>
+                        </tr>
+                        % end
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+% include(footer_path)

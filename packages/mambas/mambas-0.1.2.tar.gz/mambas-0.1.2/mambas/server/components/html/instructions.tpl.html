@@ -1,0 +1,95 @@
+% include(header_path)
+
+<div class="content">
+  <div class="container-fluid">
+    <div class="header text-center">
+      <h3 class="title">No Sessions so far</h3>
+      <p><i class="material-icons icon-lg-gray">timeline</i></p>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8 ml-auto mr-auto">
+          <h4 class="title text-center">1. Get the Project token</h4>
+          <div class="text-center">Click on the button
+            <button type="button" class="btn btn-white btn-round btn-just-icon">
+                <i class="material-icons">confirmation_number</i>
+            </button>
+            in the upper right corner and copy the Project token.
+          </div>
+        </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8 ml-auto mr-auto">
+        <div class="page-categories">
+          <h4 class="title text-center">2. Add Mambas callback</h4>
+          <ul class="nav nav-pills nav-pills-info nav-pills-icons justify-content-center" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="tab" href="#keras" role="tablist">
+                <i class="material-icons">info</i> Keras
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#pytorch" role="tablist">
+                <i class="material-icons">location_on</i> PyTorch
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#theano" role="tablist">
+                <i class="material-icons">gavel</i> Theano
+              </a>
+            </li>
+          </ul>
+          <div class="tab-content tab-space tab-subcategories">
+            <div class="tab-pane active" id="keras">
+              <ul class="card code">
+                <li>from mambas.keras.callback import MambasCallback</li>
+                <li>...</li>
+                <li>token = '&lt;project_token&gt;'</li>
+                <li>callback = MambasCallback(token)</li>
+                <li>model.fit(x_train, y_train, callbacks=[callback])</li>
+              </ul>
+            </div>
+            <div class="tab-pane" id="pytorch">
+              <ul class="card code">
+                <li>from mambas.keras.callback import MambasCallback</li>
+                <li>...</li>
+                <li>token = '&lt;project_token&gt;'</li>
+                <li>callback = MambasCallback(token)</li>
+                <li>model.fit(x_train, y_train, callbacks=[callback])</li>
+              </ul>
+            </div>
+            <div class="tab-pane" id="theano">
+              <ul class="card code">
+                <li>from mambas.keras.callback import MambasCallback</li>
+                <li>...</li>
+                <li>token = '&lt;project_token&gt;'</li>
+                <li>callback = MambasCallback(token)</li>
+                <li>model.fit(x_train, y_train, callbacks=[callback])</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8 ml-auto mr-auto">
+          <h4 class="title text-center">3. That's it! <i class="material-icons text-success">check</i></h4>
+          <div class="text-center">Observe and monitor your Deep Learning training Sessions.</div>
+        </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-8 ml-auto mr-auto text-center">
+        <a class="btn btn-link btn-github" href="https://github.com/misterkevinski/mambas" target="_blank">
+          <i class="fa fa-github"></i> Need help?
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+% include(footer_path)
