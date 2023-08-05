@@ -1,0 +1,244 @@
+Set up BinderHub
+================
+
+BinderHub uses Helm Charts to set up the applications we'll use in our Binder
+deployment. If you're curious about what Helm Charts are and how they're
+used here, see the `Zero to JupyterHub guide
+<https://zero-to-jupyterhub.readthedocs.io/en/latest/tools.html#helm>`_.
+
+Below we'll cover how to configure your Helm Chart, and how to create your
+BinderHub deployment.
+
+Preparing to install
+--------------------
+
+To configure the Helm Chart we'll need to generate several pieces of
+information and insert them into ``yaml`` files.
+
+First we'll create a folder where we'll store our BinderHub configuration
+files. You can do so with the following commands::
+
+    mkdir binderhub
+    cd binderhub
+
+Now we'll collect the information we need to deploy our BinderHub.
+The first is the content of the JSON file created when we set up
+the container registry. For more information on getting a registry password, see
+:ref:`setup-registry`. We'll copy/paste the contents of this file in the steps
+below.
+
+Create two random tokens by running the following commands then copying the
+outputs.::
+
+    openssl rand -hex 32
+    openssl rand -hex 32
+
+.. note::
+
+   This command is run **twice** because we need two different tokens.
+
+Create ``secret.yaml`` file
+---------------------------
+
+Create a file called ``secret.yaml`` and add the following::
+
+  jupyterhub:
+      hub:
+        services:
+          binder:
+            apiToken: "<output of FIRST `openssl rand -hex 32` command>"
+      proxy:
+        secretToken: "<output of SECOND `openssl rand -hex 32` command>"
+
+Next, we'll configure this file to connect with our registry.
+
+If you are using ``gcr.io``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Add the information needed to connect with the registry to ``secret.yaml``.
+You'll need the content in the JSON file that was created when we created
+our ``gcr.io`` registry account. Below we show the structure of the YAML you
+need to insert. Note that the first line is not indented at all::
+
+  registry:
+    # below is the content of the JSON file downloaded earlier for the container registry from Service Accounts
+    # it will look something like the following (with actual values instead of empty strings)
+    # paste the content after `password: |` below
+    password: |
+      {
+      "type": "<REPLACE>",
+      "project_id": "<REPLACE>",
+      "private_key_id": "<REPLACE>",
+      "private_key": "<REPLACE>",
+      "client_email": "<REPLACE>",
+      "client_id": "<REPLACE>",
+      "auth_uri": "<REPLACE>",
+      "token_uri": "<REPLACE>",
+      "auth_provider_x509_cert_url": "<REPLACE>",
+      "client_x509_cert_url": "<REPLACE>"
+      }
+
+
+.. tip::
+
+   * The content you put just after ``password: |`` must all line up at the same
+     tab level.
+   * Don't forget the ``|`` after the ``password:`` label.
+
+If you are using Docker Hub
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Update ``secret.yaml`` by entering the following::
+
+  registry:
+    username: <docker-id>
+    password: <password>
+
+.. note::
+
+   * **``<docker-id>``** and **``<password>``** are your credentials to login to Docker Hub.
+     If you use an organization to store your Docker images, this account must be a member of it.
+
+
+Create ``config.yaml``
+----------------------
+
+Create a file called ``config.yaml`` and choose the following directions based
+on the registry you are using.
+
+If you are using ``gcr.io``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To configure BinderHub to use ``gcr.io``, simply add the following to
+your ``config.yaml`` file::
+
+  registry:
+    prefix:  gcr.io/<google-project-id>/<prefix>
+    enabled: true
+
+.. note::
+
+   * **``<google-project-id>``** can be found in the JSON file that you
+     pasted above. It is the text that is in the ``project_id`` field. This is
+     the project *ID*, which may be different from the project *name*.
+   * **``<prefix>``** can be any string, and will be prepended to image names. We
+     recommend something descriptive such as ``binder-dev`` or ``binder-prod``.
+
+If you are using Docker Hub
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Using Docker Hub is slightly more involved as the registry is not being run
+by the same platform that runs BinderHub.
+
+Update ``config.yaml`` by entering the following::
+
+  registry:
+    enabled: true
+    prefix: <docker-id/organization-name>/<prefix>
+    host: https://registry.hub.docker.com
+    authHost: https://index.docker.io/v1
+    authTokenUrl: https://auth.docker.io/token?service=registry.docker.io
+
+.. note::
+
+   * **``<docker-id/organization-name>``** is where you want to store Docker images.
+     This can be your Docker ID account or an organization that your account belongs to.
+   * **``<prefix>``** can be any string, and will be prepended to image names. We
+     recommend something descriptive such as ``binder-dev`` or ``binder-prod``.
+
+Install BinderHub
+-----------------
+
+First, get the latest helm chart for BinderHub.::
+
+    helm repo add jupyterhub https://jupyterhub.github.io/helm-chart
+    helm repo update
+
+Next, **install the Helm Chart** using the configuration files
+that you've just created. Do this by running the following command::
+
+    helm install jupyterhub/binderhub --version=0.1.0-...  --name=<choose-name> --namespace=<choose-namespace> -f secret.yaml -f config.yaml
+
+.. note::
+
+   * ``--version`` refers to the version of the BinderHub **Helm Chart**.
+     Available versions can be found
+     `here <https://jupyterhub.github.io/helm-chart/#development-releases-binderhub>`__.
+   * ``name`` and ``namespace`` may be different, but we recommend using
+     the same ``name`` and ``namespace`` to avoid confusion. We recommend
+     something descriptive and short, such as ``binder``.
+   * If you run ``kubectl get pod --namespace=<namespace-from-above>`` you may
+     notice the binder pod in ``CrashLoopBackoff``. This is expected, and will
+     be resolved in the next section.
+
+This installation step will deploy both a BinderHub and a JupyterHub, but
+they are not yet set up to communicate with each other. We'll fix this in
+the next step. Wait a few moments before moving on as the resources may take a
+few minutes to be set up.
+
+Connect BinderHub and JupyterHub
+--------------------------------
+
+In the google console, run the following command to print the IP address
+of the JupyterHub we just deployed.::
+
+  kubectl --namespace=<namespace-from-above> get svc proxy-public
+
+Copy the IP address under ``EXTERNAL-IP``. This is the IP of your
+JupyterHub. Now, add the following lines to ``config.yaml`` file::
+
+  hub:
+    url: http://<IP in EXTERNAL-IP>
+
+Next, upgrade the helm chart to deploy this change::
+
+  helm upgrade <name-from-above> jupyterhub/binderhub --version=v0.1.0-85ac189  -f secret.yaml -f config.yaml
+
+Try out your BinderHub Deployment
+---------------------------------
+
+If the ``helm upgrade`` command above succeeds, it's time to try out your
+BinderHub deployment.
+
+First, find the IP address of the BinderHub deployment by running the following
+command::
+
+  kubectl --namespace=<namespace-from-above> get svc binder
+
+Note the IP address in ``EXTERNAL-IP``. This is your BinderHub IP address.
+Type this IP address in your browser and a BinderHub should be waiting there
+for you.
+
+You now have a functioning BinderHub at the above IP address.
+
+.. _api-limit:
+
+Increase your GitHub API limit
+------------------------------
+
+.. note::
+
+   Increasing the GitHub API limit is not strictly required, but is recommended
+   before sharing your BinderHub URL with users.
+
+By default GitHub only lets you make 60 requests each hour. If you
+expect your users to serve repositories hosted on GitHub, we recommend creating
+an API access token to raise your API limit to 5000 requests an hour.
+
+1. Create a new token with default (check no boxes)
+   permissions `here <https://github.com/settings/tokens/new>`_.
+
+2. Store your new token somewhere secure (e.g. keychain, netrc, etc.)
+
+3. Update ``secret.yaml`` by entering the following::
+
+    github:
+      accessToken: <insert_token_value_here>
+
+This value will be loaded into `GITHUB_ACCESS_TOKEN` environment variable and
+BinderHub will automatically use the token stored in this variable when making
+API requests to GitHub. See the `GitHub authentication documentation
+<https://developer.github.com/v3/guides/getting-started/#authentication>`_ for
+more information about API limits.
+
+For next steps, see :doc:`debug` and :doc:`turn-off`.
