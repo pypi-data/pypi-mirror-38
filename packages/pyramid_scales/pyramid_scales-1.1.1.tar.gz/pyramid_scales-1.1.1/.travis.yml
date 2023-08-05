@@ -1,0 +1,11 @@
+language: python
+env:
+  - TOXENV=py27
+install:
+  - travis_retry pip install tox==1.8.1
+script:
+  - travis_retry tox
+notifications:
+  email:
+    recipients:
+      - wosc@wosc.de
