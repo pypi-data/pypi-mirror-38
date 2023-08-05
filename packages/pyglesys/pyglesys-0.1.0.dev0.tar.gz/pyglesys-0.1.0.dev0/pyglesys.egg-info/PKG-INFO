@@ -1,0 +1,51 @@
+Metadata-Version: 1.2
+Name: pyglesys
+Version: 0.1.0.dev0
+Summary: Python wrapper around the GleSYS API
+Home-page: https://github.com/pyglesys/pyglesys
+Author: Erik Jansson Agnvall
+Author-email: erikjansson90@gmail.com
+License: MIT
+Description: py.glesys
+        =========
+        
+        py.glesys is a Python wrapper around the GleSYS API. 
+        
+        
+        Installing
+        ----------
+        
+        Install using `pip <https://pip.pypa.io/en/stable/>`_::
+        
+            $ pip install pyglesys
+        
+        
+        Example Usage
+        -------------
+        
+        .. code-block:: python
+        
+            import glesys
+        
+            gs = glesys.Glesys('account_number', 'api_key')
+            servers = gs.server.list()
+            print(servers)
+        
+        .. code-block:: console
+        
+            $ python app.py
+            [Server(id_="wps1234567", hostname="example.com", datacenter="Falkenberg", platform="VMware")]
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*
