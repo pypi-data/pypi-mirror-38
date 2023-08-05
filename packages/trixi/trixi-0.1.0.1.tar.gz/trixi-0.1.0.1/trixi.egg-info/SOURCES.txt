@@ -1,0 +1,14 @@
+setup.py
+test/test_experimentlogger.py
+test/test_pytorchexperiment.py
+test/test_pytorchexperimentlogger.py
+test/test_pytorchvisdomlogger.py
+trixi/__init__.py
+trixi/browser.py
+trixi.egg-info/PKG-INFO
+trixi.egg-info/SOURCES.txt
+trixi.egg-info/dependency_links.txt
+trixi.egg-info/entry_points.txt
+trixi.egg-info/requires.txt
+trixi.egg-info/top_level.txt
+trixi.egg-info/zip-safe
