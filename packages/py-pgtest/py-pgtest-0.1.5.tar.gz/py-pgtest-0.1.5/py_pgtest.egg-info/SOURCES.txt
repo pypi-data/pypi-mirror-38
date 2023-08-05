@@ -1,0 +1,13 @@
+MANIFEST.in
+README.md
+setup.py
+py_pgtest/__init__.py
+py_pgtest/cli.py
+py_pgtest/pgtap_prefix.sql
+py_pgtest/pgtest.py
+py_pgtest.egg-info/PKG-INFO
+py_pgtest.egg-info/SOURCES.txt
+py_pgtest.egg-info/dependency_links.txt
+py_pgtest.egg-info/entry_points.txt
+py_pgtest.egg-info/requires.txt
+py_pgtest.egg-info/top_level.txt
