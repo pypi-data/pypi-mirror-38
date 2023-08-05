@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: containerpilot
+Version: 0.0.1
+Summary: Autopilot pattern python implementation
+Home-page: https://github.com/Pipoline/containerpilot
+Author: Peter Gonda
+Author-email: peter@pipoline.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Topic :: Utilities
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: python-consul
+Requires-Dist: netifaces
+
+# containerpilot
+Containerpilot for containers with consul service discovery
+
+
+
