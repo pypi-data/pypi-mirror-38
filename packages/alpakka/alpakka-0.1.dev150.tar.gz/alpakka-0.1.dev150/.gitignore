@@ -1,0 +1,13 @@
+*.diff
+*.orig
+
+*.pyc
+__pycache__/
+
+*.egg-info/
+.eggs/
+
+.ipynb*/
+
+.cache/
+.idea/
