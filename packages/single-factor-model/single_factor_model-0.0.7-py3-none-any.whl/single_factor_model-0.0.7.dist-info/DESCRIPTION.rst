@@ -1,0 +1,55 @@
+This programme is built for back testing alpha factors. Each factor is
+tested alone.
+
+sample with a single processor
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: bash
+
+   from single_factor_model.single import preprocessing,back_testing,ic_measurement,ic_measure_summary,back_test_summary,bt_figure
+
+   parms={'factor_path':'factor_folder_path'# file name: xxx_yyyymmdd.csv columns(no order): StkID,factor1,factor2,...
+         ,'ind_path':'industry_folder_path'# file name: xxx_yyyymmdd.csv columns(no order): StkID,level1,level2,...
+         ,'ind_level':'industry_level_name'
+         ,'price_path':'market_folder_path'# file name: xxx_yyyymmdd.csv columns(no order): StkID,vwap,adjfactor,susp_days,maxupordown
+         ,'cap_path':'cap_folder_path' # file name: xxx_yyyymmdd.csv columns(no order): StkID,SRcap
+         ,'index_weight_path':'index_weight_folder_path'  file name: xxx_yyyymmdd.csv columns(no header): StkID,weight
+         ,'start_time':20170101
+         ,'end_time':20180101
+         ,'sub_factor':None # or list of factors of interest
+         ,'flag':'monthly' # monthly or daily
+         ,'day_lag':1 # lag of days to receive these factors
+         ,'ind_mapping_flag':False # whether to use number to represent industry, this could spead up calculation
+         }
+   parms2={'n':5 # portfolio number
+           ,'silent':True # whether to output detail
+           } 
+   parms3={'window':3 # window for regression sample data
+           ,'half_decay':200 # weight for regression parameters
+           } 
+   P=preprocessing()
+   D=P(**parms)
+   T=back_testing(D) # back testing
+   B=T(**parms2)
+   T2=ic_measurement(D) # regression
+   M=T2(**parms3)
+
+   Table0=ic_measure_summary(M) 
+   Dict1,Table2,Dict3=back_test_summary(B)
+   Dict4=bt_figure(B,show_plot=True) # plot backtesting result
+
+   Table0.to_csv('table0.csv')
+
+   from RNWS import write
+   write.write_dict(Dict1,path='E:',file_pattern='dict1')
+
+sample with multi processors
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+nearly same as single processor sample. Just replace
+``single_factor_model.single`` to ``single_factor_model.multi``. Then
+you can address ``'processors'`` in ``parms`` and ``parms2`` and
+``parms3`` as processors. Also ``if __name__=='__main__':`` is needed to
+run programme on Windows.
+
+
