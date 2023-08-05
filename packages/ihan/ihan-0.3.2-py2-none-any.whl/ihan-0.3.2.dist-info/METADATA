@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: ihan
+Version: 0.3.2
+Summary: IHAN Client for feeding and back filling log files
+Home-page: https://github.com/marklit/ihan
+Author: Mark Litwintschik
+Author-email: mark@marksblogg.com
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: Click
+Requires-Dist: requests
+
+UNKNOWN
+
+
