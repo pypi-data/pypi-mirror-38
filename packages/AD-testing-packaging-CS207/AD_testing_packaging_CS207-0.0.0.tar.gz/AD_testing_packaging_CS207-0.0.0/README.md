@@ -1,0 +1,21 @@
+# CS207 Final Project Repository
+[![Build Status](https://travis-ci.com/cs207-f18-WIRS/cs207-FinalProject.svg?branch=master)](https://travis-ci.com/cs207-f18-WIRS/cs207-FinalProject)
+
+[![Coverage Status](https://coveralls.io/repos/github/cs207-f18-WIRS/cs207-FinalProject/badge.svg?branch=master)](https://coveralls.io/github/cs207-f18-WIRS/cs207-FinalProject?branch=master)
+
+
+This repository contains the Final Project Deliverable on Automatic Differentiation for the Harvard Course CS 207: Systems Development for Computational Science.
+
+## Project information:
+  - Specific information can be found at `docs/milestone1.md`.
+  - [Course Project discription](https://iacs-cs-207.github.io/cs207-F18/project.html) : Overview of the instruction on the project on automatic differentiation (AD).
+
+## Course information:
+  - [Main course website](https://iacs-cs-207.github.io/cs207-F18/) : Check this site for all course-related policies including the syllabus, course schedule, and project policies.
+  - [GitHub Repo](https://github.com/IACS-CS-207/cs207-F18) : All course materials will be released on GitHub.
+
+## Contributors:
+  - FELDHAUS Isabelle 
+  - JIANG Shenghao 
+  - STRUYVEN Robbert
+  - WANG William
