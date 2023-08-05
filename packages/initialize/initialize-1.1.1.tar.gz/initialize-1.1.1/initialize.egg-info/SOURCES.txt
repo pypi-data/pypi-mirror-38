@@ -1,0 +1,16 @@
+MANIFEST.in
+Readme.rst
+setup.py
+initialize/__init__.py
+initialize/_license_template.py
+initialize/_templates.py
+initialize/_triggers.py
+initialize/mappers.py
+initialize/triggers.py
+initialize/utils.py
+initialize.egg-info/PKG-INFO
+initialize.egg-info/SOURCES.txt
+initialize.egg-info/dependency_links.txt
+initialize.egg-info/entry_points.txt
+initialize.egg-info/not-zip-safe
+initialize.egg-info/top_level.txt
