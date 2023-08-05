@@ -1,0 +1,9 @@
+numpy<1.15,>=1.14
+nibabel
+matplotlib
+scipy
+pybids
+pandas
+patsy
+duecredit
+joblib
