@@ -1,0 +1,4 @@
+
+        [console_scripts]
+        cloud-backup=cloud_backup.cli.main:cli
+    
