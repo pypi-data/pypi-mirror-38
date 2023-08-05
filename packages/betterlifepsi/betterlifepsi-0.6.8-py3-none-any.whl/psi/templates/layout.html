@@ -1,0 +1,57 @@
+{% import 'admin/layout.html' as layout with context -%}
+{% extends 'admin/base.html' %}
+
+{% block head_tail %}
+  {{ super() }}
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='images/favicon.ico') }}" rel="icon" type="image/x-icon">
+  <link href="{{ url_for('static', filename='lightbox2/css/lightbox.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='Font-Awesome-4.6.3/css/font-awesome.min.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block tail %}
+  <div id="system-info"> © 2015-2016 BETTERLIFE.IO | {{render_version() | safe}}</div>
+  {{ super() }}
+  <script src="{{ url_for('static', filename='ckeditor/ckeditor.js') }}"></script>
+  <script src="{{ url_for('static', filename='lightbox2/js/lightbox.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='bootbox/bootbox.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/common.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/image_upload.js') }}"></script>
+  <script>
+    {% if current_user.is_authenticated %}
+      {% if current_user.locale != None %}
+        bootbox.setDefaults({
+            locale: "{{current_user.locale.code}}"
+        });
+      {% endif %}
+    {% endif %}
+  </script>
+{% endblock %}
+
+{% block access_control %}
+  {% if current_user.is_authenticated %}
+    <ul class="nav navbar-nav pull-right">
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)">
+                <i class="glyphicon glyphicon-user"></i> {{ current_user.display }} <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="{{ url_for_security('logout') }}"><i class='glyphicon glyphicon-log-out'></i> Log out</a>
+                </li>
+                <li>
+                    <a style='cursor:help' id="system-info-link">
+                        <i class="glyphicon glyphicon-info-sign"></i>系统信息
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+  {% endif %}
+{% endblock %}
+
+{% block messages %}
+    {{ super() }}
+    <div id="ajax-message-error" class="alert alert-danger alert-dismissable">Ajax message</div>
+    <div id="ajax-message-success" class="alert alert-success alert-dismissable">Ajax message</div>
+{% endblock %}

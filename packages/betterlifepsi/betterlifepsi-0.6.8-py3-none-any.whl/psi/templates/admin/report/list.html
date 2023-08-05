@@ -1,0 +1,15 @@
+{% extends 'admin/model/list.html' %}
+
+{% block model_menu_bar_before_filters %}
+    {% if admin_view.sub_reports|length > 0 %}
+        {% for sub_report, report_title in admin_view.sub_reports %}
+            {% if sub_report == admin_view.report_type %}
+                <li class="active">
+                    {% else %}
+                <li>
+            {% endif %}
+        <a href="{{ url_for('.index_view', type=sub_report) }}">{{ report_title }}</a>
+        </li>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

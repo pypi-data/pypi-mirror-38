@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+{% import 'components/report.html' as components %}
+{% block head_tail %}
+    {{ super() }}
+    <script src="{{ url_for('static', filename='chart.js/Chart.bundle.min.js') }}"></script>
+{% endblock %}
+{% block body %}
+    <div class="col-md-12" id="report-page-title">{{ mytext('Sales Profit Trend') }}</div>
+    <div class="col-md-12">
+        <div class="col-md-10 canvas-container">
+            {{ components.canvas('profit_month') }}
+        </div>
+        <div class="col-md-2 report-dashboard-row">
+            {{ components.card('Same Month last Year', 'profit_period_on_period_month') }}
+            {{ components.card('Compare to Last Month','profit_compare_with_last_period_month') }}
+            {{ components.card('Same Week last Year','profit_period_on_period_week') }}
+            {{ components.card('Compare to Last Week','profit_compare_with_last_period_week') }}
+        </div>
+    </div>
+    <div class="col-md-12 canvas-container">
+        {{ components.canvas('profit_week') }}
+    </div>
+{% endblock %}
+{% block tail %}
+    {{ super() }}
+    <script src="{{ url_for('static', filename='js/report.js') }}"></script>
+    <script language="JavaScript" type="application/javascript">
+        $(document).ready(function () {
+            getDataForLineGraph('profit', 'month');
+            getDataForLineGraph('profit', 'week');
+            getCompareData('profit_period_on_period', 'month');
+            getCompareData('profit_period_on_period', 'week');
+            getCompareData('profit_compare_with_last_period', 'month');
+            getCompareData('profit_compare_with_last_period', 'week');
+        });
+    </script>
+{% endblock %}

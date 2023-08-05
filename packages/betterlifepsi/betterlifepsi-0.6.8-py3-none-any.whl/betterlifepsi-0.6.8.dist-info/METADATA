@@ -1,0 +1,103 @@
+Metadata-Version: 2.1
+Name: betterlifepsi
+Version: 0.6.8
+Summary: Betterlife Intelligent PSI(Purchase, Sales and Inventory) system
+Home-page: https://github.com/betterlife/psi
+Author: Lawrence Liu
+Author-email: lawrence@betterlife.io
+License: MIT
+Keywords: Betterlife,Intelligent,Purchase Order,Sales Order,Inventory Management,Retail
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Office/Business :: Financial :: Point-Of-Sale
+Classifier: Topic :: Office/Business :: Financial
+Classifier: Topic :: Office/Business :: Financial :: Accounting
+Classifier: Natural Language :: Chinese (Simplified)
+Classifier: Natural Language :: English
+Classifier: Framework :: Flask
+Description-Content-Type: text/markdown
+Requires-Dist: Flask (==1.0.2)
+Requires-Dist: Jinja2 (==2.10)
+Requires-Dist: Flask-Admin (==1.5.2)
+Requires-Dist: sqlalchemy (==1.2.13)
+Requires-Dist: Flask-SQLAlchemy (==2.3.2)
+Requires-Dist: Flask-SSLify (==0.1.5)
+Requires-Dist: MarkupSafe (==1.0)
+Requires-Dist: Werkzeug (==0.14.1)
+Requires-Dist: gunicorn (==19.9.0)
+Requires-Dist: Flask-BabelEx (==0.9.3)
+Requires-Dist: raven (==6.9.0)
+Requires-Dist: Flask-Migrate (==2.3.0)
+Requires-Dist: Flask-Security (==3.0.0)
+Requires-Dist: Flask-DebugToolbar (==0.10.1)
+Requires-Dist: cloudinary (==1.14.0)
+Requires-Dist: Flask-RESTful (==0.3.6)
+Requires-Dist: flask-socketio (==3.0.1)
+Requires-Dist: eventlet (==0.24.1)
+Requires-Dist: pypinyin (==0.33.2)
+Requires-Dist: python-dotenv (==0.9.1)
+
+
+# Betterlife Intelligent PSI  [![Travis (.org)](https://img.shields.io/travis/com/betterlife/betterlifepsi.svg?logo=travis&style=flat-square)](https://travis-ci.com/betterlife/betterlifepsi) [![Code Coverage](https://img.shields.io/codecov/c/github/betterlife/betterlifepsi.svg?label=Coverage&style=flat-square)](http://codecov.io/github/betterlife/betterlifepsi?branch=master)
+
+Intelligent PSI(Purchase, Sales and Inventory) management system
+
+![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)
+[![Code Health](https://landscape.io/github/betterlife/betterlifepsi/master/landscape.svg?style=flat-square)](https://landscape.io/github/betterlife/betterlifepsi/master)
+[![Requires.io](https://img.shields.io/requires/github/betterlife/betterlifepsi.svg?style=flat-square)](https://requires.io/github/betterlife/betterlifepsi/requirements/?branch=master)
+[![commits since release](https://img.shields.io/github/commits-since/betterlife/betterlifepsi/V0.6.7.svg?style=flat-square)](http://github.com/betterlife/betterlifepsi/releases)
+[![Release](https://img.shields.io/github/release/betterlife/betterlifepsi.svg?style=flat-square)](http://github.com/betterlife/betterlifepsi/releases) 
+[![PyPI](https://img.shields.io/pypi/v/betterlifepsi.svg?style=flat-square)](https://pypi.org/project/betterlifepsi/)
+
+
+## Try to answer some questions like
+
+  - Which product generates the most revenue/profit in my store and what's the data?
+  - When do I need to replenish the stock and how much do I lost if that's not done?
+  - What is the optimized quantity/date for replenish the stock?
+
+## Install & Run & Deploy  
+
+  - Run using Docker (Recommend)
+
+    * Make sure docker is installed and configured correctly. 
+    * Clone the code via `git clone https://github.com/betterlife/betterlifepsi.git`
+    * `cd betterlifepsi && docker-compose build && docker-compose up` to build and run the docker image
+    * Please notice the database data is mounted to a docker volume called psi_data by default.
+
+  - Install and run locally
+    * Clone the code via `git clone https://github.com/betterlife/betterlifepsi.git`
+    * `pip install -r requirements.txt` to install runtime dependencies.
+    * `pip install -r etc/requirements/test.txt` to install development dependencies.
+    * Create postgresql database and user for the application.
+    * Set follow environment variables:
+      * DATABASE_URL : Database URL, only postgresql is tested as of now.
+      * FLASK_APP: Should be set to `psi.cli:application`
+      * SECURITY_PASSWORD_SALT : password salt for password generation
+      * SECRET_KEY : secret key for password generation
+      * CLOUDINARY_URL : Cloudinary URL if use cloudinary to store image attachments
+      * SENTRY_DSN : Sentry DSN if use sentry to handle exceptions 
+    * `flask run` to run the application
+    * Set environment variable `TEST_DATABASE_URL` and invoke `flask test` to run tests.
+
+  - Install and run on heroku
+    * Click button [![Deploy](https://img.shields.io/badge/Heroku-Deploy-brightgreen.svg?style=flat-square)](https://heroku.com/deploy)  to deploy current version to heroku.
+
+## Links
+
+  - [Demo environment](https://psi-dev.herokuapp.com/)
+    - Organization administrator user: super_admin / password
+    - Business user: bu / password
+  - [Knowledge Center](https://github.com/betterlife/psi/wiki)    
+  - [Story management](https://betterlife.atlassian.net)
+
+## License    
+Betterlife PSI uses [MIT License](https://github.com/betterlife/flask-psi/blob/master/LICENSE)
+
+
