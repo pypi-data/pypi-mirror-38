@@ -1,0 +1,45 @@
+language: python
+sudo: false
+python:
+  - "2.7"
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
+cache:
+  pip: true
+  directories:
+    - eggs
+    - downloads
+env:
+  global:
+    - ROBOT_BROWSER=chrome
+    - ROBOT_DESIRED_CAPABILITIES="chromeOptions:no-sandbox"
+  matrix:
+    fast_finish: true
+before_script:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 2 # give xvfb some time to start
+  - wget http://chromedriver.storage.googleapis.com/`curl -s https://chromedriver.storage.googleapis.com/LATEST_RELEASE`/chromedriver_linux64.zip
+  - unzip chromedriver_linux64.zip -d chromedriver
+  - export PATH=$PATH:`pwd`/chromedriver
+  - google-chrome --version
+  - chromedriver -v
+
+install:
+  - virtualenv -p `which python` .
+  - bin/pip install -r requirements.txt
+  - bin/buildout -Nc test.cfg buildout:download-cache=downloads code-analysis:return-status-codes=True annotate
+  - bin/buildout -Nc test.cfg buildout:download-cache=downloads code-analysis:return-status-codes=True
+script:
+  - bin/code-analysis
+  - bin/test --all
+after_success:
+  - bin/createcoverage --all
+  - bin/pip install coverage
+  - bin/python -m coverage.pickle2json
+  - pip install coveralls
+  - coveralls
