@@ -1,0 +1,36 @@
+Metadata-Version: 1.1
+Name: PyBoard
+Version: 1.1.0
+Summary: A Python package for programming with Arduino.
+Home-page: https://github.com/kaiyu-liu/PyBoard
+Author: Kevin Liu
+Author-email: winaes@126.com
+License: GPL v3
+Description: # PyBoard
+        A project that helps to use Python in STEM projects easily. The project is based on PyMata and makes the APIs as close to the functions in Arduino as possible. 
+        
+        == Installation
+        	
+        pip install PyBoard
+        
+        == Usage
+         
+        Please look at the examples folder to see how it works.
+        
+        == License
+        
+        GPL v3
+        
+        
+Platform: UNKNOWN
+Classifier: Environment :: Other Environment
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Natural Language :: English
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Microsoft
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Education
+Classifier: Programming Language :: Python :: 3.5
