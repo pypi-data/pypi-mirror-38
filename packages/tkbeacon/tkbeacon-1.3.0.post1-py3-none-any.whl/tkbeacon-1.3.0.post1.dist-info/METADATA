@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: tkbeacon
+Version: 1.3.0.post1
+Summary: Translator Knowledge Beacon API
+Home-page: https://github.com/NCATS-Tangerine/tkbeacon-python-client
+Author: UNKNOWN
+Author-email: richard@starinformatics.com
+License: UNKNOWN
+Keywords: Swagger,Translator Knowledge Beacon API
+Platform: UNKNOWN
+Requires-Dist: urllib3 (>=1.15)
+Requires-Dist: six (>=1.10)
+Requires-Dist: certifi
+Requires-Dist: python-dateutil
+
+This is the Translator Knowledge Beacon web service application programming interface (API).
+
+
