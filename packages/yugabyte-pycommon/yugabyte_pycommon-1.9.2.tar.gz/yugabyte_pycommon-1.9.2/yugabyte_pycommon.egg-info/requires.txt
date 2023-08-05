@@ -1,0 +1,16 @@
+
+[docs]
+sphinx
+sphinx_rtd_theme
+
+[tests]
+mock
+nose
+coverage
+yanc
+preggy
+tox
+ipdb
+coveralls
+sphinx
+testfixtures
