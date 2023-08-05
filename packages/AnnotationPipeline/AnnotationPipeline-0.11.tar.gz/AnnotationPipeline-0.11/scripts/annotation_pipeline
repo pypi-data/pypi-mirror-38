@@ -1,0 +1,89 @@
+#!/usr/bin/env python3
+
+import argparse
+import textwrap
+from rnaseqpipeline.Install import Install
+from rnaseqpipeline.Run import Run
+
+
+
+def arguments():
+    p = argparse.ArgumentParser(prog= "annotation_pipeline",
+        formatter_class = argparse.RawTextHelpFormatter,
+        epilog = textwrap.dedent('''\
+            Authors:
+                Joris van Steenbrugge <joris.vansteenbrugge@wur.nl> - Method Implementation
+                Martijn Holterman <martijn.holterman@wur.nl> - Method
+            '''))
+
+    subparsers = p.add_subparsers(dest = 'command', help = 'Sub commands for the pipeline')
+    subparsers.required = True
+
+
+    ####### INSTALLATION
+    installation_parser = subparsers.add_parser("install",
+                            help = "Pipeline installation options",
+                            formatter_class = argparse.RawTextHelpFormatter)
+    installation_sub_parser = installation_parser.add_subparsers(dest = 'install_sub',
+                                help = 'Installation options')
+
+    install_check_parser = installation_sub_parser.add_parser('check',
+                                                help = 'Verify the installation of the full pipeline')
+    install_check_parser.add_argument("--dir", dest='install_dir',
+                                      help = '''The installation parent directory (the same one that is used during the installation) of the pipeline dependencies.''',
+                                      required = True)
+
+    install_check_parser.add_argument('--prog', dest= 'check_prog',
+                                        help = '''Check if <prog> and it's dependencies are installed correctly, and are in the environment.
+                                        While some programs are very easy to verify (RECON, RepeatScout, etc.),
+                                        other programs such as RepeatMasker & RepeatModler have a -sigh- suboptimal design, making the validation
+                                        important and less straightforward. (Default option: all)''',
+                                        required = False,
+                                        default = 'all')
+    installation_parser.set_defaults(func=Install.verify_installation)
+
+    install_pipeline_parser = installation_sub_parser.add_parser('pipeline',
+                                                help = 'Install the pipeline for the current user')
+
+
+    install_pipeline_parser.add_argument("--dir", dest = 'install_dir',
+                                         help = "Installation directory",
+                                         required = True)
+    install_pipeline_parser.add_argument("-g", dest = "global_install",
+                                        help = "Install system wide",
+                                        type = bool, default = False,
+                                        required = False
+                                        )
+
+    install_pipeline_parser.set_defaults(func = Install.perform_installation)
+
+    ####### Running the Pipeline
+    running_parser = subparsers.add_parser("run",
+                        help = "Run (parts) of the pipeline",
+                        formatter_class = argparse.RawTextHelpFormatter)
+
+    running_sub_parser = running_parser.add_subparsers(dest = 'running_sub',
+                            help = "Running pipeline tools")
+
+    running_all_parser = running_sub_parser.add_parser("all",
+                                help = "Run all supported pars of the pipeline")
+    running_all_parser.set_defaults(func= Run.run_all)
+
+    running_all_parser.add_argument("--workdir", dest = "workdir", help = 'Absolute path to the working directory.',
+                                    required = True)
+    running_all_parser.add_argument('-i', dest = 'assembly', help = "Genome Assembly in fasta format",
+                                    required = True)
+    running_all_parser.add_argument('-p', dest = "n_threads", help = "The number of CPU threads to use",
+                                    required = False, default = 4, type = int)
+    running_all_parser.add_argument('-d', dest = 'database', help = "Location of a local NCBI nucleotide database",
+                                    required = False, default = None)
+
+
+
+    return p.parse_args()
+
+
+
+if __name__ == "__main__":
+    options = arguments()
+    options.func(options)
