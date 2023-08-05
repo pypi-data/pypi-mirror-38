@@ -1,0 +1,17 @@
+README.md
+setup.py
+Bullseye/__init__.py
+Bullseye/bullseye_graph.py
+Bullseye/graph.py
+Bullseye/graph_aux.py
+Bullseye/predefined_functions.py
+Bullseye/sampling.py
+Bullseye/utils.py
+Bullseye/warning_handler.py
+Bullseye/Tests/__init__.py
+Bullseye/Tests/simple_test.py
+bullseye_method.egg-info/PKG-INFO
+bullseye_method.egg-info/SOURCES.txt
+bullseye_method.egg-info/dependency_links.txt
+bullseye_method.egg-info/requires.txt
+bullseye_method.egg-info/top_level.txt
