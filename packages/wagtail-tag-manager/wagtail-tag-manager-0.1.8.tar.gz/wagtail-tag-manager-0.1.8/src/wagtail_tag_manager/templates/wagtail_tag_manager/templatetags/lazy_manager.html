@@ -1,0 +1,7 @@
+{% load static %}
+
+<script>
+    window.wtm = {{ config|safe }}
+</script>
+
+<script src="{% static 'wtm.bundle.js' %}"></script>
