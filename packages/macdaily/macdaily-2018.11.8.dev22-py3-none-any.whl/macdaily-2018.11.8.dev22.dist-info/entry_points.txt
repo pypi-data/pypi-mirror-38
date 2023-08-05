@@ -1,0 +1,4 @@
+[console_scripts]
+md-uninstall = macdaily.api.uninstall:uninstall
+md-update = macdaily.api.update:update
+
