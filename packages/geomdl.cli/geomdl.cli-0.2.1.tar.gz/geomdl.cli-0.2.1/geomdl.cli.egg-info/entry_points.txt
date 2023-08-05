@@ -1,0 +1,3 @@
+[console_scripts]
+geomdl-cli = geomdl.cli.command_line:main
+
