@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: elastictools
+Version: 0.1.1
+Summary: Useful tools to work with Elastic stack in Python
+Home-page: https://github.com/ncthuc/elastictools
+Author: Thuc Nguyen
+Author-email: gthuc.nguyen@gmail.com
+License: MIT
+Download-URL: https://pypi.org/project/elastictools/
+Keywords: Elastic,ElasticSearch,ElasticStack
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: elasticsearch (<7.0.0,>=6.0.0)
+Requires-Dist: jinja2
+
+Useful tools to work with Elastic stack in Python
+
+It consists of two main modules:
+
+- `indextools`: Tools to work with Elastic indices
+- `doctools`: Tools to work with Elastic documents
+
+
