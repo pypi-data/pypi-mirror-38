@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: qsa
+Version: 1.0
+Summary: Linear and Quadratic Analysis in the Frequency Domain
+Home-page: http://openqsa.org
+Author: Christophe Magnani
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.7
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)
+Classifier: Topic :: Scientific/Engineering
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Intended Audience :: Science/Research
+Classifier: Development Status :: 1 - Planning
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+
+OpenQSA provides this Python package for QSA analysis of signals, including the JSON files exported from RTXI.
+
+It is recommended to install Python 3.7 with pip3 on the computer.
+
+It is also a good practice to work in isolation inside a python3 virtual environment.
+
+The package can be installed using pip3:
+
+        pip3 install qsa
+
+Detailed instructions for installation and use are given on the official web site [openqsa.org](http://openqsa.org)
+
