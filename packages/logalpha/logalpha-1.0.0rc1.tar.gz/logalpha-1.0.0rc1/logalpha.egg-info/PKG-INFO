@@ -1,0 +1,21 @@
+Metadata-Version: 1.1
+Name: logalpha
+Version: 1.0.0rc1
+Summary: A minimalist implementation of logging for Python.
+Home-page: https://logalpha.readthedocs.io
+Author: Geoffrey Lentner
+Author-email: <glentner@gmail.com>
+License: Apache Software License
+Description: LogAlpha
+        ========
+        
+        A minimalist implementation of logging for Python.
+        
+Keywords: python minimalist logging package
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Topic :: System :: Logging
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: License :: OSI Approved :: Apache Software License
