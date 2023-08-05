@@ -1,0 +1,16 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+requirements.txt
+setup.cfg
+setup.py
+jupyter-config/jupyter_notebook_config.d/jupyter_python_languageserver.json
+jupyter_python_languageserver/__init__.py
+jupyter_python_languageserver/_version.py
+jupyter_python_languageserver/langserver.py
+jupyter_python_languageserver.egg-info/PKG-INFO
+jupyter_python_languageserver.egg-info/SOURCES.txt
+jupyter_python_languageserver.egg-info/dependency_links.txt
+jupyter_python_languageserver.egg-info/not-zip-safe
+jupyter_python_languageserver.egg-info/requires.txt
+jupyter_python_languageserver.egg-info/top_level.txt
