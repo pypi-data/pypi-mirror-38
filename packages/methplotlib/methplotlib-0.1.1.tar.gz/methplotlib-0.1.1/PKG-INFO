@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: methplotlib
+Version: 0.1.1
+Summary: Plot methylation data obtained from nanopolish
+Home-page: https://github.com/wdecoster/methplotlib
+Author: Wouter De Coster
+Author-email: decosterwouter@gmail.com
+License: MIT
+Description: # METHPLOTLIB
+        
+        This script takes data from nanopolish as processed by calculate_methylation_frequency.py to generate a genome browser view on a window.
+        
+        ## INSTALLATION
+        `pip install methplotlib`
+        
+        ## USAGE
+        ```
+        methylation_frequency_browser.py [-h] -m METHYLATION [METHYLATION ...]
+                                                -n NAMES [NAMES ...] -w WINDOW
+                                                [-g GTF]
+        
+        
+        optional arguments:
+          -h, --help            show this help message and exit
+          -m, --methylation METHYLATION [METHYLATION ...]
+                                output of calculate_methylation_frequency.py
+          -n, --names NAMES     names of datasets in --methylation
+          -w, --window WINDOW   window (region) to which the visualisation has to be restricted e.g. chr7:12345-23456
+          -g, --gtf GTF     add annotation based on a gtf file matching to your
+                                reference genome
+        ```
+        
+Keywords: nanopore
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Requires-Python: >=3
+Description-Content-Type: text/markdown
