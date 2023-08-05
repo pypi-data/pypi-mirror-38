@@ -1,0 +1,8 @@
+six
+python_qt_binding
+
+[dev]
+pytest
+pytest-pep8
+pytest-cov
+pytest-qt
