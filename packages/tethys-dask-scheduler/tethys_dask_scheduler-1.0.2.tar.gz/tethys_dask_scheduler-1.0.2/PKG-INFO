@@ -1,0 +1,13 @@
+Metadata-Version: 1.0
+Name: tethys_dask_scheduler
+Version: 1.0.2
+Summary: A Dask scheduler with custom SchedulerPlugins to support integration with Tethys Platform
+Home-page: http://tethysplatform.org/
+Author: Nathan Swain
+Author-email: nswain@aquaveo.com
+License: BSD 2-Clause License
+Description-Content-Type: UNKNOWN
+Description: # tethys_dask_scheduler
+        A Dask scheduler with custom SchedulerPlugins to support integration with Tethys Platform.
+        
+Platform: UNKNOWN

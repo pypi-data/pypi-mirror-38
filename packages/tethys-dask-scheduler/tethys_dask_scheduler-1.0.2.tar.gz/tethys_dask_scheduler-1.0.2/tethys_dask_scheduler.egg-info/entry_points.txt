@@ -1,0 +1,3 @@
+[console_scripts]
+tethys-dask-scheduler = tethys_dask_scheduler.dask_scheduler:go
+
