@@ -1,0 +1,17 @@
+cr.cube-1.8.2-py2.7-nspkg.pth,sha256=S_sTa7v_tA48PtBWEJ9KCGhAnNoGsR6P6HukWsychb8,519
+cr/cube/__init__.py,sha256=kcKtvYyIuNlY8wMgxzIdspNKd8HfYUeaNDl5RQgStgQ,95
+cr/cube/crunch_cube.py,sha256=TAewP59brAD9gl12YSh_7dsMw8NsPsLf2fSnSe4zc4M,55107
+cr/cube/cube_slice.py,sha256=OAYpbtj7RhTuDe9eQl3zBOTM9Clq5FrKAMdkYVVilAE,16448
+cr/cube/dimension.py,sha256=6_MaGyEEp87cgsis1JywGxFnGHaAlsBmrYFa481sN_0,28315
+cr/cube/enum.py,sha256=JWfUTZyPDk6YZ22lz1-jMuTF_s9FtRqJGejuEALo1xM,1286
+cr/cube/util.py,sha256=PbAnIOBB5zVsA-uY77fccrFcYDEV4Tt_ivoxB0YWn_s,8926
+cr/cube/measures/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+cr/cube/measures/index.py,sha256=x5XeT8ooi7zfuGFKtQnfCMGsBeCFXd1PGeDzNKBMt7Q,2454
+cr/cube/measures/scale_means.py,sha256=XP8xOMF28Mch3lFp_nH31QUDHae2WBRpZlzsjsy31TM,4550
+cr.cube-1.8.2.dist-info/LICENSE,sha256=s10CbMesqdWFmgLrh933o4aiTJhoOGUb0fKD-U4AMyc,1056
+cr.cube-1.8.2.dist-info/METADATA,sha256=LHPsYwi1qhrvzt0enBY1x6Be0dQM26-u20tVfRXxQqM,4950
+cr.cube-1.8.2.dist-info/WHEEL,sha256=quTwCBwEhCqvWQayaLINV6u_GggLcWROgOHAbyu7a04,92
+cr.cube-1.8.2.dist-info/namespace_packages.txt,sha256=LznAaRftYSz9EnpcBOqHSp8niLST-YTZGI6U-hWTU0U,3
+cr.cube-1.8.2.dist-info/top_level.txt,sha256=LznAaRftYSz9EnpcBOqHSp8niLST-YTZGI6U-hWTU0U,3
+cr.cube-1.8.2.dist-info/zip-safe,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+cr.cube-1.8.2.dist-info/RECORD,,
