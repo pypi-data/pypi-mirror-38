@@ -1,0 +1,6 @@
+[console_scripts]
+midi2basic=superconf18_midibadge.tools.midi2basic:main
+midi3track=superconf18_midibadge.tools.midi3track:main
+midiinfo=superconf18_midibadge.tools.midiinfo:main
+midisplit=superconf18_midibadge.tools.midisplit:main
+
