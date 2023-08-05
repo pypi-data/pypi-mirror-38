@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: phsic-cli
+Version: 0.1.0
+Summary: Pointwise Hilbert–Schmidt Independence Criterion (PHSIC)
+Home-page: https://github.com/cl-tohoku/phsic
+Author: Sho Yokoi
+Author-email: yokoi@ecei.tohoku.ac.jp
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: dill (>=0.2.8,<0.3.0)
+Requires-Dist: gensim (>=3.6,<4.0)
+Requires-Dist: numpy (>=1.15,<2.0)
+Requires-Dist: pandas (>=0.23.4,<0.24.0)
+Requires-Dist: scipy (>=1.1,<2.0)
+Requires-Dist: sklearn (>=0.0.0,<0.0.1)
+Requires-Dist: statsmodels (>=0.9.0,<0.10.0)
+Requires-Dist: tensorflow (>=1.7,<2.0)
+Requires-Dist: tensorflow-hub (>=0.1.1,<0.2.0)
+Project-URL: Repository, https://github.com/cl-tohoku/phsic
