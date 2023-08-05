@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: srwpy
+Version: 0.0.1rc1
+Summary: Python package for doing science.
+Home-page: https://github.com/mrakitin/srwpy
+Author: NSLS-II, Brookhaven National Lab
+Author-email: mrakitin@bnl.gov
+License: BSD (3-clause)
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: matplotlib
+Requires-Dist: numpy
+Requires-Dist: scipy
+
+===============================
+srwpy
+===============================
+
+.. image:: https://img.shields.io/travis/mrakitin/srwpy.svg
+        :target: https://travis-ci.org/mrakitin/srwpy
+
+.. image:: https://img.shields.io/pypi/v/srwpy.svg
+        :target: https://pypi.python.org/pypi/srwpy
+
+
+Python package for doing science.
+
+* Free software: 3-clause BSD license
+* Documentation: (COMING SOON!) https://mrakitin.github.io/srwpy.
+
+Features
+--------
+
+* TODO
+
+
