@@ -1,0 +1,13 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+README.txt
+setup.py
+mongoman/__init__.py
+mongoman/__version__.py
+mongoman/mongoman.py
+mongoman.egg-info/PKG-INFO
+mongoman.egg-info/SOURCES.txt
+mongoman.egg-info/dependency_links.txt
+mongoman.egg-info/requires.txt
+mongoman.egg-info/top_level.txt

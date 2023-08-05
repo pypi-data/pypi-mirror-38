@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: mongoman
+Version: 0.2.0
+Summary: PyMongo wrapper that provides ORM and easy MongoDB connection handling.
+Home-page: https://github.com/ramazanpolat/mongoman
+Author: Ramazan Polat
+Author-email: ramazanpolat@gmail.com
+License: MIT
+Description: PyMongo wrapper that provides ORM and easy MongoDB connection handling.
+Platform: UNKNOWN
