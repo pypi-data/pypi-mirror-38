@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: nft-sdk
+Version: 2.0.0.1
+Summary: NextFintech sdk
+Home-page: http://NextFintech.com/
+Author: NextFintech
+Author-email: support@NextFintech.com
+License: Apache 2.0
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*, <4
+Provides-Extra: pandas

@@ -1,0 +1,8 @@
+typing==3.6.2
+arrow==0.10.0
+grpcio==1.4
+Cython==0.26.1
+protobuf==3.4.0
+
+[pandas]
+pandas
