@@ -1,0 +1,17 @@
+LICENSE.txt
+MANIFEST.in
+README.rst
+setup.py
+pydecorate/__init__.py
+pydecorate/decorator.py
+pydecorate/decorator_agg.py
+pydecorate/decorator_base.py
+pydecorate/version.py
+pydecorate.egg-info/PKG-INFO
+pydecorate.egg-info/SOURCES.txt
+pydecorate.egg-info/dependency_links.txt
+pydecorate.egg-info/not-zip-safe
+pydecorate.egg-info/requires.txt
+pydecorate.egg-info/top_level.txt
+pydecorate/fonts/DejaVuSerif.ttf
+pydecorate/fonts/__init__.py
