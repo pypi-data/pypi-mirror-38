@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: presign
+Version: 0.1
+Summary: A command line tool for creating presigned AWS S3 links
+Home-page: UNKNOWN
+Author: Matthew Griffiths
+Author-email: matthew.griffiths2@gmail.com
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: boto3 (==1.9.38)
+Requires-Dist: botocore (==1.12.38)
+Requires-Dist: docutils (==0.14)
+Requires-Dist: futures (==3.2.0)
+Requires-Dist: jmespath (==0.9.3)
+Requires-Dist: Presign (==0.1)
+Requires-Dist: pyperclip (==1.7.0)
+Requires-Dist: python-dateutil (==2.7.5)
+Requires-Dist: s3transfer (==0.1.13)
+Requires-Dist: six (==1.11.0)
+Requires-Dist: urllib3 (==1.24.1)
+
+UNKNOWN
+
+
