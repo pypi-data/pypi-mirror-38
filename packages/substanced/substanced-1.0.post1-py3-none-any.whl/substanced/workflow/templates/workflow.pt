@@ -1,0 +1,44 @@
+<div metal:use-macro="request.sdiapi.main_template" i18n:domain="substanced">
+
+  <div metal:fill-slot="main">
+
+    <div tal:repeat="workflow workflows">
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <b>${workflow.workflow.name or workflow.workflow.type}</b> 
+               workflow in state 
+          <b>${workflow.current_state}</b>
+        </div>
+        <div class="panel-body">
+            <form action="${request.sdiapi.mgmt_url(request.context, 
+                                                    '@@workflows')}"
+                  method="POST">
+              <input type="hidden" name="wfid" value="${workflow.id}"/>
+              <input type="hidden" name="csrf_token" 
+                     value="${request.session.get_csrf_token()}"/>
+              <div class="row" style="margin-bottom: 20px;">
+                <div class="col-md-8" i18n:translate="">
+                   Transition to another state
+                </div>
+                <div class="col-md-2">
+                  <select name="transition" class="form-control">
+                    <option tal:repeat="transition workflow.transitions"
+                        value="${transition.name}">${transition.name}</option>
+                  </select>
+                </div>
+                <div class="col-md-2">
+                  <input type="submit" name="submit" value="Transition" i18n:attributes="value"
+                         class="btn btn-primary form-control"/>
+                </div>
+              </div>
+              
+            </form>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

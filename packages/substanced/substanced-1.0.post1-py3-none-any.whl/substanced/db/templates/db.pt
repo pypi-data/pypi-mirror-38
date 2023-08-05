@@ -1,0 +1,190 @@
+<div metal:use-macro="request.sdiapi.main_template" i18n:domain="substanced">
+
+  <div metal:fill-slot="main">
+    <div class="panel panel-default">
+      <div class="panel-heading" i18n:translate="">Manage</div>
+      <div class="panel-body">
+        <div class="container">
+    
+        <form action="./@@database" method="POST" onsubmit="return sdi.loading_indicator_on()">
+          <input type="hidden" value="${request.session.get_csrf_token()}"
+                 name="csrf_token"/>
+          <div class="row" style="margin-bottom: 20px;">
+            <div class="col-md-8" i18n:translate="">
+               Remove ("pack") previous revisions of objects that are older than this number of days.
+            </div>
+            <div class="col-md-2">
+              <input type="text" value="1" name="days" class="form-control"/>
+            </div>
+            <div class="col-md-2">
+              <input type="submit" class="btn btn-danger" i18n:attributes="value"
+                     value="Pack" name="pack"/>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-10" i18n:translate="">
+                  Remove all objects from the ZODB connection cache
+            </div>
+            <div class="col-md-2">
+              <input type="submit" class="btn btn-primary" value="Flush cache" name="flush_cache" />
+            </div>
+          </div>
+        </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading" i18n:translate="">Evolve</div>
+      <div class="panel-body">
+        <div class="container">
+          <form action="./@@database" method="POST" onsubmit="return sdi.loading_indicator_on()">
+            <input type="hidden" value="${request.session.get_csrf_token()}"
+                   name="csrf_token"/>
+            <div class="row" style="margin-bottom: 20px;">
+              <div class="col-md-10" i18n:translate="">
+                Run evolve steps up to the latest
+              </div>
+              <div class="col-md-2">
+                <input type="submit" class="btn btn-danger" 
+                       value="Evolve" name="evolve"/>
+              </div>
+            </div>
+            <div class="row" style="margin-bottom: 20px;">
+              <div class="col-md-10" i18n:translate="">
+                Dry-run evolve steps to latest
+              </div>
+              <div class="col-md-2">
+                <input type="submit" class="btn btn-primary" 
+                       value="Dry-run" name="dryrun"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-10" i18n:translate="">
+                Show summary of pending evolve steps (finished/unfinished)
+              </div>
+              <div class="col-md-2">
+                <input type="submit" class="btn btn-primary" i18n:attributes="value"
+                       value="Summarize" name="show_evolve"/>
+              </div>
+            </div>
+          </form>
+        </div>
+       
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading" i18n:translate="">Details</div>
+      <div class="panel-body">
+
+        <table class="table">
+          <tbody>
+            <tr>
+              <td i18n:translate="">Location</td>
+              <td>${db.getName()}</td>
+            </tr>
+            <tr>
+              <td i18n:translate="">Storage</td>
+              <td>${db.storage}</td>
+            </tr>
+            <tr>
+              <td i18n:translate="">Size</td>
+              <td>${'%.1fM' % (db.getSize() / 1024 / 1024)}</td>
+            </tr>
+            <tr>
+              <td i18n:translate="">Number of objects that the connections' cache will try to keep around before LRU pruning</td>
+              <td>${db.getCacheSize()}</td>
+            </tr>
+            <tr>
+              <td i18n:translate="">Estimated byte size sum of objects that the connections' cache will try to keep around before LRU pruning (0 means unlimited)</td>
+              <td>${db.getCacheSizeBytes()}B</td>
+            </tr>
+            <tr>
+              <td i18n:translate="">Connection pool size</td>
+              <td>${db.getPoolSize()}</td>
+            </tr>
+            <tr>
+              <td i18n:translate="">Total number of objects in the database</td>
+              <td>${db.objectCount()}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading" i18n:translate="">Connections</div>
+      <div class="panel-body">
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th i18n:translate="">Connection</th>
+              <th i18n:translate="">Number of non-ghost objects (in total ${db.cacheSize()})</th>
+              <th i18n:translate="">Number of ghost objects</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr tal:repeat="cache db.cacheDetailSize()">
+              <td>${cache.connection} <tal:block tal:condition="cache.connection == repr(conn)">(current)</tal:block></td>
+              <td>${cache.ngsize}</td>
+              <td>${cache.size}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TODO: add extreme detailed cache -->
+
+    <div class="panel panel-default">
+      <div class="panel-heading" i18n:translate="">Activity</div>
+      <div class="panel-body">
+        <div tal:condition="am">
+
+          <div id="activity-graph" style="height: 300px; width: 600px"></div>
+
+          <script src="${request.static_url('substanced.sdi:static/js/flotr2.js')}" type="text/javascript"></script>
+          <script type="text/javascript">
+           $(function () {
+             graph = Flotr.draw($('#activity-graph')[0], [
+               {data: ${data_connections}, label: 'Connections'},
+               {data: ${data_object_stores}, label: 'Object stores'},
+               {data: ${data_object_loads}, label: 'Object loads'}
+             ], {
+                 legend: {
+                   backgroundColor: '#D2E8FF' // Light blue
+                 },
+                 xaxis: {
+                   mode: "time",
+                   timeFormat: '%H:%M:%S %d.%m.%y'
+                 },
+                 yaxis: {
+                   title: "Number of occurences",
+                   tickDecimals: 0,
+                   autoscaleMargin: 1
+                 },
+                 bars: {
+                   show: true,
+                   grouped: true,
+                   horizontal: false,
+                   barWidth: 100000,
+                   lineWidth: 1,
+                   shadowSize: 0
+                 },
+                 grid: {
+                   verticalLines: false,
+                   horizontalLines: true
+                 }
+               });
+           });
+          </script>
+        </div>
+
+        <div tal:condition="not am" i18n:translate="">
+           Database activity monitoring inactive
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,117 @@
+Metadata-Version: 2.1
+Name: substanced
+Version: 1.0.post1
+Summary: An application server built using Pyramid
+Home-page: http://www.substanced.net/
+Author: Chris McDonough
+Author-email: pylons-devel@googlegroups.com
+License: BSD-derived (http://www.repoze.org/LICENSE.txt)
+Keywords: wsgi pylons pyramid zodb catalog zope
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Framework :: Pyramid
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI
+Classifier: License :: Repoze Public License
+Requires-Dist: pyramid (>=1.5dev)
+Requires-Dist: ZODB
+Requires-Dist: hypatia (>=0.2)
+Requires-Dist: venusian (>=1.0a3)
+Requires-Dist: deform (>=2.0a2)
+Requires-Dist: colander (>=1.0a1)
+Requires-Dist: pyramid-zodbconn (>=0.6)
+Requires-Dist: pyramid-chameleon
+Requires-Dist: pyramid-mailer
+Requires-Dist: cryptacular
+Requires-Dist: python-magic
+Requires-Dist: PyYAML
+Requires-Dist: zope.copy
+Requires-Dist: zope.component
+Requires-Dist: zope.deprecation
+Requires-Dist: statsd
+Requires-Dist: walkabout
+Requires-Dist: pytz
+Requires-Dist: unidecode
+Provides-Extra: docs
+Requires-Dist: Sphinx (>=1.3.5); extra == 'docs'
+Requires-Dist: repoze.sphinx.autointerface; extra == 'docs'
+Provides-Extra: i18n
+Requires-Dist: Babel; extra == 'i18n'
+Requires-Dist: transifex-client; extra == 'i18n'
+Requires-Dist: lingua (<2.0); extra == 'i18n'
+Provides-Extra: testing
+Requires-Dist: nose; extra == 'testing'
+Requires-Dist: coverage; extra == 'testing'
+Requires-Dist: mock; extra == 'testing'
+Requires-Dist: tox; extra == 'testing'
+
+Substance D
+===========
+
+.. image:: https://travis-ci.org/Pylons/substanced.png?branch=master
+        :target: https://travis-ci.org/Pylons/substanced
+
+.. image:: https://readthedocs.org/projects/substanced/badge?version=latest
+        :target: http://docs.pylonsproject.org/projects/substanced
+        :alt: Latest Documentation Status
+
+An application server built upon the Pyramid web framework.  It provides a
+user interface for managing content as well as libraries and utilities which
+make it easy to create applications.
+
+Visit the main website at http://substanced.net for FAQs and documentation.
+
+There is a mailing list: https://groups.google.com/group/substanced-users
+
+The code is at https://github.com/Pylons/substanced
+
+The IRC channel is at irc://freenode.net/#substanced
+
+
+Next release
+------------
+
+- Replace virtualenv with tox as a testing extra.
+
+- Remove support for Python 2.6, 3.2, and 3.3, and add support for Python 3.5.
+  See https://github.com/Pylons/substanced/pull/264
+
+- Omit the ``Upload`` tab for folders which can not contain files. See
+  https://github.com/Pylons/substanced/pull/247.
+
+- Added Finnish translation.
+
+- Fixed bug in scaffold that prevented Document properties tab from showing up
+  in the SDI.
+
+- ``substanced.file.FileUploadPropertySheet`` (which backs the File->Upload
+  property tab) did not properly clear tempfiles from the upload tmpdir.
+
+- ``substanced.file.views.AddFileView`` (which backs the Add -> File form in
+  the SDI) did not properly clear tempfiles from the upload tmpdir.
+
+- Changing a NameSchemaNode property via a propertysheet view (ie.
+  changing the name of an item in a folder via its propertysheet)
+  would fail with an exception if the name you chose was already
+  used within the folder.  It now shows a flash message and prevents
+  the change.
+
+- Removed Python 2.6 compatibility shim ``substanced._compat.total_ordering``.
+
+1.0 (2018-11-06)
+================
+
+- Pyramid 1.10 compatibility.
+
+1.0a1 (2015-04-17)
+==================
+
+- Initial release.
+
+
