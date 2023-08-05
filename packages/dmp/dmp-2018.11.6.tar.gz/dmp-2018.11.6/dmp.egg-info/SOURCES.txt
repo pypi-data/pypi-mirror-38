@@ -1,0 +1,17 @@
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+dmp/__init__.py
+dmp/diff_match_patch.py
+dmp/diff_match_patch_py2.py
+dmp.egg-info/PKG-INFO
+dmp.egg-info/SOURCES.txt
+dmp.egg-info/dependency_links.txt
+dmp.egg-info/top_level.txt
+dmp/tests/__init__.py
+dmp/tests/diff_match_patch_test.py
+dmp/tests/diff_match_patch_test_py2.py
+dmp/tests/speedtest.py
