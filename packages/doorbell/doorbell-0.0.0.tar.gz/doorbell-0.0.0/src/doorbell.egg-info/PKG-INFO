@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: doorbell
+Version: 0.0.0
+Summary: A visitor pattern implementation for Python
+Home-page: https://github.com/tbhartman/doorbell
+Author: Tim Hartman
+Author-email: tbhartman@gmail.com
+License: MIT
+Description: UNKNOWN
+Keywords: visitor
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Utilities
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Provides-Extra: test
