@@ -1,0 +1,7 @@
+include *.py
+recursive-include * *.py
+include glamconv/ead/*.json
+include glamconv/ead/ead-2002-dtd/*
+include examples/*.json
+include examples/*.py
+recursive-include * *.xsd *.dtd
