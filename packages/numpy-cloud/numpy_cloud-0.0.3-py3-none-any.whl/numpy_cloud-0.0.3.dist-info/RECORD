@@ -1,0 +1,16 @@
+numpy_cloud/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+numpy_cloud/util.py,sha256=lTLPmIdPTmdboHPkLidcmJ9xsgZW2lAiabmYTNC92-w,1589
+numpy_cloud/client/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+numpy_cloud/client/cloud_array.py,sha256=uUm8pKvKnC3K1obNtIIo3AHa256HrZ4uN147z7AZ1sg,2861
+numpy_cloud/client/config.py,sha256=rJ4_nywApRNhoxexSxmkdAY0QgOhLkUm9lJJQd__z3g,98
+numpy_cloud/client/npc.py,sha256=zo_pMc2gwaEVEr3bIkmP9UsUtAyLtT3vYLfxOYeIIuA,1403
+numpy_cloud/server/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+numpy_cloud/server/server.py,sha256=CWrBYLTw3qybVXVLco64rNAS1K9c67aM9tKk_JAcP4M,4098
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_cloud_array.py,sha256=Vld-JNDH8dllUXg6dQ_--bmArPNdeOp8YzTUmkYrDIw,4510
+numpy_cloud-0.0.3.dist-info/LICENSE,sha256=_uk-90PJMSckMOMRJQNl14CrPPEazjyJiE-JvGCBIfE,59
+numpy_cloud-0.0.3.dist-info/LICENSE~,sha256=7EI8xVBu6h_7_JlVw-yPhhOZlpY9hP8wal7kHtqKT_E,1074
+numpy_cloud-0.0.3.dist-info/METADATA,sha256=4QIB2xdG6L4NmM-3dS0S4kt4QMpwjej0tsc3O4fKsCA,418
+numpy_cloud-0.0.3.dist-info/WHEEL,sha256=MYFsq5fFBwF_oyJgrOoFmYYB1K6Sw7MxY-0897ZLbdM,92
+numpy_cloud-0.0.3.dist-info/top_level.txt,sha256=wAHNCyqmOdD2Huo_pfCwG4U4kqiFacK5X3m4u6-Fbck,18
+numpy_cloud-0.0.3.dist-info/RECORD,,
