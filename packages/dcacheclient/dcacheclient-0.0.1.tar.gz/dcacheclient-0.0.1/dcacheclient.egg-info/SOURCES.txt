@@ -1,0 +1,10 @@
+setup.py
+dcacheclient/__init__.py
+dcacheclient/client.py
+dcacheclient/dcache_admin.py
+dcacheclient.egg-info/PKG-INFO
+dcacheclient.egg-info/SOURCES.txt
+dcacheclient.egg-info/dependency_links.txt
+dcacheclient.egg-info/entry_points.txt
+dcacheclient.egg-info/requires.txt
+dcacheclient.egg-info/top_level.txt
