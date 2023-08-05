@@ -1,0 +1,12 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+sucuri/__init__.py
+sucuri/files.py
+sucuri/rendering.py
+sucuri.egg-info/PKG-INFO
+sucuri.egg-info/SOURCES.txt
+sucuri.egg-info/dependency_links.txt
+sucuri.egg-info/top_level.txt
