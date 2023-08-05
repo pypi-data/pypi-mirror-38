@@ -1,0 +1,155 @@
+Metadata-Version: 2.1
+Name: apidecorators
+Version: 0.0.9
+Summary: API Decorators
+Home-page: https://gitlab.com/miguel.alarcos/apidecorators
+Author: Miguel Ángel Alarcos Torrecillas
+Author-email: miguel.alarcos@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: PyJWT (>=1.6.4)
+Requires-Dist: aiohttp (>=3.4.4)
+Requires-Dist: flatten-dict (>=0.0.3.post1)
+Requires-Dist: motor (>=2.0.0)
+
+# API Decorators
+
+```python
+# book.py
+from apidecorators.api import jwt_auth, is_owner, get, insert, is_owner, has_role, update, push, pull, \
+                validate, validate_push
+from cerberus import Validator
+
+schema = {
+    'author': {'type': 'string'},
+    'title': {'type': 'string'}
+}
+
+validator = Validator(schema)
+
+schema_comments = {
+    'author': {'type': 'string'},
+    'message': {'type': 'string'}
+}
+
+validator_comments = Validator(schema_comments)
+
+def set_routes_book(routes):
+
+    @routes.get('/api/book')
+    @jwt_auth
+    @collection('book')
+    @read_access(public)
+    @get_many
+    async def get_many_book(db, query, payload):  
+        author = query["author"]
+        return db.find({"author": author}).skip(0).limit(10)
+        #return {"author": author, "__owner": payload['user']}, ['author'], 0, 10
+
+    #@routes.delete('/api/book/{_id}')
+    #@jwt_auth
+    #@collection('book')    
+    #@delete # TODO
+    #async def delete_book(query):  
+    #    pass
+
+    @routes.get('/api/book/{_id}')
+    @jwt_auth
+    @collection('book')
+    @read_access(public)
+    @get
+    async def get_book(document):      
+        return document
+
+    @routes.put('/api/book/{_id}/push/comments')
+    @jwt_auth
+    @collection('book')
+    @write_access({'__owner': ['*'], 'root': ['author']})
+    @validate(validator=validator_comments)
+    @push('comments')
+    async def handle_push(document, request, payload):      
+        return document
+
+    # TODO permissions, quizas con un argumento array de usuarios en @pull
+    #@routes.put('/api/book/{_id}/pull/{pull}/{sub_id}')
+    #@jwt_auth
+    #@pull
+    #async def handle_pull(document, request, payload):      
+    #    pass
+
+    @routes.post('/api/book')
+    @jwt_auth
+    @collection('book')
+    @write_access(public)
+    @validate(validator=validator)
+    @insert
+    async def handle_post(document, request, payload):
+        return document       
+
+    @routes.put('/api/book/{_id}')
+    @jwt_auth
+    @collection('book')
+    @write_access({'__owner': ['*'], 'root': ['author']})
+    @validate(update=True, validator=validator)
+    @update
+    async def handle_put(old_doc, document, request, payload):      
+        return document   
+
+
+#app.py
+import asyncio
+from book import set_routes_book
+from aiohttp import web
+from apidecorators.api import cors_factory
+from apidecorators.hooks import on_insert, on_update
+
+@on_insert('book')
+def on_insert_book(book):
+    print('insert', book)
+
+
+@on_update('book')
+def on_update_book(book):
+    print('update', book)
+
+async def handle(loop):
+    app = web.Application(loop=loop, middlewares=[cors_factory])
+    routes = web.RouteTableDef()
+
+    set_routes_book(routes)
+    app.router.add_routes(routes)
+    app.router.add_static('/', './dist')
+    await loop.create_server(app.make_handler(), '0.0.0.0', 8089)
+
+def main():    
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(handle(loop))
+    print("Server started at port 8089")
+    loop.run_forever()
+    loop.close()
+```
+
+docker-compose.yml
+```yml
+version: '3'
+services:
+  api:
+    build: .
+    environment:
+    - DB_URI=mongodb://<user>:<password>@url:port/data-base
+    - DB=data-base
+    - SECRET=secret
+    stdin_open: true
+    tty: true
+    ports:
+    - "8089:8089"
+    volumes:
+    - ./:/usr/src/app
+    command: python -m watchgod app.main 
+```
+
+
