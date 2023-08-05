@@ -1,0 +1,3 @@
+[console_scripts]
+amanita = amanita.__main__:main
+
