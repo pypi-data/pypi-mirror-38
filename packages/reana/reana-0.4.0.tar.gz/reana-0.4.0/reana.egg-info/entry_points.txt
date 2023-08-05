@@ -1,0 +1,3 @@
+[console_scripts]
+reana-dev = reana.cli:cli
+
