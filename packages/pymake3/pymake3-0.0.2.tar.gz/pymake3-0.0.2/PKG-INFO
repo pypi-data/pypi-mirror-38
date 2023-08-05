@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: pymake3
+Version: 0.0.2
+Summary: Pymake3 is python3 port of pymake2. it provides automated build tasks and enormous flexibility, all without esoteric syntax constructs!
+Home-page: https://github.com/shlomimatichin/Pymake3
+Author: Shlomi Matichin
+Author-email: shlomomatichin@gmail.com
+License: UNKNOWN
+Description: # pymake3
+        
+        Makefile like behaviour in python3 using decorators
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Topic :: Utilities
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
