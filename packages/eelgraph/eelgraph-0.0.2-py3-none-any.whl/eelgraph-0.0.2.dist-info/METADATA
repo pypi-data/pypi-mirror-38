@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: eelgraph
+Version: 0.0.2
+Summary: creates live chart.js charts from python
+Home-page: https://github.com/jamsterwes/eelgraph
+Author: Wes Taylor
+Author-email: jamsterwes@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+# eelgraph
+### creates live chart.js charts from python
+
+## Example Usage:
+```py
+import eelgraph
+from eelgraph.charts import Doughnut
+
+chart = Doughnut({
+    "People who use 4 spaces": 5000,
+    "People who use 2 spaces": 50
+})
+
+eelgraph.plot(chart, title="Secrets of the Universe")
+```
+
+## Installation
+```
+python3 setup.py install
+```
+
+
