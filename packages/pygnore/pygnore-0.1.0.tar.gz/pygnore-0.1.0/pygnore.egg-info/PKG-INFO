@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: pygnore
+Version: 0.1.0
+Summary: Client for gitignore.io
+Home-page: https://github.com/flipee/pygnore
+Author: flipee
+Author-email: filipe.nascimento01@fatec.sp.gov.br
+License: MIT
+Description: # pygnore
+        
+        [![Travis](https://img.shields.io/travis/flipee/pygnore.svg?style=flat-square)](https://travis-ci.org/flipee/pygnore)
+        [![Coveralls](https://img.shields.io/coveralls/flipee/pygnore.svg?style=flat-square)](https://coveralls.io/github/flipee/pygnore?branch=master)
+        [![License](https://img.shields.io/github/license/flipee/pygnore.svg?style=flat-square)](https://github.com/flipee/pygnore/blob/master/LICENSE)
+        
+        Python client for [gitignore.io](https://gitignore.io).
+        
+        ## License
+        
+        This project is licensed under the MIT License - see the [LICENSE](https://github.com/flipee/pygnore/blob/master/LICENSE) file for details.
+        
+Keywords: pygnore gitignore development
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
+Provides-Extra: test
+Provides-Extra: dev

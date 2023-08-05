@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+pygnore/__init__.py
+pygnore/api.py
+pygnore/exceptions.py
+pygnore.egg-info/PKG-INFO
+pygnore.egg-info/SOURCES.txt
+pygnore.egg-info/dependency_links.txt
+pygnore.egg-info/requires.txt
+pygnore.egg-info/top_level.txt
