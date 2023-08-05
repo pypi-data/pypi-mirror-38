@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: NURBS-Python
+Version: 3.9.0
+Summary: NURBS curve and surface evaluation library in pure python
+Home-page: https://github.com/orbingol/NURBS-Python
+Author: Onur Rauf Bingol
+Author-email: nurbs-python@googlegroups.com
+License: MIT
+Project-URL: Documentation, https://nurbs-python.readthedocs.io/
+Project-URL: Source, https://github.com/orbingol/NURBS-Python
+Project-URL: Tracker, https://github.com/orbingol/NURBS-Python/issues
+Keywords: NURBS B-Spline curve surface CAD modeling visualization
+Platform: UNKNOWN
+Classifier: Development Status :: 6 - Mature
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: geomdl
+
+NURBS-Python
+^^^^^^^^^^^^
+
+Starting from v3.9.0, this package works as the alias for `geomdl <https://pypi.org/project/geomdl/>`_ package.
+**geomdl** is the next version of NURBS-Python with a number of improved features.
+You can also use **geomdl** with the command line tool `geomdl-cli <https://pypi.org/project/geomdl.cli/>`_.
+Please see the `documentation <https://nurbs-python.readthedocs.io/>`_ for more details.
+
+
