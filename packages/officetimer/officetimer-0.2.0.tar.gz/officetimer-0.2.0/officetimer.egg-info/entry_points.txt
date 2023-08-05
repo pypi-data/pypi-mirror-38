@@ -1,0 +1,3 @@
+[console_scripts]
+office-timer = officetimer.timer_controller:main
+
