@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: numberextractor
+Version: 0.0.1
+Summary: Simple package for extracting numbers
+Home-page: UNKNOWN
+Author: Feng Liu
+Author-email: feng3245@gmail.com
+License: UNKNOWN
+Description: Extract computer uniform numbers from plain white background top down based on index
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
