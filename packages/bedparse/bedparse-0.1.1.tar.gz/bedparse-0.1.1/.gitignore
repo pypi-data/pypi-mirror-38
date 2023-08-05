@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Setuptools distribution folder.
+/dist/
+
+# Python egg metadata, regenerated from source files by setuptools.
+/*.egg-info
+
+/tests/test_data.tgz
+/tests/ensembl*
+/tests/extracted*
+/tests/gencode*
+/virtualenv/
+/build/
+
