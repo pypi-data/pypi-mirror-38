@@ -1,0 +1,16 @@
+Metadata-Version: 1.1
+Name: pyModelChecking
+Version: 0.1.1
+Summary: A simple Python model checking package
+Home-page: https://github.com/albertocasagrande/pyModelChecking
+Author: Alberto Casagrande
+Author-email: acasagrande@units.it
+License: GNU General Public License, version 2
+Description: UNKNOWN
+Keywords: model checking temporal logics kripke structure
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Development Status :: 4 - Beta
+Classifier: Topic :: Scientific/Engineering
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
