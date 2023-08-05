@@ -1,0 +1,16 @@
+setup.py
+scrapy_redis_nonempty_run/__init__.py
+scrapy_redis_nonempty_run/connection.py
+scrapy_redis_nonempty_run/defaults.py
+scrapy_redis_nonempty_run/dupefilter.py
+scrapy_redis_nonempty_run/picklecompat.py
+scrapy_redis_nonempty_run/pipelines.py
+scrapy_redis_nonempty_run/queue.py
+scrapy_redis_nonempty_run/scheduler.py
+scrapy_redis_nonempty_run/spiders.py
+scrapy_redis_nonempty_run/utils.py
+scrapy_redis_nonempty_run.egg-info/PKG-INFO
+scrapy_redis_nonempty_run.egg-info/SOURCES.txt
+scrapy_redis_nonempty_run.egg-info/dependency_links.txt
+scrapy_redis_nonempty_run.egg-info/requires.txt
+scrapy_redis_nonempty_run.egg-info/top_level.txt
