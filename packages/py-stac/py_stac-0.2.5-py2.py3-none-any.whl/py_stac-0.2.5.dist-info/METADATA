@@ -1,0 +1,75 @@
+Metadata-Version: 2.1
+Name: py-stac
+Version: 0.2.5
+Summary: Python command line and library utilities for interactingwith and creating STAC compliant files.
+Home-page: https://github.com/geobeyond/py-stac
+Author: Geobeyond
+Author-email: info@geobeyond.it
+License: Apache Software License 2.0
+Keywords: pystac,py-stac,imagery,raster,catalog,STAC
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Requires-Dist: python-dateutil (==2.6.1)
+Requires-Dist: rasterio (==1.0a12)
+Requires-Dist: Click (>=6.0)
+Requires-Dist: geojson (==2.3.0)
+Requires-Dist: requests (>=2.18.0)
+Requires-Dist: marshmallow (==3.0.0b11)
+Requires-Dist: typing (==3.6.2); python_version <= "3.6"
+
+=============
+Py-STAC Tools
+=============
+
+
+.. image:: https://img.shields.io/pypi/v/py-stac.svg
+        :target: https://pypi.python.org/pypi/py-stac
+
+.. image:: https://img.shields.io/travis/geobeyond/py-stac.svg
+        :target: https://travis-ci.org/geobeyond/py-stac
+
+.. image:: https://readthedocs.org/projects/py-stac/badge/?version=latest
+        :target: https://py-stac.readthedocs.io/en/latest/?badge=latest
+        :alt: Documentation Status
+
+
+Python command line utilities for interacting with and creating STAC compliant files.
+
+
+* Free software: Apache Software License 2.0
+* Documentation: https://py-stac.readthedocs.io.
+
+
+Features
+--------
+
+* TODO
+
+Credits
+---------
+
+This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+
+.. _Cookiecutter: https://github.com/audreyr/cookiecutter
+.. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+
+
+
+=======
+History
+=======
+
+0.2.5 (2018-11-08)
+------------------
+
+* First release on PyPI.
+
+
