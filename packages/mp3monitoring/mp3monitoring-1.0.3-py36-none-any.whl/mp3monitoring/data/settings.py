@@ -1,0 +1,2 @@
+GUI_UPDATE_TIME = 1  # in seconds
+CHECK_UPDATE_AT_STARTUP = False
