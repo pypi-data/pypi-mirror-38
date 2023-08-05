@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% load i18n wtm_tags %}
+
+{% block title %}{% trans "Manage your preferences" %}{% endblock title %}
+
+{% block content %}
+    <h1>{% trans "Privacy settings" %}</h1>
+
+    {% wtm_status_table %}
+
+    {% wtm_manage_form %}
+{% endblock content %}
