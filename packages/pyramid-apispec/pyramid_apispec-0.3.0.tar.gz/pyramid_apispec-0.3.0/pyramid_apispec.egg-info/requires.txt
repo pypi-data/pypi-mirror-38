@@ -1,0 +1,17 @@
+apispec[yaml]>=1.0.0b5
+
+[demo]
+marshmallow==2.15.3
+pyramid
+apispec
+webtest
+
+[dev]
+coverage
+pytest
+pyramid
+tox
+webtest
+
+[lint]
+black
