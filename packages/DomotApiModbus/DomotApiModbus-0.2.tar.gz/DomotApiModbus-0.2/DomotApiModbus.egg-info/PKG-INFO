@@ -1,0 +1,40 @@
+Metadata-Version: 1.1
+Name: DomotApiModbus
+Version: 0.2
+Summary: Working with modbus devices in domot-api
+Home-page: https://github.com/dsacchet/DomotApiModbus
+Author: Denis Sacchet
+Author-email: UNKNOWN
+License: MIT
+Description: DomotApiModbus
+        =========================
+        
+        DomotApiModbus provide a simple interface to get and set value on a modbus device.
+        
+        It is composed of a generic modbus class, and specific device class.
+        
+        In the current version, class for Unelvent Ideo 450 is implemented
+        
+        
+        .. :changelog:
+        
+        History
+        -------
+        0.2 (2018-11-09)
+        ++++++++++++++++++
+        - Packaging fixes
+        
+        History
+        -------
+        0.1 (2018-11-08)
+        ++++++++++++++++++
+        - First version
+        
+Keywords: modbus vmc boiler dedietrich unelvent ideo
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Home Automation
