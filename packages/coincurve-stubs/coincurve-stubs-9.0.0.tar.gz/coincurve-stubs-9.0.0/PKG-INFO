@@ -1,0 +1,34 @@
+Metadata-Version: 1.1
+Name: coincurve-stubs
+Version: 9.0.0
+Summary: Stubs, i.e., type information, for Coincurve
+Home-page: https://github.com/planetarium/coincurve-stubs
+Author: Hong Minhee
+Author-email: hong.minhee@gmail.com
+License: MIT
+Description: coincurve-stubs
+        ===============
+        
+        This is a `PEP-561`_-compliant stub-only package which provides type information
+        of Coincurve_, an elliptic curve secp256k1 library.  Mypy_ type checker can
+        recognize__ Coincurve's types by installing this package:
+        
+        .. code-block:: bash
+        
+           pip install coincurve-stubs
+        
+        .. _PEP-561: https://www.python.org/dev/peps/pep-0561/
+        .. _Coincurve: https://github.com/ofek/coincurve
+        .. _Mypy: http://www.mypy-lang.org/
+        __ https://mypy.readthedocs.io/en/latest/installed_packages.html
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development
