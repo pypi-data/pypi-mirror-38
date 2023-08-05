@@ -1,0 +1,3 @@
+[console_scripts]
+dline = dline.__main__:main
+
