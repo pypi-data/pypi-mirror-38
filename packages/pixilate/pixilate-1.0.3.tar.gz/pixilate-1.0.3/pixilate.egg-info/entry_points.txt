@@ -1,0 +1,3 @@
+[console_scripts]
+pixilate = pixilate.__main__:main
+
