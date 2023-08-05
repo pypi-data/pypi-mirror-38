@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.rst
+requirements.txt
+setup.cfg
+setup.py
+bitsio/__init__.py
+bitsio/_version.py
+bitsio/bitsio.py
+bitsio.egg-info/PKG-INFO
+bitsio.egg-info/SOURCES.txt
+bitsio.egg-info/dependency_links.txt
+bitsio.egg-info/top_level.txt
