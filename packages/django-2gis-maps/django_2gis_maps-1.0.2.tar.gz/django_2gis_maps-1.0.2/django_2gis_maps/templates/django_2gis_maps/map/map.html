@@ -1,0 +1,27 @@
+<script src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full{% if skin %}&skin={{ skin }}{% endif %}"></script>
+<div class="map_canvas_wrapper" style="height: 100%;width: 100%;">
+    <div id="map" style="width: {{ width }}; height: {{ height }};" data-zoom="{{ zoom }}"
+         data-lat="{% for item in geolocation %}{{ item.lat }};{% endfor %}"
+         data-lng="{% for item in geolocation %}{{ item.lng }};{% endfor %}" data-popup="{{ popup }}"></div>
+</div>
+<script>
+    DG.then(function () {
+        var lat = $('#map').attr('data-lat').split(';');
+        var lng = $('#map').attr('data-lng').split(';');
+        var zoom = $('#map').attr('data-zoom');
+        var popup = $('#map').attr('data-popup');
+        var markers = DG.featureGroup();
+        var map = DG.map('map', {
+            center: [lat[0], lng[0]],
+            zoom: zoom ? zoom : 13
+        });
+        for (var i = 0; i < lat.length; i++) {
+            if (lat[i] !== '') {
+                var marker = DG.marker([lat[i], lng[i]]).addTo(markers);
+                popup ? marker.bindPopup('<h4 style="max-width: 95%;margin:auto;">{{ instance.address }}</h4>').openPopup() : null;
+            }
+        }
+        markers.addTo(map);
+        zoom ? '' : map.fitBounds(markers.getBounds());
+    });
+</script>
