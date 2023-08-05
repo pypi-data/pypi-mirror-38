@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: django-ledger
+Version: 0.0.2
+Summary: Financial analysis backend for Django. Balance Sheet, Income Statements, Chart of Accounts, Entities
+Home-page: http://djangoledger.io
+Author: Miguel Sanda
+Author-email: msanda@arrobalytics.com
+License: BSD License
+Keywords: django,finance,accounting,balance,sheet,income,statement,general,ledger
+Platform: UNKNOWN
+Requires-Dist: pandas
+Requires-Dist: django-mptt
+Requires-Dist: django-pandas
+Requires-Dist: jsonfield
+
+UNKNOWN
+
+
