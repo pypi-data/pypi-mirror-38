@@ -1,0 +1,17 @@
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_todx.py,sha256=MLelNTJjuTqKbzWFQruHrSp7AGwFNzDOBHDyh_Pbx1o,85
+todx/__init__.py,sha256=J8tQUxAjA1zp_bJmcDu_Q5Umc0F0Mtrps8JeFNYft-o,166
+todx/fabric.py,sha256=aF0Mva4Qht86Wh9Jnwpidk71aTAptKgHUJv0IG3JP3s,2118
+todx/filehandler-test.py,sha256=wvOO8ksSFWyKKjwESW_uaBt3pulU1yfGCj5hPbg0hMQ,572
+todx/filehandler.py,sha256=8KHbzYsL9PLWsp7kW23vNm8P5ZIGfEAZtT6TxALHUz8,1837
+todx/main.py,sha256=Fm2QFskyfJqGgTUQp9lD9ukdW_LJH9dWBpkqTU-fnPQ,1208
+todx/parse_functions.py,sha256=HzDd_ObZjGmaOwGq7ccUbaA1lv6nHEEQSe5GHjh1ubM,3349
+todx/searcher.py,sha256=GELkXQtNxZF0rPWoEggjat3eV0TVE5oyNk7xSw0Vtlo,574
+todx/settings.py,sha256=3OsH4G-Z_a6_ecVwsU--6YOgZaC8ehoJAlUmWGtbibk,315
+todx/yesnoquery.py,sha256=FhN-c7WAnSgQuXNMoppMsEaitajgom4Zxp-Ev0I_FWg,1151
+todx-0.1.2.dist-info/LICENSE,sha256=2ylvL381vKOhdO-w6zkrOxe9lLNBhRQpo9_0EbHC_HM,18046
+todx-0.1.2.dist-info/METADATA,sha256=59OKM3Z0vcci9VCUqFRvR3mzjZN6UCTzId2qJDiO5_Y,722
+todx-0.1.2.dist-info/WHEEL,sha256=MYFsq5fFBwF_oyJgrOoFmYYB1K6Sw7MxY-0897ZLbdM,92
+todx-0.1.2.dist-info/entry_points.txt,sha256=hqciRrhXGMgSChB2M2ujyDQwA4mL3p1UfoWwDgDns6U,49
+todx-0.1.2.dist-info/top_level.txt,sha256=EGGgpf7yc0cjCzFZf9s5Oyf5i-t2o4LOkaa0pxBPlOs,11
+todx-0.1.2.dist-info/RECORD,,

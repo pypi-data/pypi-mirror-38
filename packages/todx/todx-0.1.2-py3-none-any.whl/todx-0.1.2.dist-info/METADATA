@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: todx
+Version: 0.1.2
+Summary: A simple todo application
+Home-page: https://github.com/xypnox/todxpy
+Author: xypnox
+Author-email: xypnox@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: appdirs
+Requires-Dist: fuzzywuzzy[speedup]
+
+# todxpy
+Python version of TodX
+
+Probably I should add more readme stuff
+
+To install the program run `pip install todx`
+
+
+## Help
+
+To learn how to use the program refer to blogpost > https://xypnox.github.io/blag/posts/todx-the-todo-manager/
+
