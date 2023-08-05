@@ -1,0 +1,38 @@
+Dates and Times
+***************
+
+class DateTime(value=Unspecified, **kw)
+
+   Bases: "flatland.schema.scalars.Temporal"
+
+   Element type for Python datetime.datetime.
+
+   Serializes to and from YYYY-MM-DD HH:MM:SS format.
+
+   type_
+
+      alias of "datetime.datetime"
+
+class Date(value=Unspecified, **kw)
+
+   Bases: "flatland.schema.scalars.Temporal"
+
+   Element type for Python datetime.date.
+
+   Serializes to and from YYYY-MM-DD format.
+
+   type_
+
+      alias of "datetime.date"
+
+class Time(value=Unspecified, **kw)
+
+   Bases: "flatland.schema.scalars.Temporal"
+
+   Element type for Python datetime.time.
+
+   Serializes to and from HH:MM:SS format.
+
+   type_
+
+      alias of "datetime.time"

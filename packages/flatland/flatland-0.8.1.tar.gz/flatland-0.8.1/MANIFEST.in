@@ -1,0 +1,7 @@
+# stuff we need to include into the sdist is handled automatically by
+# setuptools_scm - it includes all git-committed files.
+# but we want to exclude some committed files/dirs not needed in the sdist:
+exclude .gitattributes .gitignore .hgignore .travis.yml
+recursive-include flatland *.mo
+recursive-include docs/text *txt
+recursive-include docs/html *html *txt *png *css *js *inv

@@ -1,0 +1,393 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Validator API &#8212; flatland 0.8.1 documentation</title>
+    <link rel="stylesheet" href="../_static/flatland.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Included Validators" href="builtin.html" />
+    <link rel="prev" title="Custom Validation" href="custom.html" /> 
+  </head><body>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="validator-api">
+<h1>Validator API<a class="headerlink" href="#validator-api" title="Permalink to this headline">¶</a></h1>
+<p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">Validator</span></code> class implements the validator
+callable interface and adds conveniences for messaging, internationalization,
+and customization.</p>
+<p>To use it, subclass <code class="docutils literal notranslate"><span class="pre">Validator</span></code> and implement
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">validate()</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">flatland.validation</span> <span class="kn">import</span> <span class="n">Validator</span>
+
+<span class="k">class</span> <span class="nc">NoShouting</span><span class="p">(</span><span class="n">Validator</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Disallow ALL CAPS TEXT.&quot;&quot;&quot;</span>
+
+    <span class="n">has_shouting</span> <span class="o">=</span> <span class="s2">&quot;NO SHOUTING in </span><span class="si">%(label)s</span><span class="s2">, please.&quot;</span>
+
+    <span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">element</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">isupper</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">note_error</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="s1">&#39;has_shouting&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">False</span>
+        <span class="k">return</span> <span class="bp">True</span>
+
+<span class="kn">from</span> <span class="nn">flatland</span> <span class="kn">import</span> <span class="n">String</span>
+
+<span class="n">schema</span> <span class="o">=</span> <span class="n">String</span><span class="o">.</span><span class="n">using</span><span class="p">(</span><span class="n">validators</span><span class="o">=</span><span class="p">[</span><span class="n">NoShouting</span><span class="p">()])</span>
+</pre></div>
+</div>
+<p>Above is a <code class="docutils literal notranslate"><span class="pre">Validator</span></code> version of the basic <a class="reference external" href="no_shouting">Customizing Validators</a> example.  In this version, the
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">flatland.validation.Validator.note_error()</span></code> method allows the
+messaging to be separated from the validation logic.  <code class="docutils literal notranslate"><span class="pre">note_error</span></code> has
+some useful features, including templating and automatic I18N translation.</p>
+<div class="section" id="id1">
+<h2>Customizing Validators<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>The base constructor of the <code class="docutils literal notranslate"><span class="pre">Validator</span></code> class has a twist that makes
+customizing existing Validators on the fly a breeze.  The constructor can be
+passed keyword arguments matching any class attribute, and they will be
+overridden on the instance.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">schema</span> <span class="o">=</span> <span class="n">String</span><span class="o">.</span><span class="n">using</span><span class="p">(</span><span class="n">validators</span><span class="o">=</span><span class="p">[</span><span class="n">NoShouting</span><span class="p">(</span><span class="n">has_shouting</span><span class="o">=</span><span class="s1">&#39;shh.&#39;</span><span class="p">)])</span>
+</pre></div>
+</div>
+<p>Subclassing achieves the same effect.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">QuietPlease</span><span class="p">(</span><span class="n">NoShouting</span><span class="p">):</span>
+    <span class="n">has_shouting</span> <span class="o">=</span> <span class="s1">&#39;shh.&#39;</span>
+
+<span class="n">schema</span> <span class="o">=</span> <span class="n">String</span><span class="o">.</span><span class="n">using</span><span class="p">(</span><span class="n">validators</span><span class="o">=</span><span class="p">[</span><span class="n">QuietPlease</span><span class="p">()])</span>
+</pre></div>
+</div>
+<p>The validators that ship with Flatland place all of their messaging and as
+much configurable behavior as possible in class attributes to support easy
+customization.</p>
+</div>
+<div class="section" id="message-templating">
+<h2>Message Templating<a class="headerlink" href="#message-templating" title="Permalink to this headline">¶</a></h2>
+<p>Messages prepared by <code class="xref py py-meth docutils literal notranslate"><span class="pre">Validator.note_error()</span></code> and
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">Validator.note_warning()</span></code> may be templated using keywords in the
+sprintf-style Python string format syntax.</p>
+<p>Possible keys are taken from multiple sources.  In order of priority:</p>
+<ul class="simple">
+<li>Keyword arguments sent to the <code class="docutils literal notranslate"><span class="pre">note_error</span></code> and <code class="docutils literal notranslate"><span class="pre">note_warning</span></code> methods.</li>
+<li>Elements of <code class="docutils literal notranslate"><span class="pre">state</span></code>, if <code class="docutils literal notranslate"><span class="pre">state</span></code> is dict-like or supports <code class="docutils literal notranslate"><span class="pre">[index]</span></code>
+access.</li>
+<li>Attributes of <code class="docutils literal notranslate"><span class="pre">state</span></code>.</li>
+<li>Attributes of the <code class="docutils literal notranslate"><span class="pre">Validator</span></code> instance.</li>
+<li>Attributes of the <code class="docutils literal notranslate"><span class="pre">element</span></code>.</li>
+</ul>
+</div>
+<div class="section" id="message-pluralization">
+<h2>Message Pluralization<a class="headerlink" href="#message-pluralization" title="Permalink to this headline">¶</a></h2>
+<p>Flatland supports <code class="docutils literal notranslate"><span class="pre">ngettext</span></code>-style message pluralization.  For this
+style, messages are specified as a 3-tuple of (<code class="docutils literal notranslate"><span class="pre">singular</span> <span class="pre">message</span></code>,
+<code class="docutils literal notranslate"><span class="pre">plural</span> <span class="pre">message</span></code>, <code class="docutils literal notranslate"><span class="pre">n-key</span></code>).  <code class="docutils literal notranslate"><span class="pre">n_key</span></code> is any <a class="reference external" href="MessageTemplating">valid templating keyword</a>, and its value <code class="docutils literal notranslate"><span class="pre">n</span></code> will be looked up using the
+same resolution rules.  If the value <code class="docutils literal notranslate"><span class="pre">n</span></code> equals 1, the singular form will
+be used.  Otherwise the plural.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">flatland.validation</span> <span class="kn">import</span> <span class="n">Validator</span>
+
+<span class="k">class</span> <span class="nc">MinLength</span><span class="p">(</span><span class="n">Validator</span><span class="p">):</span>
+
+    <span class="n">min_length</span> <span class="o">=</span> <span class="mi">2</span>
+
+    <span class="n">too_short</span> <span class="o">=</span> <span class="p">(</span>
+      <span class="s2">&quot;</span><span class="si">%(label)s</span><span class="s2"> must be at least one character long.&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;</span><span class="si">%(label)s</span><span class="s2"> must be at least </span><span class="si">%(min_length)s</span><span class="s2"> characters long.&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;min_length&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">element</span><span class="o">.</span><span class="n">value</span><span class="p">)</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">min_length</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">note_error</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="s2">&quot;too_short&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">False</span>
+        <span class="k">return</span> <span class="bp">True</span>
+</pre></div>
+</div>
+<p>Conditional pluralization functions with or without I18N configured.</p>
+</div>
+<div class="section" id="message-internationalization">
+<span id="msg-i18n"></span><h2>Message Internationalization<a class="headerlink" href="#message-internationalization" title="Permalink to this headline">¶</a></h2>
+<p>Messages can be translated using gettext-compatible functions.  Translation
+works in conjunction with message templating features: the message itself is
+translated, and strings substituted into the message are also translated
+individually.</p>
+<p>Translation uses <code class="docutils literal notranslate"><span class="pre">ugettext</span></code> and optionally <code class="docutils literal notranslate"><span class="pre">ungettext</span></code> functions that you
+provide.  You may place these functions in the <code class="docutils literal notranslate"><span class="pre">state</span></code>, place them on the
+<code class="docutils literal notranslate"><span class="pre">element</span></code> or its schema, or place them in Python’s builtins.</p>
+<p>An element’s ancestry will be searched for these functions.  If you like, you
+may assign them solely to the top-most element or its schema and they will be
+used to translate all of its child elements.</p>
+<p>If you opt to supply <code class="docutils literal notranslate"><span class="pre">ugettext</span></code> but not <code class="docutils literal notranslate"><span class="pre">ungettext</span></code>, Flatland’s built-in
+pluralization will kick in if a pluralized message is found.  Flatland will
+choose the correct form internally, and the result will be fed through
+<code class="docutils literal notranslate"><span class="pre">ugettext</span></code> for translation.</p>
+</div>
+<div class="section" id="dynamic-messages">
+<h2>Dynamic Messages<a class="headerlink" href="#dynamic-messages" title="Permalink to this headline">¶</a></h2>
+<p>Dynamic generated messages can also take advantage of the templating and
+internationalization features.  There are two options for dynamic messages
+through <code class="xref py py-meth docutils literal notranslate"><span class="pre">Validator.note_error()</span></code> and <code class="xref py py-meth docutils literal notranslate"><span class="pre">Validator.note_warning()</span></code>:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Supply the message directly to <code class="docutils literal notranslate"><span class="pre">note_error</span></code> using <code class="docutils literal notranslate"><span class="pre">message=&quot;...&quot;</span></code>
+instead of a message key.</li>
+<li>Messages looked up by key may also be callables.  The callable will
+be invoked with <code class="docutils literal notranslate"><span class="pre">element</span></code> and <code class="docutils literal notranslate"><span class="pre">state</span></code>, and should return either
+a message string or a 3-tuple as described in <a class="reference external" href="MessagePluralization">pluralization</a>.</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="the-validator-class">
+<h2>The Validator Class<a class="headerlink" href="#the-validator-class" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="flatland.validation.base.Validator">
+<em class="property">class </em><code class="descname">Validator</code><span class="sig-paren">(</span><em>**kw</em><span class="sig-paren">)</span><a class="headerlink" href="#flatland.validation.base.Validator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base class for fancy validators.</p>
+<p>Construct a validator.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>**kw</strong> – override any extant class attribute on this instance.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="flatland.validation.base.Validator.validate">
+<code class="descname">validate</code><span class="sig-paren">(</span><em>element</em>, <em>state</em><span class="sig-paren">)</span><a class="headerlink" href="#flatland.validation.base.Validator.validate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate an element returning True if valid.</p>
+<p>Abstract.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>element</strong> – an <a class="reference internal" href="../schema/schema.html#flatland.schema.base.Element" title="flatland.schema.base.Element"><code class="xref py py-class docutils literal notranslate"><span class="pre">Element</span></code></a> instance.</li>
+<li><strong>state</strong> – an arbitrary object.  Supplied by
+<a class="reference internal" href="../schema/schema.html#flatland.schema.base.Element.validate" title="flatland.schema.base.Element.validate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Element.validate</span></code></a>.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">True if valid</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="flatland.validation.base.Validator.note_error">
+<code class="descname">note_error</code><span class="sig-paren">(</span><em>element</em>, <em>state</em>, <em>key=None</em>, <em>message=None</em>, <em>**info</em><span class="sig-paren">)</span><a class="headerlink" href="#flatland.validation.base.Validator.note_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Record a validation error message on an element.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>element</strong> – An <a class="reference internal" href="../schema/schema.html#flatland.schema.base.Element" title="flatland.schema.base.Element"><code class="xref py py-class docutils literal notranslate"><span class="pre">Element</span></code></a> instance.</li>
+<li><strong>state</strong> – an arbitrary object.  Supplied by <a class="reference internal" href="../schema/schema.html#flatland.schema.base.Element.validate" title="flatland.schema.base.Element.validate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Element.validate</span></code></a>.</li>
+<li><strong>key</strong> – semi-optional, default None.
+The name of a message-holding attribute on this instance.  Will be
+used to <code class="docutils literal notranslate"><span class="pre">message</span> <span class="pre">=</span> <span class="pre">getattr(self,</span> <span class="pre">key)</span></code>.</li>
+<li><strong>message</strong> – semi-optional, default None.  A validation
+message.  Use to provide a specific message rather than look
+one up by <em>key</em>.</li>
+<li><strong>**info</strong> – optional.
+Additional data to make available to validation message
+string formatting.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">False</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Either <em>key</em> or <em>message</em> is required.  The message will have
+formatting expanded by <a class="reference internal" href="#flatland.validation.base.Validator.expand_message" title="flatland.validation.base.Validator.expand_message"><code class="xref py py-meth docutils literal notranslate"><span class="pre">expand_message()</span></code></a> and be appended to
+<a class="reference internal" href="../schema/schema.html#flatland.schema.base.Element.errors" title="flatland.schema.base.Element.errors"><code class="xref py py-attr docutils literal notranslate"><span class="pre">element.errors</span></code></a>.</p>
+<p>Always returns False.  This enables a convenient shorthand when
+writing validators:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">flatland.validation</span> <span class="kn">import</span> <span class="n">Validator</span>
+
+<span class="k">class</span> <span class="nc">MyValidator</span><span class="p">(</span><span class="n">Validator</span><span class="p">):</span>
+    <span class="n">my_message</span> <span class="o">=</span> <span class="s1">&#39;Oh noes!&#39;</span>
+
+    <span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">element</span><span class="o">.</span><span class="n">value</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">note_error</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="s1">&#39;my_message&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="flatland.validation.base.Validator.note_warning">
+<code class="descname">note_warning</code><span class="sig-paren">(</span><em>element</em>, <em>state</em>, <em>key=None</em>, <em>message=None</em>, <em>**info</em><span class="sig-paren">)</span><a class="headerlink" href="#flatland.validation.base.Validator.note_warning" title="Permalink to this definition">¶</a></dt>
+<dd><p>Record a validation warning message on an element.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>element</strong> – An <a class="reference internal" href="../schema/schema.html#flatland.schema.base.Element" title="flatland.schema.base.Element"><code class="xref py py-class docutils literal notranslate"><span class="pre">Element</span></code></a> instance.</li>
+<li><strong>state</strong> – an arbitrary object.  Supplied by <a class="reference internal" href="../schema/schema.html#flatland.schema.base.Element.validate" title="flatland.schema.base.Element.validate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Element.validate</span></code></a>.</li>
+<li><strong>key</strong> – semi-optional, default None.
+The name of a message-holding attribute on this instance.  Will be
+used to <code class="docutils literal notranslate"><span class="pre">message</span> <span class="pre">=</span> <span class="pre">getattr(self,</span> <span class="pre">key)</span></code>.</li>
+<li><strong>message</strong> – semi-optional, default None.  A validation
+message.  Use to provide a specific message rather than look
+one up by <em>key</em>.</li>
+<li><strong>**info</strong> – optional.
+Additional data to make available to validation message
+string formatting.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">False</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Either <em>key</em> or <em>message</em> is required.  The message will have
+formatting expanded by <a class="reference internal" href="#flatland.validation.base.Validator.expand_message" title="flatland.validation.base.Validator.expand_message"><code class="xref py py-meth docutils literal notranslate"><span class="pre">expand_message()</span></code></a> and be appended to
+<a class="reference internal" href="../schema/schema.html#flatland.schema.base.Element.warnings" title="flatland.schema.base.Element.warnings"><code class="xref py py-attr docutils literal notranslate"><span class="pre">element.warnings</span></code></a>.</p>
+<p>Always returns False.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="flatland.validation.base.Validator.find_transformer">
+<code class="descname">find_transformer</code><span class="sig-paren">(</span><em>type</em>, <em>element</em>, <em>state</em>, <em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#flatland.validation.base.Validator.find_transformer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Locate a message-transforming function, such as ugettext.</p>
+<p>Returns None or a callable.  The callable must return a
+message.  The call signature of the callable is expected to
+match <code class="docutils literal notranslate"><span class="pre">ugettext</span></code> or <code class="docutils literal notranslate"><span class="pre">ungettext</span></code>:</p>
+<ul class="simple">
+<li>If <em>type</em> is ‘ugettext’, the callable should take a message
+as a positional argument.</li>
+<li>If <em>type</em> is ‘ungettext’, the callable should take three
+positional arguments: a message for the singular form, a
+message for the plural form, and an integer.</li>
+</ul>
+<p>Subclasses may override this method to provide advanced
+message transformation and translation functionality, on a
+per-element or per-message granularity if desired.</p>
+<p>The default implementation uses the following logic to locate
+a transformer:</p>
+<ol class="arabic simple">
+<li>If <em>state</em> has an attribute or item named <em>type</em>, return that.</li>
+<li>If the <em>element</em> or any of its parents have an attribute
+named <em>type</em>, return that.</li>
+<li>If the schema of <em>element</em> or the schema of any of its
+parents have an attribute named <em>type</em>, return that.</li>
+<li>If <em>type</em> is in <code class="docutils literal notranslate"><span class="pre">__builtin__</span></code>, return that.</li>
+<li>Otherwise return <code class="docutils literal notranslate"><span class="pre">None</span></code>.</li>
+</ol>
+</dd></dl>
+
+<dl class="method">
+<dt id="flatland.validation.base.Validator.expand_message">
+<code class="descname">expand_message</code><span class="sig-paren">(</span><em>element</em>, <em>state</em>, <em>message</em>, <em>**extra_format_args</em><span class="sig-paren">)</span><a class="headerlink" href="#flatland.validation.base.Validator.expand_message" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply formatting to a validation message.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>element</strong> – an <a class="reference internal" href="../schema/schema.html#flatland.schema.base.Element" title="flatland.schema.base.Element"><code class="xref py py-class docutils literal notranslate"><span class="pre">Element</span></code></a> instance.</li>
+<li><strong>state</strong> – an arbitrary object.  Supplied by
+<a class="reference internal" href="../schema/schema.html#flatland.schema.base.Element.validate" title="flatland.schema.base.Element.validate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Element.validate</span></code></a>.</li>
+<li><strong>message</strong> – <p>a string, 3-tuple or callable.
+If a 3-tuple, must be of the form (‘single form’, ‘plural form’,
+n_key).</p>
+<p>If callable, will be called with 2 positional arguments (<em>element</em>,
+<em>state</em>) and must return a string or 3-tuple.</p>
+</li>
+<li><strong>**extra_format_args</strong> – optional.
+Additional data to make available to validation message
+string formatting.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the formatted string</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>See <a class="reference internal" href="#message-templating">Message Templating</a>, <a class="reference internal" href="#message-pluralization">Message Pluralization</a> and <a class="reference internal" href="#message-internationalization">Message
+Internationalization</a> for full information on how messages are
+expanded.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/flatland.png" alt="Logo"/>
+            </a></p>
+  <h3>Contents</h3>
+  <ul>
+    <li><ul>
+<li><a class="reference internal" href="#">Validator API</a><ul>
+<li><a class="reference internal" href="#id1">Customizing Validators</a></li>
+<li><a class="reference internal" href="#message-templating">Message Templating</a></li>
+<li><a class="reference internal" href="#message-pluralization">Message Pluralization</a></li>
+<li><a class="reference internal" href="#message-internationalization">Message Internationalization</a></li>
+<li><a class="reference internal" href="#dynamic-messages">Dynamic Messages</a></li>
+<li><a class="reference internal" href="#the-validator-class">The Validator Class</a></li>
+</ul>
+</li>
+</ul>
+</li>
+  </ul>
+<h3>Topics</h3>
+<ul>
+  <li><ul>
+  <li><a href="index.html">Validation</a><ul>
+      <li>Previous: <a href="custom.html" title="previous chapter">Custom Validation</a></li>
+      <li>Next: <a href="builtin.html" title="next chapter">Included Validators</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2008-2018, the flatland authors and contributors.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1.
+    </div>
+  </body>
+</html>

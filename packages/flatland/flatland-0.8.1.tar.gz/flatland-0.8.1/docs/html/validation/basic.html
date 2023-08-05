@@ -1,0 +1,179 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Basic Validation &#8212; flatland 0.8.1 documentation</title>
+    <link rel="stylesheet" href="../_static/flatland.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Custom Validation" href="custom.html" />
+    <link rel="prev" title="Validation" href="index.html" /> 
+  </head><body>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="basic-validation">
+<h1>Basic Validation<a class="headerlink" href="#basic-validation" title="Permalink to this headline">¶</a></h1>
+<p>All elements support validation.  The default, built-in validation logic is
+simple: if the element is empty, it is invalid.  Otherwise it is valid.</p>
+<p>If that sounds too simple don’t worry- you can customize validation to suit
+your needs.</p>
+<div class="section" id="validating-an-element">
+<h2>Validating an Element<a class="headerlink" href="#validating-an-element" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">flatland</span> <span class="kn">import</span> <span class="n">String</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">form</span> <span class="o">=</span> <span class="n">String</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">form</span><span class="o">.</span><span class="n">is_empty</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">form</span><span class="o">.</span><span class="n">valid</span>
+<span class="go">Unevaluated</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">form</span><span class="o">.</span><span class="n">validate</span><span class="p">()</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">form</span><span class="o">.</span><span class="n">valid</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<p>Validation sets the <code class="xref py py-attr docutils literal notranslate"><span class="pre">valid</span></code> attribute of each element
+it inspects.  <code class="xref py py-meth docutils literal notranslate"><span class="pre">validate()</span></code> may be invoked more than
+once.</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">form</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;Squiznart&#39;</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">form</span><span class="o">.</span><span class="n">is_empty</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">form</span><span class="o">.</span><span class="n">validate</span><span class="p">()</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">form</span><span class="o">.</span><span class="n">valid</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>Note that default validation does not set any error messages that might be
+displayed to an interactive user.  Messages are easily added through custom
+validation.</p>
+</div>
+<div class="section" id="validating-entire-forms-at-once">
+<h2>Validating Entire Forms At Once<a class="headerlink" href="#validating-entire-forms-at-once" title="Permalink to this headline">¶</a></h2>
+<p><code class="xref py py-meth docutils literal notranslate"><span class="pre">validate()</span></code> is recursive by default.  Called on a
+parent node, it will descend through all of its children, validating each.  If
+the parent or any one of its children are invalid, <code class="docutils literal notranslate"><span class="pre">validate</span></code> returns false.
+Note that recursion does <strong>not</strong> stop if it finds an invalid child: all
+children are evaluated, and each will have its <code class="xref py py-attr docutils literal notranslate"><span class="pre">valid</span></code>
+attribute updated.</p>
+</div>
+<div class="section" id="optional-elements">
+<h2>Optional Elements<a class="headerlink" href="#optional-elements" title="Permalink to this headline">¶</a></h2>
+<p>If an element is marked as <code class="xref py py-attr docutils literal notranslate"><span class="pre">optional</span></code>, it is
+exempt from validation when empty.  With the default validation
+strategy, this effectively means that element can never be invalid.
+With custom validation, optional fields become more useful.</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">flatland</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Integer</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">schema</span> <span class="o">=</span> <span class="n">Dict</span><span class="o">.</span><span class="n">of</span><span class="p">(</span><span class="n">Integer</span><span class="o">.</span><span class="n">named</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">),</span>
+<span class="gp">... </span>                 <span class="n">Integer</span><span class="o">.</span><span class="n">named</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">),</span>
+<span class="gp">... </span>                 <span class="n">Integer</span><span class="o">.</span><span class="n">named</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">using</span><span class="p">(</span><span class="n">optional</span><span class="o">=</span><span class="bp">True</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">form</span> <span class="o">=</span> <span class="n">schema</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">form</span><span class="o">.</span><span class="n">validate</span><span class="p">()</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">form</span><span class="o">.</span><span class="n">valid</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">valid</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">valid</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">valid</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="validation-signals">
+<h2>Validation Signals<a class="headerlink" href="#validation-signals" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference internal" href="../signals.html#flatland.signals.validator_validated" title="flatland.signals.validator_validated"><code class="xref py py-obj docutils literal notranslate"><span class="pre">flatland.signals.validator_validated</span></code></a> signal is emitted each time a
+validator evaluates an element.  The signal’s sender is the validator (or the
+symbol <code class="xref py py-obj docutils literal notranslate"><span class="pre">flatland.validation.NotEmpty</span></code> for the default validation
+strategy).  The signal also sends the <code class="docutils literal notranslate"><span class="pre">element</span></code>, the <code class="docutils literal notranslate"><span class="pre">state</span></code>, and the
+<code class="docutils literal notranslate"><span class="pre">result</span></code> of the validation function.</p>
+<p>During development, it can be convenient to connect the
+<a class="reference internal" href="../signals.html#flatland.signals.validator_validated" title="flatland.signals.validator_validated"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validator_validated</span></code></a> signal to a logging function to
+aid in debugging.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">flatland.signals</span> <span class="kn">import</span> <span class="n">validator_validated</span>
+
+<span class="nd">@validator_validated.connect</span>
+<span class="k">def</span> <span class="nf">monitor_validation</span><span class="p">(</span><span class="n">sender</span><span class="p">,</span> <span class="n">element</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">result</span><span class="p">):</span>
+    <span class="c1"># print or logging.debug validations as they happen:</span>
+    <span class="k">print</span> <span class="s2">&quot;validation: </span><span class="si">%s</span><span class="s2">(</span><span class="si">%s</span><span class="s2">) valid == </span><span class="si">%r</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span>
+      <span class="n">sender</span><span class="p">,</span> <span class="n">element</span><span class="o">.</span><span class="n">flattened_name</span><span class="p">(),</span> <span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">flatland</span> <span class="kn">import</span> <span class="n">String</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">form</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;surname&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">form</span><span class="o">.</span><span class="n">validate</span><span class="p">()</span>
+<span class="go">validation: NotEmpty(surname) valid == False</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/flatland.png" alt="Logo"/>
+            </a></p>
+  <h3>Contents</h3>
+  <ul>
+    <li><ul>
+<li><a class="reference internal" href="#">Basic Validation</a><ul>
+<li><a class="reference internal" href="#validating-an-element">Validating an Element</a></li>
+<li><a class="reference internal" href="#validating-entire-forms-at-once">Validating Entire Forms At Once</a></li>
+<li><a class="reference internal" href="#optional-elements">Optional Elements</a></li>
+<li><a class="reference internal" href="#validation-signals">Validation Signals</a></li>
+</ul>
+</li>
+</ul>
+</li>
+  </ul>
+<h3>Topics</h3>
+<ul>
+  <li><ul>
+  <li><a href="index.html">Validation</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Validation</a></li>
+      <li>Next: <a href="custom.html" title="next chapter">Custom Validation</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2008-2018, the flatland authors and contributors.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1.
+    </div>
+  </body>
+</html>

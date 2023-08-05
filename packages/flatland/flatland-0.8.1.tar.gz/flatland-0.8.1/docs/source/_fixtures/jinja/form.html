@@ -1,0 +1,9 @@
+{% from 'widgets.html' import widget -%}
+<html>
+  <body>
+    <form>
+      {{- widget(form['username']) }}
+      {{- widget(form['password']) }}
+    </form>
+  </body>
+</html>

@@ -1,0 +1,145 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Overview &#8212; flatland 0.8.1 documentation</title>
+    <link rel="stylesheet" href="_static/flatland.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Defining and Using Forms" href="schema/index.html" />
+    <link rel="prev" title="Flatland" href="index.html" /> 
+  </head><body>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="philosophy">
+<h2>Philosophy<a class="headerlink" href="#philosophy" title="Permalink to this headline">¶</a></h2>
+<p>flatland’s design stems from a few basic tenets:</p>
+<blockquote>
+<div><ul class="simple">
+<li>All input is suspect</li>
+<li>Input can come from multiple sources and interfaces</li>
+<li>Bad input isn’t exceptional: it is expected</li>
+</ul>
+</div></blockquote>
+<p>With flatland, you describe exactly what elements your form may contain.
+Forms extract and process only their known elements out of the <code class="docutils literal notranslate"><span class="pre">(key,</span>
+<span class="pre">value)</span></code> input data.  Unexpected or malicious data will not be processed.</p>
+<p>The description of forms and their fields is data-centric rather than HTML or
+interface-centric.  In a flatland form schema, a password input field is
+simply a string, not a “PasswordInput” or the like. The decision about how to
+represent that field is left up to another layer entirely.  Maybe you do want
+an <code class="docutils literal notranslate"><span class="pre">&lt;input</span> <span class="pre">type=&quot;password&quot;&gt;</span></code> control, or maybe <code class="docutils literal notranslate"><span class="pre">&lt;input</span> <span class="pre">type=&quot;hidden&quot;&gt;</span></code> in
+some cases, or sometimes the data is coming in as JSON.  flatland can act as
+another type of M in your M/VC, MC, MVC or MTV.</p>
+<p>Humans are imperfect and filling out forms will always be
+error-prone. flatland recognizes this and provides features to make error
+detection and correction part of the regular workflow of a form.  By default,
+validation routines will consider every element of a form and mark all
+problematic fields, allowing users to take action on all issues at once.</p>
+</div>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Field schemas define all possible fields the form may contain.  A schema may a
+single field, a collection of fields, or an even richer structure.  Nested
+mappings and lists of fields are supported, as well as compound fields and
+even more exotic types.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">flatland</span> <span class="kn">import</span> <span class="n">Form</span><span class="p">,</span> <span class="n">String</span>
+
+<span class="k">class</span> <span class="nc">SignInForm</span><span class="p">(</span><span class="n">Form</span><span class="p">):</span>
+    <span class="n">username</span> <span class="o">=</span> <span class="n">String</span>
+    <span class="n">password</span> <span class="o">=</span> <span class="n">String</span>
+</pre></div>
+</div>
+<p>Field schemas are long-lived objects similar to class definitions.  The
+instantiations of a flatland schema are called data elements, a tree structure
+of data-holding objects.  The elements of a flatland form may be initiated
+blank, using default values, or with values taken from your objects.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">form</span> <span class="o">=</span> <span class="n">SignInForm</span><span class="o">.</span><span class="n">from_flat</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">validate</span><span class="p">():</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">u</span><span class="s2">&quot;sign-in: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">form</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+    <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;/app/&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">render</span><span class="p">(</span><span class="s1">&#39;login.html&#39;</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="n">form</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Elements are rich objects that validate and normalize input data as well as
+hold field-level error and warning messages.  Elements can be exported to a
+native Python structure, flattened back into Unicode (key, value) pairs or
+used as-is in output templates for form layout, redisplay and error reporting.</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">as_regular_python_data</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">value</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">as_regular_python_data</span><span class="p">)</span>
+<span class="go">&lt;type &#39;dict&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">as_regular_python_data</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">]</span>
+<span class="go">u&#39;jek&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">form2</span> <span class="o">=</span> <span class="n">SignInForm</span><span class="p">(</span><span class="n">as_regular_python_data</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="n">form</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="n">form2</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/flatland.png" alt="Logo"/>
+            </a></p>
+  <h3>Contents</h3>
+  <ul>
+    <li><ul>
+<li><a class="reference internal" href="#">Overview</a><ul>
+<li><a class="reference internal" href="#philosophy">Philosophy</a></li>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+</ul>
+</li>
+</ul>
+</li>
+  </ul>
+<h3>Topics</h3>
+<ul>
+  <li><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Flatland</a></li>
+      <li>Next: <a href="schema/index.html" title="next chapter">Defining and Using Forms</a></li>
+  </ul></li>
+</ul>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2008-2018, the flatland authors and contributors.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1.
+    </div>
+  </body>
+</html>

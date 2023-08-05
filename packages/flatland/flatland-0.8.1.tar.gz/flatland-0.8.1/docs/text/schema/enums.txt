@@ -1,0 +1,111 @@
+Enumerations
+************
+
+
+Constrained Types
+=================
+
+class Constrained(value=Unspecified, **kw)
+
+   Bases: "flatland.schema.scalars.Scalar"
+
+   A scalar type with a constrained set of legal values.
+
+   Wraps another scalar type and ensures that a value "set()" is
+   within bounds defined by "valid_value()".  If "valid_value()"
+   returns false, the element is not converted and will have a "value"
+   of None.
+
+   "Constrained" is a semi-abstract class that requires an
+   implementation of "valid_value()", either by subclassing or
+   overriding on a per-instance basis through the constructor.
+
+   An example of a wrapper of int values that only allows the values
+   of 1, 2 or 3:
+
+   >>> from flatland import Constrained, Integer
+   >>> def is_valid(element, value):
+   ...     return value in (1, 2, 3)
+   ...
+   >>> schema = Constrained.using(child_type=Integer, valid_value=is_valid)
+   >>> element = schema()
+   >>> element.set(u'2')
+   True
+   >>> element.value
+   2
+   >>> element.set(u'5')
+   False
+   >>> element.value is None
+   True
+
+   "Enum" is a subclass which provides a convenient enumerated
+   wrapper.
+
+   child_type
+
+      The type of constrained value, defaulting to String.
+
+      alias of "String"
+
+   static valid_value(element, value)
+
+      Returns True if *value* for *element* is within the constraints.
+
+      This method is abstract.  Override in a subclass or pass a
+      custom callable to the "Constrained" constructor.
+
+   adapt(value)
+
+      Given any object *obj*, try to coerce it into native format.
+
+      Returns:
+         the native format or raises AdaptationError on failure.
+
+      This abstract method is called by "set()".
+
+   serialize(value)
+
+      Given any object *obj*, coerce it into a text representation.
+
+      Returns:
+         **Must** return a Unicode text object, always.
+
+      No special effort is made to coerce values not of native or a
+      compatible type.
+
+      This semi-abstract method is called by "set()".  The base
+      implementation returns "str(obj)" (or unicode).
+
+
+"Enum"
+======
+
+class Enum(value=Unspecified, **kw)
+
+   Bases: "flatland.schema.scalars.Constrained"
+
+   A scalar type with a limited set of allowed values.
+
+   By default values are "strings", but can be of any type you like by
+   customizing "child_type".
+
+   valued(*enum_values)
+
+      Return a class with "valid_values" = *enum_values*
+
+      Parameters:
+         ***enum_values** – zero or more values for "valid_values".
+
+      Returns:
+         a new class
+
+   valid_values = ()
+
+      Valid element values.
+
+      Attempting to "set()" a value not present in *valid_values* will
+      cause an adaptation failure, and "value" will be "None".
+
+   valid_value(element, value)
+
+      True if *value* is within "valid_values".

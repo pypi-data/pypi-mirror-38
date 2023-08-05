@@ -1,0 +1,821 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>HTML Forms and Markup &#8212; flatland 0.8.1 documentation</title>
+    <link rel="stylesheet" href="_static/flatland.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Signals" href="signals.html" />
+    <link rel="prev" title="Included Validators" href="validation/builtin.html" /> 
+  </head><body>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="html-forms-and-markup">
+<h1>HTML Forms and Markup<a class="headerlink" href="#html-forms-and-markup" title="Permalink to this headline">¶</a></h1>
+<p>Flatland is not explicitly a form library, although it handles that task
+handily with powerful type conversion and validation error reporting.
+Dedicated form libraries often provide sophisticated “widget” or “control”
+features to render data fields as complex HTML markup with CSS and JavaScript
+support.  The full expression of these features is outside Flatland’s scope.</p>
+<p>However!  Properly generating HTML form tags and filling them with processed
+data is tedious and a common need, so Flatland ships with a minimalistic yet
+powerful toolset for tag generation.  These tools are both highly usable as-is
+and also a solid base for constructing higher-level widgeting systems.</p>
+<div class="section" id="markup-generation">
+<h2>Markup Generation<a class="headerlink" href="#markup-generation" title="Permalink to this headline">¶</a></h2>
+<p>The generation formula is simple: a desired tag (such as <code class="docutils literal notranslate"><span class="pre">input</span></code>) plus a
+flatland Element equals a complete HTML tag with attributes like <code class="docutils literal notranslate"><span class="pre">name</span></code> and
+<code class="docutils literal notranslate"><span class="pre">value</span></code> filled in using the element’s state.</p>
+<p>Operating on <code class="xref py py-class docutils literal notranslate"><span class="pre">Element</span></code> rather than the raw HTTP input or the
+polished final value provides a huge amount of expressive power.  For example,</p>
+<ul class="simple">
+<li>Elements carry their validation errors- place these directly next to the
+form fields, or roll them up- your choice.  Highlight failing fields with a
+<code class="docutils literal notranslate"><span class="pre">class=&quot;error&quot;</span></code> CSS attribute right on the input element.</li>
+<li>(Re)populate form fields with exactly what the user typed, or the normalized
+version.</li>
+<li>Leverage the structure of the schema in template markup- if a form contains
+a list of 1 or more email addresses, loop over that list using your template
+language and render fields.</li>
+<li>Directly access Element properties and metadata, translation functions, and
+cross-element relations to implement complex view problems simply.</li>
+</ul>
+<p>Flatland ships with two generator front-ends, both supporting the same
+features via a shared backend.  The first,
+<a class="reference internal" href="#flatland.out.markup.Generator" title="flatland.out.markup.Generator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Generator</span></code></a>, is for use in straight Python code,
+Jinja2, Mako, Genshi, or any other templating system.  The second is a plugin
+for the Genshi templating library that integrates Flatland element binding
+directly and naturally into your existing &lt;input/&gt; tags.</p>
+<div class="section" id="basic-dwim-binding">
+<h3>Basic DWIM Binding<a class="headerlink" href="#basic-dwim-binding" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">flatland.out.markup</span> <span class="kn">import</span> <span class="n">Generator</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">flatland</span> <span class="kn">import</span> <span class="n">Form</span><span class="p">,</span> <span class="n">String</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">html</span> <span class="o">=</span> <span class="n">Generator</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">Login</span><span class="p">(</span><span class="n">Form</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">username</span> <span class="o">=</span> <span class="n">String</span>
+<span class="gp">... </span>    <span class="n">password</span> <span class="o">=</span> <span class="n">String</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">form</span> <span class="o">=</span> <span class="n">Login</span><span class="p">({</span><span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="s1">&#39;jek&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Basic “Do What I Mean” form binding:</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">html</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">])</span>
+<span class="go">&lt;input name=&quot;username&quot; value=&quot;jek&quot; /&gt;</span>
+</pre></div>
+</div>
+<p>Likewise with Genshi.</p>
+<div class="highlight-html+genshi notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;input</span> <span class="na">form:bind=</span><span class="s">&quot;form.username&quot;/</span><span class="nt">&gt;</span>
+</pre></div>
+</div>
+<p>and Genshi generates:</p>
+<div class="highlight-html+genshi notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">&quot;username&quot;</span> <span class="na">value=</span><span class="s">&quot;jek&quot;/</span><span class="nt">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="attributes-too">
+<h3>Attributes Too<a class="headerlink" href="#attributes-too" title="Permalink to this headline">¶</a></h3>
+<p>Any HTML attribute can be included.  Generated attributes can be overridden,
+too.</p>
+<p>This time, the Generator is used in a Jinja2 template.</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">jinja2</span> <span class="kn">import</span> <span class="n">Template</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">template</span> <span class="o">=</span> <span class="n">Template</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
+<span class="gp">... </span><span class="s2">{{ html.input(form.username, name=&quot;other&quot;, class_=&quot;custom&quot;) }}</span>
+<span class="gp">... </span><span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">html</span><span class="o">=</span><span class="n">html</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="n">form</span><span class="p">)</span>
+<span class="go">&lt;input name=&quot;other&quot; value=&quot;jek&quot; class=&quot;custom&quot; /&gt;</span>
+</pre></div>
+</div>
+<p>These features are very similar in Genshi, too.</p>
+<div class="highlight-html+genshi notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;input</span> <span class="na">form:bind=</span><span class="s">&quot;form.username&quot;</span> <span class="na">name=</span><span class="s">&quot;other&quot;</span> <span class="na">class=</span><span class="s">&quot;custom&quot;/</span><span class="nt">&gt;</span>
+</pre></div>
+</div>
+<p>Which generates the same output:</p>
+<div class="highlight-html+genshi notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">&quot;other&quot;</span> <span class="na">value=</span><span class="s">&quot;jek&quot;</span> <span class="na">class=</span><span class="s">&quot;custom&quot;/</span><span class="nt">&gt;</span>
+</pre></div>
+</div>
+<p>Many Python templating systems allow you to replace the indexing operator
+(<code class="docutils literal notranslate"><span class="pre">form['username']</span></code>) with the attribute operator (<code class="docutils literal notranslate"><span class="pre">form.username</span></code>) to
+improve readability in templates.  As shown above, this kind of rewriting
+trickery is generally not a problem for Flatland.  Just keep name collisions
+in mind- if your form has a String field called <code class="docutils literal notranslate"><span class="pre">name</span></code>, is <code class="docutils literal notranslate"><span class="pre">form.name</span></code> the
+value of your form’s name attribute or is it the String field?  When writing
+macros or reusable functions, using the explicit <code class="docutils literal notranslate"><span class="pre">form[...]</span></code> index syntax is
+a good choice to protect against unexpected mangling by the template system no
+matter what the fields are named.</p>
+</div>
+<div class="section" id="and-more">
+<h3>And More<a class="headerlink" href="#and-more" title="Permalink to this headline">¶</a></h3>
+<p>The tag and attribute generation behavior can be configured and even
+post-processed just as you like it, affecting all of your tags, just one
+template, a block, or even individual tags.</p>
+</div>
+</div>
+<div class="section" id="controlling-attribute-transformations">
+<h2>Controlling Attribute Transformations<a class="headerlink" href="#controlling-attribute-transformations" title="Permalink to this headline">¶</a></h2>
+<p>Out of the box, generation will do everything required for form element
+rendering and repopulation: filling <code class="docutils literal notranslate"><span class="pre">&lt;textarea&gt;s</span></code>, checking checkboxes, etc.
+Flatland can also generate some useful <em>optional</em> attributes, such as <code class="docutils literal notranslate"><span class="pre">id=</span></code>
+and <code class="docutils literal notranslate"><span class="pre">for=</span></code> linking for <code class="docutils literal notranslate"><span class="pre">&lt;label&gt;s</span></code>.  Generation of attributes is controlled
+with markup options at several levels:</p>
+<dl class="docutils">
+<dt>Global:</dt>
+<dd>Everything generated with a Generator instance or within a Genshi
+rendering operation.</dd>
+<dt>Block:</dt>
+<dd>Options can be overridden within the scope of a block, reverting to their
+previous value at the end of the block.</dd>
+<dt>Tag:</dt>
+<dd>Options can overridden on a per-tag basis.</dd>
+<dt>Default:</dt>
+<dd>Finally, each tag has a set of sane default behaviors.</dd>
+</dl>
+<p>Boolean options may be True, or False, “on” or “off”, or set to “auto” to
+revert to the transformation’s built-in default setting.</p>
+</div>
+<div class="section" id="transformations">
+<span id="markupsettings"></span><h2>Transformations<a class="headerlink" href="#transformations" title="Permalink to this headline">¶</a></h2>
+<p>Most transforms require a Flatland element for context, such as setting an
+<code class="docutils literal notranslate"><span class="pre">input</span></code> tag’s <code class="docutils literal notranslate"><span class="pre">value=</span></code> to the element’s Unicode value.  These tags can be
+said to be “bound” to the element.</p>
+<p>Tags need not be bound, however.  Here an unbound <code class="docutils literal notranslate"><span class="pre">textarea</span></code> can still
+participate in <code class="docutils literal notranslate"><span class="pre">tabindex=</span></code> generation.</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">html</span> <span class="o">=</span> <span class="n">Generator</span><span class="p">(</span><span class="n">tabindex</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">html</span><span class="o">.</span><span class="n">textarea</span><span class="p">()</span>
+<span class="go">&lt;textarea&gt;&lt;/textarea&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">html</span><span class="o">.</span><span class="n">textarea</span><span class="p">(</span><span class="n">auto_tabindex</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="go">&lt;textarea tabindex=&quot;100&quot;&gt;&lt;/textarea&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">html</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">auto_tabindex</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="go">u&#39;&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">html</span><span class="o">.</span><span class="n">textarea</span><span class="p">()</span>
+<span class="go">&lt;textarea tabindex=&quot;101&quot;&gt;&lt;/textarea&gt;</span>
+</pre></div>
+</div>
+<p>Setting a boolean option to “on” or True on the tag itself will always attempt
+to apply the transform, allowing the transform to be applied to arbitrary tags
+that normally would not be transformed.</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">html</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="s1">&#39;squiznart&#39;</span><span class="p">,</span> <span class="n">auto_tabindex</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="go">&lt;squiznart tabindex=&quot;102&quot; /&gt;</span>
+</pre></div>
+</div>
+<p>The Python APIs and the Generator tags use “_”-separated transform names
+(valid Python identifiers) as shown below, however please note that Genshi
+uses XML-friendly “-“-separated attribute names in markup.</p>
+<dl class="describe">
+<dt>
+<code class="descname">auto-name</code></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body">on</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Tags:</th><td class="field-body">button, form, input, select, textarea</td>
+</tr>
+</tbody>
+</table>
+<p>Sets the tag <code class="docutils literal notranslate"><span class="pre">name=</span></code> to the bound element’s <code class="xref py py-attr docutils literal notranslate"><span class="pre">.name</span></code>.
+Takes no action if the tag already contains a <code class="docutils literal notranslate"><span class="pre">name=</span></code> attribute, unless
+forced.</p>
+<p>Receives a <code class="docutils literal notranslate"><span class="pre">name=</span></code> attribute:</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">html</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">],</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="p">)</span>
+<span class="go">&lt;input type=&quot;text&quot; name=&quot;username&quot; value=&quot;jek&quot; /&gt;</span>
+</pre></div>
+</div>
+<p>Uses the explicitly provided <code class="docutils literal notranslate"><span class="pre">name=&quot;foo&quot;</span></code>:</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">html</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">],</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;foo&#39;</span><span class="p">)</span>
+<span class="go">&lt;input type=&quot;text&quot; name=&quot;foo&quot; value=&quot;jek&quot; /&gt;</span>
+</pre></div>
+</div>
+<p>Replaces <code class="docutils literal notranslate"><span class="pre">name=&quot;foo&quot;</span></code> with the element’s name:</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">html</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">],</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="n">auto_name</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="go">&lt;input type=&quot;text&quot; name=&quot;username&quot; value=&quot;jek&quot; /&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<code class="descname">auto-value</code></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body">on</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Tags:</th><td class="field-body">button, input, select, textarea</td>
+</tr>
+</tbody>
+</table>
+<p>Uses the bound element’s <code class="xref py py-attr docutils literal notranslate"><span class="pre">.u</span></code> Unicode value for the tag’s
+value.  The semantics of “value” vary by tag.</p>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;input&gt;</span></code> types <strong>text</strong>, <strong>hidden</strong>, <strong>button</strong>, <strong>submit</strong> and <strong>reset</strong>:</p>
+<blockquote>
+<div><p>Sets the <code class="docutils literal notranslate"><span class="pre">value=&quot;&quot;</span></code> attribute of the tag, or omits the attribute if
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">.u</span></code> is the empty string.</p>
+<p>Receives a <code class="docutils literal notranslate"><span class="pre">value=</span></code> attribute:</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">html</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">],</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="p">)</span>
+<span class="go">&lt;input type=&quot;text&quot; name=&quot;username&quot; value=&quot;jek&quot; /&gt;</span>
+</pre></div>
+</div>
+<p>Uses the explicitly provided <code class="docutils literal notranslate"><span class="pre">value=&quot;quux&quot;</span></code>:</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">html</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">],</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s1">&#39;quux&#39;</span><span class="p">)</span>
+<span class="go">&lt;input type=&quot;text&quot; name=&quot;username&quot; value=&quot;quux&quot; /&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;input&gt;</span></code> types <strong>password</strong>, <strong>image</strong> and <strong>file</strong>:</p>
+<blockquote>
+<div><p>No value is added unless forced by setting auto_value on the tag.</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">html</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;password&#39;</span><span class="p">],</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;password&quot;</span><span class="p">)</span>
+<span class="go">&lt;input type=&quot;password&quot; name=&quot;password&quot; /&gt;</span>
+</pre></div>
+</div>
+<p>But this behavior can be forced:</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">html</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;password&#39;</span><span class="p">],</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;password&quot;</span><span class="p">,</span> <span class="n">auto_value</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="go">&lt;input type=&quot;password&quot; name=&quot;password&quot; value=&quot;secret&quot; /&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;input&gt;</span></code> type <strong>radio</strong>:</p>
+<blockquote>
+<div><p>Radio buttons will add a <code class="docutils literal notranslate"><span class="pre">checked=&quot;checked&quot;</span></code> attribute if the literal
+<code class="docutils literal notranslate"><span class="pre">value=</span></code> matches the element’s value.  Or, if the bind is a
+<code class="xref py py-class docutils literal notranslate"><span class="pre">Container</span></code>, <code class="docutils literal notranslate"><span class="pre">value=</span></code> will be compared against the
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">.u</span></code> of each of the container’s children until a match is
+found.</p>
+<p>If the tag lacks a <code class="docutils literal notranslate"><span class="pre">value=</span></code> attribute, no action is taken.</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">form</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">u</span>
+<span class="go">jek</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">html</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">],</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;radio&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;quux&quot;</span><span class="p">)</span>
+<span class="go">&lt;input type=&quot;radio&quot; name=&quot;username&quot; value=&quot;quux&quot; /&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">html</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">],</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;radio&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;jek&quot;</span><span class="p">)</span>
+<span class="go">&lt;input type=&quot;radio&quot; name=&quot;username&quot; value=&quot;jek&quot; checked=&quot;checked&quot; /&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;input&gt;</span></code> type <strong>checkbox</strong>:</p>
+<blockquote>
+<div><p>Check boxes will add a <code class="docutils literal notranslate"><span class="pre">checked=&quot;checked&quot;</span></code> attribute if the literal
+<code class="docutils literal notranslate"><span class="pre">value=</span></code> matches the element’s value.</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">form</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">u</span>
+<span class="go">jek</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">html</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">],</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;checkbox&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;quux&quot;</span><span class="p">)</span>
+<span class="go">&lt;input type=&quot;checkbox&quot; name=&quot;username&quot; value=&quot;quux&quot; /&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">html</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">],</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;checkbox&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;jek&quot;</span><span class="p">)</span>
+<span class="go">&lt;input type=&quot;checkbox&quot; name=&quot;username&quot; value=&quot;jek&quot; checked=&quot;checked&quot; /&gt;</span>
+</pre></div>
+</div>
+<p>Or, if the bind is a <code class="xref py py-class docutils literal notranslate"><span class="pre">Container</span></code>, <code class="docutils literal notranslate"><span class="pre">value=</span></code> will be
+compared against the <code class="xref py py-attr docutils literal notranslate"><span class="pre">.u</span></code> of each of the container’s
+children until a match is found.</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">flatland</span> <span class="kn">import</span> <span class="n">Array</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Bag</span> <span class="o">=</span> <span class="n">Array</span><span class="o">.</span><span class="n">named</span><span class="p">(</span><span class="s1">&#39;bag&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">of</span><span class="p">(</span><span class="n">String</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bag</span> <span class="o">=</span> <span class="n">Bag</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">print</span> <span class="n">html</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">bag</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;checkbox&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">&lt;input type=&quot;checkbox&quot; name=&quot;bag&quot; value=&quot;a&quot; checked=&quot;checked&quot; /&gt;</span>
+<span class="go">&lt;input type=&quot;checkbox&quot; name=&quot;bag&quot; value=&quot;b&quot; /&gt;</span>
+<span class="go">&lt;input type=&quot;checkbox&quot; name=&quot;bag&quot; value=&quot;c&quot; checked=&quot;checked&quot; /&gt;</span>
+</pre></div>
+</div>
+<p>If the tag lacks a <code class="docutils literal notranslate"><span class="pre">value=</span></code> attribute, no action is taken, unless the bind
+is a Boolean.  The missing <code class="docutils literal notranslate"><span class="pre">value=</span></code> will be added using the schema’s
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">Boolean.true</span></code> value.</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">html</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">],</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;checkbox&quot;</span><span class="p">)</span>
+<span class="go">&lt;input type=&quot;checkbox&quot; name=&quot;username&quot; /&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">flatland</span> <span class="kn">import</span> <span class="n">Boolean</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">toggle</span> <span class="o">=</span> <span class="n">Boolean</span><span class="o">.</span><span class="n">named</span><span class="p">(</span><span class="s1">&#39;toggle&#39;</span><span class="p">)()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">html</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">toggle</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;checkbox&quot;</span><span class="p">)</span>
+<span class="go">&lt;input type=&quot;checkbox&quot; name=&quot;toggle&quot; value=&quot;1&quot; /&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">toggle</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">html</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">toggle</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;checkbox&quot;</span><span class="p">)</span>
+<span class="go">&lt;input type=&quot;checkbox&quot; name=&quot;toggle&quot; value=&quot;1&quot; checked=&quot;checked&quot; /&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">toggle</span><span class="o">.</span><span class="n">true</span> <span class="o">=</span> <span class="s2">&quot;yes&quot;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;input&gt;</span></code> types unknown:</p>
+<blockquote>
+<div>For types unknown to flatland, no value is set unless forced by setting
+<code class="docutils literal notranslate"><span class="pre">form:auto-value=&quot;on&quot;</span></code> on the tag.</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;textarea&gt;</span></code>:</p>
+<blockquote>
+<div><p>Textareas will insert the <code class="xref py py-attr docutils literal notranslate"><span class="pre">Element.u</span></code> inside the tag pair.  Content
+supplied with <code class="docutils literal notranslate"><span class="pre">contents=</span></code> for Generators or between Genshi tags will be
+preferred unless forced.</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">html</span><span class="o">.</span><span class="n">textarea</span><span class="p">(</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">])</span>
+<span class="go">&lt;textarea name=&quot;username&quot;&gt;jek&lt;/textarea&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">html</span><span class="o">.</span><span class="n">textarea</span><span class="p">(</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">],</span> <span class="n">contents</span><span class="o">=</span><span class="s2">&quot;quux&quot;</span><span class="p">)</span>
+<span class="go">&lt;textarea name=&quot;username&quot;&gt;quux&lt;/textarea&gt;</span>
+</pre></div>
+</div>
+<p>Note that in Genshi, these two forms are equivalent.</p>
+<div class="highlight-html+genshi notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- these: --&gt;</span>
+<span class="nt">&lt;textarea</span> <span class="na">form:bind=</span><span class="s">&quot;form.username&quot;/</span><span class="nt">&gt;</span>
+<span class="nt">&lt;textarea</span> <span class="na">form:bind=</span><span class="s">&quot;form.username&quot;</span><span class="nt">&gt;</span><span class="p">&lt;/</span><span class="nt">textarea</span><span class="p">&gt;</span>
+
+<span class="c">&lt;!-- will both render as --&gt;</span>
+<span class="nt">&lt;textarea</span> <span class="na">name=</span><span class="s">&quot;username&quot;</span><span class="nt">&gt;</span>jek<span class="p">&lt;/</span><span class="nt">textarea</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;select&gt;</span></code>:</p>
+<blockquote>
+<div><p>Select tags apply a <code class="docutils literal notranslate"><span class="pre">selected=&quot;selected&quot;</span></code> attribute to their
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">&lt;option&gt;</span></code> tags that match the <code class="xref py py-attr docutils literal notranslate"><span class="pre">Element.u</span></code> or, if the bind is
+a <code class="xref py py-class docutils literal notranslate"><span class="pre">Container</span></code>, the <code class="xref py py-attr docutils literal notranslate"><span class="pre">.u</span></code> of one of its
+children.</p>
+<p>For this matching to work, the <code class="docutils literal notranslate"><span class="pre">&lt;option&gt;</span></code> tags must have a literal
+value set in the markup.  The value may an explicit <code class="docutils literal notranslate"><span class="pre">value=</span></code>
+attribute, or it may be the text of the tag.  Leading and trailing
+whitespace will be stripped when considering the text of the tag as
+the value.</p>
+<p>The below will emit <code class="docutils literal notranslate"><span class="pre">selected=&quot;selected&quot;</span></code> if form.field is equal
+to any of “a”, “b”, “c”, and “d”.</p>
+<div class="highlight-html+genshi notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;select</span> <span class="na">form:bind=</span><span class="s">&quot;form.field&quot;</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;option&gt;</span>a<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+   <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">&quot;b&quot;/</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">&quot;c&quot;</span><span class="nt">&gt;</span>label<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+   <span class="nt">&lt;option&gt;</span>
+     d
+   <span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">select</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;button/&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;button</span> <span class="pre">value=&quot;&quot;/&gt;</span></code>:</p>
+<blockquote>
+<div><p>Regular <code class="docutils literal notranslate"><span class="pre">&lt;button/&gt;</span></code> tags will insert the <code class="xref py py-attr docutils literal notranslate"><span class="pre">Element.u</span></code> inside
+the <code class="docutils literal notranslate"><span class="pre">&lt;button&gt;&lt;/button&gt;</span></code> tag pair.  The output will <strong>not</strong> be
+XML-escaped, allowing any markup in the <code class="xref py py-attr docutils literal notranslate"><span class="pre">.u</span></code> to
+render properly.</p>
+<p>If the tag contains a literal <code class="docutils literal notranslate"><span class="pre">value=</span></code> attribute and a value
+override is forced by setting <code class="docutils literal notranslate"><span class="pre">form:auto-value=&quot;on&quot;</span></code>, the
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">.u</span></code> will be placed in the <code class="docutils literal notranslate"><span class="pre">value=</span></code> attribute,
+replacing the existing content.  The value is escaped in this case.</p>
+<div class="highlight-html+genshi notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- set or replace the inner *markup* --&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">form:bind=</span><span class="s">&quot;form.field&quot;/</span><span class="nt">&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">form:bind=</span><span class="s">&quot;form.field&quot;</span> <span class="na">form:auto-value=</span><span class="s">&quot;on&quot;</span><span class="nt">&gt;</span>xyz<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+
+<span class="c">&lt;!-- set the value, retaining the value= style used in the original --&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">form:bind=</span><span class="s">&quot;form.field&quot;</span> <span class="na">value=</span><span class="s">&quot;xyz&quot;</span> <span class="na">form:auto-value=</span><span class="s">&quot;on&quot;/</span><span class="nt">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</dd></dl>
+
+<span class="target" id="auto-domid"></span><dl class="describe">
+<dt>
+<code class="descname">auto-domid</code></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body">off</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Tags:</th><td class="field-body">button, input, select, textarea</td>
+</tr>
+</tbody>
+</table>
+<p>Sets the <code class="docutils literal notranslate"><span class="pre">id=</span></code> attribute of the tag.  Takes no action if the markup
+already contains a <code class="docutils literal notranslate"><span class="pre">id=</span></code> unless forced by setting
+<code class="docutils literal notranslate"><span class="pre">form:auto-domid=&quot;on&quot;</span></code>.</p>
+<p>The id is generated by combining the bound element’s
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">flattened_name</span></code> with the
+<code class="docutils literal notranslate"><span class="pre">domid-format</span></code> in the current scope.  The default format is
+<strong>f_%s</strong>.</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<code class="descname">auto-for</code></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body">on</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Tags:</th><td class="field-body">label</td>
+</tr>
+</tbody>
+</table>
+<p>Sets the <code class="docutils literal notranslate"><span class="pre">for=</span></code> attribute of the tag to the id of the bound element.
+The id is generated using the same process as <a class="reference internal" href="#auto-domid">auto-domid</a>.  No
+consistency checks are performed on the generated id value.</p>
+<p>Defaults to “on”, and will only apply if <a class="reference internal" href="#auto-domid">auto-domid</a> is also “on”.
+Takes no action if the markup already contains a <code class="docutils literal notranslate"><span class="pre">id=</span></code> unless forced
+by setting <code class="docutils literal notranslate"><span class="pre">form:auto-for=&quot;on&quot;</span></code>.</p>
+<div class="highlight-html+genshi notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;form:with</span> <span class="na">auto-domid=</span><span class="s">&quot;on&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;fieldset</span> <span class="na">py:with=</span><span class="s">&quot;</span><span class="n">field</span><span class="o">=</span><span class="n">form</span><span class="o">.</span><span class="n">field</span><span class="s">&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">form:bind=</span><span class="s">&quot;field&quot;</span><span class="nt">&gt;</span><span class="cp">${</span><span class="n">field</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">x</span><span class="cp">}</span><span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">form:bind=</span><span class="s">&quot;field&quot;/</span><span class="nt">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">fieldset</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form:with</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<code class="descname">auto-tabindex</code></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body">off</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Tags:</th><td class="field-body">button, input, select, textarea</td>
+</tr>
+</tbody>
+</table>
+<p>Sets the <code class="docutils literal notranslate"><span class="pre">tabindex</span></code> attribute of tags with an incrementing integer.</p>
+<p>Numbering starts at the scope’s <code class="docutils literal notranslate"><span class="pre">tabindex</span></code>, which has no default.
+Assigning a value for <code class="docutils literal notranslate"><span class="pre">tabindex</span></code> will set the value for the next
+tabindex assignment, and subsequent assignments will increment by one.</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">tabindex</span></code> value of 0 will block the assignment of a tabindex and
+will not be incremented.</p>
+<p>Takes no action if the markup already contains a <code class="docutils literal notranslate"><span class="pre">tabindex=</span></code> unless
+forced by setting <code class="docutils literal notranslate"><span class="pre">form:auto-tabindex=&quot;on&quot;</span></code>.</p>
+<div class="highlight-html+genshi notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;form:with</span> <span class="na">auto-tabindex=</span><span class="s">&quot;on&quot;</span> <span class="na">tabindex=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>
+  <span class="c">&lt;!-- assigns tabindex=&quot;1&quot; --&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">form:bind=</span><span class="s">&quot;form.field&quot;/</span><span class="nt">&gt;</span>
+
+  <span class="c">&lt;!-- leaves existing tabindex in place --&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">tabindex=</span><span class="s">&quot;-1&quot;</span> <span class="na">form:bind=</span><span class="s">&quot;form.field&quot;/</span><span class="nt">&gt;</span>
+
+  <span class="c">&lt;!-- assigns tabindex=&quot;2&quot; --&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">form:auto-tabindex=</span><span class="s">&quot;on&quot;/</span><span class="nt">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form:with</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="generator">
+<h2>Generator<a class="headerlink" href="#generator" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="flatland.out.markup.Generator">
+<em class="property">class </em><code class="descname">Generator</code><span class="sig-paren">(</span><em>markup=u'xhtml'</em>, <em>**settings</em><span class="sig-paren">)</span><a class="headerlink" href="#flatland.out.markup.Generator" title="Permalink to this definition">¶</a></dt>
+<dd><p>General XML/HTML tag generator</p>
+<p>Create a generator.</p>
+<p>Accepts any <a class="reference internal" href="#markupsettings"><span class="std std-ref">Transformations</span></a>, as well as the following:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>markup</strong> – tag output style: <code class="docutils literal notranslate"><span class="pre">'xml'</span></code>, <code class="docutils literal notranslate"><span class="pre">'xhtml'</span></code> or <code class="docutils literal notranslate"><span class="pre">'html'</span></code></li>
+<li><strong>ordered_attributes</strong> – if True (default), output markup attributes
+in a predictable order.  Useful for tests and generally a little
+more pleasant to read.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="flatland.out.markup.Generator.begin">
+<code class="descname">begin</code><span class="sig-paren">(</span><em>**settings</em><span class="sig-paren">)</span><a class="headerlink" href="#flatland.out.markup.Generator.begin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Begin a new <a class="reference internal" href="#markupsettings"><span class="std std-ref">Transformations</span></a> context.</p>
+<p>Puts **settings into effect until a matching <a class="reference internal" href="#flatland.out.markup.Generator.end" title="flatland.out.markup.Generator.end"><code class="xref py py-meth docutils literal notranslate"><span class="pre">end()</span></code></a> is called.
+Each setting specified will mask the current value, reverting when
+<a class="reference internal" href="#flatland.out.markup.Generator.end" title="flatland.out.markup.Generator.end"><code class="xref py py-meth docutils literal notranslate"><span class="pre">end()</span></code></a> is called.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="flatland.out.markup.Generator.end">
+<code class="descname">end</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flatland.out.markup.Generator.end" title="Permalink to this definition">¶</a></dt>
+<dd><p>End a <a class="reference internal" href="#markupsettings"><span class="std std-ref">Transformations</span></a> context.</p>
+<p>Restores the settings that were in effect before <a class="reference internal" href="#flatland.out.markup.Generator.begin" title="flatland.out.markup.Generator.begin"><code class="xref py py-meth docutils literal notranslate"><span class="pre">begin()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="flatland.out.markup.Generator.set">
+<code class="descname">set</code><span class="sig-paren">(</span><em>**settings</em><span class="sig-paren">)</span><a class="headerlink" href="#flatland.out.markup.Generator.set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change the <a class="reference internal" href="#markupsettings"><span class="std std-ref">Transformations</span></a> in effect.</p>
+<p>Change the **settings in the current scope.  Changes remain in
+effect until another <a class="reference internal" href="#flatland.out.markup.Generator.set" title="flatland.out.markup.Generator.set"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set()</span></code></a> or a <a class="reference internal" href="#flatland.out.markup.Generator.end" title="flatland.out.markup.Generator.end"><code class="xref py py-meth docutils literal notranslate"><span class="pre">end()</span></code></a> ends the current
+scope.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="flatland.out.markup.Generator.form">
+<code class="descname">form</code><a class="headerlink" href="#flatland.out.markup.Generator.form" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a <code class="docutils literal notranslate"><span class="pre">&lt;form/&gt;</span></code> tag.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>bind</strong> – optional, a flatland element.</li>
+<li><strong>**attributes</strong> – any desired XML/HTML attributes.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">a printable <a class="reference internal" href="#flatland.out.markup.Tag" title="flatland.out.markup.Tag"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tag</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>If provided with a bind, form tags can generate the <em>name</em> attribute.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="flatland.out.markup.Generator.input">
+<code class="descname">input</code><a class="headerlink" href="#flatland.out.markup.Generator.input" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate an <code class="docutils literal notranslate"><span class="pre">&lt;input/&gt;</span></code> tag.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>bind</strong> – optional, a flatland element.</li>
+<li><strong>**attributes</strong> – any desired XML/HTML attributes.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">a printable <a class="reference internal" href="#flatland.out.markup.Tag" title="flatland.out.markup.Tag"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tag</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>If provided with a bind, input tags can generate the <em>name</em>, <em>value</em>
+and <em>id</em> attributes.  Input tags support <em>tabindex</em> attributes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="flatland.out.markup.Generator.textarea">
+<code class="descname">textarea</code><a class="headerlink" href="#flatland.out.markup.Generator.textarea" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a <code class="docutils literal notranslate"><span class="pre">&lt;textarea/&gt;</span></code> tag.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>bind</strong> – optional, a flatland element.</li>
+<li><strong>**attributes</strong> – any desired XML/HTML attributes.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">a printable <a class="reference internal" href="#flatland.out.markup.Tag" title="flatland.out.markup.Tag"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tag</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>If provided with a bind, textarea tags can generate the <em>name</em> and
+<em>id</em> attributes.  If the bind has a value, it will be used as the tag
+body.  Textarea tags support <em>tabindex</em> attributes.  To provide an
+alternate tag body, either supply <em>contents</em> or use the
+<a class="reference internal" href="#flatland.out.markup.Tag.open" title="flatland.out.markup.Tag.open"><code class="xref py py-meth docutils literal notranslate"><span class="pre">open()</span></code></a> and <a class="reference internal" href="#flatland.out.markup.Tag.close" title="flatland.out.markup.Tag.close"><code class="xref py py-meth docutils literal notranslate"><span class="pre">close()</span></code></a> method of the returned tag.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="flatland.out.markup.Generator.button">
+<code class="descname">button</code><a class="headerlink" href="#flatland.out.markup.Generator.button" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a <code class="docutils literal notranslate"><span class="pre">&lt;button/&gt;</span></code> tag.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>bind</strong> – optional, a flatland element.</li>
+<li><strong>**attributes</strong> – any desired XML/HTML attributes.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">a printable <a class="reference internal" href="#flatland.out.markup.Tag" title="flatland.out.markup.Tag"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tag</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>If provided with a bind, button tags can generate the <em>name</em>, <em>value</em>,
+and <em>id</em> attributes.  Button tags support <em>tabindex</em> attributes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="flatland.out.markup.Generator.select">
+<code class="descname">select</code><a class="headerlink" href="#flatland.out.markup.Generator.select" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a <code class="docutils literal notranslate"><span class="pre">&lt;select/&gt;</span></code> tag.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>bind</strong> – optional, a flatland element.</li>
+<li><strong>**attributes</strong> – any desired XML/HTML attributes.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">a printable <a class="reference internal" href="#flatland.out.markup.Tag" title="flatland.out.markup.Tag"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tag</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>If provided with a bind, select tags can generate the <em>name</em> and <em>id</em>
+attributes.  Select tags support <em>tabindex</em> attributes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="flatland.out.markup.Generator.option">
+<code class="descname">option</code><a class="headerlink" href="#flatland.out.markup.Generator.option" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate an <code class="docutils literal notranslate"><span class="pre">&lt;option/&gt;</span></code> tag.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>bind</strong> – optional, a flatland element.</li>
+<li><strong>**attributes</strong> – any desired XML/HTML attributes.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">a printable <a class="reference internal" href="#flatland.out.markup.Tag" title="flatland.out.markup.Tag"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tag</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>If provided with a bind, option tags can generate the <em>value</em>
+attribute.  To provide tag body, either supply <em>contents</em> or use the
+<a class="reference internal" href="#flatland.out.markup.Tag.open" title="flatland.out.markup.Tag.open"><code class="xref py py-meth docutils literal notranslate"><span class="pre">open()</span></code></a> and <a class="reference internal" href="#flatland.out.markup.Tag.close" title="flatland.out.markup.Tag.close"><code class="xref py py-meth docutils literal notranslate"><span class="pre">close()</span></code></a> method of the returned tag:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="n">generator</span><span class="o">.</span><span class="n">option</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="s1">&#39;&lt;strong&gt;contents&lt;/strong&gt;&#39;</span>
+<span class="nb">print</span> <span class="n">generator</span><span class="o">.</span><span class="n">option</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="flatland.out.markup.Generator.label">
+<code class="descname">label</code><a class="headerlink" href="#flatland.out.markup.Generator.label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a <code class="docutils literal notranslate"><span class="pre">&lt;label/&gt;</span></code> tag.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>bind</strong> – optional, a flatland element.</li>
+<li><strong>**attributes</strong> – any desired XML/HTML attributes.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">a printable <a class="reference internal" href="#flatland.out.markup.Tag" title="flatland.out.markup.Tag"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tag</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>If provided with a bind, label tags can generate the <em>for</em> attribute
+and fill in the tag body with the element’s
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">label</span></code>, if present.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="flatland.out.markup.Generator.tag">
+<code class="descname">tag</code><span class="sig-paren">(</span><em>tagname</em>, <em>bind=None</em>, <em>**attributes</em><span class="sig-paren">)</span><a class="headerlink" href="#flatland.out.markup.Generator.tag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate any tag.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>tagname</strong> – the name of the tag.</li>
+<li><strong>bind</strong> – optional, a flatland element.</li>
+<li><strong>**attributes</strong> – any desired XML/HTML attributes.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">a printable <a class="reference internal" href="#flatland.out.markup.Tag" title="flatland.out.markup.Tag"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tag</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The attribute rules appropriate for <em>tagname</em> will be applied.  For
+example, <code class="docutils literal notranslate"><span class="pre">tag('input')</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">input()</span></code>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="flatland.out.markup.Tag">
+<em class="property">class </em><code class="descname">Tag</code><span class="sig-paren">(</span><em>tagname</em>, <em>context</em>, <em>dangle</em>, <em>paired</em><span class="sig-paren">)</span><a class="headerlink" href="#flatland.out.markup.Tag" title="Permalink to this definition">¶</a></dt>
+<dd><p>A printable markup tag.</p>
+<p>Tags are generated by <a class="reference internal" href="#flatland.out.markup.Generator" title="flatland.out.markup.Generator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Generator</span></code></a> and are usually called
+immediately, returning a fully formed markup string:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="n">generator</span><span class="o">.</span><span class="n">textarea</span><span class="p">(</span><span class="n">contents</span><span class="o">=</span><span class="s2">&quot;hello!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For more fine-tuned control over your markup, you may instead choose to
+use the <a class="reference internal" href="#flatland.out.markup.Tag.open" title="flatland.out.markup.Tag.open"><code class="xref py py-meth docutils literal notranslate"><span class="pre">open()</span></code></a> and <a class="reference internal" href="#flatland.out.markup.Tag.close" title="flatland.out.markup.Tag.close"><code class="xref py py-meth docutils literal notranslate"><span class="pre">close()</span></code></a> methods of the tag:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="n">generator</span><span class="o">.</span><span class="n">textarea</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>
+<span class="nb">print</span> <span class="s2">&quot;hello!&quot;</span>
+<span class="nb">print</span> <span class="n">generator</span><span class="o">.</span><span class="n">textarea</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="flatland.out.markup.Tag.open">
+<code class="descname">open</code><span class="sig-paren">(</span><em>bind=None</em>, <em>**attributes</em><span class="sig-paren">)</span><a class="headerlink" href="#flatland.out.markup.Tag.open" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the opening half of the tag, e.g. <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>bind</strong> – optional, a flatland element.</li>
+<li><strong>**attributes</strong> – any desired tag attributes.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="flatland.out.markup.Tag.close">
+<code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flatland.out.markup.Tag.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the closing half of the tag, e.g. <code class="docutils literal notranslate"><span class="pre">&lt;/p&gt;</span></code>.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="genshi-directives">
+<h2>Genshi Directives<a class="headerlink" href="#genshi-directives" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">ns</span><span class="o">.</span><span class="n">discorporate</span><span class="o">.</span><span class="n">us</span><span class="o">/</span><span class="n">flatland</span><span class="o">/</span><span class="n">genshi</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/flatland.png" alt="Logo"/>
+            </a></p>
+  <h3>Contents</h3>
+  <ul>
+    <li><ul>
+<li><a class="reference internal" href="#">HTML Forms and Markup</a><ul>
+<li><a class="reference internal" href="#markup-generation">Markup Generation</a><ul>
+<li><a class="reference internal" href="#basic-dwim-binding">Basic DWIM Binding</a></li>
+<li><a class="reference internal" href="#attributes-too">Attributes Too</a></li>
+<li><a class="reference internal" href="#and-more">And More</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#controlling-attribute-transformations">Controlling Attribute Transformations</a></li>
+<li><a class="reference internal" href="#transformations">Transformations</a></li>
+<li><a class="reference internal" href="#generator">Generator</a></li>
+<li><a class="reference internal" href="#genshi-directives">Genshi Directives</a></li>
+</ul>
+</li>
+</ul>
+</li>
+  </ul>
+<h3>Topics</h3>
+<ul>
+  <li><ul>
+      <li>Previous: <a href="validation/builtin.html" title="previous chapter">Included Validators</a></li>
+      <li>Next: <a href="signals.html" title="next chapter">Signals</a></li>
+  </ul></li>
+</ul>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2008-2018, the flatland authors and contributors.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1.
+    </div>
+  </body>
+</html>
