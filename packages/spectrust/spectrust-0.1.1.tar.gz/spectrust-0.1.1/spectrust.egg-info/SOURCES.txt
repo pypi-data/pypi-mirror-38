@@ -1,0 +1,12 @@
+README.md
+setup.cfg
+setup.py
+spectrust/__init__.py
+spectrust/__version__.py
+spectrust/api.py
+spectrust/batch.py
+spectrust.egg-info/PKG-INFO
+spectrust.egg-info/SOURCES.txt
+spectrust.egg-info/dependency_links.txt
+spectrust.egg-info/not-zip-safe
+spectrust.egg-info/top_level.txt
