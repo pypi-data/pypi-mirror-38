@@ -1,0 +1,16 @@
+COPYING
+MANIFEST.in
+README.rst
+changelog
+checkrange.py
+findchar.py
+setup.cfg
+setup.py
+tests.py
+upsidedown.py
+util.py
+upsidedown.egg-info/PKG-INFO
+upsidedown.egg-info/SOURCES.txt
+upsidedown.egg-info/dependency_links.txt
+upsidedown.egg-info/entry_points.txt
+upsidedown.egg-info/top_level.txt
