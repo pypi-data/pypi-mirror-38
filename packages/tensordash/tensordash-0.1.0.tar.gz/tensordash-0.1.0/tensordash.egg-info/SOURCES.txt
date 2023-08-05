@@ -1,0 +1,12 @@
+README.md
+setup.py
+tensordash/__init__.py
+tensordash/gqlOperations.py
+tensordash/main.py
+tensordash.egg-info/PKG-INFO
+tensordash.egg-info/SOURCES.txt
+tensordash.egg-info/dependency_links.txt
+tensordash.egg-info/entry_points.txt
+tensordash.egg-info/requires.txt
+tensordash.egg-info/top_level.txt
+test/test.py
