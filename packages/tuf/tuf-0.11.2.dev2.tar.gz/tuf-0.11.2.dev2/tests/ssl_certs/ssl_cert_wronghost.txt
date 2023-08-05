@@ -1,0 +1,71 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 11978009017467706243 (0xa63a6fbd3a969b83)
+    Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C=US, ST=New York, L=Brooklyn, O=NYU, OU=Computer Science and Engineering, CN=notmyhostname
+        Validity
+            Not Before: Sep 12 16:59:17 2018 GMT
+            Not After : Sep  7 16:59:17 2038 GMT
+        Subject: C=US, ST=New York, L=Brooklyn, O=NYU, OU=Computer Science and Engineering, CN=notmyhostname
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (3072 bit)
+                Modulus:
+                    00:c7:21:55:79:1b:16:9d:bd:54:94:22:81:92:cd:
+                    9a:cc:cf:56:f4:af:89:fd:99:33:75:26:fa:78:2c:
+                    4e:23:1b:fb:f4:cf:d4:83:9e:02:7d:6a:a4:c9:24:
+                    9a:41:e8:ec:bb:45:3f:80:9c:64:15:84:6f:c1:00:
+                    32:e6:50:13:ae:ca:58:da:4c:a2:59:88:a0:81:65:
+                    c5:0d:6c:fe:8b:c1:13:3e:42:fd:ce:7e:7d:bf:5d:
+                    ec:34:8a:53:fc:85:d0:8f:44:b7:32:bf:59:9e:c5:
+                    27:d6:a0:b2:10:e3:88:c4:9c:59:97:2b:95:fc:cf:
+                    d7:3f:50:cf:e2:d0:2b:84:4b:eb:7b:1d:76:57:a3:
+                    10:20:af:bc:7d:8c:c4:8c:71:bf:5b:bb:c8:21:eb:
+                    7e:c1:34:ad:21:1f:00:ae:f5:50:8b:42:af:3d:b6:
+                    c6:09:fa:d9:f9:ef:a0:ab:e5:29:04:b0:6e:01:f3:
+                    33:33:de:53:5b:e6:09:e5:db:8c:72:18:9e:da:7e:
+                    8b:0e:63:9e:7a:00:38:8c:c1:2f:da:9a:5e:3a:bf:
+                    10:24:9b:59:b8:aa:57:59:56:c9:bc:b8:3c:d7:2a:
+                    c3:8e:bd:6b:03:02:51:fd:64:2b:9e:4f:06:41:63:
+                    c2:c8:f2:e7:78:00:38:98:96:e2:ef:92:ea:8c:bc:
+                    67:d0:0a:09:6f:79:33:2d:f1:84:30:92:44:59:7b:
+                    29:c4:d8:34:e9:b2:d0:53:de:3c:84:1e:0b:ee:72:
+                    80:46:ae:ac:ec:aa:04:4a:31:15:fb:f2:f8:92:83:
+                    0f:58:9a:0d:ab:a7:f1:39:45:70:db:e4:b7:21:33:
+                    6b:0d:cb:5e:71:14:35:8f:74:46:54:f6:a3:e6:5e:
+                    9b:9f:4d:c2:ec:a5:7d:b9:1a:df:a8:56:37:39:48:
+                    e7:ec:0d:24:0d:cc:ef:46:79:ab:7b:50:59:22:97:
+                    be:99:f1:85:07:e5:2e:ec:98:90:a0:1b:fa:23:a7:
+                    ea:ca:b7:47:f6:b5:f5:2d:42:a5
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Authority Key Identifier: 
+                DirName:/C=US/ST=New York/L=Brooklyn/O=NYU/OU=Computer Science and Engineering/CN=notmyhostname
+                serial:A6:3A:6F:BD:3A:96:9B:83
+
+            X509v3 Basic Constraints: 
+                CA:TRUE
+    Signature Algorithm: sha256WithRSAEncryption
+         be:90:4c:71:ed:e4:c7:0a:3d:5b:4a:38:46:a7:b3:91:2c:67:
+         37:26:b1:d1:ec:db:50:da:1d:22:4c:79:91:bc:d7:d3:da:90:
+         2e:a8:4a:4a:48:50:63:70:8d:9a:da:e9:b1:cc:d4:83:55:b6:
+         9e:57:71:8a:81:28:bb:07:d3:96:18:b5:e4:7f:7c:13:ff:17:
+         ca:da:46:68:73:bb:46:76:ed:ab:c9:e4:3a:9d:c4:37:5f:83:
+         31:f1:51:f7:93:b2:9d:b1:d2:77:b6:df:2b:d5:04:98:7d:42:
+         98:29:ed:b6:f0:ae:42:42:d3:c4:30:a9:12:c4:0d:03:1b:e6:
+         53:fc:83:38:da:03:af:e7:2e:8c:6a:3c:d1:74:e7:61:3a:87:
+         97:9f:d4:b4:66:c2:4b:84:80:21:d5:a0:ad:74:c8:a9:5b:d8:
+         fd:e1:7e:99:1f:b7:9d:01:18:8c:1b:aa:5b:47:0d:7d:72:f2:
+         60:b5:c7:5c:c7:3a:aa:d7:c6:5f:53:fe:35:15:ad:96:b5:a0:
+         19:09:9c:d1:fa:f2:f8:67:33:44:73:09:b8:ab:49:31:5d:b1:
+         67:33:c9:00:9a:b0:c2:f8:f7:16:3c:fc:1c:d1:ae:65:7d:e4:
+         55:d6:e4:0e:37:fc:8a:cd:9c:5a:0c:99:a8:37:9c:a8:f1:c3:
+         05:6e:04:cb:9d:fd:b3:fe:5e:ba:b8:0e:90:4b:e1:ae:24:b8:
+         ff:d4:67:56:18:1d:cd:db:a3:9d:17:57:90:3d:74:7e:27:2b:
+         15:c0:50:3b:42:9a:4d:64:fe:88:50:5c:f5:db:ae:60:fb:8b:
+         47:24:53:c9:ee:69:de:dd:25:88:e8:a4:1f:65:eb:45:7b:38:
+         20:17:f3:da:64:f8:9e:95:d0:97:59:62:36:2c:5c:09:ff:f2:
+         50:45:0e:49:00:09:0c:6e:9a:46:30:e3:0f:84:99:05:43:c3:
+         2e:37:ea:28:b8:9d:f0:cd:01:a4:b4:2b:92:cf:4b:e6:10:20:
+         d5:66:57:a2:b6:3a
