@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: kamonohashi-sdk
+Version: 0.4.0
+Summary: KAMONOHASHI SDK for Python
+Home-page: https://github.com/KAMONOHASHI/kamonohashi-sdk
+Author: NS Solutions Corporation
+Author-email: kamonohashi-support@jp.nssol.nssmc.com
+License: Apache License 2.0
+Platform: UNKNOWN
+Requires-Dist: urllib3 (>=1.15)
+Requires-Dist: six (>=1.10)
+Requires-Dist: certifi
+
+Python client SDK for KAMONOHASHI https://kamonohashi.ai/
+
+
