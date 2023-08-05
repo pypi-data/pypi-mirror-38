@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: cryptology-ws-client
+Version: 1.1.1
+Summary: Cryptology webscoket client
+Home-page: https://github.com/CryptologyExchange/cryptology-ws-client-python
+Author: Cryptology
+Author-email: s.prikazchikov@cryptology.com
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >= 3.6
+Provides-Extra: devel
