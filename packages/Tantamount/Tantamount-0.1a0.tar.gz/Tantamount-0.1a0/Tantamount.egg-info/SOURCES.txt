@@ -1,0 +1,12 @@
+README.rst
+setup.py
+Tantamount.egg-info/PKG-INFO
+Tantamount.egg-info/SOURCES.txt
+Tantamount.egg-info/dependency_links.txt
+Tantamount.egg-info/top_level.txt
+example/__init__.py
+tantamount/__init__.py
+tantamount/context.py
+tantamount/fsm2dot.py
+tantamount/state.py
+tests_unit/__init__.py
