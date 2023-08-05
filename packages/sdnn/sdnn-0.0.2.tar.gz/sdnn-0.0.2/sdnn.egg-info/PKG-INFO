@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: sdnn
+Version: 0.0.2
+Summary: Simple DNN implementation
+Home-page: https://github.com/matbur/dnn
+Author: Mateusz Burniak
+Author-email: mateusz@burniak.pl
+License: MIT
+Description: 
+        # dnn
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown
