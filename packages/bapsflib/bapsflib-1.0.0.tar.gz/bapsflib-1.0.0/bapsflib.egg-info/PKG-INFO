@@ -1,0 +1,71 @@
+Metadata-Version: 2.1
+Name: bapsflib
+Version: 1.0.0
+Summary: A toolkit for handling data collected at BaPSF.
+Home-page: https://github.com/BaPSF/bapsflib
+Author: Erik T. Everson
+Author-email: eteveson@gmail.com
+License: 3-clause BSD
+Description: # bapsflib
+        
+        [![PyPI](https://img.shields.io/pypi/v/bapsflib.svg)](https://pypi.org/project/bapsflib)
+        [![License](https://img.shields.io/badge/License-BSD-blue.svg)](./LICENSES/LICENSE.txt)
+        
+        [![Documentation Status](https://readthedocs.org/projects/bapsflib/badge/)](https://bapsflib.readthedocs.io/en/latest)
+        [![Build Status](https://img.shields.io/travis/BaPSF/bapsflib/master.svg?label=Travis%20CI)](https://travis-ci.org/BaPSF/bapsflib)
+        [![codecov](https://codecov.io/gh/BaPSF/bapsflib/branch/master/graph/badge.svg)](https://codecov.io/gh/BaPSF/bapsflib/branch/master)
+        
+        [![h5py](https://img.shields.io/badge/powered%20by-h5py-%235e9ffa.svg)](https://www.h5py.org/)
+        
+        The **bapsflib** package is developed on Python 3.5+ and is intend to 
+        be a toolkit for reading, manipulating, and analyzing data collected at 
+        the Basic Plasma Science Facility 
+        ([BaPSF](http://plasma.physics.ucla.edu/)) at UCLA. 
+        
+        The current development cycle is focused on providing a high-level, 
+        structured interface between the user and the HDF5 files generated from
+        experiments on the Large Plasma Device (LaPD).  This interface 
+        leverages [h5py](https://www.h5py.org/).
+        
+        ## Installation
+        
+        **bapsflib** is registered with [PyPI](https://pypi.org/) and can be 
+        installed with `pip` via
+        
+        `pip install bapsflib`
+        
+        To install from source look to installation instructions in 
+        documentation, 
+        [here](https://bapsflib.readthedocs.io/en/latest/installation.html).
+        
+        ## Documentation
+        
+        The documentation is hosted on Read the Docs at 
+        https://bapsflib.readthedocs.io/en/latest
+        
+        ## License
+        
+        **bapsflib** is licensed under a 3-clause BSD license, see 
+        [LICENSE.txt](LICENSES/LICENSE.txt).
+Keywords: bapsf,HDF5,lapd,physics,plasma,science
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Education
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Physics
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown

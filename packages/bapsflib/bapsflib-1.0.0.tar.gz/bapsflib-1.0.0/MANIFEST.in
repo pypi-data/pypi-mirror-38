@@ -1,0 +1,9 @@
+include README.md
+include requirements.txt
+# include MANIFEST.in
+# include *.txt
+
+recursive-include docs *
+recursive-include LICENSES *
+
+prune docs/_build

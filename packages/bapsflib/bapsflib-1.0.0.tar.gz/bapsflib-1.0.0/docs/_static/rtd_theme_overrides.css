@@ -1,0 +1,50 @@
+/* override table width restrictions */
+@media screen and (min-width: 767px) {
+
+    .wy-table-responsive table td {
+        /* !important prevents the common CSS stylesheets from overriding
+           this as on RTD they are loaded after this stylesheet */
+        white-space: normal !important;
+    }
+
+    .wy-table-responsive {
+        overflow: visible !important;
+    }}
+
+/* Add coloring for red text */
+.red {
+    color:red;
+}
+
+/* Add italic bold face role*/
+.ibf {
+    font-weight: bold;
+    font-style: italic;
+}
+
+/* Override RTD theme bottom margin for line blocks in a table */
+.rst-content table.docutils td .line-block {
+    margin-bottom: 0px
+}
+
+/* Override RTD theme bottom margin for code highlights in a table */
+.rst-content table.docutils td div[class^='highlight-default'] {
+    margin-bottom: 12px;
+}
+
+/* --- RTD theme fixes since readthedocs.org theme does not match    ---
+   --- the sphinx_rtd_theme                                          ---
+*/
+/* Override RTD theme margin-left indent */
+.rst-content .line-block {
+    margin-left: 0px
+}
+/*
+.rst-content .line-block .line-block {
+    margin-left: $base-line-height
+}
+*/
+/* Override RTD .highlight background color */
+div[class^="highlight"] {
+    background: #eeffcc
+}
