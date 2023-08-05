@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+bin/kata
+src/kata/__init__.py
+src/kata/cli.py
+src/kata.egg-info/PKG-INFO
+src/kata.egg-info/SOURCES.txt
+src/kata.egg-info/dependency_links.txt
+src/kata.egg-info/requires.txt
+src/kata.egg-info/top_level.txt
+src/kata/github/__init__.py
+src/kata/github/api.py
+src/kata/github/repo.py
