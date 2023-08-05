@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: aiohttp-middlewares
+Version: 0.2.0a0
+Summary: Collection of useful middlewares for aiohttp applications.
+Home-page: https://igordavydenko.com/projects.html#aiohttp-middlewares
+Author: Igor Davydenko
+Author-email: iam@igordavydenko.com
+Keywords: aiohttp,middlewares
+Requires-Python: >=3.5.3,<4.0.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Web Environment
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI :: Application
+Classifier: Topic :: Utilities
+Requires-Dist: aiohttp (>=3,<4)
+Requires-Dist: async-timeout (>=1.2,<4)
+Project-URL: Documentation, https://aiohttp-middlewares.readthedocs.io/
+Project-URL: Repository, https://github.com/playpauseandstop/aiohttp-middlewares
