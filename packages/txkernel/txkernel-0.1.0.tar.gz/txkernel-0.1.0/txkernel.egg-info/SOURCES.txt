@@ -1,0 +1,14 @@
+README.md
+setup.cfg
+setup.py
+txkernel/__init__.py
+txkernel/connection.py
+txkernel/kernelapp.py
+txkernel/kernelbase.py
+txkernel/message.py
+txkernel/sockets.py
+txkernel.egg-info/PKG-INFO
+txkernel.egg-info/SOURCES.txt
+txkernel.egg-info/dependency_links.txt
+txkernel.egg-info/requires.txt
+txkernel.egg-info/top_level.txt
