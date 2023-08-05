@@ -1,0 +1,16 @@
+adnotatio_server/__init__.py,sha256=4fwzqNlJManrsVhNb3YuBn7h1cHnlz2sMhTlJF9MmLI,132
+adnotatio_server/__main__.py,sha256=-FBKAbuRGtUXK7uQVr7EEl2sBPv2MZV1URL3qwp_fMc,1380
+adnotatio_server/_version.py,sha256=oVJInlzExQD3CesChfpIvl9lPoqFXEn8J2GXZgnaDWc,343
+adnotatio_server/auth.py,sha256=KeFvLkNrIXBDVx2wLfMo8jJH88fkf9dbQHwdrkMgcj0,204
+adnotatio_server/blueprint.py,sha256=7PNBU3RK1nmZM0S-sTa9IjWlYRptUho9jMG9ObQqxRo,2398
+adnotatio_server/jsonapi.py,sha256=HOn9oWaA1AmF6QGKx0jdxKWUzhmdbwva_qs7-UZgvLg,938
+adnotatio_server/v2.py,sha256=k7Kvs0WiqNUKpJXnBzqriUo5fXMb4ti7DGaDqQq2Yb8,4256
+adnotatio_server/storage/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+adnotatio_server/storage/database.py,sha256=Ijo7ZHB1a5FpEEHX1gK1Rca435_ssGwzRqcX3LLBtdI,559
+adnotatio_server/storage/models.py,sha256=cQItR7h01lo7BjmyLSVOIqCPtLutX0olc8ysuo2kd9I,2932
+adnotatio_server/storage/util.py,sha256=LKPLJ9pirVkeqOy_sALpKIWtXz0-E_0u2HYzfylU-As,1563
+adnotatio_server-0.0.2.dist-info/LICENSE,sha256=Eny5G1LrTZVMhFtg8gye-N9WVhJGz_3P0PMryB23FEI,1089
+adnotatio_server-0.0.2.dist-info/METADATA,sha256=ZL5rOFs6UiwhioEB_MCoCXJhW1qQ48ll9_4K1R6XhaY,880
+adnotatio_server-0.0.2.dist-info/WHEEL,sha256=CrDFromy0BmNYzyZFyVIlKdTa5Zg2RBBtjMkE7goq78,110
+adnotatio_server-0.0.2.dist-info/top_level.txt,sha256=vTZ261uBohTw8D-hy8cw0obqAp1GpQjVHIYZhMZroZk,17
+adnotatio_server-0.0.2.dist-info/RECORD,,
