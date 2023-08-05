@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: xanity
+Version: 0.1a0
+Summary: Package for managing experiments and analyses
+Home-page: http://gitlab.com/bjmuld/xanity/
+Author: Barry Muldrey
+Author-email: barry@muldrey.net
+License: GPLv3
+Project-URL: Bug Tracker, https://gitlab.com/bjmuld/xanity/issues
+Project-URL: Documentation, https://gitlab.com/bjmuld/xanity
+Keywords: scientific experiements analysis data management
+Platform: UNKNOWN
+Requires-Dist: dill
+
+#  Project Template for Python-based Experiments
+## Note: there is a branch for conda package management, and there is a branch for virtualenv/pip
+
+use this template by cloning this project into your desired location:
+
+`git clone git@github.gatech.edu:LARS/python-project-template.git <project name>`
+
+And unless you want to update the template itself, be sure to delete the remote tracking origin,
+so you don't push your project to this template repo:
+
+`git remote rm origin`
+
+
