@@ -1,0 +1,15 @@
+auditlogger/__init__.py,sha256=KkHRfGPNjM_ZrvK0I4kDKvOXMUZfUW_ti4FERT8Na7M,29
+auditlogger/admin.py,sha256=9aioAa6rLEuOSvlJIrHIj5u6Zb8iVevu-CoJIwIvGTQ,76
+auditlogger/apps.py,sha256=nu4YMsG8iKI7npxalRIgZ6HiplV0XC9fPY-4xIivyQY,255
+auditlogger/cloudwatch.py,sha256=INrQbkPXnmCVSBpeyA2d5cJUM2gA7wpiB-K_520h82I,3707
+auditlogger/middleware.py,sha256=rdskmnbV5TiuqBxKWFBclNgEPVWXsny1uFjrHj2y9Ik,1172
+auditlogger/models.py,sha256=QJ0gPP7qmfZME3NlGwKIRO4E-J5eyTfyGntaQjDHQGM,63
+auditlogger/settings.py,sha256=SQ40rXAZCBMBlRHvPkr9hxlfiD0JelDhEGN6CFx2zpM,611
+auditlogger/signals.py,sha256=8BOzXhtfVdbjD7s35t1kVY7ofFgO_2PMFCWElHAhhy4,4098
+auditlogger/tasks.py,sha256=-fRchRidmq8V797J0FxGH-NTrbXHJLW0gksJmGfMN_c,2655
+auditlogger/tests.py,sha256=xSv3goq2G23KbgM4Z4QJt2mVK05kI_XOer_s8LH1fdQ,3687
+auditlogger/migrations/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+django_audit_logger-1.0.0.dist-info/METADATA,sha256=u9-llKMROkM4KThxvUXCJxdHRLDMh0mZbafQT9SNKSM,2083
+django_audit_logger-1.0.0.dist-info/RECORD,,
+django_audit_logger-1.0.0.dist-info/WHEEL,sha256=NzFAKnL7g-U64xnS1s5e3mJnxKpOTeOtlXdFwS9yNXI,92
+django_audit_logger-1.0.0.dist-info/top_level.txt,sha256=Bsuv3g_hVV3JKm_gtynd0TFhzu6y9Qd0kOyclkubvh0,12
