@@ -1,0 +1,3 @@
+[console_scripts]
+watchghost = watchghost.__main__:main
+

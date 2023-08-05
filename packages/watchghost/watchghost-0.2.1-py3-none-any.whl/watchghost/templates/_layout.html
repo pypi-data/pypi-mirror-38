@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
+    <link rel="stylesheet" href="{{ static_url('style.css') }}">
+
+    <title>WatchGhost</title>
+
+    <script type="text/javascript">
+      var wsScheme = 'ws';
+      if (window.location.protocol == 'https:') {
+        wsScheme = 'wss';
+      }
+      var wsLocation = wsScheme + "://" + window.location.host + "/websocket";
+
+      if (Notification.permission !== "denied") {
+        Notification.requestPermission();
+      }
+
+      function startConnection() {
+        ws = new WebSocket(wsLocation);
+
+        ws.onmessage = function(evt) {
+          var data = JSON.parse(evt.data);
+
+          for (uuid in data) {
+            var element = document.getElementById(uuid);
+
+            if (!element) {
+              continue;
+            }
+
+            if (element.className) {
+              // In index page
+              element.className = element.className.replace(/status\-[a-z]*/g, "status-" + data[uuid]["status"]);
+              if (data[uuid]["status"].match("error|critical")) {
+                var notification = new Notification(
+                  "The service " + data[uuid]["service"] + " on " + data[uuid]["server"] + " is " + data[uuid]["status"],
+                  {"body": data[uuid]["message"]});
+              }
+            } else {
+              // In watcher page
+              document.location.reload(true);
+            }
+          }
+        };
+
+        ws.onclose = function(evt) {
+          var notification = new Notification("Watchghost disconnected from server");
+          var headers = document.getElementsByTagName('header');
+          for (var i = 0; i < headers.length; i++) {
+            headers[i].innerHTML = headers[i].innerHTML + ' (disconnected)';
+          }
+          document.title = document.title + ' (disconnected)';
+          var articles = document.getElementsByTagName('article');
+          for (var i = 0; i < articles.length; i++) {
+            var article = articles[i];
+            var list_items = article.getElementsByTagName('li');
+            for(var j = 0; j < list_items.length; j++){
+              var list_item = list_items[j];
+              list_item.className = list_item.className.replace(/status\-[a-z]*/g, "status-unknown");
+            }
+          }
+        };
+      }
+
+      function checkConnection() {
+        if(!ws || ws.readyState == 3) {
+          document.location.reload(true);
+        }
+      }
+
+      startConnection();
+      setInterval(checkConnection, 5000);
+    </script>
+  </head>
+
+  <body>
+    <header>
+      <a href="/">WatchGhost</a>
+    </header>
+
+    <nav>
+      <ul>
+      </ul>
+    </nav>
+
+    <main>
+      {% block main %}{% end %}
+    </main>
+
+    <footer>
+      WatchGhost, your invisible but loud monitoring pet
+    </footer>
+  </body>
+</html>
