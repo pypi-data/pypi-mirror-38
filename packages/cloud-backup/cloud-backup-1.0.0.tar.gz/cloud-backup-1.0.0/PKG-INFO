@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: cloud-backup
+Version: 1.0.0
+Summary: Simple cloud backup solution utilizing AWS KMS and S3
+Home-page: https://github.com/halprin/cloud-backup
+Author: halprin
+Author-email: me@halprin.io
+License: UNKNOWN
+Description: # cloud-backup
+        Regular back-ups to the cloud
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: MacOS
+Description-Content-Type: text/markdown
