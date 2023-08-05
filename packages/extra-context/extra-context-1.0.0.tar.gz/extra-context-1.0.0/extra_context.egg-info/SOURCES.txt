@@ -1,0 +1,12 @@
+MANIFEST.in
+README.md
+conftest.py
+extra_context.py
+setup.cfg
+setup.py
+extra_context.egg-info/PKG-INFO
+extra_context.egg-info/SOURCES.txt
+extra_context.egg-info/dependency_links.txt
+extra_context.egg-info/requires.txt
+extra_context.egg-info/top_level.txt
+test/test_warnings.py
