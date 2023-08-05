@@ -1,0 +1,6 @@
+[console_scripts]
+otiocat = opentimelineio.console.otiocat:main
+otioconvert = opentimelineio.console.otioconvert:main
+otiostat = opentimelineio.console.otiostat:main
+otioview = opentimelineview.console:main
+
