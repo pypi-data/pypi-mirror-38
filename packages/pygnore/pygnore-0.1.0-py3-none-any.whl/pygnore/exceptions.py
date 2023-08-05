@@ -1,0 +1,2 @@
+class NoSupportedTemplate(Exception):
+    pass
