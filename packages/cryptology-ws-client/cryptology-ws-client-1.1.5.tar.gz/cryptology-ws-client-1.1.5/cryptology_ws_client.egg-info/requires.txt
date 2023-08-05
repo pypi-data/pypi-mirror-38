@@ -1,0 +1,7 @@
+aiodns
+aiohttp>=2.3.6
+cchardet
+
+[devel]
+pytz
+pytest-aiohttp
