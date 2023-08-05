@@ -1,0 +1,13 @@
+earthengine-api
+daiquiri
+requests-oauthlib
+google-auth-oauthlib
+click
+dask[complete]
+click-configfile
+marshmallow-oneofschema==1.0.7
+pendulum
+gee-pheno
+marmee
+oauth2client
+toolz
