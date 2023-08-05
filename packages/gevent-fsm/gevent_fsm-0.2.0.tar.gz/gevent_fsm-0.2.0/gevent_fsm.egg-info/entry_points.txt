@@ -1,0 +1,4 @@
+[console_scripts]
+fsm_generate_diffs = gevent_fsm.tools.fsm_generate_diffs:main
+get_fsm = gevent_fsm.tools.get_fsm:main
+
