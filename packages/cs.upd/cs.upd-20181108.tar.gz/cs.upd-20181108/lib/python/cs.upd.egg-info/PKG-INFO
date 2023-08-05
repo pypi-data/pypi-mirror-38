@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: cs.upd
+Version: 20181108
+Summary: Single line status updates with minimal update sequences.
+Home-page: https://bitbucket.org/cameron_simpson/css/commits/all
+Author: Cameron Simpson
+Author-email: cs@cskk.id.au
+License: UNKNOWN
+Description: Single line status updates with minimal update sequences.
+        
+        This is available as an output mode in cs.logutils.
+        
+        Example:
+        
+            upd = Upd(sys.stdout)
+            ...
+            upd.out('status line text: position = %d', position_value)
+            ...
+            upd.nl('an informational line')
+            ...
+            upd.out('new status text')
+        
+        ## Function `cleanupAtExit()`
+        
+        Cleanup function called at programme exit to clear the status line.
+        
+        ## Class `Upd`
+        
+        A class for maintaining a regularly updated status line.
+        
+        ## Function `upd_for(stream)`
+        
+        Factory for Upd singletons keyed by the id of their backend.
+Keywords: python2,python3
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Description-Content-Type: text/markdown
