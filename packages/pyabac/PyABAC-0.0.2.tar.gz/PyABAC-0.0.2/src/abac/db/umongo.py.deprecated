@@ -1,0 +1,35 @@
+"""
+Module for everything related to the use of μMongo with PyABAC
+"""
+from . import BaseDBProvider
+from typing import TypeVar, Generic
+from umongo import Document
+
+U = TypeVar('U', bound=Document)
+R = TypeVar('R', bound=Document)
+
+
+class UMongoDBProvider(BaseDBProvider, Generic[U, R]):
+    """
+    Database provider hooking into μMongo
+    """
+    def user_has_permission(self, user: U, permission: str) -> bool:
+        pass
+
+    def user_has_role(self, user: U, role: R) -> bool:
+        """
+        Checks if :code:`user` has :code:`role`.
+
+        :param user: The user to query
+        :param role: The role to check for
+        :returns: :code:`True` if :code:`user` has :code:`role`, :code:`False` if not.
+        """
+        return any(self._check_role(urole.fetch(), role) for urole in user.roles)
+
+    def _check_role(self, role: R, search: R) -> bool:
+        if role == search:
+            return True
+        for el in role.parents:
+            if el == search or (self._check_role(el.fetch(), search)):
+                return True
+        return False
