@@ -1,0 +1,1 @@
+{"": "", "Time zone": "Zona waktu", "Sync time from the Internet": "Sinkronisasi waktu dari Internet", "Change date and time": "Perubahan tanggal dan waktu", "ntpdate utility is not installed": "utilitas ntpdate tidak diinstal", "Date & time": "Tanggal & waktu", "Set time": "Setel waktu", "Set timezone": "Setel zona waktu"}

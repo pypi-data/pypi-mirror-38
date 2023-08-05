@@ -1,0 +1,1 @@
+{"": "", "Time zone": "Fuso hor\u00e1rio", "Sync time from the Internet": "Tempo de sincroniza\u00e7\u00e3o da Internet", "Change date and time": "Mudan\u00e7a de data e hora", "ntpdate utility is not installed": "ntpdate utilit\u00e1rio n\u00e3o est\u00e1 instalado", "Date & time": "Data e hora", "Set time": "Definir tempo", "Set timezone": "Definir o fuso hor\u00e1rio"}

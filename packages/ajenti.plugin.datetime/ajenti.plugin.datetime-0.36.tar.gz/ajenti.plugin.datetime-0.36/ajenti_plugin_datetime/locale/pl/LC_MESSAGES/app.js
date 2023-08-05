@@ -1,0 +1,1 @@
+{"": "", "Time zone": "Strefa czasowa", "Sync time from the Internet": "Synchronizacja czasu z Internetu", "Change date and time": "Zmiana daty i czasu", "ntpdate utility is not installed": "narz\u0119dzie ntpdate nie jest zainstalowane", "Date & time": "Data i czas", "Set time": "Ustaw czas", "Set timezone": "Wybierz stref\u0119 czasow\u0105"}

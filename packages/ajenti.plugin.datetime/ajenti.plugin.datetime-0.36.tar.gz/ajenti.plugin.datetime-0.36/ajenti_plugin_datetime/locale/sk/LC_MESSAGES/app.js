@@ -1,0 +1,1 @@
+{"": "", "Time zone": "\u010casov\u00e9 p\u00e1smo", "Sync time from the Internet": "Synchroniz\u00e1cie \u010dasu z internetu", "Change date and time": "Zmena d\u00e1tumu a \u010dasu", "ntpdate utility is not installed": "", "Date & time": "D\u00e1tum a \u010das", "Set time": "Nastavi\u0165 \u010das", "Set timezone": "Nastavi\u0165 \u010dasov\u00e9 p\u00e1smo"}

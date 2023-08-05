@@ -1,0 +1,1 @@
+{"": "", "Time zone": "Vremenska zona", "Sync time from the Internet": "Sinhroni\u0161i vrijeme preko interneta", "Change date and time": "Promeni datum i vreme", "ntpdate utility is not installed": "ntpdate utility nije instaliran", "Date & time": "Datum i vreme", "Set time": "Podesi vreme", "Set timezone": "Podesi vremensku zonu"}
