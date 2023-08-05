@@ -1,0 +1,21 @@
+Metadata-Version: 1.1
+Name: aeron_python_driver
+Version: 1.11.2
+Summary: Python wrapper for Aeron MediaDriver
+Home-page: UNKNOWN
+Author: Fairtide Pte.
+Author-email: UNKNOWN
+License: Apache 2.0
+Description: UNKNOWN
+Platform: Posix; MacOS X; Windows
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Communications
+Classifier: Topic :: Internet
+Classifier: Topic :: Software Development
+Classifier: Topic :: System
+Classifier: Topic :: System :: Networking
