@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: dpac-stravalib
+Version: 0.10.2
+Summary: Python library for interacting with Strava v3 REST API
+Home-page: http://github.com/david-pacheco/stravalib
+Author: David Pacheco
+Author-email: davidpch@gmail.com
+License: Apache
+Description: 
+        stravalib is a Python 2.7 and 3.x library that provides a simple API for interacting
+        with the Strava activity tracking website.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
