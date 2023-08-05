@@ -1,0 +1,22 @@
+Metadata-Version: 1.1
+Name: sentry-telegram
+Version: 0.2.1
+Summary: Plugin for Sentry which allows sending notification via Telegram messenger.
+Home-page: https://github.com/butorov/sentry-telegram
+Author: Viacheslav Butorov
+Author-email: butorovv@gmail.com
+License: MIT
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Software Development :: Bug Tracking
+Classifier: Topic :: Software Development :: Quality Assurance
+Classifier: Topic :: System :: Monitoring
