@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: periscopy
+Version: 0.0.1
+Summary: periscopy: business data visualization
+Home-page: https://github.com/christinequan/periscopy
+Author: Christine Quan
+Author-email: christine.quan11@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: numpy (>=1.9.3)
+Requires-Dist: pandas (>=0.15.2)
+Requires-Dist: matplotlib (>=1.4.3)
+
+Welcome to Periscopy - a home for beautiful visualizations.
+
+
