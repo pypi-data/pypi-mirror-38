@@ -1,0 +1,7 @@
+astropy==2.0.8
+numpy
+pandas
+click
+requests
+imageio>=1
+fitsio
