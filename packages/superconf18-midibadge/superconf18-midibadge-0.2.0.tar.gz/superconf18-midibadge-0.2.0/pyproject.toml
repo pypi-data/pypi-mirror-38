@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "superconf18-midibadge"
+version = "0.2.0"
+description = "Generate Basic code for the Hackaday Superconf 2018 Badge from a MIDI file"
+license = "MIT"
+authors = ["Jonas Neubert <jn@jonasneubert.com>"]
+readme = "README.md"
+repository = "https://github.com/jonemo/superconf18-midibadge"
+homepage = "https://github.com/jonemo/superconf18-midibadge"
+keywords = ['badgelife', 'superconference']
+
+
+[tool.poetry.dependencies]
+python = "^3.6"
+toml = "^0.9"
+midi = { git = "https://github.com/louisabraham/python3-midi" }
+
+
+[tool.poetry.scripts]
+midiinfo = "superconf18_midibadge.tools.midiinfo:main"
+midisplit = "superconf18_midibadge.tools.midisplit:main"
+midi2basic = "superconf18_midibadge.tools.midi2basic:main"
+midi3track = "superconf18_midibadge.tools.midi3track:main"
