@@ -1,0 +1,3 @@
+[console_scripts]
+pcapgraph = pcapgraph.pcapgraph:run
+
