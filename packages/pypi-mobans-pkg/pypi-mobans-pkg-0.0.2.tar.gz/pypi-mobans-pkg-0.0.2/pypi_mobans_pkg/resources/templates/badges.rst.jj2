@@ -1,0 +1,29 @@
+{% if not scm_host %}
+{% set scm_host = 'github.com' %}
+{% endif %}
+{% if branch and branch == 'master' %}
+{% set branch = False %}
+{% endif %}
+{% set slug = organisation + '/' + name %}
+{% if scm_host == 'github.com' %}
+{% if branch %}
+.. image:: https://api.travis-ci.org/{{slug}}.svg?branch={{branch}}
+{% else %}
+.. image:: https://api.travis-ci.org/{{slug}}.svg
+{% endif %}
+   :target: http://travis-ci.org/{{slug}}
+{% endif %}
+
+{% set base_path = scm_host.split('.')[0] + '/' + slug %}
+{% if branch %}
+{% set suffix = '/branch/' + branch + '/graph/badge.svg' %}
+{% else %}
+{% set suffix = '/coverage.png' %}
+{% endif %}
+.. image:: https://codecov.io/{{base_path}}{{suffix}}
+   :target: https://codecov.io/{{base_path}}
+
+{% if gitter_room %}
+.. image:: https://img.shields.io/gitter/room/gitterHQ/gitter.svg
+   :target: https://gitter.im/{{gitter_room}}
+{% endif %}
