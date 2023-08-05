@@ -1,0 +1,30 @@
+Metadata-Version: 2.0
+Name: cachish
+Version: 1.5.0
+Summary: Stale cache-ish thingie
+Home-page: https://github.com/thusoy/cachish
+Author: Tarjei Husøy
+Author-email: git@thusoy.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI :: Application
+Requires-Dist: flask
+Requires-Dist: flask-canonical
+Requires-Dist: mohawk
+Requires-Dist: pyyaml
+Requires-Dist: requests
+Provides-Extra: gunicorn
+Requires-Dist: gunicorn; extra == 'gunicorn'
+Requires-Dist: gevent; extra == 'gunicorn'
+
+UNKNOWN
+
+
