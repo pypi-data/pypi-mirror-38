@@ -1,0 +1,62 @@
+sudo: false
+language: python
+
+# Elasticsearch 5 requires Java 8
+addons:
+  apt:
+    packages:
+      - oracle-java8-set-default
+
+env:
+  global:
+    - ELASTIC_2_URL=http://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.4.3/elasticsearch-2.4.3.tar.gz
+    - ELASTIC_5_URL=http://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.1.1.tar.gz
+    # We need to manually set JAVA_HOME to Java 8 too.
+    - JAVA_HOME=/usr/lib/jvm/java-8-oracle
+
+jobs:
+  fast_finish: true
+  include:
+  - python: &latest_py3 3.6
+    env: MONGODB=3.2.11 ELASTIC=5.1.1 ELASTIC_URL=$ELASTIC_5_URL TOXENV=elastic5
+  - python: 3.4
+    env: MONGODB=2.6.12 ELASTIC=2.4.3 ELASTIC_URL=$ELASTIC_2_URL TOXENV=elastic2
+  - python: 3.5
+    env: MONGODB=2.4.14 ELASTIC=2.4.3 ELASTIC_URL=$ELASTIC_2_URL TOXENV=elastic2
+  - stage: deploy
+    if: tag IS present
+    python: *latest_py3
+    install: skip
+    script: skip
+    deploy:
+      provider: pypi
+      on:
+        tags: true
+        all_branches: true
+      user: jaraco
+      password:
+        secure: rx5Yz5qT+wPWiT+wOn0+U3F4G0Kk/rouMkJeOnGNxb/NHWwc9iFqeLRRw5rWyF6COPMuKh32MlMIdL7EQNPyadEZ9djtPWC5csJYNLJAH/VC/+vZd5ZEwbsp1BYB+dZqUSUf7+G1yANvi4jd6x8zK1M9FHtL+LrWda/t2gsJePIx9rzm5PVHZO9GX9+ljb+pKP2Pk768BqL43z8tPOmlue/ONiC5OEc1Bd2mmxSm3ObaFqAJyr8F05GF90SNxZ8E+eCZFLGG4os5ul3yqjCTAFx9edRgXZVZmBInp6nzF0R69PZvJQj/+yyIUcZdrpZra9Glnc5tXNCx2EA9qChMD0aTsFyWvtRTk3AREzd9Ph4oSJ25jxjdDfaGkNDJvMIp7WeGLwuYpZtQ/IKlA7Nvjt5IcYYvzLWWpsA/EamBIglJn1SyYRmbXo2j3xymMF1jVskXgNO/nt9U9rPQApPUVXjuTGUsu1tbqzQG1Hnm+Mo3vbwkmj4DYoa7XcE+WXs2Mtk5cHsMdlBapnEB9bn5reuK4cvSOidbZNgsm8ObI6Yk6pRU/gTiy5wBcH4NGy9vvK0IxFT2/I+q83HtJk/JRu1m7ImRYEluG+0y5HLi444rY2zcrdGq54UFdvLbgXkxJsj91au7NHyvukbZ3KchvK2937rrn3WgBcD24T0qfEc=
+      distributions: dists
+      skip_cleanup: true
+
+install:
+  - java -version
+  - # Install Elasticsearch with mapper-attachments
+  - wget $ELASTIC_URL
+  - tar -xvf elasticsearch-${ELASTIC}.tar.gz
+  - export PATH=${PWD}/elasticsearch-${ELASTIC}/bin/:${PATH}
+  - echo 'y' |  elasticsearch-plugin install mapper-attachments || echo 'y' |  plugin install mapper-attachments
+  - elasticsearch --version
+  - # Install MongoDB
+  - wget http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-${MONGODB}.tgz
+  - tar -zxf mongodb-linux-x86_64-${MONGODB}.tgz
+  - export PATH=${PWD}/mongodb-linux-x86_64-${MONGODB}/bin/:${PATH}
+  - mongod --version
+  - pip install -U tox tox-venv
+
+before_script:
+  - elasticsearch > temp.txt &
+  - sleep 10
+
+script:
+  - tox
