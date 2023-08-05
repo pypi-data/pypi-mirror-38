@@ -1,0 +1,20 @@
+Metadata-Version: 1.2
+Name: didauth
+Version: 1.2.3
+Summary: DID authentication support
+Home-page: https://github.com/PSPC-SPAC-buyandsell/didauth
+Author: PSPC-SPAC
+Author-email: andrew@1crm.com
+License: MIT
+Download-URL: https://github.com/PSPC-SPAC-buyandsell/didauth/archive/v1.2.3.tar.gz
+Description: UNKNOWN
+Keywords: verified-organizations-network,VON,SRI,DID,TheOrgBook,Hyperledger,Indy,HTTP
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Requires-Python: >=3.5.3
