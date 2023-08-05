@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+command="${1}"
+xanity_path="$( cd "$(dirname "$0")" ; pwd -P )"
+
+case "$command" in
+
+    "init")
+		#echo 'doing xanity init'
+		#echo "passing on args: ${@:2}"
+      	python -m xanity.initialize "${@:2}"
+    	;;
+
+	  "setup")
+      	#echo 'doing xanity setup'
+      	python -m xanity.setup "${@:2}"
+    	;;
+
+    "run"|"process")
+		xanity-run.sh "${@:2}"
+		;;
+
+	*)
+		echo "did not recognize that xanity command"
+esac
