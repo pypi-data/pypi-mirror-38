@@ -1,0 +1,11 @@
+include LICENSE
+include CONTRIBUTING.md
+include README.md
+exclude .gitignore
+exclude .coverage
+exclude .travis.yml
+prune .cache
+prune .git
+prune build
+prune dist
+prune paper
