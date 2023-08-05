@@ -1,0 +1,6 @@
+include LICENSE ChangeLog README.rst
+include enet.pyx
+
+include *.py
+
+recursive-include enet *
