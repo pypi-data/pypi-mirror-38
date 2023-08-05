@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: vetrr
+Version: 0.1.9
+Summary: vet redrock outputs
+Home-page: http://github.com/mattcwilde/vetrr
+Author: Matthew Wilde
+Author-email: mattcwilde@gmail.com
+License: MIT
+Description: This program starts a GUI that is useful in manually checking the output of redshift guesses from RedRock. It allows the user to input spectra reduced using cgmsquared.
+Platform: UNKNOWN
