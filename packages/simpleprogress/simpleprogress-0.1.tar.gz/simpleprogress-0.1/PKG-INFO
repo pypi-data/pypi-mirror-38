@@ -1,0 +1,33 @@
+Metadata-Version: 1.1
+Name: simpleprogress
+Version: 0.1
+Summary: Simple progress indicator printing to stdout
+Home-page: https://github.com/bmbove/simpleprogress
+Author: Brian Bove
+Author-email: brian@ufmsystems.com
+License: MIT
+Description: ## simpleprogress
+        
+        Simple progress indicator for python. Internally tracks time for updates.
+        
+        ```python
+        from simpleprogress import Progress
+        
+        max_val = 100
+        p = Progress(max_val, poll_time=2.0) # default poll time is 1 second
+        
+        for i in range(0, 100):
+        
+            if p.should_update:
+                p.update(i)
+                print(p.pretty_print())
+        
+            time.sleep(1)
+        
+        ```
+        
+Keywords: progress
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
