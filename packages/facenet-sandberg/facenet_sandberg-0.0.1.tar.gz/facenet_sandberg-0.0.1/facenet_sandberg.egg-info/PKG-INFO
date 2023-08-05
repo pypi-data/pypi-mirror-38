@@ -1,0 +1,10 @@
+Metadata-Version: 1.2
+Name: facenet-sandberg
+Version: 0.0.1
+Summary: Face recognition using TensorFlow
+Home-page: https://github.com/armanrahman22/facenet
+Maintainer: Arman Rahman
+Maintainer-email: armanrahman22@gmail.com
+License: MIT
+Description: Face recognition with Google's FaceNet deep neural network & TensorFlow. Mirror of https://github.com/davidsandberg/facenet.
+Platform: UNKNOWN
