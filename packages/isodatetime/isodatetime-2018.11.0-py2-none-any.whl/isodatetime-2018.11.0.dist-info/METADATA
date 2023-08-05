@@ -1,0 +1,25 @@
+Metadata-Version: 2.0
+Name: isodatetime
+Version: 2018.11.0
+Summary: Python ISO 8601 date time parser and data model/manipulation utilities
+Home-page: https://github.com/metomi/isodatetime
+Author: Met Office
+Author-email: metomi@metoffice.gov.uk
+License: LGPLv3
+Keywords: isodatetime datetime iso8601 date time parser
+Platform: any
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Other Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Utilities
+Requires-Python: >=2.6, <3.0
+
+# isodatetime
+
+ISO8601 parser and data model/manipulation utilities. 
+
+
