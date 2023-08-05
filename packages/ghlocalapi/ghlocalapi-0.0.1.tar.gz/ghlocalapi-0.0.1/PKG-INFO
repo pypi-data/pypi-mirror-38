@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: ghlocalapi
+Version: 0.0.1
+Summary: UNKNOWN
+Home-page: https://github.com/ludeeus/ghlocalapi
+Author: Joakim Sorensen
+Author-email: ludeeus@gmail.com
+License: UNKNOWN
+Description: # GHLocalApi [![Build Status](https://travis-ci.com/ludeeus/ghlocalapi.svg?branch=master)](https://travis-ci.com/ludeeus/ghlocalapi) [![PyPI version](https://badge.fury.io/py/ghlocalapi.svg)](https://badge.fury.io/py/ghlocalapi)
+        
+        _Python package to interact with the local API of Google Home devices._
+        
+        ## Install
+        
+        ```bash
+        pip install ghlocalapi
+        ```
+        
+        Look at the file `example.py` for a usage example.
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
