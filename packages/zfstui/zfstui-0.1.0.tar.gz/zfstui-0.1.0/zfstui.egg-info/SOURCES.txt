@@ -1,0 +1,12 @@
+README.md
+setup.py
+bin/zfstui
+zfstui/__init__.py
+zfstui/dialogs.py
+zfstui/helptext.py
+zfstui/widgets.py
+zfstui/zfs.py
+zfstui.egg-info/PKG-INFO
+zfstui.egg-info/SOURCES.txt
+zfstui.egg-info/dependency_links.txt
+zfstui.egg-info/top_level.txt

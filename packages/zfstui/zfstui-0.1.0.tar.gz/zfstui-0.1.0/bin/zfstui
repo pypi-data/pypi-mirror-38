@@ -1,0 +1,26 @@
+#!/usr/bin/env python3
+
+import os
+import curses
+from zfstui import dialogs
+
+'''
+zfstui
+terminal user interface to the ZFS filesystem
+
+(c) 2018 Volker Poplawski
+'''
+
+
+
+def main():
+    os.environ.setdefault('ESCDELAY', '50')
+    curses.wrapper(dialogs.mainloop)
+    curses.curs_set(True)
+    
+main()
+
+    
+    
+
+
