@@ -1,0 +1,53 @@
+Metadata-Version: 2.1
+Name: flask-jwt-consumer
+Version: 1.0.3
+Summary: Flask JWT consumer with multi public key support
+Home-page: https://github.com/dmi3y/flask-jwt-consumer
+Author: Dmitrii Lapshukov
+Author-email: lapshukov@gmail.com
+License: UNKNOWN
+Keywords: jwt,jwt-consumer,jwt-validation,authentication,autherization,multi-issuer
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: Flask
+Requires-Dist: PyJWT
+Requires-Dist: cryptography
+
+[![CircleCI](https://circleci.com/gh/dmi3y/flask-jwt-consumer.svg?style=svg)](https://circleci.com/gh/dmi3y/flask-jwt-consumer) [![Maintainability](https://api.codeclimate.com/v1/badges/2012c48af0e1d47d7f3a/maintainability)](https://codeclimate.com/github/dmi3y/flask-jwt-consumer/maintainability)
+
+## Flask JWT consumer
+
+> Flask extension for JWT token validation
+
+Based on [pyJWT](https://github.com/jpadilla/pyjwt). Supports multi public key validation in form of simplified `authorized_keys` format, with only keys, and comments, no options. Good for key rotations or when you need multi issuer support.
+
+### Rational
+Inspired by [Flask JWT Simple](https://github.com/vimalloc/flask-jwt-simple), nice package I was enjoying until the need for multi key support. So that's where many backward compatible settings came from.
+
+### Configuration
+
+- `JWT_ALGORITHM` default `RS256`, algorithm used to decode JWT. As current iteration only asymmetric algorithms are considered. So anything symmetric will likely fail.
+- `JWT_HEADER_NAME` default `Authorization`, header where JWT expected to be.
+- `JWT_HEADER_TYPE` default `Bearer`, type of the token, part of the header's value.
+- `JWT_IDENTITY` optional, if provided JWT will use it.
+- `JWT_AUTHORIZED_KEYS` new line separated list of OpenSSH formatted keys.
+- `VERIFY_AUD` disable verification of `aud` during JWT decoding.
+
+### Decorators
+
+*@requires_jwt* - use on the flask endpoint that is desired to be protected, accepts additional parameter `pass_token_payload` which will add named parameter `token_payload` at the very end of the parameters accepted by decorated function.
+
+```py
+@requires_jwt
+def get(search):
+    # ...GET logic with search parameter
+
+@requires_jwt(pass_token_payload=True)
+def post(data, token_payload):
+    # ...POST logic with data parameter and token payload
+```
+
+
