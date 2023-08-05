@@ -1,0 +1,387 @@
+#!/home/sieverli/pythonEnv/bin/python
+
+import os
+import sys, getopt
+import inspect
+import ConfigParser
+import json
+import errno
+import multiprocessing
+
+import telomerehunter
+
+
+help_message = "Run telomerehunter with the following command: telomerehunter config_file"
+
+source_directory = os.path.dirname(inspect.getsourcefile(telomerehunter))
+
+########################
+### define functions ###
+########################
+
+def get_from_config(config, parameter, class_name):
+    try:
+	return config.get(class_name, parameter)
+    except:
+	sys.exit('[ERROR] \'' + parameter + '\' needs to be specified under [' + class_name + '] in the config file!')
+
+
+def get_from_config_files(config, parameter, class_name):
+    try:
+	return config.get(class_name, parameter)
+    except:
+	return ''
+	#sys.exit('\'' + parameter + '\' needs to be specified under [' + class_name + '] in the config file!')
+
+
+def check_boolean(parameter):
+  
+    true_vector = ['True', 'true', '1', 't', 'T', 'TRUE', 'yes', 'Y', 'y', 'Yes', 'YES']
+    false_vector  =['False', 'false', '0', 'f', 'F', 'FALSE', 'no', 'N', 'n', 'No', 'NO']
+  
+    if parameter in true_vector:
+	return True
+    elif parameter in false_vector:
+	return False
+    else:
+	sys.exit('[ERROR] Parameter \'' + parameter + '\' is not recognized. Please specify ' + parameter + ' as either True or False.')
+
+
+# creat directory recursive
+def mkdir_p(path):
+    try:
+        os.makedirs(path)
+    except OSError as exc: # Python >2.5
+        if exc.errno == errno.EEXIST and os.path.isdir(path):
+            pass
+        else: raise
+
+
+def run_sample(sample_name,
+	       sample_bam,
+	       banding_file,
+	       outdir_sample,
+	       pid,
+	       sample_id,
+	       repeat_threshold,
+	       mapq_threshold,
+	       t_type,
+	       c_type,
+	       g_type,
+	       j_type,
+	       consecutive,
+	       remove_duplicates,
+	       filter_telomere_reads,
+	       sort_telomere_reads,
+	       estimate_telomere_content):
+
+    if filter_telomere_reads:
+	print '------ ' + sample_name + ': started filtering telomere reads ------'
+	telomerehunter.filter_telomere_reads.filter_telomere_reads(bam_file=sample_bam,
+								  band_file=banding_file,
+								  out_dir=outdir_sample,
+								  pid=pid,
+								  sample=sample_id,
+								  repeat_threshold=repeat_threshold,
+								  mapq_threshold=mapq_threshold,
+								  t_type=t_type,
+								  c_type=c_type,
+								  g_type=g_type,
+								  j_type=j_type,
+								  consecutive_flag=consecutive,
+								  remove_duplicates=remove_duplicates)
+
+    if sort_telomere_reads:
+	print '------ ' + sample_name + ': started sorting telomere reads ------'
+	telomerehunter.sort_telomere_reads.sort_telomere_reads(input_dir=outdir_sample, 
+							      band_file=banding_file,
+							      out_dir=outdir_sample,
+							      pid=pid,
+							      mapq_threshold=mapq_threshold,
+							      t_type=t_type,
+							      c_type=c_type,
+							      g_type=g_type,
+							      j_type=j_type)
+	
+	
+	# get a table with repeat frequencies per intratelomeric read
+	telomerehunter.repeat_frequency_intratelomeric.repeat_frequency_intratelomeric(input_path=outdir_sample,
+										       out_dir=outdir_sample, 
+										       pid=pid,
+										       t_type=t_type,
+										       c_type=c_type,
+										       g_type=g_type,
+										       j_type=j_type)
+
+    if estimate_telomere_content:
+	print '------ ' + sample_name + ': started estimating telomere content ------'
+	
+	#get gc content distribution of intratelomeric reads
+	telomerehunter.estimate_telomere_content.get_gc_content_distribution(bam_file=outdir_sample + '/' + pid + '_filtered_intratelomeric.bam',
+									    out_dir=outdir_sample,
+									    pid=pid + '_intratelomeric',
+									    sample=sample_id,
+									    remove_duplicates=remove_duplicates)
+
+	#estimate telomere content
+	telomerehunter.estimate_telomere_content.estimate_telomere_content(input_dir=outdir_sample,
+									  out_dir=outdir_sample,
+									  pid=pid,
+									  sample=sample_id)
+
+if __name__ == '__main__':
+    #################
+    ### set flags ###
+    #################
+
+    tumor_flag = True
+    control_flag = True
+    single_file_flag=False
+
+
+    ################################
+    ### get and check parameters ###
+    ################################
+
+    sys.stdout.write('\n')
+
+    # check if config file was correctly specified and exists
+    if len(sys.argv)!=2:
+	    sys.exit(help_message)
+	    
+    config_file = sys.argv[1]
+
+    if not os.path.isfile(config_file):
+	    sys.exit('config_file does not exist.\n' + help_message) 
+
+    #get parameters from config file and check if they are specified correctly
+    config = ConfigParser.ConfigParser()
+    config.read(config_file)
+
+
+    #input
+    pid = get_from_config(config, "pid", "input")
+    tumor_bam = get_from_config_files(config, "tumor_bam", "input")
+    control_bam = get_from_config_files(config, "control_bam", "input")
+    banding_file = get_from_config_files(config, "banding_file", "input")
+
+    if tumor_bam == '' and control_bam == '':
+	sys.exit('[ERROR] Please specify the tumor_bam and/or the control_bam path under [input] in the config file.') 
+
+    if tumor_bam == '':
+	tumor_flag = False
+	single_file_flag=True
+	print 'tumor_bam was not specified in the config file. Only running control_bam.'  
+    else:
+	if not os.path.isfile(tumor_bam):
+	    sys.exit('[ERROR] tumor_bam does not exist. Please specify the correct path to the tumor_bam file.') 
+	    
+    if control_bam == '':
+	control_flag = False
+	single_file_flag=True
+	print 'control_bam was not specified in the config file. Only running tumor_bam.'  
+    else:
+	if not os.path.isfile(control_bam):
+	    sys.exit('[ERROR] control_bam does not exist. Please specify the correct path to the control_bam file.') 
+
+
+    if banding_file == '':
+	    banding_file = source_directory + '/hg19_cytoBand.txt'
+	    print 'banding_file is not set in config file. Using ' + banding_file + ' instead.'
+
+    if not os.path.isfile(banding_file):
+	    sys.exit('[ERROR] banding_file does not exist. Please specify the correct path to the banding file.\nIf banding_file is not specified, a hg19 banding file will be used.') 
+
+
+    #parameters
+    repeat_threshold = get_from_config(config, "repeat_threshold", "parameters")
+    mapq_threshold = int(get_from_config(config, "mapq_threshold", "parameters"))
+
+    if mapq_threshold < 0 or mapq_threshold > 40:
+	sys.exit('[ERROR] \'mapq_threshold\' must be an integer between 0 and 40.')
+
+    remove_duplicates = check_boolean(get_from_config(config, "remove_duplicates", "parameters"))
+    t_type = check_boolean(get_from_config(config, "t_type", "parameters"))
+    c_type = check_boolean(get_from_config(config, "c_type", "parameters"))
+    g_type = check_boolean(get_from_config(config, "g_type", "parameters"))
+    j_type = check_boolean(get_from_config(config, "j_type", "parameters"))
+    consecutive = check_boolean(get_from_config(config, "consecutive", "parameters"))
+
+      
+    #output
+    parent_outdir = get_from_config(config, "outdir", "output")
+    outdir = parent_outdir + '/' + pid
+
+    #run
+    filter_telomere_reads = check_boolean(get_from_config(config, "filter_telomere_reads", "run"))
+    sort_telomere_reads = check_boolean(get_from_config(config, "sort_telomere_reads", "run"))
+    estimate_telomere_content = check_boolean(get_from_config(config, "estimate_telomere_content", "run"))
+    make_plots = check_boolean(get_from_config(config, "make_plots", "run"))
+    run_parallel = check_boolean(get_from_config(config, "run_parallel", "run"))
+
+
+    #############################
+    ### get repeat_thresholds ###
+    #############################
+
+    if repeat_threshold == '':
+	
+	print 'repeat_threshold was not set by user!'
+	
+	if tumor_flag:
+	    sys.stdout.write('Calculating repeat threshold for tumor sample: ')
+	    repeat_threshold_tumor = telomerehunter.get_repeat_threshold.get_repeat_threshold(tumor_bam)
+
+	if control_flag:
+	    sys.stdout.write('Calculating repeat threshold for control sample: ')
+	    repeat_threshold_control = telomerehunter.get_repeat_threshold.get_repeat_threshold(control_bam)
+
+	if tumor_flag and control_flag:
+	    if repeat_threshold_tumor == repeat_threshold_control:
+		repeat_threshold_plot = repeat_threshold_tumor
+	    else:
+		repeat_threshold_plot = 'n'
+	elif tumor_flag:
+		repeat_threshold_plot = repeat_threshold_tumor
+	elif control_flag:
+		repeat_threshold_plot = repeat_threshold_control
+
+    else:
+	repeat_threshold_tumor=int(repeat_threshold)
+	repeat_threshold_control=int(repeat_threshold)
+	repeat_threshold_plot=int(repeat_threshold)
+	
+
+
+    ##################################
+    ### run telomerehunter for PID ###
+    ##################################
+
+    ### option: multiprocessing
+
+    sys.stdout.write('\n')
+
+    threads = []
+
+    if tumor_flag and (filter_telomere_reads or sort_telomere_reads or estimate_telomere_content):  
+	sample_id_T = 'tumor'
+	outdir_T = outdir + '/' + sample_id_T + '_TelomerCnt_' + pid + '/'
+	mkdir_p(outdir_T)
+
+	thread_T = multiprocessing.Process(target=run_sample, args=("Tumor Sample",
+								    tumor_bam,
+								    banding_file,
+								    outdir_T,
+								    pid,
+								    sample_id_T,
+								    repeat_threshold_tumor,
+								    mapq_threshold,
+								    t_type,
+								    c_type,
+								    g_type,
+								    j_type,
+								    consecutive,
+								    remove_duplicates,
+								    filter_telomere_reads,
+								    sort_telomere_reads,
+								    estimate_telomere_content,))
+
+	thread_T.start()
+	threads.append(thread_T)
+	
+	if not run_parallel:
+	    thread_T.join()
+
+    if control_flag and (filter_telomere_reads or sort_telomere_reads or estimate_telomere_content): 
+	sample_id_C = 'control'
+	outdir_C = outdir + '/' + sample_id_C + '_TelomerCnt_' + pid + '/'
+	mkdir_p(outdir_C)
+
+	thread_C = multiprocessing.Process(target=run_sample, args=("Control Sample",
+			    control_bam,
+			    banding_file,
+			    outdir_C,
+			    pid,
+			    sample_id_C,
+			    repeat_threshold_control,
+			    mapq_threshold,
+			    t_type,
+			    c_type,
+			    g_type,
+			    j_type,
+			    consecutive,
+			    remove_duplicates,
+			    filter_telomere_reads,
+			    sort_telomere_reads,
+			    estimate_telomere_content,))
+
+	thread_C.start()
+	threads.append(thread_C)
+	
+	if not run_parallel:
+	    thread_C.join()
+
+    # Wait for all threads to complete
+    if run_parallel:
+	for t in threads:
+	    t.join()
+
+
+    if make_plots:
+	print '\n------ making plots ------'
+	
+	# check if all required R libraries are installed, and install them if they are not
+	check_libraries = os.system('Rscript ' +  source_directory + '/check_R_libraries.R')
+	
+	if check_libraries:
+	    sys.exit('[ERROR] Failed to install required R library.')
+
+	arguments = 'REPEAT_THRESHOLD=' + str(repeat_threshold_plot)
+	arguments += ' PIPELINE_DIR=' + source_directory #/home/sieverli/svn/ngs2/trunk/pipelines/TelomerePipeline2/
+	arguments += ' MAPQ=' + str(mapq_threshold)
+	arguments += ' BANDING_FILE=' + banding_file
+	arguments += ' PID=' + pid
+	arguments += ' OUTDIR=' + parent_outdir
+	arguments += ' CONSECUTIVE=' + str(consecutive)
+	arguments += ' T_TYPE='  + str(t_type)
+	arguments += ' G_TYPE=' + str(g_type)
+	arguments += ' C_TYPE=' + str(c_type)
+	arguments += ' J_TYPE=' + str(j_type)
+	arguments += ' SIMPLE_PLOT=' + str(single_file_flag)
+	
+	run_plot_script = source_directory + '/run_plot.sh'
+	command = arguments + ' ' + run_plot_script    
+	os.system(command)
+	
+	if os.path.isfile('Rplots.pdf'):
+	    os.remove('Rplots.pdf')
+
+
+
+
+
+	###########################
+	### make plots option 2 ###
+	###########################
+
+	#from rpy2.robjects.packages import SignatureTranslatedAnonymousPackage
+	#STAP = SignatureTranslatedAnonymousPackage
+
+
+	#with open(os.path.dirname(inspect.getsourcefile(telomerehunter)) + '/plot_spectrum_simple.R', 'r') as f:
+	  #string = f.read()
+	    
+	#plot_spectrum_simple = STAP(string, "plot_spectrum_simple")
+
+	#plot_spectrum_simple.plot_spectrum_simple(pipeline_dir='/home/sieverli/svn/ngs2/trunk/pipelines/TelomerePipeline2/',
+						  #pid='MB1',
+						  #spectrum_dir='/ibios/temp2/lina/test_telomerehunter/MB1/',
+						  #repeat_threshold=repeat_threshold,
+						  #consecutive_flag='no',
+						  #mapq_threshold=mapq_threshold,
+						  #banding_file=banding_file)
+
+
+
+
+
