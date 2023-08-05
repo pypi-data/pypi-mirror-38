@@ -1,0 +1,15 @@
+.travis.yml
+AUTHORS
+ChangeLog
+README.md
+setup.cfg
+setup.py
+vespene/__main__.py
+vespene.egg-info/PKG-INFO
+vespene.egg-info/SOURCES.txt
+vespene.egg-info/dependency_links.txt
+vespene.egg-info/entry_points.txt
+vespene.egg-info/not-zip-safe
+vespene.egg-info/pbr.json
+vespene.egg-info/requires.txt
+vespene.egg-info/top_level.txt
