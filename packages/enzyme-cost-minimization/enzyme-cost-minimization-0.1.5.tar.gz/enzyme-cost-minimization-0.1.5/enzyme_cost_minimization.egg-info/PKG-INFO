@@ -1,0 +1,48 @@
+Metadata-Version: 1.1
+Name: enzyme-cost-minimization
+Version: 0.1.5
+Summary: Enzyme Cost Minimization - a package for calculating the minimal enzyme cost of a metabolic pathway
+Home-page: https://github.com/eladnoor/enzyme-cost
+Author: Elad Noor
+Author-email: noor@imsb.biol.ethz.ch
+License: MIT
+Description: enzyme-cost-minimization
+        ========================
+        
+        Enzyme Cost Minimization (ECM) is a method for estimating the specific cost in 
+        enzymes for sustaining a given flux, given a kinetic model.
+        
+        You can read more about ECM at [PLOS CB](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5094713/).
+        
+        If you only want to try out ECM without installing anything locally, we have
+        a simple web interface at [eQuilibrator](http://equilibrator.weizmann.ac.il/pathway/).
+        
+        Otherwise, you can install ECM from PyPI:
+        ```
+        pip install enzyme-cost-minimization
+        ```
+        
+        Or get the source code from this repository. In that case, you'll have to 
+        install the following dependencies:
+        - PyPI packages:
+            - numpy
+            - scipy
+            - matplotlib
+            - optlang
+            - pandas
+            - sbtab
+            - equilibrator-api
+            
+        Example
+        -------
+        Try running the example script:
+        ```
+        python -m example.test
+        ```
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Chemistry
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
