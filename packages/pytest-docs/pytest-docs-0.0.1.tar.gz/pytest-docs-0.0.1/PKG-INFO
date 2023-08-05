@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: pytest-docs
+Version: 0.0.1
+Summary: Documentation tool for pytest
+Home-page: https://github.com/liiight/pytest_docs
+Author: Or Carmi
+Author-email: or.carmi82@gmail.com
+Requires-Python: >=3.4,<4.0
+Classifier: Development Status :: 4 - Beta
+Classifier: Framework :: Pytest
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Software Development :: Testing
+Requires-Dist: pytest (>=3.5.0,<4.0.0)
