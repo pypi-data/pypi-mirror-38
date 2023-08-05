@@ -1,0 +1,63 @@
+Metadata-Version: 1.1
+Name: triage
+Version: 0.1.0
+Summary: Risk modeling and prediction
+Home-page: https://github.com/dssg/triage
+Author: Center for Data Science and Public Policy
+Author-email: datascifellows@gmail.com
+License: MIT license
+Description: ===============================
+        Triage
+        ===============================
+        
+        
+        .. image:: https://img.shields.io/travis/dssg/triage.svg
+                :target: https://travis-ci.org/dssg/triage
+        
+        .. image:: https://codecov.io/gh/dssg/triage/branch/master/graph/badge.svg
+        	 :target: https://codecov.io/gh/dssg/triage
+        	 :alt: Code Coverage
+        
+        
+        Risk modeling and prediction
+        
+        
+        * Free software: MIT license
+        * Documentation: https://triage.readthedocs.io.
+        
+        
+        Features
+        --------
+        
+        * TODO
+        
+        
+        Credits
+        ---------
+        
+        This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+        
+        .. _Cookiecutter: https://github.com/audreyr/cookiecutter
+        .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+        
+        
+        
+        =======
+        History
+        =======
+        
+        0.1.0 (2016-10-19)
+        ------------------
+        
+        * First release on PyPI.
+        
+Keywords: triage
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
