@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: mp3monitoring
+Version: 1.0.3
+Summary: Monitors a folder and copies mp3s to another folder.
+Home-page: UNKNOWN
+Author: Iceflower S
+Author-email: iceflower@gmx.de
+License: GPLv3
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.6
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Development Status :: 4 - Beta
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Natural Language :: English
+Classifier: Environment :: Console
+Classifier: Environment :: X11 Applications :: Qt
+Requires-Python: >=3.6
+Provides-Extra: dev
+Provides-Extra: with_gui
+Provides-Extra: with_everything
+Provides-Extra: with_updater
+Requires-Dist: mutagen
+Requires-Dist: tqdm
+Provides-Extra: dev
+Requires-Dist: PyQt5 (>=5.9); extra == 'dev'
+Requires-Dist: urllib3; extra == 'dev'
+Requires-Dist: prospector[with_everything]; extra == 'dev'
+Requires-Dist: cov-core; extra == 'dev'
+Requires-Dist: codecov; extra == 'dev'
+Requires-Dist: coverage; extra == 'dev'
+Requires-Dist: nose2; extra == 'dev'
+Requires-Dist: Sphinx; extra == 'dev'
+Provides-Extra: with_everything
+Requires-Dist: PyQt5 (>=5.9); extra == 'with_everything'
+Requires-Dist: urllib3; extra == 'with_everything'
+Provides-Extra: with_gui
+Requires-Dist: PyQt5 (>=5.9); extra == 'with_gui'
+Provides-Extra: with_updater
+Requires-Dist: urllib3; extra == 'with_updater'
+
+UNKNOWN
+
+

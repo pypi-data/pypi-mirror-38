@@ -1,0 +1,6 @@
+[console_scripts]
+mp3-monitoring = mp3monitoring.core:start
+
+[gui_scripts]
+mp3-monitoring-gui = mp3monitoring.core:gui_start
+
