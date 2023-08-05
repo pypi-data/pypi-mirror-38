@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+data/install
+pypakr/__init__.py
+pypakr/pypakr.py
+pypakr_pkg.egg-info/PKG-INFO
+pypakr_pkg.egg-info/SOURCES.txt
+pypakr_pkg.egg-info/dependency_links.txt
+pypakr_pkg.egg-info/requires.txt
+pypakr_pkg.egg-info/top_level.txt
+scripts/pypakr
