@@ -1,0 +1,14 @@
+README.md
+setup.py
+githubquery/GithubSession.py
+githubquery/QueryIterator.py
+githubquery/__init__.py
+githubquery/bin.py
+githubquery/exceptions.py
+githubquery/proxies.py
+githubquery.egg-info/PKG-INFO
+githubquery.egg-info/SOURCES.txt
+githubquery.egg-info/dependency_links.txt
+githubquery.egg-info/entry_points.txt
+githubquery.egg-info/requires.txt
+githubquery.egg-info/top_level.txt
