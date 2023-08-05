@@ -1,0 +1,343 @@
+# Count API Documentation V2.0
+
+Harness the exploration, collaboration, and visualisation capabilities of the [count.co](https://count.co) web service in your workflow with the *Count API* package for Python.
+
+This project contains an API client for the [count.co](https://count.co) web service, providing methods for authentication, data upload, and data visualisation. 
+
+# Requirements
+
+Python 2 or 3
+
+Optimised for Jupyter Notebook environment
+
+Packages installed as dependencies:
+
+- [requests](http://docs.python-requests.org/en/master/)
+- [protobuf](https://pypi.org/project/protobuf/)
+- [PyHamcrest](https://pypi.org/project/PyHamcrest/)
+ 
+# Access
+
+In order to use the Count API module, you need to generate a token in your accounts page on [count.co](https://count.co). 
+
+# Installation
+
+In your terminal, you can use pip to install count: 
+
+  - `pip install count_api`
+  - `pip3 install count_api`
+
+## Import
+
+    from count_api import CountAPI
+
+## Initialise
+```python
+token = "TOKEN GENERATED FROM COUNT.CO ADMIN PAGE"
+count = CountAPI()
+count.set_api_token(token)
+```
+
+# Load data to Count
+
+## Tables
+
+In the Count API, tables are objects that represent the data you are sending to Count.
+
+```python
+#Upload a File (.csv or .txt)
+path = 'Users/me/Downloads/norweiganCarSales.csv'
+table = count.upload(path=path, name='Car Sales')
+
+#Upload a dataframe
+df = pd.read_csv('norweiganCarSales.csv')
+table = count.upload(data=df.to_csv(), name='Car Sales')
+```
+
+## Previewing table contents
+The first n (default 10, max 100) lines of a table can be printed to screen by using the `table.head(n)` method, e.g.
+```python
+table.head()
+```
+
+You can also find the number of rows in a column via 
+```python
+table.size()
+```
+which returns a tuple of ints `(number_of_rows, number_of_columns)`.
+## Generate Count URL
+
+If you want to visualise your table in Count, you'll need the URL. See the example scripts on examples of how to best use this URL to distribute to your team, and visualise for yourself. 
+
+```python
+url = table.url()
+```
+
+# Create a Visual
+
+## Selecting columns
+To create a visual, you will need reference the columns in the Table object. CountAPI provides several ways to reference a column in the table:
+
+```python
+q_columns = table.columns('Quantity') # List of Column objects for columns with title matching string 'Quantity'
+q_column  = table['Quantity']         # Column object of first column with title matching string 'Quantity'
+col_type = table.column('Type')       # Column object of first column with title matching string 'Type'
+first_column = table[0]               # Column object of first column in table
+first_column = table.column(0)        # Column object of first column in table
+```
+
+## Filters
+```python
+from datetime import datetime
+filter_year = table['Year'].filter('>=',datetime(2007,1,1)).filter('<=',datetime(2016,12,31))
+
+[states_filter] = table['state'].filter('IN','Florida').filter('IN', ['California','Colorado'])
+
+first_column_filter = table[0].filter('>', 10)
+```
+
+Operator options:
+
+- For strings:
+    - 'IN'
+- For numbers:
+    - '>', '>=', '<', '<=', '!=', '='
+
+
+## Select aggregates
+Aggregates can be selected for a particular chart-axis (x, y, color, or size) via the `aggregates` dict parameter of `table.upload_visual`. For example, to selecting aggregate 'sum' on the y-axis, the `aggregates` dict parameter would read
+```python
+aggregates = {'y' : 'sum'}
+```
+
+Aggregate options (case insensitive):
+
+- For strings:
+    - `distinct`, `min`, `max`
+- For numbers and datetimes:
+    - `distinct`, `min`, `max`, `med`, `sum`, `avg`, `med`
+
+
+## Set chart options
+Chart options can be set using the `chart_options` dict parameter of `table.upload_visual`. Options that can be set include
+- `x_type`, `y_type`, `size_type`, `color_type`: set scale of the axis to be either `linear` or `log` e.g. {`x_type`: `linear`}. Note that this cannot be set for an axis representing a 'string' or 'datetime' column. Default is `linear` for number columns.
+- `type`: set chart type to be one of `line`,`bar`,`circle`,`area`, `auto` e.g {`type`: `circle`}
+
+## Visuals
+
+Like Table objects, Visual objects are created to represent a visual you have created with the `table.upload_visual` method. The `table.upload_visual` method contains the following parameters;
+
+- `x`, `y`, `size`, `color`: specify which Column objects to plot on each axis
+- `aggregates`: a dict of the axis-to-aggregrate specifying the aggregate to perform on each axis. For example, for performing a `sum` on the y-axis and an `avg` on the color-axis, use `{'y' : 'sum', 'color' : 'avg'}`
+- `filters`: assign Filter objects to a visual, e.g. to filter for all dates between 2007 and the end of 2016, use `filter_year = table['Year'].filter('>=',datetime(2007,1,1)).filter('<=',datetime(2016,12,31))`
+- `chart_options`: a dict of chart options allowing specification of axis-scale e.g. `{'x_type' : 'linear', 'y_type': 'log'}`; chart type  `{'type' : 'circle'}`.
+
+A full example snippet is shown below:
+
+```python
+filter_year = table['Year'].filter('>=',datetime(2007,1,1)).filter('<=',datetime(2016,12,31))
+
+visual = table.upload_visual(x = table['Year'],
+                             y = table['Quantity'],
+                             color = table['Type'],
+                             aggregates = {'y' : 'sum'},
+                             filters=filter_year
+                             chart_options = {'y_type': 'linear', 'chart_type': 'line'}
+                            )
+```
+
+## Embedding a visual
+Once a Visual object has been created, it can be embedded within a Jupyter notebook with the 
+```python
+visual.embed()
+```
+method, which returns an IFrame of the embedded representation of the chart on [count.co](https://count.co).
+
+## Chart sharing
+A visual can be shared by using the
+```python
+visual.url()
+```
+method. This returns a string url of the full visual url on [count.co](https://count.co).
+
+# Manage your data in Count
+
+## Update data in an existing table
+
+```python
+table = count.upload(data=pd.DataFrame.to_csv(df), name = 'Norwegian Car Sales', overwrite_key = 'TwPhiNcdxc7')
+```
+## Delete a table
+
+This deletes a table on [count.co](http://count.co). As such, any operations on a deleted table will throw error with 404 status code 
+```python
+table.delete()
+count.delete_table('TwPhiNcdxc7')
+```
+---
+# A Full Example:
+```python
+import pandas as pd
+from count_api import CountAPI
+
+token = "Use token generated from Count Admin page"
+count = CountAPI()
+count.set_api_token(token)
+
+#Upload a dataframe
+df = pd.read_csv('norweiganCarSales.csv')
+table = count.upload(data=df.to_csv(),name = 'Car Sales in Norway')
+
+#You can view the table and create your own visuals in Count using the table.url() method
+url = table.url()
+
+#Preview first 10 lines of table
+table.head()
+
+#Get size of table
+table.size()
+
+#Create Filter object for 'Year' column
+filter_year = table['Year'].filter('>=',datetime(2007,1,1)).filter('<=',datetime(2016,12,31))
+
+# Create visual of chart of SUM('Quantity') vs 'Year' separated by color for 'Type'
+# for year between 2007 and end of 2016
+# with linear scale for y-axis, and line chart type
+visual = table.upload_visual(x = table['Year'],
+                             y = table['Quantity'],
+                             color = table['Type'],
+                             aggregates = {'y' : 'sum'},
+                             filters=filter_year
+                             chart_options = {'y_type': 'linear', 'chart_type': 'line'}
+                            )
+
+
+# Get visual url
+visual.url()
+
+#If using Jupyter notebook, you can also embed a chart via
+visual.embed()
+
+#Delete table on count.co if no longer needed
+table.delete()
+
+```
+---
+
+# Technical Documentation
+
+## CountAPI
+CountAPI class containing the following methods:
+- `set_api_token(api_token)`
+  - Sets API token obtained from [count.co](https://count.co).
+  - `api_token`: String API token 
+- `upload(path = None, name = None, data = None, overwrite_key = None)`
+  - Uploads csv file from path or csv data from str (keyword arg only method).
+  - `path`: String filepath to the .csv or .xls(x). Cannot be used in conjunction with `path`.
+  - `data`: String csv data to upload. Cannot be used in conjunction with `path`.
+  - `name`: String name of table.
+  - `overwrite_key`: String key of the table for which you would like to replace the data.
+  - `Return`: Table object.
+- `delete_table(table_key)`:
+    - Deletes specified table from [count.co](https://count.co) server.
+    - `table_key`: String table key.
+- `table(table_key)`:
+    - Get a table object from an existing table key.
+    - `table_key`: String table key.
+    - `Return`: Table Object.
+
+## Table
+Table class containing the following methods:
+- `[index]`:
+  - Get Column object from column index.
+  - `index`: Integer index of column
+  - `Return`: Column Object.
+- `[name]`:
+  - Get Column object from column name. Returns first column found with header matching name.
+  - `name`: String column name.
+  - `Return`: Column Object.
+- `column(index)`:
+  - Get Column object from column index.
+  - `index`: Integer index of column
+  - `Return`: Column Object.
+- `column(name)`:
+  - Get Column object from column name. Returns first column found with header matching name.
+  - `name`: String column name.
+  - `Return`: Column Object.
+- `columns(name = None)`:
+  - Get list of Column objects with headers matching name parameter. If name is defaulted, returns all columns in table.
+  - `Return`: List of Column Objects.
+- `delete()`:
+  - Deletes table from [count.co](https://count.co) server. Future references to this Table will be undefined.
+- `head(n=10)`:
+  - Prints first n rows of table
+  - `n`: Integer number of rows requested. Max 100. Default 10.
+- `overwrite(path, name, data)`:
+  - Uploads csv file from path or csv data from str (keyword arg only method), overwriting existing table. New table must match column types of existing table.
+  - `path`: String filepath to the .csv or .xls(x). Cannot be used in conjunction with `path`.
+  - `data`: String csv data to upload. Cannot be used in conjunction with `path`.
+  - `name`: String name of table.
+  - `Return`: Self.
+- `size()`:
+  - Size of table as a tuple of ints (column_extent, row_extent)
+  - `Return`: Tuple (int, int)
+- `upload_visual(x = None, y = None, color = None, size = None, aggregates = None, filters = None, chart_options = None)`:
+  - Uploads chart visual to [count.co](https://count.co).
+  - `x`: Column object to be used for x-axis
+  - `y`: Column object to be used for y-axis
+  - `color`: Column object to be used for color-axis
+  - `size`: Column object to be used for size-axis
+  - `aggregates`: Dictionary of aggregates to be applied to axes. Accepted dict keys:values:
+    - `x`, `y`, `color`, `size`: `distinct`, `min`, `max`, `med`, `sum`, `avg`, `med`.
+  - `filters`: Filter objects or list of Filter objects to be applied to the visual.
+  - `chart_options`: Dictionary of chart options to be applied. Accepted dict keys:values:
+    - `type`: `line`,`bar`,`circle`,`area`, `auto`
+    - `x_type`: `linear`, `log`
+    - `y_type`: `linear`, `log`
+    - `size_type`: `linear`, `log`
+    - `color_type`: `linear`, `log`
+  - `Return`: Visual object.
+- `url()`:
+  - Get url to table view on count.co.
+  - `Return`: String of URL.
+
+## Visual
+Visual class containing the following methods:
+- `embed()`:
+  - Returns IFrame to current visual. For use with interactive environments, e.g Jupyter notebooks.
+  - `Return` IFrame.
+- `set_chart_options(dict: chart_option)`:
+  - Set chart options.
+  - `chart_options`: Dictionary of chart options to be applied. Accepted dict keys:values:
+    - `type`: `line`,`bar`,`circle`,`area`, `auto`
+    - `x_type`: `linear`, `log`
+    - `y_type`: `linear`, `log`
+    - `size_type`: `linear`, `log`
+    - `color_type`: `linear`, `log`
+  - `Return`: Self.
+- `preview_url()`:
+  - Returns url to preview view on [count.co](https://count.co).
+  - `Return`: String.
+- `url()`:
+  - Returns url to visual view on [count.co](https://count.co).
+  - `Return`: String.
+- `url_embed()`:
+  - Returns url to visual view on [count.co](https://count.co) suitable for embedding
+  - `Return`: String.
+
+## Column
+Column class containing the following methods:
+
+- `aggregate(aggregate)`:
+  - Add aggregate function to Column object. Note: cannot perform both group_by and aggregate on the same Column object.
+  - `aggregate`: String aggregate
+      - str: ['DISTINCT', 'MIN', 'MAX', 'MED']
+      - other: ['DISTINCT', 'MIN', 'MAX', 'MED', 'SUM', 'AVG', 'STD', 'VAR', 'MED']
+  - `Return`: self
+- `filter(comparator, str or int or float or datetime: value)`:
+  - Returns Filter object with specified comparator and value
+  - `comparator`: String comparator. Available comparators are:
+    str: ['IN']
+    other : ['>', '>=', '<', '<=']
+  - `value`: string/integer/float/datetime value to compare against
+  - `Return`: self
