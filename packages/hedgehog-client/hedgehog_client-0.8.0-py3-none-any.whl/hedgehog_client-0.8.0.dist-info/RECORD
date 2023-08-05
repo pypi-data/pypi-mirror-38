@@ -1,0 +1,13 @@
+hedgehog/__init__.py,sha256=1-1Q_iOg7ayAanNN3OALLiKrXCZnkJiEWzYMkPd_aGQ,63
+hedgehog/client/__init__.py,sha256=o9nUlsHGDfjHd3ZxHP2wXFRrD3mlKmRGGJUkah0mdEo,623
+hedgehog/client/async_client.py,sha256=B1XwwZ2wqk92NFeI3OpOxrzAklF0OUcUMuVxheAjCjE,15499
+hedgehog/client/async_handlers.py,sha256=ju3vqqB8PudQeUjrD-Uyk_lB51sWL7_NhyMr_tpSI20,3527
+hedgehog/client/shutdown_handler.py,sha256=gJWchA284kp7NOec61I4LejthbsqyYtN3Hh0sYGVl2s,4405
+hedgehog/client/sync_client.py,sha256=arJVY5hVg4YTbVApWX75a8N4u5PYzIKoUCqtBXM4r5o,9130
+hedgehog/client/test_utils.py,sha256=gg-iMTf-qoLtgqry_9Tj2BKbG1EGGLbfih7Oyj8o_Ko,7170
+hedgehog_client-0.8.0.dist-info/LICENSE,sha256=EO3mE8zoHcU4HsnBoI3P3NQl0qGGo--yUjHuO6MIWFo,34521
+hedgehog_client-0.8.0.dist-info/METADATA,sha256=_cHgbsTDc6uNJF0sxcaZH8apvJYpotLUxjttUqlKc-k,2107
+hedgehog_client-0.8.0.dist-info/WHEEL,sha256=MYFsq5fFBwF_oyJgrOoFmYYB1K6Sw7MxY-0897ZLbdM,92
+hedgehog_client-0.8.0.dist-info/entry_points.txt,sha256=eqGnTHtEVMYwfXVk1Z9MhC8O2N8wuqAbr0lisLmrkxs,20
+hedgehog_client-0.8.0.dist-info/top_level.txt,sha256=MFxCcFJVifXUcbMjNElyDuuGqlj021AgU_n-g2neEpQ,9
+hedgehog_client-0.8.0.dist-info/RECORD,,
