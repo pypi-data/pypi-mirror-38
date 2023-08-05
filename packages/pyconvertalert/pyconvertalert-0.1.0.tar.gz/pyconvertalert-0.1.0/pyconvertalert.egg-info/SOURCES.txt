@@ -1,0 +1,11 @@
+MANIFEST.in
+README.md
+setup.py
+pyconvertalert/__init__.py
+pyconvertalert/__version__.py
+pyconvertalert/py_convert_alert.py
+pyconvertalert.egg-info/PKG-INFO
+pyconvertalert.egg-info/SOURCES.txt
+pyconvertalert.egg-info/dependency_links.txt
+pyconvertalert.egg-info/requires.txt
+pyconvertalert.egg-info/top_level.txt
