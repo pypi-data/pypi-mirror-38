@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: kruxpy
+Version: 0.0.1
+Summary: Kruxpy is a library for dealing with the Krux / Salesforce DMP API
+Home-page: http://github.com/theatlantic/kruxpy
+Author: Brian Muller
+Author-email: bamuller@gmail.com
+License: MIT
+Platform: UNKNOWN
+Requires-Python: >=3
+Requires-Dist: requests (==2.20.0)
+
+UNKNOWN
+
+
