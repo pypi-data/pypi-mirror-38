@@ -1,0 +1,7 @@
+__title__ = 'spectrust'
+__version__ = '0.1.1'
+__description__ = 'Blazing fast spectrogram generator.'
+__url__ = 'https://github.com/axegon/spectrust'
+__author__ = 'Alexander Ejbekov'
+__author_email__ = 'alexander@kialo.ai'
+__license__ = 'MIT'
