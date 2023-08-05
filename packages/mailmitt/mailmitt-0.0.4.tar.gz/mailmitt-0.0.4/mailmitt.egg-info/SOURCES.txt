@@ -1,0 +1,17 @@
+README.md
+setup.py
+mailmitt/__init__.py
+mailmitt/__main__.py
+mailmitt/__version__.py
+mailmitt/smtp_server.py
+mailmitt/utils.py
+mailmitt/web_server.py
+mailmitt.egg-info/PKG-INFO
+mailmitt.egg-info/SOURCES.txt
+mailmitt.egg-info/dependency_links.txt
+mailmitt.egg-info/entry_points.txt
+mailmitt.egg-info/requires.txt
+mailmitt.egg-info/top_level.txt
+mailmitt/static/pure-grids-responsive.min.css
+mailmitt/static/pure.min.css
+mailmitt/templates/index.html
