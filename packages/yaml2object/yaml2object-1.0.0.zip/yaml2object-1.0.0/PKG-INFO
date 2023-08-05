@@ -1,0 +1,14 @@
+Metadata-Version: 1.1
+Name: yaml2object
+Version: 1.0.0
+Summary: A simple solution that allows dot notation for YAML file.
+Home-page: https://github.com/imravishar/yaml2object
+Author: Ravi Sharma
+Author-email: ravi.sharma.cs11@gmail.com
+License: Apache2
+Description: yaml2object is a simple solution that allows dot notation for YAML file.
+Keywords: YAML,pyyaml,Python YAML,python yaml
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python
+Classifier: License :: OSI Approved :: Apache Software License
