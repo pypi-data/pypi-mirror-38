@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: bullseye-method
+Version: 0.0.1
+Summary: Implemented tensorflow version of the Bullseye method for prior approximation.
+Home-page: https://github.com/Whenti/bullseye
+Author: Quentin Lévêque, Guillaume Dehaene
+Author-email: qleveque@hotmail.com, guillaume.dehaene@gmail.com
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
