@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: arithmetic-graphing
+Version: 0.0.8
+Summary: A small arithmetic module for functions of graphing
+Home-page: UNKNOWN
+Author: TheOnlyWalrus
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 1 - Planning
+Classifier: Topic :: Education
+Classifier: Intended Audience :: Education
+Description-Content-Type: text/markdown
+
+Arithmetic Graphing
+===================
+===================
+This is a Python 3 module with includes many graphing functions.
+Such as finding the slope with two given sets of points.
+
+Import Instructions:
+--------------------
+import arithmetic_graphing
+
+Functions:
+----------
+Slope((x1, y1), (x2, y2))
+|
+Returns the slope of the line of the given points
+
