@@ -1,0 +1,8 @@
+[console_scripts]
+
+
+[gui_scripts]
+plotter = pySPM.tools.emission_current_plotter:main
+stability = pySPM.tools.stability:main
+timer = pySPM.tools.tof_timer:main
+
