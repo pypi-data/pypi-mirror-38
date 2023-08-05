@@ -1,0 +1,449 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>airflow.contrib.kubernetes.worker_configuration &mdash; Airflow Documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../search.html"/>
+    <link rel="top" title="Airflow Documentation" href="../../../../index.html"/>
+        <link rel="up" title="airflow" href="../../../airflow.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Airflow
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../howto/index.html">How-to Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ui.html">UI / Screenshots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../profiling.html">Data Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cli.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../scheduler.html">Scheduling &amp; Triggers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../security.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../timezone.html">Time zones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api.html">Experimental Rest API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../integration.html">Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../lineage.html">Lineage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../code.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Airflow</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../../airflow.html">airflow</a> &raquo;</li>
+        
+      <li>airflow.contrib.kubernetes.worker_configuration</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for airflow.contrib.kubernetes.worker_configuration</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Licensed to the Apache Software Foundation (ASF) under one</span>
+<span class="c1"># or more contributor license agreements.  See the NOTICE file</span>
+<span class="c1"># distributed with this work for additional information</span>
+<span class="c1"># regarding copyright ownership.  The ASF licenses this file</span>
+<span class="c1"># to you under the Apache License, Version 2.0 (the</span>
+<span class="c1"># &quot;License&quot;); you may not use this file except in compliance</span>
+<span class="c1"># with the License.  You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#   http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing,</span>
+<span class="c1"># software distributed under the License is distributed on an</span>
+<span class="c1"># &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
+<span class="c1"># KIND, either express or implied.  See the License for the</span>
+<span class="c1"># specific language governing permissions and limitations</span>
+<span class="c1"># under the License.</span>
+
+<span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">six</span>
+
+<span class="kn">from</span> <span class="nn">airflow.contrib.kubernetes.pod</span> <span class="k">import</span> <span class="n">Pod</span><span class="p">,</span> <span class="n">Resources</span>
+<span class="kn">from</span> <span class="nn">airflow.contrib.kubernetes.secret</span> <span class="k">import</span> <span class="n">Secret</span>
+<span class="kn">from</span> <span class="nn">airflow.utils.log.logging_mixin</span> <span class="k">import</span> <span class="n">LoggingMixin</span>
+
+
+<div class="viewcode-block" id="WorkerConfiguration"><a class="viewcode-back" href="../../../../code/auto-api/airflow.contrib.kubernetes.html#airflow.contrib.kubernetes.worker_configuration.WorkerConfiguration">[docs]</a><span class="k">class</span> <span class="nc">WorkerConfiguration</span><span class="p">(</span><span class="n">LoggingMixin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Contains Kubernetes Airflow Worker configuration logic&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kube_config</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">kube_config</span> <span class="o">=</span> <span class="n">kube_config</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">worker_airflow_home</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">kube_config</span><span class="o">.</span><span class="n">airflow_home</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">worker_airflow_dags</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">kube_config</span><span class="o">.</span><span class="n">dags_folder</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">worker_airflow_logs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">kube_config</span><span class="o">.</span><span class="n">base_log_folder</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">WorkerConfiguration</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_get_init_containers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">volume_mounts</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;When using git to retrieve the DAGs, use the GitSync Init Container&quot;&quot;&quot;</span>
+        <span class="c1"># If we&#39;re using volume claims to mount the dags, no init container is needed</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">kube_config</span><span class="o">.</span><span class="n">dags_volume_claim</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[]</span>
+
+        <span class="c1"># Otherwise, define a git-sync init container</span>
+        <span class="n">init_environment</span> <span class="o">=</span> <span class="p">[{</span>
+            <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;GIT_SYNC_REPO&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">kube_config</span><span class="o">.</span><span class="n">git_repo</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;GIT_SYNC_BRANCH&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">kube_config</span><span class="o">.</span><span class="n">git_branch</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;GIT_SYNC_ROOT&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="s1">&#39;/tmp&#39;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;GIT_SYNC_DEST&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="s1">&#39;dags&#39;</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;GIT_SYNC_ONE_TIME&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="s1">&#39;true&#39;</span>
+        <span class="p">}]</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">kube_config</span><span class="o">.</span><span class="n">git_user</span><span class="p">:</span>
+            <span class="n">init_environment</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;GIT_SYNC_USERNAME&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">kube_config</span><span class="o">.</span><span class="n">git_user</span>
+            <span class="p">})</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">kube_config</span><span class="o">.</span><span class="n">git_password</span><span class="p">:</span>
+            <span class="n">init_environment</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;GIT_SYNC_PASSWORD&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">kube_config</span><span class="o">.</span><span class="n">git_password</span>
+            <span class="p">})</span>
+
+        <span class="n">volume_mounts</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;readOnly&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="p">[{</span>
+            <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">kube_config</span><span class="o">.</span><span class="n">git_sync_init_container_name</span><span class="p">,</span>
+            <span class="s1">&#39;image&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">kube_config</span><span class="o">.</span><span class="n">git_sync_container</span><span class="p">,</span>
+            <span class="s1">&#39;securityContext&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;runAsUser&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">},</span>
+            <span class="s1">&#39;env&#39;</span><span class="p">:</span> <span class="n">init_environment</span><span class="p">,</span>
+            <span class="s1">&#39;volumeMounts&#39;</span><span class="p">:</span> <span class="n">volume_mounts</span>
+        <span class="p">}]</span>
+
+    <span class="k">def</span> <span class="nf">_get_environment</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Defines any necessary environment variables for the pod executor&quot;&quot;&quot;</span>
+        <span class="n">env</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;AIRFLOW__CORE__DAGS_FOLDER&#39;</span><span class="p">:</span> <span class="s1">&#39;/tmp/dags&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;AIRFLOW__CORE__EXECUTOR&#39;</span><span class="p">:</span> <span class="s1">&#39;LocalExecutor&#39;</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">kube_config</span><span class="o">.</span><span class="n">airflow_configmap</span><span class="p">:</span>
+            <span class="n">env</span><span class="p">[</span><span class="s1">&#39;AIRFLOW__CORE__AIRFLOW_HOME&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">worker_airflow_home</span>
+        <span class="k">return</span> <span class="n">env</span>
+
+    <span class="k">def</span> <span class="nf">_get_secrets</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Defines any necessary secrets for the pod executor&quot;&quot;&quot;</span>
+        <span class="n">worker_secrets</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">env_var_name</span><span class="p">,</span> <span class="n">obj_key_pair</span> <span class="ow">in</span> <span class="n">six</span><span class="o">.</span><span class="n">iteritems</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kube_config</span><span class="o">.</span><span class="n">kube_secrets</span><span class="p">):</span>
+            <span class="n">k8s_secret_obj</span><span class="p">,</span> <span class="n">k8s_secret_key</span> <span class="o">=</span> <span class="n">obj_key_pair</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">)</span>
+            <span class="n">worker_secrets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="n">Secret</span><span class="p">(</span><span class="s1">&#39;env&#39;</span><span class="p">,</span> <span class="n">env_var_name</span><span class="p">,</span> <span class="n">k8s_secret_obj</span><span class="p">,</span> <span class="n">k8s_secret_key</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">worker_secrets</span>
+
+    <span class="k">def</span> <span class="nf">_get_image_pull_secrets</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Extracts any image pull secrets for fetching container(s)&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">kube_config</span><span class="o">.</span><span class="n">image_pull_secrets</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">kube_config</span><span class="o">.</span><span class="n">image_pull_secrets</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="WorkerConfiguration.init_volumes_and_mounts"><a class="viewcode-back" href="../../../../code/auto-api/airflow.contrib.kubernetes.html#airflow.contrib.kubernetes.worker_configuration.WorkerConfiguration.init_volumes_and_mounts">[docs]</a>    <span class="k">def</span> <span class="nf">init_volumes_and_mounts</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">dags_volume_name</span> <span class="o">=</span> <span class="s1">&#39;airflow-dags&#39;</span>
+        <span class="n">logs_volume_name</span> <span class="o">=</span> <span class="s1">&#39;airflow-logs&#39;</span>
+
+        <span class="k">def</span> <span class="nf">_construct_volume</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">claim</span><span class="p">,</span> <span class="n">subpath</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+            <span class="n">vo</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">name</span>
+            <span class="p">}</span>
+            <span class="k">if</span> <span class="n">claim</span><span class="p">:</span>
+                <span class="n">vo</span><span class="p">[</span><span class="s1">&#39;persistentVolumeClaim&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s1">&#39;claimName&#39;</span><span class="p">:</span> <span class="n">claim</span>
+                <span class="p">}</span>
+                <span class="k">if</span> <span class="n">subpath</span><span class="p">:</span>
+                    <span class="n">vo</span><span class="p">[</span><span class="s1">&#39;subPath&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">subpath</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">vo</span><span class="p">[</span><span class="s1">&#39;emptyDir&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">return</span> <span class="n">vo</span>
+
+        <span class="n">volumes</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">_construct_volume</span><span class="p">(</span>
+                <span class="n">dags_volume_name</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">kube_config</span><span class="o">.</span><span class="n">dags_volume_claim</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">kube_config</span><span class="o">.</span><span class="n">dags_volume_subpath</span>
+            <span class="p">),</span>
+            <span class="n">_construct_volume</span><span class="p">(</span>
+                <span class="n">logs_volume_name</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">kube_config</span><span class="o">.</span><span class="n">logs_volume_claim</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">kube_config</span><span class="o">.</span><span class="n">logs_volume_subpath</span>
+            <span class="p">)</span>
+        <span class="p">]</span>
+
+        <span class="n">dag_volume_mount_path</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">kube_config</span><span class="o">.</span><span class="n">dags_volume_claim</span><span class="p">:</span>
+            <span class="n">dag_volume_mount_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">worker_airflow_dags</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">dag_volume_mount_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">worker_airflow_dags</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">kube_config</span><span class="o">.</span><span class="n">git_subpath</span>
+            <span class="p">)</span>
+
+        <span class="n">volume_mounts</span> <span class="o">=</span> <span class="p">[{</span>
+            <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">dags_volume_name</span><span class="p">,</span>
+            <span class="s1">&#39;mountPath&#39;</span><span class="p">:</span> <span class="n">dag_volume_mount_path</span><span class="p">,</span>
+            <span class="s1">&#39;readOnly&#39;</span><span class="p">:</span> <span class="kc">True</span>
+        <span class="p">},</span> <span class="p">{</span>
+            <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">logs_volume_name</span><span class="p">,</span>
+            <span class="s1">&#39;mountPath&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">worker_airflow_logs</span>
+        <span class="p">}]</span>
+
+        <span class="c1"># Mount the airflow.cfg file via a configmap the user has specified</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">kube_config</span><span class="o">.</span><span class="n">airflow_configmap</span><span class="p">:</span>
+            <span class="n">config_volume_name</span> <span class="o">=</span> <span class="s1">&#39;airflow-config&#39;</span>
+            <span class="n">config_path</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">/airflow.cfg&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">worker_airflow_home</span><span class="p">)</span>
+            <span class="n">volumes</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">config_volume_name</span><span class="p">,</span>
+                <span class="s1">&#39;configMap&#39;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">kube_config</span><span class="o">.</span><span class="n">airflow_configmap</span>
+                <span class="p">}</span>
+            <span class="p">})</span>
+            <span class="n">volume_mounts</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">config_volume_name</span><span class="p">,</span>
+                <span class="s1">&#39;mountPath&#39;</span><span class="p">:</span> <span class="n">config_path</span><span class="p">,</span>
+                <span class="s1">&#39;subPath&#39;</span><span class="p">:</span> <span class="s1">&#39;airflow.cfg&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;readOnly&#39;</span><span class="p">:</span> <span class="kc">True</span>
+            <span class="p">})</span>
+
+        <span class="k">return</span> <span class="n">volumes</span><span class="p">,</span> <span class="n">volume_mounts</span></div>
+
+<div class="viewcode-block" id="WorkerConfiguration.make_pod"><a class="viewcode-back" href="../../../../code/auto-api/airflow.contrib.kubernetes.html#airflow.contrib.kubernetes.worker_configuration.WorkerConfiguration.make_pod">[docs]</a>    <span class="k">def</span> <span class="nf">make_pod</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">namespace</span><span class="p">,</span> <span class="n">worker_uuid</span><span class="p">,</span> <span class="n">pod_id</span><span class="p">,</span> <span class="n">dag_id</span><span class="p">,</span> <span class="n">task_id</span><span class="p">,</span> <span class="n">execution_date</span><span class="p">,</span>
+                 <span class="n">airflow_command</span><span class="p">,</span> <span class="n">kube_executor_config</span><span class="p">):</span>
+        <span class="n">volumes</span><span class="p">,</span> <span class="n">volume_mounts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">init_volumes_and_mounts</span><span class="p">()</span>
+        <span class="n">worker_init_container_spec</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_init_containers</span><span class="p">(</span>
+            <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">volume_mounts</span><span class="p">))</span>
+        <span class="n">resources</span> <span class="o">=</span> <span class="n">Resources</span><span class="p">(</span>
+            <span class="n">request_memory</span><span class="o">=</span><span class="n">kube_executor_config</span><span class="o">.</span><span class="n">request_memory</span><span class="p">,</span>
+            <span class="n">request_cpu</span><span class="o">=</span><span class="n">kube_executor_config</span><span class="o">.</span><span class="n">request_cpu</span><span class="p">,</span>
+            <span class="n">limit_memory</span><span class="o">=</span><span class="n">kube_executor_config</span><span class="o">.</span><span class="n">limit_memory</span><span class="p">,</span>
+            <span class="n">limit_cpu</span><span class="o">=</span><span class="n">kube_executor_config</span><span class="o">.</span><span class="n">limit_cpu</span>
+        <span class="p">)</span>
+        <span class="n">gcp_sa_key</span> <span class="o">=</span> <span class="n">kube_executor_config</span><span class="o">.</span><span class="n">gcp_service_account_key</span>
+        <span class="n">annotations</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;iam.cloud.google.com/service-account&#39;</span><span class="p">:</span> <span class="n">gcp_sa_key</span>
+        <span class="p">}</span> <span class="k">if</span> <span class="n">gcp_sa_key</span> <span class="k">else</span> <span class="p">{}</span>
+
+        <span class="k">return</span> <span class="n">Pod</span><span class="p">(</span>
+            <span class="n">namespace</span><span class="o">=</span><span class="n">namespace</span><span class="p">,</span>
+            <span class="n">name</span><span class="o">=</span><span class="n">pod_id</span><span class="p">,</span>
+            <span class="n">image</span><span class="o">=</span><span class="n">kube_executor_config</span><span class="o">.</span><span class="n">image</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">kube_config</span><span class="o">.</span><span class="n">kube_image</span><span class="p">,</span>
+            <span class="n">image_pull_policy</span><span class="o">=</span><span class="p">(</span><span class="n">kube_executor_config</span><span class="o">.</span><span class="n">image_pull_policy</span> <span class="ow">or</span>
+                               <span class="bp">self</span><span class="o">.</span><span class="n">kube_config</span><span class="o">.</span><span class="n">kube_image_pull_policy</span><span class="p">),</span>
+            <span class="n">cmds</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;bash&#39;</span><span class="p">,</span> <span class="s1">&#39;-cx&#39;</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">],</span>
+            <span class="n">args</span><span class="o">=</span><span class="p">[</span><span class="n">airflow_command</span><span class="p">],</span>
+            <span class="n">labels</span><span class="o">=</span><span class="p">{</span>
+                <span class="s1">&#39;airflow-worker&#39;</span><span class="p">:</span> <span class="n">worker_uuid</span><span class="p">,</span>
+                <span class="s1">&#39;dag_id&#39;</span><span class="p">:</span> <span class="n">dag_id</span><span class="p">,</span>
+                <span class="s1">&#39;task_id&#39;</span><span class="p">:</span> <span class="n">task_id</span><span class="p">,</span>
+                <span class="s1">&#39;execution_date&#39;</span><span class="p">:</span> <span class="n">execution_date</span>
+            <span class="p">},</span>
+            <span class="n">envs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_environment</span><span class="p">(),</span>
+            <span class="n">secrets</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_secrets</span><span class="p">(),</span>
+            <span class="n">service_account_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">kube_config</span><span class="o">.</span><span class="n">worker_service_account_name</span><span class="p">,</span>
+            <span class="n">image_pull_secrets</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">kube_config</span><span class="o">.</span><span class="n">image_pull_secrets</span><span class="p">,</span>
+            <span class="n">init_containers</span><span class="o">=</span><span class="n">worker_init_container_spec</span><span class="p">,</span>
+            <span class="n">volumes</span><span class="o">=</span><span class="n">volumes</span><span class="p">,</span>
+            <span class="n">volume_mounts</span><span class="o">=</span><span class="n">volume_mounts</span><span class="p">,</span>
+            <span class="n">resources</span><span class="o">=</span><span class="n">resources</span><span class="p">,</span>
+            <span class="n">annotations</span><span class="o">=</span><span class="n">annotations</span>
+        <span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

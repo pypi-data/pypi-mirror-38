@@ -1,0 +1,29 @@
+airflow.migrations package
+==========================
+
+Subpackages
+-----------
+
+.. toctree::
+
+    airflow.migrations.versions
+
+Submodules
+----------
+
+airflow.migrations.env module
+-----------------------------
+
+.. automodule:: airflow.migrations.env
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: airflow.migrations
+    :members:
+    :undoc-members:
+    :show-inheritance:

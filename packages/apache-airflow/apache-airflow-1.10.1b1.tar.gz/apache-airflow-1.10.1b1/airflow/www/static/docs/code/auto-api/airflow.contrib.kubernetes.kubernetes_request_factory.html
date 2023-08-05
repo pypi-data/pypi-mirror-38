@@ -1,0 +1,413 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>airflow.contrib.kubernetes.kubernetes_request_factory package &mdash; Airflow Documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Airflow Documentation" href="../../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Airflow
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howto/index.html">How-to Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ui.html">UI / Screenshots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../profiling.html">Data Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../scheduler.html">Scheduling &amp; Triggers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../security.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../timezone.html">Time zones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">Experimental Rest API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../integration.html">Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lineage.html">Lineage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../code.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Airflow</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>airflow.contrib.kubernetes.kubernetes_request_factory package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/code/auto-api/airflow.contrib.kubernetes.kubernetes_request_factory.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="airflow-contrib-kubernetes-kubernetes-request-factory-package">
+<h1>airflow.contrib.kubernetes.kubernetes_request_factory package<a class="headerlink" href="#airflow-contrib-kubernetes-kubernetes-request-factory-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory">
+<span id="airflow-contrib-kubernetes-kubernetes-request-factory-kubernetes-request-factory-module"></span><h2>airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory module<a class="headerlink" href="#module-airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory">
+<em class="property">class </em><code class="descclassname">airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.</code><code class="descname">KubernetesRequestFactory</code><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/kubernetes_request_factory/kubernetes_request_factory.html#KubernetesRequestFactory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Create requests to be sent to kube API.
+Extend this class to talk to kubernetes and generate your specific resources.
+This is equivalent of generating yaml files that can be used by <cite>kubectl</cite></p>
+<dl class="staticmethod">
+<dt id="airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.add_secret_to_env">
+<em class="property">static </em><code class="descname">add_secret_to_env</code><span class="sig-paren">(</span><em>env</em>, <em>secret</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/kubernetes_request_factory/kubernetes_request_factory.html#KubernetesRequestFactory.add_secret_to_env"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.add_secret_to_env" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.attach_volume_mounts">
+<em class="property">static </em><code class="descname">attach_volume_mounts</code><span class="sig-paren">(</span><em>pod</em>, <em>req</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/kubernetes_request_factory/kubernetes_request_factory.html#KubernetesRequestFactory.attach_volume_mounts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.attach_volume_mounts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.attach_volumes">
+<em class="property">static </em><code class="descname">attach_volumes</code><span class="sig-paren">(</span><em>pod</em>, <em>req</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/kubernetes_request_factory/kubernetes_request_factory.html#KubernetesRequestFactory.attach_volumes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.attach_volumes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.create">
+<code class="descname">create</code><span class="sig-paren">(</span><em>pod</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/kubernetes_request_factory/kubernetes_request_factory.html#KubernetesRequestFactory.create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the request for kubernetes API.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pod</strong> – The pod object</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.extract_affinity">
+<em class="property">static </em><code class="descname">extract_affinity</code><span class="sig-paren">(</span><em>pod</em>, <em>req</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/kubernetes_request_factory/kubernetes_request_factory.html#KubernetesRequestFactory.extract_affinity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.extract_affinity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.extract_annotations">
+<em class="property">static </em><code class="descname">extract_annotations</code><span class="sig-paren">(</span><em>pod</em>, <em>req</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/kubernetes_request_factory/kubernetes_request_factory.html#KubernetesRequestFactory.extract_annotations"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.extract_annotations" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.extract_args">
+<em class="property">static </em><code class="descname">extract_args</code><span class="sig-paren">(</span><em>pod</em>, <em>req</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/kubernetes_request_factory/kubernetes_request_factory.html#KubernetesRequestFactory.extract_args"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.extract_args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.extract_cmds">
+<em class="property">static </em><code class="descname">extract_cmds</code><span class="sig-paren">(</span><em>pod</em>, <em>req</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/kubernetes_request_factory/kubernetes_request_factory.html#KubernetesRequestFactory.extract_cmds"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.extract_cmds" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.extract_env_and_secrets">
+<em class="property">static </em><code class="descname">extract_env_and_secrets</code><span class="sig-paren">(</span><em>pod</em>, <em>req</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/kubernetes_request_factory/kubernetes_request_factory.html#KubernetesRequestFactory.extract_env_and_secrets"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.extract_env_and_secrets" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.extract_image">
+<em class="property">static </em><code class="descname">extract_image</code><span class="sig-paren">(</span><em>pod</em>, <em>req</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/kubernetes_request_factory/kubernetes_request_factory.html#KubernetesRequestFactory.extract_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.extract_image" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.extract_image_pull_policy">
+<em class="property">static </em><code class="descname">extract_image_pull_policy</code><span class="sig-paren">(</span><em>pod</em>, <em>req</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/kubernetes_request_factory/kubernetes_request_factory.html#KubernetesRequestFactory.extract_image_pull_policy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.extract_image_pull_policy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.extract_image_pull_secrets">
+<em class="property">static </em><code class="descname">extract_image_pull_secrets</code><span class="sig-paren">(</span><em>pod</em>, <em>req</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/kubernetes_request_factory/kubernetes_request_factory.html#KubernetesRequestFactory.extract_image_pull_secrets"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.extract_image_pull_secrets" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.extract_init_containers">
+<em class="property">static </em><code class="descname">extract_init_containers</code><span class="sig-paren">(</span><em>pod</em>, <em>req</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/kubernetes_request_factory/kubernetes_request_factory.html#KubernetesRequestFactory.extract_init_containers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.extract_init_containers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.extract_labels">
+<em class="property">static </em><code class="descname">extract_labels</code><span class="sig-paren">(</span><em>pod</em>, <em>req</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/kubernetes_request_factory/kubernetes_request_factory.html#KubernetesRequestFactory.extract_labels"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.extract_labels" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.extract_name">
+<em class="property">static </em><code class="descname">extract_name</code><span class="sig-paren">(</span><em>pod</em>, <em>req</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/kubernetes_request_factory/kubernetes_request_factory.html#KubernetesRequestFactory.extract_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.extract_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.extract_node_selector">
+<em class="property">static </em><code class="descname">extract_node_selector</code><span class="sig-paren">(</span><em>pod</em>, <em>req</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/kubernetes_request_factory/kubernetes_request_factory.html#KubernetesRequestFactory.extract_node_selector"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.extract_node_selector" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.extract_resources">
+<em class="property">static </em><code class="descname">extract_resources</code><span class="sig-paren">(</span><em>pod</em>, <em>req</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/kubernetes_request_factory/kubernetes_request_factory.html#KubernetesRequestFactory.extract_resources"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.extract_resources" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.extract_service_account_name">
+<em class="property">static </em><code class="descname">extract_service_account_name</code><span class="sig-paren">(</span><em>pod</em>, <em>req</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/kubernetes_request_factory/kubernetes_request_factory.html#KubernetesRequestFactory.extract_service_account_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.extract_service_account_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.extract_volume_secrets">
+<em class="property">static </em><code class="descname">extract_volume_secrets</code><span class="sig-paren">(</span><em>pod</em>, <em>req</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/kubernetes_request_factory/kubernetes_request_factory.html#KubernetesRequestFactory.extract_volume_secrets"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.extract_volume_secrets" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.contrib.kubernetes.kubernetes_request_factory.pod_request_factory">
+<span id="airflow-contrib-kubernetes-kubernetes-request-factory-pod-request-factory-module"></span><h2>airflow.contrib.kubernetes.kubernetes_request_factory.pod_request_factory module<a class="headerlink" href="#module-airflow.contrib.kubernetes.kubernetes_request_factory.pod_request_factory" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.contrib.kubernetes.kubernetes_request_factory.pod_request_factory.ExtractXcomPodRequestFactory">
+<em class="property">class </em><code class="descclassname">airflow.contrib.kubernetes.kubernetes_request_factory.pod_request_factory.</code><code class="descname">ExtractXcomPodRequestFactory</code><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/kubernetes_request_factory/pod_request_factory.html#ExtractXcomPodRequestFactory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.kubernetes_request_factory.pod_request_factory.ExtractXcomPodRequestFactory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory" title="airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory</span></code></a></p>
+<dl class="attribute">
+<dt id="airflow.contrib.kubernetes.kubernetes_request_factory.pod_request_factory.ExtractXcomPodRequestFactory.SIDECAR_CONTAINER_NAME">
+<code class="descname">SIDECAR_CONTAINER_NAME</code><em class="property"> = 'airflow-xcom-sidecar'</em><a class="headerlink" href="#airflow.contrib.kubernetes.kubernetes_request_factory.pod_request_factory.ExtractXcomPodRequestFactory.SIDECAR_CONTAINER_NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request generator for a pod with sidecar container.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.contrib.kubernetes.kubernetes_request_factory.pod_request_factory.ExtractXcomPodRequestFactory.XCOM_MOUNT_PATH">
+<code class="descname">XCOM_MOUNT_PATH</code><em class="property"> = '/airflow/xcom'</em><a class="headerlink" href="#airflow.contrib.kubernetes.kubernetes_request_factory.pod_request_factory.ExtractXcomPodRequestFactory.XCOM_MOUNT_PATH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.contrib.kubernetes.kubernetes_request_factory.pod_request_factory.ExtractXcomPodRequestFactory.create">
+<code class="descname">create</code><span class="sig-paren">(</span><em>pod</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/kubernetes_request_factory/pod_request_factory.html#ExtractXcomPodRequestFactory.create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.kubernetes_request_factory.pod_request_factory.ExtractXcomPodRequestFactory.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the request for kubernetes API.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pod</strong> – The pod object</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="airflow.contrib.kubernetes.kubernetes_request_factory.pod_request_factory.SimplePodRequestFactory">
+<em class="property">class </em><code class="descclassname">airflow.contrib.kubernetes.kubernetes_request_factory.pod_request_factory.</code><code class="descname">SimplePodRequestFactory</code><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/kubernetes_request_factory/pod_request_factory.html#SimplePodRequestFactory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.kubernetes_request_factory.pod_request_factory.SimplePodRequestFactory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory" title="airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory</span></code></a></p>
+<p>Request generator for a simple pod.</p>
+<dl class="method">
+<dt id="airflow.contrib.kubernetes.kubernetes_request_factory.pod_request_factory.SimplePodRequestFactory.create">
+<code class="descname">create</code><span class="sig-paren">(</span><em>pod</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/kubernetes_request_factory/pod_request_factory.html#SimplePodRequestFactory.create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.kubernetes_request_factory.pod_request_factory.SimplePodRequestFactory.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the request for kubernetes API.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pod</strong> – The pod object</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.contrib.kubernetes.kubernetes_request_factory">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-airflow.contrib.kubernetes.kubernetes_request_factory" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,419 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory &mdash; Airflow Documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../../search.html"/>
+    <link rel="top" title="Airflow Documentation" href="../../../../../index.html"/>
+        <link rel="up" title="airflow" href="../../../../airflow.html"/> 
+
+  
+  <script src="../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> Airflow
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../howto/index.html">How-to Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../ui.html">UI / Screenshots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../profiling.html">Data Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../cli.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../scheduler.html">Scheduling &amp; Triggers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../security.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../timezone.html">Time zones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../api.html">Experimental Rest API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../integration.html">Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../lineage.html">Lineage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../code.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">Airflow</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../../../airflow.html">airflow</a> &raquo;</li>
+        
+      <li>airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Licensed to the Apache Software Foundation (ASF) under one</span>
+<span class="c1"># or more contributor license agreements.  See the NOTICE file</span>
+<span class="c1"># distributed with this work for additional information</span>
+<span class="c1"># regarding copyright ownership.  The ASF licenses this file</span>
+<span class="c1"># to you under the Apache License, Version 2.0 (the</span>
+<span class="c1"># &quot;License&quot;); you may not use this file except in compliance</span>
+<span class="c1"># with the License.  You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#   http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing,</span>
+<span class="c1"># software distributed under the License is distributed on an</span>
+<span class="c1"># &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
+<span class="c1"># KIND, either express or implied.  See the License for the</span>
+<span class="c1"># specific language governing permissions and limitations</span>
+<span class="c1"># under the License.</span>
+
+<span class="kn">from</span> <span class="nn">abc</span> <span class="k">import</span> <span class="n">ABCMeta</span><span class="p">,</span> <span class="n">abstractmethod</span>
+<span class="kn">import</span> <span class="nn">six</span>
+
+
+<div class="viewcode-block" id="KubernetesRequestFactory"><a class="viewcode-back" href="../../../../../code/auto-api/airflow.contrib.kubernetes.kubernetes_request_factory.html#airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory">[docs]</a><span class="k">class</span> <span class="nc">KubernetesRequestFactory</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create requests to be sent to kube API.</span>
+<span class="sd">    Extend this class to talk to kubernetes and generate your specific resources.</span>
+<span class="sd">    This is equivalent of generating yaml files that can be used by `kubectl`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">__metaclass__</span> <span class="o">=</span> <span class="n">ABCMeta</span>
+
+<div class="viewcode-block" id="KubernetesRequestFactory.create"><a class="viewcode-back" href="../../../../../code/auto-api/airflow.contrib.kubernetes.kubernetes_request_factory.html#airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.create">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pod</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates the request for kubernetes API.</span>
+
+<span class="sd">        :param pod: The pod object</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="KubernetesRequestFactory.extract_image"><a class="viewcode-back" href="../../../../../code/auto-api/airflow.contrib.kubernetes.kubernetes_request_factory.html#airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.extract_image">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">extract_image</span><span class="p">(</span><span class="n">pod</span><span class="p">,</span> <span class="n">req</span><span class="p">):</span>
+        <span class="n">req</span><span class="p">[</span><span class="s1">&#39;spec&#39;</span><span class="p">][</span><span class="s1">&#39;containers&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;image&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pod</span><span class="o">.</span><span class="n">image</span></div>
+
+<div class="viewcode-block" id="KubernetesRequestFactory.extract_image_pull_policy"><a class="viewcode-back" href="../../../../../code/auto-api/airflow.contrib.kubernetes.kubernetes_request_factory.html#airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.extract_image_pull_policy">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">extract_image_pull_policy</span><span class="p">(</span><span class="n">pod</span><span class="p">,</span> <span class="n">req</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">pod</span><span class="o">.</span><span class="n">image_pull_policy</span><span class="p">:</span>
+            <span class="n">req</span><span class="p">[</span><span class="s1">&#39;spec&#39;</span><span class="p">][</span><span class="s1">&#39;containers&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;imagePullPolicy&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pod</span><span class="o">.</span><span class="n">image_pull_policy</span></div>
+
+<div class="viewcode-block" id="KubernetesRequestFactory.add_secret_to_env"><a class="viewcode-back" href="../../../../../code/auto-api/airflow.contrib.kubernetes.kubernetes_request_factory.html#airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.add_secret_to_env">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">add_secret_to_env</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">secret</span><span class="p">):</span>
+        <span class="n">env</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+            <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">secret</span><span class="o">.</span><span class="n">deploy_target</span><span class="p">,</span>
+            <span class="s1">&#39;valueFrom&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;secretKeyRef&#39;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">secret</span><span class="o">.</span><span class="n">secret</span><span class="p">,</span>
+                    <span class="s1">&#39;key&#39;</span><span class="p">:</span> <span class="n">secret</span><span class="o">.</span><span class="n">key</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">})</span></div>
+
+<div class="viewcode-block" id="KubernetesRequestFactory.extract_labels"><a class="viewcode-back" href="../../../../../code/auto-api/airflow.contrib.kubernetes.kubernetes_request_factory.html#airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.extract_labels">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">extract_labels</span><span class="p">(</span><span class="n">pod</span><span class="p">,</span> <span class="n">req</span><span class="p">):</span>
+        <span class="n">req</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">][</span><span class="s1">&#39;labels&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">req</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;labels&#39;</span><span class="p">,</span> <span class="p">{})</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">six</span><span class="o">.</span><span class="n">iteritems</span><span class="p">(</span><span class="n">pod</span><span class="o">.</span><span class="n">labels</span><span class="p">):</span>
+            <span class="n">req</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">][</span><span class="s1">&#39;labels&#39;</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span></div>
+
+<div class="viewcode-block" id="KubernetesRequestFactory.extract_annotations"><a class="viewcode-back" href="../../../../../code/auto-api/airflow.contrib.kubernetes.kubernetes_request_factory.html#airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.extract_annotations">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">extract_annotations</span><span class="p">(</span><span class="n">pod</span><span class="p">,</span> <span class="n">req</span><span class="p">):</span>
+        <span class="n">req</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">][</span><span class="s1">&#39;annotations&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">req</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;annotations&#39;</span><span class="p">,</span> <span class="p">{})</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">six</span><span class="o">.</span><span class="n">iteritems</span><span class="p">(</span><span class="n">pod</span><span class="o">.</span><span class="n">annotations</span><span class="p">):</span>
+            <span class="n">req</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">][</span><span class="s1">&#39;annotations&#39;</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span></div>
+
+<div class="viewcode-block" id="KubernetesRequestFactory.extract_affinity"><a class="viewcode-back" href="../../../../../code/auto-api/airflow.contrib.kubernetes.kubernetes_request_factory.html#airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.extract_affinity">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">extract_affinity</span><span class="p">(</span><span class="n">pod</span><span class="p">,</span> <span class="n">req</span><span class="p">):</span>
+        <span class="n">req</span><span class="p">[</span><span class="s1">&#39;spec&#39;</span><span class="p">][</span><span class="s1">&#39;affinity&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">req</span><span class="p">[</span><span class="s1">&#39;spec&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;affinity&#39;</span><span class="p">,</span> <span class="p">{})</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">six</span><span class="o">.</span><span class="n">iteritems</span><span class="p">(</span><span class="n">pod</span><span class="o">.</span><span class="n">affinity</span><span class="p">):</span>
+            <span class="n">req</span><span class="p">[</span><span class="s1">&#39;spec&#39;</span><span class="p">][</span><span class="s1">&#39;affinity&#39;</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span></div>
+
+<div class="viewcode-block" id="KubernetesRequestFactory.extract_cmds"><a class="viewcode-back" href="../../../../../code/auto-api/airflow.contrib.kubernetes.kubernetes_request_factory.html#airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.extract_cmds">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">extract_cmds</span><span class="p">(</span><span class="n">pod</span><span class="p">,</span> <span class="n">req</span><span class="p">):</span>
+        <span class="n">req</span><span class="p">[</span><span class="s1">&#39;spec&#39;</span><span class="p">][</span><span class="s1">&#39;containers&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;command&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pod</span><span class="o">.</span><span class="n">cmds</span></div>
+
+<div class="viewcode-block" id="KubernetesRequestFactory.extract_args"><a class="viewcode-back" href="../../../../../code/auto-api/airflow.contrib.kubernetes.kubernetes_request_factory.html#airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.extract_args">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">extract_args</span><span class="p">(</span><span class="n">pod</span><span class="p">,</span> <span class="n">req</span><span class="p">):</span>
+        <span class="n">req</span><span class="p">[</span><span class="s1">&#39;spec&#39;</span><span class="p">][</span><span class="s1">&#39;containers&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;args&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pod</span><span class="o">.</span><span class="n">args</span></div>
+
+<div class="viewcode-block" id="KubernetesRequestFactory.extract_node_selector"><a class="viewcode-back" href="../../../../../code/auto-api/airflow.contrib.kubernetes.kubernetes_request_factory.html#airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.extract_node_selector">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">extract_node_selector</span><span class="p">(</span><span class="n">pod</span><span class="p">,</span> <span class="n">req</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">pod</span><span class="o">.</span><span class="n">node_selectors</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">req</span><span class="p">[</span><span class="s1">&#39;spec&#39;</span><span class="p">][</span><span class="s1">&#39;nodeSelector&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pod</span><span class="o">.</span><span class="n">node_selectors</span></div>
+
+<div class="viewcode-block" id="KubernetesRequestFactory.attach_volumes"><a class="viewcode-back" href="../../../../../code/auto-api/airflow.contrib.kubernetes.kubernetes_request_factory.html#airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.attach_volumes">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">attach_volumes</span><span class="p">(</span><span class="n">pod</span><span class="p">,</span> <span class="n">req</span><span class="p">):</span>
+        <span class="n">req</span><span class="p">[</span><span class="s1">&#39;spec&#39;</span><span class="p">][</span><span class="s1">&#39;volumes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">req</span><span class="p">[</span><span class="s1">&#39;spec&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;volumes&#39;</span><span class="p">,</span> <span class="p">[]))</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">pod</span><span class="o">.</span><span class="n">volumes</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">req</span><span class="p">[</span><span class="s1">&#39;spec&#39;</span><span class="p">][</span><span class="s1">&#39;volumes&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">pod</span><span class="o">.</span><span class="n">volumes</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="KubernetesRequestFactory.attach_volume_mounts"><a class="viewcode-back" href="../../../../../code/auto-api/airflow.contrib.kubernetes.kubernetes_request_factory.html#airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.attach_volume_mounts">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">attach_volume_mounts</span><span class="p">(</span><span class="n">pod</span><span class="p">,</span> <span class="n">req</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">pod</span><span class="o">.</span><span class="n">volume_mounts</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">req</span><span class="p">[</span><span class="s1">&#39;spec&#39;</span><span class="p">][</span><span class="s1">&#39;containers&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;volumeMounts&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">req</span><span class="p">[</span><span class="s1">&#39;spec&#39;</span><span class="p">][</span><span class="s1">&#39;containers&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;volumeMounts&#39;</span><span class="p">,</span> <span class="p">[]))</span>
+            <span class="n">req</span><span class="p">[</span><span class="s1">&#39;spec&#39;</span><span class="p">][</span><span class="s1">&#39;containers&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;volumeMounts&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">pod</span><span class="o">.</span><span class="n">volume_mounts</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="KubernetesRequestFactory.extract_name"><a class="viewcode-back" href="../../../../../code/auto-api/airflow.contrib.kubernetes.kubernetes_request_factory.html#airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.extract_name">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">extract_name</span><span class="p">(</span><span class="n">pod</span><span class="p">,</span> <span class="n">req</span><span class="p">):</span>
+        <span class="n">req</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pod</span><span class="o">.</span><span class="n">name</span></div>
+
+<div class="viewcode-block" id="KubernetesRequestFactory.extract_volume_secrets"><a class="viewcode-back" href="../../../../../code/auto-api/airflow.contrib.kubernetes.kubernetes_request_factory.html#airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.extract_volume_secrets">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">extract_volume_secrets</span><span class="p">(</span><span class="n">pod</span><span class="p">,</span> <span class="n">req</span><span class="p">):</span>
+        <span class="n">vol_secrets</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">pod</span><span class="o">.</span><span class="n">secrets</span> <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">deploy_type</span> <span class="o">==</span> <span class="s1">&#39;volume&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">vol_secrets</span><span class="p">):</span>
+            <span class="n">req</span><span class="p">[</span><span class="s1">&#39;spec&#39;</span><span class="p">][</span><span class="s1">&#39;containers&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;volumeMounts&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">req</span><span class="p">[</span><span class="s1">&#39;spec&#39;</span><span class="p">][</span><span class="s1">&#39;containers&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;volumeMounts&#39;</span><span class="p">,</span> <span class="p">[]))</span>
+            <span class="n">req</span><span class="p">[</span><span class="s1">&#39;spec&#39;</span><span class="p">][</span><span class="s1">&#39;volumes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">req</span><span class="p">[</span><span class="s1">&#39;spec&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;volumes&#39;</span><span class="p">,</span> <span class="p">[]))</span>
+        <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">vol</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">vol_secrets</span><span class="p">):</span>
+            <span class="n">vol_id</span> <span class="o">=</span> <span class="s1">&#39;secretvol&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
+            <span class="n">req</span><span class="p">[</span><span class="s1">&#39;spec&#39;</span><span class="p">][</span><span class="s1">&#39;containers&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;volumeMounts&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                <span class="s1">&#39;mountPath&#39;</span><span class="p">:</span> <span class="n">vol</span><span class="o">.</span><span class="n">deploy_target</span><span class="p">,</span>
+                <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">vol_id</span><span class="p">,</span>
+                <span class="s1">&#39;readOnly&#39;</span><span class="p">:</span> <span class="kc">True</span>
+            <span class="p">})</span>
+            <span class="n">req</span><span class="p">[</span><span class="s1">&#39;spec&#39;</span><span class="p">][</span><span class="s1">&#39;volumes&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">vol_id</span><span class="p">,</span>
+                <span class="s1">&#39;secret&#39;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">&#39;secretName&#39;</span><span class="p">:</span> <span class="n">vol</span><span class="o">.</span><span class="n">secret</span>
+                <span class="p">}</span>
+            <span class="p">})</span></div>
+
+<div class="viewcode-block" id="KubernetesRequestFactory.extract_env_and_secrets"><a class="viewcode-back" href="../../../../../code/auto-api/airflow.contrib.kubernetes.kubernetes_request_factory.html#airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.extract_env_and_secrets">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">extract_env_and_secrets</span><span class="p">(</span><span class="n">pod</span><span class="p">,</span> <span class="n">req</span><span class="p">):</span>
+        <span class="n">env_secrets</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">pod</span><span class="o">.</span><span class="n">secrets</span> <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">deploy_type</span> <span class="o">==</span> <span class="s1">&#39;env&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">pod</span><span class="o">.</span><span class="n">envs</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">env_secrets</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">env</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">pod</span><span class="o">.</span><span class="n">envs</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="n">env</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">k</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="n">pod</span><span class="o">.</span><span class="n">envs</span><span class="p">[</span><span class="n">k</span><span class="p">]})</span>
+            <span class="k">for</span> <span class="n">secret</span> <span class="ow">in</span> <span class="n">env_secrets</span><span class="p">:</span>
+                <span class="n">KubernetesRequestFactory</span><span class="o">.</span><span class="n">add_secret_to_env</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">secret</span><span class="p">)</span>
+            <span class="n">req</span><span class="p">[</span><span class="s1">&#39;spec&#39;</span><span class="p">][</span><span class="s1">&#39;containers&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;env&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">env</span></div>
+
+<div class="viewcode-block" id="KubernetesRequestFactory.extract_resources"><a class="viewcode-back" href="../../../../../code/auto-api/airflow.contrib.kubernetes.kubernetes_request_factory.html#airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.extract_resources">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">extract_resources</span><span class="p">(</span><span class="n">pod</span><span class="p">,</span> <span class="n">req</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">pod</span><span class="o">.</span><span class="n">resources</span> <span class="ow">or</span> <span class="n">pod</span><span class="o">.</span><span class="n">resources</span><span class="o">.</span><span class="n">is_empty_resource_request</span><span class="p">():</span>
+            <span class="k">return</span>
+
+        <span class="n">req</span><span class="p">[</span><span class="s1">&#39;spec&#39;</span><span class="p">][</span><span class="s1">&#39;containers&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;resources&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="k">if</span> <span class="n">pod</span><span class="o">.</span><span class="n">resources</span><span class="o">.</span><span class="n">has_requests</span><span class="p">():</span>
+            <span class="n">req</span><span class="p">[</span><span class="s1">&#39;spec&#39;</span><span class="p">][</span><span class="s1">&#39;containers&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;resources&#39;</span><span class="p">][</span><span class="s1">&#39;requests&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">if</span> <span class="n">pod</span><span class="o">.</span><span class="n">resources</span><span class="o">.</span><span class="n">request_memory</span><span class="p">:</span>
+                <span class="n">req</span><span class="p">[</span><span class="s1">&#39;spec&#39;</span><span class="p">][</span><span class="s1">&#39;containers&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;resources&#39;</span><span class="p">][</span><span class="s1">&#39;requests&#39;</span><span class="p">][</span>
+                    <span class="s1">&#39;memory&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pod</span><span class="o">.</span><span class="n">resources</span><span class="o">.</span><span class="n">request_memory</span>
+            <span class="k">if</span> <span class="n">pod</span><span class="o">.</span><span class="n">resources</span><span class="o">.</span><span class="n">request_cpu</span><span class="p">:</span>
+                <span class="n">req</span><span class="p">[</span><span class="s1">&#39;spec&#39;</span><span class="p">][</span><span class="s1">&#39;containers&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;resources&#39;</span><span class="p">][</span><span class="s1">&#39;requests&#39;</span><span class="p">][</span>
+                    <span class="s1">&#39;cpu&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pod</span><span class="o">.</span><span class="n">resources</span><span class="o">.</span><span class="n">request_cpu</span>
+
+        <span class="k">if</span> <span class="n">pod</span><span class="o">.</span><span class="n">resources</span><span class="o">.</span><span class="n">has_limits</span><span class="p">():</span>
+            <span class="n">req</span><span class="p">[</span><span class="s1">&#39;spec&#39;</span><span class="p">][</span><span class="s1">&#39;containers&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;resources&#39;</span><span class="p">][</span><span class="s1">&#39;limits&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">if</span> <span class="n">pod</span><span class="o">.</span><span class="n">resources</span><span class="o">.</span><span class="n">request_memory</span><span class="p">:</span>
+                <span class="n">req</span><span class="p">[</span><span class="s1">&#39;spec&#39;</span><span class="p">][</span><span class="s1">&#39;containers&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;resources&#39;</span><span class="p">][</span><span class="s1">&#39;limits&#39;</span><span class="p">][</span>
+                    <span class="s1">&#39;memory&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pod</span><span class="o">.</span><span class="n">resources</span><span class="o">.</span><span class="n">limit_memory</span>
+            <span class="k">if</span> <span class="n">pod</span><span class="o">.</span><span class="n">resources</span><span class="o">.</span><span class="n">request_cpu</span><span class="p">:</span>
+                <span class="n">req</span><span class="p">[</span><span class="s1">&#39;spec&#39;</span><span class="p">][</span><span class="s1">&#39;containers&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;resources&#39;</span><span class="p">][</span><span class="s1">&#39;limits&#39;</span><span class="p">][</span>
+                    <span class="s1">&#39;cpu&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pod</span><span class="o">.</span><span class="n">resources</span><span class="o">.</span><span class="n">limit_cpu</span></div>
+
+<div class="viewcode-block" id="KubernetesRequestFactory.extract_init_containers"><a class="viewcode-back" href="../../../../../code/auto-api/airflow.contrib.kubernetes.kubernetes_request_factory.html#airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.extract_init_containers">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">extract_init_containers</span><span class="p">(</span><span class="n">pod</span><span class="p">,</span> <span class="n">req</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">pod</span><span class="o">.</span><span class="n">init_containers</span><span class="p">:</span>
+            <span class="n">req</span><span class="p">[</span><span class="s1">&#39;spec&#39;</span><span class="p">][</span><span class="s1">&#39;initContainers&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pod</span><span class="o">.</span><span class="n">init_containers</span></div>
+
+<div class="viewcode-block" id="KubernetesRequestFactory.extract_service_account_name"><a class="viewcode-back" href="../../../../../code/auto-api/airflow.contrib.kubernetes.kubernetes_request_factory.html#airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.extract_service_account_name">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">extract_service_account_name</span><span class="p">(</span><span class="n">pod</span><span class="p">,</span> <span class="n">req</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">pod</span><span class="o">.</span><span class="n">service_account_name</span><span class="p">:</span>
+            <span class="n">req</span><span class="p">[</span><span class="s1">&#39;spec&#39;</span><span class="p">][</span><span class="s1">&#39;serviceAccountName&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pod</span><span class="o">.</span><span class="n">service_account_name</span></div>
+
+<div class="viewcode-block" id="KubernetesRequestFactory.extract_image_pull_secrets"><a class="viewcode-back" href="../../../../../code/auto-api/airflow.contrib.kubernetes.kubernetes_request_factory.html#airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory.KubernetesRequestFactory.extract_image_pull_secrets">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">extract_image_pull_secrets</span><span class="p">(</span><span class="n">pod</span><span class="p">,</span> <span class="n">req</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">pod</span><span class="o">.</span><span class="n">image_pull_secrets</span><span class="p">:</span>
+            <span class="n">req</span><span class="p">[</span><span class="s1">&#39;spec&#39;</span><span class="p">][</span><span class="s1">&#39;imagePullSecrets&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[{</span>
+                <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">pull_secret</span>
+            <span class="p">}</span> <span class="k">for</span> <span class="n">pull_secret</span> <span class="ow">in</span> <span class="n">pod</span><span class="o">.</span><span class="n">image_pull_secrets</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)]</span></div></div>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

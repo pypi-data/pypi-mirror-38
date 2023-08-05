@@ -1,0 +1,463 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>airflow.api.common.experimental.mark_tasks &mdash; Airflow Documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../../search.html"/>
+    <link rel="top" title="Airflow Documentation" href="../../../../../index.html"/>
+        <link rel="up" title="airflow.api" href="../../../api.html"/> 
+
+  
+  <script src="../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> Airflow
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../howto/index.html">How-to Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../ui.html">UI / Screenshots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../profiling.html">Data Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../cli.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../scheduler.html">Scheduling &amp; Triggers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../security.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../timezone.html">Time zones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../api.html">Experimental Rest API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../integration.html">Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../lineage.html">Lineage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../code.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">Airflow</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../../../airflow.html">airflow</a> &raquo;</li>
+        
+          <li><a href="../../../api.html">airflow.api</a> &raquo;</li>
+        
+      <li>airflow.api.common.experimental.mark_tasks</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for airflow.api.common.experimental.mark_tasks</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed to the Apache Software Foundation (ASF) under one</span>
+<span class="c1"># or more contributor license agreements.  See the NOTICE file</span>
+<span class="c1"># distributed with this work for additional information</span>
+<span class="c1"># regarding copyright ownership.  The ASF licenses this file</span>
+<span class="c1"># to you under the Apache License, Version 2.0 (the</span>
+<span class="c1"># &quot;License&quot;); you may not use this file except in compliance</span>
+<span class="c1"># with the License.  You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#   http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing,</span>
+<span class="c1"># software distributed under the License is distributed on an</span>
+<span class="c1"># &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
+<span class="c1"># KIND, either express or implied.  See the License for the</span>
+<span class="c1"># specific language governing permissions and limitations</span>
+<span class="c1"># under the License.</span>
+
+<span class="kn">from</span> <span class="nn">airflow.jobs</span> <span class="k">import</span> <span class="n">BackfillJob</span>
+<span class="kn">from</span> <span class="nn">airflow.models</span> <span class="k">import</span> <span class="n">DagRun</span><span class="p">,</span> <span class="n">TaskInstance</span>
+<span class="kn">from</span> <span class="nn">airflow.operators.subdag_operator</span> <span class="k">import</span> <span class="n">SubDagOperator</span>
+<span class="kn">from</span> <span class="nn">airflow.settings</span> <span class="k">import</span> <span class="n">Session</span>
+<span class="kn">from</span> <span class="nn">airflow.utils</span> <span class="k">import</span> <span class="n">timezone</span>
+<span class="kn">from</span> <span class="nn">airflow.utils.state</span> <span class="k">import</span> <span class="n">State</span>
+
+<span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="k">import</span> <span class="n">or_</span>
+
+
+<span class="k">def</span> <span class="nf">_create_dagruns</span><span class="p">(</span><span class="n">dag</span><span class="p">,</span> <span class="n">execution_dates</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">run_id_template</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Infers from the dates which dag runs need to be created and does so.</span>
+<span class="sd">    :param dag: the dag to create dag runs for</span>
+<span class="sd">    :param execution_dates: list of execution dates to evaluate</span>
+<span class="sd">    :param state: the state to set the dag run to</span>
+<span class="sd">    :param run_id_template:the template for run id to be with the execution date</span>
+<span class="sd">    :return: newly created and existing dag runs for the execution dates supplied</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># find out if we need to create any dag runs</span>
+    <span class="n">drs</span> <span class="o">=</span> <span class="n">DagRun</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">dag_id</span><span class="o">=</span><span class="n">dag</span><span class="o">.</span><span class="n">dag_id</span><span class="p">,</span> <span class="n">execution_date</span><span class="o">=</span><span class="n">execution_dates</span><span class="p">)</span>
+    <span class="n">dates_to_create</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">execution_dates</span><span class="p">)</span> <span class="o">-</span> <span class="nb">set</span><span class="p">([</span><span class="n">dr</span><span class="o">.</span><span class="n">execution_date</span> <span class="k">for</span> <span class="n">dr</span> <span class="ow">in</span> <span class="n">drs</span><span class="p">]))</span>
+
+    <span class="k">for</span> <span class="n">date</span> <span class="ow">in</span> <span class="n">dates_to_create</span><span class="p">:</span>
+        <span class="n">dr</span> <span class="o">=</span> <span class="n">dag</span><span class="o">.</span><span class="n">create_dagrun</span><span class="p">(</span>
+            <span class="n">run_id</span><span class="o">=</span><span class="n">run_id_template</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">date</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()),</span>
+            <span class="n">execution_date</span><span class="o">=</span><span class="n">date</span><span class="p">,</span>
+            <span class="n">start_date</span><span class="o">=</span><span class="n">timezone</span><span class="o">.</span><span class="n">utcnow</span><span class="p">(),</span>
+            <span class="n">external_trigger</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">state</span><span class="o">=</span><span class="n">state</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">drs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dr</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">drs</span>
+
+
+<div class="viewcode-block" id="set_state"><a class="viewcode-back" href="../../../../../code/auto-api/airflow.api.common.experimental.html#airflow.api.common.experimental.mark_tasks.set_state">[docs]</a><span class="k">def</span> <span class="nf">set_state</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">execution_date</span><span class="p">,</span> <span class="n">upstream</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">downstream</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+              <span class="n">future</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">past</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">state</span><span class="o">=</span><span class="n">State</span><span class="o">.</span><span class="n">SUCCESS</span><span class="p">,</span> <span class="n">commit</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Set the state of a task instance and if needed its relatives. Can set state</span>
+<span class="sd">    for future tasks (calculated from execution_date) and retroactively</span>
+<span class="sd">    for past tasks. Will verify integrity of past dag runs in order to create</span>
+<span class="sd">    tasks that did not exist. It will not create dag runs that are missing</span>
+<span class="sd">    on the schedule (but it will as for subdag dag runs if needed).</span>
+<span class="sd">    :param task: the task from which to work. task.task.dag needs to be set</span>
+<span class="sd">    :param execution_date: the execution date from which to start looking</span>
+<span class="sd">    :param upstream: Mark all parents (upstream tasks)</span>
+<span class="sd">    :param downstream: Mark all siblings (downstream tasks) of task_id, including SubDags</span>
+<span class="sd">    :param future: Mark all future tasks on the interval of the dag up until</span>
+<span class="sd">        last execution date.</span>
+<span class="sd">    :param past: Retroactively mark all tasks starting from start_date of the DAG</span>
+<span class="sd">    :param state: State to which the tasks need to be set</span>
+<span class="sd">    :param commit: Commit tasks to be altered to the database</span>
+<span class="sd">    :return: list of tasks that have been created and updated</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="n">timezone</span><span class="o">.</span><span class="n">is_localized</span><span class="p">(</span><span class="n">execution_date</span><span class="p">)</span>
+
+    <span class="c1"># microseconds are supported by the database, but is not handled</span>
+    <span class="c1"># correctly by airflow on e.g. the filesystem and in other places</span>
+    <span class="n">execution_date</span> <span class="o">=</span> <span class="n">execution_date</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">microsecond</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="k">assert</span> <span class="n">task</span><span class="o">.</span><span class="n">dag</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+    <span class="n">dag</span> <span class="o">=</span> <span class="n">task</span><span class="o">.</span><span class="n">dag</span>
+
+    <span class="n">latest_execution_date</span> <span class="o">=</span> <span class="n">dag</span><span class="o">.</span><span class="n">latest_execution_date</span>
+    <span class="k">assert</span> <span class="n">latest_execution_date</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+
+    <span class="c1"># determine date range of dag runs and tasks to consider</span>
+    <span class="n">end_date</span> <span class="o">=</span> <span class="n">latest_execution_date</span> <span class="k">if</span> <span class="n">future</span> <span class="k">else</span> <span class="n">execution_date</span>
+
+    <span class="k">if</span> <span class="s1">&#39;start_date&#39;</span> <span class="ow">in</span> <span class="n">dag</span><span class="o">.</span><span class="n">default_args</span><span class="p">:</span>
+        <span class="n">start_date</span> <span class="o">=</span> <span class="n">dag</span><span class="o">.</span><span class="n">default_args</span><span class="p">[</span><span class="s1">&#39;start_date&#39;</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="n">dag</span><span class="o">.</span><span class="n">start_date</span><span class="p">:</span>
+        <span class="n">start_date</span> <span class="o">=</span> <span class="n">dag</span><span class="o">.</span><span class="n">start_date</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">start_date</span> <span class="o">=</span> <span class="n">execution_date</span>
+
+    <span class="n">start_date</span> <span class="o">=</span> <span class="n">execution_date</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">past</span> <span class="k">else</span> <span class="n">start_date</span>
+
+    <span class="k">if</span> <span class="n">dag</span><span class="o">.</span><span class="n">schedule_interval</span> <span class="o">==</span> <span class="s1">&#39;@once&#39;</span><span class="p">:</span>
+        <span class="n">dates</span> <span class="o">=</span> <span class="p">[</span><span class="n">start_date</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">dates</span> <span class="o">=</span> <span class="n">dag</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">start_date</span><span class="o">=</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="o">=</span><span class="n">end_date</span><span class="p">)</span>
+
+    <span class="c1"># find relatives (siblings = downstream, parents = upstream) if needed</span>
+    <span class="n">task_ids</span> <span class="o">=</span> <span class="p">[</span><span class="n">task</span><span class="o">.</span><span class="n">task_id</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">downstream</span><span class="p">:</span>
+        <span class="n">relatives</span> <span class="o">=</span> <span class="n">task</span><span class="o">.</span><span class="n">get_flat_relatives</span><span class="p">(</span><span class="n">upstream</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">task_ids</span> <span class="o">+=</span> <span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">task_id</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">relatives</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">upstream</span><span class="p">:</span>
+        <span class="n">relatives</span> <span class="o">=</span> <span class="n">task</span><span class="o">.</span><span class="n">get_flat_relatives</span><span class="p">(</span><span class="n">upstream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">task_ids</span> <span class="o">+=</span> <span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">task_id</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">relatives</span><span class="p">]</span>
+
+    <span class="c1"># verify the integrity of the dag runs in case a task was added or removed</span>
+    <span class="c1"># set the confirmed execution dates as they might be different</span>
+    <span class="c1"># from what was provided</span>
+    <span class="n">confirmed_dates</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">drs</span> <span class="o">=</span> <span class="n">DagRun</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">dag_id</span><span class="o">=</span><span class="n">dag</span><span class="o">.</span><span class="n">dag_id</span><span class="p">,</span> <span class="n">execution_date</span><span class="o">=</span><span class="n">dates</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">dr</span> <span class="ow">in</span> <span class="n">drs</span><span class="p">:</span>
+        <span class="n">dr</span><span class="o">.</span><span class="n">dag</span> <span class="o">=</span> <span class="n">dag</span>
+        <span class="n">dr</span><span class="o">.</span><span class="n">verify_integrity</span><span class="p">()</span>
+        <span class="n">confirmed_dates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dr</span><span class="o">.</span><span class="n">execution_date</span><span class="p">)</span>
+
+    <span class="c1"># go through subdagoperators and create dag runs. We will only work</span>
+    <span class="c1"># within the scope of the subdag. We wont propagate to the parent dag,</span>
+    <span class="c1"># but we will propagate from parent to subdag.</span>
+    <span class="n">session</span> <span class="o">=</span> <span class="n">Session</span><span class="p">()</span>
+    <span class="n">dags</span> <span class="o">=</span> <span class="p">[</span><span class="n">dag</span><span class="p">]</span>
+    <span class="n">sub_dag_ids</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">dags</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">current_dag</span> <span class="o">=</span> <span class="n">dags</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">task_id</span> <span class="ow">in</span> <span class="n">task_ids</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">current_dag</span><span class="o">.</span><span class="n">has_task</span><span class="p">(</span><span class="n">task_id</span><span class="p">):</span>
+                <span class="k">continue</span>
+
+            <span class="n">current_task</span> <span class="o">=</span> <span class="n">current_dag</span><span class="o">.</span><span class="n">get_task</span><span class="p">(</span><span class="n">task_id</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">current_task</span><span class="p">,</span> <span class="n">SubDagOperator</span><span class="p">):</span>
+                <span class="c1"># this works as a kind of integrity check</span>
+                <span class="c1"># it creates missing dag runs for subdagoperators,</span>
+                <span class="c1"># maybe this should be moved to dagrun.verify_integrity</span>
+                <span class="n">drs</span> <span class="o">=</span> <span class="n">_create_dagruns</span><span class="p">(</span><span class="n">current_task</span><span class="o">.</span><span class="n">subdag</span><span class="p">,</span>
+                                      <span class="n">execution_dates</span><span class="o">=</span><span class="n">confirmed_dates</span><span class="p">,</span>
+                                      <span class="n">state</span><span class="o">=</span><span class="n">State</span><span class="o">.</span><span class="n">RUNNING</span><span class="p">,</span>
+                                      <span class="n">run_id_template</span><span class="o">=</span><span class="n">BackfillJob</span><span class="o">.</span><span class="n">ID_FORMAT_PREFIX</span><span class="p">)</span>
+
+                <span class="k">for</span> <span class="n">dr</span> <span class="ow">in</span> <span class="n">drs</span><span class="p">:</span>
+                    <span class="n">dr</span><span class="o">.</span><span class="n">dag</span> <span class="o">=</span> <span class="n">current_task</span><span class="o">.</span><span class="n">subdag</span>
+                    <span class="n">dr</span><span class="o">.</span><span class="n">verify_integrity</span><span class="p">()</span>
+                    <span class="k">if</span> <span class="n">commit</span><span class="p">:</span>
+                        <span class="n">dr</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">state</span>
+                        <span class="n">session</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">dr</span><span class="p">)</span>
+
+                <span class="n">dags</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current_task</span><span class="o">.</span><span class="n">subdag</span><span class="p">)</span>
+                <span class="n">sub_dag_ids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current_task</span><span class="o">.</span><span class="n">subdag</span><span class="o">.</span><span class="n">dag_id</span><span class="p">)</span>
+
+    <span class="c1"># now look for the task instances that are affected</span>
+    <span class="n">TI</span> <span class="o">=</span> <span class="n">TaskInstance</span>
+
+    <span class="c1"># get all tasks of the main dag that will be affected by a state change</span>
+    <span class="n">qry_dag</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">TI</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+        <span class="n">TI</span><span class="o">.</span><span class="n">dag_id</span> <span class="o">==</span> <span class="n">dag</span><span class="o">.</span><span class="n">dag_id</span><span class="p">,</span>
+        <span class="n">TI</span><span class="o">.</span><span class="n">execution_date</span><span class="o">.</span><span class="n">in_</span><span class="p">(</span><span class="n">confirmed_dates</span><span class="p">),</span>
+        <span class="n">TI</span><span class="o">.</span><span class="n">task_id</span><span class="o">.</span><span class="n">in_</span><span class="p">(</span><span class="n">task_ids</span><span class="p">))</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+        <span class="n">or_</span><span class="p">(</span><span class="n">TI</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">is_</span><span class="p">(</span><span class="kc">None</span><span class="p">),</span>
+            <span class="n">TI</span><span class="o">.</span><span class="n">state</span> <span class="o">!=</span> <span class="n">state</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="c1"># get *all* tasks of the sub dags</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sub_dag_ids</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">qry_sub_dag</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">TI</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+            <span class="n">TI</span><span class="o">.</span><span class="n">dag_id</span><span class="o">.</span><span class="n">in_</span><span class="p">(</span><span class="n">sub_dag_ids</span><span class="p">),</span>
+            <span class="n">TI</span><span class="o">.</span><span class="n">execution_date</span><span class="o">.</span><span class="n">in_</span><span class="p">(</span><span class="n">confirmed_dates</span><span class="p">))</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+            <span class="n">or_</span><span class="p">(</span><span class="n">TI</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">is_</span><span class="p">(</span><span class="kc">None</span><span class="p">),</span>
+                <span class="n">TI</span><span class="o">.</span><span class="n">state</span> <span class="o">!=</span> <span class="n">state</span><span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">commit</span><span class="p">:</span>
+        <span class="n">tis_altered</span> <span class="o">=</span> <span class="n">qry_dag</span><span class="o">.</span><span class="n">with_for_update</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sub_dag_ids</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">tis_altered</span> <span class="o">+=</span> <span class="n">qry_sub_dag</span><span class="o">.</span><span class="n">with_for_update</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">ti</span> <span class="ow">in</span> <span class="n">tis_altered</span><span class="p">:</span>
+            <span class="n">ti</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">state</span>
+        <span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">tis_altered</span> <span class="o">=</span> <span class="n">qry_dag</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sub_dag_ids</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">tis_altered</span> <span class="o">+=</span> <span class="n">qry_sub_dag</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+    <span class="n">session</span><span class="o">.</span><span class="n">expunge_all</span><span class="p">()</span>
+    <span class="n">session</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">tis_altered</span></div>
+
+
+<div class="viewcode-block" id="set_dag_run_state"><a class="viewcode-back" href="../../../../../code/auto-api/airflow.api.common.experimental.html#airflow.api.common.experimental.mark_tasks.set_dag_run_state">[docs]</a><span class="k">def</span> <span class="nf">set_dag_run_state</span><span class="p">(</span><span class="n">dag</span><span class="p">,</span> <span class="n">execution_date</span><span class="p">,</span> <span class="n">state</span><span class="o">=</span><span class="n">State</span><span class="o">.</span><span class="n">SUCCESS</span><span class="p">,</span> <span class="n">commit</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Set the state of a dag run and all task instances associated with the dag</span>
+<span class="sd">    run for a specific execution date.</span>
+<span class="sd">    :param dag: the DAG of which to alter state</span>
+<span class="sd">    :param execution_date: the execution date from which to start looking</span>
+<span class="sd">    :param state: the state to which the DAG need to be set</span>
+<span class="sd">    :param commit: commit DAG and tasks to be altered to the database</span>
+<span class="sd">    :return: list of tasks that have been created and updated</span>
+<span class="sd">    :raises: AssertionError if dag or execution_date is invalid</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">dag</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">execution_date</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">res</span>
+
+    <span class="c1"># Mark all task instances in the dag run</span>
+    <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">dag</span><span class="o">.</span><span class="n">tasks</span><span class="p">:</span>
+        <span class="n">task</span><span class="o">.</span><span class="n">dag</span> <span class="o">=</span> <span class="n">dag</span>
+        <span class="n">new_state</span> <span class="o">=</span> <span class="n">set_state</span><span class="p">(</span><span class="n">task</span><span class="o">=</span><span class="n">task</span><span class="p">,</span> <span class="n">execution_date</span><span class="o">=</span><span class="n">execution_date</span><span class="p">,</span>
+                              <span class="n">state</span><span class="o">=</span><span class="n">state</span><span class="p">,</span> <span class="n">commit</span><span class="o">=</span><span class="n">commit</span><span class="p">)</span>
+        <span class="n">res</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">new_state</span><span class="p">)</span>
+
+    <span class="c1"># Mark the dag run</span>
+    <span class="k">if</span> <span class="n">commit</span><span class="p">:</span>
+        <span class="n">drs</span> <span class="o">=</span> <span class="n">DagRun</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">dag</span><span class="o">.</span><span class="n">dag_id</span><span class="p">,</span> <span class="n">execution_date</span><span class="o">=</span><span class="n">execution_date</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">dr</span> <span class="ow">in</span> <span class="n">drs</span><span class="p">:</span>
+            <span class="n">dr</span><span class="o">.</span><span class="n">dag</span> <span class="o">=</span> <span class="n">dag</span>
+            <span class="n">dr</span><span class="o">.</span><span class="n">update_state</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">res</span></div>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

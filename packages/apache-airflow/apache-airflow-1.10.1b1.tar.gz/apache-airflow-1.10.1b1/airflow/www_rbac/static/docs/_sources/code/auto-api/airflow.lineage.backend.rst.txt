@@ -1,0 +1,17 @@
+airflow.lineage.backend package
+===============================
+
+Subpackages
+-----------
+
+.. toctree::
+
+    airflow.lineage.backend.atlas
+
+Module contents
+---------------
+
+.. automodule:: airflow.lineage.backend
+    :members:
+    :undoc-members:
+    :show-inheritance:

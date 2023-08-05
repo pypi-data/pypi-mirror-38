@@ -1,0 +1,416 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>airflow.www_rbac.security &mdash; Airflow Documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Airflow Documentation" href="../../../index.html"/>
+        <link rel="up" title="airflow" href="../../airflow.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Airflow
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../howto/index.html">How-to Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ui.html">UI / Screenshots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../profiling.html">Data Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cli.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../scheduler.html">Scheduling &amp; Triggers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../security.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../timezone.html">Time zones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api.html">Experimental Rest API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../integration.html">Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../lineage.html">Lineage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../code.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Airflow</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../airflow.html">airflow</a> &raquo;</li>
+        
+      <li>airflow.www_rbac.security</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for airflow.www_rbac.security</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed to the Apache Software Foundation (ASF) under one</span>
+<span class="c1"># or more contributor license agreements.  See the NOTICE file</span>
+<span class="c1"># distributed with this work for additional information</span>
+<span class="c1"># regarding copyright ownership.  The ASF licenses this file</span>
+<span class="c1"># to you under the Apache License, Version 2.0 (the</span>
+<span class="c1"># &quot;License&quot;); you may not use this file except in compliance</span>
+<span class="c1"># with the License.  You may obtain a copy of the License at</span>
+<span class="c1"># </span>
+<span class="c1">#   http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1"># </span>
+<span class="c1"># Unless required by applicable law or agreed to in writing,</span>
+<span class="c1"># software distributed under the License is distributed on an</span>
+<span class="c1"># &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
+<span class="c1"># KIND, either express or implied.  See the License for the</span>
+<span class="c1"># specific language governing permissions and limitations</span>
+<span class="c1"># under the License.</span>
+
+<span class="kn">from</span> <span class="nn">flask_appbuilder.security.sqla</span> <span class="k">import</span> <span class="n">models</span> <span class="k">as</span> <span class="n">sqla_models</span>
+
+<span class="c1">###########################################################################</span>
+<span class="c1">#                               VIEW MENUS</span>
+<span class="c1">###########################################################################</span>
+<span class="n">viewer_vms</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;Airflow&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;DagModelView&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Browse&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;DAG Runs&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;DagRunModelView&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Task Instances&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;TaskInstanceModelView&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;SLA Misses&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;SlaMissModelView&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Jobs&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;JobModelView&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Logs&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;LogModelView&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Docs&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Documentation&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Github&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;About&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Version&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;VersionView&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">user_vms</span> <span class="o">=</span> <span class="n">viewer_vms</span>
+
+<span class="n">op_vms</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;Admin&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Configurations&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ConfigurationView&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Connections&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ConnectionModelView&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Pools&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;PoolModelView&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Variables&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;VariableModelView&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;XComs&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;XComModelView&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="c1">###########################################################################</span>
+<span class="c1">#                               PERMISSIONS</span>
+<span class="c1">###########################################################################</span>
+
+<span class="n">viewer_perms</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;menu_access&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;can_index&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;can_list&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;can_show&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;can_chart&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;can_dag_stats&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;can_dag_details&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;can_task_stats&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;can_code&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;can_log&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;can_tries&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;can_graph&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;can_tree&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;can_task&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;can_task_instances&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;can_xcom&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;can_gantt&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;can_landing_times&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;can_duration&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;can_blocked&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;can_rendered&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;can_pickle_info&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;can_version&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">user_perms</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;can_dagrun_clear&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;can_run&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;can_trigger&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;can_add&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;can_edit&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;can_delete&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;can_paused&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;can_refresh&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;can_success&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;muldelete&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;set_failed&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;set_running&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;set_success&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;clear&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">op_perms</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;can_conf&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;can_varimport&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="c1">###########################################################################</span>
+<span class="c1">#                     DEFAULT ROLE CONFIGURATIONS</span>
+<span class="c1">###########################################################################</span>
+
+<span class="n">ROLE_CONFIGS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s1">&#39;role&#39;</span><span class="p">:</span> <span class="s1">&#39;Viewer&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;perms&#39;</span><span class="p">:</span> <span class="n">viewer_perms</span><span class="p">,</span>
+        <span class="s1">&#39;vms&#39;</span><span class="p">:</span> <span class="n">viewer_vms</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s1">&#39;role&#39;</span><span class="p">:</span> <span class="s1">&#39;User&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;perms&#39;</span><span class="p">:</span> <span class="n">viewer_perms</span> <span class="o">+</span> <span class="n">user_perms</span><span class="p">,</span>
+        <span class="s1">&#39;vms&#39;</span><span class="p">:</span> <span class="n">viewer_vms</span> <span class="o">+</span> <span class="n">user_vms</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s1">&#39;role&#39;</span><span class="p">:</span> <span class="s1">&#39;Op&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;perms&#39;</span><span class="p">:</span> <span class="n">viewer_perms</span> <span class="o">+</span> <span class="n">user_perms</span> <span class="o">+</span> <span class="n">op_perms</span><span class="p">,</span>
+        <span class="s1">&#39;vms&#39;</span><span class="p">:</span> <span class="n">viewer_vms</span> <span class="o">+</span> <span class="n">user_vms</span> <span class="o">+</span> <span class="n">op_vms</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">]</span>
+
+
+<div class="viewcode-block" id="init_role"><a class="viewcode-back" href="../../../code/auto-api/airflow.www_rbac.html#airflow.www_rbac.security.init_role">[docs]</a><span class="k">def</span> <span class="nf">init_role</span><span class="p">(</span><span class="n">sm</span><span class="p">,</span> <span class="n">role_name</span><span class="p">,</span> <span class="n">role_vms</span><span class="p">,</span> <span class="n">role_perms</span><span class="p">):</span>
+    <span class="n">sm_session</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">get_session</span>
+    <span class="n">pvms</span> <span class="o">=</span> <span class="n">sm_session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sqla_models</span><span class="o">.</span><span class="n">PermissionView</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="n">pvms</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pvms</span> <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">permission</span> <span class="ow">and</span> <span class="n">p</span><span class="o">.</span><span class="n">view_menu</span><span class="p">]</span>
+
+    <span class="n">valid_perms</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">permission</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pvms</span><span class="p">]</span>
+    <span class="n">valid_vms</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">view_menu</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pvms</span><span class="p">]</span>
+    <span class="n">invalid_perms</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">role_perms</span> <span class="k">if</span> <span class="n">p</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">valid_perms</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">invalid_perms</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;The following permissions are not valid: </span><span class="si">{}</span><span class="s1">&#39;</span>
+                        <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">invalid_perms</span><span class="p">))</span>
+    <span class="n">invalid_vms</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">role_vms</span> <span class="k">if</span> <span class="n">v</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">valid_vms</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">invalid_vms</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;The following view menus are not valid: </span><span class="si">{}</span><span class="s1">&#39;</span>
+                        <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">invalid_vms</span><span class="p">))</span>
+
+    <span class="n">role</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_role</span><span class="p">(</span><span class="n">role_name</span><span class="p">)</span>
+    <span class="n">role_pvms</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">pvm</span> <span class="ow">in</span> <span class="n">pvms</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">pvm</span><span class="o">.</span><span class="n">view_menu</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="n">role_vms</span> <span class="ow">and</span> <span class="n">pvm</span><span class="o">.</span><span class="n">permission</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="n">role_perms</span><span class="p">:</span>
+            <span class="n">role_pvms</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pvm</span><span class="p">)</span>
+    <span class="n">role_pvms</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">role_pvms</span><span class="p">))</span>
+    <span class="n">role</span><span class="o">.</span><span class="n">permissions</span> <span class="o">=</span> <span class="n">role_pvms</span>
+    <span class="n">sm_session</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">role</span><span class="p">)</span>
+    <span class="n">sm_session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="init_roles"><a class="viewcode-back" href="../../../code/auto-api/airflow.www_rbac.html#airflow.www_rbac.security.init_roles">[docs]</a><span class="k">def</span> <span class="nf">init_roles</span><span class="p">(</span><span class="n">appbuilder</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">config</span> <span class="ow">in</span> <span class="n">ROLE_CONFIGS</span><span class="p">:</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;role&#39;</span><span class="p">]</span>
+        <span class="n">vms</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;vms&#39;</span><span class="p">]</span>
+        <span class="n">perms</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;perms&#39;</span><span class="p">]</span>
+        <span class="n">init_role</span><span class="p">(</span><span class="n">appbuilder</span><span class="o">.</span><span class="n">sm</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">vms</span><span class="p">,</span> <span class="n">perms</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="is_view_only"><a class="viewcode-back" href="../../../code/auto-api/airflow.www_rbac.html#airflow.www_rbac.security.is_view_only">[docs]</a><span class="k">def</span> <span class="nf">is_view_only</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">appbuilder</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">user</span><span class="o">.</span><span class="n">is_anonymous</span><span class="p">():</span>
+        <span class="n">anonymous_role</span> <span class="o">=</span> <span class="n">appbuilder</span><span class="o">.</span><span class="n">sm</span><span class="o">.</span><span class="n">auth_role_public</span>
+        <span class="k">return</span> <span class="n">anonymous_role</span> <span class="o">==</span> <span class="s1">&#39;Viewer&#39;</span>
+
+    <span class="n">user_roles</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">roles</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">user_roles</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">user_roles</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;Viewer&#39;</span></div>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

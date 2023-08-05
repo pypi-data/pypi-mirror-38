@@ -1,0 +1,1400 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>airflow.hooks package &mdash; Airflow Documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Airflow Documentation" href="../../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Airflow
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howto/index.html">How-to Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ui.html">UI / Screenshots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../profiling.html">Data Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../scheduler.html">Scheduling &amp; Triggers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../security.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../timezone.html">Time zones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">Experimental Rest API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../integration.html">Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lineage.html">Lineage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../code.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Airflow</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>airflow.hooks package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/code/auto-api/airflow.hooks.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="airflow-hooks-package">
+<h1>airflow.hooks package<a class="headerlink" href="#airflow-hooks-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-airflow.hooks.S3_hook">
+<span id="airflow-hooks-s3-hook-module"></span><h2>airflow.hooks.S3_hook module<a class="headerlink" href="#module-airflow.hooks.S3_hook" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.hooks.S3_hook.S3Hook">
+<em class="property">class </em><code class="descclassname">airflow.hooks.S3_hook.</code><code class="descname">S3Hook</code><span class="sig-paren">(</span><em>aws_conn_id='aws_default'</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/S3_hook.html#S3Hook"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.S3_hook.S3Hook" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="airflow.contrib.hooks.html#airflow.contrib.hooks.aws_hook.AwsHook" title="airflow.contrib.hooks.aws_hook.AwsHook"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.contrib.hooks.aws_hook.AwsHook</span></code></a></p>
+<p>Interact with AWS S3, using the boto3 library.</p>
+<dl class="method">
+<dt id="airflow.hooks.S3_hook.S3Hook.check_for_bucket">
+<code class="descname">check_for_bucket</code><span class="sig-paren">(</span><em>bucket_name</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/S3_hook.html#S3Hook.check_for_bucket"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.S3_hook.S3Hook.check_for_bucket" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if bucket_name exists.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>bucket_name</strong> (<em>str</em>) – the name of the bucket</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.S3_hook.S3Hook.check_for_key">
+<code class="descname">check_for_key</code><span class="sig-paren">(</span><em>key</em>, <em>bucket_name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/S3_hook.html#S3Hook.check_for_key"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.S3_hook.S3Hook.check_for_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if a key exists in a bucket</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>key</strong> (<em>str</em>) – S3 key that will point to the file</li>
+<li><strong>bucket_name</strong> (<em>str</em>) – Name of the bucket in which the file is stored</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.S3_hook.S3Hook.check_for_prefix">
+<code class="descname">check_for_prefix</code><span class="sig-paren">(</span><em>bucket_name</em>, <em>prefix</em>, <em>delimiter</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/S3_hook.html#S3Hook.check_for_prefix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.S3_hook.S3Hook.check_for_prefix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that a prefix exists in a bucket</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.S3_hook.S3Hook.check_for_wildcard_key">
+<code class="descname">check_for_wildcard_key</code><span class="sig-paren">(</span><em>wildcard_key</em>, <em>bucket_name=None</em>, <em>delimiter=''</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/S3_hook.html#S3Hook.check_for_wildcard_key"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.S3_hook.S3Hook.check_for_wildcard_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that a key matching a wildcard expression exists in a bucket</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.S3_hook.S3Hook.get_bucket">
+<code class="descname">get_bucket</code><span class="sig-paren">(</span><em>bucket_name</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/S3_hook.html#S3Hook.get_bucket"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.S3_hook.S3Hook.get_bucket" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a boto3.S3.Bucket object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>bucket_name</strong> (<em>str</em>) – the name of the bucket</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.S3_hook.S3Hook.get_conn">
+<code class="descname">get_conn</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/S3_hook.html#S3Hook.get_conn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.S3_hook.S3Hook.get_conn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.S3_hook.S3Hook.get_key">
+<code class="descname">get_key</code><span class="sig-paren">(</span><em>key</em>, <em>bucket_name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/S3_hook.html#S3Hook.get_key"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.S3_hook.S3Hook.get_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a boto3.s3.Object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>key</strong> (<em>str</em>) – the path to the key</li>
+<li><strong>bucket_name</strong> (<em>str</em>) – the name of the bucket</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.S3_hook.S3Hook.get_wildcard_key">
+<code class="descname">get_wildcard_key</code><span class="sig-paren">(</span><em>wildcard_key</em>, <em>bucket_name=None</em>, <em>delimiter=''</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/S3_hook.html#S3Hook.get_wildcard_key"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.S3_hook.S3Hook.get_wildcard_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a boto3.s3.Object object matching the wildcard expression</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>wildcard_key</strong> (<em>str</em>) – the path to the key</li>
+<li><strong>bucket_name</strong> (<em>str</em>) – the name of the bucket</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.S3_hook.S3Hook.list_keys">
+<code class="descname">list_keys</code><span class="sig-paren">(</span><em>bucket_name</em>, <em>prefix=''</em>, <em>delimiter=''</em>, <em>page_size=None</em>, <em>max_items=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/S3_hook.html#S3Hook.list_keys"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.S3_hook.S3Hook.list_keys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists keys in a bucket under prefix and not containing delimiter</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>bucket_name</strong> (<em>str</em>) – the name of the bucket</li>
+<li><strong>prefix</strong> (<em>str</em>) – a key prefix</li>
+<li><strong>delimiter</strong> (<em>str</em>) – the delimiter marks key hierarchy.</li>
+<li><strong>page_size</strong> (<em>int</em>) – pagination size</li>
+<li><strong>max_items</strong> (<em>int</em>) – maximum items to return</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.S3_hook.S3Hook.list_prefixes">
+<code class="descname">list_prefixes</code><span class="sig-paren">(</span><em>bucket_name</em>, <em>prefix=''</em>, <em>delimiter=''</em>, <em>page_size=None</em>, <em>max_items=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/S3_hook.html#S3Hook.list_prefixes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.S3_hook.S3Hook.list_prefixes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists prefixes in a bucket under prefix</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>bucket_name</strong> (<em>str</em>) – the name of the bucket</li>
+<li><strong>prefix</strong> (<em>str</em>) – a key prefix</li>
+<li><strong>delimiter</strong> (<em>str</em>) – the delimiter marks key hierarchy.</li>
+<li><strong>page_size</strong> (<em>int</em>) – pagination size</li>
+<li><strong>max_items</strong> (<em>int</em>) – maximum items to return</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.S3_hook.S3Hook.load_bytes">
+<code class="descname">load_bytes</code><span class="sig-paren">(</span><em>bytes_data</em>, <em>key</em>, <em>bucket_name=None</em>, <em>replace=False</em>, <em>encrypt=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/S3_hook.html#S3Hook.load_bytes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.S3_hook.S3Hook.load_bytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads bytes to S3</p>
+<p>This is provided as a convenience to drop a string in S3. It uses the
+boto infrastructure to ship a file to s3.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>bytes_data</strong> (<em>bytes</em>) – bytes to set as content for the key.</li>
+<li><strong>key</strong> (<em>str</em>) – S3 key that will point to the file</li>
+<li><strong>bucket_name</strong> (<em>str</em>) – Name of the bucket in which to store the file</li>
+<li><strong>replace</strong> (<em>bool</em>) – A flag to decide whether or not to overwrite the key
+if it already exists</li>
+<li><strong>encrypt</strong> (<em>bool</em>) – If True, the file will be encrypted on the server-side
+by S3 and will be stored in an encrypted form while at rest in S3.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.S3_hook.S3Hook.load_file">
+<code class="descname">load_file</code><span class="sig-paren">(</span><em>filename</em>, <em>key</em>, <em>bucket_name=None</em>, <em>replace=False</em>, <em>encrypt=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/S3_hook.html#S3Hook.load_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.S3_hook.S3Hook.load_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads a local file to S3</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>filename</strong> (<em>str</em>) – name of the file to load.</li>
+<li><strong>key</strong> (<em>str</em>) – S3 key that will point to the file</li>
+<li><strong>bucket_name</strong> (<em>str</em>) – Name of the bucket in which to store the file</li>
+<li><strong>replace</strong> (<em>bool</em>) – A flag to decide whether or not to overwrite the key
+if it already exists. If replace is False and the key exists, an
+error will be raised.</li>
+<li><strong>encrypt</strong> (<em>bool</em>) – If True, the file will be encrypted on the server-side
+by S3 and will be stored in an encrypted form while at rest in S3.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.S3_hook.S3Hook.load_string">
+<code class="descname">load_string</code><span class="sig-paren">(</span><em>string_data</em>, <em>key</em>, <em>bucket_name=None</em>, <em>replace=False</em>, <em>encrypt=False</em>, <em>encoding='utf-8'</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/S3_hook.html#S3Hook.load_string"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.S3_hook.S3Hook.load_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads a string to S3</p>
+<p>This is provided as a convenience to drop a string in S3. It uses the
+boto infrastructure to ship a file to s3.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>string_data</strong> (<em>str</em>) – string to set as content for the key.</li>
+<li><strong>key</strong> (<em>str</em>) – S3 key that will point to the file</li>
+<li><strong>bucket_name</strong> (<em>str</em>) – Name of the bucket in which to store the file</li>
+<li><strong>replace</strong> (<em>bool</em>) – A flag to decide whether or not to overwrite the key
+if it already exists</li>
+<li><strong>encrypt</strong> (<em>bool</em>) – If True, the file will be encrypted on the server-side
+by S3 and will be stored in an encrypted form while at rest in S3.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="airflow.hooks.S3_hook.S3Hook.parse_s3_url">
+<em class="property">static </em><code class="descname">parse_s3_url</code><span class="sig-paren">(</span><em>s3url</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/S3_hook.html#S3Hook.parse_s3_url"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.S3_hook.S3Hook.parse_s3_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.S3_hook.S3Hook.read_key">
+<code class="descname">read_key</code><span class="sig-paren">(</span><em>key</em>, <em>bucket_name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/S3_hook.html#S3Hook.read_key"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.S3_hook.S3Hook.read_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads a key from S3</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>key</strong> (<em>str</em>) – S3 key that will point to the file</li>
+<li><strong>bucket_name</strong> (<em>str</em>) – Name of the bucket in which the file is stored</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.S3_hook.S3Hook.select_key">
+<code class="descname">select_key</code><span class="sig-paren">(</span><em>key</em>, <em>bucket_name=None</em>, <em>expression='SELECT * FROM S3Object'</em>, <em>expression_type='SQL'</em>, <em>input_serialization={'CSV': {}}</em>, <em>output_serialization={'CSV': {}}</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/S3_hook.html#S3Hook.select_key"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.S3_hook.S3Hook.select_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads a key with S3 Select.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>key</strong> (<em>str</em>) – S3 key that will point to the file</li>
+<li><strong>bucket_name</strong> (<em>str</em>) – Name of the bucket in which the file is stored</li>
+<li><strong>expression</strong> (<em>str</em>) – S3 Select expression</li>
+<li><strong>expression_type</strong> (<em>str</em>) – S3 Select expression type</li>
+<li><strong>input_serialization</strong> (<em>dict</em>) – S3 Select input data serialization format</li>
+<li><strong>output_serialization</strong> (<em>dict</em>) – S3 Select output data serialization format</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">retrieved subset of original data by S3 Select</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">str</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">For more details about S3 Select parameters:
+<a class="reference external" href="http://boto3.readthedocs.io/en/latest/reference/services/s3.html#S3.Client.select_object_content">http://boto3.readthedocs.io/en/latest/reference/services/s3.html#S3.Client.select_object_content</a></p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.hooks.base_hook">
+<span id="airflow-hooks-base-hook-module"></span><h2>airflow.hooks.base_hook module<a class="headerlink" href="#module-airflow.hooks.base_hook" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.hooks.base_hook.BaseHook">
+<em class="property">class </em><code class="descclassname">airflow.hooks.base_hook.</code><code class="descname">BaseHook</code><span class="sig-paren">(</span><em>source</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/base_hook.html#BaseHook"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.base_hook.BaseHook" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="airflow.utils.log.html#airflow.utils.log.logging_mixin.LoggingMixin" title="airflow.utils.log.logging_mixin.LoggingMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.utils.log.logging_mixin.LoggingMixin</span></code></a></p>
+<p>Abstract base class for hooks, hooks are meant as an interface to
+interact with external systems. MySqlHook, HiveHook, PigHook return
+object that can handle the connection and interaction to specific
+instances of these systems, and expose consistent methods to interact
+with them.</p>
+<dl class="method">
+<dt id="airflow.hooks.base_hook.BaseHook.get_conn">
+<code class="descname">get_conn</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/base_hook.html#BaseHook.get_conn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.base_hook.BaseHook.get_conn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="airflow.hooks.base_hook.BaseHook.get_connection">
+<em class="property">classmethod </em><code class="descname">get_connection</code><span class="sig-paren">(</span><em>conn_id</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/base_hook.html#BaseHook.get_connection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.base_hook.BaseHook.get_connection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="airflow.hooks.base_hook.BaseHook.get_connections">
+<em class="property">classmethod </em><code class="descname">get_connections</code><span class="sig-paren">(</span><em>conn_id</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/base_hook.html#BaseHook.get_connections"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.base_hook.BaseHook.get_connections" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="airflow.hooks.base_hook.BaseHook.get_hook">
+<em class="property">classmethod </em><code class="descname">get_hook</code><span class="sig-paren">(</span><em>conn_id</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/base_hook.html#BaseHook.get_hook"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.base_hook.BaseHook.get_hook" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.base_hook.BaseHook.get_pandas_df">
+<code class="descname">get_pandas_df</code><span class="sig-paren">(</span><em>sql</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/base_hook.html#BaseHook.get_pandas_df"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.base_hook.BaseHook.get_pandas_df" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.base_hook.BaseHook.get_records">
+<code class="descname">get_records</code><span class="sig-paren">(</span><em>sql</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/base_hook.html#BaseHook.get_records"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.base_hook.BaseHook.get_records" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.base_hook.BaseHook.run">
+<code class="descname">run</code><span class="sig-paren">(</span><em>sql</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/base_hook.html#BaseHook.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.base_hook.BaseHook.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.hooks.dbapi_hook">
+<span id="airflow-hooks-dbapi-hook-module"></span><h2>airflow.hooks.dbapi_hook module<a class="headerlink" href="#module-airflow.hooks.dbapi_hook" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.hooks.dbapi_hook.DbApiHook">
+<em class="property">class </em><code class="descclassname">airflow.hooks.dbapi_hook.</code><code class="descname">DbApiHook</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/dbapi_hook.html#DbApiHook"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.dbapi_hook.DbApiHook" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.hooks.base_hook.BaseHook" title="airflow.hooks.base_hook.BaseHook"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.hooks.base_hook.BaseHook</span></code></a></p>
+<p>Abstract base class for sql hooks.</p>
+<dl class="method">
+<dt id="airflow.hooks.dbapi_hook.DbApiHook.bulk_dump">
+<code class="descname">bulk_dump</code><span class="sig-paren">(</span><em>table</em>, <em>tmp_file</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/dbapi_hook.html#DbApiHook.bulk_dump"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.dbapi_hook.DbApiHook.bulk_dump" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dumps a database table into a tab-delimited file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>table</strong> (<em>str</em>) – The name of the source table</li>
+<li><strong>tmp_file</strong> (<em>str</em>) – The path of the target file</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.dbapi_hook.DbApiHook.bulk_load">
+<code class="descname">bulk_load</code><span class="sig-paren">(</span><em>table</em>, <em>tmp_file</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/dbapi_hook.html#DbApiHook.bulk_load"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.dbapi_hook.DbApiHook.bulk_load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads a tab-delimited file into a database table</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>table</strong> (<em>str</em>) – The name of the target table</li>
+<li><strong>tmp_file</strong> (<em>str</em>) – The path of the file to load into the table</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.hooks.dbapi_hook.DbApiHook.conn_name_attr">
+<code class="descname">conn_name_attr</code><em class="property"> = None</em><a class="headerlink" href="#airflow.hooks.dbapi_hook.DbApiHook.conn_name_attr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.hooks.dbapi_hook.DbApiHook.connector">
+<code class="descname">connector</code><em class="property"> = None</em><a class="headerlink" href="#airflow.hooks.dbapi_hook.DbApiHook.connector" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.hooks.dbapi_hook.DbApiHook.default_conn_name">
+<code class="descname">default_conn_name</code><em class="property"> = 'default_conn_id'</em><a class="headerlink" href="#airflow.hooks.dbapi_hook.DbApiHook.default_conn_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.dbapi_hook.DbApiHook.get_autocommit">
+<code class="descname">get_autocommit</code><span class="sig-paren">(</span><em>conn</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/dbapi_hook.html#DbApiHook.get_autocommit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.dbapi_hook.DbApiHook.get_autocommit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get autocommit setting for the provided connection.
+Return True if conn.autocommit is set to True.
+Return False if conn.autocommit is not set or set to False or conn
+does not support autocommit.
+:param conn: Connection to get autocommit setting from.
+:type conn: connection object.
+:return: connection autocommit setting.
+:rtype bool.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.dbapi_hook.DbApiHook.get_conn">
+<code class="descname">get_conn</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/dbapi_hook.html#DbApiHook.get_conn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.dbapi_hook.DbApiHook.get_conn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a connection object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.dbapi_hook.DbApiHook.get_cursor">
+<code class="descname">get_cursor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/dbapi_hook.html#DbApiHook.get_cursor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.dbapi_hook.DbApiHook.get_cursor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a cursor</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.dbapi_hook.DbApiHook.get_first">
+<code class="descname">get_first</code><span class="sig-paren">(</span><em>sql</em>, <em>parameters=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/dbapi_hook.html#DbApiHook.get_first"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.dbapi_hook.DbApiHook.get_first" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executes the sql and returns the first resulting row.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>sql</strong> (<em>str</em><em> or </em><em>list</em>) – the sql statement to be executed (str) or a list of
+sql statements to execute</li>
+<li><strong>parameters</strong> (<em>mapping</em><em> or </em><em>iterable</em>) – The parameters to render the SQL query with.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.dbapi_hook.DbApiHook.get_pandas_df">
+<code class="descname">get_pandas_df</code><span class="sig-paren">(</span><em>sql</em>, <em>parameters=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/dbapi_hook.html#DbApiHook.get_pandas_df"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.dbapi_hook.DbApiHook.get_pandas_df" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executes the sql and returns a pandas dataframe</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>sql</strong> (<em>str</em><em> or </em><em>list</em>) – the sql statement to be executed (str) or a list of
+sql statements to execute</li>
+<li><strong>parameters</strong> (<em>mapping</em><em> or </em><em>iterable</em>) – The parameters to render the SQL query with.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.dbapi_hook.DbApiHook.get_records">
+<code class="descname">get_records</code><span class="sig-paren">(</span><em>sql</em>, <em>parameters=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/dbapi_hook.html#DbApiHook.get_records"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.dbapi_hook.DbApiHook.get_records" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executes the sql and returns a set of records.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>sql</strong> (<em>str</em><em> or </em><em>list</em>) – the sql statement to be executed (str) or a list of
+sql statements to execute</li>
+<li><strong>parameters</strong> (<em>mapping</em><em> or </em><em>iterable</em>) – The parameters to render the SQL query with.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.dbapi_hook.DbApiHook.get_sqlalchemy_engine">
+<code class="descname">get_sqlalchemy_engine</code><span class="sig-paren">(</span><em>engine_kwargs=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/dbapi_hook.html#DbApiHook.get_sqlalchemy_engine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.dbapi_hook.DbApiHook.get_sqlalchemy_engine" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.dbapi_hook.DbApiHook.get_uri">
+<code class="descname">get_uri</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/dbapi_hook.html#DbApiHook.get_uri"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.dbapi_hook.DbApiHook.get_uri" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.dbapi_hook.DbApiHook.insert_rows">
+<code class="descname">insert_rows</code><span class="sig-paren">(</span><em>table</em>, <em>rows</em>, <em>target_fields=None</em>, <em>commit_every=1000</em>, <em>replace=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/dbapi_hook.html#DbApiHook.insert_rows"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.dbapi_hook.DbApiHook.insert_rows" title="Permalink to this definition">¶</a></dt>
+<dd><p>A generic way to insert a set of tuples into a table,
+a new transaction is created every commit_every rows</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>table</strong> (<em>str</em>) – Name of the target table</li>
+<li><strong>rows</strong> (<em>iterable of tuples</em>) – The rows to insert into the table</li>
+<li><strong>target_fields</strong> (<em>iterable of strings</em>) – The names of the columns to fill in the table</li>
+<li><strong>commit_every</strong> (<em>int</em>) – The maximum number of rows to insert in one
+transaction. Set to 0 to insert all rows in one transaction.</li>
+<li><strong>replace</strong> (<em>bool</em>) – Whether to replace instead of insert</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.dbapi_hook.DbApiHook.run">
+<code class="descname">run</code><span class="sig-paren">(</span><em>sql</em>, <em>autocommit=False</em>, <em>parameters=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/dbapi_hook.html#DbApiHook.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.dbapi_hook.DbApiHook.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Runs a command or a list of commands. Pass a list of sql
+statements to the sql parameter to get them to execute
+sequentially</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>sql</strong> (<em>str</em><em> or </em><em>list</em>) – the sql statement to be executed (str) or a list of
+sql statements to execute</li>
+<li><strong>autocommit</strong> (<em>bool</em>) – What to set the connection’s autocommit setting to
+before executing the query.</li>
+<li><strong>parameters</strong> (<em>mapping</em><em> or </em><em>iterable</em>) – The parameters to render the SQL query with.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.dbapi_hook.DbApiHook.set_autocommit">
+<code class="descname">set_autocommit</code><span class="sig-paren">(</span><em>conn</em>, <em>autocommit</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/dbapi_hook.html#DbApiHook.set_autocommit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.dbapi_hook.DbApiHook.set_autocommit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the autocommit flag on the connection</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.hooks.dbapi_hook.DbApiHook.supports_autocommit">
+<code class="descname">supports_autocommit</code><em class="property"> = False</em><a class="headerlink" href="#airflow.hooks.dbapi_hook.DbApiHook.supports_autocommit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.hooks.docker_hook">
+<span id="airflow-hooks-docker-hook-module"></span><h2>airflow.hooks.docker_hook module<a class="headerlink" href="#module-airflow.hooks.docker_hook" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.hooks.docker_hook.DockerHook">
+<em class="property">class </em><code class="descclassname">airflow.hooks.docker_hook.</code><code class="descname">DockerHook</code><span class="sig-paren">(</span><em>docker_conn_id='docker_default'</em>, <em>base_url=None</em>, <em>version=None</em>, <em>tls=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/docker_hook.html#DockerHook"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.docker_hook.DockerHook" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.hooks.base_hook.BaseHook" title="airflow.hooks.base_hook.BaseHook"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.hooks.base_hook.BaseHook</span></code></a>, <a class="reference internal" href="airflow.utils.log.html#airflow.utils.log.logging_mixin.LoggingMixin" title="airflow.utils.log.logging_mixin.LoggingMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.utils.log.logging_mixin.LoggingMixin</span></code></a></p>
+<p>Interact with a private Docker registry.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>docker_conn_id</strong> (<em>str</em>) – ID of the Airflow connection where
+credentials and extra configuration are stored</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="airflow.hooks.docker_hook.DockerHook.get_conn">
+<code class="descname">get_conn</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/docker_hook.html#DockerHook.get_conn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.docker_hook.DockerHook.get_conn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="airflow-hooks-druid-hook-module">
+<h2>airflow.hooks.druid_hook module<a class="headerlink" href="#airflow-hooks-druid-hook-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-airflow.hooks.hdfs_hook">
+<span id="airflow-hooks-hdfs-hook-module"></span><h2>airflow.hooks.hdfs_hook module<a class="headerlink" href="#module-airflow.hooks.hdfs_hook" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.hooks.hdfs_hook.HDFSHook">
+<em class="property">class </em><code class="descclassname">airflow.hooks.hdfs_hook.</code><code class="descname">HDFSHook</code><span class="sig-paren">(</span><em>hdfs_conn_id='hdfs_default'</em>, <em>proxy_user=None</em>, <em>autoconfig=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/hdfs_hook.html#HDFSHook"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.hdfs_hook.HDFSHook" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.hooks.base_hook.BaseHook" title="airflow.hooks.base_hook.BaseHook"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.hooks.base_hook.BaseHook</span></code></a></p>
+<p>Interact with HDFS. This class is a wrapper around the snakebite library.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>hdfs_conn_id</strong> – Connection id to fetch connection info</li>
+<li><strong>proxy_user</strong> (<em>string</em>) – effective user for HDFS operations</li>
+<li><strong>autoconfig</strong> (<em>bool</em>) – use snakebite’s automatically configured client</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="airflow.hooks.hdfs_hook.HDFSHook.get_conn">
+<code class="descname">get_conn</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/hdfs_hook.html#HDFSHook.get_conn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.hdfs_hook.HDFSHook.get_conn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a snakebite HDFSClient object.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="airflow.hooks.hdfs_hook.HDFSHookException">
+<em class="property">exception </em><code class="descclassname">airflow.hooks.hdfs_hook.</code><code class="descname">HDFSHookException</code><a class="reference internal" href="../../_modules/airflow/hooks/hdfs_hook.html#HDFSHookException"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.hdfs_hook.HDFSHookException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="airflow.html#airflow.exceptions.AirflowException" title="airflow.exceptions.AirflowException"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.exceptions.AirflowException</span></code></a></p>
+</dd></dl>
+
+</div>
+<div class="section" id="airflow-hooks-hive-hooks-module">
+<h2>airflow.hooks.hive_hooks module<a class="headerlink" href="#airflow-hooks-hive-hooks-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-airflow.hooks.http_hook">
+<span id="airflow-hooks-http-hook-module"></span><h2>airflow.hooks.http_hook module<a class="headerlink" href="#module-airflow.hooks.http_hook" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.hooks.http_hook.HttpHook">
+<em class="property">class </em><code class="descclassname">airflow.hooks.http_hook.</code><code class="descname">HttpHook</code><span class="sig-paren">(</span><em>method='POST'</em>, <em>http_conn_id='http_default'</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/http_hook.html#HttpHook"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.http_hook.HttpHook" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.hooks.base_hook.BaseHook" title="airflow.hooks.base_hook.BaseHook"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.hooks.base_hook.BaseHook</span></code></a></p>
+<p>Interact with HTTP servers.
+:param http_conn_id: connection that has the base API url i.e <a class="reference external" href="https://www.google.com/">https://www.google.com/</a></p>
+<blockquote>
+<div>and optional authentication credentials. Default headers can also be specified in
+the Extra field in json format.</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>method</strong> (<em>str</em>) – the API method to be called</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="airflow.hooks.http_hook.HttpHook.check_response">
+<code class="descname">check_response</code><span class="sig-paren">(</span><em>response</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/http_hook.html#HttpHook.check_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.http_hook.HttpHook.check_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the status code and raise an AirflowException exception on non 2XX or 3XX
+status codes
+:param response: A requests response object
+:type response: requests.response</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.http_hook.HttpHook.get_conn">
+<code class="descname">get_conn</code><span class="sig-paren">(</span><em>headers=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/http_hook.html#HttpHook.get_conn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.http_hook.HttpHook.get_conn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns http session for use with requests
+:param headers: additional headers to be passed through as a dictionary
+:type headers: dict</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.http_hook.HttpHook.run">
+<code class="descname">run</code><span class="sig-paren">(</span><em>endpoint</em>, <em>data=None</em>, <em>headers=None</em>, <em>extra_options=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/http_hook.html#HttpHook.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.http_hook.HttpHook.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs the request
+:param endpoint: the endpoint to be called i.e. resource/v1/query?
+:type endpoint: str
+:param data: payload to be uploaded or request parameters
+:type data: dict
+:param headers: additional headers to be passed through as a dictionary
+:type headers: dict
+:param extra_options: additional options to be used when executing the request</p>
+<blockquote>
+<div>i.e. {‘check_response’: False} to avoid checking raising exceptions on non
+2XX or 3XX status codes</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.http_hook.HttpHook.run_and_check">
+<code class="descname">run_and_check</code><span class="sig-paren">(</span><em>session</em>, <em>prepped_request</em>, <em>extra_options</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/http_hook.html#HttpHook.run_and_check"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.http_hook.HttpHook.run_and_check" title="Permalink to this definition">¶</a></dt>
+<dd><p>Grabs extra options like timeout and actually runs the request,
+checking for the result
+:param session: the session to be used to execute the request
+:type session: requests.Session
+:param prepped_request: the prepared request generated in run()
+:type prepped_request: session.prepare_request
+:param extra_options: additional options to be used when executing the request</p>
+<blockquote>
+<div>i.e. {‘check_response’: False} to avoid checking raising exceptions on non 2XX
+or 3XX status codes</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.http_hook.HttpHook.run_with_advanced_retry">
+<code class="descname">run_with_advanced_retry</code><span class="sig-paren">(</span><em>_retry_args</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/http_hook.html#HttpHook.run_with_advanced_retry"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.http_hook.HttpHook.run_with_advanced_retry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Runs Hook.run() with a Tenacity decorator attached to it. This is useful for
+connectors which might be disturbed by intermittent issues and should not
+instantly fail.
+:param _retry_args: Arguments which define the retry behaviour.</p>
+<blockquote>
+<div>See Tenacity documentation at <a class="reference external" href="https://github.com/jd/tenacity">https://github.com/jd/tenacity</a></div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+</tbody>
+</table>
+<dl class="docutils">
+<dt>Example: ::</dt>
+<dd><p class="first">hook = HttpHook(http_conn_id=’my_conn’,method=’GET’)
+retry_args = dict(</p>
+<blockquote class="last">
+<div><blockquote>
+<div>wait=tenacity.wait_exponential(),
+stop=tenacity.stop_after_attempt(10),
+retry=requests.exceptions.ConnectionError</div></blockquote>
+<p>)
+hook.run_with_advanced_retry(</p>
+<blockquote>
+<div><blockquote>
+<div>endpoint=’v1/test’,
+_retry_args=retry_args</div></blockquote>
+<p>)</p>
+</div></blockquote>
+</div></blockquote>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.hooks.jdbc_hook">
+<span id="airflow-hooks-jdbc-hook-module"></span><h2>airflow.hooks.jdbc_hook module<a class="headerlink" href="#module-airflow.hooks.jdbc_hook" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.hooks.jdbc_hook.JdbcHook">
+<em class="property">class </em><code class="descclassname">airflow.hooks.jdbc_hook.</code><code class="descname">JdbcHook</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/jdbc_hook.html#JdbcHook"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.jdbc_hook.JdbcHook" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.hooks.dbapi_hook.DbApiHook" title="airflow.hooks.dbapi_hook.DbApiHook"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.hooks.dbapi_hook.DbApiHook</span></code></a></p>
+<p>General hook for jdbc db access.</p>
+<p>JDBC URL, username and password will be taken from the predefined connection.
+Note that the whole JDBC URL must be specified in the “host” field in the DB.
+Raises an airflow error if the given connection id doesn’t exist.</p>
+<dl class="attribute">
+<dt id="airflow.hooks.jdbc_hook.JdbcHook.conn_name_attr">
+<code class="descname">conn_name_attr</code><em class="property"> = 'jdbc_conn_id'</em><a class="headerlink" href="#airflow.hooks.jdbc_hook.JdbcHook.conn_name_attr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.hooks.jdbc_hook.JdbcHook.default_conn_name">
+<code class="descname">default_conn_name</code><em class="property"> = 'jdbc_default'</em><a class="headerlink" href="#airflow.hooks.jdbc_hook.JdbcHook.default_conn_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.jdbc_hook.JdbcHook.get_conn">
+<code class="descname">get_conn</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/jdbc_hook.html#JdbcHook.get_conn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.jdbc_hook.JdbcHook.get_conn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a connection object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.jdbc_hook.JdbcHook.set_autocommit">
+<code class="descname">set_autocommit</code><span class="sig-paren">(</span><em>conn</em>, <em>autocommit</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/jdbc_hook.html#JdbcHook.set_autocommit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.jdbc_hook.JdbcHook.set_autocommit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable or disable autocommit for the given connection.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>conn</strong> – The connection</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.hooks.jdbc_hook.JdbcHook.supports_autocommit">
+<code class="descname">supports_autocommit</code><em class="property"> = True</em><a class="headerlink" href="#airflow.hooks.jdbc_hook.JdbcHook.supports_autocommit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.hooks.mssql_hook">
+<span id="airflow-hooks-mssql-hook-module"></span><h2>airflow.hooks.mssql_hook module<a class="headerlink" href="#module-airflow.hooks.mssql_hook" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.hooks.mssql_hook.MsSqlHook">
+<em class="property">class </em><code class="descclassname">airflow.hooks.mssql_hook.</code><code class="descname">MsSqlHook</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/mssql_hook.html#MsSqlHook"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.mssql_hook.MsSqlHook" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.hooks.dbapi_hook.DbApiHook" title="airflow.hooks.dbapi_hook.DbApiHook"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.hooks.dbapi_hook.DbApiHook</span></code></a></p>
+<p>Interact with Microsoft SQL Server.</p>
+<dl class="attribute">
+<dt id="airflow.hooks.mssql_hook.MsSqlHook.conn_name_attr">
+<code class="descname">conn_name_attr</code><em class="property"> = 'mssql_conn_id'</em><a class="headerlink" href="#airflow.hooks.mssql_hook.MsSqlHook.conn_name_attr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.hooks.mssql_hook.MsSqlHook.default_conn_name">
+<code class="descname">default_conn_name</code><em class="property"> = 'mssql_default'</em><a class="headerlink" href="#airflow.hooks.mssql_hook.MsSqlHook.default_conn_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.mssql_hook.MsSqlHook.get_conn">
+<code class="descname">get_conn</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/mssql_hook.html#MsSqlHook.get_conn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.mssql_hook.MsSqlHook.get_conn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a mssql connection object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.mssql_hook.MsSqlHook.set_autocommit">
+<code class="descname">set_autocommit</code><span class="sig-paren">(</span><em>conn</em>, <em>autocommit</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/mssql_hook.html#MsSqlHook.set_autocommit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.mssql_hook.MsSqlHook.set_autocommit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the autocommit flag on the connection</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.hooks.mssql_hook.MsSqlHook.supports_autocommit">
+<code class="descname">supports_autocommit</code><em class="property"> = True</em><a class="headerlink" href="#airflow.hooks.mssql_hook.MsSqlHook.supports_autocommit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="airflow-hooks-mysql-hook-module">
+<h2>airflow.hooks.mysql_hook module<a class="headerlink" href="#airflow-hooks-mysql-hook-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="airflow-hooks-oracle-hook-module">
+<h2>airflow.hooks.oracle_hook module<a class="headerlink" href="#airflow-hooks-oracle-hook-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-airflow.hooks.pig_hook">
+<span id="airflow-hooks-pig-hook-module"></span><h2>airflow.hooks.pig_hook module<a class="headerlink" href="#module-airflow.hooks.pig_hook" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.hooks.pig_hook.PigCliHook">
+<em class="property">class </em><code class="descclassname">airflow.hooks.pig_hook.</code><code class="descname">PigCliHook</code><span class="sig-paren">(</span><em>pig_cli_conn_id='pig_cli_default'</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/pig_hook.html#PigCliHook"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.pig_hook.PigCliHook" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.hooks.base_hook.BaseHook" title="airflow.hooks.base_hook.BaseHook"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.hooks.base_hook.BaseHook</span></code></a></p>
+<p>Simple wrapper around the pig CLI.</p>
+<p>Note that you can also set default pig CLI properties using the
+<code class="docutils literal notranslate"><span class="pre">pig_properties</span></code> to be used in your connection as in
+<code class="docutils literal notranslate"><span class="pre">{&quot;pig_properties&quot;:</span> <span class="pre">&quot;-Dpig.tmpfilecompression=true&quot;}</span></code></p>
+<dl class="method">
+<dt id="airflow.hooks.pig_hook.PigCliHook.kill">
+<code class="descname">kill</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/pig_hook.html#PigCliHook.kill"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.pig_hook.PigCliHook.kill" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.pig_hook.PigCliHook.run_cli">
+<code class="descname">run_cli</code><span class="sig-paren">(</span><em>pig</em>, <em>verbose=True</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/pig_hook.html#PigCliHook.run_cli"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.pig_hook.PigCliHook.run_cli" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run an pig script using the pig cli</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ph</span> <span class="o">=</span> <span class="n">PigCliHook</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">ph</span><span class="o">.</span><span class="n">run_cli</span><span class="p">(</span><span class="s2">&quot;ls /;&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="s2">&quot;hdfs://&quot;</span> <span class="ow">in</span> <span class="n">result</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.hooks.postgres_hook">
+<span id="airflow-hooks-postgres-hook-module"></span><h2>airflow.hooks.postgres_hook module<a class="headerlink" href="#module-airflow.hooks.postgres_hook" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.hooks.postgres_hook.PostgresHook">
+<em class="property">class </em><code class="descclassname">airflow.hooks.postgres_hook.</code><code class="descname">PostgresHook</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/postgres_hook.html#PostgresHook"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.postgres_hook.PostgresHook" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.hooks.dbapi_hook.DbApiHook" title="airflow.hooks.dbapi_hook.DbApiHook"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.hooks.dbapi_hook.DbApiHook</span></code></a></p>
+<p>Interact with Postgres.
+You can specify ssl parameters in the extra field of your connection
+as <code class="docutils literal notranslate"><span class="pre">{&quot;sslmode&quot;:</span> <span class="pre">&quot;require&quot;,</span> <span class="pre">&quot;sslcert&quot;:</span> <span class="pre">&quot;/path/to/cert.pem&quot;,</span> <span class="pre">etc}</span></code>.</p>
+<p>Note: For Redshift, use keepalives_idle in the extra connection parameters
+and set it to less than 300 seconds.</p>
+<dl class="method">
+<dt id="airflow.hooks.postgres_hook.PostgresHook.bulk_dump">
+<code class="descname">bulk_dump</code><span class="sig-paren">(</span><em>table</em>, <em>tmp_file</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/postgres_hook.html#PostgresHook.bulk_dump"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.postgres_hook.PostgresHook.bulk_dump" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dumps a database table into a tab-delimited file</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.postgres_hook.PostgresHook.bulk_load">
+<code class="descname">bulk_load</code><span class="sig-paren">(</span><em>table</em>, <em>tmp_file</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/postgres_hook.html#PostgresHook.bulk_load"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.postgres_hook.PostgresHook.bulk_load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads a tab-delimited file into a database table</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.hooks.postgres_hook.PostgresHook.conn_name_attr">
+<code class="descname">conn_name_attr</code><em class="property"> = 'postgres_conn_id'</em><a class="headerlink" href="#airflow.hooks.postgres_hook.PostgresHook.conn_name_attr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.postgres_hook.PostgresHook.copy_expert">
+<code class="descname">copy_expert</code><span class="sig-paren">(</span><em>sql</em>, <em>filename</em>, <em>open=&lt;built-in function open&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/postgres_hook.html#PostgresHook.copy_expert"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.postgres_hook.PostgresHook.copy_expert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executes SQL using psycopg2 copy_expert method.
+Necessary to execute COPY command without access to a superuser.</p>
+<p>Note: if this method is called with a “COPY FROM” statement and
+the specified input file does not exist, it creates an empty
+file and no data is loaded, but the operation succeeds.
+So if users want to be aware when the input file does not exist,
+they have to check its existence by themselves.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.hooks.postgres_hook.PostgresHook.default_conn_name">
+<code class="descname">default_conn_name</code><em class="property"> = 'postgres_default'</em><a class="headerlink" href="#airflow.hooks.postgres_hook.PostgresHook.default_conn_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.postgres_hook.PostgresHook.get_conn">
+<code class="descname">get_conn</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/postgres_hook.html#PostgresHook.get_conn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.postgres_hook.PostgresHook.get_conn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a connection object</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.hooks.postgres_hook.PostgresHook.supports_autocommit">
+<code class="descname">supports_autocommit</code><em class="property"> = True</em><a class="headerlink" href="#airflow.hooks.postgres_hook.PostgresHook.supports_autocommit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.hooks.presto_hook">
+<span id="airflow-hooks-presto-hook-module"></span><h2>airflow.hooks.presto_hook module<a class="headerlink" href="#module-airflow.hooks.presto_hook" title="Permalink to this headline">¶</a></h2>
+<dl class="exception">
+<dt id="airflow.hooks.presto_hook.PrestoException">
+<em class="property">exception </em><code class="descclassname">airflow.hooks.presto_hook.</code><code class="descname">PrestoException</code><a class="reference internal" href="../../_modules/airflow/hooks/presto_hook.html#PrestoException"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.presto_hook.PrestoException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="airflow.hooks.presto_hook.PrestoHook">
+<em class="property">class </em><code class="descclassname">airflow.hooks.presto_hook.</code><code class="descname">PrestoHook</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/presto_hook.html#PrestoHook"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.presto_hook.PrestoHook" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.hooks.dbapi_hook.DbApiHook" title="airflow.hooks.dbapi_hook.DbApiHook"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.hooks.dbapi_hook.DbApiHook</span></code></a></p>
+<p>Interact with Presto through PyHive!</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ph</span> <span class="o">=</span> <span class="n">PrestoHook</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT count(1) AS num FROM airflow.static_babynames&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ph</span><span class="o">.</span><span class="n">get_records</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+<span class="go">[[340698]]</span>
+</pre></div>
+</div>
+<dl class="attribute">
+<dt id="airflow.hooks.presto_hook.PrestoHook.conn_name_attr">
+<code class="descname">conn_name_attr</code><em class="property"> = 'presto_conn_id'</em><a class="headerlink" href="#airflow.hooks.presto_hook.PrestoHook.conn_name_attr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.hooks.presto_hook.PrestoHook.default_conn_name">
+<code class="descname">default_conn_name</code><em class="property"> = 'presto_default'</em><a class="headerlink" href="#airflow.hooks.presto_hook.PrestoHook.default_conn_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.presto_hook.PrestoHook.get_conn">
+<code class="descname">get_conn</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/presto_hook.html#PrestoHook.get_conn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.presto_hook.PrestoHook.get_conn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a connection object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.presto_hook.PrestoHook.get_first">
+<code class="descname">get_first</code><span class="sig-paren">(</span><em>hql</em>, <em>parameters=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/presto_hook.html#PrestoHook.get_first"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.presto_hook.PrestoHook.get_first" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns only the first row, regardless of how many rows the query
+returns.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.presto_hook.PrestoHook.get_pandas_df">
+<code class="descname">get_pandas_df</code><span class="sig-paren">(</span><em>hql</em>, <em>parameters=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/presto_hook.html#PrestoHook.get_pandas_df"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.presto_hook.PrestoHook.get_pandas_df" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a pandas dataframe from a sql query.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.presto_hook.PrestoHook.get_records">
+<code class="descname">get_records</code><span class="sig-paren">(</span><em>hql</em>, <em>parameters=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/presto_hook.html#PrestoHook.get_records"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.presto_hook.PrestoHook.get_records" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a set of records from Presto</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.presto_hook.PrestoHook.insert_rows">
+<code class="descname">insert_rows</code><span class="sig-paren">(</span><em>table</em>, <em>rows</em>, <em>target_fields=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/presto_hook.html#PrestoHook.insert_rows"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.presto_hook.PrestoHook.insert_rows" title="Permalink to this definition">¶</a></dt>
+<dd><p>A generic way to insert a set of tuples into a table.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>table</strong> (<em>str</em>) – Name of the target table</li>
+<li><strong>rows</strong> (<em>iterable of tuples</em>) – The rows to insert into the table</li>
+<li><strong>target_fields</strong> (<em>iterable of strings</em>) – The names of the columns to fill in the table</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.presto_hook.PrestoHook.run">
+<code class="descname">run</code><span class="sig-paren">(</span><em>hql</em>, <em>parameters=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/presto_hook.html#PrestoHook.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.presto_hook.PrestoHook.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute the statement against Presto. Can be used to create views.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.hooks.samba_hook">
+<span id="airflow-hooks-samba-hook-module"></span><h2>airflow.hooks.samba_hook module<a class="headerlink" href="#module-airflow.hooks.samba_hook" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.hooks.samba_hook.SambaHook">
+<em class="property">class </em><code class="descclassname">airflow.hooks.samba_hook.</code><code class="descname">SambaHook</code><span class="sig-paren">(</span><em>samba_conn_id</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/samba_hook.html#SambaHook"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.samba_hook.SambaHook" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.hooks.base_hook.BaseHook" title="airflow.hooks.base_hook.BaseHook"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.hooks.base_hook.BaseHook</span></code></a></p>
+<p>Allows for interaction with an samba server.</p>
+<dl class="method">
+<dt id="airflow.hooks.samba_hook.SambaHook.get_conn">
+<code class="descname">get_conn</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/samba_hook.html#SambaHook.get_conn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.samba_hook.SambaHook.get_conn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.samba_hook.SambaHook.push_from_local">
+<code class="descname">push_from_local</code><span class="sig-paren">(</span><em>destination_filepath</em>, <em>local_filepath</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/samba_hook.html#SambaHook.push_from_local"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.samba_hook.SambaHook.push_from_local" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.hooks.slack_hook">
+<span id="airflow-hooks-slack-hook-module"></span><h2>airflow.hooks.slack_hook module<a class="headerlink" href="#module-airflow.hooks.slack_hook" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.hooks.slack_hook.SlackHook">
+<em class="property">class </em><code class="descclassname">airflow.hooks.slack_hook.</code><code class="descname">SlackHook</code><span class="sig-paren">(</span><em>token=None</em>, <em>slack_conn_id=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/slack_hook.html#SlackHook"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.slack_hook.SlackHook" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.hooks.base_hook.BaseHook" title="airflow.hooks.base_hook.BaseHook"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.hooks.base_hook.BaseHook</span></code></a></p>
+<p>Interact with Slack, using slackclient library.</p>
+<dl class="method">
+<dt id="airflow.hooks.slack_hook.SlackHook.call">
+<code class="descname">call</code><span class="sig-paren">(</span><em>method</em>, <em>api_params</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/slack_hook.html#SlackHook.call"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.slack_hook.SlackHook.call" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.hooks.sqlite_hook">
+<span id="airflow-hooks-sqlite-hook-module"></span><h2>airflow.hooks.sqlite_hook module<a class="headerlink" href="#module-airflow.hooks.sqlite_hook" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.hooks.sqlite_hook.SqliteHook">
+<em class="property">class </em><code class="descclassname">airflow.hooks.sqlite_hook.</code><code class="descname">SqliteHook</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/sqlite_hook.html#SqliteHook"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.sqlite_hook.SqliteHook" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.hooks.dbapi_hook.DbApiHook" title="airflow.hooks.dbapi_hook.DbApiHook"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.hooks.dbapi_hook.DbApiHook</span></code></a></p>
+<p>Interact with SQLite.</p>
+<dl class="attribute">
+<dt id="airflow.hooks.sqlite_hook.SqliteHook.conn_name_attr">
+<code class="descname">conn_name_attr</code><em class="property"> = 'sqlite_conn_id'</em><a class="headerlink" href="#airflow.hooks.sqlite_hook.SqliteHook.conn_name_attr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.hooks.sqlite_hook.SqliteHook.default_conn_name">
+<code class="descname">default_conn_name</code><em class="property"> = 'sqlite_default'</em><a class="headerlink" href="#airflow.hooks.sqlite_hook.SqliteHook.default_conn_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.sqlite_hook.SqliteHook.get_conn">
+<code class="descname">get_conn</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/sqlite_hook.html#SqliteHook.get_conn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.sqlite_hook.SqliteHook.get_conn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a sqlite connection object</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.hooks.sqlite_hook.SqliteHook.supports_autocommit">
+<code class="descname">supports_autocommit</code><em class="property"> = False</em><a class="headerlink" href="#airflow.hooks.sqlite_hook.SqliteHook.supports_autocommit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.hooks.webhdfs_hook">
+<span id="airflow-hooks-webhdfs-hook-module"></span><h2>airflow.hooks.webhdfs_hook module<a class="headerlink" href="#module-airflow.hooks.webhdfs_hook" title="Permalink to this headline">¶</a></h2>
+<dl class="exception">
+<dt id="airflow.hooks.webhdfs_hook.AirflowWebHDFSHookException">
+<em class="property">exception </em><code class="descclassname">airflow.hooks.webhdfs_hook.</code><code class="descname">AirflowWebHDFSHookException</code><a class="reference internal" href="../../_modules/airflow/hooks/webhdfs_hook.html#AirflowWebHDFSHookException"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.webhdfs_hook.AirflowWebHDFSHookException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="airflow.html#airflow.exceptions.AirflowException" title="airflow.exceptions.AirflowException"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.exceptions.AirflowException</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="airflow.hooks.webhdfs_hook.WebHDFSHook">
+<em class="property">class </em><code class="descclassname">airflow.hooks.webhdfs_hook.</code><code class="descname">WebHDFSHook</code><span class="sig-paren">(</span><em>webhdfs_conn_id='webhdfs_default'</em>, <em>proxy_user=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/webhdfs_hook.html#WebHDFSHook"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.webhdfs_hook.WebHDFSHook" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.hooks.base_hook.BaseHook" title="airflow.hooks.base_hook.BaseHook"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.hooks.base_hook.BaseHook</span></code></a></p>
+<p>Interact with HDFS. This class is a wrapper around the hdfscli library.</p>
+<dl class="method">
+<dt id="airflow.hooks.webhdfs_hook.WebHDFSHook.check_for_path">
+<code class="descname">check_for_path</code><span class="sig-paren">(</span><em>hdfs_path</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/webhdfs_hook.html#WebHDFSHook.check_for_path"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.webhdfs_hook.WebHDFSHook.check_for_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check for the existence of a path in HDFS by querying FileStatus.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.webhdfs_hook.WebHDFSHook.get_conn">
+<code class="descname">get_conn</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/webhdfs_hook.html#WebHDFSHook.get_conn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.webhdfs_hook.WebHDFSHook.get_conn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a hdfscli InsecureClient object.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.webhdfs_hook.WebHDFSHook.load_file">
+<code class="descname">load_file</code><span class="sig-paren">(</span><em>source</em>, <em>destination</em>, <em>overwrite=True</em>, <em>parallelism=1</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/webhdfs_hook.html#WebHDFSHook.load_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.webhdfs_hook.WebHDFSHook.load_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uploads a file to HDFS</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>source</strong> (<em>str</em>) – Local path to file or folder. If a folder, all the files
+inside of it will be uploaded (note that this implies that folders empty
+of files will not be created remotely).</li>
+<li><strong>destination</strong> (<em>str</em>) – PTarget HDFS path. If it already exists and is a
+directory, files will be uploaded inside.</li>
+<li><strong>overwrite</strong> (<em>bool</em>) – Overwrite any existing file or directory.</li>
+<li><strong>parallelism</strong> (<em>int</em>) – Number of threads to use for parallelization. A value of
+<cite>0</cite> (or negative) uses as many threads as there are files.</li>
+<li><strong>**kwargs</strong> – Keyword arguments forwarded to <code class="xref py py-meth docutils literal notranslate"><span class="pre">upload()</span></code>.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.hooks.zendesk_hook">
+<span id="airflow-hooks-zendesk-hook-module"></span><h2>airflow.hooks.zendesk_hook module<a class="headerlink" href="#module-airflow.hooks.zendesk_hook" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.hooks.zendesk_hook.ZendeskHook">
+<em class="property">class </em><code class="descclassname">airflow.hooks.zendesk_hook.</code><code class="descname">ZendeskHook</code><span class="sig-paren">(</span><em>zendesk_conn_id</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/zendesk_hook.html#ZendeskHook"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.zendesk_hook.ZendeskHook" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.hooks.base_hook.BaseHook" title="airflow.hooks.base_hook.BaseHook"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.hooks.base_hook.BaseHook</span></code></a></p>
+<p>A hook to talk to Zendesk</p>
+<dl class="method">
+<dt id="airflow.hooks.zendesk_hook.ZendeskHook.call">
+<code class="descname">call</code><span class="sig-paren">(</span><em>path</em>, <em>query=None</em>, <em>get_all_pages=True</em>, <em>side_loading=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/zendesk_hook.html#ZendeskHook.call"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.zendesk_hook.ZendeskHook.call" title="Permalink to this definition">¶</a></dt>
+<dd><p>Call Zendesk API and return results</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>path</strong> – The Zendesk API to call</li>
+<li><strong>query</strong> – Query parameters</li>
+<li><strong>get_all_pages</strong> – Accumulate results over all pages before
+returning. Due to strict rate limiting, this can often timeout.
+Waits for recommended period between tries after a timeout.</li>
+<li><strong>side_loading</strong> – Retrieve related records as part of a single
+request. In order to enable side-loading, add an ‘include’
+query parameter containing a comma-separated list of resources
+to load. For more information on side-loading see
+<a class="reference external" href="https://developer.zendesk.com/rest_api/docs/core/side_loading">https://developer.zendesk.com/rest_api/docs/core/side_loading</a></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.hooks.zendesk_hook.ZendeskHook.get_conn">
+<code class="descname">get_conn</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/hooks/zendesk_hook.html#ZendeskHook.get_conn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.hooks.zendesk_hook.ZendeskHook.get_conn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.hooks">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-airflow.hooks" title="Permalink to this headline">¶</a></h2>
+<p>Importer that dynamically loads a class and module from its parent. This
+allows Airflow to support <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">airflow.operators</span> <span class="pre">import</span> <span class="pre">BashOperator</span></code>
+even though BashOperator is actually in
+<code class="docutils literal notranslate"><span class="pre">airflow.operators.bash_operator</span></code>.</p>
+<p>The importer also takes over for the parent_module by wrapping it. This is
+required to support attribute-based usage:</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">airflow</span> <span class="k">import</span> <span class="n">operators</span>
+<span class="n">operators</span><span class="o">.</span><span class="n">BashOperator</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

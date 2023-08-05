@@ -1,0 +1,1714 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>airflow.utils package &mdash; Airflow Documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Airflow Documentation" href="../../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Airflow
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howto/index.html">How-to Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ui.html">UI / Screenshots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../profiling.html">Data Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../scheduler.html">Scheduling &amp; Triggers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../security.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../timezone.html">Time zones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">Experimental Rest API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../integration.html">Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lineage.html">Lineage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../code.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Airflow</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>airflow.utils package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/code/auto-api/airflow.utils.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="airflow-utils-package">
+<h1>airflow.utils package<a class="headerlink" href="#airflow-utils-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="airflow.utils.log.html">airflow.utils.log package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="airflow.utils.log.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.utils.log.html#airflow-utils-log-es-task-handler-module">airflow.utils.log.es_task_handler module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.utils.log.html#module-airflow.utils.log.file_processor_handler">airflow.utils.log.file_processor_handler module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.utils.log.html#module-airflow.utils.log.file_task_handler">airflow.utils.log.file_task_handler module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.utils.log.html#module-airflow.utils.log.gcs_task_handler">airflow.utils.log.gcs_task_handler module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.utils.log.html#module-airflow.utils.log.logging_mixin">airflow.utils.log.logging_mixin module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.utils.log.html#module-airflow.utils.log.s3_task_handler">airflow.utils.log.s3_task_handler module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.utils.log.html#module-airflow.utils.log.wasb_task_handler">airflow.utils.log.wasb_task_handler module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.utils.log.html#module-airflow.utils.log">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-airflow.utils.asciiart">
+<span id="airflow-utils-asciiart-module"></span><h2>airflow.utils.asciiart module<a class="headerlink" href="#module-airflow.utils.asciiart" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-airflow.utils.cli">
+<span id="airflow-utils-cli-module"></span><h2>airflow.utils.cli module<a class="headerlink" href="#module-airflow.utils.cli" title="Permalink to this headline">¶</a></h2>
+<p>Utilities module for cli</p>
+<dl class="function">
+<dt id="airflow.utils.cli.action_logging">
+<code class="descclassname">airflow.utils.cli.</code><code class="descname">action_logging</code><span class="sig-paren">(</span><em>f</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/cli.html#action_logging"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.cli.action_logging" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decorates function to execute function at the same time submitting action_logging
+but in CLI context. It will call action logger callbacks twice,
+one for pre-execution and the other one for post-execution.</p>
+<dl class="docutils">
+<dt>Action logger will be called with below keyword parameters:</dt>
+<dd>sub_command : name of sub-command
+start_datetime : start datetime instance by utc
+end_datetime : end datetime instance by utc
+full_command : full command line arguments
+user : current user
+log : airflow.models.Log ORM instance
+dag_id : dag id (optional)
+task_id : task_id (optional)
+execution_date : execution date (optional)
+error : exception instance if there’s an exception</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>f</strong> – function instance</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">wrapped function</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.utils.cli_action_loggers">
+<span id="airflow-utils-cli-action-loggers-module"></span><h2>airflow.utils.cli_action_loggers module<a class="headerlink" href="#module-airflow.utils.cli_action_loggers" title="Permalink to this headline">¶</a></h2>
+<p>An Action Logger module. Singleton pattern has been applied into this module
+so that registered callbacks can be used all through the same python process.</p>
+<dl class="function">
+<dt id="airflow.utils.cli_action_loggers.default_action_log">
+<code class="descclassname">airflow.utils.cli_action_loggers.</code><code class="descname">default_action_log</code><span class="sig-paren">(</span><em>log</em>, <em>**_</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/cli_action_loggers.html#default_action_log"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.cli_action_loggers.default_action_log" title="Permalink to this definition">¶</a></dt>
+<dd><p>A default action logger callback that behave same as www.utils.action_logging
+which uses global session and pushes log ORM object.
+:param log: An log ORM instance
+:param <a href="#id1"><span class="problematic" id="id2">**</span></a>_: other keyword arguments that is not being used by this function
+:return: None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.utils.cli_action_loggers.on_post_execution">
+<code class="descclassname">airflow.utils.cli_action_loggers.</code><code class="descname">on_post_execution</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/cli_action_loggers.html#on_post_execution"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.cli_action_loggers.on_post_execution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calls callbacks after execution.
+As it’s being called after execution, it can capture status of execution,
+duration, etc. Note that any exception from callback will be logged but
+won’t be propagated.
+:param kwargs:
+:return: None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.utils.cli_action_loggers.on_pre_execution">
+<code class="descclassname">airflow.utils.cli_action_loggers.</code><code class="descname">on_pre_execution</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/cli_action_loggers.html#on_pre_execution"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.cli_action_loggers.on_pre_execution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calls callbacks before execution.
+Note that any exception from callback will be logged but won’t be propagated.
+:param kwargs:
+:return: None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.utils.cli_action_loggers.register_post_exec_callback">
+<code class="descclassname">airflow.utils.cli_action_loggers.</code><code class="descname">register_post_exec_callback</code><span class="sig-paren">(</span><em>action_logger</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/cli_action_loggers.html#register_post_exec_callback"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.cli_action_loggers.register_post_exec_callback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Registers more action_logger function callback for post-execution.
+This function callback is expected to be called with keyword args.
+For more about the arguments that is being passed to the callback,
+refer to airflow.utils.cli.action_logging()
+:param action_logger: An action logger function
+:return: None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.utils.cli_action_loggers.register_pre_exec_callback">
+<code class="descclassname">airflow.utils.cli_action_loggers.</code><code class="descname">register_pre_exec_callback</code><span class="sig-paren">(</span><em>action_logger</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/cli_action_loggers.html#register_pre_exec_callback"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.cli_action_loggers.register_pre_exec_callback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Registers more action_logger function callback for pre-execution.
+This function callback is expected to be called with keyword args.
+For more about the arguments that is being passed to the callback,
+refer to airflow.utils.cli.action_logging()
+:param action_logger: An action logger function
+:return: None</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.utils.compression">
+<span id="airflow-utils-compression-module"></span><h2>airflow.utils.compression module<a class="headerlink" href="#module-airflow.utils.compression" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="airflow.utils.compression.uncompress_file">
+<code class="descclassname">airflow.utils.compression.</code><code class="descname">uncompress_file</code><span class="sig-paren">(</span><em>input_file_name</em>, <em>file_extension</em>, <em>dest_dir</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/compression.html#uncompress_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.compression.uncompress_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uncompress gz and bz2 files</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.utils.configuration">
+<span id="airflow-utils-configuration-module"></span><h2>airflow.utils.configuration module<a class="headerlink" href="#module-airflow.utils.configuration" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="airflow.utils.configuration.tmp_configuration_copy">
+<code class="descclassname">airflow.utils.configuration.</code><code class="descname">tmp_configuration_copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/configuration.html#tmp_configuration_copy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.configuration.tmp_configuration_copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a path for a temporary file including a full copy of the configuration
+settings.
+:return: a path to a temporary file</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.utils.dag_processing">
+<span id="airflow-utils-dag-processing-module"></span><h2>airflow.utils.dag_processing module<a class="headerlink" href="#module-airflow.utils.dag_processing" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.utils.dag_processing.AbstractDagFileProcessor">
+<em class="property">class </em><code class="descclassname">airflow.utils.dag_processing.</code><code class="descname">AbstractDagFileProcessor</code><a class="reference internal" href="../../_modules/airflow/utils/dag_processing.html#AbstractDagFileProcessor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.dag_processing.AbstractDagFileProcessor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Processes a DAG file. See SchedulerJob.process_file() for more details.</p>
+<dl class="attribute">
+<dt id="airflow.utils.dag_processing.AbstractDagFileProcessor.done">
+<code class="descname">done</code><a class="headerlink" href="#airflow.utils.dag_processing.AbstractDagFileProcessor.done" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the process launched to process this file is done.
+:return: whether the process is finished running
+:rtype: bool</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.utils.dag_processing.AbstractDagFileProcessor.exit_code">
+<code class="descname">exit_code</code><a class="headerlink" href="#airflow.utils.dag_processing.AbstractDagFileProcessor.exit_code" title="Permalink to this definition">¶</a></dt>
+<dd><p>After the process is finished, this can be called to get the return code
+:return: the exit code of the process
+:rtype: int</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.utils.dag_processing.AbstractDagFileProcessor.file_path">
+<code class="descname">file_path</code><a class="headerlink" href="#airflow.utils.dag_processing.AbstractDagFileProcessor.file_path" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the path to the file that this is processing</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">unicode</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.utils.dag_processing.AbstractDagFileProcessor.pid">
+<code class="descname">pid</code><a class="headerlink" href="#airflow.utils.dag_processing.AbstractDagFileProcessor.pid" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the PID of the process launched to process the given file</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.utils.dag_processing.AbstractDagFileProcessor.result">
+<code class="descname">result</code><a class="headerlink" href="#airflow.utils.dag_processing.AbstractDagFileProcessor.result" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">result of running SchedulerJob.process_file()</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list[<a class="reference internal" href="#airflow.utils.dag_processing.SimpleDag" title="airflow.utils.dag_processing.SimpleDag">SimpleDag</a>]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.utils.dag_processing.AbstractDagFileProcessor.start">
+<code class="descname">start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/dag_processing.html#AbstractDagFileProcessor.start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.dag_processing.AbstractDagFileProcessor.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Launch the process to process the file</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.utils.dag_processing.AbstractDagFileProcessor.start_time">
+<code class="descname">start_time</code><a class="headerlink" href="#airflow.utils.dag_processing.AbstractDagFileProcessor.start_time" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">When this started to process the file</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">datetime</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.utils.dag_processing.AbstractDagFileProcessor.terminate">
+<code class="descname">terminate</code><span class="sig-paren">(</span><em>sigkill=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/dag_processing.html#AbstractDagFileProcessor.terminate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.dag_processing.AbstractDagFileProcessor.terminate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Terminate (and then kill) the process launched to process the file</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="airflow.utils.dag_processing.DagFileProcessorManager">
+<em class="property">class </em><code class="descclassname">airflow.utils.dag_processing.</code><code class="descname">DagFileProcessorManager</code><span class="sig-paren">(</span><em>dag_directory</em>, <em>file_paths</em>, <em>parallelism</em>, <em>process_file_interval</em>, <em>min_file_parsing_loop_time</em>, <em>max_runs</em>, <em>processor_factory</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/dag_processing.html#DagFileProcessorManager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.dag_processing.DagFileProcessorManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="airflow.utils.log.html#airflow.utils.log.logging_mixin.LoggingMixin" title="airflow.utils.log.logging_mixin.LoggingMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.utils.log.logging_mixin.LoggingMixin</span></code></a></p>
+<p>Given a list of DAG definition files, this kicks off several processors
+in parallel to process them. The parallelism is limited and as the
+processors finish, more are launched. The files are processed over and
+over again, but no more often than the specified interval.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="airflow.utils.dag_processing.DagFileProcessorManager.file_paths">
+<code class="descname">file_paths</code><a class="headerlink" href="#airflow.utils.dag_processing.DagFileProcessorManager.file_paths" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.utils.dag_processing.DagFileProcessorManager.get_all_pids">
+<code class="descname">get_all_pids</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/dag_processing.html#DagFileProcessorManager.get_all_pids"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.dag_processing.DagFileProcessorManager.get_all_pids" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a list of the PIDs for the processors that are running</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">List[int]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.utils.dag_processing.DagFileProcessorManager.get_last_finish_time">
+<code class="descname">get_last_finish_time</code><span class="sig-paren">(</span><em>file_path</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/dag_processing.html#DagFileProcessorManager.get_last_finish_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.dag_processing.DagFileProcessorManager.get_last_finish_time" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>file_path</strong> (<em>unicode</em>) – the path to the file that was processed</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the finish time of the process of the last run, or None if the</td>
+</tr>
+</tbody>
+</table>
+<p>file was never processed.
+:rtype: datetime</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.utils.dag_processing.DagFileProcessorManager.get_last_runtime">
+<code class="descname">get_last_runtime</code><span class="sig-paren">(</span><em>file_path</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/dag_processing.html#DagFileProcessorManager.get_last_runtime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.dag_processing.DagFileProcessorManager.get_last_runtime" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>file_path</strong> (<em>unicode</em>) – the path to the file that was processed</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the runtime (in seconds) of the process of the last run, or</td>
+</tr>
+</tbody>
+</table>
+<p>None if the file was never processed.
+:rtype: float</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.utils.dag_processing.DagFileProcessorManager.get_pid">
+<code class="descname">get_pid</code><span class="sig-paren">(</span><em>file_path</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/dag_processing.html#DagFileProcessorManager.get_pid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.dag_processing.DagFileProcessorManager.get_pid" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>file_path</strong> (<em>unicode</em>) – the path to the file that’s being processed</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the PID of the process processing the given file or None if</td>
+</tr>
+</tbody>
+</table>
+<p>the specified file is not being processed
+:rtype: int</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.utils.dag_processing.DagFileProcessorManager.get_runtime">
+<code class="descname">get_runtime</code><span class="sig-paren">(</span><em>file_path</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/dag_processing.html#DagFileProcessorManager.get_runtime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.dag_processing.DagFileProcessorManager.get_runtime" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>file_path</strong> (<em>unicode</em>) – the path to the file that’s being processed</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the current runtime (in seconds) of the process that’s</td>
+</tr>
+</tbody>
+</table>
+<p>processing the specified file or None if the file is not currently
+being processed</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.utils.dag_processing.DagFileProcessorManager.get_start_time">
+<code class="descname">get_start_time</code><span class="sig-paren">(</span><em>file_path</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/dag_processing.html#DagFileProcessorManager.get_start_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.dag_processing.DagFileProcessorManager.get_start_time" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>file_path</strong> (<em>unicode</em>) – the path to the file that’s being processed</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the start time of the process that’s processing the</td>
+</tr>
+</tbody>
+</table>
+<p>specified file or None if the file is not currently being processed
+:rtype: datetime</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.utils.dag_processing.DagFileProcessorManager.heartbeat">
+<code class="descname">heartbeat</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/dag_processing.html#DagFileProcessorManager.heartbeat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.dag_processing.DagFileProcessorManager.heartbeat" title="Permalink to this definition">¶</a></dt>
+<dd><p>This should be periodically called by the scheduler. This method will
+kick off new processes to process DAG definition files and read the
+results from the finished processors.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a list of SimpleDags that were produced by processors that</td>
+</tr>
+</tbody>
+</table>
+<p>have finished since the last time this was called
+:rtype: list[SimpleDag]</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.utils.dag_processing.DagFileProcessorManager.max_runs_reached">
+<code class="descname">max_runs_reached</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/dag_processing.html#DagFileProcessorManager.max_runs_reached"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.dag_processing.DagFileProcessorManager.max_runs_reached" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">whether all file paths have been processed max_runs times</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.utils.dag_processing.DagFileProcessorManager.processing_count">
+<code class="descname">processing_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/dag_processing.html#DagFileProcessorManager.processing_count"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.dag_processing.DagFileProcessorManager.processing_count" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the number of files currently being processed</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.utils.dag_processing.DagFileProcessorManager.set_file_paths">
+<code class="descname">set_file_paths</code><span class="sig-paren">(</span><em>new_file_paths</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/dag_processing.html#DagFileProcessorManager.set_file_paths"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.dag_processing.DagFileProcessorManager.set_file_paths" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update this with a new set of paths to DAG definition files.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>new_file_paths</strong> (<em>list</em><em>[</em><em>unicode</em><em>]</em>) – list of paths to DAG definition files</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.utils.dag_processing.DagFileProcessorManager.terminate">
+<code class="descname">terminate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/dag_processing.html#DagFileProcessorManager.terminate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.dag_processing.DagFileProcessorManager.terminate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stops all running processors
+:return: None</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.utils.dag_processing.DagFileProcessorManager.wait_until_finished">
+<code class="descname">wait_until_finished</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/dag_processing.html#DagFileProcessorManager.wait_until_finished"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.dag_processing.DagFileProcessorManager.wait_until_finished" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sleeps until all the processors are done.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="airflow.utils.dag_processing.SimpleDag">
+<em class="property">class </em><code class="descclassname">airflow.utils.dag_processing.</code><code class="descname">SimpleDag</code><span class="sig-paren">(</span><em>dag</em>, <em>pickle_id=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/dag_processing.html#SimpleDag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.dag_processing.SimpleDag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="airflow.dag.html#airflow.dag.base_dag.BaseDag" title="airflow.dag.base_dag.BaseDag"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.dag.base_dag.BaseDag</span></code></a></p>
+<p>A simplified representation of a DAG that contains all attributes
+required for instantiating and scheduling its associated tasks.</p>
+<dl class="attribute">
+<dt id="airflow.utils.dag_processing.SimpleDag.concurrency">
+<code class="descname">concurrency</code><a class="headerlink" href="#airflow.utils.dag_processing.SimpleDag.concurrency" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">maximum number of tasks that can run simultaneously from this DAG</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.utils.dag_processing.SimpleDag.dag_id">
+<code class="descname">dag_id</code><a class="headerlink" href="#airflow.utils.dag_processing.SimpleDag.dag_id" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the DAG ID</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">unicode</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.utils.dag_processing.SimpleDag.full_filepath">
+<code class="descname">full_filepath</code><a class="headerlink" href="#airflow.utils.dag_processing.SimpleDag.full_filepath" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The absolute path to the file that contains this DAG’s definition</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">unicode</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.utils.dag_processing.SimpleDag.get_task_special_arg">
+<code class="descname">get_task_special_arg</code><span class="sig-paren">(</span><em>task_id</em>, <em>special_arg_name</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/dag_processing.html#SimpleDag.get_task_special_arg"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.dag_processing.SimpleDag.get_task_special_arg" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.utils.dag_processing.SimpleDag.is_paused">
+<code class="descname">is_paused</code><a class="headerlink" href="#airflow.utils.dag_processing.SimpleDag.is_paused" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">whether this DAG is paused or not</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.utils.dag_processing.SimpleDag.pickle_id">
+<code class="descname">pickle_id</code><a class="headerlink" href="#airflow.utils.dag_processing.SimpleDag.pickle_id" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The pickle ID for this DAG, if it has one. Otherwise None.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">unicode</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.utils.dag_processing.SimpleDag.task_ids">
+<code class="descname">task_ids</code><a class="headerlink" href="#airflow.utils.dag_processing.SimpleDag.task_ids" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A list of task IDs that are in this DAG</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list[unicode]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.utils.dag_processing.SimpleDag.task_special_args">
+<code class="descname">task_special_args</code><a class="headerlink" href="#airflow.utils.dag_processing.SimpleDag.task_special_args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="airflow.utils.dag_processing.SimpleDagBag">
+<em class="property">class </em><code class="descclassname">airflow.utils.dag_processing.</code><code class="descname">SimpleDagBag</code><span class="sig-paren">(</span><em>simple_dags</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/dag_processing.html#SimpleDagBag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.dag_processing.SimpleDagBag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="airflow.dag.html#airflow.dag.base_dag.BaseDagBag" title="airflow.dag.base_dag.BaseDagBag"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.dag.base_dag.BaseDagBag</span></code></a></p>
+<p>A collection of SimpleDag objects with some convenience methods.</p>
+<dl class="attribute">
+<dt id="airflow.utils.dag_processing.SimpleDagBag.dag_ids">
+<code class="descname">dag_ids</code><a class="headerlink" href="#airflow.utils.dag_processing.SimpleDagBag.dag_ids" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">IDs of all the DAGs in this</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list[unicode]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.utils.dag_processing.SimpleDagBag.get_dag">
+<code class="descname">get_dag</code><span class="sig-paren">(</span><em>dag_id</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/dag_processing.html#SimpleDagBag.get_dag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.dag_processing.SimpleDagBag.get_dag" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dag_id</strong> (<em>unicode</em>) – DAG ID</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">if the given DAG ID exists in the bag, return the BaseDag</td>
+</tr>
+</tbody>
+</table>
+<p>corresponding to that ID. Otherwise, throw an Exception
+:rtype: SimpleDag</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.utils.dag_processing.list_py_file_paths">
+<code class="descclassname">airflow.utils.dag_processing.</code><code class="descname">list_py_file_paths</code><span class="sig-paren">(</span><em>directory</em>, <em>safe_mode=True</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/dag_processing.html#list_py_file_paths"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.dag_processing.list_py_file_paths" title="Permalink to this definition">¶</a></dt>
+<dd><p>Traverse a directory and look for Python files.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>directory</strong> (<em>unicode</em>) – the directory to traverse</li>
+<li><strong>safe_mode</strong> – whether to use a heuristic to determine whether a file</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>contains Airflow DAG definitions
+:return: a list of paths to Python files in the specified directory
+:rtype: list[unicode]</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.utils.dates">
+<span id="airflow-utils-dates-module"></span><h2>airflow.utils.dates module<a class="headerlink" href="#module-airflow.utils.dates" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="airflow.utils.dates.date_range">
+<code class="descclassname">airflow.utils.dates.</code><code class="descname">date_range</code><span class="sig-paren">(</span><em>start_date</em>, <em>end_date=None</em>, <em>num=None</em>, <em>delta=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/dates.html#date_range"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.dates.date_range" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a set of dates as a list based on a start, end and delta, delta
+can be something that can be added to <code class="docutils literal notranslate"><span class="pre">datetime.datetime</span></code>
+or a cron expression as a <code class="docutils literal notranslate"><span class="pre">str</span></code>
+:param start_date: anchor date to start the series from
+:type start_date: datetime.datetime
+:param end_date: right boundary for the date range
+:type end_date: datetime.datetime
+:param num: alternatively to end_date, you can specify the number of</p>
+<blockquote>
+<div>number of entries you want in the range. This number can be negative,
+output will always be sorted regardless</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">date_range</span><span class="p">(</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2016</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2016</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">delta</span><span class="o">=</span><span class="n">timedelta</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="go">[datetime.datetime(2016, 1, 1, 0, 0), datetime.datetime(2016, 1, 2, 0, 0),</span>
+<span class="go"> datetime.datetime(2016, 1, 3, 0, 0)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">date_range</span><span class="p">(</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2016</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2016</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">delta</span><span class="o">=</span><span class="s1">&#39;0 0 * * *&#39;</span><span class="p">)</span>
+<span class="go">[datetime.datetime(2016, 1, 1, 0, 0), datetime.datetime(2016, 1, 2, 0, 0),</span>
+<span class="go"> datetime.datetime(2016, 1, 3, 0, 0)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">date_range</span><span class="p">(</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2016</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2016</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">delta</span><span class="o">=</span><span class="s2">&quot;0 0 0 * *&quot;</span><span class="p">)</span>
+<span class="go">[datetime.datetime(2016, 1, 1, 0, 0), datetime.datetime(2016, 2, 1, 0, 0),</span>
+<span class="go"> datetime.datetime(2016, 3, 1, 0, 0)]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.utils.dates.days_ago">
+<code class="descclassname">airflow.utils.dates.</code><code class="descname">days_ago</code><span class="sig-paren">(</span><em>n</em>, <em>hour=0</em>, <em>minute=0</em>, <em>second=0</em>, <em>microsecond=0</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/dates.html#days_ago"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.dates.days_ago" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a datetime object representing <cite>n</cite> days ago. By default the time is
+set to midnight.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.utils.dates.infer_time_unit">
+<code class="descclassname">airflow.utils.dates.</code><code class="descname">infer_time_unit</code><span class="sig-paren">(</span><em>time_seconds_arr</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/dates.html#infer_time_unit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.dates.infer_time_unit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine the most appropriate time unit for an array of time durations
+specified in seconds.
+e.g. 5400 seconds =&gt; ‘minutes’, 36000 seconds =&gt; ‘hours’</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.utils.dates.parse_execution_date">
+<code class="descclassname">airflow.utils.dates.</code><code class="descname">parse_execution_date</code><span class="sig-paren">(</span><em>execution_date_str</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/dates.html#parse_execution_date"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.dates.parse_execution_date" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse execution date string to datetime object.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.utils.dates.round_time">
+<code class="descclassname">airflow.utils.dates.</code><code class="descname">round_time</code><span class="sig-paren">(</span><em>dt</em>, <em>delta</em>, <em>start_date=datetime.datetime(1</em>, <em>1</em>, <em>1</em>, <em>0</em>, <em>0</em>, <em>tzinfo=&lt;TimezoneInfo [UTC</em>, <em>UTC</em>, <em>+00:00:00</em>, <em>STD]&gt;)</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/dates.html#round_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.dates.round_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the datetime of the form start_date + i * delta
+which is closest to dt for any non-negative integer i.
+Note that delta may be a datetime.timedelta or a dateutil.relativedelta
+&gt;&gt;&gt; round_time(datetime(2015, 1, 1, 6), timedelta(days=1))
+datetime.datetime(2015, 1, 1, 0, 0)
+&gt;&gt;&gt; round_time(datetime(2015, 1, 2), relativedelta(months=1))
+datetime.datetime(2015, 1, 1, 0, 0)
+&gt;&gt;&gt; round_time(datetime(2015, 9, 16, 0, 0), timedelta(1), datetime(2015, 9, 14, 0, 0))
+datetime.datetime(2015, 9, 16, 0, 0)
+&gt;&gt;&gt; round_time(datetime(2015, 9, 15, 0, 0), timedelta(1), datetime(2015, 9, 14, 0, 0))
+datetime.datetime(2015, 9, 15, 0, 0)
+&gt;&gt;&gt; round_time(datetime(2015, 9, 14, 0, 0), timedelta(1), datetime(2015, 9, 14, 0, 0))
+datetime.datetime(2015, 9, 14, 0, 0)
+&gt;&gt;&gt; round_time(datetime(2015, 9, 13, 0, 0), timedelta(1), datetime(2015, 9, 14, 0, 0))
+datetime.datetime(2015, 9, 14, 0, 0)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.utils.dates.scale_time_units">
+<code class="descclassname">airflow.utils.dates.</code><code class="descname">scale_time_units</code><span class="sig-paren">(</span><em>time_seconds_arr</em>, <em>unit</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/dates.html#scale_time_units"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.dates.scale_time_units" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert an array of time durations in seconds to the specified time unit.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.utils.db">
+<span id="airflow-utils-db-module"></span><h2>airflow.utils.db module<a class="headerlink" href="#module-airflow.utils.db" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="airflow.utils.db.create_session">
+<code class="descclassname">airflow.utils.db.</code><code class="descname">create_session</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/db.html#create_session"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.db.create_session" title="Permalink to this definition">¶</a></dt>
+<dd><p>Contextmanager that will create and teardown a session.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.utils.db.initdb">
+<code class="descclassname">airflow.utils.db.</code><code class="descname">initdb</code><span class="sig-paren">(</span><em>rbac=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/db.html#initdb"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.db.initdb" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.utils.db.merge_conn">
+<code class="descclassname">airflow.utils.db.</code><code class="descname">merge_conn</code><span class="sig-paren">(</span><em>conn</em>, <em>session=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/db.html#merge_conn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.db.merge_conn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.utils.db.provide_session">
+<code class="descclassname">airflow.utils.db.</code><code class="descname">provide_session</code><span class="sig-paren">(</span><em>func</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/db.html#provide_session"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.db.provide_session" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function decorator that provides a session if it isn’t provided.
+If you want to reuse a session or run the function as part of a
+database transaction, you pass it to the function, if not this wrapper
+will create one and close it for you.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.utils.db.resetdb">
+<code class="descclassname">airflow.utils.db.</code><code class="descname">resetdb</code><span class="sig-paren">(</span><em>rbac</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/db.html#resetdb"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.db.resetdb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear out the database</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.utils.db.upgradedb">
+<code class="descclassname">airflow.utils.db.</code><code class="descname">upgradedb</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/db.html#upgradedb"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.db.upgradedb" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-airflow.utils.decorators">
+<span id="airflow-utils-decorators-module"></span><h2>airflow.utils.decorators module<a class="headerlink" href="#module-airflow.utils.decorators" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="airflow.utils.decorators.apply_defaults">
+<code class="descclassname">airflow.utils.decorators.</code><code class="descname">apply_defaults</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/decorators.html#apply_defaults"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.decorators.apply_defaults" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-airflow.utils.email">
+<span id="airflow-utils-email-module"></span><h2>airflow.utils.email module<a class="headerlink" href="#module-airflow.utils.email" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="airflow.utils.email.get_email_address_list">
+<code class="descclassname">airflow.utils.email.</code><code class="descname">get_email_address_list</code><span class="sig-paren">(</span><em>address_string</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/email.html#get_email_address_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.email.get_email_address_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.utils.email.send_MIME_email">
+<code class="descclassname">airflow.utils.email.</code><code class="descname">send_MIME_email</code><span class="sig-paren">(</span><em>e_from</em>, <em>e_to</em>, <em>mime_msg</em>, <em>dryrun=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/email.html#send_MIME_email"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.email.send_MIME_email" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.utils.email.send_email">
+<code class="descclassname">airflow.utils.email.</code><code class="descname">send_email</code><span class="sig-paren">(</span><em>to</em>, <em>subject</em>, <em>html_content</em>, <em>files=None</em>, <em>dryrun=False</em>, <em>cc=None</em>, <em>bcc=None</em>, <em>mime_subtype='mixed'</em>, <em>mime_charset='us-ascii'</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/email.html#send_email"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.email.send_email" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send email using backend specified in EMAIL_BACKEND.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.utils.email.send_email_smtp">
+<code class="descclassname">airflow.utils.email.</code><code class="descname">send_email_smtp</code><span class="sig-paren">(</span><em>to</em>, <em>subject</em>, <em>html_content</em>, <em>files=None</em>, <em>dryrun=False</em>, <em>cc=None</em>, <em>bcc=None</em>, <em>mime_subtype='mixed'</em>, <em>mime_charset='us-ascii'</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/email.html#send_email_smtp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.email.send_email_smtp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send an email with html content</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">send_email</span><span class="p">(</span><span class="s1">&#39;test@example.com&#39;</span><span class="p">,</span> <span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;b&gt;Foo&lt;/b&gt; bar&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;/dev/null&#39;</span><span class="p">],</span> <span class="n">dryrun</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.utils.file">
+<span id="airflow-utils-file-module"></span><h2>airflow.utils.file module<a class="headerlink" href="#module-airflow.utils.file" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="airflow.utils.file.TemporaryDirectory">
+<code class="descclassname">airflow.utils.file.</code><code class="descname">TemporaryDirectory</code><span class="sig-paren">(</span><em>suffix=''</em>, <em>prefix=None</em>, <em>dir=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/file.html#TemporaryDirectory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.file.TemporaryDirectory" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.utils.file.mkdirs">
+<code class="descclassname">airflow.utils.file.</code><code class="descname">mkdirs</code><span class="sig-paren">(</span><em>path</em>, <em>mode</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/file.html#mkdirs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.file.mkdirs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the directory specified by path, creating intermediate directories
+as necessary. If directory already exists, this is a no-op.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>path</strong> (<em>str</em>) – The directory to create</li>
+<li><strong>mode</strong> (<em>int</em>) – The mode to give to the directory e.g. 0o755, ignores umask</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.utils.helpers">
+<span id="airflow-utils-helpers-module"></span><h2>airflow.utils.helpers module<a class="headerlink" href="#module-airflow.utils.helpers" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.utils.helpers.AirflowImporter">
+<em class="property">class </em><code class="descclassname">airflow.utils.helpers.</code><code class="descname">AirflowImporter</code><span class="sig-paren">(</span><em>parent_module</em>, <em>module_attributes</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/helpers.html#AirflowImporter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.helpers.AirflowImporter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Importer that dynamically loads a class and module from its parent. This
+allows Airflow to support <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">airflow.operators</span> <span class="pre">import</span> <span class="pre">BashOperator</span></code>
+even though BashOperator is actually in
+<code class="docutils literal notranslate"><span class="pre">airflow.operators.bash_operator</span></code>.</p>
+<p>The importer also takes over for the parent_module by wrapping it. This is
+required to support attribute-based usage:</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">airflow</span> <span class="k">import</span> <span class="n">operators</span>
+<span class="n">operators</span><span class="o">.</span><span class="n">BashOperator</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.utils.helpers.alchemy_to_dict">
+<code class="descclassname">airflow.utils.helpers.</code><code class="descname">alchemy_to_dict</code><span class="sig-paren">(</span><em>obj</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/helpers.html#alchemy_to_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.helpers.alchemy_to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transforms a SQLAlchemy model instance into a dictionary</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.utils.helpers.as_flattened_list">
+<code class="descclassname">airflow.utils.helpers.</code><code class="descname">as_flattened_list</code><span class="sig-paren">(</span><em>iterable</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/helpers.html#as_flattened_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.helpers.as_flattened_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an iterable with one level flattened</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">as_flattened_list</span><span class="p">(((</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="s1">&#39;pink&#39;</span><span class="p">)))</span>
+<span class="go">[&#39;blue&#39;, &#39;red&#39;, &#39;green&#39;, &#39;yellow&#39;, &#39;pink&#39;]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.utils.helpers.as_tuple">
+<code class="descclassname">airflow.utils.helpers.</code><code class="descname">as_tuple</code><span class="sig-paren">(</span><em>obj</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/helpers.html#as_tuple"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.helpers.as_tuple" title="Permalink to this definition">¶</a></dt>
+<dd><p>If obj is a container, returns obj as a tuple.
+Otherwise, returns a tuple containing obj.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.utils.helpers.ask_yesno">
+<code class="descclassname">airflow.utils.helpers.</code><code class="descname">ask_yesno</code><span class="sig-paren">(</span><em>question</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/helpers.html#ask_yesno"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.helpers.ask_yesno" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.utils.helpers.chain">
+<code class="descclassname">airflow.utils.helpers.</code><code class="descname">chain</code><span class="sig-paren">(</span><em>*tasks</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/helpers.html#chain"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.helpers.chain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a number of tasks, builds a dependency chain.</p>
+<p>chain(task_1, task_2, task_3, task_4)</p>
+<p>is equivalent to</p>
+<p>task_1.set_downstream(task_2)
+task_2.set_downstream(task_3)
+task_3.set_downstream(task_4)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.utils.helpers.chunks">
+<code class="descclassname">airflow.utils.helpers.</code><code class="descname">chunks</code><span class="sig-paren">(</span><em>items</em>, <em>chunk_size</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/helpers.html#chunks"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.helpers.chunks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Yield successive chunks of a given size from a list of items</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.utils.helpers.is_container">
+<code class="descclassname">airflow.utils.helpers.</code><code class="descname">is_container</code><span class="sig-paren">(</span><em>obj</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/helpers.html#is_container"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.helpers.is_container" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if an object is a container (iterable) but not a string</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.utils.helpers.is_in">
+<code class="descclassname">airflow.utils.helpers.</code><code class="descname">is_in</code><span class="sig-paren">(</span><em>obj</em>, <em>l</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/helpers.html#is_in"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.helpers.is_in" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks whether an object is one of the item in the list.
+This is different from <code class="docutils literal notranslate"><span class="pre">in</span></code> because <code class="docutils literal notranslate"><span class="pre">in</span></code> uses __cmp__ when
+present. Here we change based on the object itself</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.utils.helpers.parse_template_string">
+<code class="descclassname">airflow.utils.helpers.</code><code class="descname">parse_template_string</code><span class="sig-paren">(</span><em>template_string</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/helpers.html#parse_template_string"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.helpers.parse_template_string" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.utils.helpers.pprinttable">
+<code class="descclassname">airflow.utils.helpers.</code><code class="descname">pprinttable</code><span class="sig-paren">(</span><em>rows</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/helpers.html#pprinttable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.helpers.pprinttable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a pretty ascii table from tuples</p>
+<p>If namedtuple are used, the table will have headers</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.utils.helpers.reap_process_group">
+<code class="descclassname">airflow.utils.helpers.</code><code class="descname">reap_process_group</code><span class="sig-paren">(</span><em>pid</em>, <em>log</em>, <em>sig=&lt;Signals.SIGTERM: 15&gt;</em>, <em>timeout=60</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/helpers.html#reap_process_group"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.helpers.reap_process_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tries really hard to terminate all children (including grandchildren). Will send
+sig (SIGTERM) to the process group of pid. If any process is alive after timeout
+a SIGKILL will be send.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>log</strong> – log handler</li>
+<li><strong>pid</strong> – pid to kill</li>
+<li><strong>sig</strong> – signal type</li>
+<li><strong>timeout</strong> – how much time a process has to terminate</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.utils.helpers.reduce_in_chunks">
+<code class="descclassname">airflow.utils.helpers.</code><code class="descname">reduce_in_chunks</code><span class="sig-paren">(</span><em>fn</em>, <em>iterable</em>, <em>initializer</em>, <em>chunk_size=0</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/helpers.html#reduce_in_chunks"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.helpers.reduce_in_chunks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reduce the given list of items by splitting it into chunks
+of the given size and passing each chunk through the reducer</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.utils.helpers.validate_key">
+<code class="descclassname">airflow.utils.helpers.</code><code class="descname">validate_key</code><span class="sig-paren">(</span><em>k</em>, <em>max_length=250</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/helpers.html#validate_key"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.helpers.validate_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-airflow.utils.json">
+<span id="airflow-utils-json-module"></span><h2>airflow.utils.json module<a class="headerlink" href="#module-airflow.utils.json" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.utils.json.AirflowJsonEncoder">
+<em class="property">class </em><code class="descclassname">airflow.utils.json.</code><code class="descname">AirflowJsonEncoder</code><span class="sig-paren">(</span><em>skipkeys=False</em>, <em>ensure_ascii=True</em>, <em>check_circular=True</em>, <em>allow_nan=True</em>, <em>sort_keys=False</em>, <em>indent=None</em>, <em>separators=None</em>, <em>default=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/json.html#AirflowJsonEncoder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.json.AirflowJsonEncoder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">json.encoder.JSONEncoder</span></code></p>
+<dl class="method">
+<dt id="airflow.utils.json.AirflowJsonEncoder.default">
+<code class="descname">default</code><span class="sig-paren">(</span><em>obj</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/json.html#AirflowJsonEncoder.default"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.json.AirflowJsonEncoder.default" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implement this method in a subclass such that it returns
+a serializable object for <code class="docutils literal notranslate"><span class="pre">o</span></code>, or calls the base implementation
+(to raise a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>).</p>
+<p>For example, to support arbitrary iterators, you could
+implement default like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">default</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">o</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">iterable</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">o</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+        <span class="k">pass</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">iterable</span><span class="p">)</span>
+    <span class="c1"># Let the base class default method raise the TypeError</span>
+    <span class="k">return</span> <span class="n">JSONEncoder</span><span class="o">.</span><span class="n">default</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">o</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.utils.json.json_ser">
+<code class="descclassname">airflow.utils.json.</code><code class="descname">json_ser</code><span class="sig-paren">(</span><em>obj</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/json.html#json_ser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.json.json_ser" title="Permalink to this definition">¶</a></dt>
+<dd><p>json serializer that deals with dates.</p>
+<p>usage: json.dumps(object, default=utils.json.json_ser)</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.utils.module_loading">
+<span id="airflow-utils-module-loading-module"></span><h2>airflow.utils.module_loading module<a class="headerlink" href="#module-airflow.utils.module_loading" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="airflow.utils.module_loading.import_string">
+<code class="descclassname">airflow.utils.module_loading.</code><code class="descname">import_string</code><span class="sig-paren">(</span><em>dotted_path</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/module_loading.html#import_string"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.module_loading.import_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Import a dotted module path and return the attribute/class designated by the
+last name in the path. Raise ImportError if the import failed.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.utils.module_loading.prepare_classpath">
+<code class="descclassname">airflow.utils.module_loading.</code><code class="descname">prepare_classpath</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/module_loading.html#prepare_classpath"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.module_loading.prepare_classpath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensures that the Airflow home directory is on the classpath</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.utils.net">
+<span id="airflow-utils-net-module"></span><h2>airflow.utils.net module<a class="headerlink" href="#module-airflow.utils.net" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="airflow.utils.net.get_hostname">
+<code class="descclassname">airflow.utils.net.</code><code class="descname">get_hostname</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/net.html#get_hostname"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.net.get_hostname" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fetch the hostname using the callable from the config or using
+<cite>socket.getfqdn</cite> as a fallback.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.utils.operator_helpers">
+<span id="airflow-utils-operator-helpers-module"></span><h2>airflow.utils.operator_helpers module<a class="headerlink" href="#module-airflow.utils.operator_helpers" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="airflow.utils.operator_helpers.context_to_airflow_vars">
+<code class="descclassname">airflow.utils.operator_helpers.</code><code class="descname">context_to_airflow_vars</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/operator_helpers.html#context_to_airflow_vars"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.operator_helpers.context_to_airflow_vars" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a context, this function provides a dictionary of values that can be used to
+externally reconstruct relations between dags, dag_runs, tasks and task_instances.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>context</strong> (<em>dict</em>) – The context for the task_instance of interest</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.utils.operator_resources">
+<span id="airflow-utils-operator-resources-module"></span><h2>airflow.utils.operator_resources module<a class="headerlink" href="#module-airflow.utils.operator_resources" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.utils.operator_resources.CpuResource">
+<em class="property">class </em><code class="descclassname">airflow.utils.operator_resources.</code><code class="descname">CpuResource</code><span class="sig-paren">(</span><em>qty</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/operator_resources.html#CpuResource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.operator_resources.CpuResource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.utils.operator_resources.Resource" title="airflow.utils.operator_resources.Resource"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.utils.operator_resources.Resource</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="airflow.utils.operator_resources.DiskResource">
+<em class="property">class </em><code class="descclassname">airflow.utils.operator_resources.</code><code class="descname">DiskResource</code><span class="sig-paren">(</span><em>qty</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/operator_resources.html#DiskResource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.operator_resources.DiskResource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.utils.operator_resources.Resource" title="airflow.utils.operator_resources.Resource"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.utils.operator_resources.Resource</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="airflow.utils.operator_resources.GpuResource">
+<em class="property">class </em><code class="descclassname">airflow.utils.operator_resources.</code><code class="descname">GpuResource</code><span class="sig-paren">(</span><em>qty</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/operator_resources.html#GpuResource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.operator_resources.GpuResource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.utils.operator_resources.Resource" title="airflow.utils.operator_resources.Resource"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.utils.operator_resources.Resource</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="airflow.utils.operator_resources.RamResource">
+<em class="property">class </em><code class="descclassname">airflow.utils.operator_resources.</code><code class="descname">RamResource</code><span class="sig-paren">(</span><em>qty</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/operator_resources.html#RamResource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.operator_resources.RamResource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.utils.operator_resources.Resource" title="airflow.utils.operator_resources.Resource"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.utils.operator_resources.Resource</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="airflow.utils.operator_resources.Resource">
+<em class="property">class </em><code class="descclassname">airflow.utils.operator_resources.</code><code class="descname">Resource</code><span class="sig-paren">(</span><em>name</em>, <em>units_str</em>, <em>qty</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/operator_resources.html#Resource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.operator_resources.Resource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents a resource requirement in an execution environment for an operator.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> (<em>string</em>) – Name of the resource</li>
+<li><strong>units_str</strong> (<em>string</em>) – The string representing the units of a resource (e.g. MB for a CPU
+resource) to be used for display purposes</li>
+<li><strong>qty</strong> (<em>long</em>) – The number of units of the specified resource that are required for
+execution of the operator.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="airflow.utils.operator_resources.Resource.name">
+<code class="descname">name</code><a class="headerlink" href="#airflow.utils.operator_resources.Resource.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.utils.operator_resources.Resource.qty">
+<code class="descname">qty</code><a class="headerlink" href="#airflow.utils.operator_resources.Resource.qty" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.utils.operator_resources.Resource.units_str">
+<code class="descname">units_str</code><a class="headerlink" href="#airflow.utils.operator_resources.Resource.units_str" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="airflow.utils.operator_resources.Resources">
+<em class="property">class </em><code class="descclassname">airflow.utils.operator_resources.</code><code class="descname">Resources</code><span class="sig-paren">(</span><em>cpus=1</em>, <em>ram=512</em>, <em>disk=512</em>, <em>gpus=0</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/operator_resources.html#Resources"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.operator_resources.Resources" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The resources required by an operator. Resources that are not specified will use the
+default values from the airflow config.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>cpus</strong> (<em>long</em>) – The number of cpu cores that are required</li>
+<li><strong>ram</strong> (<em>long</em>) – The amount of RAM required</li>
+<li><strong>disk</strong> (<em>long</em>) – The amount of disk space required</li>
+<li><strong>gpus</strong> (<em>long</em>) – The number of gpu units that are required</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.utils.sqlalchemy">
+<span id="airflow-utils-sqlalchemy-module"></span><h2>airflow.utils.sqlalchemy module<a class="headerlink" href="#module-airflow.utils.sqlalchemy" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.utils.sqlalchemy.UtcDateTime">
+<em class="property">class </em><code class="descclassname">airflow.utils.sqlalchemy.</code><code class="descname">UtcDateTime</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/sqlalchemy.html#UtcDateTime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.sqlalchemy.UtcDateTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">sqlalchemy.sql.type_api.TypeDecorator</span></code></p>
+<p>Almost equivalent to <code class="xref py py-class docutils literal notranslate"><span class="pre">DateTime</span></code> with
+<code class="docutils literal notranslate"><span class="pre">timezone=True</span></code> option, but it differs from that by:
+- Never silently take naive <code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code>, instead it</p>
+<blockquote>
+<div>always raise <code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> unless time zone aware value.</div></blockquote>
+<ul class="simple">
+<li><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code> value’s <code class="xref py py-attr docutils literal notranslate"><span class="pre">tzinfo</span></code>
+is always converted to UTC.</li>
+<li>Unlike SQLAlchemy’s built-in <code class="xref py py-class docutils literal notranslate"><span class="pre">DateTime</span></code>,
+it never return naive <code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code>, but time zone
+aware value, even with SQLite or MySQL.</li>
+<li>Always returns DateTime in UTC</li>
+</ul>
+<dl class="attribute">
+<dt id="airflow.utils.sqlalchemy.UtcDateTime.impl">
+<code class="descname">impl</code><em class="property"> = DateTime(timezone=True)</em><a class="headerlink" href="#airflow.utils.sqlalchemy.UtcDateTime.impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.utils.sqlalchemy.UtcDateTime.process_bind_param">
+<code class="descname">process_bind_param</code><span class="sig-paren">(</span><em>value</em>, <em>dialect</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/sqlalchemy.html#UtcDateTime.process_bind_param"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.sqlalchemy.UtcDateTime.process_bind_param" title="Permalink to this definition">¶</a></dt>
+<dd><p>Receive a bound parameter value to be converted.</p>
+<p>Subclasses override this method to return the
+value that should be passed along to the underlying
+<code class="xref py py-class docutils literal notranslate"><span class="pre">TypeEngine</span></code> object, and from there to the
+DBAPI <code class="docutils literal notranslate"><span class="pre">execute()</span></code> method.</p>
+<p>The operation could be anything desired to perform custom
+behavior, such as transforming or serializing data.
+This could also be used as a hook for validating logic.</p>
+<p>This operation should be designed with the reverse operation
+in mind, which would be the process_result_value method of
+this class.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>value</strong> – Data to operate upon, of any type expected by
+this method in the subclass.  Can be <code class="docutils literal notranslate"><span class="pre">None</span></code>.</li>
+<li><strong>dialect</strong> – the <code class="xref py py-class docutils literal notranslate"><span class="pre">Dialect</span></code> in use.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.utils.sqlalchemy.UtcDateTime.process_result_value">
+<code class="descname">process_result_value</code><span class="sig-paren">(</span><em>value</em>, <em>dialect</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/sqlalchemy.html#UtcDateTime.process_result_value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.sqlalchemy.UtcDateTime.process_result_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Processes DateTimes from the DB making sure it is always
+returning UTC. Not using timezone.convert_to_utc as that
+converts to configured TIMEZONE while the DB might be
+running with some other setting. We assume UTC datetimes
+in the database.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.utils.sqlalchemy.setup_event_handlers">
+<code class="descclassname">airflow.utils.sqlalchemy.</code><code class="descname">setup_event_handlers</code><span class="sig-paren">(</span><em>engine</em>, <em>reconnect_timeout_seconds</em>, <em>initial_backoff_seconds=0.2</em>, <em>max_backoff_seconds=120</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/sqlalchemy.html#setup_event_handlers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.sqlalchemy.setup_event_handlers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-airflow.utils.state">
+<span id="airflow-utils-state-module"></span><h2>airflow.utils.state module<a class="headerlink" href="#module-airflow.utils.state" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.utils.state.State">
+<em class="property">class </em><code class="descclassname">airflow.utils.state.</code><code class="descname">State</code><a class="reference internal" href="../../_modules/airflow/utils/state.html#State"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.state.State" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Static class with task instance states constants and color method to
+avoid hardcoding.</p>
+<dl class="attribute">
+<dt id="airflow.utils.state.State.FAILED">
+<code class="descname">FAILED</code><em class="property"> = 'failed'</em><a class="headerlink" href="#airflow.utils.state.State.FAILED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.utils.state.State.NONE">
+<code class="descname">NONE</code><em class="property"> = None</em><a class="headerlink" href="#airflow.utils.state.State.NONE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.utils.state.State.QUEUED">
+<code class="descname">QUEUED</code><em class="property"> = 'queued'</em><a class="headerlink" href="#airflow.utils.state.State.QUEUED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.utils.state.State.REMOVED">
+<code class="descname">REMOVED</code><em class="property"> = 'removed'</em><a class="headerlink" href="#airflow.utils.state.State.REMOVED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.utils.state.State.RUNNING">
+<code class="descname">RUNNING</code><em class="property"> = 'running'</em><a class="headerlink" href="#airflow.utils.state.State.RUNNING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.utils.state.State.SCHEDULED">
+<code class="descname">SCHEDULED</code><em class="property"> = 'scheduled'</em><a class="headerlink" href="#airflow.utils.state.State.SCHEDULED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.utils.state.State.SHUTDOWN">
+<code class="descname">SHUTDOWN</code><em class="property"> = 'shutdown'</em><a class="headerlink" href="#airflow.utils.state.State.SHUTDOWN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.utils.state.State.SKIPPED">
+<code class="descname">SKIPPED</code><em class="property"> = 'skipped'</em><a class="headerlink" href="#airflow.utils.state.State.SKIPPED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.utils.state.State.SUCCESS">
+<code class="descname">SUCCESS</code><em class="property"> = 'success'</em><a class="headerlink" href="#airflow.utils.state.State.SUCCESS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.utils.state.State.UPSTREAM_FAILED">
+<code class="descname">UPSTREAM_FAILED</code><em class="property"> = 'upstream_failed'</em><a class="headerlink" href="#airflow.utils.state.State.UPSTREAM_FAILED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.utils.state.State.UP_FOR_RETRY">
+<code class="descname">UP_FOR_RETRY</code><em class="property"> = 'up_for_retry'</em><a class="headerlink" href="#airflow.utils.state.State.UP_FOR_RETRY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="airflow.utils.state.State.color">
+<em class="property">classmethod </em><code class="descname">color</code><span class="sig-paren">(</span><em>state</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/state.html#State.color"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.state.State.color" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="airflow.utils.state.State.color_fg">
+<em class="property">classmethod </em><code class="descname">color_fg</code><span class="sig-paren">(</span><em>state</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/state.html#State.color_fg"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.state.State.color_fg" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.utils.state.State.dag_states">
+<code class="descname">dag_states</code><em class="property"> = ('success', 'running', 'failed')</em><a class="headerlink" href="#airflow.utils.state.State.dag_states" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="airflow.utils.state.State.finished">
+<em class="property">classmethod </em><code class="descname">finished</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/state.html#State.finished"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.state.State.finished" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of states indicating that a task started and completed a
+run attempt. Note that the attempt could have resulted in failure or
+have been interrupted; in any case, it is no longer running.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.utils.state.State.state_color">
+<code class="descname">state_color</code><em class="property"> = {'failed': 'red', 'skipped': 'pink', 'success': 'green', 'removed': 'lightgrey', 'running': 'lime', 'queued': 'gray', 'upstream_failed': 'orange', 'shutdown': 'blue', None: 'lightblue', 'scheduled': 'tan', 'up_for_retry': 'gold'}</em><a class="headerlink" href="#airflow.utils.state.State.state_color" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.utils.state.State.task_states">
+<code class="descname">task_states</code><em class="property"> = ('success', 'running', 'failed', 'upstream_failed', 'up_for_retry', 'queued', None, 'scheduled')</em><a class="headerlink" href="#airflow.utils.state.State.task_states" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="airflow.utils.state.State.unfinished">
+<em class="property">classmethod </em><code class="descname">unfinished</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/state.html#State.unfinished"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.state.State.unfinished" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of states indicating that a task either has not completed
+a run or has not even started.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.utils.tests">
+<span id="airflow-utils-tests-module"></span><h2>airflow.utils.tests module<a class="headerlink" href="#module-airflow.utils.tests" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="airflow.utils.tests.assertEqualIgnoreMultipleSpaces">
+<code class="descclassname">airflow.utils.tests.</code><code class="descname">assertEqualIgnoreMultipleSpaces</code><span class="sig-paren">(</span><em>case</em>, <em>first</em>, <em>second</em>, <em>msg=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/tests.html#assertEqualIgnoreMultipleSpaces"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.tests.assertEqualIgnoreMultipleSpaces" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.utils.tests.skipUnlessImported">
+<code class="descclassname">airflow.utils.tests.</code><code class="descname">skipUnlessImported</code><span class="sig-paren">(</span><em>module</em>, <em>obj</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/tests.html#skipUnlessImported"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.tests.skipUnlessImported" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-airflow.utils.timeout">
+<span id="airflow-utils-timeout-module"></span><h2>airflow.utils.timeout module<a class="headerlink" href="#module-airflow.utils.timeout" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.utils.timeout.timeout">
+<em class="property">class </em><code class="descclassname">airflow.utils.timeout.</code><code class="descname">timeout</code><span class="sig-paren">(</span><em>seconds=1</em>, <em>error_message='Timeout'</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/timeout.html#timeout"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.timeout.timeout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="airflow.utils.log.html#airflow.utils.log.logging_mixin.LoggingMixin" title="airflow.utils.log.logging_mixin.LoggingMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.utils.log.logging_mixin.LoggingMixin</span></code></a></p>
+<p>To be used in a <code class="docutils literal notranslate"><span class="pre">with</span></code> block and timeout its content.</p>
+<dl class="method">
+<dt id="airflow.utils.timeout.timeout.handle_timeout">
+<code class="descname">handle_timeout</code><span class="sig-paren">(</span><em>signum</em>, <em>frame</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/timeout.html#timeout.handle_timeout"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.timeout.timeout.handle_timeout" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.utils.timezone">
+<span id="airflow-utils-timezone-module"></span><h2>airflow.utils.timezone module<a class="headerlink" href="#module-airflow.utils.timezone" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="airflow.utils.timezone.convert_to_utc">
+<code class="descclassname">airflow.utils.timezone.</code><code class="descname">convert_to_utc</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/timezone.html#convert_to_utc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.timezone.convert_to_utc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the datetime with the default timezone added if timezone
+information was not associated
+:param value: datetime
+:return: datetime with tzinfo</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.utils.timezone.datetime">
+<code class="descclassname">airflow.utils.timezone.</code><code class="descname">datetime</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/timezone.html#datetime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.timezone.datetime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrapper around datetime.datetime that adds settings.TIMEZONE if tzinfo not specified</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">datetime.datetime</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.utils.timezone.is_localized">
+<code class="descclassname">airflow.utils.timezone.</code><code class="descname">is_localized</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/timezone.html#is_localized"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.timezone.is_localized" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine if a given datetime.datetime is aware.
+The concept is defined in Python’s docs:
+<a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.tzinfo">http://docs.python.org/library/datetime.html#datetime.tzinfo</a>
+Assuming value.tzinfo is either None or a proper datetime.tzinfo,
+value.utcoffset() implements the appropriate logic.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.utils.timezone.is_naive">
+<code class="descclassname">airflow.utils.timezone.</code><code class="descname">is_naive</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/timezone.html#is_naive"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.timezone.is_naive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine if a given datetime.datetime is naive.
+The concept is defined in Python’s docs:
+<a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.tzinfo">http://docs.python.org/library/datetime.html#datetime.tzinfo</a>
+Assuming value.tzinfo is either None or a proper datetime.tzinfo,
+value.utcoffset() implements the appropriate logic.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.utils.timezone.make_aware">
+<code class="descclassname">airflow.utils.timezone.</code><code class="descname">make_aware</code><span class="sig-paren">(</span><em>value</em>, <em>timezone=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/timezone.html#make_aware"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.timezone.make_aware" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a naive datetime.datetime in a given time zone aware.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>value</strong> – datetime</li>
+<li><strong>timezone</strong> – timezone</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">localized datetime in settings.TIMEZONE or timezone</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.utils.timezone.make_naive">
+<code class="descclassname">airflow.utils.timezone.</code><code class="descname">make_naive</code><span class="sig-paren">(</span><em>value</em>, <em>timezone=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/timezone.html#make_naive"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.timezone.make_naive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make an aware datetime.datetime naive in a given time zone.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>value</strong> – datetime</li>
+<li><strong>timezone</strong> – timezone</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">naive datetime</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.utils.timezone.parse">
+<code class="descclassname">airflow.utils.timezone.</code><code class="descname">parse</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/timezone.html#parse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.timezone.parse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse a time string and return an aware datetime
+:param string: time string</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.utils.timezone.utc_epoch">
+<code class="descclassname">airflow.utils.timezone.</code><code class="descname">utc_epoch</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/timezone.html#utc_epoch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.timezone.utc_epoch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the epoch in the users timezone
+:return:</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.utils.timezone.utcnow">
+<code class="descclassname">airflow.utils.timezone.</code><code class="descname">utcnow</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/timezone.html#utcnow"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.timezone.utcnow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the current date and time in UTC
+:return:</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.utils.trigger_rule">
+<span id="airflow-utils-trigger-rule-module"></span><h2>airflow.utils.trigger_rule module<a class="headerlink" href="#module-airflow.utils.trigger_rule" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.utils.trigger_rule.TriggerRule">
+<em class="property">class </em><code class="descclassname">airflow.utils.trigger_rule.</code><code class="descname">TriggerRule</code><a class="reference internal" href="../../_modules/airflow/utils/trigger_rule.html#TriggerRule"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.trigger_rule.TriggerRule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="airflow.utils.trigger_rule.TriggerRule.ALL_DONE">
+<code class="descname">ALL_DONE</code><em class="property"> = 'all_done'</em><a class="headerlink" href="#airflow.utils.trigger_rule.TriggerRule.ALL_DONE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.utils.trigger_rule.TriggerRule.ALL_FAILED">
+<code class="descname">ALL_FAILED</code><em class="property"> = 'all_failed'</em><a class="headerlink" href="#airflow.utils.trigger_rule.TriggerRule.ALL_FAILED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.utils.trigger_rule.TriggerRule.ALL_SUCCESS">
+<code class="descname">ALL_SUCCESS</code><em class="property"> = 'all_success'</em><a class="headerlink" href="#airflow.utils.trigger_rule.TriggerRule.ALL_SUCCESS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.utils.trigger_rule.TriggerRule.DUMMY">
+<code class="descname">DUMMY</code><em class="property"> = 'dummy'</em><a class="headerlink" href="#airflow.utils.trigger_rule.TriggerRule.DUMMY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.utils.trigger_rule.TriggerRule.ONE_FAILED">
+<code class="descname">ONE_FAILED</code><em class="property"> = 'one_failed'</em><a class="headerlink" href="#airflow.utils.trigger_rule.TriggerRule.ONE_FAILED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.utils.trigger_rule.TriggerRule.ONE_SUCCESS">
+<code class="descname">ONE_SUCCESS</code><em class="property"> = 'one_success'</em><a class="headerlink" href="#airflow.utils.trigger_rule.TriggerRule.ONE_SUCCESS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="airflow.utils.trigger_rule.TriggerRule.all_triggers">
+<em class="property">classmethod </em><code class="descname">all_triggers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/trigger_rule.html#TriggerRule.all_triggers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.trigger_rule.TriggerRule.all_triggers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="airflow.utils.trigger_rule.TriggerRule.is_valid">
+<em class="property">classmethod </em><code class="descname">is_valid</code><span class="sig-paren">(</span><em>trigger_rule</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/trigger_rule.html#TriggerRule.is_valid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.trigger_rule.TriggerRule.is_valid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.utils.weight_rule">
+<span id="airflow-utils-weight-rule-module"></span><h2>airflow.utils.weight_rule module<a class="headerlink" href="#module-airflow.utils.weight_rule" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.utils.weight_rule.WeightRule">
+<em class="property">class </em><code class="descclassname">airflow.utils.weight_rule.</code><code class="descname">WeightRule</code><a class="reference internal" href="../../_modules/airflow/utils/weight_rule.html#WeightRule"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.weight_rule.WeightRule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="airflow.utils.weight_rule.WeightRule.ABSOLUTE">
+<code class="descname">ABSOLUTE</code><em class="property"> = 'absolute'</em><a class="headerlink" href="#airflow.utils.weight_rule.WeightRule.ABSOLUTE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.utils.weight_rule.WeightRule.DOWNSTREAM">
+<code class="descname">DOWNSTREAM</code><em class="property"> = 'downstream'</em><a class="headerlink" href="#airflow.utils.weight_rule.WeightRule.DOWNSTREAM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.utils.weight_rule.WeightRule.UPSTREAM">
+<code class="descname">UPSTREAM</code><em class="property"> = 'upstream'</em><a class="headerlink" href="#airflow.utils.weight_rule.WeightRule.UPSTREAM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="airflow.utils.weight_rule.WeightRule.all_weight_rules">
+<em class="property">classmethod </em><code class="descname">all_weight_rules</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/weight_rule.html#WeightRule.all_weight_rules"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.weight_rule.WeightRule.all_weight_rules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="airflow.utils.weight_rule.WeightRule.is_valid">
+<em class="property">classmethod </em><code class="descname">is_valid</code><span class="sig-paren">(</span><em>weight_rule</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/weight_rule.html#WeightRule.is_valid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.weight_rule.WeightRule.is_valid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.utils">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-airflow.utils" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="airflow.utils.apply_defaults">
+<code class="descclassname">airflow.utils.</code><code class="descname">apply_defaults</code><span class="sig-paren">(</span><em>func</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils.html#apply_defaults"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.apply_defaults" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

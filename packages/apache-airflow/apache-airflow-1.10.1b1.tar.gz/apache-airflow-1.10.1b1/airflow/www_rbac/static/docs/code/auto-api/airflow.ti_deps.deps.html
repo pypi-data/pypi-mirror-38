@@ -1,0 +1,622 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>airflow.ti_deps.deps package &mdash; Airflow Documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Airflow Documentation" href="../../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Airflow
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howto/index.html">How-to Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ui.html">UI / Screenshots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../profiling.html">Data Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../scheduler.html">Scheduling &amp; Triggers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../security.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../timezone.html">Time zones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">Experimental Rest API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../integration.html">Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lineage.html">Lineage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../code.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Airflow</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>airflow.ti_deps.deps package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/code/auto-api/airflow.ti_deps.deps.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="airflow-ti-deps-deps-package">
+<h1>airflow.ti_deps.deps package<a class="headerlink" href="#airflow-ti-deps-deps-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-airflow.ti_deps.deps.base_ti_dep">
+<span id="airflow-ti-deps-deps-base-ti-dep-module"></span><h2>airflow.ti_deps.deps.base_ti_dep module<a class="headerlink" href="#module-airflow.ti_deps.deps.base_ti_dep" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.ti_deps.deps.base_ti_dep.BaseTIDep">
+<em class="property">class </em><code class="descclassname">airflow.ti_deps.deps.base_ti_dep.</code><code class="descname">BaseTIDep</code><a class="reference internal" href="../../_modules/airflow/ti_deps/deps/base_ti_dep.html#BaseTIDep"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.ti_deps.deps.base_ti_dep.BaseTIDep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Abstract base class for dependencies that must be satisfied in order for task
+instances to run. For example, a task that can only run if a certain number of its
+upstream tasks succeed. This is an abstract class and must be subclassed to be used.</p>
+<dl class="attribute">
+<dt id="airflow.ti_deps.deps.base_ti_dep.BaseTIDep.IGNOREABLE">
+<code class="descname">IGNOREABLE</code><em class="property"> = False</em><a class="headerlink" href="#airflow.ti_deps.deps.base_ti_dep.BaseTIDep.IGNOREABLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.ti_deps.deps.base_ti_dep.BaseTIDep.IS_TASK_DEP">
+<code class="descname">IS_TASK_DEP</code><em class="property"> = False</em><a class="headerlink" href="#airflow.ti_deps.deps.base_ti_dep.BaseTIDep.IS_TASK_DEP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.ti_deps.deps.base_ti_dep.BaseTIDep.get_dep_statuses">
+<code class="descname">get_dep_statuses</code><span class="sig-paren">(</span><em>ti</em>, <em>session</em>, <em>dep_context=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/ti_deps/deps/base_ti_dep.html#BaseTIDep.get_dep_statuses"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.ti_deps.deps.base_ti_dep.BaseTIDep.get_dep_statuses" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrapper around the private _get_dep_statuses method that contains some global
+checks for all dependencies.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ti</strong> (<a class="reference internal" href="airflow.migrations.versions.html#airflow.migrations.versions.cc1e65623dc7_add_max_tries_column_to_task_instance.TaskInstance" title="airflow.migrations.versions.cc1e65623dc7_add_max_tries_column_to_task_instance.TaskInstance"><em>TaskInstance</em></a>) – the task instance to get the dependency status for</li>
+<li><strong>session</strong> (<em>Session</em>) – database session</li>
+<li><strong>dep_context</strong> (<a class="reference internal" href="airflow.ti_deps.html#airflow.ti_deps.dep_context.DepContext" title="airflow.ti_deps.dep_context.DepContext"><em>DepContext</em></a>) – the context for which this dependency should be evaluated for</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.ti_deps.deps.base_ti_dep.BaseTIDep.get_failure_reasons">
+<code class="descname">get_failure_reasons</code><span class="sig-paren">(</span><em>ti</em>, <em>session</em>, <em>dep_context=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/ti_deps/deps/base_ti_dep.html#BaseTIDep.get_failure_reasons"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.ti_deps.deps.base_ti_dep.BaseTIDep.get_failure_reasons" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an iterable of strings that explain why this dependency wasn’t met.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ti</strong> (<a class="reference internal" href="airflow.migrations.versions.html#airflow.migrations.versions.cc1e65623dc7_add_max_tries_column_to_task_instance.TaskInstance" title="airflow.migrations.versions.cc1e65623dc7_add_max_tries_column_to_task_instance.TaskInstance"><em>TaskInstance</em></a>) – the task instance to see if this dependency is met for</li>
+<li><strong>session</strong> (<em>Session</em>) – database session</li>
+<li><strong>dep_context</strong> (<em>BaseDepContext</em>) – The context this dependency is being checked under that stores
+state that can be used by this dependency.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.ti_deps.deps.base_ti_dep.BaseTIDep.is_met">
+<code class="descname">is_met</code><span class="sig-paren">(</span><em>ti</em>, <em>session</em>, <em>dep_context=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/ti_deps/deps/base_ti_dep.html#BaseTIDep.is_met"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.ti_deps.deps.base_ti_dep.BaseTIDep.is_met" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns whether or not this dependency is met for a given task instance. A
+dependency is considered met if all of the dependency statuses it reports are
+passing.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ti</strong> (<a class="reference internal" href="airflow.migrations.versions.html#airflow.migrations.versions.cc1e65623dc7_add_max_tries_column_to_task_instance.TaskInstance" title="airflow.migrations.versions.cc1e65623dc7_add_max_tries_column_to_task_instance.TaskInstance"><em>TaskInstance</em></a>) – the task instance to see if this dependency is met for</li>
+<li><strong>session</strong> (<em>Session</em>) – database session</li>
+<li><strong>dep_context</strong> (<em>BaseDepContext</em>) – The context this dependency is being checked under that stores
+state that can be used by this dependency.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.ti_deps.deps.base_ti_dep.BaseTIDep.name">
+<code class="descname">name</code><a class="headerlink" href="#airflow.ti_deps.deps.base_ti_dep.BaseTIDep.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The human-readable name for the dependency. Use the classname as the default name
+if this method is not overridden in the subclass.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="airflow.ti_deps.deps.base_ti_dep.TIDepStatus">
+<em class="property">class </em><code class="descclassname">airflow.ti_deps.deps.base_ti_dep.</code><code class="descname">TIDepStatus</code><span class="sig-paren">(</span><em>dep_name</em>, <em>passed</em>, <em>reason</em><span class="sig-paren">)</span><a class="headerlink" href="#airflow.ti_deps.deps.base_ti_dep.TIDepStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
+<dl class="attribute">
+<dt id="airflow.ti_deps.deps.base_ti_dep.TIDepStatus.dep_name">
+<code class="descname">dep_name</code><a class="headerlink" href="#airflow.ti_deps.deps.base_ti_dep.TIDepStatus.dep_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.ti_deps.deps.base_ti_dep.TIDepStatus.passed">
+<code class="descname">passed</code><a class="headerlink" href="#airflow.ti_deps.deps.base_ti_dep.TIDepStatus.passed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.ti_deps.deps.base_ti_dep.TIDepStatus.reason">
+<code class="descname">reason</code><a class="headerlink" href="#airflow.ti_deps.deps.base_ti_dep.TIDepStatus.reason" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.ti_deps.deps.dag_ti_slots_available_dep">
+<span id="airflow-ti-deps-deps-dag-ti-slots-available-dep-module"></span><h2>airflow.ti_deps.deps.dag_ti_slots_available_dep module<a class="headerlink" href="#module-airflow.ti_deps.deps.dag_ti_slots_available_dep" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.ti_deps.deps.dag_ti_slots_available_dep.DagTISlotsAvailableDep">
+<em class="property">class </em><code class="descclassname">airflow.ti_deps.deps.dag_ti_slots_available_dep.</code><code class="descname">DagTISlotsAvailableDep</code><a class="reference internal" href="../../_modules/airflow/ti_deps/deps/dag_ti_slots_available_dep.html#DagTISlotsAvailableDep"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.ti_deps.deps.dag_ti_slots_available_dep.DagTISlotsAvailableDep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.ti_deps.deps.base_ti_dep.BaseTIDep" title="airflow.ti_deps.deps.base_ti_dep.BaseTIDep"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.ti_deps.deps.base_ti_dep.BaseTIDep</span></code></a></p>
+<dl class="attribute">
+<dt id="airflow.ti_deps.deps.dag_ti_slots_available_dep.DagTISlotsAvailableDep.IGNOREABLE">
+<code class="descname">IGNOREABLE</code><em class="property"> = True</em><a class="headerlink" href="#airflow.ti_deps.deps.dag_ti_slots_available_dep.DagTISlotsAvailableDep.IGNOREABLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.ti_deps.deps.dag_ti_slots_available_dep.DagTISlotsAvailableDep.NAME">
+<code class="descname">NAME</code><em class="property"> = 'Task Instance Slots Available'</em><a class="headerlink" href="#airflow.ti_deps.deps.dag_ti_slots_available_dep.DagTISlotsAvailableDep.NAME" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.ti_deps.deps.dag_unpaused_dep">
+<span id="airflow-ti-deps-deps-dag-unpaused-dep-module"></span><h2>airflow.ti_deps.deps.dag_unpaused_dep module<a class="headerlink" href="#module-airflow.ti_deps.deps.dag_unpaused_dep" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.ti_deps.deps.dag_unpaused_dep.DagUnpausedDep">
+<em class="property">class </em><code class="descclassname">airflow.ti_deps.deps.dag_unpaused_dep.</code><code class="descname">DagUnpausedDep</code><a class="reference internal" href="../../_modules/airflow/ti_deps/deps/dag_unpaused_dep.html#DagUnpausedDep"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.ti_deps.deps.dag_unpaused_dep.DagUnpausedDep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.ti_deps.deps.base_ti_dep.BaseTIDep" title="airflow.ti_deps.deps.base_ti_dep.BaseTIDep"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.ti_deps.deps.base_ti_dep.BaseTIDep</span></code></a></p>
+<dl class="attribute">
+<dt id="airflow.ti_deps.deps.dag_unpaused_dep.DagUnpausedDep.IGNOREABLE">
+<code class="descname">IGNOREABLE</code><em class="property"> = True</em><a class="headerlink" href="#airflow.ti_deps.deps.dag_unpaused_dep.DagUnpausedDep.IGNOREABLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.ti_deps.deps.dag_unpaused_dep.DagUnpausedDep.NAME">
+<code class="descname">NAME</code><em class="property"> = 'Dag Not Paused'</em><a class="headerlink" href="#airflow.ti_deps.deps.dag_unpaused_dep.DagUnpausedDep.NAME" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.ti_deps.deps.dagrun_exists_dep">
+<span id="airflow-ti-deps-deps-dagrun-exists-dep-module"></span><h2>airflow.ti_deps.deps.dagrun_exists_dep module<a class="headerlink" href="#module-airflow.ti_deps.deps.dagrun_exists_dep" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.ti_deps.deps.dagrun_exists_dep.DagrunRunningDep">
+<em class="property">class </em><code class="descclassname">airflow.ti_deps.deps.dagrun_exists_dep.</code><code class="descname">DagrunRunningDep</code><a class="reference internal" href="../../_modules/airflow/ti_deps/deps/dagrun_exists_dep.html#DagrunRunningDep"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.ti_deps.deps.dagrun_exists_dep.DagrunRunningDep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.ti_deps.deps.base_ti_dep.BaseTIDep" title="airflow.ti_deps.deps.base_ti_dep.BaseTIDep"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.ti_deps.deps.base_ti_dep.BaseTIDep</span></code></a></p>
+<dl class="attribute">
+<dt id="airflow.ti_deps.deps.dagrun_exists_dep.DagrunRunningDep.IGNOREABLE">
+<code class="descname">IGNOREABLE</code><em class="property"> = True</em><a class="headerlink" href="#airflow.ti_deps.deps.dagrun_exists_dep.DagrunRunningDep.IGNOREABLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.ti_deps.deps.dagrun_exists_dep.DagrunRunningDep.NAME">
+<code class="descname">NAME</code><em class="property"> = 'Dagrun Running'</em><a class="headerlink" href="#airflow.ti_deps.deps.dagrun_exists_dep.DagrunRunningDep.NAME" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.ti_deps.deps.exec_date_after_start_date_dep">
+<span id="airflow-ti-deps-deps-exec-date-after-start-date-dep-module"></span><h2>airflow.ti_deps.deps.exec_date_after_start_date_dep module<a class="headerlink" href="#module-airflow.ti_deps.deps.exec_date_after_start_date_dep" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.ti_deps.deps.exec_date_after_start_date_dep.ExecDateAfterStartDateDep">
+<em class="property">class </em><code class="descclassname">airflow.ti_deps.deps.exec_date_after_start_date_dep.</code><code class="descname">ExecDateAfterStartDateDep</code><a class="reference internal" href="../../_modules/airflow/ti_deps/deps/exec_date_after_start_date_dep.html#ExecDateAfterStartDateDep"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.ti_deps.deps.exec_date_after_start_date_dep.ExecDateAfterStartDateDep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.ti_deps.deps.base_ti_dep.BaseTIDep" title="airflow.ti_deps.deps.base_ti_dep.BaseTIDep"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.ti_deps.deps.base_ti_dep.BaseTIDep</span></code></a></p>
+<dl class="attribute">
+<dt id="airflow.ti_deps.deps.exec_date_after_start_date_dep.ExecDateAfterStartDateDep.IGNOREABLE">
+<code class="descname">IGNOREABLE</code><em class="property"> = True</em><a class="headerlink" href="#airflow.ti_deps.deps.exec_date_after_start_date_dep.ExecDateAfterStartDateDep.IGNOREABLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.ti_deps.deps.exec_date_after_start_date_dep.ExecDateAfterStartDateDep.NAME">
+<code class="descname">NAME</code><em class="property"> = 'Execution Date'</em><a class="headerlink" href="#airflow.ti_deps.deps.exec_date_after_start_date_dep.ExecDateAfterStartDateDep.NAME" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.ti_deps.deps.not_in_retry_period_dep">
+<span id="airflow-ti-deps-deps-not-in-retry-period-dep-module"></span><h2>airflow.ti_deps.deps.not_in_retry_period_dep module<a class="headerlink" href="#module-airflow.ti_deps.deps.not_in_retry_period_dep" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.ti_deps.deps.not_in_retry_period_dep.NotInRetryPeriodDep">
+<em class="property">class </em><code class="descclassname">airflow.ti_deps.deps.not_in_retry_period_dep.</code><code class="descname">NotInRetryPeriodDep</code><a class="reference internal" href="../../_modules/airflow/ti_deps/deps/not_in_retry_period_dep.html#NotInRetryPeriodDep"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.ti_deps.deps.not_in_retry_period_dep.NotInRetryPeriodDep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.ti_deps.deps.base_ti_dep.BaseTIDep" title="airflow.ti_deps.deps.base_ti_dep.BaseTIDep"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.ti_deps.deps.base_ti_dep.BaseTIDep</span></code></a></p>
+<dl class="attribute">
+<dt id="airflow.ti_deps.deps.not_in_retry_period_dep.NotInRetryPeriodDep.IGNOREABLE">
+<code class="descname">IGNOREABLE</code><em class="property"> = True</em><a class="headerlink" href="#airflow.ti_deps.deps.not_in_retry_period_dep.NotInRetryPeriodDep.IGNOREABLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.ti_deps.deps.not_in_retry_period_dep.NotInRetryPeriodDep.IS_TASK_DEP">
+<code class="descname">IS_TASK_DEP</code><em class="property"> = True</em><a class="headerlink" href="#airflow.ti_deps.deps.not_in_retry_period_dep.NotInRetryPeriodDep.IS_TASK_DEP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.ti_deps.deps.not_in_retry_period_dep.NotInRetryPeriodDep.NAME">
+<code class="descname">NAME</code><em class="property"> = 'Not In Retry Period'</em><a class="headerlink" href="#airflow.ti_deps.deps.not_in_retry_period_dep.NotInRetryPeriodDep.NAME" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.ti_deps.deps.not_running_dep">
+<span id="airflow-ti-deps-deps-not-running-dep-module"></span><h2>airflow.ti_deps.deps.not_running_dep module<a class="headerlink" href="#module-airflow.ti_deps.deps.not_running_dep" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.ti_deps.deps.not_running_dep.NotRunningDep">
+<em class="property">class </em><code class="descclassname">airflow.ti_deps.deps.not_running_dep.</code><code class="descname">NotRunningDep</code><a class="reference internal" href="../../_modules/airflow/ti_deps/deps/not_running_dep.html#NotRunningDep"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.ti_deps.deps.not_running_dep.NotRunningDep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.ti_deps.deps.base_ti_dep.BaseTIDep" title="airflow.ti_deps.deps.base_ti_dep.BaseTIDep"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.ti_deps.deps.base_ti_dep.BaseTIDep</span></code></a></p>
+<dl class="attribute">
+<dt id="airflow.ti_deps.deps.not_running_dep.NotRunningDep.IGNOREABLE">
+<code class="descname">IGNOREABLE</code><em class="property"> = False</em><a class="headerlink" href="#airflow.ti_deps.deps.not_running_dep.NotRunningDep.IGNOREABLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.ti_deps.deps.not_running_dep.NotRunningDep.NAME">
+<code class="descname">NAME</code><em class="property"> = 'Task Instance Not Already Running'</em><a class="headerlink" href="#airflow.ti_deps.deps.not_running_dep.NotRunningDep.NAME" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.ti_deps.deps.not_skipped_dep">
+<span id="airflow-ti-deps-deps-not-skipped-dep-module"></span><h2>airflow.ti_deps.deps.not_skipped_dep module<a class="headerlink" href="#module-airflow.ti_deps.deps.not_skipped_dep" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.ti_deps.deps.not_skipped_dep.NotSkippedDep">
+<em class="property">class </em><code class="descclassname">airflow.ti_deps.deps.not_skipped_dep.</code><code class="descname">NotSkippedDep</code><a class="reference internal" href="../../_modules/airflow/ti_deps/deps/not_skipped_dep.html#NotSkippedDep"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.ti_deps.deps.not_skipped_dep.NotSkippedDep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.ti_deps.deps.base_ti_dep.BaseTIDep" title="airflow.ti_deps.deps.base_ti_dep.BaseTIDep"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.ti_deps.deps.base_ti_dep.BaseTIDep</span></code></a></p>
+<dl class="attribute">
+<dt id="airflow.ti_deps.deps.not_skipped_dep.NotSkippedDep.IGNOREABLE">
+<code class="descname">IGNOREABLE</code><em class="property"> = True</em><a class="headerlink" href="#airflow.ti_deps.deps.not_skipped_dep.NotSkippedDep.IGNOREABLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.ti_deps.deps.not_skipped_dep.NotSkippedDep.NAME">
+<code class="descname">NAME</code><em class="property"> = 'Task Instance Not Skipped'</em><a class="headerlink" href="#airflow.ti_deps.deps.not_skipped_dep.NotSkippedDep.NAME" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.ti_deps.deps.prev_dagrun_dep">
+<span id="airflow-ti-deps-deps-prev-dagrun-dep-module"></span><h2>airflow.ti_deps.deps.prev_dagrun_dep module<a class="headerlink" href="#module-airflow.ti_deps.deps.prev_dagrun_dep" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.ti_deps.deps.prev_dagrun_dep.PrevDagrunDep">
+<em class="property">class </em><code class="descclassname">airflow.ti_deps.deps.prev_dagrun_dep.</code><code class="descname">PrevDagrunDep</code><a class="reference internal" href="../../_modules/airflow/ti_deps/deps/prev_dagrun_dep.html#PrevDagrunDep"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.ti_deps.deps.prev_dagrun_dep.PrevDagrunDep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.ti_deps.deps.base_ti_dep.BaseTIDep" title="airflow.ti_deps.deps.base_ti_dep.BaseTIDep"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.ti_deps.deps.base_ti_dep.BaseTIDep</span></code></a></p>
+<p>Is the past dagrun in a state that allows this task instance to run, e.g. did this
+task instance’s task in the previous dagrun complete if we are depending on past.</p>
+<dl class="attribute">
+<dt id="airflow.ti_deps.deps.prev_dagrun_dep.PrevDagrunDep.IGNOREABLE">
+<code class="descname">IGNOREABLE</code><em class="property"> = True</em><a class="headerlink" href="#airflow.ti_deps.deps.prev_dagrun_dep.PrevDagrunDep.IGNOREABLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.ti_deps.deps.prev_dagrun_dep.PrevDagrunDep.IS_TASK_DEP">
+<code class="descname">IS_TASK_DEP</code><em class="property"> = True</em><a class="headerlink" href="#airflow.ti_deps.deps.prev_dagrun_dep.PrevDagrunDep.IS_TASK_DEP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.ti_deps.deps.prev_dagrun_dep.PrevDagrunDep.NAME">
+<code class="descname">NAME</code><em class="property"> = 'Previous Dagrun State'</em><a class="headerlink" href="#airflow.ti_deps.deps.prev_dagrun_dep.PrevDagrunDep.NAME" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.ti_deps.deps.runnable_exec_date_dep">
+<span id="airflow-ti-deps-deps-runnable-exec-date-dep-module"></span><h2>airflow.ti_deps.deps.runnable_exec_date_dep module<a class="headerlink" href="#module-airflow.ti_deps.deps.runnable_exec_date_dep" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.ti_deps.deps.runnable_exec_date_dep.RunnableExecDateDep">
+<em class="property">class </em><code class="descclassname">airflow.ti_deps.deps.runnable_exec_date_dep.</code><code class="descname">RunnableExecDateDep</code><a class="reference internal" href="../../_modules/airflow/ti_deps/deps/runnable_exec_date_dep.html#RunnableExecDateDep"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.ti_deps.deps.runnable_exec_date_dep.RunnableExecDateDep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.ti_deps.deps.base_ti_dep.BaseTIDep" title="airflow.ti_deps.deps.base_ti_dep.BaseTIDep"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.ti_deps.deps.base_ti_dep.BaseTIDep</span></code></a></p>
+<dl class="attribute">
+<dt id="airflow.ti_deps.deps.runnable_exec_date_dep.RunnableExecDateDep.IGNOREABLE">
+<code class="descname">IGNOREABLE</code><em class="property"> = True</em><a class="headerlink" href="#airflow.ti_deps.deps.runnable_exec_date_dep.RunnableExecDateDep.IGNOREABLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.ti_deps.deps.runnable_exec_date_dep.RunnableExecDateDep.NAME">
+<code class="descname">NAME</code><em class="property"> = 'Execution Date'</em><a class="headerlink" href="#airflow.ti_deps.deps.runnable_exec_date_dep.RunnableExecDateDep.NAME" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.ti_deps.deps.task_concurrency_dep">
+<span id="airflow-ti-deps-deps-task-concurrency-dep-module"></span><h2>airflow.ti_deps.deps.task_concurrency_dep module<a class="headerlink" href="#module-airflow.ti_deps.deps.task_concurrency_dep" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.ti_deps.deps.task_concurrency_dep.TaskConcurrencyDep">
+<em class="property">class </em><code class="descclassname">airflow.ti_deps.deps.task_concurrency_dep.</code><code class="descname">TaskConcurrencyDep</code><a class="reference internal" href="../../_modules/airflow/ti_deps/deps/task_concurrency_dep.html#TaskConcurrencyDep"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.ti_deps.deps.task_concurrency_dep.TaskConcurrencyDep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.ti_deps.deps.base_ti_dep.BaseTIDep" title="airflow.ti_deps.deps.base_ti_dep.BaseTIDep"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.ti_deps.deps.base_ti_dep.BaseTIDep</span></code></a></p>
+<p>This restricts the number of running task instances for a particular task.</p>
+<dl class="attribute">
+<dt id="airflow.ti_deps.deps.task_concurrency_dep.TaskConcurrencyDep.IGNOREABLE">
+<code class="descname">IGNOREABLE</code><em class="property"> = True</em><a class="headerlink" href="#airflow.ti_deps.deps.task_concurrency_dep.TaskConcurrencyDep.IGNOREABLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.ti_deps.deps.task_concurrency_dep.TaskConcurrencyDep.IS_TASK_DEP">
+<code class="descname">IS_TASK_DEP</code><em class="property"> = True</em><a class="headerlink" href="#airflow.ti_deps.deps.task_concurrency_dep.TaskConcurrencyDep.IS_TASK_DEP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.ti_deps.deps.task_concurrency_dep.TaskConcurrencyDep.NAME">
+<code class="descname">NAME</code><em class="property"> = 'Task Concurrency'</em><a class="headerlink" href="#airflow.ti_deps.deps.task_concurrency_dep.TaskConcurrencyDep.NAME" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.ti_deps.deps.trigger_rule_dep">
+<span id="airflow-ti-deps-deps-trigger-rule-dep-module"></span><h2>airflow.ti_deps.deps.trigger_rule_dep module<a class="headerlink" href="#module-airflow.ti_deps.deps.trigger_rule_dep" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.ti_deps.deps.trigger_rule_dep.TriggerRuleDep">
+<em class="property">class </em><code class="descclassname">airflow.ti_deps.deps.trigger_rule_dep.</code><code class="descname">TriggerRuleDep</code><a class="reference internal" href="../../_modules/airflow/ti_deps/deps/trigger_rule_dep.html#TriggerRuleDep"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.ti_deps.deps.trigger_rule_dep.TriggerRuleDep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.ti_deps.deps.base_ti_dep.BaseTIDep" title="airflow.ti_deps.deps.base_ti_dep.BaseTIDep"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.ti_deps.deps.base_ti_dep.BaseTIDep</span></code></a></p>
+<p>Determines if a task’s upstream tasks are in a state that allows a given task instance
+to run.</p>
+<dl class="attribute">
+<dt id="airflow.ti_deps.deps.trigger_rule_dep.TriggerRuleDep.IGNOREABLE">
+<code class="descname">IGNOREABLE</code><em class="property"> = True</em><a class="headerlink" href="#airflow.ti_deps.deps.trigger_rule_dep.TriggerRuleDep.IGNOREABLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.ti_deps.deps.trigger_rule_dep.TriggerRuleDep.IS_TASK_DEP">
+<code class="descname">IS_TASK_DEP</code><em class="property"> = True</em><a class="headerlink" href="#airflow.ti_deps.deps.trigger_rule_dep.TriggerRuleDep.IS_TASK_DEP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.ti_deps.deps.trigger_rule_dep.TriggerRuleDep.NAME">
+<code class="descname">NAME</code><em class="property"> = 'Trigger Rule'</em><a class="headerlink" href="#airflow.ti_deps.deps.trigger_rule_dep.TriggerRuleDep.NAME" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.ti_deps.deps.valid_state_dep">
+<span id="airflow-ti-deps-deps-valid-state-dep-module"></span><h2>airflow.ti_deps.deps.valid_state_dep module<a class="headerlink" href="#module-airflow.ti_deps.deps.valid_state_dep" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.ti_deps.deps.valid_state_dep.ValidStateDep">
+<em class="property">class </em><code class="descclassname">airflow.ti_deps.deps.valid_state_dep.</code><code class="descname">ValidStateDep</code><span class="sig-paren">(</span><em>valid_states</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/ti_deps/deps/valid_state_dep.html#ValidStateDep"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.ti_deps.deps.valid_state_dep.ValidStateDep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.ti_deps.deps.base_ti_dep.BaseTIDep" title="airflow.ti_deps.deps.base_ti_dep.BaseTIDep"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.ti_deps.deps.base_ti_dep.BaseTIDep</span></code></a></p>
+<dl class="attribute">
+<dt id="airflow.ti_deps.deps.valid_state_dep.ValidStateDep.IGNOREABLE">
+<code class="descname">IGNOREABLE</code><em class="property"> = True</em><a class="headerlink" href="#airflow.ti_deps.deps.valid_state_dep.ValidStateDep.IGNOREABLE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensures that the task instance’s state is in a given set of valid states.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>valid_states</strong> (<em>set</em><em>(</em><em>str</em><em>)</em>) – A list of valid states that a task instance can have to meet
+this dependency.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">whether or not the task instance’s state is valid</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.ti_deps.deps.valid_state_dep.ValidStateDep.NAME">
+<code class="descname">NAME</code><em class="property"> = 'Task Instance State'</em><a class="headerlink" href="#airflow.ti_deps.deps.valid_state_dep.ValidStateDep.NAME" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.ti_deps.deps">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-airflow.ti_deps.deps" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

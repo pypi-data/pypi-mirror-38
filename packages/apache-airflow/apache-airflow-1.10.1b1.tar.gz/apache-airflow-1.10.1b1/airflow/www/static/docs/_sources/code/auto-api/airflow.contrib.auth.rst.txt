@@ -1,0 +1,17 @@
+airflow.contrib.auth package
+============================
+
+Subpackages
+-----------
+
+.. toctree::
+
+    airflow.contrib.auth.backends
+
+Module contents
+---------------
+
+.. automodule:: airflow.contrib.auth
+    :members:
+    :undoc-members:
+    :show-inheritance:

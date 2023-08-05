@@ -1,0 +1,38 @@
+airflow.config\_templates package
+=================================
+
+Submodules
+----------
+
+airflow.config\_templates.airflow\_local\_settings module
+---------------------------------------------------------
+
+.. automodule:: airflow.config_templates.airflow_local_settings
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.config\_templates.default\_celery module
+------------------------------------------------
+
+.. automodule:: airflow.config_templates.default_celery
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.config\_templates.default\_webserver\_config module
+-----------------------------------------------------------
+
+.. automodule:: airflow.config_templates.default_webserver_config
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: airflow.config_templates
+    :members:
+    :undoc-members:
+    :show-inheritance:

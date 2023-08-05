@@ -1,0 +1,374 @@
+airflow.contrib.hooks package
+=============================
+
+Submodules
+----------
+
+airflow.contrib.hooks.aws\_dynamodb\_hook module
+------------------------------------------------
+
+.. automodule:: airflow.contrib.hooks.aws_dynamodb_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.hooks.aws\_firehose\_hook module
+------------------------------------------------
+
+.. automodule:: airflow.contrib.hooks.aws_firehose_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.hooks.aws\_hook module
+--------------------------------------
+
+.. automodule:: airflow.contrib.hooks.aws_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.hooks.aws\_lambda\_hook module
+----------------------------------------------
+
+.. automodule:: airflow.contrib.hooks.aws_lambda_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.hooks.azure\_data\_lake\_hook module
+----------------------------------------------------
+
+.. automodule:: airflow.contrib.hooks.azure_data_lake_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.hooks.azure\_fileshare\_hook module
+---------------------------------------------------
+
+.. automodule:: airflow.contrib.hooks.azure_fileshare_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.hooks.bigquery\_hook module
+-------------------------------------------
+
+.. automodule:: airflow.contrib.hooks.bigquery_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.hooks.cassandra\_hook module
+--------------------------------------------
+
+.. automodule:: airflow.contrib.hooks.cassandra_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.hooks.cloudant\_hook module
+-------------------------------------------
+
+.. automodule:: airflow.contrib.hooks.cloudant_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.hooks.databricks\_hook module
+---------------------------------------------
+
+.. automodule:: airflow.contrib.hooks.databricks_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.hooks.datadog\_hook module
+------------------------------------------
+
+.. automodule:: airflow.contrib.hooks.datadog_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.hooks.datastore\_hook module
+--------------------------------------------
+
+.. automodule:: airflow.contrib.hooks.datastore_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.hooks.discord\_webhook\_hook module
+---------------------------------------------------
+
+.. automodule:: airflow.contrib.hooks.discord_webhook_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.hooks.emr\_hook module
+--------------------------------------
+
+.. automodule:: airflow.contrib.hooks.emr_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.hooks.fs\_hook module
+-------------------------------------
+
+.. automodule:: airflow.contrib.hooks.fs_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.hooks.ftp\_hook module
+--------------------------------------
+
+.. automodule:: airflow.contrib.hooks.ftp_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.hooks.gcp\_api\_base\_hook module
+-------------------------------------------------
+
+.. automodule:: airflow.contrib.hooks.gcp_api_base_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.hooks.gcp\_container\_hook module
+-------------------------------------------------
+
+.. automodule:: airflow.contrib.hooks.gcp_container_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.hooks.gcp\_dataflow\_hook module
+------------------------------------------------
+
+.. automodule:: airflow.contrib.hooks.gcp_dataflow_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.hooks.gcp\_dataproc\_hook module
+------------------------------------------------
+
+.. automodule:: airflow.contrib.hooks.gcp_dataproc_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.hooks.gcp\_mlengine\_hook module
+------------------------------------------------
+
+.. automodule:: airflow.contrib.hooks.gcp_mlengine_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.hooks.gcp\_pubsub\_hook module
+----------------------------------------------
+
+.. automodule:: airflow.contrib.hooks.gcp_pubsub_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.hooks.gcs\_hook module
+--------------------------------------
+
+.. automodule:: airflow.contrib.hooks.gcs_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.hooks.jenkins\_hook module
+------------------------------------------
+
+.. automodule:: airflow.contrib.hooks.jenkins_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.hooks.jira\_hook module
+---------------------------------------
+
+.. automodule:: airflow.contrib.hooks.jira_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.hooks.mongo\_hook module
+----------------------------------------
+
+.. automodule:: airflow.contrib.hooks.mongo_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.hooks.pinot\_hook module
+----------------------------------------
+
+.. automodule:: airflow.contrib.hooks.pinot_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.hooks.qubole\_check\_hook module
+------------------------------------------------
+
+.. automodule:: airflow.contrib.hooks.qubole_check_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.hooks.qubole\_hook module
+-----------------------------------------
+
+.. automodule:: airflow.contrib.hooks.qubole_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.hooks.redis\_hook module
+----------------------------------------
+
+.. automodule:: airflow.contrib.hooks.redis_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.hooks.redshift\_hook module
+-------------------------------------------
+
+.. automodule:: airflow.contrib.hooks.redshift_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.hooks.salesforce\_hook module
+---------------------------------------------
+
+.. automodule:: airflow.contrib.hooks.salesforce_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.hooks.segment\_hook module
+------------------------------------------
+
+.. automodule:: airflow.contrib.hooks.segment_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.hooks.sftp\_hook module
+---------------------------------------
+
+.. automodule:: airflow.contrib.hooks.sftp_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.hooks.slack\_webhook\_hook module
+-------------------------------------------------
+
+.. automodule:: airflow.contrib.hooks.slack_webhook_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.hooks.snowflake\_hook module
+--------------------------------------------
+
+.. automodule:: airflow.contrib.hooks.snowflake_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.hooks.spark\_jdbc\_hook module
+----------------------------------------------
+
+.. automodule:: airflow.contrib.hooks.spark_jdbc_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.hooks.spark\_jdbc\_script module
+------------------------------------------------
+
+.. automodule:: airflow.contrib.hooks.spark_jdbc_script
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.hooks.spark\_sql\_hook module
+---------------------------------------------
+
+.. automodule:: airflow.contrib.hooks.spark_sql_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.hooks.spark\_submit\_hook module
+------------------------------------------------
+
+.. automodule:: airflow.contrib.hooks.spark_submit_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.hooks.sqoop\_hook module
+----------------------------------------
+
+.. automodule:: airflow.contrib.hooks.sqoop_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.hooks.ssh\_hook module
+--------------------------------------
+
+.. automodule:: airflow.contrib.hooks.ssh_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.hooks.vertica\_hook module
+------------------------------------------
+
+.. automodule:: airflow.contrib.hooks.vertica_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.hooks.wasb\_hook module
+---------------------------------------
+
+.. automodule:: airflow.contrib.hooks.wasb_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.hooks.winrm\_hook module
+----------------------------------------
+
+.. automodule:: airflow.contrib.hooks.winrm_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: airflow.contrib.hooks
+    :members:
+    :undoc-members:
+    :show-inheritance:

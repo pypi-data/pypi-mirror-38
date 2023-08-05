@@ -1,0 +1,510 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>airflow.www package &mdash; Airflow Documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Airflow Documentation" href="../../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Airflow
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howto/index.html">How-to Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ui.html">UI / Screenshots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../profiling.html">Data Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../scheduler.html">Scheduling &amp; Triggers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../security.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../timezone.html">Time zones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">Experimental Rest API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../integration.html">Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lineage.html">Lineage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../code.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Airflow</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>airflow.www package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/code/auto-api/airflow.www.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="airflow-www-package">
+<h1>airflow.www package<a class="headerlink" href="#airflow-www-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="airflow.www.api.html">airflow.www.api package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="airflow.www.api.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="airflow.www.api.experimental.html">airflow.www.api.experimental package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="airflow.www.api.experimental.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="airflow.www.api.experimental.html#module-airflow.www.api.experimental.endpoints">airflow.www.api.experimental.endpoints module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="airflow.www.api.experimental.html#module-airflow.www.api.experimental">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.www.api.html#module-airflow.www.api">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-airflow.www.app">
+<span id="airflow-www-app-module"></span><h2>airflow.www.app module<a class="headerlink" href="#module-airflow.www.app" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="airflow.www.app.cached_app">
+<code class="descclassname">airflow.www.app.</code><code class="descname">cached_app</code><span class="sig-paren">(</span><em>config=None</em>, <em>testing=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/www/app.html#cached_app"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.www.app.cached_app" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.www.app.create_app">
+<code class="descclassname">airflow.www.app.</code><code class="descname">create_app</code><span class="sig-paren">(</span><em>config=None</em>, <em>testing=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/www/app.html#create_app"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.www.app.create_app" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.www.app.root_app">
+<code class="descclassname">airflow.www.app.</code><code class="descname">root_app</code><span class="sig-paren">(</span><em>env</em>, <em>resp</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/www/app.html#root_app"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.www.app.root_app" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-airflow.www.blueprints">
+<span id="airflow-www-blueprints-module"></span><h2>airflow.www.blueprints module<a class="headerlink" href="#module-airflow.www.blueprints" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="airflow.www.blueprints.health">
+<code class="descclassname">airflow.www.blueprints.</code><code class="descname">health</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/www/blueprints.html#health"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.www.blueprints.health" title="Permalink to this definition">¶</a></dt>
+<dd><p>We can add an array of tests here to check the server’s health</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.www.blueprints.index">
+<code class="descclassname">airflow.www.blueprints.</code><code class="descname">index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/www/blueprints.html#index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.www.blueprints.index" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-airflow.www.forms">
+<span id="airflow-www-forms-module"></span><h2>airflow.www.forms module<a class="headerlink" href="#module-airflow.www.forms" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.www.forms.DateTimeForm">
+<em class="property">class </em><code class="descclassname">airflow.www.forms.</code><code class="descname">DateTimeForm</code><span class="sig-paren">(</span><em>formdata=&lt;object object&gt;</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/www/forms.html#DateTimeForm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.www.forms.DateTimeForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">flask_wtf.form.FlaskForm</span></code></p>
+<dl class="attribute">
+<dt id="airflow.www.forms.DateTimeForm.execution_date">
+<code class="descname">execution_date</code><em class="property"> = &lt;UnboundField(DateTimeField, ('Execution date',), {'widget': &lt;flask_admin.form.widgets.DateTimePickerWidget object&gt;})&gt;</em><a class="headerlink" href="#airflow.www.forms.DateTimeForm.execution_date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="airflow.www.forms.DateTimeWithNumRunsForm">
+<em class="property">class </em><code class="descclassname">airflow.www.forms.</code><code class="descname">DateTimeWithNumRunsForm</code><span class="sig-paren">(</span><em>formdata=&lt;object object&gt;</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/www/forms.html#DateTimeWithNumRunsForm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.www.forms.DateTimeWithNumRunsForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">flask_wtf.form.FlaskForm</span></code></p>
+<dl class="attribute">
+<dt id="airflow.www.forms.DateTimeWithNumRunsForm.base_date">
+<code class="descname">base_date</code><em class="property"> = &lt;UnboundField(DateTimeField, ('Anchor date',), {'widget': &lt;flask_admin.form.widgets.DateTimePickerWidget object&gt;, 'default': datetime.datetime(2018, 8, 15, 13, 8, 28, 236108, tzinfo=&lt;Timezone [UTC]&gt;)})&gt;</em><a class="headerlink" href="#airflow.www.forms.DateTimeWithNumRunsForm.base_date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.www.forms.DateTimeWithNumRunsForm.num_runs">
+<code class="descname">num_runs</code><em class="property"> = &lt;UnboundField(SelectField, ('Number of runs',), {'choices': ((5, '5'), (25, '25'), (50, '50'), (100, '100'), (365, '365')), 'default': 25})&gt;</em><a class="headerlink" href="#airflow.www.forms.DateTimeWithNumRunsForm.num_runs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="airflow.www.forms.DateTimeWithNumRunsWithDagRunsForm">
+<em class="property">class </em><code class="descclassname">airflow.www.forms.</code><code class="descname">DateTimeWithNumRunsWithDagRunsForm</code><span class="sig-paren">(</span><em>formdata=&lt;object object&gt;</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/www/forms.html#DateTimeWithNumRunsWithDagRunsForm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.www.forms.DateTimeWithNumRunsWithDagRunsForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.www.forms.DateTimeWithNumRunsForm" title="airflow.www.forms.DateTimeWithNumRunsForm"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.www.forms.DateTimeWithNumRunsForm</span></code></a></p>
+<dl class="attribute">
+<dt id="airflow.www.forms.DateTimeWithNumRunsWithDagRunsForm.execution_date">
+<code class="descname">execution_date</code><em class="property"> = &lt;UnboundField(SelectField, ('DAG run',), {})&gt;</em><a class="headerlink" href="#airflow.www.forms.DateTimeWithNumRunsWithDagRunsForm.execution_date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.www.gunicorn_config">
+<span id="airflow-www-gunicorn-config-module"></span><h2>airflow.www.gunicorn_config module<a class="headerlink" href="#module-airflow.www.gunicorn_config" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="airflow.www.gunicorn_config.post_worker_init">
+<code class="descclassname">airflow.www.gunicorn_config.</code><code class="descname">post_worker_init</code><span class="sig-paren">(</span><em>dummy_worker</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/www/gunicorn_config.html#post_worker_init"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.www.gunicorn_config.post_worker_init" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-airflow.www.utils">
+<span id="airflow-www-utils-module"></span><h2>airflow.www.utils module<a class="headerlink" href="#module-airflow.www.utils" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.www.utils.AceEditorWidget">
+<em class="property">class </em><code class="descclassname">airflow.www.utils.</code><code class="descname">AceEditorWidget</code><a class="reference internal" href="../../_modules/airflow/www/utils.html#AceEditorWidget"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.www.utils.AceEditorWidget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">wtforms.widgets.core.TextArea</span></code></p>
+<p>Renders an ACE code editor.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="airflow.www.utils.DataProfilingMixin">
+<em class="property">class </em><code class="descclassname">airflow.www.utils.</code><code class="descname">DataProfilingMixin</code><a class="reference internal" href="../../_modules/airflow/www/utils.html#DataProfilingMixin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.www.utils.DataProfilingMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="airflow.www.utils.DataProfilingMixin.is_accessible">
+<code class="descname">is_accessible</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/www/utils.html#DataProfilingMixin.is_accessible"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.www.utils.DataProfilingMixin.is_accessible" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="airflow.www.utils.LoginMixin">
+<em class="property">class </em><code class="descclassname">airflow.www.utils.</code><code class="descname">LoginMixin</code><a class="reference internal" href="../../_modules/airflow/www/utils.html#LoginMixin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.www.utils.LoginMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="airflow.www.utils.LoginMixin.is_accessible">
+<code class="descname">is_accessible</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/www/utils.html#LoginMixin.is_accessible"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.www.utils.LoginMixin.is_accessible" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="airflow.www.utils.SuperUserMixin">
+<em class="property">class </em><code class="descclassname">airflow.www.utils.</code><code class="descname">SuperUserMixin</code><a class="reference internal" href="../../_modules/airflow/www/utils.html#SuperUserMixin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.www.utils.SuperUserMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="airflow.www.utils.SuperUserMixin.is_accessible">
+<code class="descname">is_accessible</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/www/utils.html#SuperUserMixin.is_accessible"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.www.utils.SuperUserMixin.is_accessible" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="airflow.www.utils.UtcFilterConverter">
+<em class="property">class </em><code class="descclassname">airflow.www.utils.</code><code class="descname">UtcFilterConverter</code><a class="reference internal" href="../../_modules/airflow/www/utils.html#UtcFilterConverter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.www.utils.UtcFilterConverter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">flask_admin.contrib.sqla.filters.FilterConverter</span></code></p>
+<dl class="method">
+<dt id="airflow.www.utils.UtcFilterConverter.conv_utcdatetime">
+<code class="descname">conv_utcdatetime</code><span class="sig-paren">(</span><em>column</em>, <em>name</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/www/utils.html#UtcFilterConverter.conv_utcdatetime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.www.utils.UtcFilterConverter.conv_utcdatetime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.www.utils.action_logging">
+<code class="descclassname">airflow.www.utils.</code><code class="descname">action_logging</code><span class="sig-paren">(</span><em>f</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/www/utils.html#action_logging"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.www.utils.action_logging" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decorator to log user actions</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.www.utils.epoch">
+<code class="descclassname">airflow.www.utils.</code><code class="descname">epoch</code><span class="sig-paren">(</span><em>dttm</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/www/utils.html#epoch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.www.utils.epoch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an epoch-type date</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.www.utils.generate_pages">
+<code class="descclassname">airflow.www.utils.</code><code class="descname">generate_pages</code><span class="sig-paren">(</span><em>current_page</em>, <em>num_of_pages</em>, <em>search=None</em>, <em>showPaused=None</em>, <em>window=7</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/www/utils.html#generate_pages"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.www.utils.generate_pages" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates the HTML for a paging component using a similar logic to the paging
+auto-generated by Flask managed views. The paging component defines a number of
+pages visible in the pager (window) and once the user goes to a page beyond the
+largest visible, it would scroll to the right the page numbers and keeps the
+current one in the middle of the pager component. When in the last pages,
+the pages won’t scroll and just keep moving until the last page. Pager also contains
+&lt;first, previous, …, next, last&gt; pages.
+This component takes into account custom parameters such as search and showPaused,
+which could be added to the pages link in order to maintain the state between
+client and server. It also allows to make a bookmark on a specific paging state.
+:param current_page:</p>
+<blockquote>
+<div>the current page number, 0-indexed</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>num_of_pages</strong> – the total number of pages</li>
+<li><strong>search</strong> – the search query string, if any</li>
+<li><strong>showPaused</strong> – false if paused dags will be hidden, otherwise true to show them</li>
+<li><strong>window</strong> – the number of pages to be shown in the paging component (7 default)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the HTML string of the paging component</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.www.utils.get_params">
+<code class="descclassname">airflow.www.utils.</code><code class="descname">get_params</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/www/utils.html#get_params"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.www.utils.get_params" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.www.utils.gzipped">
+<code class="descclassname">airflow.www.utils.</code><code class="descname">gzipped</code><span class="sig-paren">(</span><em>f</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/www/utils.html#gzipped"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.www.utils.gzipped" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decorator to make a view compressed</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.www.utils.json_response">
+<code class="descclassname">airflow.www.utils.</code><code class="descname">json_response</code><span class="sig-paren">(</span><em>obj</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/www/utils.html#json_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.www.utils.json_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a json response from a json serializable python object</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.www.utils.limit_sql">
+<code class="descclassname">airflow.www.utils.</code><code class="descname">limit_sql</code><span class="sig-paren">(</span><em>sql</em>, <em>limit</em>, <em>conn_type</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/www/utils.html#limit_sql"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.www.utils.limit_sql" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.www.utils.make_cache_key">
+<code class="descclassname">airflow.www.utils.</code><code class="descname">make_cache_key</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/www/utils.html#make_cache_key"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.www.utils.make_cache_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used by cache to get a unique key per URL</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.www.utils.notify_owner">
+<code class="descclassname">airflow.www.utils.</code><code class="descname">notify_owner</code><span class="sig-paren">(</span><em>f</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/www/utils.html#notify_owner"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.www.utils.notify_owner" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decorator to notify owner of actions taken on their DAGs by others</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.www.utils.should_hide_value_for_key">
+<code class="descclassname">airflow.www.utils.</code><code class="descname">should_hide_value_for_key</code><span class="sig-paren">(</span><em>key_name</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/www/utils.html#should_hide_value_for_key"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.www.utils.should_hide_value_for_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-airflow.www.validators">
+<span id="airflow-www-validators-module"></span><h2>airflow.www.validators module<a class="headerlink" href="#module-airflow.www.validators" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.www.validators.GreaterEqualThan">
+<em class="property">class </em><code class="descclassname">airflow.www.validators.</code><code class="descname">GreaterEqualThan</code><span class="sig-paren">(</span><em>fieldname</em>, <em>message=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/www/validators.html#GreaterEqualThan"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.www.validators.GreaterEqualThan" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">wtforms.validators.EqualTo</span></code></p>
+<p>Compares the values of two fields.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fieldname</strong> – The name of the other field to compare to.</li>
+<li><strong>message</strong> – Error message to raise in case of a validation error. Can be
+interpolated with <cite>%(other_label)s</cite> and <cite>%(other_name)s</cite> to provide a
+more helpful error.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="airflow-www-views-module">
+<h2>airflow.www.views module<a class="headerlink" href="#airflow-www-views-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-airflow.www">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-airflow.www" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

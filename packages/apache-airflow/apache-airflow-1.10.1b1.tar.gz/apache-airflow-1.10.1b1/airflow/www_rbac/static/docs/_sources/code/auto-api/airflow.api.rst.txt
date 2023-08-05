@@ -1,0 +1,19 @@
+airflow.api package
+===================
+
+Subpackages
+-----------
+
+.. toctree::
+
+    airflow.api.auth
+    airflow.api.client
+    airflow.api.common
+
+Module contents
+---------------
+
+.. automodule:: airflow.api
+    :members:
+    :undoc-members:
+    :show-inheritance:

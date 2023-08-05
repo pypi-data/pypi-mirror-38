@@ -1,0 +1,308 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>airflow.www.api.experimental package &mdash; Airflow Documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Airflow Documentation" href="../../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Airflow
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howto/index.html">How-to Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ui.html">UI / Screenshots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../profiling.html">Data Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../scheduler.html">Scheduling &amp; Triggers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../security.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../timezone.html">Time zones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">Experimental Rest API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../integration.html">Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lineage.html">Lineage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../code.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Airflow</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>airflow.www.api.experimental package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/code/auto-api/airflow.www.api.experimental.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="airflow-www-api-experimental-package">
+<h1>airflow.www.api.experimental package<a class="headerlink" href="#airflow-www-api-experimental-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-airflow.www.api.experimental.endpoints">
+<span id="airflow-www-api-experimental-endpoints-module"></span><h2>airflow.www.api.experimental.endpoints module<a class="headerlink" href="#module-airflow.www.api.experimental.endpoints" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="airflow.www.api.experimental.endpoints.create_pool">
+<code class="descclassname">airflow.www.api.experimental.endpoints.</code><code class="descname">create_pool</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/www/api/experimental/endpoints.html#create_pool"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.www.api.experimental.endpoints.create_pool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a pool.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.www.api.experimental.endpoints.delete_dag">
+<code class="descclassname">airflow.www.api.experimental.endpoints.</code><code class="descname">delete_dag</code><span class="sig-paren">(</span><em>dag_id</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/www/api/experimental/endpoints.html#delete_dag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.www.api.experimental.endpoints.delete_dag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete all DB records related to the specified Dag.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.www.api.experimental.endpoints.delete_pool">
+<code class="descclassname">airflow.www.api.experimental.endpoints.</code><code class="descname">delete_pool</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/www/api/experimental/endpoints.html#delete_pool"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.www.api.experimental.endpoints.delete_pool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete pool.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.www.api.experimental.endpoints.get_pool">
+<code class="descclassname">airflow.www.api.experimental.endpoints.</code><code class="descname">get_pool</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/www/api/experimental/endpoints.html#get_pool"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.www.api.experimental.endpoints.get_pool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get pool by a given name.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.www.api.experimental.endpoints.get_pools">
+<code class="descclassname">airflow.www.api.experimental.endpoints.</code><code class="descname">get_pools</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/www/api/experimental/endpoints.html#get_pools"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.www.api.experimental.endpoints.get_pools" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all pools.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.www.api.experimental.endpoints.latest_dag_runs">
+<code class="descclassname">airflow.www.api.experimental.endpoints.</code><code class="descname">latest_dag_runs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/www/api/experimental/endpoints.html#latest_dag_runs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.www.api.experimental.endpoints.latest_dag_runs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the latest DagRun for each DAG formatted for the UI.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.www.api.experimental.endpoints.task_info">
+<code class="descclassname">airflow.www.api.experimental.endpoints.</code><code class="descname">task_info</code><span class="sig-paren">(</span><em>dag_id</em>, <em>task_id</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/www/api/experimental/endpoints.html#task_info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.www.api.experimental.endpoints.task_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a JSON with a task’s public instance variables.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.www.api.experimental.endpoints.task_instance_info">
+<code class="descclassname">airflow.www.api.experimental.endpoints.</code><code class="descname">task_instance_info</code><span class="sig-paren">(</span><em>dag_id</em>, <em>execution_date</em>, <em>task_id</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/www/api/experimental/endpoints.html#task_instance_info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.www.api.experimental.endpoints.task_instance_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a JSON with a task instance’s public instance variables.
+The format for the exec_date is expected to be
+“YYYY-mm-DDTHH:MM:SS”, for example: “2016-11-16T11:34:15”. This will
+of course need to have been encoded for URL in the request.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.www.api.experimental.endpoints.test">
+<code class="descclassname">airflow.www.api.experimental.endpoints.</code><code class="descname">test</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/www/api/experimental/endpoints.html#test"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.www.api.experimental.endpoints.test" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.www.api.experimental.endpoints.trigger_dag">
+<code class="descclassname">airflow.www.api.experimental.endpoints.</code><code class="descname">trigger_dag</code><span class="sig-paren">(</span><em>dag_id</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/www/api/experimental/endpoints.html#trigger_dag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.www.api.experimental.endpoints.trigger_dag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Trigger a new dag run for a Dag with an execution date of now unless
+specified in the data.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.www.api.experimental">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-airflow.www.api.experimental" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

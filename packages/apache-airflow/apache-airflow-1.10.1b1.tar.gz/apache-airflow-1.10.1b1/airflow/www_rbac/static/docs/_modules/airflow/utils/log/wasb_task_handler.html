@@ -1,0 +1,420 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>airflow.utils.log.wasb_task_handler &mdash; Airflow Documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../search.html"/>
+    <link rel="top" title="Airflow Documentation" href="../../../../index.html"/>
+        <link rel="up" title="airflow.utils" href="../../utils.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Airflow
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../howto/index.html">How-to Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ui.html">UI / Screenshots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../profiling.html">Data Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cli.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../scheduler.html">Scheduling &amp; Triggers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../security.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../timezone.html">Time zones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api.html">Experimental Rest API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../integration.html">Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../lineage.html">Lineage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../code.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Airflow</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../../airflow.html">airflow</a> &raquo;</li>
+        
+          <li><a href="../../utils.html">airflow.utils</a> &raquo;</li>
+        
+      <li>airflow.utils.log.wasb_task_handler</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for airflow.utils.log.wasb_task_handler</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed to the Apache Software Foundation (ASF) under one</span>
+<span class="c1"># or more contributor license agreements.  See the NOTICE file</span>
+<span class="c1"># distributed with this work for additional information</span>
+<span class="c1"># regarding copyright ownership.  The ASF licenses this file</span>
+<span class="c1"># to you under the Apache License, Version 2.0 (the</span>
+<span class="c1"># &quot;License&quot;); you may not use this file except in compliance</span>
+<span class="c1"># with the License.  You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#   http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing,</span>
+<span class="c1"># software distributed under the License is distributed on an</span>
+<span class="c1"># &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
+<span class="c1"># KIND, either express or implied.  See the License for the</span>
+<span class="c1"># specific language governing permissions and limitations</span>
+<span class="c1"># under the License.</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+
+<span class="kn">from</span> <span class="nn">airflow</span> <span class="k">import</span> <span class="n">configuration</span>
+<span class="kn">from</span> <span class="nn">airflow.contrib.hooks.wasb_hook</span> <span class="k">import</span> <span class="n">WasbHook</span>
+<span class="kn">from</span> <span class="nn">airflow.utils.log.logging_mixin</span> <span class="k">import</span> <span class="n">LoggingMixin</span>
+<span class="kn">from</span> <span class="nn">airflow.utils.log.file_task_handler</span> <span class="k">import</span> <span class="n">FileTaskHandler</span>
+<span class="kn">from</span> <span class="nn">azure.common</span> <span class="k">import</span> <span class="n">AzureHttpError</span>
+
+
+<div class="viewcode-block" id="WasbTaskHandler"><a class="viewcode-back" href="../../../../code/auto-api/airflow.utils.log.html#airflow.utils.log.wasb_task_handler.WasbTaskHandler">[docs]</a><span class="k">class</span> <span class="nc">WasbTaskHandler</span><span class="p">(</span><span class="n">FileTaskHandler</span><span class="p">,</span> <span class="n">LoggingMixin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    WasbTaskHandler is a python log handler that handles and reads</span>
+<span class="sd">    task instance logs. It extends airflow FileTaskHandler and</span>
+<span class="sd">    uploads to and reads from Wasb remote storage.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">base_log_folder</span><span class="p">,</span> <span class="n">wasb_log_folder</span><span class="p">,</span> <span class="n">wasb_container</span><span class="p">,</span>
+                 <span class="n">filename_template</span><span class="p">,</span> <span class="n">delete_local_copy</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">WasbTaskHandler</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">base_log_folder</span><span class="p">,</span> <span class="n">filename_template</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wasb_container</span> <span class="o">=</span> <span class="n">wasb_container</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">remote_base</span> <span class="o">=</span> <span class="n">wasb_log_folder</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log_relative_path</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_hook</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">closed</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">upload_on_close</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">delete_local_copy</span> <span class="o">=</span> <span class="n">delete_local_copy</span>
+
+    <span class="k">def</span> <span class="nf">_build_hook</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">remote_conn_id</span> <span class="o">=</span> <span class="n">configuration</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;core&#39;</span><span class="p">,</span> <span class="s1">&#39;REMOTE_LOG_CONN_ID&#39;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">WasbHook</span><span class="p">(</span><span class="n">remote_conn_id</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">AzureHttpError</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                <span class="s1">&#39;Could not create an WasbHook with connection id &quot;</span><span class="si">%s</span><span class="s1">&quot;. &#39;</span>
+                <span class="s1">&#39;Please make sure that airflow[azure] is installed and &#39;</span>
+                <span class="s1">&#39;the Wasb connection exists.&#39;</span><span class="p">,</span> <span class="n">remote_conn_id</span>
+            <span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">hook</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hook</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_hook</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_hook</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hook</span>
+
+<div class="viewcode-block" id="WasbTaskHandler.set_context"><a class="viewcode-back" href="../../../../code/auto-api/airflow.utils.log.html#airflow.utils.log.wasb_task_handler.WasbTaskHandler.set_context">[docs]</a>    <span class="k">def</span> <span class="nf">set_context</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ti</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">WasbTaskHandler</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="n">ti</span><span class="p">)</span>
+        <span class="c1"># Local location and remote location is needed to open and</span>
+        <span class="c1"># upload local log file to Wasb remote storage.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log_relative_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_render_filename</span><span class="p">(</span><span class="n">ti</span><span class="p">,</span> <span class="n">ti</span><span class="o">.</span><span class="n">try_number</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">upload_on_close</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">ti</span><span class="o">.</span><span class="n">raw</span></div>
+
+<div class="viewcode-block" id="WasbTaskHandler.close"><a class="viewcode-back" href="../../../../code/auto-api/airflow.utils.log.html#airflow.utils.log.wasb_task_handler.WasbTaskHandler.close">[docs]</a>    <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Close and upload local log file to remote storage Wasb.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># When application exit, system shuts down all handlers by</span>
+        <span class="c1"># calling close method. Here we check if logger is already</span>
+        <span class="c1"># closed to prevent uploading the log to remote storage multiple</span>
+        <span class="c1"># times when `logging.shutdown` is called.</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">closed</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="nb">super</span><span class="p">(</span><span class="n">WasbTaskHandler</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">upload_on_close</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="n">local_loc</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">local_base</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">log_relative_path</span><span class="p">)</span>
+        <span class="n">remote_loc</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">remote_base</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">log_relative_path</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">local_loc</span><span class="p">):</span>
+            <span class="c1"># read log and remove old logs to get just the latest additions</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">local_loc</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">logfile</span><span class="p">:</span>
+                <span class="n">log</span> <span class="o">=</span> <span class="n">logfile</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">wasb_write</span><span class="p">(</span><span class="n">log</span><span class="p">,</span> <span class="n">remote_loc</span><span class="p">,</span> <span class="n">append</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">delete_local_copy</span><span class="p">:</span>
+                <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">local_loc</span><span class="p">))</span>
+        <span class="c1"># Mark closed so we don&#39;t double write if close is called twice</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">closed</span> <span class="o">=</span> <span class="kc">True</span></div>
+
+    <span class="k">def</span> <span class="nf">_read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ti</span><span class="p">,</span> <span class="n">try_number</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Read logs of given task instance and try_number from Wasb remote storage.</span>
+<span class="sd">        If failed, read the log from task instance host machine.</span>
+<span class="sd">        :param ti: task instance object</span>
+<span class="sd">        :param try_number: task instance try_number to read logs from</span>
+<span class="sd">        :param metadata: log metadata,</span>
+<span class="sd">                         can be used for steaming log reading and auto-tailing.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Explicitly getting log relative path is necessary as the given</span>
+        <span class="c1"># task instance might be different than task instance passed in</span>
+        <span class="c1"># in set_context method.</span>
+        <span class="n">log_relative_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_render_filename</span><span class="p">(</span><span class="n">ti</span><span class="p">,</span> <span class="n">try_number</span><span class="p">)</span>
+        <span class="n">remote_loc</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">remote_base</span><span class="p">,</span> <span class="n">log_relative_path</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">wasb_log_exists</span><span class="p">(</span><span class="n">remote_loc</span><span class="p">):</span>
+            <span class="c1"># If Wasb remote file exists, we do not fetch logs from task instance</span>
+            <span class="c1"># local machine even if there are errors reading remote logs, as</span>
+            <span class="c1"># returned remote_log will contain error messages.</span>
+            <span class="n">remote_log</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">wasb_read</span><span class="p">(</span><span class="n">remote_loc</span><span class="p">,</span> <span class="n">return_error</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">log</span> <span class="o">=</span> <span class="s1">&#39;*** Reading remote log from </span><span class="si">{}</span><span class="s1">.</span><span class="se">\n</span><span class="si">{}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">remote_loc</span><span class="p">,</span> <span class="n">remote_log</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">log</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;end_of_log&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">WasbTaskHandler</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">_read</span><span class="p">(</span><span class="n">ti</span><span class="p">,</span> <span class="n">try_number</span><span class="p">)</span>
+
+<div class="viewcode-block" id="WasbTaskHandler.wasb_log_exists"><a class="viewcode-back" href="../../../../code/auto-api/airflow.utils.log.html#airflow.utils.log.wasb_task_handler.WasbTaskHandler.wasb_log_exists">[docs]</a>    <span class="k">def</span> <span class="nf">wasb_log_exists</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">remote_log_location</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check if remote_log_location exists in remote storage</span>
+<span class="sd">        :param remote_log_location: log&#39;s location in remote storage</span>
+<span class="sd">        :return: True if location exists else False</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">hook</span><span class="o">.</span><span class="n">check_for_blob</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wasb_container</span><span class="p">,</span> <span class="n">remote_log_location</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="WasbTaskHandler.wasb_read"><a class="viewcode-back" href="../../../../code/auto-api/airflow.utils.log.html#airflow.utils.log.wasb_task_handler.WasbTaskHandler.wasb_read">[docs]</a>    <span class="k">def</span> <span class="nf">wasb_read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">remote_log_location</span><span class="p">,</span> <span class="n">return_error</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the log found at the remote_log_location. Returns &#39;&#39; if no</span>
+<span class="sd">        logs are found or there is an error.</span>
+<span class="sd">        :param remote_log_location: the log&#39;s location in remote storage</span>
+<span class="sd">        :type remote_log_location: string (path)</span>
+<span class="sd">        :param return_error: if True, returns a string error message if an</span>
+<span class="sd">            error occurs. Otherwise returns &#39;&#39; when an error occurs.</span>
+<span class="sd">        :type return_error: bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">hook</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wasb_container</span><span class="p">,</span> <span class="n">remote_log_location</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">AzureHttpError</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;Could not read logs from </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">remote_log_location</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="c1"># return error if needed</span>
+            <span class="k">if</span> <span class="n">return_error</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">msg</span></div>
+
+<div class="viewcode-block" id="WasbTaskHandler.wasb_write"><a class="viewcode-back" href="../../../../code/auto-api/airflow.utils.log.html#airflow.utils.log.wasb_task_handler.WasbTaskHandler.wasb_write">[docs]</a>    <span class="k">def</span> <span class="nf">wasb_write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">log</span><span class="p">,</span> <span class="n">remote_log_location</span><span class="p">,</span> <span class="n">append</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Writes the log to the remote_log_location. Fails silently if no hook</span>
+<span class="sd">        was created.</span>
+<span class="sd">        :param log: the log to write to the remote_log_location</span>
+<span class="sd">        :type log: string</span>
+<span class="sd">        :param remote_log_location: the log&#39;s location in remote storage</span>
+<span class="sd">        :type remote_log_location: string (path)</span>
+<span class="sd">        :param append: if False, any existing log file is overwritten. If True,</span>
+<span class="sd">            the new log is appended to any existing logs.</span>
+<span class="sd">        :type append: bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">append</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">wasb_log_exists</span><span class="p">(</span><span class="n">remote_log_location</span><span class="p">):</span>
+            <span class="n">old_log</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">wasb_read</span><span class="p">(</span><span class="n">remote_log_location</span><span class="p">)</span>
+            <span class="n">log</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">old_log</span><span class="p">,</span> <span class="n">log</span><span class="p">])</span> <span class="k">if</span> <span class="n">old_log</span> <span class="k">else</span> <span class="n">log</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">hook</span><span class="o">.</span><span class="n">load_string</span><span class="p">(</span>
+                <span class="n">log</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">wasb_container</span><span class="p">,</span>
+                <span class="n">remote_log_location</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">except</span> <span class="n">AzureHttpError</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s1">&#39;Could not write logs to </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span>
+                               <span class="n">remote_log_location</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

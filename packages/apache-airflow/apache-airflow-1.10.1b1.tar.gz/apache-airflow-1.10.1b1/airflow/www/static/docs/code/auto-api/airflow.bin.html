@@ -1,0 +1,583 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>airflow.bin package &mdash; Airflow Documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Airflow Documentation" href="../../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Airflow
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howto/index.html">How-to Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ui.html">UI / Screenshots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../profiling.html">Data Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../scheduler.html">Scheduling &amp; Triggers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../security.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../timezone.html">Time zones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">Experimental Rest API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../integration.html">Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lineage.html">Lineage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../code.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Airflow</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>airflow.bin package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/code/auto-api/airflow.bin.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="airflow-bin-package">
+<h1>airflow.bin package<a class="headerlink" href="#airflow-bin-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-airflow.bin.cli">
+<span id="airflow-bin-cli-module"></span><h2>airflow.bin.cli module<a class="headerlink" href="#module-airflow.bin.cli" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.bin.cli.Arg">
+<em class="property">class </em><code class="descclassname">airflow.bin.cli.</code><code class="descname">Arg</code><span class="sig-paren">(</span><em>flags</em>, <em>help</em>, <em>action</em>, <em>default</em>, <em>nargs</em>, <em>type</em>, <em>choices</em>, <em>metavar</em><span class="sig-paren">)</span><a class="headerlink" href="#airflow.bin.cli.Arg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
+<dl class="attribute">
+<dt id="airflow.bin.cli.Arg.action">
+<code class="descname">action</code><a class="headerlink" href="#airflow.bin.cli.Arg.action" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.bin.cli.Arg.choices">
+<code class="descname">choices</code><a class="headerlink" href="#airflow.bin.cli.Arg.choices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 6</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.bin.cli.Arg.default">
+<code class="descname">default</code><a class="headerlink" href="#airflow.bin.cli.Arg.default" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 3</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.bin.cli.Arg.flags">
+<code class="descname">flags</code><a class="headerlink" href="#airflow.bin.cli.Arg.flags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.bin.cli.Arg.help">
+<code class="descname">help</code><a class="headerlink" href="#airflow.bin.cli.Arg.help" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.bin.cli.Arg.metavar">
+<code class="descname">metavar</code><a class="headerlink" href="#airflow.bin.cli.Arg.metavar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 7</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.bin.cli.Arg.nargs">
+<code class="descname">nargs</code><a class="headerlink" href="#airflow.bin.cli.Arg.nargs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 4</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.bin.cli.Arg.type">
+<code class="descname">type</code><a class="headerlink" href="#airflow.bin.cli.Arg.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 5</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="airflow.bin.cli.CLIFactory">
+<em class="property">class </em><code class="descclassname">airflow.bin.cli.</code><code class="descname">CLIFactory</code><a class="reference internal" href="../../_modules/airflow/bin/cli.html#CLIFactory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.bin.cli.CLIFactory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="airflow.bin.cli.CLIFactory.args">
+<code class="descname">args</code><em class="property"> = {'access_logfile': Arg(flags=('-A', '--access_logfile'), help=&quot;The logfile to store the webserver access log. Use '-' to print to stderr.&quot;, action=None, default='-', nargs=None, type=None, choices=None, metavar=None), 'add_connection': Arg(flags=('-a', '--add'), help='Add a connection', action='store_true', default=None, nargs=None, type=None, choices=None, metavar=None), 'bf_ignore_dependencies': Arg(flags=('-i', '--ignore_dependencies'), help='Skip upstream tasks, run only the tasks matching the regexp. Only works in conjunction with task_regex', action='store_true', default=None, nargs=None, type=None, choices=None, metavar=None), 'bf_ignore_first_depends_on_past': Arg(flags=('-I', '--ignore_first_depends_on_past'), help='Ignores depends_on_past dependencies for the first set of tasks only (subsequent executions in the backfill DO respect depends_on_past).', action='store_true', default=None, nargs=None, type=None, choices=None, metavar=None), 'broker_api': Arg(flags=('-a', '--broker_api'), help='Broker api', action=None, default=None, nargs=None, type=None, choices=None, metavar=None), 'celery_hostname': Arg(flags=('-cn', '--celery_hostname'), help='Set the hostname of celery worker if you have multiple workers on a single machine.', action=None, default=None, nargs=None, type=None, choices=None, metavar=None), 'cfg_path': Arg(flags=('--cfg_path',), help='Path to config file to use instead of airflow.cfg', action=None, default=None, nargs=None, type=None, choices=None, metavar=None), 'concurrency': Arg(flags=('-c', '--concurrency'), help='The number of worker processes', action=None, default='16', nargs=None, type=&lt;class 'int'&gt;, choices=None, metavar=None), 'conf': Arg(flags=('-c', '--conf'), help=&quot;JSON string that gets pickled into the DagRun's conf attribute&quot;, action=None, default=None, nargs=None, type=None, choices=None, metavar=None), 'conn_extra': Arg(flags=('--conn_extra',), help='Connection `Extra` field, optional when adding a connection', action=None, default=None, nargs=None, type=&lt;class 'str'&gt;, choices=None, metavar=None), 'conn_host': Arg(flags=('--conn_host',), help='Connection host, optional when adding a connection', action=None, default=None, nargs=None, type=&lt;class 'str'&gt;, choices=None, metavar=None), 'conn_id': Arg(flags=('--conn_id',), help='Connection id, required to add/delete a connection', action=None, default=None, nargs=None, type=&lt;class 'str'&gt;, choices=None, metavar=None), 'conn_login': Arg(flags=('--conn_login',), help='Connection login, optional when adding a connection', action=None, default=None, nargs=None, type=&lt;class 'str'&gt;, choices=None, metavar=None), 'conn_password': Arg(flags=('--conn_password',), help='Connection password, optional when adding a connection', action=None, default=None, nargs=None, type=&lt;class 'str'&gt;, choices=None, metavar=None), 'conn_port': Arg(flags=('--conn_port',), help='Connection port, optional when adding a connection', action=None, default=None, nargs=None, type=&lt;class 'str'&gt;, choices=None, metavar=None), 'conn_schema': Arg(flags=('--conn_schema',), help='Connection schema, optional when adding a connection', action=None, default=None, nargs=None, type=&lt;class 'str'&gt;, choices=None, metavar=None), 'conn_type': Arg(flags=('--conn_type',), help='Connection type, required to add a connection without conn_uri', action=None, default=None, nargs=None, type=&lt;class 'str'&gt;, choices=None, metavar=None), 'conn_uri': Arg(flags=('--conn_uri',), help='Connection URI, required to add a connection without conn_type', action=None, default=None, nargs=None, type=&lt;class 'str'&gt;, choices=None, metavar=None), 'daemon': Arg(flags=('-D', '--daemon'), help='Daemonize instead of running in the foreground', action='store_true', default=None, nargs=None, type=None, choices=None, metavar=None), 'dag_id': Arg(flags=('dag_id',), help='The id of the dag', action=None, default=None, nargs=None, type=None, choices=None, metavar=None), 'dag_id_opt': Arg(flags=('-d', '--dag_id'), help='The id of the dag to run', action=None, default=None, nargs=None, type=None, choices=None, metavar=None), 'dag_regex': Arg(flags=('-dx', '--dag_regex'), help='Search dag_id as regex instead of exact string', action='store_true', default=None, nargs=None, type=None, choices=None, metavar=None), 'debug': Arg(flags=('-d', '--debug'), help='Use the server that ships with Flask in debug mode', action='store_true', default=None, nargs=None, type=None, choices=None, metavar=None), 'default': Arg(flags=('-d', '--default'), help='Default value returned if variable does not exist', action=None, default=None, nargs=None, type=None, choices=None, metavar='VAL'), 'delay_on_limit': Arg(flags=('--delay_on_limit',), help='Amount of time in seconds to wait when the limit on maximum active dag runs (max_active_runs) has been reached before trying to execute a dag run again.', action=None, default=1.0, nargs=None, type=&lt;class 'float'&gt;, choices=None, metavar=None), 'delete_connection': Arg(flags=('-d', '--delete'), help='Delete a connection', action='store_true', default=None, nargs=None, type=None, choices=None, metavar=None), 'do_pickle': Arg(flags=('-p', '--do_pickle'), help='Attempt to pickle the DAG object to send over to the workers, instead of letting workers run their version of the code.', action='store_true', default=False, nargs=None, type=None, choices=None, metavar=None), 'donot_pickle': Arg(flags=('-x', '--donot_pickle'), help='Do not attempt to pickle the DAG object to send over to the workers, just tell the workers to run their version of the code.', action='store_true', default=None, nargs=None, type=None, choices=None, metavar=None), 'downstream': Arg(flags=('-d', '--downstream'), help='Include downstream tasks', action='store_true', default=None, nargs=None, type=None, choices=None, metavar=None), 'dry_run': Arg(flags=('-dr', '--dry_run'), help='Perform a dry run', action='store_true', default=None, nargs=None, type=None, choices=None, metavar=None), 'email': Arg(flags=('-e', '--email'), help='Email of the user', action=None, default=None, nargs=None, type=&lt;class 'str'&gt;, choices=None, metavar=None), 'end_date': Arg(flags=('-e', '--end_date'), help='Override end_date YYYY-MM-DD', action=None, default=None, nargs=None, type=&lt;function parse at 0x10522bc80&gt;, choices=None, metavar=None), 'error_logfile': Arg(flags=('-E', '--error_logfile'), help=&quot;The logfile to store the webserver error log. Use '-' to print to stderr.&quot;, action=None, default='-', nargs=None, type=None, choices=None, metavar=None), 'exclude_subdags': Arg(flags=('-x', '--exclude_subdags'), help='Exclude subdags', action='store_true', default=None, nargs=None, type=None, choices=None, metavar=None), 'exec_date': Arg(flags=('-e', '--exec_date'), help='The execution date of the DAG', action=None, default=None, nargs=None, type=&lt;function parse at 0x10522bc80&gt;, choices=None, metavar=None), 'execution_date': Arg(flags=('execution_date',), help='The execution date of the DAG', action=None, default=None, nargs=None, type=&lt;function parse at 0x10522bc80&gt;, choices=None, metavar=None), 'firstname': Arg(flags=('-f', '--firstname'), help='First name of the user', action=None, default=None, nargs=None, type=&lt;class 'str'&gt;, choices=None, metavar=None), 'flower_conf': Arg(flags=('-fc', '--flower_conf'), help='Configuration file for flower', action=None, default=None, nargs=None, type=None, choices=None, metavar=None), 'flower_hostname': Arg(flags=('-hn', '--hostname'), help='Set the hostname on which to run the server', action=None, default='0.0.0.0', nargs=None, type=None, choices=None, metavar=None), 'flower_port': Arg(flags=('-p', '--port'), help='The port on which to run the server', action=None, default='5555', nargs=None, type=&lt;class 'int'&gt;, choices=None, metavar=None), 'flower_url_prefix': Arg(flags=('-u', '--url_prefix'), help='URL prefix for Flower', action=None, default='', nargs=None, type=None, choices=None, metavar=None), 'force': Arg(flags=('-f', '--force'), help='Ignore previous task instance state, rerun regardless if task already succeeded/failed', action='store_true', default=None, nargs=None, type=None, choices=None, metavar=None), 'get': Arg(flags=('-g', '--get'), help='Get value of a variable', action=None, default=None, nargs=None, type=None, choices=None, metavar='KEY'), 'hostname': Arg(flags=('-hn', '--hostname'), help='Set the hostname on which to run the web server', action=None, default='0.0.0.0', nargs=None, type=None, choices=None, metavar=None), 'ignore_all_dependencies': Arg(flags=('-A', '--ignore_all_dependencies'), help='Ignores all non-critical dependencies, including ignore_ti_state and ignore_task_deps', action='store_true', default=None, nargs=None, type=None, choices=None, metavar=None), 'ignore_dependencies': Arg(flags=('-i', '--ignore_dependencies'), help='Ignore task-specific dependencies, e.g. upstream, depends_on_past, and retry delay dependencies', action='store_true', default=None, nargs=None, type=None, choices=None, metavar=None), 'ignore_depends_on_past': Arg(flags=('-I', '--ignore_depends_on_past'), help='Ignore depends_on_past dependencies (but respect upstream dependencies)', action='store_true', default=None, nargs=None, type=None, choices=None, metavar=None), 'interactive': Arg(flags=('-int', '--interactive'), help='Do not capture standard output and error streams (useful for interactive debugging)', action='store_true', default=None, nargs=None, type=None, choices=None, metavar=None), 'job_id': Arg(flags=('-j', '--job_id'), help='==SUPPRESS==', action=None, default=None, nargs=None, type=None, choices=None, metavar=None), 'json': Arg(flags=('-j', '--json'), help='Deserialize JSON variable', action='store_true', default=None, nargs=None, type=None, choices=None, metavar=None), 'keytab': Arg(flags=('-kt', '--keytab'), help='keytab', action=None, default='airflow.keytab', nargs='?', type=None, choices=None, metavar=None), 'lastname': Arg(flags=('-l', '--lastname'), help='Last name of the user', action=None, default=None, nargs=None, type=&lt;class 'str'&gt;, choices=None, metavar=None), 'list_connections': Arg(flags=('-l', '--list'), help='List all connections', action='store_true', default=None, nargs=None, type=None, choices=None, metavar=None), 'local': Arg(flags=('-l', '--local'), help='Run the task using the LocalExecutor', action='store_true', default=None, nargs=None, type=None, choices=None, metavar=None), 'log_file': Arg(flags=('-l', '--log-file'), help='Location of the log file', action=None, default=None, nargs=None, type=None, choices=None, metavar=None), 'mark_success': Arg(flags=('-m', '--mark_success'), help='Mark jobs as succeeded without running them', action='store_true', default=None, nargs=None, type=None, choices=None, metavar=None), 'no_confirm': Arg(flags=('-c', '--no_confirm'), help='Do not request confirmation', action='store_true', default=None, nargs=None, type=None, choices=None, metavar=None), 'num_runs': Arg(flags=('-n', '--num_runs'), help='Set the number of runs to execute before exiting', action=None, default=-1, nargs=None, type=&lt;class 'int'&gt;, choices=None, metavar=None), 'only_failed': Arg(flags=('-f', '--only_failed'), help='Only failed jobs', action='store_true', default=None, nargs=None, type=None, choices=None, metavar=None), 'only_running': Arg(flags=('-r', '--only_running'), help='Only running jobs', action='store_true', default=None, nargs=None, type=None, choices=None, metavar=None), 'password': Arg(flags=('-p', '--password'), help='Password of the user', action=None, default=None, nargs=None, type=&lt;class 'str'&gt;, choices=None, metavar=None), 'pickle': Arg(flags=('-p', '--pickle'), help='Serialized pickle object of the entire dag (used internally)', action=None, default=None, nargs=None, type=None, choices=None, metavar=None), 'pid': Arg(flags=('--pid',), help='PID file location', action=None, default=None, nargs='?', type=None, choices=None, metavar=None), 'pool': Arg(flags=('--pool',), help='Resource pool to use', action=None, default=None, nargs=None, type=None, choices=None, metavar=None), 'pool_delete': Arg(flags=('-x', '--delete'), help='Delete a pool', action=None, default=None, nargs=None, type=None, choices=None, metavar='NAME'), 'pool_get': Arg(flags=('-g', '--get'), help='Get pool info', action=None, default=None, nargs=None, type=None, choices=None, metavar='NAME'), 'pool_set': Arg(flags=('-s', '--set'), help='Set pool slot count and description, respectively', action=None, default=None, nargs=3, type=None, choices=None, metavar=('NAME', 'SLOT_COUNT', 'POOL_DESCRIPTION')), 'port': Arg(flags=('-p', '--port'), help='The port on which to run the server', action=None, default='8080', nargs=None, type=&lt;class 'int'&gt;, choices=None, metavar=None), 'principal': Arg(flags=('principal',), help='kerberos principal', action=None, default='airflow', nargs='?', type=None, choices=None, metavar=None), 'queues': Arg(flags=('-q', '--queues'), help='Comma delimited list of queues to serve', action=None, default='default', nargs=None, type=None, choices=None, metavar=None), 'raw': Arg(flags=('-r', '--raw'), help='==SUPPRESS==', action='store_true', default=None, nargs=None, type=None, choices=None, metavar=None), 'report': Arg(flags=('-r', '--report'), help='Show DagBag loading report', action='store_true', default=None, nargs=None, type=None, choices=None, metavar=None), 'rerun_failed_tasks': Arg(flags=('--rerun_failed_tasks',), help='if set, the backfill will auto-rerun all the failed tasks for the backfill date range instead of throwing exceptions', action='store_true', default=None, nargs=None, type=None, choices=None, metavar=None), 'reset_dag_run': Arg(flags=('--reset_dagruns',), help='if set, the backfill will delete existing backfill-related DAG runs and start anew with fresh, running DAG runs', action='store_true', default=None, nargs=None, type=None, choices=None, metavar=None), 'role': Arg(flags=('-r', '--role'), help='Role of the user. Existing roles include Admin, User, Op, Viewer, and Public', action=None, default=None, nargs=None, type=&lt;class 'str'&gt;, choices=None, metavar=None), 'run_duration': Arg(flags=('-r', '--run-duration'), help='Set number of seconds to execute before exiting', action=None, default=None, nargs=None, type=&lt;class 'int'&gt;, choices=None, metavar=None), 'run_id': Arg(flags=('-r', '--run_id'), help='Helps to identify this run', action=None, default=None, nargs=None, type=None, choices=None, metavar=None), 'set': Arg(flags=('-s', '--set'), help='Set a variable', action=None, default=None, nargs=2, type=None, choices=None, metavar=('KEY', 'VAL')), 'ship_dag': Arg(flags=('--ship_dag',), help='Pickles (serializes) the DAG and ships it to the worker', action='store_true', default=None, nargs=None, type=None, choices=None, metavar=None), 'ssl_cert': Arg(flags=('--ssl_cert',), help='Path to the SSL certificate for the webserver', action=None, default='', nargs=None, type=None, choices=None, metavar=None), 'ssl_key': Arg(flags=('--ssl_key',), help='Path to the key to use with the SSL certificate', action=None, default='', nargs=None, type=None, choices=None, metavar=None), 'start_date': Arg(flags=('-s', '--start_date'), help='Override start_date YYYY-MM-DD', action=None, default=None, nargs=None, type=&lt;function parse at 0x10522bc80&gt;, choices=None, metavar=None), 'stderr': Arg(flags=('--stderr',), help='Redirect stderr to this file', action=None, default=None, nargs=None, type=None, choices=None, metavar=None), 'stdout': Arg(flags=('--stdout',), help='Redirect stdout to this file', action=None, default=None, nargs=None, type=None, choices=None, metavar=None), 'subdir': Arg(flags=('-sd', '--subdir'), help='File location or directory from which to look for the dag', action=None, default='/Users/ash/airflow/dags', nargs=None, type=None, choices=None, metavar=None), 'task_id': Arg(flags=('task_id',), help='The id of the task', action=None, default=None, nargs=None, type=None, choices=None, metavar=None), 'task_params': Arg(flags=('-tp', '--task_params'), help='Sends a JSON params dict to the task', action=None, default=None, nargs=None, type=None, choices=None, metavar=None), 'task_regex': Arg(flags=('-t', '--task_regex'), help='The regex to filter specific task_ids to backfill (optional)', action=None, default=None, nargs=None, type=None, choices=None, metavar=None), 'tree': Arg(flags=('-t', '--tree'), help='Tree view', action='store_true', default=None, nargs=None, type=None, choices=None, metavar=None), 'upstream': Arg(flags=('-u', '--upstream'), help='Include upstream tasks', action='store_true', default=None, nargs=None, type=None, choices=None, metavar=None), 'use_random_password': Arg(flags=('--use_random_password',), help='Do not prompt for password.  Use random string instead', action='store_true', default=False, nargs=None, type=None, choices=None, metavar=None), 'username': Arg(flags=('-u', '--username'), help='Username of the user', action=None, default=None, nargs=None, type=&lt;class 'str'&gt;, choices=None, metavar=None), 'var_delete': Arg(flags=('-x', '--delete'), help='Delete a variable', action=None, default=None, nargs=None, type=None, choices=None, metavar='KEY'), 'var_export': Arg(flags=('-e', '--export'), help='Export variables to JSON file', action=None, default=None, nargs=None, type=None, choices=None, metavar='FILEPATH'), 'var_import': Arg(flags=('-i', '--import'), help='Import variables from JSON file', action=None, default=None, nargs=None, type=None, choices=None, metavar='FILEPATH'), 'verbose': Arg(flags=('-v', '--verbose'), help='Make logging output more verbose', action='store_true', default=None, nargs=None, type=None, choices=None, metavar=None), 'worker_timeout': Arg(flags=('-t', '--worker_timeout'), help='The timeout for waiting on webserver workers', action=None, default='120', nargs=None, type=&lt;class 'int'&gt;, choices=None, metavar=None), 'workerclass': Arg(flags=('-k', '--workerclass'), help='The worker class to use for Gunicorn', action=None, default='sync', nargs=None, type=None, choices=['sync', 'eventlet', 'gevent', 'tornado'], metavar=None), 'workers': Arg(flags=('-w', '--workers'), help='Number of workers to run the webserver on', action=None, default='4', nargs=None, type=&lt;class 'int'&gt;, choices=None, metavar=None), 'yes': Arg(flags=('-y', '--yes'), help='Do not prompt to confirm reset. Use with care!', action='store_true', default=False, nargs=None, type=None, choices=None, metavar=None)}</em><a class="headerlink" href="#airflow.bin.cli.CLIFactory.args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.bin.cli.CLIFactory.dag_subparsers">
+<code class="descname">dag_subparsers</code><em class="property"> = ('list_tasks', 'backfill', 'test', 'run', 'pause', 'unpause')</em><a class="headerlink" href="#airflow.bin.cli.CLIFactory.dag_subparsers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="airflow.bin.cli.CLIFactory.get_parser">
+<em class="property">classmethod </em><code class="descname">get_parser</code><span class="sig-paren">(</span><em>dag_parser=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/bin/cli.html#CLIFactory.get_parser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.bin.cli.CLIFactory.get_parser" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.bin.cli.CLIFactory.subparsers">
+<code class="descname">subparsers</code><em class="property"> = ({'help': 'Run subsections of a DAG for a specified date range. If reset_dag_run option is used, backfill will first prompt users whether airflow should clear all the previous dag_run and task_instances within the backfill date range.If rerun_failed_tasks is used, backfill will auto re-run the previous failed task instances within the backfill date range.', 'args': ('dag_id', 'task_regex', 'start_date', 'end_date', 'mark_success', 'local', 'donot_pickle', 'bf_ignore_dependencies', 'bf_ignore_first_depends_on_past', 'subdir', 'pool', 'delay_on_limit', 'dry_run', 'verbose', 'conf', 'reset_dag_run', 'rerun_failed_tasks'), 'func': &lt;function backfill&gt;}, {'help': 'List the tasks within a DAG', 'args': ('dag_id', 'tree', 'subdir'), 'func': &lt;function list_tasks&gt;}, {'help': 'Clear a set of task instance, as if they never ran', 'args': ('dag_id', 'task_regex', 'start_date', 'end_date', 'subdir', 'upstream', 'downstream', 'no_confirm', 'only_failed', 'only_running', 'exclude_subdags', 'dag_regex'), 'func': &lt;function clear&gt;}, {'help': 'Pause a DAG', 'args': ('dag_id', 'subdir'), 'func': &lt;function pause&gt;}, {'help': 'Resume a paused DAG', 'args': ('dag_id', 'subdir'), 'func': &lt;function unpause&gt;}, {'help': 'Trigger a DAG run', 'args': ('dag_id', 'subdir', 'run_id', 'conf', 'exec_date'), 'func': &lt;function trigger_dag&gt;}, {'help': 'Delete all DB records related to the specified DAG', 'args': ('dag_id', 'yes'), 'func': &lt;function delete_dag&gt;}, {'help': 'CRUD operations on pools', 'args': ('pool_set', 'pool_get', 'pool_delete'), 'func': &lt;function pool&gt;}, {'help': 'CRUD operations on variables', 'args': ('set', 'get', 'json', 'default', 'var_import', 'var_export', 'var_delete'), 'func': &lt;function variables&gt;}, {'help': 'Start a kerberos ticket renewer', 'args': ('principal', 'keytab', 'pid', 'daemon', 'stdout', 'stderr', 'log_file'), 'func': &lt;function kerberos&gt;}, {'help': &quot;Render a task instance's template(s)&quot;, 'args': ('dag_id', 'task_id', 'execution_date', 'subdir'), 'func': &lt;function render&gt;}, {'help': 'Run a single task instance', 'args': ('dag_id', 'task_id', 'execution_date', 'subdir', 'mark_success', 'force', 'pool', 'cfg_path', 'local', 'raw', 'ignore_all_dependencies', 'ignore_dependencies', 'ignore_depends_on_past', 'ship_dag', 'pickle', 'job_id', 'interactive'), 'func': &lt;function run&gt;}, {'help': 'Initialize the metadata database', 'args': (), 'func': &lt;function initdb&gt;}, {'help': 'List all the DAGs', 'args': ('subdir', 'report'), 'func': &lt;function list_dags&gt;}, {'help': 'Get the status of a dag run', 'args': ('dag_id', 'execution_date', 'subdir'), 'func': &lt;function dag_state&gt;}, {'help': &quot;Returns the unmet dependencies for a task instance from the perspective of the scheduler. In other words, why a task instance doesn't get scheduled and then queued by the scheduler, and then run by an executor).&quot;, 'args': ('dag_id', 'task_id', 'execution_date', 'subdir'), 'func': &lt;function task_failed_deps&gt;}, {'help': 'Get the status of a task instance', 'args': ('dag_id', 'task_id', 'execution_date', 'subdir'), 'func': &lt;function task_state&gt;}, {'help': 'Serve logs generate by worker', 'args': (), 'func': &lt;function serve_logs&gt;}, {'help': 'Test a task instance. This will run a task without checking for dependencies or recording its state in the database.', 'args': ('dag_id', 'task_id', 'execution_date', 'subdir', 'dry_run', 'task_params'), 'func': &lt;function test&gt;}, {'help': 'Start a Airflow webserver instance', 'args': ('port', 'workers', 'workerclass', 'worker_timeout', 'hostname', 'pid', 'daemon', 'stdout', 'stderr', 'access_logfile', 'error_logfile', 'log_file', 'ssl_cert', 'ssl_key', 'debug'), 'func': &lt;function webserver&gt;}, {'help': 'Burn down and rebuild the metadata database', 'args': ('yes',), 'func': &lt;function resetdb&gt;}, {'help': 'Upgrade the metadata database to latest version', 'args': (), 'func': &lt;function upgradedb&gt;}, {'help': 'Start a scheduler instance', 'args': ('dag_id_opt', 'subdir', 'run_duration', 'num_runs', 'do_pickle', 'pid', 'daemon', 'stdout', 'stderr', 'log_file'), 'func': &lt;function scheduler&gt;}, {'help': 'Start a Celery worker node', 'args': ('do_pickle', 'queues', 'concurrency', 'celery_hostname', 'pid', 'daemon', 'stdout', 'stderr', 'log_file'), 'func': &lt;function worker&gt;}, {'help': 'Start a Celery Flower', 'args': ('flower_hostname', 'flower_port', 'flower_conf', 'flower_url_prefix', 'broker_api', 'pid', 'daemon', 'stdout', 'stderr', 'log_file'), 'func': &lt;function flower&gt;}, {'help': 'Show the version', 'args': (), 'func': &lt;function version&gt;}, {'help': 'List/Add/Delete connections', 'args': ('list_connections', 'add_connection', 'delete_connection', 'conn_id', 'conn_uri', 'conn_extra', 'conn_type', 'conn_host', 'conn_login', 'conn_password', 'conn_schema', 'conn_port'), 'func': &lt;function connections&gt;}, {'help': 'Create an admin account', 'args': ('role', 'username', 'email', 'firstname', 'lastname', 'password', 'use_random_password'), 'func': &lt;function create_user&gt;})</em><a class="headerlink" href="#airflow.bin.cli.CLIFactory.subparsers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.bin.cli.CLIFactory.subparsers_dict">
+<code class="descname">subparsers_dict</code><em class="property"> = {'backfill': {'help': 'Run subsections of a DAG for a specified date range. If reset_dag_run option is used, backfill will first prompt users whether airflow should clear all the previous dag_run and task_instances within the backfill date range.If rerun_failed_tasks is used, backfill will auto re-run the previous failed task instances within the backfill date range.', 'args': ('dag_id', 'task_regex', 'start_date', 'end_date', 'mark_success', 'local', 'donot_pickle', 'bf_ignore_dependencies', 'bf_ignore_first_depends_on_past', 'subdir', 'pool', 'delay_on_limit', 'dry_run', 'verbose', 'conf', 'reset_dag_run', 'rerun_failed_tasks'), 'func': &lt;function backfill at 0x10ca9c488&gt;}, 'clear': {'help': 'Clear a set of task instance, as if they never ran', 'args': ('dag_id', 'task_regex', 'start_date', 'end_date', 'subdir', 'upstream', 'downstream', 'no_confirm', 'only_failed', 'only_running', 'exclude_subdags', 'dag_regex'), 'func': &lt;function clear at 0x10ca9e730&gt;}, 'connections': {'help': 'List/Add/Delete connections', 'args': ('list_connections', 'add_connection', 'delete_connection', 'conn_id', 'conn_uri', 'conn_extra', 'conn_type', 'conn_host', 'conn_login', 'conn_password', 'conn_schema', 'conn_port'), 'func': &lt;function connections at 0x10caa01e0&gt;}, 'create_user': {'help': 'Create an admin account', 'args': ('role', 'username', 'email', 'firstname', 'lastname', 'password', 'use_random_password'), 'func': &lt;function create_user at 0x10caa0510&gt;}, 'dag_state': {'help': 'Get the status of a dag run', 'args': ('dag_id', 'execution_date', 'subdir'), 'func': &lt;function dag_state at 0x10ca9e1e0&gt;}, 'delete_dag': {'help': 'Delete all DB records related to the specified DAG', 'args': ('dag_id', 'yes'), 'func': &lt;function delete_dag at 0x10ca9c6a8&gt;}, 'flower': {'help': 'Start a Celery Flower', 'args': ('flower_hostname', 'flower_port', 'flower_conf', 'flower_url_prefix', 'broker_api', 'pid', 'daemon', 'stdout', 'stderr', 'log_file'), 'func': &lt;function flower at 0x10caa02f0&gt;}, 'initdb': {'help': 'Initialize the metadata database', 'args': (), 'func': &lt;function initdb at 0x10ca9ed90&gt;}, 'kerberos': {'help': 'Start a kerberos ticket renewer', 'args': ('principal', 'keytab', 'pid', 'daemon', 'stdout', 'stderr', 'log_file'), 'func': &lt;function kerberos at 0x10caa0400&gt;}, 'list_dags': {'help': 'List all the DAGs', 'args': ('subdir', 'report'), 'func': &lt;function list_dags at 0x10ca9e2f0&gt;}, 'list_tasks': {'help': 'List the tasks within a DAG', 'args': ('dag_id', 'tree', 'subdir'), 'func': &lt;function list_tasks at 0x10ca9e400&gt;}, 'pause': {'help': 'Pause a DAG', 'args': ('dag_id', 'subdir'), 'func': &lt;function pause at 0x10ca9cae8&gt;}, 'pool': {'help': 'CRUD operations on pools', 'args': ('pool_set', 'pool_get', 'pool_delete'), 'func': &lt;function pool at 0x10ca9c7b8&gt;}, 'render': {'help': &quot;Render a task instance's template(s)&quot;, 'args': ('dag_id', 'task_id', 'execution_date', 'subdir'), 'func': &lt;function render at 0x10ca9e620&gt;}, 'resetdb': {'help': 'Burn down and rebuild the metadata database', 'args': ('yes',), 'func': &lt;function resetdb at 0x10ca9ee18&gt;}, 'run': {'help': 'Run a single task instance', 'args': ('dag_id', 'task_id', 'execution_date', 'subdir', 'mark_success', 'force', 'pool', 'cfg_path', 'local', 'raw', 'ignore_all_dependencies', 'ignore_dependencies', 'ignore_depends_on_past', 'ship_dag', 'pickle', 'job_id', 'interactive'), 'func': &lt;function run at 0x10ca9ce18&gt;}, 'scheduler': {'help': 'Start a scheduler instance', 'args': ('dag_id_opt', 'subdir', 'run_duration', 'num_runs', 'do_pickle', 'pid', 'daemon', 'stdout', 'stderr', 'log_file'), 'func': &lt;function scheduler at 0x10ca9eae8&gt;}, 'serve_logs': {'help': 'Serve logs generate by worker', 'args': (), 'func': &lt;function serve_logs at 0x10ca9ebf8&gt;}, 'task_failed_deps': {'help': &quot;Returns the unmet dependencies for a task instance from the perspective of the scheduler. In other words, why a task instance doesn't get scheduled and then queued by the scheduler, and then run by an executor).&quot;, 'args': ('dag_id', 'task_id', 'execution_date', 'subdir'), 'func': &lt;function task_failed_deps at 0x10ca9cf28&gt;}, 'task_state': {'help': 'Get the status of a task instance', 'args': ('dag_id', 'task_id', 'execution_date', 'subdir'), 'func': &lt;function task_state at 0x10ca9e0d0&gt;}, 'test': {'help': 'Test a task instance. This will run a task without checking for dependencies or recording its state in the database.', 'args': ('dag_id', 'task_id', 'execution_date', 'subdir', 'dry_run', 'task_params'), 'func': &lt;function test at 0x10ca9e510&gt;}, 'trigger_dag': {'help': 'Trigger a DAG run', 'args': ('dag_id', 'subdir', 'run_id', 'conf', 'exec_date'), 'func': &lt;function trigger_dag at 0x10ca9c598&gt;}, 'unpause': {'help': 'Resume a paused DAG', 'args': ('dag_id', 'subdir'), 'func': &lt;function unpause at 0x10ca9cbf8&gt;}, 'upgradedb': {'help': 'Upgrade the metadata database to latest version', 'args': (), 'func': &lt;function upgradedb at 0x10ca9ef28&gt;}, 'variables': {'help': 'CRUD operations on variables', 'args': ('set', 'get', 'json', 'default', 'var_import', 'var_export', 'var_delete'), 'func': &lt;function variables at 0x10ca9c8c8&gt;}, 'version': {'help': 'Show the version', 'args': (), 'func': &lt;function version at 0x10caa00d0&gt;}, 'webserver': {'help': 'Start a Airflow webserver instance', 'args': ('port', 'workers', 'workerclass', 'worker_timeout', 'hostname', 'pid', 'daemon', 'stdout', 'stderr', 'access_logfile', 'error_logfile', 'log_file', 'ssl_cert', 'ssl_key', 'debug'), 'func': &lt;function webserver at 0x10ca9e9d8&gt;}, 'worker': {'help': 'Start a Celery worker node', 'args': ('do_pickle', 'queues', 'concurrency', 'celery_hostname', 'pid', 'daemon', 'stdout', 'stderr', 'log_file'), 'func': &lt;function worker at 0x10ca9ed08&gt;}}</em><a class="headerlink" href="#airflow.bin.cli.CLIFactory.subparsers_dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.bin.cli.backfill">
+<code class="descclassname">airflow.bin.cli.</code><code class="descname">backfill</code><span class="sig-paren">(</span><em>args</em>, <em>dag=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/bin/cli.html#backfill"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.bin.cli.backfill" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.bin.cli.clear">
+<code class="descclassname">airflow.bin.cli.</code><code class="descname">clear</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/bin/cli.html#clear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.bin.cli.clear" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.bin.cli.connections">
+<code class="descclassname">airflow.bin.cli.</code><code class="descname">connections</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/bin/cli.html#connections"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.bin.cli.connections" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.bin.cli.create_user">
+<code class="descclassname">airflow.bin.cli.</code><code class="descname">create_user</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/bin/cli.html#create_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.bin.cli.create_user" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.bin.cli.dag_state">
+<code class="descclassname">airflow.bin.cli.</code><code class="descname">dag_state</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/bin/cli.html#dag_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.bin.cli.dag_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the state of a DagRun at the command line.
+&gt;&gt;&gt; airflow dag_state tutorial 2015-01-01T00:00:00.000000
+running</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.bin.cli.delete_dag">
+<code class="descclassname">airflow.bin.cli.</code><code class="descname">delete_dag</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/bin/cli.html#delete_dag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.bin.cli.delete_dag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes all DB records related to the specified dag
+:param args:
+:return:</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.bin.cli.export_helper">
+<code class="descclassname">airflow.bin.cli.</code><code class="descname">export_helper</code><span class="sig-paren">(</span><em>filepath</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/bin/cli.html#export_helper"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.bin.cli.export_helper" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.bin.cli.flower">
+<code class="descclassname">airflow.bin.cli.</code><code class="descname">flower</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/bin/cli.html#flower"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.bin.cli.flower" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.bin.cli.get_dag">
+<code class="descclassname">airflow.bin.cli.</code><code class="descname">get_dag</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/bin/cli.html#get_dag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.bin.cli.get_dag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.bin.cli.get_dags">
+<code class="descclassname">airflow.bin.cli.</code><code class="descname">get_dags</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/bin/cli.html#get_dags"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.bin.cli.get_dags" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.bin.cli.get_num_ready_workers_running">
+<code class="descclassname">airflow.bin.cli.</code><code class="descname">get_num_ready_workers_running</code><span class="sig-paren">(</span><em>gunicorn_master_proc</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/bin/cli.html#get_num_ready_workers_running"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.bin.cli.get_num_ready_workers_running" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.bin.cli.get_num_workers_running">
+<code class="descclassname">airflow.bin.cli.</code><code class="descname">get_num_workers_running</code><span class="sig-paren">(</span><em>gunicorn_master_proc</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/bin/cli.html#get_num_workers_running"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.bin.cli.get_num_workers_running" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.bin.cli.get_parser">
+<code class="descclassname">airflow.bin.cli.</code><code class="descname">get_parser</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/bin/cli.html#get_parser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.bin.cli.get_parser" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.bin.cli.import_helper">
+<code class="descclassname">airflow.bin.cli.</code><code class="descname">import_helper</code><span class="sig-paren">(</span><em>filepath</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/bin/cli.html#import_helper"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.bin.cli.import_helper" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.bin.cli.initdb">
+<code class="descclassname">airflow.bin.cli.</code><code class="descname">initdb</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/bin/cli.html#initdb"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.bin.cli.initdb" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.bin.cli.kerberos">
+<code class="descclassname">airflow.bin.cli.</code><code class="descname">kerberos</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/bin/cli.html#kerberos"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.bin.cli.kerberos" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.bin.cli.list_dags">
+<code class="descclassname">airflow.bin.cli.</code><code class="descname">list_dags</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/bin/cli.html#list_dags"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.bin.cli.list_dags" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.bin.cli.list_tasks">
+<code class="descclassname">airflow.bin.cli.</code><code class="descname">list_tasks</code><span class="sig-paren">(</span><em>args</em>, <em>dag=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/bin/cli.html#list_tasks"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.bin.cli.list_tasks" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.bin.cli.pause">
+<code class="descclassname">airflow.bin.cli.</code><code class="descname">pause</code><span class="sig-paren">(</span><em>args</em>, <em>dag=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/bin/cli.html#pause"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.bin.cli.pause" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.bin.cli.pool">
+<code class="descclassname">airflow.bin.cli.</code><code class="descname">pool</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/bin/cli.html#pool"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.bin.cli.pool" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.bin.cli.process_subdir">
+<code class="descclassname">airflow.bin.cli.</code><code class="descname">process_subdir</code><span class="sig-paren">(</span><em>subdir</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/bin/cli.html#process_subdir"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.bin.cli.process_subdir" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.bin.cli.render">
+<code class="descclassname">airflow.bin.cli.</code><code class="descname">render</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/bin/cli.html#render"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.bin.cli.render" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.bin.cli.resetdb">
+<code class="descclassname">airflow.bin.cli.</code><code class="descname">resetdb</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/bin/cli.html#resetdb"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.bin.cli.resetdb" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.bin.cli.restart_workers">
+<code class="descclassname">airflow.bin.cli.</code><code class="descname">restart_workers</code><span class="sig-paren">(</span><em>gunicorn_master_proc</em>, <em>num_workers_expected</em>, <em>master_timeout</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/bin/cli.html#restart_workers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.bin.cli.restart_workers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Runs forever, monitoring the child processes of &#64;gunicorn_master_proc and
+restarting workers occasionally.
+Each iteration of the loop traverses one edge of this state transition
+diagram, where each state (node) represents
+[ num_ready_workers_running / num_workers_running ]. We expect most time to
+be spent in [n / n]. <cite>bs</cite> is the setting webserver.worker_refresh_batch_size.
+The horizontal transition at ? happens after the new worker parses all the
+dags (so it could take a while!)</p>
+<blockquote>
+<div>V ────────────────────────────────────────────────────────────────────────┐</div></blockquote>
+<dl class="docutils">
+<dt>[n / n] ──TTIN──&gt; [ [n, n+bs) / n + bs ]  ────?───&gt; [n + bs / n + bs] ──TTOU─┘</dt>
+<dd>^                          ^───────────────┘
+│
+│      ┌────────────────v
+└──────┴────── [ [0, n) / n ] &lt;─── start</dd>
+</dl>
+<p>We change the number of workers by sending TTIN and TTOU to the gunicorn
+master process, which increases and decreases the number of child workers
+respectively. Gunicorn guarantees that on TTOU workers are terminated
+gracefully and that the oldest worker is terminated.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.bin.cli.run">
+<code class="descclassname">airflow.bin.cli.</code><code class="descname">run</code><span class="sig-paren">(</span><em>args</em>, <em>dag=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/bin/cli.html#run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.bin.cli.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.bin.cli.scheduler">
+<code class="descclassname">airflow.bin.cli.</code><code class="descname">scheduler</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/bin/cli.html#scheduler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.bin.cli.scheduler" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.bin.cli.serve_logs">
+<code class="descclassname">airflow.bin.cli.</code><code class="descname">serve_logs</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/bin/cli.html#serve_logs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.bin.cli.serve_logs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.bin.cli.set_is_paused">
+<code class="descclassname">airflow.bin.cli.</code><code class="descname">set_is_paused</code><span class="sig-paren">(</span><em>is_paused</em>, <em>args</em>, <em>dag=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/bin/cli.html#set_is_paused"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.bin.cli.set_is_paused" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.bin.cli.setup_locations">
+<code class="descclassname">airflow.bin.cli.</code><code class="descname">setup_locations</code><span class="sig-paren">(</span><em>process</em>, <em>pid=None</em>, <em>stdout=None</em>, <em>stderr=None</em>, <em>log=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/bin/cli.html#setup_locations"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.bin.cli.setup_locations" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.bin.cli.setup_logging">
+<code class="descclassname">airflow.bin.cli.</code><code class="descname">setup_logging</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/bin/cli.html#setup_logging"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.bin.cli.setup_logging" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.bin.cli.sigint_handler">
+<code class="descclassname">airflow.bin.cli.</code><code class="descname">sigint_handler</code><span class="sig-paren">(</span><em>sig</em>, <em>frame</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/bin/cli.html#sigint_handler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.bin.cli.sigint_handler" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.bin.cli.sigquit_handler">
+<code class="descclassname">airflow.bin.cli.</code><code class="descname">sigquit_handler</code><span class="sig-paren">(</span><em>sig</em>, <em>frame</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/bin/cli.html#sigquit_handler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.bin.cli.sigquit_handler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helps debug deadlocks by printing stacktraces when this gets a SIGQUIT
+e.g. kill -s QUIT &lt;PID&gt; or CTRL+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.bin.cli.task_failed_deps">
+<code class="descclassname">airflow.bin.cli.</code><code class="descname">task_failed_deps</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/bin/cli.html#task_failed_deps"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.bin.cli.task_failed_deps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the unmet dependencies for a task instance from the perspective of the
+scheduler (i.e. why a task instance doesn’t get scheduled and then queued by the
+scheduler, and then run by an executor).
+&gt;&gt;&gt; airflow task_failed_deps tutorial sleep 2015-01-01
+Task instance dependencies not met:
+Dagrun Running: Task instance’s dagrun did not exist: Unknown reason
+Trigger Rule: Task’s trigger rule ‘all_success’ requires all upstream tasks
+to have succeeded, but found 1 non-success(es).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.bin.cli.task_state">
+<code class="descclassname">airflow.bin.cli.</code><code class="descname">task_state</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/bin/cli.html#task_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.bin.cli.task_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the state of a TaskInstance at the command line.
+&gt;&gt;&gt; airflow task_state tutorial sleep 2015-01-01
+success</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.bin.cli.test">
+<code class="descclassname">airflow.bin.cli.</code><code class="descname">test</code><span class="sig-paren">(</span><em>args</em>, <em>dag=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/bin/cli.html#test"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.bin.cli.test" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.bin.cli.trigger_dag">
+<code class="descclassname">airflow.bin.cli.</code><code class="descname">trigger_dag</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/bin/cli.html#trigger_dag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.bin.cli.trigger_dag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a dag run for the specified dag
+:param args:
+:return:</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.bin.cli.unpause">
+<code class="descclassname">airflow.bin.cli.</code><code class="descname">unpause</code><span class="sig-paren">(</span><em>args</em>, <em>dag=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/bin/cli.html#unpause"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.bin.cli.unpause" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.bin.cli.upgradedb">
+<code class="descclassname">airflow.bin.cli.</code><code class="descname">upgradedb</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/bin/cli.html#upgradedb"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.bin.cli.upgradedb" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.bin.cli.variables">
+<code class="descclassname">airflow.bin.cli.</code><code class="descname">variables</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/bin/cli.html#variables"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.bin.cli.variables" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.bin.cli.version">
+<code class="descclassname">airflow.bin.cli.</code><code class="descname">version</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/bin/cli.html#version"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.bin.cli.version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.bin.cli.webserver">
+<code class="descclassname">airflow.bin.cli.</code><code class="descname">webserver</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/bin/cli.html#webserver"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.bin.cli.webserver" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.bin.cli.worker">
+<code class="descclassname">airflow.bin.cli.</code><code class="descname">worker</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/bin/cli.html#worker"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.bin.cli.worker" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-airflow.bin">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-airflow.bin" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

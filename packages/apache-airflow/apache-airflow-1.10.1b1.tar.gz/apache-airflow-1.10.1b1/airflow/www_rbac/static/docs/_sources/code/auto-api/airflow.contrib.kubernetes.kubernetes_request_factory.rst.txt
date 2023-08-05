@@ -1,0 +1,30 @@
+airflow.contrib.kubernetes.kubernetes\_request\_factory package
+===============================================================
+
+Submodules
+----------
+
+airflow.contrib.kubernetes.kubernetes\_request\_factory.kubernetes\_request\_factory module
+-------------------------------------------------------------------------------------------
+
+.. automodule:: airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.kubernetes.kubernetes\_request\_factory.pod\_request\_factory module
+------------------------------------------------------------------------------------
+
+.. automodule:: airflow.contrib.kubernetes.kubernetes_request_factory.pod_request_factory
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: airflow.contrib.kubernetes.kubernetes_request_factory
+    :members:
+    :undoc-members:
+    :show-inheritance:

@@ -1,0 +1,17 @@
+airflow.www\_rbac.api package
+=============================
+
+Subpackages
+-----------
+
+.. toctree::
+
+    airflow.www_rbac.api.experimental
+
+Module contents
+---------------
+
+.. automodule:: airflow.www_rbac.api
+    :members:
+    :undoc-members:
+    :show-inheritance:

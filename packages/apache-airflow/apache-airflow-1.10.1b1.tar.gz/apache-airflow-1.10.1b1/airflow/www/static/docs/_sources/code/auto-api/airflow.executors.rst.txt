@@ -1,0 +1,54 @@
+airflow.executors package
+=========================
+
+Submodules
+----------
+
+airflow.executors.base\_executor module
+---------------------------------------
+
+.. automodule:: airflow.executors.base_executor
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.executors.celery\_executor module
+-----------------------------------------
+
+.. automodule:: airflow.executors.celery_executor
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.executors.dask\_executor module
+---------------------------------------
+
+.. automodule:: airflow.executors.dask_executor
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.executors.local\_executor module
+----------------------------------------
+
+.. automodule:: airflow.executors.local_executor
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.executors.sequential\_executor module
+---------------------------------------------
+
+.. automodule:: airflow.executors.sequential_executor
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: airflow.executors
+    :members:
+    :undoc-members:
+    :show-inheritance:

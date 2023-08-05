@@ -1,0 +1,347 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>airflow.contrib.utils.sendgrid &mdash; Airflow Documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../search.html"/>
+    <link rel="top" title="Airflow Documentation" href="../../../../index.html"/>
+        <link rel="up" title="airflow" href="../../../airflow.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Airflow
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../howto/index.html">How-to Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ui.html">UI / Screenshots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../profiling.html">Data Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cli.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../scheduler.html">Scheduling &amp; Triggers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../security.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../timezone.html">Time zones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api.html">Experimental Rest API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../integration.html">Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../lineage.html">Lineage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../code.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Airflow</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../../airflow.html">airflow</a> &raquo;</li>
+        
+      <li>airflow.contrib.utils.sendgrid</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for airflow.contrib.utils.sendgrid</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed to the Apache Software Foundation (ASF) under one</span>
+<span class="c1"># or more contributor license agreements.  See the NOTICE file</span>
+<span class="c1"># distributed with this work for additional information</span>
+<span class="c1"># regarding copyright ownership.  The ASF licenses this file</span>
+<span class="c1"># to you under the Apache License, Version 2.0 (the</span>
+<span class="c1"># &quot;License&quot;); you may not use this file except in compliance</span>
+<span class="c1"># with the License.  You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#   http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing,</span>
+<span class="c1"># software distributed under the License is distributed on an</span>
+<span class="c1"># &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
+<span class="c1"># KIND, either express or implied.  See the License for the</span>
+<span class="c1"># specific language governing permissions and limitations</span>
+<span class="c1"># under the License.</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">absolute_import</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">division</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">unicode_literals</span>
+
+<span class="kn">import</span> <span class="nn">base64</span>
+<span class="kn">import</span> <span class="nn">mimetypes</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">import</span> <span class="nn">sendgrid</span>
+<span class="kn">from</span> <span class="nn">sendgrid.helpers.mail</span> <span class="k">import</span> <span class="n">Attachment</span><span class="p">,</span> <span class="n">Content</span><span class="p">,</span> <span class="n">Email</span><span class="p">,</span> <span class="n">Mail</span><span class="p">,</span> \
+    <span class="n">Personalization</span><span class="p">,</span> <span class="n">CustomArg</span><span class="p">,</span> <span class="n">Category</span>
+
+<span class="kn">from</span> <span class="nn">airflow.utils.email</span> <span class="k">import</span> <span class="n">get_email_address_list</span>
+<span class="kn">from</span> <span class="nn">airflow.utils.log.logging_mixin</span> <span class="k">import</span> <span class="n">LoggingMixin</span>
+
+
+<div class="viewcode-block" id="send_email"><a class="viewcode-back" href="../../../../code/auto-api/airflow.contrib.utils.html#airflow.contrib.utils.sendgrid.send_email">[docs]</a><span class="k">def</span> <span class="nf">send_email</span><span class="p">(</span><span class="n">to</span><span class="p">,</span> <span class="n">subject</span><span class="p">,</span> <span class="n">html_content</span><span class="p">,</span> <span class="n">files</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+               <span class="n">dryrun</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bcc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+               <span class="n">mime_subtype</span><span class="o">=</span><span class="s1">&#39;mixed&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Send an email with html content using sendgrid.</span>
+
+<span class="sd">    To use this plugin:</span>
+<span class="sd">    0. include sendgrid subpackage as part of your Airflow installation, e.g.,</span>
+<span class="sd">    pip install airflow[sendgrid]</span>
+<span class="sd">    1. update [email] backend in airflow.cfg, i.e.,</span>
+<span class="sd">    [email]</span>
+<span class="sd">    email_backend = airflow.contrib.utils.sendgrid.send_email</span>
+<span class="sd">    2. configure Sendgrid specific environment variables at all Airflow instances:</span>
+<span class="sd">    SENDGRID_MAIL_FROM={your-mail-from}</span>
+<span class="sd">    SENDGRID_API_KEY={your-sendgrid-api-key}.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">mail</span> <span class="o">=</span> <span class="n">Mail</span><span class="p">()</span>
+    <span class="n">from_email</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;from_email&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;SENDGRID_MAIL_FROM&#39;</span><span class="p">)</span>
+    <span class="n">from_name</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;from_name&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;SENDGRID_MAIL_SENDER&#39;</span><span class="p">)</span>
+    <span class="n">mail</span><span class="o">.</span><span class="n">from_email</span> <span class="o">=</span> <span class="n">Email</span><span class="p">(</span><span class="n">from_email</span><span class="p">,</span> <span class="n">from_name</span><span class="p">)</span>
+    <span class="n">mail</span><span class="o">.</span><span class="n">subject</span> <span class="o">=</span> <span class="n">subject</span>
+
+    <span class="c1"># Add the recipient list of to emails.</span>
+    <span class="n">personalization</span> <span class="o">=</span> <span class="n">Personalization</span><span class="p">()</span>
+    <span class="n">to</span> <span class="o">=</span> <span class="n">get_email_address_list</span><span class="p">(</span><span class="n">to</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">to_address</span> <span class="ow">in</span> <span class="n">to</span><span class="p">:</span>
+        <span class="n">personalization</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">Email</span><span class="p">(</span><span class="n">to_address</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">cc</span><span class="p">:</span>
+        <span class="n">cc</span> <span class="o">=</span> <span class="n">get_email_address_list</span><span class="p">(</span><span class="n">cc</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">cc_address</span> <span class="ow">in</span> <span class="n">cc</span><span class="p">:</span>
+            <span class="n">personalization</span><span class="o">.</span><span class="n">add_cc</span><span class="p">(</span><span class="n">Email</span><span class="p">(</span><span class="n">cc_address</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">bcc</span><span class="p">:</span>
+        <span class="n">bcc</span> <span class="o">=</span> <span class="n">get_email_address_list</span><span class="p">(</span><span class="n">bcc</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">bcc_address</span> <span class="ow">in</span> <span class="n">bcc</span><span class="p">:</span>
+            <span class="n">personalization</span><span class="o">.</span><span class="n">add_bcc</span><span class="p">(</span><span class="n">Email</span><span class="p">(</span><span class="n">bcc_address</span><span class="p">))</span>
+
+    <span class="c1"># Add custom_args to personalization if present</span>
+    <span class="n">pers_custom_args</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;personalization_custom_args&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">pers_custom_args</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">pers_custom_args</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">personalization</span><span class="o">.</span><span class="n">add_custom_arg</span><span class="p">(</span><span class="n">CustomArg</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">pers_custom_args</span><span class="p">[</span><span class="n">key</span><span class="p">]))</span>
+
+    <span class="n">mail</span><span class="o">.</span><span class="n">add_personalization</span><span class="p">(</span><span class="n">personalization</span><span class="p">)</span>
+    <span class="n">mail</span><span class="o">.</span><span class="n">add_content</span><span class="p">(</span><span class="n">Content</span><span class="p">(</span><span class="s1">&#39;text/html&#39;</span><span class="p">,</span> <span class="n">html_content</span><span class="p">))</span>
+
+    <span class="n">categories</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;categories&#39;</span><span class="p">,</span> <span class="p">[])</span>
+    <span class="k">for</span> <span class="n">cat</span> <span class="ow">in</span> <span class="n">categories</span><span class="p">:</span>
+        <span class="n">mail</span><span class="o">.</span><span class="n">add_category</span><span class="p">(</span><span class="n">Category</span><span class="p">(</span><span class="n">cat</span><span class="p">))</span>
+
+    <span class="c1"># Add email attachment.</span>
+    <span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">files</span> <span class="ow">or</span> <span class="p">[]:</span>
+        <span class="n">basename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+        <span class="n">attachment</span> <span class="o">=</span> <span class="n">Attachment</span><span class="p">()</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">attachment</span><span class="o">.</span><span class="n">content</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+            <span class="n">attachment</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">mimetypes</span><span class="o">.</span><span class="n">guess_type</span><span class="p">(</span><span class="n">basename</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">attachment</span><span class="o">.</span><span class="n">filename</span> <span class="o">=</span> <span class="n">basename</span>
+            <span class="n">attachment</span><span class="o">.</span><span class="n">disposition</span> <span class="o">=</span> <span class="s2">&quot;attachment&quot;</span>
+            <span class="n">attachment</span><span class="o">.</span><span class="n">content_id</span> <span class="o">=</span> <span class="s1">&#39;&lt;</span><span class="si">%s</span><span class="s1">&gt;&#39;</span> <span class="o">%</span> <span class="n">basename</span>
+        <span class="n">mail</span><span class="o">.</span><span class="n">add_attachment</span><span class="p">(</span><span class="n">attachment</span><span class="p">)</span>
+    <span class="n">_post_sendgrid_mail</span><span class="p">(</span><span class="n">mail</span><span class="o">.</span><span class="n">get</span><span class="p">())</span></div>
+
+
+<span class="k">def</span> <span class="nf">_post_sendgrid_mail</span><span class="p">(</span><span class="n">mail_data</span><span class="p">):</span>
+    <span class="n">log</span> <span class="o">=</span> <span class="n">LoggingMixin</span><span class="p">()</span><span class="o">.</span><span class="n">log</span>
+    <span class="n">sg</span> <span class="o">=</span> <span class="n">sendgrid</span><span class="o">.</span><span class="n">SendGridAPIClient</span><span class="p">(</span><span class="n">apikey</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;SENDGRID_API_KEY&#39;</span><span class="p">))</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">sg</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">mail</span><span class="o">.</span><span class="n">send</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">request_body</span><span class="o">=</span><span class="n">mail_data</span><span class="p">)</span>
+    <span class="c1"># 2xx status code.</span>
+    <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">&gt;=</span> <span class="mi">200</span> <span class="ow">and</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">&lt;</span> <span class="mi">300</span><span class="p">:</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Email with subject </span><span class="si">%s</span><span class="s1"> is successfully sent to recipients: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span>
+                 <span class="p">(</span><span class="n">mail_data</span><span class="p">[</span><span class="s1">&#39;subject&#39;</span><span class="p">],</span> <span class="n">mail_data</span><span class="p">[</span><span class="s1">&#39;personalizations&#39;</span><span class="p">]))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;Failed to send out email with subject </span><span class="si">%s</span><span class="s1">, status code: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span>
+                    <span class="p">(</span><span class="n">mail_data</span><span class="p">[</span><span class="s1">&#39;subject&#39;</span><span class="p">],</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">))</span>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

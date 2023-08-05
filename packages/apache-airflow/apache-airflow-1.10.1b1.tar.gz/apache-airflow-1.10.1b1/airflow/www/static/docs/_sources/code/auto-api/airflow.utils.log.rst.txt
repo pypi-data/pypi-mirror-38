@@ -1,0 +1,70 @@
+airflow.utils.log package
+=========================
+
+Submodules
+----------
+
+airflow.utils.log.es\_task\_handler module
+------------------------------------------
+
+.. automodule:: airflow.utils.log.es_task_handler
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.utils.log.file\_processor\_handler module
+-------------------------------------------------
+
+.. automodule:: airflow.utils.log.file_processor_handler
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.utils.log.file\_task\_handler module
+--------------------------------------------
+
+.. automodule:: airflow.utils.log.file_task_handler
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.utils.log.gcs\_task\_handler module
+-------------------------------------------
+
+.. automodule:: airflow.utils.log.gcs_task_handler
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.utils.log.logging\_mixin module
+---------------------------------------
+
+.. automodule:: airflow.utils.log.logging_mixin
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.utils.log.s3\_task\_handler module
+------------------------------------------
+
+.. automodule:: airflow.utils.log.s3_task_handler
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.utils.log.wasb\_task\_handler module
+--------------------------------------------
+
+.. automodule:: airflow.utils.log.wasb_task_handler
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: airflow.utils.log
+    :members:
+    :undoc-members:
+    :show-inheritance:

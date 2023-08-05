@@ -1,0 +1,181 @@
+airflow.example\_dags package
+=============================
+
+Subpackages
+-----------
+
+.. toctree::
+
+    airflow.example_dags.subdags
+
+Submodules
+----------
+
+airflow.example\_dags.docker\_copy\_data module
+-----------------------------------------------
+
+.. automodule:: airflow.example_dags.docker_copy_data
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.example\_dags.example\_bash\_operator module
+----------------------------------------------------
+
+.. automodule:: airflow.example_dags.example_bash_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.example\_dags.example\_branch\_operator module
+------------------------------------------------------
+
+.. automodule:: airflow.example_dags.example_branch_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.example\_dags.example\_branch\_python\_dop\_operator\_3 module
+----------------------------------------------------------------------
+
+.. automodule:: airflow.example_dags.example_branch_python_dop_operator_3
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.example\_dags.example\_docker\_operator module
+------------------------------------------------------
+
+.. automodule:: airflow.example_dags.example_docker_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.example\_dags.example\_http\_operator module
+----------------------------------------------------
+
+.. automodule:: airflow.example_dags.example_http_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.example\_dags.example\_kubernetes\_executor module
+----------------------------------------------------------
+
+.. automodule:: airflow.example_dags.example_kubernetes_executor
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.example\_dags.example\_kubernetes\_operator module
+----------------------------------------------------------
+
+.. automodule:: airflow.example_dags.example_kubernetes_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.example\_dags.example\_latest\_only module
+--------------------------------------------------
+
+.. automodule:: airflow.example_dags.example_latest_only
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.example\_dags.example\_latest\_only\_with\_trigger module
+-----------------------------------------------------------------
+
+.. automodule:: airflow.example_dags.example_latest_only_with_trigger
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.example\_dags.example\_passing\_params\_via\_test\_command module
+-------------------------------------------------------------------------
+
+.. automodule:: airflow.example_dags.example_passing_params_via_test_command
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.example\_dags.example\_python\_operator module
+------------------------------------------------------
+
+.. automodule:: airflow.example_dags.example_python_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.example\_dags.example\_short\_circuit\_operator module
+--------------------------------------------------------------
+
+.. automodule:: airflow.example_dags.example_short_circuit_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.example\_dags.example\_skip\_dag module
+-----------------------------------------------
+
+.. automodule:: airflow.example_dags.example_skip_dag
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.example\_dags.example\_subdag\_operator module
+------------------------------------------------------
+
+.. automodule:: airflow.example_dags.example_subdag_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.example\_dags.example\_trigger\_controller\_dag module
+--------------------------------------------------------------
+
+.. automodule:: airflow.example_dags.example_trigger_controller_dag
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.example\_dags.example\_trigger\_target\_dag module
+----------------------------------------------------------
+
+.. automodule:: airflow.example_dags.example_trigger_target_dag
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.example\_dags.example\_xcom module
+------------------------------------------
+
+.. automodule:: airflow.example_dags.example_xcom
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.example\_dags.test\_utils module
+----------------------------------------
+
+.. automodule:: airflow.example_dags.test_utils
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.example\_dags.tutorial module
+-------------------------------------
+
+.. automodule:: airflow.example_dags.tutorial
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: airflow.example_dags
+    :members:
+    :undoc-members:
+    :show-inheritance:

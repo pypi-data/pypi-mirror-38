@@ -1,0 +1,286 @@
+airflow.migrations.versions package
+===================================
+
+Submodules
+----------
+
+airflow.migrations.versions.05f30312d566\_merge\_heads module
+-------------------------------------------------------------
+
+.. automodule:: airflow.migrations.versions.05f30312d566_merge_heads
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.migrations.versions.0e2a74e0fc9f\_add\_time\_zone\_awareness module
+---------------------------------------------------------------------------
+
+.. automodule:: airflow.migrations.versions.0e2a74e0fc9f_add_time_zone_awareness
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.migrations.versions.127d2bf2dfa7\_add\_dag\_id\_state\_index\_on\_dag\_run\_table module
+------------------------------------------------------------------------------------------------
+
+.. automodule:: airflow.migrations.versions.127d2bf2dfa7_add_dag_id_state_index_on_dag_run_table
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.migrations.versions.13eb55f81627\_for\_compatibility module
+-------------------------------------------------------------------
+
+.. automodule:: airflow.migrations.versions.13eb55f81627_for_compatibility
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.migrations.versions.1507a7289a2f\_create\_is\_encrypted module
+----------------------------------------------------------------------
+
+.. automodule:: airflow.migrations.versions.1507a7289a2f_create_is_encrypted
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.migrations.versions.1968acfc09e3\_add\_is\_encrypted\_column\_to\_variable\_ module
+-------------------------------------------------------------------------------------------
+
+.. automodule:: airflow.migrations.versions.1968acfc09e3_add_is_encrypted_column_to_variable_
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.migrations.versions.1b38cef5b76e\_add\_dagrun module
+------------------------------------------------------------
+
+.. automodule:: airflow.migrations.versions.1b38cef5b76e_add_dagrun
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.migrations.versions.211e584da130\_add\_ti\_state\_index module
+----------------------------------------------------------------------
+
+.. automodule:: airflow.migrations.versions.211e584da130_add_ti_state_index
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.migrations.versions.27c6a30d7c24\_add\_executor\_config\_to\_task\_instance module
+------------------------------------------------------------------------------------------
+
+.. automodule:: airflow.migrations.versions.27c6a30d7c24_add_executor_config_to_task_instance
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.migrations.versions.2e541a1dcfed\_task\_duration module
+---------------------------------------------------------------
+
+.. automodule:: airflow.migrations.versions.2e541a1dcfed_task_duration
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.migrations.versions.2e82aab8ef20\_rename\_user\_table module
+--------------------------------------------------------------------
+
+.. automodule:: airflow.migrations.versions.2e82aab8ef20_rename_user_table
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.migrations.versions.338e90f54d61\_more\_logging\_into\_task\_isntance module
+------------------------------------------------------------------------------------
+
+.. automodule:: airflow.migrations.versions.338e90f54d61_more_logging_into_task_isntance
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.migrations.versions.33ae817a1ff4\_add\_kubernetes\_resource\_checkpointing module
+-----------------------------------------------------------------------------------------
+
+.. automodule:: airflow.migrations.versions.33ae817a1ff4_add_kubernetes_resource_checkpointing
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.migrations.versions.40e67319e3a9\_dagrun\_config module
+---------------------------------------------------------------
+
+.. automodule:: airflow.migrations.versions.40e67319e3a9_dagrun_config
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.migrations.versions.4446e08588\_dagrun\_start\_end module
+-----------------------------------------------------------------
+
+.. automodule:: airflow.migrations.versions.4446e08588_dagrun_start_end
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.migrations.versions.4addfa1236f1\_add\_fractional\_seconds\_to\_mysql\_tables module
+--------------------------------------------------------------------------------------------
+
+.. automodule:: airflow.migrations.versions.4addfa1236f1_add_fractional_seconds_to_mysql_tables
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.migrations.versions.502898887f84\_adding\_extra\_to\_log module
+-----------------------------------------------------------------------
+
+.. automodule:: airflow.migrations.versions.502898887f84_adding_extra_to_log
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.migrations.versions.52d714495f0\_job\_id\_indices module
+----------------------------------------------------------------
+
+.. automodule:: airflow.migrations.versions.52d714495f0_job_id_indices
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.migrations.versions.561833c1c74b\_add\_password\_column\_to\_user module
+--------------------------------------------------------------------------------
+
+.. automodule:: airflow.migrations.versions.561833c1c74b_add_password_column_to_user
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.migrations.versions.5e7d17757c7a\_add\_pid\_field\_to\_taskinstance module
+----------------------------------------------------------------------------------
+
+.. automodule:: airflow.migrations.versions.5e7d17757c7a_add_pid_field_to_taskinstance
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.migrations.versions.64de9cddf6c9\_add\_task\_fails\_journal\_table module
+---------------------------------------------------------------------------------
+
+.. automodule:: airflow.migrations.versions.64de9cddf6c9_add_task_fails_journal_table
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.migrations.versions.8504051e801b\_xcom\_dag\_task\_indices module
+-------------------------------------------------------------------------
+
+.. automodule:: airflow.migrations.versions.8504051e801b_xcom_dag_task_indices
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.migrations.versions.856955da8476\_fix\_sqlite\_foreign\_key module
+--------------------------------------------------------------------------
+
+.. automodule:: airflow.migrations.versions.856955da8476_fix_sqlite_foreign_key
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.migrations.versions.86770d1215c0\_add\_kubernetes\_scheduler\_uniqueness module
+---------------------------------------------------------------------------------------
+
+.. automodule:: airflow.migrations.versions.86770d1215c0_add_kubernetes_scheduler_uniqueness
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.migrations.versions.947454bf1dff\_add\_ti\_job\_id\_index module
+------------------------------------------------------------------------
+
+.. automodule:: airflow.migrations.versions.947454bf1dff_add_ti_job_id_index
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.migrations.versions.9635ae0956e7\_index\_faskfail module
+----------------------------------------------------------------
+
+.. automodule:: airflow.migrations.versions.9635ae0956e7_index_faskfail
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.migrations.versions.bba5a7cfc896\_add\_a\_column\_to\_track\_the\_encryption\_ module
+---------------------------------------------------------------------------------------------
+
+.. automodule:: airflow.migrations.versions.bba5a7cfc896_add_a_column_to_track_the_encryption_
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.migrations.versions.bbc73705a13e\_add\_notification\_sent\_column\_to\_sla\_miss module
+-----------------------------------------------------------------------------------------------
+
+.. automodule:: airflow.migrations.versions.bbc73705a13e_add_notification_sent_column_to_sla_miss
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.migrations.versions.bdaa763e6c56\_make\_xcom\_value\_column\_a\_large\_binary module
+--------------------------------------------------------------------------------------------
+
+.. automodule:: airflow.migrations.versions.bdaa763e6c56_make_xcom_value_column_a_large_binary
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.migrations.versions.cc1e65623dc7\_add\_max\_tries\_column\_to\_task\_instance module
+--------------------------------------------------------------------------------------------
+
+.. automodule:: airflow.migrations.versions.cc1e65623dc7_add_max_tries_column_to_task_instance
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.migrations.versions.d2ae31099d61\_increase\_text\_size\_for\_mysql module
+---------------------------------------------------------------------------------
+
+.. automodule:: airflow.migrations.versions.d2ae31099d61_increase_text_size_for_mysql
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.migrations.versions.e3a246e0dc1\_current\_schema module
+---------------------------------------------------------------
+
+.. automodule:: airflow.migrations.versions.e3a246e0dc1_current_schema
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.migrations.versions.f23433877c24\_fix\_mysql\_not\_null\_constraint module
+----------------------------------------------------------------------------------
+
+.. automodule:: airflow.migrations.versions.f23433877c24_fix_mysql_not_null_constraint
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.migrations.versions.f2ca10b85618\_add\_dag\_stats\_table module
+-----------------------------------------------------------------------
+
+.. automodule:: airflow.migrations.versions.f2ca10b85618_add_dag_stats_table
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: airflow.migrations.versions
+    :members:
+    :undoc-members:
+    :show-inheritance:

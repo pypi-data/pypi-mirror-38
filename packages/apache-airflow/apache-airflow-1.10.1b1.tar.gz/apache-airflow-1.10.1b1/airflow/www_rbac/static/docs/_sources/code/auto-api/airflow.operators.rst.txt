@@ -1,0 +1,286 @@
+airflow.operators package
+=========================
+
+Submodules
+----------
+
+airflow.operators.bash\_operator module
+---------------------------------------
+
+.. automodule:: airflow.operators.bash_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.operators.check\_operator module
+----------------------------------------
+
+.. automodule:: airflow.operators.check_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.operators.dagrun\_operator module
+-----------------------------------------
+
+.. automodule:: airflow.operators.dagrun_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.operators.docker\_operator module
+-----------------------------------------
+
+.. automodule:: airflow.operators.docker_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.operators.druid\_check\_operator module
+-----------------------------------------------
+
+.. automodule:: airflow.operators.druid_check_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.operators.dummy\_operator module
+----------------------------------------
+
+.. automodule:: airflow.operators.dummy_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.operators.email\_operator module
+----------------------------------------
+
+.. automodule:: airflow.operators.email_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.operators.generic\_transfer module
+------------------------------------------
+
+.. automodule:: airflow.operators.generic_transfer
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.operators.hive\_operator module
+---------------------------------------
+
+.. automodule:: airflow.operators.hive_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.operators.hive\_stats\_operator module
+----------------------------------------------
+
+.. automodule:: airflow.operators.hive_stats_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.operators.hive\_to\_druid module
+----------------------------------------
+
+.. automodule:: airflow.operators.hive_to_druid
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.operators.hive\_to\_mysql module
+----------------------------------------
+
+.. automodule:: airflow.operators.hive_to_mysql
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.operators.hive\_to\_samba\_operator module
+--------------------------------------------------
+
+.. automodule:: airflow.operators.hive_to_samba_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.operators.http\_operator module
+---------------------------------------
+
+.. automodule:: airflow.operators.http_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.operators.jdbc\_operator module
+---------------------------------------
+
+.. automodule:: airflow.operators.jdbc_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.operators.latest\_only\_operator module
+-----------------------------------------------
+
+.. automodule:: airflow.operators.latest_only_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.operators.mssql\_operator module
+----------------------------------------
+
+.. automodule:: airflow.operators.mssql_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.operators.mssql\_to\_hive module
+----------------------------------------
+
+.. automodule:: airflow.operators.mssql_to_hive
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.operators.mysql\_operator module
+----------------------------------------
+
+.. automodule:: airflow.operators.mysql_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.operators.mysql\_to\_hive module
+----------------------------------------
+
+.. automodule:: airflow.operators.mysql_to_hive
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.operators.oracle\_operator module
+-----------------------------------------
+
+.. automodule:: airflow.operators.oracle_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.operators.pig\_operator module
+--------------------------------------
+
+.. automodule:: airflow.operators.pig_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.operators.postgres\_operator module
+-------------------------------------------
+
+.. automodule:: airflow.operators.postgres_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.operators.presto\_check\_operator module
+------------------------------------------------
+
+.. automodule:: airflow.operators.presto_check_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.operators.presto\_to\_mysql module
+------------------------------------------
+
+.. automodule:: airflow.operators.presto_to_mysql
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.operators.python\_operator module
+-----------------------------------------
+
+.. automodule:: airflow.operators.python_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.operators.redshift\_to\_s3\_operator module
+---------------------------------------------------
+
+.. automodule:: airflow.operators.redshift_to_s3_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.operators.s3\_file\_transform\_operator module
+------------------------------------------------------
+
+.. automodule:: airflow.operators.s3_file_transform_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.operators.s3\_to\_hive\_operator module
+-----------------------------------------------
+
+.. automodule:: airflow.operators.s3_to_hive_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.operators.s3\_to\_redshift\_operator module
+---------------------------------------------------
+
+.. automodule:: airflow.operators.s3_to_redshift_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.operators.sensors module
+--------------------------------
+
+.. automodule:: airflow.operators.sensors
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.operators.slack\_operator module
+----------------------------------------
+
+.. automodule:: airflow.operators.slack_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.operators.sqlite\_operator module
+-----------------------------------------
+
+.. automodule:: airflow.operators.sqlite_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.operators.subdag\_operator module
+-----------------------------------------
+
+.. automodule:: airflow.operators.subdag_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: airflow.operators
+    :members:
+    :undoc-members:
+    :show-inheritance:

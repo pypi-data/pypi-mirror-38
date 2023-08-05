@@ -1,0 +1,481 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>airflow.settings &mdash; Airflow Documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Airflow Documentation" href="../../index.html"/>
+        <link rel="up" title="airflow" href="../airflow.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Airflow
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howto/index.html">How-to Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ui.html">UI / Screenshots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../profiling.html">Data Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../scheduler.html">Scheduling &amp; Triggers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../security.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../timezone.html">Time zones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">Experimental Rest API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../integration.html">Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lineage.html">Lineage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../code.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Airflow</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../airflow.html">airflow</a> &raquo;</li>
+        
+      <li>airflow.settings</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for airflow.settings</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed to the Apache Software Foundation (ASF) under one</span>
+<span class="c1"># or more contributor license agreements.  See the NOTICE file</span>
+<span class="c1"># distributed with this work for additional information</span>
+<span class="c1"># regarding copyright ownership.  The ASF licenses this file</span>
+<span class="c1"># to you under the Apache License, Version 2.0 (the</span>
+<span class="c1"># &quot;License&quot;); you may not use this file except in compliance</span>
+<span class="c1"># with the License.  You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#   http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing,</span>
+<span class="c1"># software distributed under the License is distributed on an</span>
+<span class="c1"># &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
+<span class="c1"># KIND, either express or implied.  See the License for the</span>
+<span class="c1"># specific language governing permissions and limitations</span>
+<span class="c1"># under the License.</span>
+<span class="c1">#</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">absolute_import</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">division</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">unicode_literals</span>
+
+<span class="kn">import</span> <span class="nn">atexit</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pendulum</span>
+
+<span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="k">import</span> <span class="n">create_engine</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="k">import</span> <span class="n">scoped_session</span><span class="p">,</span> <span class="n">sessionmaker</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy.pool</span> <span class="k">import</span> <span class="n">NullPool</span>
+
+<span class="kn">from</span> <span class="nn">airflow</span> <span class="k">import</span> <span class="n">configuration</span> <span class="k">as</span> <span class="n">conf</span>
+<span class="kn">from</span> <span class="nn">airflow.logging_config</span> <span class="k">import</span> <span class="n">configure_logging</span>
+<span class="kn">from</span> <span class="nn">airflow.utils.sqlalchemy</span> <span class="k">import</span> <span class="n">setup_event_handlers</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="n">RBAC</span> <span class="o">=</span> <span class="n">conf</span><span class="o">.</span><span class="n">getboolean</span><span class="p">(</span><span class="s1">&#39;webserver&#39;</span><span class="p">,</span> <span class="s1">&#39;rbac&#39;</span><span class="p">)</span>
+
+<span class="n">TIMEZONE</span> <span class="o">=</span> <span class="n">pendulum</span><span class="o">.</span><span class="n">timezone</span><span class="p">(</span><span class="s1">&#39;UTC&#39;</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">tz</span> <span class="o">=</span> <span class="n">conf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;core&quot;</span><span class="p">,</span> <span class="s2">&quot;default_timezone&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">tz</span> <span class="o">==</span> <span class="s2">&quot;system&quot;</span><span class="p">:</span>
+        <span class="n">TIMEZONE</span> <span class="o">=</span> <span class="n">pendulum</span><span class="o">.</span><span class="n">local_timezone</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">TIMEZONE</span> <span class="o">=</span> <span class="n">pendulum</span><span class="o">.</span><span class="n">timezone</span><span class="p">(</span><span class="n">tz</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">pass</span>
+<span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Configured default timezone </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">TIMEZONE</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="DummyStatsLogger"><a class="viewcode-back" href="../../code/auto-api/airflow.html#airflow.settings.DummyStatsLogger">[docs]</a><span class="k">class</span> <span class="nc">DummyStatsLogger</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="DummyStatsLogger.incr"><a class="viewcode-back" href="../../code/auto-api/airflow.html#airflow.settings.DummyStatsLogger.incr">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">incr</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">stat</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="DummyStatsLogger.decr"><a class="viewcode-back" href="../../code/auto-api/airflow.html#airflow.settings.DummyStatsLogger.decr">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">decr</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">stat</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="DummyStatsLogger.gauge"><a class="viewcode-back" href="../../code/auto-api/airflow.html#airflow.settings.DummyStatsLogger.gauge">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">gauge</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">stat</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="DummyStatsLogger.timing"><a class="viewcode-back" href="../../code/auto-api/airflow.html#airflow.settings.DummyStatsLogger.timing">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">timing</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">stat</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+        <span class="k">pass</span></div></div>
+
+
+<span class="n">Stats</span> <span class="o">=</span> <span class="n">DummyStatsLogger</span>
+
+<span class="k">if</span> <span class="n">conf</span><span class="o">.</span><span class="n">getboolean</span><span class="p">(</span><span class="s1">&#39;scheduler&#39;</span><span class="p">,</span> <span class="s1">&#39;statsd_on&#39;</span><span class="p">):</span>
+    <span class="kn">from</span> <span class="nn">statsd</span> <span class="k">import</span> <span class="n">StatsClient</span>
+
+    <span class="n">statsd</span> <span class="o">=</span> <span class="n">StatsClient</span><span class="p">(</span>
+        <span class="n">host</span><span class="o">=</span><span class="n">conf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;scheduler&#39;</span><span class="p">,</span> <span class="s1">&#39;statsd_host&#39;</span><span class="p">),</span>
+        <span class="n">port</span><span class="o">=</span><span class="n">conf</span><span class="o">.</span><span class="n">getint</span><span class="p">(</span><span class="s1">&#39;scheduler&#39;</span><span class="p">,</span> <span class="s1">&#39;statsd_port&#39;</span><span class="p">),</span>
+        <span class="n">prefix</span><span class="o">=</span><span class="n">conf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;scheduler&#39;</span><span class="p">,</span> <span class="s1">&#39;statsd_prefix&#39;</span><span class="p">))</span>
+    <span class="n">Stats</span> <span class="o">=</span> <span class="n">statsd</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">Stats</span> <span class="o">=</span> <span class="n">DummyStatsLogger</span>
+
+<span class="n">HEADER</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
+<span class="s2">  ____________       _____________</span>
+<span class="s2"> ____    |__( )_________  __/__  /________      __</span>
+<span class="s2">____  /| |_  /__  ___/_  /_ __  /_  __ \_ | /| / /</span>
+<span class="s2">___  ___ |  / _  /   _  __/ _  / / /_/ /_ |/ |/ /</span>
+<span class="s2"> _/_/  |_/_/  /_/    /_/    /_/  \____/____/|__/</span>
+<span class="s2"> &quot;&quot;&quot;</span>
+
+<span class="n">LOGGING_LEVEL</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">INFO</span>
+
+<span class="c1"># the prefix to append to gunicorn worker processes after init</span>
+<span class="n">GUNICORN_WORKER_READY_PREFIX</span> <span class="o">=</span> <span class="s2">&quot;[ready] &quot;</span>
+
+<span class="n">LOG_FORMAT</span> <span class="o">=</span> <span class="n">conf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;core&#39;</span><span class="p">,</span> <span class="s1">&#39;log_format&#39;</span><span class="p">)</span>
+<span class="n">SIMPLE_LOG_FORMAT</span> <span class="o">=</span> <span class="n">conf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;core&#39;</span><span class="p">,</span> <span class="s1">&#39;simple_log_format&#39;</span><span class="p">)</span>
+
+<span class="n">AIRFLOW_HOME</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">SQL_ALCHEMY_CONN</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">DAGS_FOLDER</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="n">engine</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">Session</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<div class="viewcode-block" id="policy"><a class="viewcode-back" href="../../code/auto-api/airflow.html#airflow.settings.policy">[docs]</a><span class="k">def</span> <span class="nf">policy</span><span class="p">(</span><span class="n">task_instance</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This policy setting allows altering task instances right before they</span>
+<span class="sd">    are executed. It allows administrator to rewire some task parameters.</span>
+
+<span class="sd">    Note that the ``TaskInstance`` object has an attribute ``task`` pointing</span>
+<span class="sd">    to its related task object, that in turns has a reference to the DAG</span>
+<span class="sd">    object. So you can use the attributes of all of these to define your</span>
+<span class="sd">    policy.</span>
+
+<span class="sd">    To define policy, add a ``airflow_local_settings`` module</span>
+<span class="sd">    to your PYTHONPATH that defines this ``policy`` function. It receives</span>
+<span class="sd">    a ``TaskInstance`` object and can alter it where needed.</span>
+
+<span class="sd">    Here are a few examples of how this can be useful:</span>
+
+<span class="sd">    * You could enforce a specific queue (say the ``spark`` queue)</span>
+<span class="sd">        for tasks using the ``SparkOperator`` to make sure that these</span>
+<span class="sd">        task instances get wired to the right workers</span>
+<span class="sd">    * You could force all task instances running on an</span>
+<span class="sd">        ``execution_date`` older than a week old to run in a ``backfill``</span>
+<span class="sd">        pool.</span>
+<span class="sd">    * ...</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="configure_vars"><a class="viewcode-back" href="../../code/auto-api/airflow.html#airflow.settings.configure_vars">[docs]</a><span class="k">def</span> <span class="nf">configure_vars</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">AIRFLOW_HOME</span>
+    <span class="k">global</span> <span class="n">SQL_ALCHEMY_CONN</span>
+    <span class="k">global</span> <span class="n">DAGS_FOLDER</span>
+    <span class="n">AIRFLOW_HOME</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;core&#39;</span><span class="p">,</span> <span class="s1">&#39;AIRFLOW_HOME&#39;</span><span class="p">))</span>
+    <span class="n">SQL_ALCHEMY_CONN</span> <span class="o">=</span> <span class="n">conf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;core&#39;</span><span class="p">,</span> <span class="s1">&#39;SQL_ALCHEMY_CONN&#39;</span><span class="p">)</span>
+    <span class="n">DAGS_FOLDER</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;core&#39;</span><span class="p">,</span> <span class="s1">&#39;DAGS_FOLDER&#39;</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="configure_orm"><a class="viewcode-back" href="../../code/auto-api/airflow.html#airflow.settings.configure_orm">[docs]</a><span class="k">def</span> <span class="nf">configure_orm</span><span class="p">(</span><span class="n">disable_connection_pool</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Setting up DB connection pool (PID </span><span class="si">%s</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">())</span>
+    <span class="k">global</span> <span class="n">engine</span>
+    <span class="k">global</span> <span class="n">Session</span>
+    <span class="n">engine_args</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="n">pool_connections</span> <span class="o">=</span> <span class="n">conf</span><span class="o">.</span><span class="n">getboolean</span><span class="p">(</span><span class="s1">&#39;core&#39;</span><span class="p">,</span> <span class="s1">&#39;SQL_ALCHEMY_POOL_ENABLED&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">disable_connection_pool</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">pool_connections</span><span class="p">:</span>
+        <span class="n">engine_args</span><span class="p">[</span><span class="s1">&#39;poolclass&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">NullPool</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;settings.configure_orm(): Using NullPool&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="s1">&#39;sqlite&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">SQL_ALCHEMY_CONN</span><span class="p">:</span>
+        <span class="c1"># Engine args not supported by sqlite.</span>
+        <span class="c1"># If no config value is defined for the pool size, select a reasonable value.</span>
+        <span class="c1"># 0 means no limit, which could lead to exceeding the Database connection limit.</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">pool_size</span> <span class="o">=</span> <span class="n">conf</span><span class="o">.</span><span class="n">getint</span><span class="p">(</span><span class="s1">&#39;core&#39;</span><span class="p">,</span> <span class="s1">&#39;SQL_ALCHEMY_POOL_SIZE&#39;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">conf</span><span class="o">.</span><span class="n">AirflowConfigException</span><span class="p">:</span>
+            <span class="n">pool_size</span> <span class="o">=</span> <span class="mi">5</span>
+
+        <span class="c1"># The DB server already has a value for wait_timeout (number of seconds after</span>
+        <span class="c1"># which an idle sleeping connection should be killed). Since other DBs may</span>
+        <span class="c1"># co-exist on the same server, SQLAlchemy should set its</span>
+        <span class="c1"># pool_recycle to an equal or smaller value.</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">pool_recycle</span> <span class="o">=</span> <span class="n">conf</span><span class="o">.</span><span class="n">getint</span><span class="p">(</span><span class="s1">&#39;core&#39;</span><span class="p">,</span> <span class="s1">&#39;SQL_ALCHEMY_POOL_RECYCLE&#39;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">conf</span><span class="o">.</span><span class="n">AirflowConfigException</span><span class="p">:</span>
+            <span class="n">pool_recycle</span> <span class="o">=</span> <span class="mi">1800</span>
+
+        <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;setting.configure_orm(): Using pool settings. pool_size=</span><span class="si">{}</span><span class="s2">, &quot;</span>
+                 <span class="s2">&quot;pool_recycle=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pool_size</span><span class="p">,</span> <span class="n">pool_recycle</span><span class="p">))</span>
+        <span class="n">engine_args</span><span class="p">[</span><span class="s1">&#39;pool_size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pool_size</span>
+        <span class="n">engine_args</span><span class="p">[</span><span class="s1">&#39;pool_recycle&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pool_recycle</span>
+
+    <span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="n">SQL_ALCHEMY_CONN</span><span class="p">,</span> <span class="o">**</span><span class="n">engine_args</span><span class="p">)</span>
+    <span class="n">reconnect_timeout</span> <span class="o">=</span> <span class="n">conf</span><span class="o">.</span><span class="n">getint</span><span class="p">(</span><span class="s1">&#39;core&#39;</span><span class="p">,</span> <span class="s1">&#39;SQL_ALCHEMY_RECONNECT_TIMEOUT&#39;</span><span class="p">)</span>
+    <span class="n">setup_event_handlers</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">reconnect_timeout</span><span class="p">)</span>
+
+    <span class="n">Session</span> <span class="o">=</span> <span class="n">scoped_session</span><span class="p">(</span>
+        <span class="n">sessionmaker</span><span class="p">(</span><span class="n">autocommit</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">autoflush</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">bind</span><span class="o">=</span><span class="n">engine</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="dispose_orm"><a class="viewcode-back" href="../../code/auto-api/airflow.html#airflow.settings.dispose_orm">[docs]</a><span class="k">def</span> <span class="nf">dispose_orm</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot; Properly close pooled database connections &quot;&quot;&quot;</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Disposing DB connection pool (PID </span><span class="si">%s</span><span class="s2">)&quot;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">())</span>
+    <span class="k">global</span> <span class="n">engine</span>
+    <span class="k">global</span> <span class="n">Session</span>
+
+    <span class="k">if</span> <span class="n">Session</span><span class="p">:</span>
+        <span class="n">Session</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>
+        <span class="n">Session</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">engine</span><span class="p">:</span>
+        <span class="n">engine</span><span class="o">.</span><span class="n">dispose</span><span class="p">()</span>
+        <span class="n">engine</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="configure_adapters"><a class="viewcode-back" href="../../code/auto-api/airflow.html#airflow.settings.configure_adapters">[docs]</a><span class="k">def</span> <span class="nf">configure_adapters</span><span class="p">():</span>
+    <span class="kn">from</span> <span class="nn">pendulum</span> <span class="k">import</span> <span class="n">Pendulum</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">sqlite3</span> <span class="k">import</span> <span class="n">register_adapter</span>
+        <span class="n">register_adapter</span><span class="p">(</span><span class="n">Pendulum</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">val</span><span class="p">:</span> <span class="n">val</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">))</span>
+    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+        <span class="k">pass</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">import</span> <span class="nn">MySQLdb.converters</span>
+        <span class="n">MySQLdb</span><span class="o">.</span><span class="n">converters</span><span class="o">.</span><span class="n">conversions</span><span class="p">[</span><span class="n">Pendulum</span><span class="p">]</span> <span class="o">=</span> <span class="n">MySQLdb</span><span class="o">.</span><span class="n">converters</span><span class="o">.</span><span class="n">DateTime2literal</span>
+    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+        <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="configure_action_logging"><a class="viewcode-back" href="../../code/auto-api/airflow.html#airflow.settings.configure_action_logging">[docs]</a><span class="k">def</span> <span class="nf">configure_action_logging</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Any additional configuration (register callback) for airflow.utils.action_loggers</span>
+<span class="sd">    module</span>
+<span class="sd">    :return: None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span></div>
+
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">airflow_local_settings</span> <span class="k">import</span> <span class="o">*</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Loaded airflow_local_settings.&quot;</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">pass</span>
+
+<span class="n">configure_logging</span><span class="p">()</span>
+<span class="n">configure_vars</span><span class="p">()</span>
+<span class="n">configure_adapters</span><span class="p">()</span>
+<span class="c1"># The webservers import this file from models.py with the default settings.</span>
+<span class="n">configure_orm</span><span class="p">()</span>
+<span class="n">configure_action_logging</span><span class="p">()</span>
+
+<span class="c1"># Ensure we close DB connections at scheduler and gunicon worker terminations</span>
+<span class="n">atexit</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">dispose_orm</span><span class="p">)</span>
+
+<span class="c1"># Const stuff</span>
+
+<span class="n">KILOBYTE</span> <span class="o">=</span> <span class="mi">1024</span>
+<span class="n">MEGABYTE</span> <span class="o">=</span> <span class="n">KILOBYTE</span> <span class="o">*</span> <span class="n">KILOBYTE</span>
+<span class="n">WEB_COLORS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;LIGHTBLUE&#39;</span><span class="p">:</span> <span class="s1">&#39;#4d9de0&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;LIGHTORANGE&#39;</span><span class="p">:</span> <span class="s1">&#39;#FF9933&#39;</span><span class="p">}</span>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

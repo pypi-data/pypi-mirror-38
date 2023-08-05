@@ -1,0 +1,22 @@
+airflow.bin package
+===================
+
+Submodules
+----------
+
+airflow.bin.cli module
+----------------------
+
+.. automodule:: airflow.bin.cli
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: airflow.bin
+    :members:
+    :undoc-members:
+    :show-inheritance:

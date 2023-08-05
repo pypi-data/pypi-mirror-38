@@ -1,0 +1,659 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>airflow.utils.log package &mdash; Airflow Documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Airflow Documentation" href="../../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Airflow
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howto/index.html">How-to Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ui.html">UI / Screenshots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../profiling.html">Data Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../scheduler.html">Scheduling &amp; Triggers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../security.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../timezone.html">Time zones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">Experimental Rest API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../integration.html">Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lineage.html">Lineage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../code.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Airflow</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>airflow.utils.log package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/code/auto-api/airflow.utils.log.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="airflow-utils-log-package">
+<h1>airflow.utils.log package<a class="headerlink" href="#airflow-utils-log-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="airflow-utils-log-es-task-handler-module">
+<h2>airflow.utils.log.es_task_handler module<a class="headerlink" href="#airflow-utils-log-es-task-handler-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-airflow.utils.log.file_processor_handler">
+<span id="airflow-utils-log-file-processor-handler-module"></span><h2>airflow.utils.log.file_processor_handler module<a class="headerlink" href="#module-airflow.utils.log.file_processor_handler" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.utils.log.file_processor_handler.FileProcessorHandler">
+<em class="property">class </em><code class="descclassname">airflow.utils.log.file_processor_handler.</code><code class="descname">FileProcessorHandler</code><span class="sig-paren">(</span><em>base_log_folder</em>, <em>filename_template</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/log/file_processor_handler.html#FileProcessorHandler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.log.file_processor_handler.FileProcessorHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">logging.Handler</span></code></p>
+<p>FileProcessorHandler is a python log handler that handles
+dag processor logs. It creates and delegates log handling
+to <cite>logging.FileHandler</cite> after receiving dag processor context.</p>
+<dl class="method">
+<dt id="airflow.utils.log.file_processor_handler.FileProcessorHandler.close">
+<code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/log/file_processor_handler.html#FileProcessorHandler.close"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.log.file_processor_handler.FileProcessorHandler.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tidy up any resources used by the handler.</p>
+<p>This version removes the handler from an internal map of handlers,
+_handlers, which is used for handler lookup by name. Subclasses
+should ensure that this gets called from overridden close()
+methods.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.utils.log.file_processor_handler.FileProcessorHandler.emit">
+<code class="descname">emit</code><span class="sig-paren">(</span><em>record</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/log/file_processor_handler.html#FileProcessorHandler.emit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.log.file_processor_handler.FileProcessorHandler.emit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do whatever it takes to actually log the specified logging record.</p>
+<p>This version is intended to be implemented by subclasses and so
+raises a NotImplementedError.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.utils.log.file_processor_handler.FileProcessorHandler.flush">
+<code class="descname">flush</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/log/file_processor_handler.html#FileProcessorHandler.flush"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.log.file_processor_handler.FileProcessorHandler.flush" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure all logging output has been flushed.</p>
+<p>This version does nothing and is intended to be implemented by
+subclasses.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.utils.log.file_processor_handler.FileProcessorHandler.set_context">
+<code class="descname">set_context</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/log/file_processor_handler.html#FileProcessorHandler.set_context"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.log.file_processor_handler.FileProcessorHandler.set_context" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provide filename context to airflow task handler.
+:param filename: filename in which the dag is located</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.utils.log.file_task_handler">
+<span id="airflow-utils-log-file-task-handler-module"></span><h2>airflow.utils.log.file_task_handler module<a class="headerlink" href="#module-airflow.utils.log.file_task_handler" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.utils.log.file_task_handler.FileTaskHandler">
+<em class="property">class </em><code class="descclassname">airflow.utils.log.file_task_handler.</code><code class="descname">FileTaskHandler</code><span class="sig-paren">(</span><em>base_log_folder</em>, <em>filename_template</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/log/file_task_handler.html#FileTaskHandler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.log.file_task_handler.FileTaskHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">logging.Handler</span></code></p>
+<p>FileTaskHandler is a python log handler that handles and reads
+task instance logs. It creates and delegates log handling
+to <cite>logging.FileHandler</cite> after receiving task instance context.
+It reads logs from task instance’s host machine.</p>
+<dl class="method">
+<dt id="airflow.utils.log.file_task_handler.FileTaskHandler.close">
+<code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/log/file_task_handler.html#FileTaskHandler.close"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.log.file_task_handler.FileTaskHandler.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tidy up any resources used by the handler.</p>
+<p>This version removes the handler from an internal map of handlers,
+_handlers, which is used for handler lookup by name. Subclasses
+should ensure that this gets called from overridden close()
+methods.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.utils.log.file_task_handler.FileTaskHandler.emit">
+<code class="descname">emit</code><span class="sig-paren">(</span><em>record</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/log/file_task_handler.html#FileTaskHandler.emit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.log.file_task_handler.FileTaskHandler.emit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do whatever it takes to actually log the specified logging record.</p>
+<p>This version is intended to be implemented by subclasses and so
+raises a NotImplementedError.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.utils.log.file_task_handler.FileTaskHandler.flush">
+<code class="descname">flush</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/log/file_task_handler.html#FileTaskHandler.flush"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.log.file_task_handler.FileTaskHandler.flush" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure all logging output has been flushed.</p>
+<p>This version does nothing and is intended to be implemented by
+subclasses.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.utils.log.file_task_handler.FileTaskHandler.read">
+<code class="descname">read</code><span class="sig-paren">(</span><em>task_instance</em>, <em>try_number=None</em>, <em>metadata=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/log/file_task_handler.html#FileTaskHandler.read"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.log.file_task_handler.FileTaskHandler.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read logs of given task instance from local machine.
+:param task_instance: task instance object
+:param try_number: task instance try_number to read logs from. If None</p>
+<blockquote>
+<div>it returns all logs separated by try_number</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>metadata</strong> – log metadata,
+can be used for steaming log reading and auto-tailing.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a list of logs</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.utils.log.file_task_handler.FileTaskHandler.set_context">
+<code class="descname">set_context</code><span class="sig-paren">(</span><em>ti</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/log/file_task_handler.html#FileTaskHandler.set_context"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.log.file_task_handler.FileTaskHandler.set_context" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provide task_instance context to airflow task handler.
+:param ti: task instance object</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.utils.log.gcs_task_handler">
+<span id="airflow-utils-log-gcs-task-handler-module"></span><h2>airflow.utils.log.gcs_task_handler module<a class="headerlink" href="#module-airflow.utils.log.gcs_task_handler" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.utils.log.gcs_task_handler.GCSTaskHandler">
+<em class="property">class </em><code class="descclassname">airflow.utils.log.gcs_task_handler.</code><code class="descname">GCSTaskHandler</code><span class="sig-paren">(</span><em>base_log_folder</em>, <em>gcs_log_folder</em>, <em>filename_template</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/log/gcs_task_handler.html#GCSTaskHandler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.log.gcs_task_handler.GCSTaskHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.utils.log.file_task_handler.FileTaskHandler" title="airflow.utils.log.file_task_handler.FileTaskHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.utils.log.file_task_handler.FileTaskHandler</span></code></a>, <a class="reference internal" href="#airflow.utils.log.logging_mixin.LoggingMixin" title="airflow.utils.log.logging_mixin.LoggingMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.utils.log.logging_mixin.LoggingMixin</span></code></a></p>
+<p>GCSTaskHandler is a python log handler that handles and reads
+task instance logs. It extends airflow FileTaskHandler and
+uploads to and reads from GCS remote storage. Upon log reading
+failure, it reads from host machine’s local disk.</p>
+<dl class="method">
+<dt id="airflow.utils.log.gcs_task_handler.GCSTaskHandler.close">
+<code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/log/gcs_task_handler.html#GCSTaskHandler.close"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.log.gcs_task_handler.GCSTaskHandler.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Close and upload local log file to remote storage S3.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.utils.log.gcs_task_handler.GCSTaskHandler.gcs_read">
+<code class="descname">gcs_read</code><span class="sig-paren">(</span><em>remote_log_location</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/log/gcs_task_handler.html#GCSTaskHandler.gcs_read"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.log.gcs_task_handler.GCSTaskHandler.gcs_read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the log found at the remote_log_location.
+:param remote_log_location: the log’s location in remote storage
+:type remote_log_location: string (path)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.utils.log.gcs_task_handler.GCSTaskHandler.gcs_write">
+<code class="descname">gcs_write</code><span class="sig-paren">(</span><em>log</em>, <em>remote_log_location</em>, <em>append=True</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/log/gcs_task_handler.html#GCSTaskHandler.gcs_write"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.log.gcs_task_handler.GCSTaskHandler.gcs_write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes the log to the remote_log_location. Fails silently if no hook
+was created.
+:param log: the log to write to the remote_log_location
+:type log: string
+:param remote_log_location: the log’s location in remote storage
+:type remote_log_location: string (path)
+:param append: if False, any existing log file is overwritten. If True,</p>
+<blockquote>
+<div>the new log is appended to any existing logs.</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.utils.log.gcs_task_handler.GCSTaskHandler.hook">
+<code class="descname">hook</code><a class="headerlink" href="#airflow.utils.log.gcs_task_handler.GCSTaskHandler.hook" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.utils.log.gcs_task_handler.GCSTaskHandler.parse_gcs_url">
+<code class="descname">parse_gcs_url</code><span class="sig-paren">(</span><em>gsurl</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/log/gcs_task_handler.html#GCSTaskHandler.parse_gcs_url"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.log.gcs_task_handler.GCSTaskHandler.parse_gcs_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a Google Cloud Storage URL (gs://&lt;bucket&gt;/&lt;blob&gt;), returns a
+tuple containing the corresponding bucket and blob.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.utils.log.gcs_task_handler.GCSTaskHandler.set_context">
+<code class="descname">set_context</code><span class="sig-paren">(</span><em>ti</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/log/gcs_task_handler.html#GCSTaskHandler.set_context"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.log.gcs_task_handler.GCSTaskHandler.set_context" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provide task_instance context to airflow task handler.
+:param ti: task instance object</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.utils.log.logging_mixin">
+<span id="airflow-utils-log-logging-mixin-module"></span><h2>airflow.utils.log.logging_mixin module<a class="headerlink" href="#module-airflow.utils.log.logging_mixin" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.utils.log.logging_mixin.LoggingMixin">
+<em class="property">class </em><code class="descclassname">airflow.utils.log.logging_mixin.</code><code class="descname">LoggingMixin</code><span class="sig-paren">(</span><em>context=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/log/logging_mixin.html#LoggingMixin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.log.logging_mixin.LoggingMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Convenience super-class to have a logger configured with the class name</p>
+<dl class="attribute">
+<dt id="airflow.utils.log.logging_mixin.LoggingMixin.log">
+<code class="descname">log</code><a class="headerlink" href="#airflow.utils.log.logging_mixin.LoggingMixin.log" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.utils.log.logging_mixin.LoggingMixin.logger">
+<code class="descname">logger</code><a class="headerlink" href="#airflow.utils.log.logging_mixin.LoggingMixin.logger" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="airflow.utils.log.logging_mixin.RedirectStdHandler">
+<em class="property">class </em><code class="descclassname">airflow.utils.log.logging_mixin.</code><code class="descname">RedirectStdHandler</code><span class="sig-paren">(</span><em>stream</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/log/logging_mixin.html#RedirectStdHandler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.log.logging_mixin.RedirectStdHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">logging.StreamHandler</span></code></p>
+<p>This class is like a StreamHandler using sys.stderr/stdout, but always uses
+whatever sys.stderr/stderr is currently set to rather than the value of
+sys.stderr/stdout at handler construction time.</p>
+<dl class="attribute">
+<dt id="airflow.utils.log.logging_mixin.RedirectStdHandler.stream">
+<code class="descname">stream</code><a class="headerlink" href="#airflow.utils.log.logging_mixin.RedirectStdHandler.stream" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="airflow.utils.log.logging_mixin.StreamLogWriter">
+<em class="property">class </em><code class="descclassname">airflow.utils.log.logging_mixin.</code><code class="descname">StreamLogWriter</code><span class="sig-paren">(</span><em>logger</em>, <em>level</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/log/logging_mixin.html#StreamLogWriter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.log.logging_mixin.StreamLogWriter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="airflow.utils.log.logging_mixin.StreamLogWriter.encoding">
+<code class="descname">encoding</code><em class="property"> = False</em><a class="headerlink" href="#airflow.utils.log.logging_mixin.StreamLogWriter.encoding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allows to redirect stdout and stderr to logger</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.utils.log.logging_mixin.StreamLogWriter.flush">
+<code class="descname">flush</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/log/logging_mixin.html#StreamLogWriter.flush"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.log.logging_mixin.StreamLogWriter.flush" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure all logging output has been flushed</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.utils.log.logging_mixin.StreamLogWriter.isatty">
+<code class="descname">isatty</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/log/logging_mixin.html#StreamLogWriter.isatty"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.log.logging_mixin.StreamLogWriter.isatty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns False to indicate the fd is not connected to a tty(-like) device.
+For compatibility reasons.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.utils.log.logging_mixin.StreamLogWriter.write">
+<code class="descname">write</code><span class="sig-paren">(</span><em>message</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/log/logging_mixin.html#StreamLogWriter.write"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.log.logging_mixin.StreamLogWriter.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do whatever it takes to actually log the specified logging record
+:param message: message to log</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.utils.log.logging_mixin.redirect_stderr">
+<code class="descclassname">airflow.utils.log.logging_mixin.</code><code class="descname">redirect_stderr</code><span class="sig-paren">(</span><em>logger</em>, <em>level</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/log/logging_mixin.html#redirect_stderr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.log.logging_mixin.redirect_stderr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.utils.log.logging_mixin.redirect_stdout">
+<code class="descclassname">airflow.utils.log.logging_mixin.</code><code class="descname">redirect_stdout</code><span class="sig-paren">(</span><em>logger</em>, <em>level</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/log/logging_mixin.html#redirect_stdout"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.log.logging_mixin.redirect_stdout" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.utils.log.logging_mixin.set_context">
+<code class="descclassname">airflow.utils.log.logging_mixin.</code><code class="descname">set_context</code><span class="sig-paren">(</span><em>logger</em>, <em>value</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/log/logging_mixin.html#set_context"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.log.logging_mixin.set_context" title="Permalink to this definition">¶</a></dt>
+<dd><p>Walks the tree of loggers and tries to set the context for each handler
+:param logger: logger
+:param value: value to set</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.utils.log.s3_task_handler">
+<span id="airflow-utils-log-s3-task-handler-module"></span><h2>airflow.utils.log.s3_task_handler module<a class="headerlink" href="#module-airflow.utils.log.s3_task_handler" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.utils.log.s3_task_handler.S3TaskHandler">
+<em class="property">class </em><code class="descclassname">airflow.utils.log.s3_task_handler.</code><code class="descname">S3TaskHandler</code><span class="sig-paren">(</span><em>base_log_folder</em>, <em>s3_log_folder</em>, <em>filename_template</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/log/s3_task_handler.html#S3TaskHandler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.log.s3_task_handler.S3TaskHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.utils.log.file_task_handler.FileTaskHandler" title="airflow.utils.log.file_task_handler.FileTaskHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.utils.log.file_task_handler.FileTaskHandler</span></code></a>, <a class="reference internal" href="#airflow.utils.log.logging_mixin.LoggingMixin" title="airflow.utils.log.logging_mixin.LoggingMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.utils.log.logging_mixin.LoggingMixin</span></code></a></p>
+<p>S3TaskHandler is a python log handler that handles and reads
+task instance logs. It extends airflow FileTaskHandler and
+uploads to and reads from S3 remote storage.</p>
+<dl class="method">
+<dt id="airflow.utils.log.s3_task_handler.S3TaskHandler.close">
+<code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/log/s3_task_handler.html#S3TaskHandler.close"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.log.s3_task_handler.S3TaskHandler.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Close and upload local log file to remote storage S3.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.utils.log.s3_task_handler.S3TaskHandler.hook">
+<code class="descname">hook</code><a class="headerlink" href="#airflow.utils.log.s3_task_handler.S3TaskHandler.hook" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.utils.log.s3_task_handler.S3TaskHandler.s3_log_exists">
+<code class="descname">s3_log_exists</code><span class="sig-paren">(</span><em>remote_log_location</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/log/s3_task_handler.html#S3TaskHandler.s3_log_exists"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.log.s3_task_handler.S3TaskHandler.s3_log_exists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if remote_log_location exists in remote storage
+:param remote_log_location: log’s location in remote storage
+:return: True if location exists else False</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.utils.log.s3_task_handler.S3TaskHandler.s3_read">
+<code class="descname">s3_read</code><span class="sig-paren">(</span><em>remote_log_location</em>, <em>return_error=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/log/s3_task_handler.html#S3TaskHandler.s3_read"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.log.s3_task_handler.S3TaskHandler.s3_read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the log found at the remote_log_location. Returns ‘’ if no
+logs are found or there is an error.
+:param remote_log_location: the log’s location in remote storage
+:type remote_log_location: string (path)
+:param return_error: if True, returns a string error message if an</p>
+<blockquote>
+<div>error occurs. Otherwise returns ‘’ when an error occurs.</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.utils.log.s3_task_handler.S3TaskHandler.s3_write">
+<code class="descname">s3_write</code><span class="sig-paren">(</span><em>log</em>, <em>remote_log_location</em>, <em>append=True</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/log/s3_task_handler.html#S3TaskHandler.s3_write"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.log.s3_task_handler.S3TaskHandler.s3_write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes the log to the remote_log_location. Fails silently if no hook
+was created.
+:param log: the log to write to the remote_log_location
+:type log: string
+:param remote_log_location: the log’s location in remote storage
+:type remote_log_location: string (path)
+:param append: if False, any existing log file is overwritten. If True,</p>
+<blockquote>
+<div>the new log is appended to any existing logs.</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.utils.log.s3_task_handler.S3TaskHandler.set_context">
+<code class="descname">set_context</code><span class="sig-paren">(</span><em>ti</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/log/s3_task_handler.html#S3TaskHandler.set_context"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.log.s3_task_handler.S3TaskHandler.set_context" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provide task_instance context to airflow task handler.
+:param ti: task instance object</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.utils.log.wasb_task_handler">
+<span id="airflow-utils-log-wasb-task-handler-module"></span><h2>airflow.utils.log.wasb_task_handler module<a class="headerlink" href="#module-airflow.utils.log.wasb_task_handler" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.utils.log.wasb_task_handler.WasbTaskHandler">
+<em class="property">class </em><code class="descclassname">airflow.utils.log.wasb_task_handler.</code><code class="descname">WasbTaskHandler</code><span class="sig-paren">(</span><em>base_log_folder</em>, <em>wasb_log_folder</em>, <em>wasb_container</em>, <em>filename_template</em>, <em>delete_local_copy</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/log/wasb_task_handler.html#WasbTaskHandler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.log.wasb_task_handler.WasbTaskHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.utils.log.file_task_handler.FileTaskHandler" title="airflow.utils.log.file_task_handler.FileTaskHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.utils.log.file_task_handler.FileTaskHandler</span></code></a>, <a class="reference internal" href="#airflow.utils.log.logging_mixin.LoggingMixin" title="airflow.utils.log.logging_mixin.LoggingMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.utils.log.logging_mixin.LoggingMixin</span></code></a></p>
+<p>WasbTaskHandler is a python log handler that handles and reads
+task instance logs. It extends airflow FileTaskHandler and
+uploads to and reads from Wasb remote storage.</p>
+<dl class="method">
+<dt id="airflow.utils.log.wasb_task_handler.WasbTaskHandler.close">
+<code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/log/wasb_task_handler.html#WasbTaskHandler.close"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.log.wasb_task_handler.WasbTaskHandler.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Close and upload local log file to remote storage Wasb.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.utils.log.wasb_task_handler.WasbTaskHandler.hook">
+<code class="descname">hook</code><a class="headerlink" href="#airflow.utils.log.wasb_task_handler.WasbTaskHandler.hook" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.utils.log.wasb_task_handler.WasbTaskHandler.set_context">
+<code class="descname">set_context</code><span class="sig-paren">(</span><em>ti</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/log/wasb_task_handler.html#WasbTaskHandler.set_context"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.log.wasb_task_handler.WasbTaskHandler.set_context" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provide task_instance context to airflow task handler.
+:param ti: task instance object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.utils.log.wasb_task_handler.WasbTaskHandler.wasb_log_exists">
+<code class="descname">wasb_log_exists</code><span class="sig-paren">(</span><em>remote_log_location</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/log/wasb_task_handler.html#WasbTaskHandler.wasb_log_exists"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.log.wasb_task_handler.WasbTaskHandler.wasb_log_exists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if remote_log_location exists in remote storage
+:param remote_log_location: log’s location in remote storage
+:return: True if location exists else False</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.utils.log.wasb_task_handler.WasbTaskHandler.wasb_read">
+<code class="descname">wasb_read</code><span class="sig-paren">(</span><em>remote_log_location</em>, <em>return_error=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/log/wasb_task_handler.html#WasbTaskHandler.wasb_read"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.log.wasb_task_handler.WasbTaskHandler.wasb_read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the log found at the remote_log_location. Returns ‘’ if no
+logs are found or there is an error.
+:param remote_log_location: the log’s location in remote storage
+:type remote_log_location: string (path)
+:param return_error: if True, returns a string error message if an</p>
+<blockquote>
+<div>error occurs. Otherwise returns ‘’ when an error occurs.</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.utils.log.wasb_task_handler.WasbTaskHandler.wasb_write">
+<code class="descname">wasb_write</code><span class="sig-paren">(</span><em>log</em>, <em>remote_log_location</em>, <em>append=True</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/utils/log/wasb_task_handler.html#WasbTaskHandler.wasb_write"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.utils.log.wasb_task_handler.WasbTaskHandler.wasb_write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes the log to the remote_log_location. Fails silently if no hook
+was created.
+:param log: the log to write to the remote_log_location
+:type log: string
+:param remote_log_location: the log’s location in remote storage
+:type remote_log_location: string (path)
+:param append: if False, any existing log file is overwritten. If True,</p>
+<blockquote>
+<div>the new log is appended to any existing logs.</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.utils.log">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-airflow.utils.log" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

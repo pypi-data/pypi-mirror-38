@@ -1,0 +1,22 @@
+airflow.lineage.backend.atlas package
+=====================================
+
+Submodules
+----------
+
+airflow.lineage.backend.atlas.typedefs module
+---------------------------------------------
+
+.. automodule:: airflow.lineage.backend.atlas.typedefs
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: airflow.lineage.backend.atlas
+    :members:
+    :undoc-members:
+    :show-inheritance:

@@ -1,0 +1,468 @@
+operators package
+=================
+
+.. automodule:: operators
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Submodules
+----------
+
+operators\.awsbatch\_operator module
+------------------------------------
+
+.. automodule:: operators.awsbatch_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.bigquery\_check\_operator module
+-------------------------------------------
+
+.. automodule:: operators.bigquery_check_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.bigquery\_get\_data module
+-------------------------------------
+
+.. automodule:: operators.bigquery_get_data
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.bigquery\_operator module
+------------------------------------
+
+.. automodule:: operators.bigquery_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.bigquery\_table\_delete\_operator module
+---------------------------------------------------
+
+.. automodule:: operators.bigquery_table_delete_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.bigquery\_to\_bigquery module
+----------------------------------------
+
+.. automodule:: operators.bigquery_to_bigquery
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.bigquery\_to\_gcs module
+-----------------------------------
+
+.. automodule:: operators.bigquery_to_gcs
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.cassandra\_to\_gcs module
+------------------------------------
+
+.. automodule:: operators.cassandra_to_gcs
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.databricks\_operator module
+--------------------------------------
+
+.. automodule:: operators.databricks_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.dataflow\_operator module
+------------------------------------
+
+.. automodule:: operators.dataflow_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.dataproc\_operator module
+------------------------------------
+
+.. automodule:: operators.dataproc_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.datastore\_export\_operator module
+---------------------------------------------
+
+.. automodule:: operators.datastore_export_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.datastore\_import\_operator module
+---------------------------------------------
+
+.. automodule:: operators.datastore_import_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.discord\_webhook\_operator module
+--------------------------------------------
+
+.. automodule:: operators.discord_webhook_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.druid\_operator module
+---------------------------------
+
+.. automodule:: operators.druid_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.ecs\_operator module
+-------------------------------
+
+.. automodule:: operators.ecs_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.emr\_add\_steps\_operator module
+-------------------------------------------
+
+.. automodule:: operators.emr_add_steps_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.emr\_create\_job\_flow\_operator module
+--------------------------------------------------
+
+.. automodule:: operators.emr_create_job_flow_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.emr\_terminate\_job\_flow\_operator module
+-----------------------------------------------------
+
+.. automodule:: operators.emr_terminate_job_flow_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.file\_to\_gcs module
+-------------------------------
+
+.. automodule:: operators.file_to_gcs
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.file\_to\_wasb module
+--------------------------------
+
+.. automodule:: operators.file_to_wasb
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.gcp\_container\_operator module
+------------------------------------------
+
+.. automodule:: operators.gcp_container_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.gcs\_download\_operator module
+-----------------------------------------
+
+.. automodule:: operators.gcs_download_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.gcs\_list\_operator module
+-------------------------------------
+
+.. automodule:: operators.gcs_list_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.gcs\_operator module
+-------------------------------
+
+.. automodule:: operators.gcs_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.gcs\_to\_bq module
+-----------------------------
+
+.. automodule:: operators.gcs_to_bq
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.gcs\_to\_gcs module
+------------------------------
+
+.. automodule:: operators.gcs_to_gcs
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.gcs\_to\_s3 module
+-----------------------------
+
+.. automodule:: operators.gcs_to_s3
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.hipchat\_operator module
+-----------------------------------
+
+.. automodule:: operators.hipchat_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.hive\_to\_dynamodb module
+------------------------------------
+
+.. automodule:: operators.hive_to_dynamodb
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.jenkins\_job\_trigger\_operator module
+-------------------------------------------------
+
+.. automodule:: operators.jenkins_job_trigger_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.jira\_operator module
+--------------------------------
+
+.. automodule:: operators.jira_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.kubernetes\_pod\_operator module
+-------------------------------------------
+
+.. automodule:: operators.kubernetes_pod_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.mlengine\_operator module
+------------------------------------
+
+.. automodule:: operators.mlengine_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.mlengine\_operator\_utils module
+-------------------------------------------
+
+.. automodule:: operators.mlengine_operator_utils
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.mlengine\_prediction\_summary module
+-----------------------------------------------
+
+.. automodule:: operators.mlengine_prediction_summary
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.mongo\_to\_s3 module
+-------------------------------
+
+.. automodule:: operators.mongo_to_s3
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.mysql\_to\_gcs module
+--------------------------------
+
+.. automodule:: operators.mysql_to_gcs
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.postgres\_to\_gcs\_operator module
+---------------------------------------------
+
+.. automodule:: operators.postgres_to_gcs_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.pubsub\_operator module
+----------------------------------
+
+.. automodule:: operators.pubsub_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.qubole\_check\_operator module
+-----------------------------------------
+
+.. automodule:: operators.qubole_check_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.qubole\_operator module
+----------------------------------
+
+.. automodule:: operators.qubole_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.s3\_list\_operator module
+------------------------------------
+
+.. automodule:: operators.s3_list_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.s3\_to\_gcs\_operator module
+---------------------------------------
+
+.. automodule:: operators.s3_to_gcs_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.segment\_track\_event\_operator module
+-------------------------------------------------
+
+.. automodule:: operators.segment_track_event_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.sftp\_operator module
+--------------------------------
+
+.. automodule:: operators.sftp_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.slack\_webhook\_operator module
+------------------------------------------
+
+.. automodule:: operators.slack_webhook_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.snowflake\_operator module
+-------------------------------------
+
+.. automodule:: operators.snowflake_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.spark\_jdbc\_operator module
+---------------------------------------
+
+.. automodule:: operators.spark_jdbc_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.spark\_sql\_operator module
+--------------------------------------
+
+.. automodule:: operators.spark_sql_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.spark\_submit\_operator module
+-----------------------------------------
+
+.. automodule:: operators.spark_submit_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.sqoop\_operator module
+---------------------------------
+
+.. automodule:: operators.sqoop_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.ssh\_operator module
+-------------------------------
+
+.. automodule:: operators.ssh_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.vertica\_operator module
+-----------------------------------
+
+.. automodule:: operators.vertica_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.vertica\_to\_hive module
+-----------------------------------
+
+.. automodule:: operators.vertica_to_hive
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.vertica\_to\_mysql module
+------------------------------------
+
+.. automodule:: operators.vertica_to_mysql
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+operators\.winrm\_operator module
+---------------------------------
+
+.. automodule:: operators.winrm_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+

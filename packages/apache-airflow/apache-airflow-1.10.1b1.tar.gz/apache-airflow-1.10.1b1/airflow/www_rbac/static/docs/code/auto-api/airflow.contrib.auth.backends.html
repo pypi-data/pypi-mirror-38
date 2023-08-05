@@ -1,0 +1,601 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>airflow.contrib.auth.backends package &mdash; Airflow Documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Airflow Documentation" href="../../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Airflow
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howto/index.html">How-to Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ui.html">UI / Screenshots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../profiling.html">Data Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../scheduler.html">Scheduling &amp; Triggers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../security.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../timezone.html">Time zones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">Experimental Rest API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../integration.html">Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lineage.html">Lineage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../code.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Airflow</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>airflow.contrib.auth.backends package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/code/auto-api/airflow.contrib.auth.backends.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="airflow-contrib-auth-backends-package">
+<h1>airflow.contrib.auth.backends package<a class="headerlink" href="#airflow-contrib-auth-backends-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="airflow-contrib-auth-backends-github-enterprise-auth-module">
+<h2>airflow.contrib.auth.backends.github_enterprise_auth module<a class="headerlink" href="#airflow-contrib-auth-backends-github-enterprise-auth-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="airflow-contrib-auth-backends-google-auth-module">
+<h2>airflow.contrib.auth.backends.google_auth module<a class="headerlink" href="#airflow-contrib-auth-backends-google-auth-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-airflow.contrib.auth.backends.kerberos_auth">
+<span id="airflow-contrib-auth-backends-kerberos-auth-module"></span><h2>airflow.contrib.auth.backends.kerberos_auth module<a class="headerlink" href="#module-airflow.contrib.auth.backends.kerberos_auth" title="Permalink to this headline">¶</a></h2>
+<dl class="exception">
+<dt id="airflow.contrib.auth.backends.kerberos_auth.AuthenticationError">
+<em class="property">exception </em><code class="descclassname">airflow.contrib.auth.backends.kerberos_auth.</code><code class="descname">AuthenticationError</code><a class="reference internal" href="../../_modules/airflow/contrib/auth/backends/kerberos_auth.html#AuthenticationError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.auth.backends.kerberos_auth.AuthenticationError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="airflow.contrib.auth.backends.kerberos_auth.KerberosUser">
+<em class="property">class </em><code class="descclassname">airflow.contrib.auth.backends.kerberos_auth.</code><code class="descname">KerberosUser</code><span class="sig-paren">(</span><em>user</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/auth/backends/kerberos_auth.html#KerberosUser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.auth.backends.kerberos_auth.KerberosUser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="airflow.html#airflow.models.User" title="airflow.models.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.models.User</span></code></a>, <a class="reference internal" href="airflow.utils.log.html#airflow.utils.log.logging_mixin.LoggingMixin" title="airflow.utils.log.logging_mixin.LoggingMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.utils.log.logging_mixin.LoggingMixin</span></code></a></p>
+<dl class="staticmethod">
+<dt id="airflow.contrib.auth.backends.kerberos_auth.KerberosUser.authenticate">
+<em class="property">static </em><code class="descname">authenticate</code><span class="sig-paren">(</span><em>username</em>, <em>password</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/auth/backends/kerberos_auth.html#KerberosUser.authenticate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.auth.backends.kerberos_auth.KerberosUser.authenticate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.contrib.auth.backends.kerberos_auth.KerberosUser.data_profiling">
+<code class="descname">data_profiling</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/auth/backends/kerberos_auth.html#KerberosUser.data_profiling"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.auth.backends.kerberos_auth.KerberosUser.data_profiling" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides access to data profiling tools</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.contrib.auth.backends.kerberos_auth.KerberosUser.email">
+<code class="descname">email</code><a class="headerlink" href="#airflow.contrib.auth.backends.kerberos_auth.KerberosUser.email" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.contrib.auth.backends.kerberos_auth.KerberosUser.get_id">
+<code class="descname">get_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/auth/backends/kerberos_auth.html#KerberosUser.get_id"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.auth.backends.kerberos_auth.KerberosUser.get_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the current user id as required by flask_login</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.contrib.auth.backends.kerberos_auth.KerberosUser.id">
+<code class="descname">id</code><a class="headerlink" href="#airflow.contrib.auth.backends.kerberos_auth.KerberosUser.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.contrib.auth.backends.kerberos_auth.KerberosUser.is_active">
+<code class="descname">is_active</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/auth/backends/kerberos_auth.html#KerberosUser.is_active"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.auth.backends.kerberos_auth.KerberosUser.is_active" title="Permalink to this definition">¶</a></dt>
+<dd><p>Required by flask_login</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.contrib.auth.backends.kerberos_auth.KerberosUser.is_anonymous">
+<code class="descname">is_anonymous</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/auth/backends/kerberos_auth.html#KerberosUser.is_anonymous"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.auth.backends.kerberos_auth.KerberosUser.is_anonymous" title="Permalink to this definition">¶</a></dt>
+<dd><p>Required by flask_login</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.contrib.auth.backends.kerberos_auth.KerberosUser.is_authenticated">
+<code class="descname">is_authenticated</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/auth/backends/kerberos_auth.html#KerberosUser.is_authenticated"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.auth.backends.kerberos_auth.KerberosUser.is_authenticated" title="Permalink to this definition">¶</a></dt>
+<dd><p>Required by flask_login</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.contrib.auth.backends.kerberos_auth.KerberosUser.is_superuser">
+<code class="descname">is_superuser</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/auth/backends/kerberos_auth.html#KerberosUser.is_superuser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.auth.backends.kerberos_auth.KerberosUser.is_superuser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Access all the things</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.contrib.auth.backends.kerberos_auth.KerberosUser.username">
+<code class="descname">username</code><a class="headerlink" href="#airflow.contrib.auth.backends.kerberos_auth.KerberosUser.username" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="airflow.contrib.auth.backends.kerberos_auth.LoginForm">
+<em class="property">class </em><code class="descclassname">airflow.contrib.auth.backends.kerberos_auth.</code><code class="descname">LoginForm</code><span class="sig-paren">(</span><em>formdata=None</em>, <em>obj=None</em>, <em>prefix=''</em>, <em>data=None</em>, <em>meta=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/auth/backends/kerberos_auth.html#LoginForm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.auth.backends.kerberos_auth.LoginForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">wtforms.form.Form</span></code></p>
+<dl class="attribute">
+<dt id="airflow.contrib.auth.backends.kerberos_auth.LoginForm.password">
+<code class="descname">password</code><em class="property"> = &lt;UnboundField(PasswordField, ('Password', [&lt;wtforms.validators.InputRequired object&gt;]), {})&gt;</em><a class="headerlink" href="#airflow.contrib.auth.backends.kerberos_auth.LoginForm.password" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.contrib.auth.backends.kerberos_auth.LoginForm.username">
+<code class="descname">username</code><em class="property"> = &lt;UnboundField(StringField, ('Username', [&lt;wtforms.validators.InputRequired object&gt;]), {})&gt;</em><a class="headerlink" href="#airflow.contrib.auth.backends.kerberos_auth.LoginForm.username" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.contrib.auth.backends.kerberos_auth.load_user">
+<code class="descclassname">airflow.contrib.auth.backends.kerberos_auth.</code><code class="descname">load_user</code><span class="sig-paren">(</span><em>userid</em>, <em>session=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/auth/backends/kerberos_auth.html#load_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.auth.backends.kerberos_auth.load_user" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.contrib.auth.backends.kerberos_auth.login">
+<code class="descclassname">airflow.contrib.auth.backends.kerberos_auth.</code><code class="descname">login</code><span class="sig-paren">(</span><em>self</em>, <em>request</em>, <em>session=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/auth/backends/kerberos_auth.html#login"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.auth.backends.kerberos_auth.login" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-airflow.contrib.auth.backends.ldap_auth">
+<span id="airflow-contrib-auth-backends-ldap-auth-module"></span><h2>airflow.contrib.auth.backends.ldap_auth module<a class="headerlink" href="#module-airflow.contrib.auth.backends.ldap_auth" title="Permalink to this headline">¶</a></h2>
+<dl class="exception">
+<dt id="airflow.contrib.auth.backends.ldap_auth.AuthenticationError">
+<em class="property">exception </em><code class="descclassname">airflow.contrib.auth.backends.ldap_auth.</code><code class="descname">AuthenticationError</code><a class="reference internal" href="../../_modules/airflow/contrib/auth/backends/ldap_auth.html#AuthenticationError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.auth.backends.ldap_auth.AuthenticationError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="airflow.contrib.auth.backends.ldap_auth.LdapException">
+<em class="property">exception </em><code class="descclassname">airflow.contrib.auth.backends.ldap_auth.</code><code class="descname">LdapException</code><a class="reference internal" href="../../_modules/airflow/contrib/auth/backends/ldap_auth.html#LdapException"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.auth.backends.ldap_auth.LdapException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="airflow.contrib.auth.backends.ldap_auth.LdapUser">
+<em class="property">class </em><code class="descclassname">airflow.contrib.auth.backends.ldap_auth.</code><code class="descname">LdapUser</code><span class="sig-paren">(</span><em>user</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/auth/backends/ldap_auth.html#LdapUser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.auth.backends.ldap_auth.LdapUser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="airflow.html#airflow.models.User" title="airflow.models.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.models.User</span></code></a></p>
+<dl class="method">
+<dt id="airflow.contrib.auth.backends.ldap_auth.LdapUser.data_profiling">
+<code class="descname">data_profiling</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/auth/backends/ldap_auth.html#LdapUser.data_profiling"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.auth.backends.ldap_auth.LdapUser.data_profiling" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides access to data profiling tools</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.contrib.auth.backends.ldap_auth.LdapUser.email">
+<code class="descname">email</code><a class="headerlink" href="#airflow.contrib.auth.backends.ldap_auth.LdapUser.email" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.contrib.auth.backends.ldap_auth.LdapUser.get_id">
+<code class="descname">get_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/auth/backends/ldap_auth.html#LdapUser.get_id"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.auth.backends.ldap_auth.LdapUser.get_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the current user id as required by flask_login</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.contrib.auth.backends.ldap_auth.LdapUser.id">
+<code class="descname">id</code><a class="headerlink" href="#airflow.contrib.auth.backends.ldap_auth.LdapUser.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.contrib.auth.backends.ldap_auth.LdapUser.is_active">
+<code class="descname">is_active</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/auth/backends/ldap_auth.html#LdapUser.is_active"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.auth.backends.ldap_auth.LdapUser.is_active" title="Permalink to this definition">¶</a></dt>
+<dd><p>Required by flask_login</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.contrib.auth.backends.ldap_auth.LdapUser.is_anonymous">
+<code class="descname">is_anonymous</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/auth/backends/ldap_auth.html#LdapUser.is_anonymous"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.auth.backends.ldap_auth.LdapUser.is_anonymous" title="Permalink to this definition">¶</a></dt>
+<dd><p>Required by flask_login</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.contrib.auth.backends.ldap_auth.LdapUser.is_authenticated">
+<code class="descname">is_authenticated</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/auth/backends/ldap_auth.html#LdapUser.is_authenticated"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.auth.backends.ldap_auth.LdapUser.is_authenticated" title="Permalink to this definition">¶</a></dt>
+<dd><p>Required by flask_login</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.contrib.auth.backends.ldap_auth.LdapUser.is_superuser">
+<code class="descname">is_superuser</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/auth/backends/ldap_auth.html#LdapUser.is_superuser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.auth.backends.ldap_auth.LdapUser.is_superuser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Access all the things</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="airflow.contrib.auth.backends.ldap_auth.LdapUser.try_login">
+<em class="property">static </em><code class="descname">try_login</code><span class="sig-paren">(</span><em>username</em>, <em>password</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/auth/backends/ldap_auth.html#LdapUser.try_login"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.auth.backends.ldap_auth.LdapUser.try_login" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.contrib.auth.backends.ldap_auth.LdapUser.username">
+<code class="descname">username</code><a class="headerlink" href="#airflow.contrib.auth.backends.ldap_auth.LdapUser.username" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="airflow.contrib.auth.backends.ldap_auth.LoginForm">
+<em class="property">class </em><code class="descclassname">airflow.contrib.auth.backends.ldap_auth.</code><code class="descname">LoginForm</code><span class="sig-paren">(</span><em>formdata=None</em>, <em>obj=None</em>, <em>prefix=''</em>, <em>data=None</em>, <em>meta=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/auth/backends/ldap_auth.html#LoginForm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.auth.backends.ldap_auth.LoginForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">wtforms.form.Form</span></code></p>
+<dl class="attribute">
+<dt id="airflow.contrib.auth.backends.ldap_auth.LoginForm.password">
+<code class="descname">password</code><em class="property"> = &lt;UnboundField(PasswordField, ('Password', [&lt;wtforms.validators.InputRequired object&gt;]), {})&gt;</em><a class="headerlink" href="#airflow.contrib.auth.backends.ldap_auth.LoginForm.password" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.contrib.auth.backends.ldap_auth.LoginForm.username">
+<code class="descname">username</code><em class="property"> = &lt;UnboundField(StringField, ('Username', [&lt;wtforms.validators.InputRequired object&gt;]), {})&gt;</em><a class="headerlink" href="#airflow.contrib.auth.backends.ldap_auth.LoginForm.username" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.contrib.auth.backends.ldap_auth.get_ldap_connection">
+<code class="descclassname">airflow.contrib.auth.backends.ldap_auth.</code><code class="descname">get_ldap_connection</code><span class="sig-paren">(</span><em>dn=None</em>, <em>password=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/auth/backends/ldap_auth.html#get_ldap_connection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.auth.backends.ldap_auth.get_ldap_connection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.contrib.auth.backends.ldap_auth.group_contains_user">
+<code class="descclassname">airflow.contrib.auth.backends.ldap_auth.</code><code class="descname">group_contains_user</code><span class="sig-paren">(</span><em>conn</em>, <em>search_base</em>, <em>group_filter</em>, <em>user_name_attr</em>, <em>username</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/auth/backends/ldap_auth.html#group_contains_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.auth.backends.ldap_auth.group_contains_user" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.contrib.auth.backends.ldap_auth.groups_user">
+<code class="descclassname">airflow.contrib.auth.backends.ldap_auth.</code><code class="descname">groups_user</code><span class="sig-paren">(</span><em>conn</em>, <em>search_base</em>, <em>user_filter</em>, <em>user_name_att</em>, <em>username</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/auth/backends/ldap_auth.html#groups_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.auth.backends.ldap_auth.groups_user" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.contrib.auth.backends.ldap_auth.load_user">
+<code class="descclassname">airflow.contrib.auth.backends.ldap_auth.</code><code class="descname">load_user</code><span class="sig-paren">(</span><em>userid</em>, <em>session=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/auth/backends/ldap_auth.html#load_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.auth.backends.ldap_auth.load_user" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.contrib.auth.backends.ldap_auth.login">
+<code class="descclassname">airflow.contrib.auth.backends.ldap_auth.</code><code class="descname">login</code><span class="sig-paren">(</span><em>self</em>, <em>request</em>, <em>session=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/auth/backends/ldap_auth.html#login"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.auth.backends.ldap_auth.login" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-airflow.contrib.auth.backends.password_auth">
+<span id="airflow-contrib-auth-backends-password-auth-module"></span><h2>airflow.contrib.auth.backends.password_auth module<a class="headerlink" href="#module-airflow.contrib.auth.backends.password_auth" title="Permalink to this headline">¶</a></h2>
+<dl class="exception">
+<dt id="airflow.contrib.auth.backends.password_auth.AuthenticationError">
+<em class="property">exception </em><code class="descclassname">airflow.contrib.auth.backends.password_auth.</code><code class="descname">AuthenticationError</code><a class="reference internal" href="../../_modules/airflow/contrib/auth/backends/password_auth.html#AuthenticationError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.auth.backends.password_auth.AuthenticationError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="airflow.contrib.auth.backends.password_auth.LoginForm">
+<em class="property">class </em><code class="descclassname">airflow.contrib.auth.backends.password_auth.</code><code class="descname">LoginForm</code><span class="sig-paren">(</span><em>formdata=None</em>, <em>obj=None</em>, <em>prefix=''</em>, <em>data=None</em>, <em>meta=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/auth/backends/password_auth.html#LoginForm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.auth.backends.password_auth.LoginForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">wtforms.form.Form</span></code></p>
+<dl class="attribute">
+<dt id="airflow.contrib.auth.backends.password_auth.LoginForm.password">
+<code class="descname">password</code><em class="property"> = &lt;UnboundField(PasswordField, ('Password', [&lt;wtforms.validators.InputRequired object&gt;]), {})&gt;</em><a class="headerlink" href="#airflow.contrib.auth.backends.password_auth.LoginForm.password" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.contrib.auth.backends.password_auth.LoginForm.username">
+<code class="descname">username</code><em class="property"> = &lt;UnboundField(StringField, ('Username', [&lt;wtforms.validators.InputRequired object&gt;]), {})&gt;</em><a class="headerlink" href="#airflow.contrib.auth.backends.password_auth.LoginForm.username" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="airflow.contrib.auth.backends.password_auth.PasswordUser">
+<em class="property">class </em><code class="descclassname">airflow.contrib.auth.backends.password_auth.</code><code class="descname">PasswordUser</code><span class="sig-paren">(</span><em>user</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/auth/backends/password_auth.html#PasswordUser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.auth.backends.password_auth.PasswordUser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="airflow.html#airflow.models.User" title="airflow.models.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.models.User</span></code></a></p>
+<dl class="method">
+<dt id="airflow.contrib.auth.backends.password_auth.PasswordUser.authenticate">
+<code class="descname">authenticate</code><span class="sig-paren">(</span><em>plaintext</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/auth/backends/password_auth.html#PasswordUser.authenticate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.auth.backends.password_auth.PasswordUser.authenticate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.contrib.auth.backends.password_auth.PasswordUser.data_profiling">
+<code class="descname">data_profiling</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/auth/backends/password_auth.html#PasswordUser.data_profiling"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.auth.backends.password_auth.PasswordUser.data_profiling" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides access to data profiling tools</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.contrib.auth.backends.password_auth.PasswordUser.email">
+<code class="descname">email</code><a class="headerlink" href="#airflow.contrib.auth.backends.password_auth.PasswordUser.email" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.contrib.auth.backends.password_auth.PasswordUser.get_id">
+<code class="descname">get_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/auth/backends/password_auth.html#PasswordUser.get_id"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.auth.backends.password_auth.PasswordUser.get_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the current user id as required by flask_login</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.contrib.auth.backends.password_auth.PasswordUser.id">
+<code class="descname">id</code><a class="headerlink" href="#airflow.contrib.auth.backends.password_auth.PasswordUser.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.contrib.auth.backends.password_auth.PasswordUser.is_active">
+<code class="descname">is_active</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/auth/backends/password_auth.html#PasswordUser.is_active"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.auth.backends.password_auth.PasswordUser.is_active" title="Permalink to this definition">¶</a></dt>
+<dd><p>Required by flask_login</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.contrib.auth.backends.password_auth.PasswordUser.is_anonymous">
+<code class="descname">is_anonymous</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/auth/backends/password_auth.html#PasswordUser.is_anonymous"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.auth.backends.password_auth.PasswordUser.is_anonymous" title="Permalink to this definition">¶</a></dt>
+<dd><p>Required by flask_login</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.contrib.auth.backends.password_auth.PasswordUser.is_authenticated">
+<code class="descname">is_authenticated</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/auth/backends/password_auth.html#PasswordUser.is_authenticated"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.auth.backends.password_auth.PasswordUser.is_authenticated" title="Permalink to this definition">¶</a></dt>
+<dd><p>Required by flask_login</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.contrib.auth.backends.password_auth.PasswordUser.is_superuser">
+<code class="descname">is_superuser</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/auth/backends/password_auth.html#PasswordUser.is_superuser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.auth.backends.password_auth.PasswordUser.is_superuser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Access all the things</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.contrib.auth.backends.password_auth.PasswordUser.password">
+<code class="descname">password</code><a class="headerlink" href="#airflow.contrib.auth.backends.password_auth.PasswordUser.password" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.contrib.auth.backends.password_auth.PasswordUser.username">
+<code class="descname">username</code><a class="headerlink" href="#airflow.contrib.auth.backends.password_auth.PasswordUser.username" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.contrib.auth.backends.password_auth.authenticate">
+<code class="descclassname">airflow.contrib.auth.backends.password_auth.</code><code class="descname">authenticate</code><span class="sig-paren">(</span><em>session</em>, <em>username</em>, <em>password</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/auth/backends/password_auth.html#authenticate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.auth.backends.password_auth.authenticate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Authenticate a PasswordUser with the specified
+username/password.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>session</strong> – An active SQLAlchemy session</li>
+<li><strong>username</strong> – The username</li>
+<li><strong>password</strong> – The password</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference internal" href="#airflow.contrib.auth.backends.kerberos_auth.AuthenticationError" title="airflow.contrib.auth.backends.kerberos_auth.AuthenticationError"><strong>AuthenticationError</strong></a> – if an error occurred</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">a PasswordUser</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.contrib.auth.backends.password_auth.init_app">
+<code class="descclassname">airflow.contrib.auth.backends.password_auth.</code><code class="descname">init_app</code><span class="sig-paren">(</span><em>app</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/auth/backends/password_auth.html#init_app"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.auth.backends.password_auth.init_app" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.contrib.auth.backends.password_auth.load_user">
+<code class="descclassname">airflow.contrib.auth.backends.password_auth.</code><code class="descname">load_user</code><span class="sig-paren">(</span><em>userid</em>, <em>session=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/auth/backends/password_auth.html#load_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.auth.backends.password_auth.load_user" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.contrib.auth.backends.password_auth.login">
+<code class="descclassname">airflow.contrib.auth.backends.password_auth.</code><code class="descname">login</code><span class="sig-paren">(</span><em>self</em>, <em>request</em>, <em>session=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/auth/backends/password_auth.html#login"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.auth.backends.password_auth.login" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="airflow.contrib.auth.backends.password_auth.requires_authentication">
+<code class="descclassname">airflow.contrib.auth.backends.password_auth.</code><code class="descname">requires_authentication</code><span class="sig-paren">(</span><em>function</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/auth/backends/password_auth.html#requires_authentication"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.auth.backends.password_auth.requires_authentication" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-airflow.contrib.auth.backends">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-airflow.contrib.auth.backends" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+airflow.contrib.auth.backends package
+=====================================
+
+Submodules
+----------
+
+airflow.contrib.auth.backends.github\_enterprise\_auth module
+-------------------------------------------------------------
+
+.. automodule:: airflow.contrib.auth.backends.github_enterprise_auth
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.auth.backends.google\_auth module
+-------------------------------------------------
+
+.. automodule:: airflow.contrib.auth.backends.google_auth
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.auth.backends.kerberos\_auth module
+---------------------------------------------------
+
+.. automodule:: airflow.contrib.auth.backends.kerberos_auth
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.auth.backends.ldap\_auth module
+-----------------------------------------------
+
+.. automodule:: airflow.contrib.auth.backends.ldap_auth
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.auth.backends.password\_auth module
+---------------------------------------------------
+
+.. automodule:: airflow.contrib.auth.backends.password_auth
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: airflow.contrib.auth.backends
+    :members:
+    :undoc-members:
+    :show-inheritance:

@@ -1,0 +1,470 @@
+airflow.contrib.operators package
+=================================
+
+Submodules
+----------
+
+airflow.contrib.operators.awsbatch\_operator module
+---------------------------------------------------
+
+.. automodule:: airflow.contrib.operators.awsbatch_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.bigquery\_check\_operator module
+----------------------------------------------------------
+
+.. automodule:: airflow.contrib.operators.bigquery_check_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.bigquery\_get\_data module
+----------------------------------------------------
+
+.. automodule:: airflow.contrib.operators.bigquery_get_data
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.bigquery\_operator module
+---------------------------------------------------
+
+.. automodule:: airflow.contrib.operators.bigquery_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.bigquery\_table\_delete\_operator module
+------------------------------------------------------------------
+
+.. automodule:: airflow.contrib.operators.bigquery_table_delete_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.bigquery\_to\_bigquery module
+-------------------------------------------------------
+
+.. automodule:: airflow.contrib.operators.bigquery_to_bigquery
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.bigquery\_to\_gcs module
+--------------------------------------------------
+
+.. automodule:: airflow.contrib.operators.bigquery_to_gcs
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.cassandra\_to\_gcs module
+---------------------------------------------------
+
+.. automodule:: airflow.contrib.operators.cassandra_to_gcs
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.databricks\_operator module
+-----------------------------------------------------
+
+.. automodule:: airflow.contrib.operators.databricks_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.dataflow\_operator module
+---------------------------------------------------
+
+.. automodule:: airflow.contrib.operators.dataflow_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.dataproc\_operator module
+---------------------------------------------------
+
+.. automodule:: airflow.contrib.operators.dataproc_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.datastore\_export\_operator module
+------------------------------------------------------------
+
+.. automodule:: airflow.contrib.operators.datastore_export_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.datastore\_import\_operator module
+------------------------------------------------------------
+
+.. automodule:: airflow.contrib.operators.datastore_import_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.discord\_webhook\_operator module
+-----------------------------------------------------------
+
+.. automodule:: airflow.contrib.operators.discord_webhook_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.druid\_operator module
+------------------------------------------------
+
+.. automodule:: airflow.contrib.operators.druid_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.ecs\_operator module
+----------------------------------------------
+
+.. automodule:: airflow.contrib.operators.ecs_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.emr\_add\_steps\_operator module
+----------------------------------------------------------
+
+.. automodule:: airflow.contrib.operators.emr_add_steps_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.emr\_create\_job\_flow\_operator module
+-----------------------------------------------------------------
+
+.. automodule:: airflow.contrib.operators.emr_create_job_flow_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.emr\_terminate\_job\_flow\_operator module
+--------------------------------------------------------------------
+
+.. automodule:: airflow.contrib.operators.emr_terminate_job_flow_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.file\_to\_gcs module
+----------------------------------------------
+
+.. automodule:: airflow.contrib.operators.file_to_gcs
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.file\_to\_wasb module
+-----------------------------------------------
+
+.. automodule:: airflow.contrib.operators.file_to_wasb
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.gcp\_container\_operator module
+---------------------------------------------------------
+
+.. automodule:: airflow.contrib.operators.gcp_container_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.gcs\_download\_operator module
+--------------------------------------------------------
+
+.. automodule:: airflow.contrib.operators.gcs_download_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.gcs\_list\_operator module
+----------------------------------------------------
+
+.. automodule:: airflow.contrib.operators.gcs_list_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.gcs\_operator module
+----------------------------------------------
+
+.. automodule:: airflow.contrib.operators.gcs_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.gcs\_to\_bq module
+--------------------------------------------
+
+.. automodule:: airflow.contrib.operators.gcs_to_bq
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.gcs\_to\_gcs module
+---------------------------------------------
+
+.. automodule:: airflow.contrib.operators.gcs_to_gcs
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.gcs\_to\_s3 module
+--------------------------------------------
+
+.. automodule:: airflow.contrib.operators.gcs_to_s3
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.hipchat\_operator module
+--------------------------------------------------
+
+.. automodule:: airflow.contrib.operators.hipchat_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.hive\_to\_dynamodb module
+---------------------------------------------------
+
+.. automodule:: airflow.contrib.operators.hive_to_dynamodb
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.jenkins\_job\_trigger\_operator module
+----------------------------------------------------------------
+
+.. automodule:: airflow.contrib.operators.jenkins_job_trigger_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.jira\_operator module
+-----------------------------------------------
+
+.. automodule:: airflow.contrib.operators.jira_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.kubernetes\_pod\_operator module
+----------------------------------------------------------
+
+.. automodule:: airflow.contrib.operators.kubernetes_pod_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.mlengine\_operator module
+---------------------------------------------------
+
+.. automodule:: airflow.contrib.operators.mlengine_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.mlengine\_operator\_utils module
+----------------------------------------------------------
+
+.. automodule:: airflow.contrib.operators.mlengine_operator_utils
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.mlengine\_prediction\_summary module
+--------------------------------------------------------------
+
+.. automodule:: airflow.contrib.operators.mlengine_prediction_summary
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.mongo\_to\_s3 module
+----------------------------------------------
+
+.. automodule:: airflow.contrib.operators.mongo_to_s3
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.mysql\_to\_gcs module
+-----------------------------------------------
+
+.. automodule:: airflow.contrib.operators.mysql_to_gcs
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.postgres\_to\_gcs\_operator module
+------------------------------------------------------------
+
+.. automodule:: airflow.contrib.operators.postgres_to_gcs_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.pubsub\_operator module
+-------------------------------------------------
+
+.. automodule:: airflow.contrib.operators.pubsub_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.qubole\_check\_operator module
+--------------------------------------------------------
+
+.. automodule:: airflow.contrib.operators.qubole_check_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.qubole\_operator module
+-------------------------------------------------
+
+.. automodule:: airflow.contrib.operators.qubole_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.s3\_list\_operator module
+---------------------------------------------------
+
+.. automodule:: airflow.contrib.operators.s3_list_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.s3\_to\_gcs\_operator module
+------------------------------------------------------
+
+.. automodule:: airflow.contrib.operators.s3_to_gcs_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.segment\_track\_event\_operator module
+----------------------------------------------------------------
+
+.. automodule:: airflow.contrib.operators.segment_track_event_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.sftp\_operator module
+-----------------------------------------------
+
+.. automodule:: airflow.contrib.operators.sftp_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.slack\_webhook\_operator module
+---------------------------------------------------------
+
+.. automodule:: airflow.contrib.operators.slack_webhook_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.snowflake\_operator module
+----------------------------------------------------
+
+.. automodule:: airflow.contrib.operators.snowflake_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.spark\_jdbc\_operator module
+------------------------------------------------------
+
+.. automodule:: airflow.contrib.operators.spark_jdbc_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.spark\_sql\_operator module
+-----------------------------------------------------
+
+.. automodule:: airflow.contrib.operators.spark_sql_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.spark\_submit\_operator module
+--------------------------------------------------------
+
+.. automodule:: airflow.contrib.operators.spark_submit_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.sqoop\_operator module
+------------------------------------------------
+
+.. automodule:: airflow.contrib.operators.sqoop_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.ssh\_operator module
+----------------------------------------------
+
+.. automodule:: airflow.contrib.operators.ssh_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.vertica\_operator module
+--------------------------------------------------
+
+.. automodule:: airflow.contrib.operators.vertica_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.vertica\_to\_hive module
+--------------------------------------------------
+
+.. automodule:: airflow.contrib.operators.vertica_to_hive
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.vertica\_to\_mysql module
+---------------------------------------------------
+
+.. automodule:: airflow.contrib.operators.vertica_to_mysql
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.operators.winrm\_operator module
+------------------------------------------------
+
+.. automodule:: airflow.contrib.operators.winrm_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: airflow.contrib.operators
+    :members:
+    :undoc-members:
+    :show-inheritance:

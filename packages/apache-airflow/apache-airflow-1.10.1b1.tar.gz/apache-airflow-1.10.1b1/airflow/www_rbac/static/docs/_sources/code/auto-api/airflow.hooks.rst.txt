@@ -1,0 +1,174 @@
+airflow.hooks package
+=====================
+
+Submodules
+----------
+
+airflow.hooks.S3\_hook module
+-----------------------------
+
+.. automodule:: airflow.hooks.S3_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.hooks.base\_hook module
+-------------------------------
+
+.. automodule:: airflow.hooks.base_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.hooks.dbapi\_hook module
+--------------------------------
+
+.. automodule:: airflow.hooks.dbapi_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.hooks.docker\_hook module
+---------------------------------
+
+.. automodule:: airflow.hooks.docker_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.hooks.druid\_hook module
+--------------------------------
+
+.. automodule:: airflow.hooks.druid_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.hooks.hdfs\_hook module
+-------------------------------
+
+.. automodule:: airflow.hooks.hdfs_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.hooks.hive\_hooks module
+--------------------------------
+
+.. automodule:: airflow.hooks.hive_hooks
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.hooks.http\_hook module
+-------------------------------
+
+.. automodule:: airflow.hooks.http_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.hooks.jdbc\_hook module
+-------------------------------
+
+.. automodule:: airflow.hooks.jdbc_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.hooks.mssql\_hook module
+--------------------------------
+
+.. automodule:: airflow.hooks.mssql_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.hooks.mysql\_hook module
+--------------------------------
+
+.. automodule:: airflow.hooks.mysql_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.hooks.oracle\_hook module
+---------------------------------
+
+.. automodule:: airflow.hooks.oracle_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.hooks.pig\_hook module
+------------------------------
+
+.. automodule:: airflow.hooks.pig_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.hooks.postgres\_hook module
+-----------------------------------
+
+.. automodule:: airflow.hooks.postgres_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.hooks.presto\_hook module
+---------------------------------
+
+.. automodule:: airflow.hooks.presto_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.hooks.samba\_hook module
+--------------------------------
+
+.. automodule:: airflow.hooks.samba_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.hooks.slack\_hook module
+--------------------------------
+
+.. automodule:: airflow.hooks.slack_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.hooks.sqlite\_hook module
+---------------------------------
+
+.. automodule:: airflow.hooks.sqlite_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.hooks.webhdfs\_hook module
+----------------------------------
+
+.. automodule:: airflow.hooks.webhdfs_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.hooks.zendesk\_hook module
+----------------------------------
+
+.. automodule:: airflow.hooks.zendesk_hook
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: airflow.hooks
+    :members:
+    :undoc-members:
+    :show-inheritance:

@@ -1,0 +1,22 @@
+airflow.dag package
+===================
+
+Submodules
+----------
+
+airflow.dag.base\_dag module
+----------------------------
+
+.. automodule:: airflow.dag.base_dag
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: airflow.dag
+    :members:
+    :undoc-members:
+    :show-inheritance:

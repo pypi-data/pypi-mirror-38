@@ -1,0 +1,29 @@
+airflow.ti\_deps package
+========================
+
+Subpackages
+-----------
+
+.. toctree::
+
+    airflow.ti_deps.deps
+
+Submodules
+----------
+
+airflow.ti\_deps.dep\_context module
+------------------------------------
+
+.. automodule:: airflow.ti_deps.dep_context
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: airflow.ti_deps
+    :members:
+    :undoc-members:
+    :show-inheritance:

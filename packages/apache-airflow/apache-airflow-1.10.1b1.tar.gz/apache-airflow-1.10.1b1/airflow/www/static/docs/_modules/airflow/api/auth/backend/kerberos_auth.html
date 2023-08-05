@@ -1,0 +1,366 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>airflow.api.auth.backend.kerberos_auth &mdash; Airflow Documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../../search.html"/>
+    <link rel="top" title="Airflow Documentation" href="../../../../../index.html"/>
+        <link rel="up" title="airflow.api" href="../../../api.html"/> 
+
+  
+  <script src="../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> Airflow
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../howto/index.html">How-to Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../ui.html">UI / Screenshots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../profiling.html">Data Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../cli.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../scheduler.html">Scheduling &amp; Triggers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../security.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../timezone.html">Time zones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../api.html">Experimental Rest API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../integration.html">Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../lineage.html">Lineage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../code.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">Airflow</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../../../airflow.html">airflow</a> &raquo;</li>
+        
+          <li><a href="../../../api.html">airflow.api</a> &raquo;</li>
+        
+      <li>airflow.api.auth.backend.kerberos_auth</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for airflow.api.auth.backend.kerberos_auth</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed to the Apache Software Foundation (ASF) under one</span>
+<span class="c1"># or more contributor license agreements.  See the NOTICE file</span>
+<span class="c1"># distributed with this work for additional information</span>
+<span class="c1"># regarding copyright ownership.  The ASF licenses this file</span>
+<span class="c1"># to you under the Apache License, Version 2.0 (the</span>
+<span class="c1"># &quot;License&quot;); you may not use this file except in compliance</span>
+<span class="c1"># with the License.  You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#   http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing,</span>
+<span class="c1"># software distributed under the License is distributed on an</span>
+<span class="c1"># &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
+<span class="c1"># KIND, either express or implied.  See the License for the</span>
+<span class="c1"># specific language governing permissions and limitations</span>
+<span class="c1"># under the License.</span>
+
+<span class="kn">from</span> <span class="nn">future.standard_library</span> <span class="k">import</span> <span class="n">install_aliases</span>
+
+<span class="kn">from</span> <span class="nn">airflow.utils.log.logging_mixin</span> <span class="k">import</span> <span class="n">LoggingMixin</span>
+
+<span class="kn">import</span> <span class="nn">kerberos</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">from</span> <span class="nn">airflow</span> <span class="k">import</span> <span class="n">configuration</span> <span class="k">as</span> <span class="n">conf</span>
+
+<span class="kn">from</span> <span class="nn">flask</span> <span class="k">import</span> <span class="n">Response</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="k">import</span> <span class="n">_request_ctx_stack</span> <span class="k">as</span> <span class="n">stack</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="k">import</span> <span class="n">make_response</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="k">import</span> <span class="n">request</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="k">import</span> <span class="n">g</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="k">import</span> <span class="n">wraps</span>
+
+<span class="kn">from</span> <span class="nn">requests_kerberos</span> <span class="k">import</span> <span class="n">HTTPKerberosAuth</span>
+<span class="kn">from</span> <span class="nn">socket</span> <span class="k">import</span> <span class="n">getfqdn</span>
+
+<span class="n">install_aliases</span><span class="p">()</span>
+
+<span class="n">client_auth</span> <span class="o">=</span> <span class="n">HTTPKerberosAuth</span><span class="p">(</span><span class="n">service</span><span class="o">=</span><span class="s1">&#39;airflow&#39;</span><span class="p">)</span>
+
+<span class="n">_SERVICE_NAME</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">LoggingMixin</span><span class="p">()</span><span class="o">.</span><span class="n">log</span>
+
+
+<div class="viewcode-block" id="init_app"><a class="viewcode-back" href="../../../../../code/auto-api/airflow.api.auth.backend.html#airflow.api.auth.backend.kerberos_auth.init_app">[docs]</a><span class="k">def</span> <span class="nf">init_app</span><span class="p">(</span><span class="n">app</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">_SERVICE_NAME</span>
+
+    <span class="n">hostname</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;SERVER_NAME&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">hostname</span><span class="p">:</span>
+        <span class="n">hostname</span> <span class="o">=</span> <span class="n">getfqdn</span><span class="p">()</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Kerberos: hostname </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">hostname</span><span class="p">)</span>
+
+    <span class="n">service</span> <span class="o">=</span> <span class="s1">&#39;airflow&#39;</span>
+
+    <span class="n">_SERVICE_NAME</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">@</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">hostname</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="s1">&#39;KRB5_KTNAME&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">:</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;KRB5_KTNAME&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">conf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;kerberos&#39;</span><span class="p">,</span> <span class="s1">&#39;keytab&#39;</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Kerberos init: </span><span class="si">%s</span><span class="s2"> </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">hostname</span><span class="p">)</span>
+        <span class="n">principal</span> <span class="o">=</span> <span class="n">kerberos</span><span class="o">.</span><span class="n">getServerPrincipalDetails</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">hostname</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">kerberos</span><span class="o">.</span><span class="n">KrbError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Kerberos: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Kerberos API: server is </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">principal</span><span class="p">)</span></div>
+
+
+<span class="k">def</span> <span class="nf">_unauthorized</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Indicate that authorization is required</span>
+<span class="sd">    :return:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="s2">&quot;Unauthorized&quot;</span><span class="p">,</span> <span class="mi">401</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;WWW-Authenticate&quot;</span><span class="p">:</span> <span class="s2">&quot;Negotiate&quot;</span><span class="p">})</span>
+
+
+<span class="k">def</span> <span class="nf">_forbidden</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="s2">&quot;Forbidden&quot;</span><span class="p">,</span> <span class="mi">403</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_gssapi_authenticate</span><span class="p">(</span><span class="n">token</span><span class="p">):</span>
+    <span class="n">state</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">ctx</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">top</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">rc</span><span class="p">,</span> <span class="n">state</span> <span class="o">=</span> <span class="n">kerberos</span><span class="o">.</span><span class="n">authGSSServerInit</span><span class="p">(</span><span class="n">_SERVICE_NAME</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">rc</span> <span class="o">!=</span> <span class="n">kerberos</span><span class="o">.</span><span class="n">AUTH_GSS_COMPLETE</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="n">rc</span> <span class="o">=</span> <span class="n">kerberos</span><span class="o">.</span><span class="n">authGSSServerStep</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">token</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">rc</span> <span class="o">==</span> <span class="n">kerberos</span><span class="o">.</span><span class="n">AUTH_GSS_COMPLETE</span><span class="p">:</span>
+            <span class="n">ctx</span><span class="o">.</span><span class="n">kerberos_token</span> <span class="o">=</span> <span class="n">kerberos</span><span class="o">.</span><span class="n">authGSSServerResponse</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+            <span class="n">ctx</span><span class="o">.</span><span class="n">kerberos_user</span> <span class="o">=</span> <span class="n">kerberos</span><span class="o">.</span><span class="n">authGSSServerUserName</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">rc</span>
+        <span class="k">elif</span> <span class="n">rc</span> <span class="o">==</span> <span class="n">kerberos</span><span class="o">.</span><span class="n">AUTH_GSS_CONTINUE</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">kerberos</span><span class="o">.</span><span class="n">AUTH_GSS_CONTINUE</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">except</span> <span class="n">kerberos</span><span class="o">.</span><span class="n">GSSError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">state</span><span class="p">:</span>
+            <span class="n">kerberos</span><span class="o">.</span><span class="n">authGSSServerClean</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="requires_authentication"><a class="viewcode-back" href="../../../../../code/auto-api/airflow.api.auth.backend.html#airflow.api.auth.backend.kerberos_auth.requires_authentication">[docs]</a><span class="k">def</span> <span class="nf">requires_authentication</span><span class="p">(</span><span class="n">function</span><span class="p">):</span>
+    <span class="nd">@wraps</span><span class="p">(</span><span class="n">function</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">decorated</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">header</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;Authorization&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">header</span><span class="p">:</span>
+            <span class="n">ctx</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">top</span>
+            <span class="n">token</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">header</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">1</span><span class="p">:])</span>
+            <span class="n">rc</span> <span class="o">=</span> <span class="n">_gssapi_authenticate</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">rc</span> <span class="o">==</span> <span class="n">kerberos</span><span class="o">.</span><span class="n">AUTH_GSS_COMPLETE</span><span class="p">:</span>
+                <span class="n">g</span><span class="o">.</span><span class="n">user</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">kerberos_user</span>
+                <span class="n">response</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+                <span class="n">response</span> <span class="o">=</span> <span class="n">make_response</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">ctx</span><span class="o">.</span><span class="n">kerberos_token</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">response</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s1">&#39;WWW-Authenticate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">&#39;negotiate&#39;</span><span class="p">,</span>
+                                                                     <span class="n">ctx</span><span class="o">.</span><span class="n">kerberos_token</span><span class="p">])</span>
+
+                <span class="k">return</span> <span class="n">response</span>
+            <span class="k">elif</span> <span class="n">rc</span> <span class="o">!=</span> <span class="n">kerberos</span><span class="o">.</span><span class="n">AUTH_GSS_CONTINUE</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">_forbidden</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">_unauthorized</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">decorated</span></div>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

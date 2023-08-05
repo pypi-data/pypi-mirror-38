@@ -1,0 +1,390 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>airflow.lineage package &mdash; Airflow Documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Airflow Documentation" href="../../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Airflow
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howto/index.html">How-to Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ui.html">UI / Screenshots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../profiling.html">Data Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../scheduler.html">Scheduling &amp; Triggers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../security.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../timezone.html">Time zones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">Experimental Rest API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../integration.html">Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lineage.html">Lineage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../code.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Airflow</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>airflow.lineage package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/code/auto-api/airflow.lineage.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="airflow-lineage-package">
+<h1>airflow.lineage package<a class="headerlink" href="#airflow-lineage-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="airflow.lineage.backend.html">airflow.lineage.backend package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="airflow.lineage.backend.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="airflow.lineage.backend.atlas.html">airflow.lineage.backend.atlas package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="airflow.lineage.backend.atlas.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="airflow.lineage.backend.atlas.html#airflow-lineage-backend-atlas-typedefs-module">airflow.lineage.backend.atlas.typedefs module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="airflow.lineage.backend.atlas.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.lineage.backend.html#module-airflow.lineage.backend">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-airflow.lineage.datasets">
+<span id="airflow-lineage-datasets-module"></span><h2>airflow.lineage.datasets module<a class="headerlink" href="#module-airflow.lineage.datasets" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.lineage.datasets.DataBase">
+<em class="property">class </em><code class="descclassname">airflow.lineage.datasets.</code><code class="descname">DataBase</code><span class="sig-paren">(</span><em>qualified_name=None</em>, <em>data=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/lineage/datasets.html#DataBase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.lineage.datasets.DataBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.lineage.datasets.DataSet" title="airflow.lineage.datasets.DataSet"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.lineage.datasets.DataSet</span></code></a></p>
+<dl class="attribute">
+<dt id="airflow.lineage.datasets.DataBase.attributes">
+<code class="descname">attributes</code><em class="property"> = ['dbStoreType', 'storeUse', 'source', 'description', 'userName', 'storeUri', 'operation', 'startTime', 'endTime', 'commandlineOpts', 'attribute_db']</em><a class="headerlink" href="#airflow.lineage.datasets.DataBase.attributes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.lineage.datasets.DataBase.type_name">
+<code class="descname">type_name</code><em class="property"> = 'dbStore'</em><a class="headerlink" href="#airflow.lineage.datasets.DataBase.type_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="airflow.lineage.datasets.DataSet">
+<em class="property">class </em><code class="descclassname">airflow.lineage.datasets.</code><code class="descname">DataSet</code><span class="sig-paren">(</span><em>qualified_name=None</em>, <em>data=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/lineage/datasets.html#DataSet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.lineage.datasets.DataSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="airflow.lineage.datasets.DataSet.as_dict">
+<code class="descname">as_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/lineage/datasets.html#DataSet.as_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.lineage.datasets.DataSet.as_dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.lineage.datasets.DataSet.attributes">
+<code class="descname">attributes</code><em class="property"> = []</em><a class="headerlink" href="#airflow.lineage.datasets.DataSet.attributes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="airflow.lineage.datasets.DataSet.map_type">
+<em class="property">static </em><code class="descname">map_type</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/lineage/datasets.html#DataSet.map_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.lineage.datasets.DataSet.map_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.lineage.datasets.DataSet.qualified_name">
+<code class="descname">qualified_name</code><a class="headerlink" href="#airflow.lineage.datasets.DataSet.qualified_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.lineage.datasets.DataSet.set_context">
+<code class="descname">set_context</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/lineage/datasets.html#DataSet.set_context"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.lineage.datasets.DataSet.set_context" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.lineage.datasets.DataSet.type_name">
+<code class="descname">type_name</code><em class="property"> = 'dataSet'</em><a class="headerlink" href="#airflow.lineage.datasets.DataSet.type_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="airflow.lineage.datasets.File">
+<em class="property">class </em><code class="descclassname">airflow.lineage.datasets.</code><code class="descname">File</code><span class="sig-paren">(</span><em>name=None</em>, <em>data=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/lineage/datasets.html#File"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.lineage.datasets.File" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.lineage.datasets.DataSet" title="airflow.lineage.datasets.DataSet"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.lineage.datasets.DataSet</span></code></a></p>
+<dl class="attribute">
+<dt id="airflow.lineage.datasets.File.attributes">
+<code class="descname">attributes</code><em class="property"> = ['name', 'path', 'isFile', 'isSymlink']</em><a class="headerlink" href="#airflow.lineage.datasets.File.attributes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.lineage.datasets.File.type_name">
+<code class="descname">type_name</code><em class="property"> = 'fs_path'</em><a class="headerlink" href="#airflow.lineage.datasets.File.type_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="airflow.lineage.datasets.HadoopFile">
+<em class="property">class </em><code class="descclassname">airflow.lineage.datasets.</code><code class="descname">HadoopFile</code><span class="sig-paren">(</span><em>name=None</em>, <em>data=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/lineage/datasets.html#HadoopFile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.lineage.datasets.HadoopFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.lineage.datasets.File" title="airflow.lineage.datasets.File"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.lineage.datasets.File</span></code></a></p>
+<dl class="attribute">
+<dt id="airflow.lineage.datasets.HadoopFile.attributes">
+<code class="descname">attributes</code><em class="property"> = ['name', 'path', 'clusterName']</em><a class="headerlink" href="#airflow.lineage.datasets.HadoopFile.attributes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.lineage.datasets.HadoopFile.cluster_name">
+<code class="descname">cluster_name</code><em class="property"> = 'none'</em><a class="headerlink" href="#airflow.lineage.datasets.HadoopFile.cluster_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.lineage.datasets.HadoopFile.type_name">
+<code class="descname">type_name</code><em class="property"> = 'hdfs_file'</em><a class="headerlink" href="#airflow.lineage.datasets.HadoopFile.type_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="airflow.lineage.datasets.Operator">
+<em class="property">class </em><code class="descclassname">airflow.lineage.datasets.</code><code class="descname">Operator</code><span class="sig-paren">(</span><em>qualified_name=None</em>, <em>data=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/lineage/datasets.html#Operator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.lineage.datasets.Operator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.lineage.datasets.DataSet" title="airflow.lineage.datasets.DataSet"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.lineage.datasets.DataSet</span></code></a></p>
+<dl class="attribute">
+<dt id="airflow.lineage.datasets.Operator.attributes">
+<code class="descname">attributes</code><em class="property"> = ['dag_id', 'task_id', 'command', 'conn_id', 'name', 'execution_date', 'start_date', 'end_date', 'inputs', 'outputs']</em><a class="headerlink" href="#airflow.lineage.datasets.Operator.attributes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.lineage.datasets.Operator.type_name">
+<code class="descname">type_name</code><em class="property"> = 'airflow_operator'</em><a class="headerlink" href="#airflow.lineage.datasets.Operator.type_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.lineage">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-airflow.lineage" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="airflow.lineage.apply_lineage">
+<code class="descclassname">airflow.lineage.</code><code class="descname">apply_lineage</code><span class="sig-paren">(</span><em>func</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/lineage.html#apply_lineage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.lineage.apply_lineage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves the lineage to XCom and if configured to do so sends it
+to the backend.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.lineage.prepare_lineage">
+<code class="descclassname">airflow.lineage.</code><code class="descname">prepare_lineage</code><span class="sig-paren">(</span><em>func</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/lineage.html#prepare_lineage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.lineage.prepare_lineage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prepares the lineage inlets and outlets
+inlets can be:</p>
+<blockquote>
+<div>“auto” -&gt; picks up any outlets from direct upstream tasks that have outlets
+defined, as such that if A -&gt; B -&gt; C and B does not have outlets but A does,
+these are provided as inlets.
+“list of task_ids” -&gt; picks up outlets from the upstream task_ids
+“list of datasets” -&gt; manually defined list of DataSet</div></blockquote>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

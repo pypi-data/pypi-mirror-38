@@ -1,0 +1,849 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>airflow.utils.dag_processing &mdash; Airflow Documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Airflow Documentation" href="../../../index.html"/>
+        <link rel="up" title="airflow.utils" href="../utils.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Airflow
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../howto/index.html">How-to Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ui.html">UI / Screenshots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../profiling.html">Data Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cli.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../scheduler.html">Scheduling &amp; Triggers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../security.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../timezone.html">Time zones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api.html">Experimental Rest API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../integration.html">Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../lineage.html">Lineage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../code.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Airflow</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../airflow.html">airflow</a> &raquo;</li>
+        
+          <li><a href="../utils.html">airflow.utils</a> &raquo;</li>
+        
+      <li>airflow.utils.dag_processing</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for airflow.utils.dag_processing</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed to the Apache Software Foundation (ASF) under one</span>
+<span class="c1"># or more contributor license agreements.  See the NOTICE file</span>
+<span class="c1"># distributed with this work for additional information</span>
+<span class="c1"># regarding copyright ownership.  The ASF licenses this file</span>
+<span class="c1"># to you under the Apache License, Version 2.0 (the</span>
+<span class="c1"># &quot;License&quot;); you may not use this file except in compliance</span>
+<span class="c1"># with the License.  You may obtain a copy of the License at</span>
+<span class="c1"># </span>
+<span class="c1">#   http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1"># </span>
+<span class="c1"># Unless required by applicable law or agreed to in writing,</span>
+<span class="c1"># software distributed under the License is distributed on an</span>
+<span class="c1"># &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
+<span class="c1"># KIND, either express or implied.  See the License for the</span>
+<span class="c1"># specific language governing permissions and limitations</span>
+<span class="c1"># under the License.</span>
+<span class="c1">#</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">absolute_import</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">division</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">unicode_literals</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">zipfile</span>
+<span class="kn">from</span> <span class="nn">abc</span> <span class="k">import</span> <span class="n">ABCMeta</span><span class="p">,</span> <span class="n">abstractmethod</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">defaultdict</span>
+
+<span class="kn">from</span> <span class="nn">airflow.dag.base_dag</span> <span class="k">import</span> <span class="n">BaseDag</span><span class="p">,</span> <span class="n">BaseDagBag</span>
+<span class="kn">from</span> <span class="nn">airflow.exceptions</span> <span class="k">import</span> <span class="n">AirflowException</span>
+<span class="kn">from</span> <span class="nn">airflow.utils</span> <span class="k">import</span> <span class="n">timezone</span>
+<span class="kn">from</span> <span class="nn">airflow.utils.log.logging_mixin</span> <span class="k">import</span> <span class="n">LoggingMixin</span>
+
+
+<div class="viewcode-block" id="SimpleDag"><a class="viewcode-back" href="../../../code/auto-api/airflow.utils.html#airflow.utils.dag_processing.SimpleDag">[docs]</a><span class="k">class</span> <span class="nc">SimpleDag</span><span class="p">(</span><span class="n">BaseDag</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A simplified representation of a DAG that contains all attributes</span>
+<span class="sd">    required for instantiating and scheduling its associated tasks.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dag</span><span class="p">,</span> <span class="n">pickle_id</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param dag: the DAG</span>
+<span class="sd">        :type dag: DAG</span>
+<span class="sd">        :param pickle_id: ID associated with the pickled version of this DAG.</span>
+<span class="sd">        :type pickle_id: unicode</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dag_id</span> <span class="o">=</span> <span class="n">dag</span><span class="o">.</span><span class="n">dag_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_task_ids</span> <span class="o">=</span> <span class="p">[</span><span class="n">task</span><span class="o">.</span><span class="n">task_id</span> <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">dag</span><span class="o">.</span><span class="n">tasks</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_full_filepath</span> <span class="o">=</span> <span class="n">dag</span><span class="o">.</span><span class="n">full_filepath</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_is_paused</span> <span class="o">=</span> <span class="n">dag</span><span class="o">.</span><span class="n">is_paused</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_concurrency</span> <span class="o">=</span> <span class="n">dag</span><span class="o">.</span><span class="n">concurrency</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_pickle_id</span> <span class="o">=</span> <span class="n">pickle_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_task_special_args</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">dag</span><span class="o">.</span><span class="n">tasks</span><span class="p">:</span>
+            <span class="n">special_args</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">if</span> <span class="n">task</span><span class="o">.</span><span class="n">task_concurrency</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">special_args</span><span class="p">[</span><span class="s1">&#39;task_concurrency&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">task</span><span class="o">.</span><span class="n">task_concurrency</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">special_args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_task_special_args</span><span class="p">[</span><span class="n">task</span><span class="o">.</span><span class="n">task_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">special_args</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">dag_id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: the DAG ID</span>
+<span class="sd">        :rtype: unicode</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dag_id</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">task_ids</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: A list of task IDs that are in this DAG</span>
+<span class="sd">        :rtype: list[unicode]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_task_ids</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">full_filepath</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: The absolute path to the file that contains this DAG&#39;s definition</span>
+<span class="sd">        :rtype: unicode</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_full_filepath</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">concurrency</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: maximum number of tasks that can run simultaneously from this DAG</span>
+<span class="sd">        :rtype: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_concurrency</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">is_paused</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: whether this DAG is paused or not</span>
+<span class="sd">        :rtype: bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_paused</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">pickle_id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: The pickle ID for this DAG, if it has one. Otherwise None.</span>
+<span class="sd">        :rtype: unicode</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pickle_id</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">task_special_args</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_task_special_args</span>
+
+<div class="viewcode-block" id="SimpleDag.get_task_special_arg"><a class="viewcode-back" href="../../../code/auto-api/airflow.utils.html#airflow.utils.dag_processing.SimpleDag.get_task_special_arg">[docs]</a>    <span class="k">def</span> <span class="nf">get_task_special_arg</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task_id</span><span class="p">,</span> <span class="n">special_arg_name</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">task_id</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_task_special_args</span> <span class="ow">and</span> <span class="n">special_arg_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_task_special_args</span><span class="p">[</span><span class="n">task_id</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_task_special_args</span><span class="p">[</span><span class="n">task_id</span><span class="p">][</span><span class="n">special_arg_name</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span></div></div>
+
+
+<div class="viewcode-block" id="SimpleDagBag"><a class="viewcode-back" href="../../../code/auto-api/airflow.utils.html#airflow.utils.dag_processing.SimpleDagBag">[docs]</a><span class="k">class</span> <span class="nc">SimpleDagBag</span><span class="p">(</span><span class="n">BaseDagBag</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A collection of SimpleDag objects with some convenience methods.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">simple_dags</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Constructor.</span>
+
+<span class="sd">        :param simple_dags: SimpleDag objects that should be in this</span>
+<span class="sd">        :type: list(SimpleDag)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">simple_dags</span> <span class="o">=</span> <span class="n">simple_dags</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dag_id_to_simple_dag</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="k">for</span> <span class="n">simple_dag</span> <span class="ow">in</span> <span class="n">simple_dags</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dag_id_to_simple_dag</span><span class="p">[</span><span class="n">simple_dag</span><span class="o">.</span><span class="n">dag_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">simple_dag</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">dag_ids</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: IDs of all the DAGs in this</span>
+<span class="sd">        :rtype: list[unicode]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dag_id_to_simple_dag</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+
+<div class="viewcode-block" id="SimpleDagBag.get_dag"><a class="viewcode-back" href="../../../code/auto-api/airflow.utils.html#airflow.utils.dag_processing.SimpleDagBag.get_dag">[docs]</a>    <span class="k">def</span> <span class="nf">get_dag</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dag_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param dag_id: DAG ID</span>
+<span class="sd">        :type dag_id: unicode</span>
+<span class="sd">        :return: if the given DAG ID exists in the bag, return the BaseDag</span>
+<span class="sd">        corresponding to that ID. Otherwise, throw an Exception</span>
+<span class="sd">        :rtype: SimpleDag</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">dag_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dag_id_to_simple_dag</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">AirflowException</span><span class="p">(</span><span class="s2">&quot;Unknown DAG ID </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dag_id</span><span class="p">))</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dag_id_to_simple_dag</span><span class="p">[</span><span class="n">dag_id</span><span class="p">]</span></div></div>
+
+
+<div class="viewcode-block" id="list_py_file_paths"><a class="viewcode-back" href="../../../code/auto-api/airflow.utils.html#airflow.utils.dag_processing.list_py_file_paths">[docs]</a><span class="k">def</span> <span class="nf">list_py_file_paths</span><span class="p">(</span><span class="n">directory</span><span class="p">,</span> <span class="n">safe_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Traverse a directory and look for Python files.</span>
+
+<span class="sd">    :param directory: the directory to traverse</span>
+<span class="sd">    :type directory: unicode</span>
+<span class="sd">    :param safe_mode: whether to use a heuristic to determine whether a file</span>
+<span class="sd">    contains Airflow DAG definitions</span>
+<span class="sd">    :return: a list of paths to Python files in the specified directory</span>
+<span class="sd">    :rtype: list[unicode]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">file_paths</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="n">directory</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[]</span>
+    <span class="k">elif</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">directory</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">directory</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">directory</span><span class="p">):</span>
+        <span class="n">patterns_by_dir</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">directory</span><span class="p">,</span> <span class="n">followlinks</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+            <span class="n">patterns</span> <span class="o">=</span> <span class="n">patterns_by_dir</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="p">[])</span>
+            <span class="n">ignore_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="s1">&#39;.airflowignore&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">ignore_file</span><span class="p">):</span>
+                <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">ignore_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                    <span class="c1"># If we have new patterns create a copy so we don&#39;t change</span>
+                    <span class="c1"># the previous list (which would affect other subdirs)</span>
+                    <span class="n">patterns</span> <span class="o">=</span> <span class="n">patterns</span> <span class="o">+</span> <span class="p">[</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">p</span><span class="p">]</span>
+
+            <span class="c1"># If we can ignore any subdirs entirely we should - fewer paths</span>
+            <span class="c1"># to walk is better. We have to modify the ``dirs`` array in</span>
+            <span class="c1"># place for this to affect os.walk</span>
+            <span class="n">dirs</span><span class="p">[:]</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">d</span>
+                <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">dirs</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">d</span><span class="p">))</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">patterns</span><span class="p">)</span>
+            <span class="p">]</span>
+
+            <span class="c1"># We want patterns defined in a parent folder&#39;s .airflowignore to</span>
+            <span class="c1"># apply to subdirs too</span>
+            <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">dirs</span><span class="p">:</span>
+                <span class="n">patterns_by_dir</span><span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">d</span><span class="p">)]</span> <span class="o">=</span> <span class="n">patterns</span>
+
+            <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
+                        <span class="k">continue</span>
+                    <span class="n">mod_name</span><span class="p">,</span> <span class="n">file_ext</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span>
+                        <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">file_path</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+                    <span class="k">if</span> <span class="n">file_ext</span> <span class="o">!=</span> <span class="s1">&#39;.py&#39;</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">is_zipfile</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
+                        <span class="k">continue</span>
+                    <span class="k">if</span> <span class="nb">any</span><span class="p">([</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">file_path</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">patterns</span><span class="p">]):</span>
+                        <span class="k">continue</span>
+
+                    <span class="c1"># Heuristic that guesses whether a Python file contains an</span>
+                    <span class="c1"># Airflow DAG definition.</span>
+                    <span class="n">might_contain_dag</span> <span class="o">=</span> <span class="kc">True</span>
+                    <span class="k">if</span> <span class="n">safe_mode</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">is_zipfile</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
+                        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                            <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+                            <span class="n">might_contain_dag</span> <span class="o">=</span> <span class="nb">all</span><span class="p">(</span>
+                                <span class="p">[</span><span class="n">s</span> <span class="ow">in</span> <span class="n">content</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="p">(</span><span class="sa">b</span><span class="s1">&#39;DAG&#39;</span><span class="p">,</span> <span class="sa">b</span><span class="s1">&#39;airflow&#39;</span><span class="p">)])</span>
+
+                    <span class="k">if</span> <span class="ow">not</span> <span class="n">might_contain_dag</span><span class="p">:</span>
+                        <span class="k">continue</span>
+
+                    <span class="n">file_paths</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                    <span class="n">log</span> <span class="o">=</span> <span class="n">LoggingMixin</span><span class="p">()</span><span class="o">.</span><span class="n">log</span>
+                    <span class="n">log</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s2">&quot;Error while examining </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">file_paths</span></div>
+
+
+<div class="viewcode-block" id="AbstractDagFileProcessor"><a class="viewcode-back" href="../../../code/auto-api/airflow.utils.html#airflow.utils.dag_processing.AbstractDagFileProcessor">[docs]</a><span class="k">class</span> <span class="nc">AbstractDagFileProcessor</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Processes a DAG file. See SchedulerJob.process_file() for more details.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">__metaclass__</span> <span class="o">=</span> <span class="n">ABCMeta</span>
+
+<div class="viewcode-block" id="AbstractDagFileProcessor.start"><a class="viewcode-back" href="../../../code/auto-api/airflow.utils.html#airflow.utils.dag_processing.AbstractDagFileProcessor.start">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Launch the process to process the file</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="AbstractDagFileProcessor.terminate"><a class="viewcode-back" href="../../../code/auto-api/airflow.utils.html#airflow.utils.dag_processing.AbstractDagFileProcessor.terminate">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">terminate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sigkill</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Terminate (and then kill) the process launched to process the file</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
+
+    <span class="nd">@property</span>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">pid</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: the PID of the process launched to process the given file</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+
+    <span class="nd">@property</span>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">exit_code</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        After the process is finished, this can be called to get the return code</span>
+<span class="sd">        :return: the exit code of the process</span>
+<span class="sd">        :rtype: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+
+    <span class="nd">@property</span>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">done</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check if the process launched to process this file is done.</span>
+<span class="sd">        :return: whether the process is finished running</span>
+<span class="sd">        :rtype: bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+
+    <span class="nd">@property</span>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">result</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: result of running SchedulerJob.process_file()</span>
+<span class="sd">        :rtype: list[SimpleDag]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+
+    <span class="nd">@property</span>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">start_time</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: When this started to process the file</span>
+<span class="sd">        :rtype: datetime</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+
+    <span class="nd">@property</span>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">file_path</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: the path to the file that this is processing</span>
+<span class="sd">        :rtype: unicode</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="DagFileProcessorManager"><a class="viewcode-back" href="../../../code/auto-api/airflow.utils.html#airflow.utils.dag_processing.DagFileProcessorManager">[docs]</a><span class="k">class</span> <span class="nc">DagFileProcessorManager</span><span class="p">(</span><span class="n">LoggingMixin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Given a list of DAG definition files, this kicks off several processors</span>
+<span class="sd">    in parallel to process them. The parallelism is limited and as the</span>
+<span class="sd">    processors finish, more are launched. The files are processed over and</span>
+<span class="sd">    over again, but no more often than the specified interval.</span>
+
+<span class="sd">    :type _file_path_queue: list[unicode]</span>
+<span class="sd">    :type _processors: dict[unicode, AbstractDagFileProcessor]</span>
+<span class="sd">    :type _last_runtime: dict[unicode, float]</span>
+<span class="sd">    :type _last_finish_time: dict[unicode, datetime]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">dag_directory</span><span class="p">,</span>
+                 <span class="n">file_paths</span><span class="p">,</span>
+                 <span class="n">parallelism</span><span class="p">,</span>
+                 <span class="n">process_file_interval</span><span class="p">,</span>
+                 <span class="n">min_file_parsing_loop_time</span><span class="p">,</span>
+                 <span class="n">max_runs</span><span class="p">,</span>
+                 <span class="n">processor_factory</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param dag_directory: Directory where DAG definitions are kept. All</span>
+<span class="sd">        files in file_paths should be under this directory</span>
+<span class="sd">        :type dag_directory: unicode</span>
+<span class="sd">        :param file_paths: list of file paths that contain DAG definitions</span>
+<span class="sd">        :type file_paths: list[unicode]</span>
+<span class="sd">        :param parallelism: maximum number of simultaneous process to run at once</span>
+<span class="sd">        :type parallelism: int</span>
+<span class="sd">        :param process_file_interval: process a file at most once every this</span>
+<span class="sd">        many seconds</span>
+<span class="sd">        :type process_file_interval: float</span>
+<span class="sd">        :param min_file_parsing_loop_time: wait until at least this many seconds have</span>
+<span class="sd">        passed before parsing files once all files have finished parsing.</span>
+<span class="sd">        :type min_file_parsing_loop_time: float</span>
+<span class="sd">        :param max_runs: The number of times to parse and schedule each file. -1</span>
+<span class="sd">        for unlimited.</span>
+<span class="sd">        :type max_runs: int</span>
+<span class="sd">        :type process_file_interval: float</span>
+<span class="sd">        :param processor_factory: function that creates processors for DAG</span>
+<span class="sd">        definition files. Arguments are (dag_definition_path)</span>
+<span class="sd">        :type processor_factory: (unicode, unicode) -&gt; (AbstractDagFileProcessor)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_file_paths</span> <span class="o">=</span> <span class="n">file_paths</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_file_path_queue</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_parallelism</span> <span class="o">=</span> <span class="n">parallelism</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dag_directory</span> <span class="o">=</span> <span class="n">dag_directory</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_max_runs</span> <span class="o">=</span> <span class="n">max_runs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_process_file_interval</span> <span class="o">=</span> <span class="n">process_file_interval</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_min_file_parsing_loop_time</span> <span class="o">=</span> <span class="n">min_file_parsing_loop_time</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_processor_factory</span> <span class="o">=</span> <span class="n">processor_factory</span>
+        <span class="c1"># Map from file path to the processor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_processors</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="c1"># Map from file path to the last runtime</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_last_runtime</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="c1"># Map from file path to the last finish time</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_last_finish_time</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="c1"># Map from file path to the number of runs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_run_count</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+        <span class="c1"># Scheduler heartbeat key.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_heart_beat_key</span> <span class="o">=</span> <span class="s1">&#39;heart-beat&#39;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">file_paths</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_file_paths</span>
+
+<div class="viewcode-block" id="DagFileProcessorManager.get_pid"><a class="viewcode-back" href="../../../code/auto-api/airflow.utils.html#airflow.utils.dag_processing.DagFileProcessorManager.get_pid">[docs]</a>    <span class="k">def</span> <span class="nf">get_pid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param file_path: the path to the file that&#39;s being processed</span>
+<span class="sd">        :type file_path: unicode</span>
+<span class="sd">        :return: the PID of the process processing the given file or None if</span>
+<span class="sd">        the specified file is not being processed</span>
+<span class="sd">        :rtype: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">file_path</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_processors</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_processors</span><span class="p">[</span><span class="n">file_path</span><span class="p">]</span><span class="o">.</span><span class="n">pid</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="DagFileProcessorManager.get_all_pids"><a class="viewcode-back" href="../../../code/auto-api/airflow.utils.html#airflow.utils.dag_processing.DagFileProcessorManager.get_all_pids">[docs]</a>    <span class="k">def</span> <span class="nf">get_all_pids</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: a list of the PIDs for the processors that are running</span>
+<span class="sd">        :rtype: List[int]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">pid</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_processors</span><span class="o">.</span><span class="n">values</span><span class="p">()]</span></div>
+
+<div class="viewcode-block" id="DagFileProcessorManager.get_runtime"><a class="viewcode-back" href="../../../code/auto-api/airflow.utils.html#airflow.utils.dag_processing.DagFileProcessorManager.get_runtime">[docs]</a>    <span class="k">def</span> <span class="nf">get_runtime</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param file_path: the path to the file that&#39;s being processed</span>
+<span class="sd">        :type file_path: unicode</span>
+<span class="sd">        :return: the current runtime (in seconds) of the process that&#39;s</span>
+<span class="sd">        processing the specified file or None if the file is not currently</span>
+<span class="sd">        being processed</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">file_path</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_processors</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">(</span><span class="n">timezone</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_processors</span><span class="p">[</span><span class="n">file_path</span><span class="p">]</span><span class="o">.</span><span class="n">start_time</span><span class="p">)</span>\
+                <span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="DagFileProcessorManager.get_last_runtime"><a class="viewcode-back" href="../../../code/auto-api/airflow.utils.html#airflow.utils.dag_processing.DagFileProcessorManager.get_last_runtime">[docs]</a>    <span class="k">def</span> <span class="nf">get_last_runtime</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param file_path: the path to the file that was processed</span>
+<span class="sd">        :type file_path: unicode</span>
+<span class="sd">        :return: the runtime (in seconds) of the process of the last run, or</span>
+<span class="sd">        None if the file was never processed.</span>
+<span class="sd">        :rtype: float</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_last_runtime</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="DagFileProcessorManager.get_last_finish_time"><a class="viewcode-back" href="../../../code/auto-api/airflow.utils.html#airflow.utils.dag_processing.DagFileProcessorManager.get_last_finish_time">[docs]</a>    <span class="k">def</span> <span class="nf">get_last_finish_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param file_path: the path to the file that was processed</span>
+<span class="sd">        :type file_path: unicode</span>
+<span class="sd">        :return: the finish time of the process of the last run, or None if the</span>
+<span class="sd">        file was never processed.</span>
+<span class="sd">        :rtype: datetime</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_last_finish_time</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="DagFileProcessorManager.get_start_time"><a class="viewcode-back" href="../../../code/auto-api/airflow.utils.html#airflow.utils.dag_processing.DagFileProcessorManager.get_start_time">[docs]</a>    <span class="k">def</span> <span class="nf">get_start_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param file_path: the path to the file that&#39;s being processed</span>
+<span class="sd">        :type file_path: unicode</span>
+<span class="sd">        :return: the start time of the process that&#39;s processing the</span>
+<span class="sd">        specified file or None if the file is not currently being processed</span>
+<span class="sd">        :rtype: datetime</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">file_path</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_processors</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_processors</span><span class="p">[</span><span class="n">file_path</span><span class="p">]</span><span class="o">.</span><span class="n">start_time</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="DagFileProcessorManager.set_file_paths"><a class="viewcode-back" href="../../../code/auto-api/airflow.utils.html#airflow.utils.dag_processing.DagFileProcessorManager.set_file_paths">[docs]</a>    <span class="k">def</span> <span class="nf">set_file_paths</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_file_paths</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Update this with a new set of paths to DAG definition files.</span>
+
+<span class="sd">        :param new_file_paths: list of paths to DAG definition files</span>
+<span class="sd">        :type new_file_paths: list[unicode]</span>
+<span class="sd">        :return: None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_file_paths</span> <span class="o">=</span> <span class="n">new_file_paths</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_file_path_queue</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_file_path_queue</span>
+                                 <span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">new_file_paths</span><span class="p">]</span>
+        <span class="c1"># Stop processors that are working on deleted files</span>
+        <span class="n">filtered_processors</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">file_path</span><span class="p">,</span> <span class="n">processor</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_processors</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">file_path</span> <span class="ow">in</span> <span class="n">new_file_paths</span><span class="p">:</span>
+                <span class="n">filtered_processors</span><span class="p">[</span><span class="n">file_path</span><span class="p">]</span> <span class="o">=</span> <span class="n">processor</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Stopping processor for </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">file_path</span><span class="p">)</span>
+                <span class="n">processor</span><span class="o">.</span><span class="n">terminate</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_processors</span> <span class="o">=</span> <span class="n">filtered_processors</span></div>
+
+<div class="viewcode-block" id="DagFileProcessorManager.processing_count"><a class="viewcode-back" href="../../../code/auto-api/airflow.utils.html#airflow.utils.dag_processing.DagFileProcessorManager.processing_count">[docs]</a>    <span class="k">def</span> <span class="nf">processing_count</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: the number of files currently being processed</span>
+<span class="sd">        :rtype: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_processors</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="DagFileProcessorManager.wait_until_finished"><a class="viewcode-back" href="../../../code/auto-api/airflow.utils.html#airflow.utils.dag_processing.DagFileProcessorManager.wait_until_finished">[docs]</a>    <span class="k">def</span> <span class="nf">wait_until_finished</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Sleeps until all the processors are done.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">file_path</span><span class="p">,</span> <span class="n">processor</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_processors</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">while</span> <span class="ow">not</span> <span class="n">processor</span><span class="o">.</span><span class="n">done</span><span class="p">:</span>
+                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="DagFileProcessorManager.heartbeat"><a class="viewcode-back" href="../../../code/auto-api/airflow.utils.html#airflow.utils.dag_processing.DagFileProcessorManager.heartbeat">[docs]</a>    <span class="k">def</span> <span class="nf">heartbeat</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This should be periodically called by the scheduler. This method will</span>
+<span class="sd">        kick off new processes to process DAG definition files and read the</span>
+<span class="sd">        results from the finished processors.</span>
+
+<span class="sd">        :return: a list of SimpleDags that were produced by processors that</span>
+<span class="sd">        have finished since the last time this was called</span>
+<span class="sd">        :rtype: list[SimpleDag]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">finished_processors</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="sd">&quot;&quot;&quot;:type : dict[unicode, AbstractDagFileProcessor]&quot;&quot;&quot;</span>
+        <span class="n">running_processors</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="sd">&quot;&quot;&quot;:type : dict[unicode, AbstractDagFileProcessor]&quot;&quot;&quot;</span>
+
+        <span class="k">for</span> <span class="n">file_path</span><span class="p">,</span> <span class="n">processor</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_processors</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">processor</span><span class="o">.</span><span class="n">done</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Processor for </span><span class="si">%s</span><span class="s2"> finished&quot;</span><span class="p">,</span> <span class="n">file_path</span><span class="p">)</span>
+                <span class="n">now</span> <span class="o">=</span> <span class="n">timezone</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span>
+                <span class="n">finished_processors</span><span class="p">[</span><span class="n">file_path</span><span class="p">]</span> <span class="o">=</span> <span class="n">processor</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_last_runtime</span><span class="p">[</span><span class="n">file_path</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">now</span> <span class="o">-</span>
+                                                 <span class="n">processor</span><span class="o">.</span><span class="n">start_time</span><span class="p">)</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_last_finish_time</span><span class="p">[</span><span class="n">file_path</span><span class="p">]</span> <span class="o">=</span> <span class="n">now</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_run_count</span><span class="p">[</span><span class="n">file_path</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">running_processors</span><span class="p">[</span><span class="n">file_path</span><span class="p">]</span> <span class="o">=</span> <span class="n">processor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_processors</span> <span class="o">=</span> <span class="n">running_processors</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">/</span><span class="si">%s</span><span class="s2"> scheduler processes running&quot;</span><span class="p">,</span>
+                       <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_processors</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parallelism</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> file paths queued for processing&quot;</span><span class="p">,</span>
+                       <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_file_path_queue</span><span class="p">))</span>
+
+        <span class="c1"># Collect all the DAGs that were found in the processed files</span>
+        <span class="n">simple_dags</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">file_path</span><span class="p">,</span> <span class="n">processor</span> <span class="ow">in</span> <span class="n">finished_processors</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">processor</span><span class="o">.</span><span class="n">result</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                    <span class="s2">&quot;Processor for </span><span class="si">%s</span><span class="s2"> exited with return code </span><span class="si">%s</span><span class="s2">.&quot;</span><span class="p">,</span>
+                    <span class="n">processor</span><span class="o">.</span><span class="n">file_path</span><span class="p">,</span> <span class="n">processor</span><span class="o">.</span><span class="n">exit_code</span>
+                <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">simple_dag</span> <span class="ow">in</span> <span class="n">processor</span><span class="o">.</span><span class="n">result</span><span class="p">:</span>
+                    <span class="n">simple_dags</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">simple_dag</span><span class="p">)</span>
+
+        <span class="c1"># Generate more file paths to process if we processed all the files</span>
+        <span class="c1"># already.</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_file_path_queue</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># If the file path is already being processed, or if a file was</span>
+            <span class="c1"># processed recently, wait until the next batch</span>
+            <span class="n">file_paths_in_progress</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_processors</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+            <span class="n">now</span> <span class="o">=</span> <span class="n">timezone</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span>
+            <span class="n">file_paths_recently_processed</span> <span class="o">=</span> <span class="p">[]</span>
+
+            <span class="n">longest_parse_duration</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">file_path</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_file_paths</span><span class="p">:</span>
+                <span class="n">last_finish_time</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_last_finish_time</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">last_finish_time</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">duration</span> <span class="o">=</span> <span class="n">now</span> <span class="o">-</span> <span class="n">last_finish_time</span>
+                    <span class="n">longest_parse_duration</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">duration</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">(),</span>
+                                                 <span class="n">longest_parse_duration</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">duration</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_process_file_interval</span><span class="p">:</span>
+                        <span class="n">file_paths_recently_processed</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+
+            <span class="n">sleep_length</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_min_file_parsing_loop_time</span> <span class="o">-</span> <span class="n">longest_parse_duration</span><span class="p">,</span>
+                               <span class="mi">0</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">sleep_length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Sleeping for </span><span class="si">%.2f</span><span class="s2"> seconds to prevent excessive &quot;</span>
+                               <span class="s2">&quot;logging&quot;</span><span class="p">,</span>
+                               <span class="n">sleep_length</span><span class="p">)</span>
+                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">sleep_length</span><span class="p">)</span>
+
+            <span class="n">files_paths_at_run_limit</span> <span class="o">=</span> <span class="p">[</span><span class="n">file_path</span>
+                                        <span class="k">for</span> <span class="n">file_path</span><span class="p">,</span> <span class="n">num_runs</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_run_count</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+                                        <span class="k">if</span> <span class="n">num_runs</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_max_runs</span><span class="p">]</span>
+
+            <span class="n">files_paths_to_queue</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_file_paths</span><span class="p">)</span> <span class="o">-</span>
+                                        <span class="nb">set</span><span class="p">(</span><span class="n">file_paths_in_progress</span><span class="p">)</span> <span class="o">-</span>
+                                        <span class="nb">set</span><span class="p">(</span><span class="n">file_paths_recently_processed</span><span class="p">)</span> <span class="o">-</span>
+                                        <span class="nb">set</span><span class="p">(</span><span class="n">files_paths_at_run_limit</span><span class="p">))</span>
+
+            <span class="k">for</span> <span class="n">file_path</span><span class="p">,</span> <span class="n">processor</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_processors</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
+                    <span class="s2">&quot;File path </span><span class="si">%s</span><span class="s2"> is still being processed (started: </span><span class="si">%s</span><span class="s2">)&quot;</span><span class="p">,</span>
+                    <span class="n">processor</span><span class="o">.</span><span class="n">file_path</span><span class="p">,</span> <span class="n">processor</span><span class="o">.</span><span class="n">start_time</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
+                <span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
+                <span class="s2">&quot;Queuing the following files for processing:</span><span class="se">\n\t</span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;</span><span class="se">\n\t</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">files_paths_to_queue</span><span class="p">)</span>
+            <span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">_file_path_queue</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">files_paths_to_queue</span><span class="p">)</span>
+
+        <span class="c1"># Start more processors if we have enough slots and files to process</span>
+        <span class="k">while</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_parallelism</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_processors</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span>
+               <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_file_path_queue</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="n">file_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_file_path_queue</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">processor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_processor_factory</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+
+            <span class="n">processor</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+                <span class="s2">&quot;Started a process (PID: </span><span class="si">%s</span><span class="s2">) to generate tasks for </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="n">processor</span><span class="o">.</span><span class="n">pid</span><span class="p">,</span> <span class="n">file_path</span>
+            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_processors</span><span class="p">[</span><span class="n">file_path</span><span class="p">]</span> <span class="o">=</span> <span class="n">processor</span>
+
+        <span class="c1"># Update scheduler heartbeat count.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_run_count</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_heart_beat_key</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="k">return</span> <span class="n">simple_dags</span></div>
+
+<div class="viewcode-block" id="DagFileProcessorManager.max_runs_reached"><a class="viewcode-back" href="../../../code/auto-api/airflow.utils.html#airflow.utils.dag_processing.DagFileProcessorManager.max_runs_reached">[docs]</a>    <span class="k">def</span> <span class="nf">max_runs_reached</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: whether all file paths have been processed max_runs times</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_max_runs</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>  <span class="c1"># Unlimited runs.</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">for</span> <span class="n">file_path</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_file_paths</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_run_count</span><span class="p">[</span><span class="n">file_path</span><span class="p">]</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_max_runs</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_run_count</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_heart_beat_key</span><span class="p">]</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_max_runs</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="kc">True</span></div>
+
+<div class="viewcode-block" id="DagFileProcessorManager.terminate"><a class="viewcode-back" href="../../../code/auto-api/airflow.utils.html#airflow.utils.dag_processing.DagFileProcessorManager.terminate">[docs]</a>    <span class="k">def</span> <span class="nf">terminate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Stops all running processors</span>
+<span class="sd">        :return: None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">processor</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_processors</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="n">processor</span><span class="o">.</span><span class="n">terminate</span><span class="p">()</span></div></div>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

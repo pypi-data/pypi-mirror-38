@@ -1,0 +1,158 @@
+airflow.contrib.sensors package
+===============================
+
+Submodules
+----------
+
+airflow.contrib.sensors.aws\_redshift\_cluster\_sensor module
+-------------------------------------------------------------
+
+.. automodule:: airflow.contrib.sensors.aws_redshift_cluster_sensor
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.sensors.bash\_sensor module
+-------------------------------------------
+
+.. automodule:: airflow.contrib.sensors.bash_sensor
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.sensors.bigquery\_sensor module
+-----------------------------------------------
+
+.. automodule:: airflow.contrib.sensors.bigquery_sensor
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.sensors.cassandra\_sensor module
+------------------------------------------------
+
+.. automodule:: airflow.contrib.sensors.cassandra_sensor
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.sensors.datadog\_sensor module
+----------------------------------------------
+
+.. automodule:: airflow.contrib.sensors.datadog_sensor
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.sensors.emr\_base\_sensor module
+------------------------------------------------
+
+.. automodule:: airflow.contrib.sensors.emr_base_sensor
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.sensors.emr\_job\_flow\_sensor module
+-----------------------------------------------------
+
+.. automodule:: airflow.contrib.sensors.emr_job_flow_sensor
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.sensors.emr\_step\_sensor module
+------------------------------------------------
+
+.. automodule:: airflow.contrib.sensors.emr_step_sensor
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.sensors.file\_sensor module
+-------------------------------------------
+
+.. automodule:: airflow.contrib.sensors.file_sensor
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.sensors.ftp\_sensor module
+------------------------------------------
+
+.. automodule:: airflow.contrib.sensors.ftp_sensor
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.sensors.gcs\_sensor module
+------------------------------------------
+
+.. automodule:: airflow.contrib.sensors.gcs_sensor
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.sensors.hdfs\_sensor module
+-------------------------------------------
+
+.. automodule:: airflow.contrib.sensors.hdfs_sensor
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.sensors.jira\_sensor module
+-------------------------------------------
+
+.. automodule:: airflow.contrib.sensors.jira_sensor
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.sensors.pubsub\_sensor module
+---------------------------------------------
+
+.. automodule:: airflow.contrib.sensors.pubsub_sensor
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.sensors.qubole\_sensor module
+---------------------------------------------
+
+.. automodule:: airflow.contrib.sensors.qubole_sensor
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.sensors.redis\_key\_sensor module
+-------------------------------------------------
+
+.. automodule:: airflow.contrib.sensors.redis_key_sensor
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.sensors.sftp\_sensor module
+-------------------------------------------
+
+.. automodule:: airflow.contrib.sensors.sftp_sensor
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.sensors.wasb\_sensor module
+-------------------------------------------
+
+.. automodule:: airflow.contrib.sensors.wasb_sensor
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: airflow.contrib.sensors
+    :members:
+    :undoc-members:
+    :show-inheritance:

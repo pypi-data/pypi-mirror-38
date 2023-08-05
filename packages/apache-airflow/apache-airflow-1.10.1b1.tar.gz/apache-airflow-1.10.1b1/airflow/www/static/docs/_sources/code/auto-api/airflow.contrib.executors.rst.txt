@@ -1,0 +1,30 @@
+airflow.contrib.executors package
+=================================
+
+Submodules
+----------
+
+airflow.contrib.executors.kubernetes\_executor module
+-----------------------------------------------------
+
+.. automodule:: airflow.contrib.executors.kubernetes_executor
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.executors.mesos\_executor module
+------------------------------------------------
+
+.. automodule:: airflow.contrib.executors.mesos_executor
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: airflow.contrib.executors
+    :members:
+    :undoc-members:
+    :show-inheritance:

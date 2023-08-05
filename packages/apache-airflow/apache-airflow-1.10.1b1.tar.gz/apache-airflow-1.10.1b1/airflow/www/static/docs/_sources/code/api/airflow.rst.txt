@@ -1,0 +1,84 @@
+airflow package
+===============
+
+.. automodule:: airflow
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Submodules
+----------
+
+airflow\.configuration module
+-----------------------------
+
+.. automodule:: airflow.configuration
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow\.default\_login module
+------------------------------
+
+.. automodule:: airflow.default_login
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow\.exceptions module
+--------------------------
+
+.. automodule:: airflow.exceptions
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow\.jobs module
+--------------------
+
+.. automodule:: airflow.jobs
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow\.logging\_config module
+-------------------------------
+
+.. automodule:: airflow.logging_config
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow\.models module
+----------------------
+
+.. automodule:: airflow.models
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow\.plugins\_manager module
+--------------------------------
+
+.. automodule:: airflow.plugins_manager
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow\.settings module
+------------------------
+
+.. automodule:: airflow.settings
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow\.version module
+-----------------------
+
+.. automodule:: airflow.version
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+

@@ -1,0 +1,563 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>airflow.contrib.auth.backends.ldap_auth &mdash; Airflow Documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../../search.html"/>
+    <link rel="top" title="Airflow Documentation" href="../../../../../index.html"/>
+        <link rel="up" title="airflow" href="../../../../airflow.html"/> 
+
+  
+  <script src="../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> Airflow
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../howto/index.html">How-to Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../ui.html">UI / Screenshots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../profiling.html">Data Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../cli.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../scheduler.html">Scheduling &amp; Triggers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../security.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../timezone.html">Time zones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../api.html">Experimental Rest API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../integration.html">Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../lineage.html">Lineage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../code.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">Airflow</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../../../airflow.html">airflow</a> &raquo;</li>
+        
+      <li>airflow.contrib.auth.backends.ldap_auth</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for airflow.contrib.auth.backends.ldap_auth</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed to the Apache Software Foundation (ASF) under one</span>
+<span class="c1"># or more contributor license agreements.  See the NOTICE file</span>
+<span class="c1"># distributed with this work for additional information</span>
+<span class="c1"># regarding copyright ownership.  The ASF licenses this file</span>
+<span class="c1"># to you under the Apache License, Version 2.0 (the</span>
+<span class="c1"># &quot;License&quot;); you may not use this file except in compliance</span>
+<span class="c1"># with the License.  You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#   http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing,</span>
+<span class="c1"># software distributed under the License is distributed on an</span>
+<span class="c1"># &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
+<span class="c1"># KIND, either express or implied.  See the License for the</span>
+<span class="c1"># specific language governing permissions and limitations</span>
+<span class="c1"># under the License.</span>
+<span class="kn">from</span> <span class="nn">future.utils</span> <span class="k">import</span> <span class="n">native</span>
+
+<span class="kn">import</span> <span class="nn">flask_login</span>
+<span class="kn">from</span> <span class="nn">flask_login</span> <span class="k">import</span> <span class="n">login_required</span><span class="p">,</span> <span class="n">current_user</span><span class="p">,</span> <span class="n">logout_user</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="k">import</span> <span class="n">flash</span>
+<span class="kn">from</span> <span class="nn">wtforms</span> <span class="k">import</span> <span class="p">(</span>
+    <span class="n">Form</span><span class="p">,</span> <span class="n">PasswordField</span><span class="p">,</span> <span class="n">StringField</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">wtforms.validators</span> <span class="k">import</span> <span class="n">InputRequired</span>
+
+<span class="kn">from</span> <span class="nn">ldap3</span> <span class="k">import</span> <span class="n">Server</span><span class="p">,</span> <span class="n">Connection</span><span class="p">,</span> <span class="n">Tls</span><span class="p">,</span> <span class="n">LEVEL</span><span class="p">,</span> <span class="n">SUBTREE</span><span class="p">,</span> <span class="n">BASE</span>
+<span class="kn">import</span> <span class="nn">ssl</span>
+
+<span class="kn">from</span> <span class="nn">flask</span> <span class="k">import</span> <span class="n">url_for</span><span class="p">,</span> <span class="n">redirect</span>
+
+<span class="kn">from</span> <span class="nn">airflow</span> <span class="k">import</span> <span class="n">models</span>
+<span class="kn">from</span> <span class="nn">airflow</span> <span class="k">import</span> <span class="n">configuration</span>
+<span class="kn">from</span> <span class="nn">airflow.configuration</span> <span class="k">import</span> <span class="n">AirflowConfigException</span>
+<span class="kn">from</span> <span class="nn">airflow.utils.db</span> <span class="k">import</span> <span class="n">provide_session</span>
+
+<span class="kn">import</span> <span class="nn">traceback</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="kn">from</span> <span class="nn">airflow.utils.log.logging_mixin</span> <span class="k">import</span> <span class="n">LoggingMixin</span>
+
+<span class="n">login_manager</span> <span class="o">=</span> <span class="n">flask_login</span><span class="o">.</span><span class="n">LoginManager</span><span class="p">()</span>
+<span class="n">login_manager</span><span class="o">.</span><span class="n">login_view</span> <span class="o">=</span> <span class="s1">&#39;airflow.login&#39;</span>  <span class="c1"># Calls login() below</span>
+<span class="n">login_manager</span><span class="o">.</span><span class="n">login_message</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">LoggingMixin</span><span class="p">()</span><span class="o">.</span><span class="n">log</span>
+
+
+<div class="viewcode-block" id="AuthenticationError"><a class="viewcode-back" href="../../../../../code/auto-api/airflow.contrib.auth.backends.html#airflow.contrib.auth.backends.ldap_auth.AuthenticationError">[docs]</a><span class="k">class</span> <span class="nc">AuthenticationError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="LdapException"><a class="viewcode-back" href="../../../../../code/auto-api/airflow.contrib.auth.backends.html#airflow.contrib.auth.backends.ldap_auth.LdapException">[docs]</a><span class="k">class</span> <span class="nc">LdapException</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="get_ldap_connection"><a class="viewcode-back" href="../../../../../code/auto-api/airflow.contrib.auth.backends.html#airflow.contrib.auth.backends.ldap_auth.get_ldap_connection">[docs]</a><span class="k">def</span> <span class="nf">get_ldap_connection</span><span class="p">(</span><span class="n">dn</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">tls_configuration</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">use_ssl</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">cacert</span> <span class="o">=</span> <span class="n">configuration</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ldap&quot;</span><span class="p">,</span> <span class="s2">&quot;cacert&quot;</span><span class="p">)</span>
+        <span class="n">tls_configuration</span> <span class="o">=</span> <span class="n">Tls</span><span class="p">(</span><span class="n">validate</span><span class="o">=</span><span class="n">ssl</span><span class="o">.</span><span class="n">CERT_REQUIRED</span><span class="p">,</span> <span class="n">ca_certs_file</span><span class="o">=</span><span class="n">cacert</span><span class="p">)</span>
+        <span class="n">use_ssl</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">pass</span>
+
+    <span class="n">server</span> <span class="o">=</span> <span class="n">Server</span><span class="p">(</span><span class="n">configuration</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ldap&quot;</span><span class="p">,</span> <span class="s2">&quot;uri&quot;</span><span class="p">),</span> <span class="n">use_ssl</span><span class="p">,</span> <span class="n">tls_configuration</span><span class="p">)</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">Connection</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">native</span><span class="p">(</span><span class="n">dn</span><span class="p">),</span> <span class="n">native</span><span class="p">(</span><span class="n">password</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">conn</span><span class="o">.</span><span class="n">bind</span><span class="p">():</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Cannot bind to ldap server: </span><span class="si">%s</span><span class="s2"> &quot;</span><span class="p">,</span> <span class="n">conn</span><span class="o">.</span><span class="n">last_error</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">AuthenticationError</span><span class="p">(</span><span class="s2">&quot;Cannot bind to ldap server&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">conn</span></div>
+
+
+<div class="viewcode-block" id="group_contains_user"><a class="viewcode-back" href="../../../../../code/auto-api/airflow.contrib.auth.backends.html#airflow.contrib.auth.backends.ldap_auth.group_contains_user">[docs]</a><span class="k">def</span> <span class="nf">group_contains_user</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="n">search_base</span><span class="p">,</span> <span class="n">group_filter</span><span class="p">,</span> <span class="n">user_name_attr</span><span class="p">,</span> <span class="n">username</span><span class="p">):</span>
+    <span class="n">search_filter</span> <span class="o">=</span> <span class="s1">&#39;(&amp;(</span><span class="si">{0}</span><span class="s1">))&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">group_filter</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">conn</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">native</span><span class="p">(</span><span class="n">search_base</span><span class="p">),</span> <span class="n">native</span><span class="p">(</span><span class="n">search_filter</span><span class="p">),</span>
+                       <span class="n">attributes</span><span class="o">=</span><span class="p">[</span><span class="n">native</span><span class="p">(</span><span class="n">user_name_attr</span><span class="p">)]):</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Unable to find group for </span><span class="si">%s</span><span class="s2"> </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">search_base</span><span class="p">,</span> <span class="n">search_filter</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">conn</span><span class="o">.</span><span class="n">entries</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">username</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">attr</span><span class="p">:</span> <span class="n">attr</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span>
+                                       <span class="nb">getattr</span><span class="p">(</span><span class="n">entry</span><span class="p">,</span> <span class="n">user_name_attr</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">):</span>
+                <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="k">return</span> <span class="kc">False</span></div>
+
+
+<div class="viewcode-block" id="groups_user"><a class="viewcode-back" href="../../../../../code/auto-api/airflow.contrib.auth.backends.html#airflow.contrib.auth.backends.ldap_auth.groups_user">[docs]</a><span class="k">def</span> <span class="nf">groups_user</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="n">search_base</span><span class="p">,</span> <span class="n">user_filter</span><span class="p">,</span> <span class="n">user_name_att</span><span class="p">,</span> <span class="n">username</span><span class="p">):</span>
+    <span class="n">search_filter</span> <span class="o">=</span> <span class="s2">&quot;(&amp;(</span><span class="si">{0}</span><span class="s2">)(</span><span class="si">{1}</span><span class="s2">=</span><span class="si">{2}</span><span class="s2">))&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">user_filter</span><span class="p">,</span> <span class="n">user_name_att</span><span class="p">,</span> <span class="n">username</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">memberof_attr</span> <span class="o">=</span> <span class="n">configuration</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ldap&quot;</span><span class="p">,</span> <span class="s2">&quot;group_member_attr&quot;</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">memberof_attr</span> <span class="o">=</span> <span class="s2">&quot;memberOf&quot;</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">native</span><span class="p">(</span><span class="n">search_base</span><span class="p">),</span> <span class="n">native</span><span class="p">(</span><span class="n">search_filter</span><span class="p">),</span>
+                      <span class="n">attributes</span><span class="o">=</span><span class="p">[</span><span class="n">native</span><span class="p">(</span><span class="n">memberof_attr</span><span class="p">)])</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">res</span><span class="p">:</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Cannot find user </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">username</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">AuthenticationError</span><span class="p">(</span><span class="s2">&quot;Invalid username or password&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">conn</span><span class="o">.</span><span class="n">response</span> <span class="ow">and</span> <span class="n">memberof_attr</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">conn</span><span class="o">.</span><span class="n">response</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;attributes&quot;</span><span class="p">]:</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;Missing attribute &quot;</span><span class="si">%s</span><span class="s2">&quot; when looked-up in Ldap database.</span>
+<span class="s2">        The user does not seem to be a member of a group and therefore won&#39;t see any dag</span>
+<span class="s2">        if the option filter_by_owner=True and owner_mode=ldapgroup are set&quot;&quot;&quot;</span><span class="p">,</span>
+                    <span class="n">memberof_attr</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">[]</span>
+
+    <span class="n">user_groups</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">response</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;attributes&quot;</span><span class="p">][</span><span class="n">memberof_attr</span><span class="p">]</span>
+
+    <span class="n">regex</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&quot;cn=([^,]*).*&quot;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
+    <span class="n">groups_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">groups_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">regex</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">user_groups</span><span class="p">]</span>
+    <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Parsing error when retrieving the user&#39;s group(s).&quot;</span>
+                    <span class="s2">&quot; Check if the user belongs to at least one group&quot;</span>
+                    <span class="s2">&quot; or if the user&#39;s groups name do not contain special characters&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">groups_list</span></div>
+
+
+<div class="viewcode-block" id="LdapUser"><a class="viewcode-back" href="../../../../../code/auto-api/airflow.contrib.auth.backends.html#airflow.contrib.auth.backends.ldap_auth.LdapUser">[docs]</a><span class="k">class</span> <span class="nc">LdapUser</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">User</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">user</span> <span class="o">=</span> <span class="n">user</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ldap_groups</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="c1"># Load and cache superuser and data_profiler settings.</span>
+        <span class="n">conn</span> <span class="o">=</span> <span class="n">get_ldap_connection</span><span class="p">(</span><span class="n">configuration</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ldap&quot;</span><span class="p">,</span> <span class="s2">&quot;bind_user&quot;</span><span class="p">),</span>
+                                   <span class="n">configuration</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ldap&quot;</span><span class="p">,</span> <span class="s2">&quot;bind_password&quot;</span><span class="p">))</span>
+
+        <span class="n">superuser_filter</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">data_profiler_filter</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">superuser_filter</span> <span class="o">=</span> <span class="n">configuration</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ldap&quot;</span><span class="p">,</span> <span class="s2">&quot;superuser_filter&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">AirflowConfigException</span><span class="p">:</span>
+            <span class="k">pass</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">superuser_filter</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">superuser</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Missing configuration for superuser settings or empty. Skipping.&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">superuser</span> <span class="o">=</span> <span class="n">group_contains_user</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span>
+                                                 <span class="n">configuration</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ldap&quot;</span><span class="p">,</span> <span class="s2">&quot;basedn&quot;</span><span class="p">),</span>
+                                                 <span class="n">superuser_filter</span><span class="p">,</span>
+                                                 <span class="n">configuration</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ldap&quot;</span><span class="p">,</span>
+                                                                        <span class="s2">&quot;user_name_attr&quot;</span><span class="p">),</span>
+                                                 <span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">data_profiler_filter</span> <span class="o">=</span> <span class="n">configuration</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ldap&quot;</span><span class="p">,</span> <span class="s2">&quot;data_profiler_filter&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">AirflowConfigException</span><span class="p">:</span>
+            <span class="k">pass</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">data_profiler_filter</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data_profiler</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Missing configuration for data profiler settings or empty. &quot;</span>
+                      <span class="s2">&quot;Skipping.&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data_profiler</span> <span class="o">=</span> <span class="n">group_contains_user</span><span class="p">(</span>
+                <span class="n">conn</span><span class="p">,</span>
+                <span class="n">configuration</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ldap&quot;</span><span class="p">,</span> <span class="s2">&quot;basedn&quot;</span><span class="p">),</span>
+                <span class="n">data_profiler_filter</span><span class="p">,</span>
+                <span class="n">configuration</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ldap&quot;</span><span class="p">,</span>
+                                       <span class="s2">&quot;user_name_attr&quot;</span><span class="p">),</span>
+                <span class="n">user</span><span class="o">.</span><span class="n">username</span>
+            <span class="p">)</span>
+
+        <span class="c1"># Load the ldap group(s) a user belongs to</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ldap_groups</span> <span class="o">=</span> <span class="n">groups_user</span><span class="p">(</span>
+                <span class="n">conn</span><span class="p">,</span>
+                <span class="n">configuration</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ldap&quot;</span><span class="p">,</span> <span class="s2">&quot;basedn&quot;</span><span class="p">),</span>
+                <span class="n">configuration</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ldap&quot;</span><span class="p">,</span> <span class="s2">&quot;user_filter&quot;</span><span class="p">),</span>
+                <span class="n">configuration</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ldap&quot;</span><span class="p">,</span> <span class="s2">&quot;user_name_attr&quot;</span><span class="p">),</span>
+                <span class="n">user</span><span class="o">.</span><span class="n">username</span>
+            <span class="p">)</span>
+        <span class="k">except</span> <span class="n">AirflowConfigException</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Missing configuration for ldap settings. Skipping&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="LdapUser.try_login"><a class="viewcode-back" href="../../../../../code/auto-api/airflow.contrib.auth.backends.html#airflow.contrib.auth.backends.ldap_auth.LdapUser.try_login">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">try_login</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+        <span class="n">conn</span> <span class="o">=</span> <span class="n">get_ldap_connection</span><span class="p">(</span><span class="n">configuration</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ldap&quot;</span><span class="p">,</span> <span class="s2">&quot;bind_user&quot;</span><span class="p">),</span>
+                                   <span class="n">configuration</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ldap&quot;</span><span class="p">,</span> <span class="s2">&quot;bind_password&quot;</span><span class="p">))</span>
+
+        <span class="n">search_filter</span> <span class="o">=</span> <span class="s2">&quot;(&amp;(</span><span class="si">{0}</span><span class="s2">)(</span><span class="si">{1}</span><span class="s2">=</span><span class="si">{2}</span><span class="s2">))&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">configuration</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ldap&quot;</span><span class="p">,</span> <span class="s2">&quot;user_filter&quot;</span><span class="p">),</span>
+            <span class="n">configuration</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ldap&quot;</span><span class="p">,</span> <span class="s2">&quot;user_name_attr&quot;</span><span class="p">),</span>
+            <span class="n">username</span>
+        <span class="p">)</span>
+
+        <span class="n">search_scope</span> <span class="o">=</span> <span class="n">LEVEL</span>
+        <span class="k">if</span> <span class="n">configuration</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">has_option</span><span class="p">(</span><span class="s2">&quot;ldap&quot;</span><span class="p">,</span> <span class="s2">&quot;search_scope&quot;</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">configuration</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ldap&quot;</span><span class="p">,</span> <span class="s2">&quot;search_scope&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;SUBTREE&quot;</span><span class="p">:</span>
+                <span class="n">search_scope</span> <span class="o">=</span> <span class="n">SUBTREE</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">search_scope</span> <span class="o">=</span> <span class="n">LEVEL</span>
+
+        <span class="c1"># todo: BASE or ONELEVEL?</span>
+
+        <span class="n">res</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">native</span><span class="p">(</span><span class="n">configuration</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ldap&quot;</span><span class="p">,</span> <span class="s2">&quot;basedn&quot;</span><span class="p">)),</span>
+                          <span class="n">native</span><span class="p">(</span><span class="n">search_filter</span><span class="p">),</span>
+                          <span class="n">search_scope</span><span class="o">=</span><span class="n">native</span><span class="p">(</span><span class="n">search_scope</span><span class="p">))</span>
+
+        <span class="c1"># todo: use list or result?</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">res</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Cannot find user </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">username</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">AuthenticationError</span><span class="p">(</span><span class="s2">&quot;Invalid username or password&quot;</span><span class="p">)</span>
+
+        <span class="n">entry</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">response</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="n">conn</span><span class="o">.</span><span class="n">unbind</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="s1">&#39;dn&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">entry</span><span class="p">:</span>
+            <span class="c1"># The search filter for the user did not return any values, so an</span>
+            <span class="c1"># invalid user was used for credentials.</span>
+            <span class="k">raise</span> <span class="n">AuthenticationError</span><span class="p">(</span><span class="s2">&quot;Invalid username or password&quot;</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">conn</span> <span class="o">=</span> <span class="n">get_ldap_connection</span><span class="p">(</span><span class="n">entry</span><span class="p">[</span><span class="s1">&#39;dn&#39;</span><span class="p">],</span> <span class="n">password</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">            Unable to parse LDAP structure. If you&#39;re using Active Directory</span>
+<span class="s2">            and not specifying an OU, you must set search_scope=SUBTREE in airflow.cfg.</span>
+<span class="s2">            </span><span class="si">%s</span><span class="s2"></span>
+<span class="s2">            &quot;&quot;&quot;</span> <span class="o">%</span> <span class="n">traceback</span><span class="o">.</span><span class="n">format_exc</span><span class="p">())</span>
+            <span class="k">raise</span> <span class="n">LdapException</span><span class="p">(</span>
+                <span class="s2">&quot;Could not parse LDAP structure. &quot;</span>
+                <span class="s2">&quot;Try setting search_scope in airflow.cfg, or check logs&quot;</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">conn</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Password incorrect for user </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">username</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">AuthenticationError</span><span class="p">(</span><span class="s2">&quot;Invalid username or password&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="LdapUser.is_active"><a class="viewcode-back" href="../../../../../code/auto-api/airflow.contrib.auth.backends.html#airflow.contrib.auth.backends.ldap_auth.LdapUser.is_active">[docs]</a>    <span class="k">def</span> <span class="nf">is_active</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Required by flask_login&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="kc">True</span></div>
+
+<div class="viewcode-block" id="LdapUser.is_authenticated"><a class="viewcode-back" href="../../../../../code/auto-api/airflow.contrib.auth.backends.html#airflow.contrib.auth.backends.ldap_auth.LdapUser.is_authenticated">[docs]</a>    <span class="k">def</span> <span class="nf">is_authenticated</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Required by flask_login&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="kc">True</span></div>
+
+<div class="viewcode-block" id="LdapUser.is_anonymous"><a class="viewcode-back" href="../../../../../code/auto-api/airflow.contrib.auth.backends.html#airflow.contrib.auth.backends.ldap_auth.LdapUser.is_anonymous">[docs]</a>    <span class="k">def</span> <span class="nf">is_anonymous</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Required by flask_login&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="LdapUser.get_id"><a class="viewcode-back" href="../../../../../code/auto-api/airflow.contrib.auth.backends.html#airflow.contrib.auth.backends.ldap_auth.LdapUser.get_id">[docs]</a>    <span class="k">def</span> <span class="nf">get_id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns the current user id as required by flask_login&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">get_id</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="LdapUser.data_profiling"><a class="viewcode-back" href="../../../../../code/auto-api/airflow.contrib.auth.backends.html#airflow.contrib.auth.backends.ldap_auth.LdapUser.data_profiling">[docs]</a>    <span class="k">def</span> <span class="nf">data_profiling</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Provides access to data profiling tools&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_profiler</span></div>
+
+<div class="viewcode-block" id="LdapUser.is_superuser"><a class="viewcode-back" href="../../../../../code/auto-api/airflow.contrib.auth.backends.html#airflow.contrib.auth.backends.ldap_auth.LdapUser.is_superuser">[docs]</a>    <span class="k">def</span> <span class="nf">is_superuser</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Access all the things&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">superuser</span></div></div>
+
+
+<div class="viewcode-block" id="load_user"><a class="viewcode-back" href="../../../../../code/auto-api/airflow.contrib.auth.backends.html#airflow.contrib.auth.backends.ldap_auth.load_user">[docs]</a><span class="nd">@login_manager</span><span class="o">.</span><span class="n">user_loader</span>
+<span class="nd">@provide_session</span>
+<span class="k">def</span> <span class="nf">load_user</span><span class="p">(</span><span class="n">userid</span><span class="p">,</span> <span class="n">session</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Loading user </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">userid</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">userid</span> <span class="ow">or</span> <span class="n">userid</span> <span class="o">==</span> <span class="s1">&#39;None&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="n">user</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">User</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">User</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="nb">int</span><span class="p">(</span><span class="n">userid</span><span class="p">))</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">LdapUser</span><span class="p">(</span><span class="n">user</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="login"><a class="viewcode-back" href="../../../../../code/auto-api/airflow.contrib.auth.backends.html#airflow.contrib.auth.backends.ldap_auth.login">[docs]</a><span class="nd">@provide_session</span>
+<span class="k">def</span> <span class="nf">login</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">session</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">current_user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">():</span>
+        <span class="n">flash</span><span class="p">(</span><span class="s2">&quot;You are already logged in&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s1">&#39;admin.index&#39;</span><span class="p">))</span>
+
+    <span class="n">username</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">password</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="n">form</span> <span class="o">=</span> <span class="n">LoginForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span> <span class="ow">and</span> <span class="n">form</span><span class="o">.</span><span class="n">validate</span><span class="p">():</span>
+        <span class="n">username</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;username&quot;</span><span class="p">)</span>
+        <span class="n">password</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;password&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">username</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">password</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s1">&#39;airflow/login.html&#39;</span><span class="p">,</span>
+                           <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Airflow - Login&quot;</span><span class="p">,</span>
+                           <span class="n">form</span><span class="o">=</span><span class="n">form</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">LdapUser</span><span class="o">.</span><span class="n">try_login</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;User </span><span class="si">%s</span><span class="s2"> successfully authenticated&quot;</span><span class="p">,</span> <span class="n">username</span><span class="p">)</span>
+
+        <span class="n">user</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">User</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+            <span class="n">models</span><span class="o">.</span><span class="n">User</span><span class="o">.</span><span class="n">username</span> <span class="o">==</span> <span class="n">username</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">user</span><span class="p">:</span>
+            <span class="n">user</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">User</span><span class="p">(</span>
+                <span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">,</span>
+                <span class="n">is_superuser</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+
+        <span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="n">session</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+        <span class="n">flask_login</span><span class="o">.</span><span class="n">login_user</span><span class="p">(</span><span class="n">LdapUser</span><span class="p">(</span><span class="n">user</span><span class="p">))</span>
+        <span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;next&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;admin.index&quot;</span><span class="p">))</span>
+    <span class="k">except</span> <span class="p">(</span><span class="n">LdapException</span><span class="p">,</span> <span class="n">AuthenticationError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="o">==</span> <span class="n">LdapException</span><span class="p">:</span>
+            <span class="n">flash</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="s2">&quot;error&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">flash</span><span class="p">(</span><span class="s2">&quot;Incorrect login details&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s1">&#39;airflow/login.html&#39;</span><span class="p">,</span>
+                           <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Airflow - Login&quot;</span><span class="p">,</span>
+                           <span class="n">form</span><span class="o">=</span><span class="n">form</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="LoginForm"><a class="viewcode-back" href="../../../../../code/auto-api/airflow.contrib.auth.backends.html#airflow.contrib.auth.backends.ldap_auth.LoginForm">[docs]</a><span class="k">class</span> <span class="nc">LoginForm</span><span class="p">(</span><span class="n">Form</span><span class="p">):</span>
+    <span class="n">username</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="s1">&#39;Username&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">InputRequired</span><span class="p">()])</span>
+    <span class="n">password</span> <span class="o">=</span> <span class="n">PasswordField</span><span class="p">(</span><span class="s1">&#39;Password&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">InputRequired</span><span class="p">()])</span></div>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

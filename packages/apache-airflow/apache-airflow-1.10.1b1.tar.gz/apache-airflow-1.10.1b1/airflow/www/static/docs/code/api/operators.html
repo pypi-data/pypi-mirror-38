@@ -1,0 +1,410 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>operators package &mdash; Airflow Documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Airflow Documentation" href="../../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Airflow
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howto/index.html">How-to Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ui.html">UI / Screenshots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../profiling.html">Data Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../scheduler.html">Scheduling &amp; Triggers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../security.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../timezone.html">Time zones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">Experimental Rest API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../integration.html">Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lineage.html">Lineage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../code.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Airflow</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>operators package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/code/api/operators.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="operators-package">
+<h1>operators package<a class="headerlink" href="#operators-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-awsbatch-operator-module">
+<h2>operators.awsbatch_operator module<a class="headerlink" href="#operators-awsbatch-operator-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-bigquery-check-operator-module">
+<h2>operators.bigquery_check_operator module<a class="headerlink" href="#operators-bigquery-check-operator-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-bigquery-get-data-module">
+<h2>operators.bigquery_get_data module<a class="headerlink" href="#operators-bigquery-get-data-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-bigquery-operator-module">
+<h2>operators.bigquery_operator module<a class="headerlink" href="#operators-bigquery-operator-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-bigquery-table-delete-operator-module">
+<h2>operators.bigquery_table_delete_operator module<a class="headerlink" href="#operators-bigquery-table-delete-operator-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-bigquery-to-bigquery-module">
+<h2>operators.bigquery_to_bigquery module<a class="headerlink" href="#operators-bigquery-to-bigquery-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-bigquery-to-gcs-module">
+<h2>operators.bigquery_to_gcs module<a class="headerlink" href="#operators-bigquery-to-gcs-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-cassandra-to-gcs-module">
+<h2>operators.cassandra_to_gcs module<a class="headerlink" href="#operators-cassandra-to-gcs-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-databricks-operator-module">
+<h2>operators.databricks_operator module<a class="headerlink" href="#operators-databricks-operator-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-dataflow-operator-module">
+<h2>operators.dataflow_operator module<a class="headerlink" href="#operators-dataflow-operator-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-dataproc-operator-module">
+<h2>operators.dataproc_operator module<a class="headerlink" href="#operators-dataproc-operator-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-datastore-export-operator-module">
+<h2>operators.datastore_export_operator module<a class="headerlink" href="#operators-datastore-export-operator-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-datastore-import-operator-module">
+<h2>operators.datastore_import_operator module<a class="headerlink" href="#operators-datastore-import-operator-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-discord-webhook-operator-module">
+<h2>operators.discord_webhook_operator module<a class="headerlink" href="#operators-discord-webhook-operator-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-druid-operator-module">
+<h2>operators.druid_operator module<a class="headerlink" href="#operators-druid-operator-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-ecs-operator-module">
+<h2>operators.ecs_operator module<a class="headerlink" href="#operators-ecs-operator-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-emr-add-steps-operator-module">
+<h2>operators.emr_add_steps_operator module<a class="headerlink" href="#operators-emr-add-steps-operator-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-emr-create-job-flow-operator-module">
+<h2>operators.emr_create_job_flow_operator module<a class="headerlink" href="#operators-emr-create-job-flow-operator-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-emr-terminate-job-flow-operator-module">
+<h2>operators.emr_terminate_job_flow_operator module<a class="headerlink" href="#operators-emr-terminate-job-flow-operator-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-file-to-gcs-module">
+<h2>operators.file_to_gcs module<a class="headerlink" href="#operators-file-to-gcs-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-file-to-wasb-module">
+<h2>operators.file_to_wasb module<a class="headerlink" href="#operators-file-to-wasb-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-gcp-container-operator-module">
+<h2>operators.gcp_container_operator module<a class="headerlink" href="#operators-gcp-container-operator-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-gcs-download-operator-module">
+<h2>operators.gcs_download_operator module<a class="headerlink" href="#operators-gcs-download-operator-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-gcs-list-operator-module">
+<h2>operators.gcs_list_operator module<a class="headerlink" href="#operators-gcs-list-operator-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-gcs-operator-module">
+<h2>operators.gcs_operator module<a class="headerlink" href="#operators-gcs-operator-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-gcs-to-bq-module">
+<h2>operators.gcs_to_bq module<a class="headerlink" href="#operators-gcs-to-bq-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-gcs-to-gcs-module">
+<h2>operators.gcs_to_gcs module<a class="headerlink" href="#operators-gcs-to-gcs-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-gcs-to-s3-module">
+<h2>operators.gcs_to_s3 module<a class="headerlink" href="#operators-gcs-to-s3-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-hipchat-operator-module">
+<h2>operators.hipchat_operator module<a class="headerlink" href="#operators-hipchat-operator-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-hive-to-dynamodb-module">
+<h2>operators.hive_to_dynamodb module<a class="headerlink" href="#operators-hive-to-dynamodb-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-jenkins-job-trigger-operator-module">
+<h2>operators.jenkins_job_trigger_operator module<a class="headerlink" href="#operators-jenkins-job-trigger-operator-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-jira-operator-module">
+<h2>operators.jira_operator module<a class="headerlink" href="#operators-jira-operator-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-kubernetes-pod-operator-module">
+<h2>operators.kubernetes_pod_operator module<a class="headerlink" href="#operators-kubernetes-pod-operator-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-mlengine-operator-module">
+<h2>operators.mlengine_operator module<a class="headerlink" href="#operators-mlengine-operator-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-mlengine-operator-utils-module">
+<h2>operators.mlengine_operator_utils module<a class="headerlink" href="#operators-mlengine-operator-utils-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-mlengine-prediction-summary-module">
+<h2>operators.mlengine_prediction_summary module<a class="headerlink" href="#operators-mlengine-prediction-summary-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-mongo-to-s3-module">
+<h2>operators.mongo_to_s3 module<a class="headerlink" href="#operators-mongo-to-s3-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-mysql-to-gcs-module">
+<h2>operators.mysql_to_gcs module<a class="headerlink" href="#operators-mysql-to-gcs-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-postgres-to-gcs-operator-module">
+<h2>operators.postgres_to_gcs_operator module<a class="headerlink" href="#operators-postgres-to-gcs-operator-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-pubsub-operator-module">
+<h2>operators.pubsub_operator module<a class="headerlink" href="#operators-pubsub-operator-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-qubole-check-operator-module">
+<h2>operators.qubole_check_operator module<a class="headerlink" href="#operators-qubole-check-operator-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-qubole-operator-module">
+<h2>operators.qubole_operator module<a class="headerlink" href="#operators-qubole-operator-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-s3-list-operator-module">
+<h2>operators.s3_list_operator module<a class="headerlink" href="#operators-s3-list-operator-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-s3-to-gcs-operator-module">
+<h2>operators.s3_to_gcs_operator module<a class="headerlink" href="#operators-s3-to-gcs-operator-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-segment-track-event-operator-module">
+<h2>operators.segment_track_event_operator module<a class="headerlink" href="#operators-segment-track-event-operator-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-sftp-operator-module">
+<h2>operators.sftp_operator module<a class="headerlink" href="#operators-sftp-operator-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-slack-webhook-operator-module">
+<h2>operators.slack_webhook_operator module<a class="headerlink" href="#operators-slack-webhook-operator-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-snowflake-operator-module">
+<h2>operators.snowflake_operator module<a class="headerlink" href="#operators-snowflake-operator-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-spark-jdbc-operator-module">
+<h2>operators.spark_jdbc_operator module<a class="headerlink" href="#operators-spark-jdbc-operator-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-spark-sql-operator-module">
+<h2>operators.spark_sql_operator module<a class="headerlink" href="#operators-spark-sql-operator-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-spark-submit-operator-module">
+<h2>operators.spark_submit_operator module<a class="headerlink" href="#operators-spark-submit-operator-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-sqoop-operator-module">
+<h2>operators.sqoop_operator module<a class="headerlink" href="#operators-sqoop-operator-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-ssh-operator-module">
+<h2>operators.ssh_operator module<a class="headerlink" href="#operators-ssh-operator-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-vertica-operator-module">
+<h2>operators.vertica_operator module<a class="headerlink" href="#operators-vertica-operator-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-vertica-to-hive-module">
+<h2>operators.vertica_to_hive module<a class="headerlink" href="#operators-vertica-to-hive-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-vertica-to-mysql-module">
+<h2>operators.vertica_to_mysql module<a class="headerlink" href="#operators-vertica-to-mysql-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="operators-winrm-operator-module">
+<h2>operators.winrm_operator module<a class="headerlink" href="#operators-winrm-operator-module" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

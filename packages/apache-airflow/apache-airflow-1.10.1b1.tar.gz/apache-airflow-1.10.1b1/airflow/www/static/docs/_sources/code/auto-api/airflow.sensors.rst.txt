@@ -1,0 +1,118 @@
+airflow.sensors package
+=======================
+
+Submodules
+----------
+
+airflow.sensors.base\_sensor\_operator module
+---------------------------------------------
+
+.. automodule:: airflow.sensors.base_sensor_operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.sensors.external\_task\_sensor module
+---------------------------------------------
+
+.. automodule:: airflow.sensors.external_task_sensor
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.sensors.hdfs\_sensor module
+-----------------------------------
+
+.. automodule:: airflow.sensors.hdfs_sensor
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.sensors.hive\_partition\_sensor module
+----------------------------------------------
+
+.. automodule:: airflow.sensors.hive_partition_sensor
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.sensors.http\_sensor module
+-----------------------------------
+
+.. automodule:: airflow.sensors.http_sensor
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.sensors.metastore\_partition\_sensor module
+---------------------------------------------------
+
+.. automodule:: airflow.sensors.metastore_partition_sensor
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.sensors.named\_hive\_partition\_sensor module
+-----------------------------------------------------
+
+.. automodule:: airflow.sensors.named_hive_partition_sensor
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.sensors.s3\_key\_sensor module
+--------------------------------------
+
+.. automodule:: airflow.sensors.s3_key_sensor
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.sensors.s3\_prefix\_sensor module
+-----------------------------------------
+
+.. automodule:: airflow.sensors.s3_prefix_sensor
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.sensors.sql\_sensor module
+----------------------------------
+
+.. automodule:: airflow.sensors.sql_sensor
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.sensors.time\_delta\_sensor module
+------------------------------------------
+
+.. automodule:: airflow.sensors.time_delta_sensor
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.sensors.time\_sensor module
+-----------------------------------
+
+.. automodule:: airflow.sensors.time_sensor
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.sensors.web\_hdfs\_sensor module
+----------------------------------------
+
+.. automodule:: airflow.sensors.web_hdfs_sensor
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: airflow.sensors
+    :members:
+    :undoc-members:
+    :show-inheritance:

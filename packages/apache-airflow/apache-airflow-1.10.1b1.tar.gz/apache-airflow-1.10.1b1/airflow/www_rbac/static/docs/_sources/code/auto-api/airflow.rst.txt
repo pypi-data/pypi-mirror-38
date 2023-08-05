@@ -1,0 +1,111 @@
+airflow package
+===============
+
+Subpackages
+-----------
+
+.. toctree::
+
+    airflow.api
+    airflow.bin
+    airflow.config_templates
+    airflow.contrib
+    airflow.dag
+    airflow.example_dags
+    airflow.executors
+    airflow.hooks
+    airflow.lineage
+    airflow.macros
+    airflow.migrations
+    airflow.operators
+    airflow.security
+    airflow.sensors
+    airflow.task
+    airflow.ti_deps
+    airflow.utils
+    airflow.www
+    airflow.www_rbac
+
+Submodules
+----------
+
+airflow.configuration module
+----------------------------
+
+.. automodule:: airflow.configuration
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.default\_login module
+-----------------------------
+
+.. automodule:: airflow.default_login
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.exceptions module
+-------------------------
+
+.. automodule:: airflow.exceptions
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.jobs module
+-------------------
+
+.. automodule:: airflow.jobs
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.logging\_config module
+------------------------------
+
+.. automodule:: airflow.logging_config
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.models module
+---------------------
+
+.. automodule:: airflow.models
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.plugins\_manager module
+-------------------------------
+
+.. automodule:: airflow.plugins_manager
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.settings module
+-----------------------
+
+.. automodule:: airflow.settings
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.version module
+----------------------
+
+.. automodule:: airflow.version
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: airflow
+    :members:
+    :undoc-members:
+    :show-inheritance:

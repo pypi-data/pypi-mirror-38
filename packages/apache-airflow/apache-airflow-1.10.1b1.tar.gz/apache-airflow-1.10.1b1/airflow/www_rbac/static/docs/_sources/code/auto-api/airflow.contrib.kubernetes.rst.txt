@@ -1,0 +1,85 @@
+airflow.contrib.kubernetes package
+==================================
+
+Subpackages
+-----------
+
+.. toctree::
+
+    airflow.contrib.kubernetes.kubernetes_request_factory
+
+Submodules
+----------
+
+airflow.contrib.kubernetes.kube\_client module
+----------------------------------------------
+
+.. automodule:: airflow.contrib.kubernetes.kube_client
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.kubernetes.pod module
+-------------------------------------
+
+.. automodule:: airflow.contrib.kubernetes.pod
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.kubernetes.pod\_generator module
+------------------------------------------------
+
+.. automodule:: airflow.contrib.kubernetes.pod_generator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.kubernetes.pod\_launcher module
+-----------------------------------------------
+
+.. automodule:: airflow.contrib.kubernetes.pod_launcher
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.kubernetes.secret module
+----------------------------------------
+
+.. automodule:: airflow.contrib.kubernetes.secret
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.kubernetes.volume module
+----------------------------------------
+
+.. automodule:: airflow.contrib.kubernetes.volume
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.kubernetes.volume\_mount module
+-----------------------------------------------
+
+.. automodule:: airflow.contrib.kubernetes.volume_mount
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.contrib.kubernetes.worker\_configuration module
+-------------------------------------------------------
+
+.. automodule:: airflow.contrib.kubernetes.worker_configuration
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: airflow.contrib.kubernetes
+    :members:
+    :undoc-members:
+    :show-inheritance:

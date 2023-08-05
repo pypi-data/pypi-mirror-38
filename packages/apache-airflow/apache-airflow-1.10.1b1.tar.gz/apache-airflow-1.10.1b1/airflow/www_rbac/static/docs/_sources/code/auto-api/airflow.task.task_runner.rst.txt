@@ -1,0 +1,30 @@
+airflow.task.task\_runner package
+=================================
+
+Submodules
+----------
+
+airflow.task.task\_runner.base\_task\_runner module
+---------------------------------------------------
+
+.. automodule:: airflow.task.task_runner.base_task_runner
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.task.task\_runner.bash\_task\_runner module
+---------------------------------------------------
+
+.. automodule:: airflow.task.task_runner.bash_task_runner
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: airflow.task.task_runner
+    :members:
+    :undoc-members:
+    :show-inheritance:

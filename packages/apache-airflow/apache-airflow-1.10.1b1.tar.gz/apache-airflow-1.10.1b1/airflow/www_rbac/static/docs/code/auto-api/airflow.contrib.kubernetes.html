@@ -1,0 +1,499 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>airflow.contrib.kubernetes package &mdash; Airflow Documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Airflow Documentation" href="../../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Airflow
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howto/index.html">How-to Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ui.html">UI / Screenshots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../profiling.html">Data Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../scheduler.html">Scheduling &amp; Triggers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../security.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../timezone.html">Time zones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">Experimental Rest API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../integration.html">Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lineage.html">Lineage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../code.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Airflow</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>airflow.contrib.kubernetes package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/code/auto-api/airflow.contrib.kubernetes.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="airflow-contrib-kubernetes-package">
+<h1>airflow.contrib.kubernetes package<a class="headerlink" href="#airflow-contrib-kubernetes-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="airflow.contrib.kubernetes.kubernetes_request_factory.html">airflow.contrib.kubernetes.kubernetes_request_factory package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.kubernetes.kubernetes_request_factory.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.kubernetes.kubernetes_request_factory.html#module-airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory">airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.kubernetes.kubernetes_request_factory.html#module-airflow.contrib.kubernetes.kubernetes_request_factory.pod_request_factory">airflow.contrib.kubernetes.kubernetes_request_factory.pod_request_factory module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.kubernetes.kubernetes_request_factory.html#module-airflow.contrib.kubernetes.kubernetes_request_factory">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-airflow.contrib.kubernetes.kube_client">
+<span id="airflow-contrib-kubernetes-kube-client-module"></span><h2>airflow.contrib.kubernetes.kube_client module<a class="headerlink" href="#module-airflow.contrib.kubernetes.kube_client" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="airflow.contrib.kubernetes.kube_client.get_kube_client">
+<code class="descclassname">airflow.contrib.kubernetes.kube_client.</code><code class="descname">get_kube_client</code><span class="sig-paren">(</span><em>in_cluster=True</em>, <em>cluster_context=None</em>, <em>config_file=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/kube_client.html#get_kube_client"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.kube_client.get_kube_client" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-airflow.contrib.kubernetes.pod">
+<span id="airflow-contrib-kubernetes-pod-module"></span><h2>airflow.contrib.kubernetes.pod module<a class="headerlink" href="#module-airflow.contrib.kubernetes.pod" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.contrib.kubernetes.pod.Pod">
+<em class="property">class </em><code class="descclassname">airflow.contrib.kubernetes.pod.</code><code class="descname">Pod</code><span class="sig-paren">(</span><em>image</em>, <em>envs</em>, <em>cmds</em>, <em>args=None</em>, <em>secrets=None</em>, <em>labels=None</em>, <em>node_selectors=None</em>, <em>name=None</em>, <em>volumes=None</em>, <em>volume_mounts=None</em>, <em>namespace='default'</em>, <em>result=None</em>, <em>image_pull_policy='IfNotPresent'</em>, <em>image_pull_secrets=None</em>, <em>init_containers=None</em>, <em>service_account_name=None</em>, <em>resources=None</em>, <em>annotations=None</em>, <em>affinity=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/pod.html#Pod"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.pod.Pod" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents a kubernetes pod and manages execution of a single pod.
+:param image: The docker image
+:type image: str
+:param envs: A dict containing the environment variables
+:type envs: dict
+:param cmds: The command to be run on the pod
+:type cmds: list str
+:param secrets: Secrets to be launched to the pod
+:type secrets: list Secret
+:param result: The result that will be returned to the operator after</p>
+<blockquote>
+<div>successful execution of the pod</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>image_pull_policy</strong> (<em>str</em>) – Specify a policy to cache or always pull an image</li>
+<li><strong>affinity</strong> (<em>dict</em>) – A dict containing a group of affinity scheduling rules</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="airflow.contrib.kubernetes.pod.Resources">
+<em class="property">class </em><code class="descclassname">airflow.contrib.kubernetes.pod.</code><code class="descname">Resources</code><span class="sig-paren">(</span><em>request_memory=None</em>, <em>request_cpu=None</em>, <em>limit_memory=None</em>, <em>limit_cpu=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/pod.html#Resources"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.pod.Resources" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="airflow.contrib.kubernetes.pod.Resources.has_limits">
+<code class="descname">has_limits</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/pod.html#Resources.has_limits"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.pod.Resources.has_limits" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.contrib.kubernetes.pod.Resources.has_requests">
+<code class="descname">has_requests</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/pod.html#Resources.has_requests"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.pod.Resources.has_requests" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.contrib.kubernetes.pod.Resources.is_empty_resource_request">
+<code class="descname">is_empty_resource_request</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/pod.html#Resources.is_empty_resource_request"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.pod.Resources.is_empty_resource_request" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.contrib.kubernetes.pod_generator">
+<span id="airflow-contrib-kubernetes-pod-generator-module"></span><h2>airflow.contrib.kubernetes.pod_generator module<a class="headerlink" href="#module-airflow.contrib.kubernetes.pod_generator" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.contrib.kubernetes.pod_generator.PodGenerator">
+<em class="property">class </em><code class="descclassname">airflow.contrib.kubernetes.pod_generator.</code><code class="descname">PodGenerator</code><span class="sig-paren">(</span><em>kube_config=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/pod_generator.html#PodGenerator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.pod_generator.PodGenerator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Contains Kubernetes Airflow Worker configuration logic</p>
+<dl class="method">
+<dt id="airflow.contrib.kubernetes.pod_generator.PodGenerator.add_init_container">
+<code class="descname">add_init_container</code><span class="sig-paren">(</span><em>name</em>, <em>image</em>, <em>security_context</em>, <em>init_environment</em>, <em>volume_mounts</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/pod_generator.html#PodGenerator.add_init_container"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.pod_generator.PodGenerator.add_init_container" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds an init container to the launched pod. useful for pre-</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>name (str):
+image (str):
+security_context (dict):
+init_environment (dict):
+volume_mounts (dict):</dd>
+</dl>
+<p>Returns:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.contrib.kubernetes.pod_generator.PodGenerator.add_mount">
+<code class="descname">add_mount</code><span class="sig-paren">(</span><em>volume_mount</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/pod_generator.html#PodGenerator.add_mount"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.pod_generator.PodGenerator.add_mount" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Args:</dt>
+<dd>volume_mount (VolumeMount):</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.contrib.kubernetes.pod_generator.PodGenerator.add_volume">
+<code class="descname">add_volume</code><span class="sig-paren">(</span><em>volume</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/pod_generator.html#PodGenerator.add_volume"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.pod_generator.PodGenerator.add_volume" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Args:</dt>
+<dd>volume (Volume):</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.contrib.kubernetes.pod_generator.PodGenerator.add_volume_with_configmap">
+<code class="descname">add_volume_with_configmap</code><span class="sig-paren">(</span><em>name</em>, <em>config_map</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/pod_generator.html#PodGenerator.add_volume_with_configmap"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.pod_generator.PodGenerator.add_volume_with_configmap" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.contrib.kubernetes.pod_generator.PodGenerator.make_pod">
+<code class="descname">make_pod</code><span class="sig-paren">(</span><em>namespace</em>, <em>image</em>, <em>pod_id</em>, <em>cmds</em>, <em>arguments</em>, <em>labels</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/pod_generator.html#PodGenerator.make_pod"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.pod_generator.PodGenerator.make_pod" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.contrib.kubernetes.pod_launcher">
+<span id="airflow-contrib-kubernetes-pod-launcher-module"></span><h2>airflow.contrib.kubernetes.pod_launcher module<a class="headerlink" href="#module-airflow.contrib.kubernetes.pod_launcher" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.contrib.kubernetes.pod_launcher.PodLauncher">
+<em class="property">class </em><code class="descclassname">airflow.contrib.kubernetes.pod_launcher.</code><code class="descname">PodLauncher</code><span class="sig-paren">(</span><em>kube_client=None</em>, <em>in_cluster=True</em>, <em>cluster_context=None</em>, <em>extract_xcom=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/pod_launcher.html#PodLauncher"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.pod_launcher.PodLauncher" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="airflow.utils.log.html#airflow.utils.log.logging_mixin.LoggingMixin" title="airflow.utils.log.logging_mixin.LoggingMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.utils.log.logging_mixin.LoggingMixin</span></code></a></p>
+<dl class="method">
+<dt id="airflow.contrib.kubernetes.pod_launcher.PodLauncher.base_container_is_running">
+<code class="descname">base_container_is_running</code><span class="sig-paren">(</span><em>pod</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/pod_launcher.html#PodLauncher.base_container_is_running"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.pod_launcher.PodLauncher.base_container_is_running" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.contrib.kubernetes.pod_launcher.PodLauncher.pod_is_running">
+<code class="descname">pod_is_running</code><span class="sig-paren">(</span><em>pod</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/pod_launcher.html#PodLauncher.pod_is_running"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.pod_launcher.PodLauncher.pod_is_running" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.contrib.kubernetes.pod_launcher.PodLauncher.pod_not_started">
+<code class="descname">pod_not_started</code><span class="sig-paren">(</span><em>pod</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/pod_launcher.html#PodLauncher.pod_not_started"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.pod_launcher.PodLauncher.pod_not_started" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.contrib.kubernetes.pod_launcher.PodLauncher.process_status">
+<code class="descname">process_status</code><span class="sig-paren">(</span><em>job_id</em>, <em>status</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/pod_launcher.html#PodLauncher.process_status"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.pod_launcher.PodLauncher.process_status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.contrib.kubernetes.pod_launcher.PodLauncher.read_pod">
+<code class="descname">read_pod</code><span class="sig-paren">(</span><em>pod</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/pod_launcher.html#PodLauncher.read_pod"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.pod_launcher.PodLauncher.read_pod" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.contrib.kubernetes.pod_launcher.PodLauncher.run_pod">
+<code class="descname">run_pod</code><span class="sig-paren">(</span><em>pod</em>, <em>startup_timeout=120</em>, <em>get_logs=True</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/pod_launcher.html#PodLauncher.run_pod"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.pod_launcher.PodLauncher.run_pod" title="Permalink to this definition">¶</a></dt>
+<dd><p>Launches the pod synchronously and waits for completion.
+Args:</p>
+<blockquote>
+<div><p>pod (Pod):
+startup_timeout (int): Timeout for startup of the pod (if pod is pending for</p>
+<blockquote>
+<div>too long, considers task a failure</div></blockquote>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.contrib.kubernetes.pod_launcher.PodLauncher.run_pod_async">
+<code class="descname">run_pod_async</code><span class="sig-paren">(</span><em>pod</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/pod_launcher.html#PodLauncher.run_pod_async"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.pod_launcher.PodLauncher.run_pod_async" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="airflow.contrib.kubernetes.pod_launcher.PodStatus">
+<em class="property">class </em><code class="descclassname">airflow.contrib.kubernetes.pod_launcher.</code><code class="descname">PodStatus</code><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/pod_launcher.html#PodStatus"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.pod_launcher.PodStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="airflow.contrib.kubernetes.pod_launcher.PodStatus.FAILED">
+<code class="descname">FAILED</code><em class="property"> = 'failed'</em><a class="headerlink" href="#airflow.contrib.kubernetes.pod_launcher.PodStatus.FAILED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.contrib.kubernetes.pod_launcher.PodStatus.PENDING">
+<code class="descname">PENDING</code><em class="property"> = 'pending'</em><a class="headerlink" href="#airflow.contrib.kubernetes.pod_launcher.PodStatus.PENDING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.contrib.kubernetes.pod_launcher.PodStatus.RUNNING">
+<code class="descname">RUNNING</code><em class="property"> = 'running'</em><a class="headerlink" href="#airflow.contrib.kubernetes.pod_launcher.PodStatus.RUNNING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.contrib.kubernetes.pod_launcher.PodStatus.SUCCEEDED">
+<code class="descname">SUCCEEDED</code><em class="property"> = 'succeeded'</em><a class="headerlink" href="#airflow.contrib.kubernetes.pod_launcher.PodStatus.SUCCEEDED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.contrib.kubernetes.secret">
+<span id="airflow-contrib-kubernetes-secret-module"></span><h2>airflow.contrib.kubernetes.secret module<a class="headerlink" href="#module-airflow.contrib.kubernetes.secret" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.contrib.kubernetes.secret.Secret">
+<em class="property">class </em><code class="descclassname">airflow.contrib.kubernetes.secret.</code><code class="descname">Secret</code><span class="sig-paren">(</span><em>deploy_type</em>, <em>deploy_target</em>, <em>secret</em>, <em>key</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/secret.html#Secret"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.secret.Secret" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Defines Kubernetes Secret Volume</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.contrib.kubernetes.volume">
+<span id="airflow-contrib-kubernetes-volume-module"></span><h2>airflow.contrib.kubernetes.volume module<a class="headerlink" href="#module-airflow.contrib.kubernetes.volume" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.contrib.kubernetes.volume.Volume">
+<em class="property">class </em><code class="descclassname">airflow.contrib.kubernetes.volume.</code><code class="descname">Volume</code><span class="sig-paren">(</span><em>name</em>, <em>configs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/volume.html#Volume"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.volume.Volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Defines Kubernetes Volume</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.contrib.kubernetes.volume_mount">
+<span id="airflow-contrib-kubernetes-volume-mount-module"></span><h2>airflow.contrib.kubernetes.volume_mount module<a class="headerlink" href="#module-airflow.contrib.kubernetes.volume_mount" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.contrib.kubernetes.volume_mount.VolumeMount">
+<em class="property">class </em><code class="descclassname">airflow.contrib.kubernetes.volume_mount.</code><code class="descname">VolumeMount</code><span class="sig-paren">(</span><em>name</em>, <em>mount_path</em>, <em>sub_path</em>, <em>read_only</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/volume_mount.html#VolumeMount"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.volume_mount.VolumeMount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Defines Kubernetes Volume Mount</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.contrib.kubernetes.worker_configuration">
+<span id="airflow-contrib-kubernetes-worker-configuration-module"></span><h2>airflow.contrib.kubernetes.worker_configuration module<a class="headerlink" href="#module-airflow.contrib.kubernetes.worker_configuration" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.contrib.kubernetes.worker_configuration.WorkerConfiguration">
+<em class="property">class </em><code class="descclassname">airflow.contrib.kubernetes.worker_configuration.</code><code class="descname">WorkerConfiguration</code><span class="sig-paren">(</span><em>kube_config</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/worker_configuration.html#WorkerConfiguration"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.worker_configuration.WorkerConfiguration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="airflow.utils.log.html#airflow.utils.log.logging_mixin.LoggingMixin" title="airflow.utils.log.logging_mixin.LoggingMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.utils.log.logging_mixin.LoggingMixin</span></code></a></p>
+<p>Contains Kubernetes Airflow Worker configuration logic</p>
+<dl class="method">
+<dt id="airflow.contrib.kubernetes.worker_configuration.WorkerConfiguration.init_volumes_and_mounts">
+<code class="descname">init_volumes_and_mounts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/worker_configuration.html#WorkerConfiguration.init_volumes_and_mounts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.worker_configuration.WorkerConfiguration.init_volumes_and_mounts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.contrib.kubernetes.worker_configuration.WorkerConfiguration.make_pod">
+<code class="descname">make_pod</code><span class="sig-paren">(</span><em>namespace</em>, <em>worker_uuid</em>, <em>pod_id</em>, <em>dag_id</em>, <em>task_id</em>, <em>execution_date</em>, <em>airflow_command</em>, <em>kube_executor_config</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/kubernetes/worker_configuration.html#WorkerConfiguration.make_pod"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.kubernetes.worker_configuration.WorkerConfiguration.make_pod" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.contrib.kubernetes">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-airflow.contrib.kubernetes" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

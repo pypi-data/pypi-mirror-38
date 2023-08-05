@@ -1,0 +1,1140 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>airflow.contrib.sensors package &mdash; Airflow Documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Airflow Documentation" href="../../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Airflow
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howto/index.html">How-to Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ui.html">UI / Screenshots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../profiling.html">Data Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../scheduler.html">Scheduling &amp; Triggers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../security.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../timezone.html">Time zones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">Experimental Rest API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../integration.html">Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lineage.html">Lineage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../code.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Airflow</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>airflow.contrib.sensors package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/code/auto-api/airflow.contrib.sensors.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="airflow-contrib-sensors-package">
+<h1>airflow.contrib.sensors package<a class="headerlink" href="#airflow-contrib-sensors-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-airflow.contrib.sensors.aws_redshift_cluster_sensor">
+<span id="airflow-contrib-sensors-aws-redshift-cluster-sensor-module"></span><h2>airflow.contrib.sensors.aws_redshift_cluster_sensor module<a class="headerlink" href="#module-airflow.contrib.sensors.aws_redshift_cluster_sensor" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.contrib.sensors.aws_redshift_cluster_sensor.AwsRedshiftClusterSensor">
+<em class="property">class </em><code class="descclassname">airflow.contrib.sensors.aws_redshift_cluster_sensor.</code><code class="descname">AwsRedshiftClusterSensor</code><span class="sig-paren">(</span><em>cluster_identifier</em>, <em>target_status='available'</em>, <em>aws_conn_id='aws_default'</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/sensors/aws_redshift_cluster_sensor.html#AwsRedshiftClusterSensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.sensors.aws_redshift_cluster_sensor.AwsRedshiftClusterSensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="airflow.sensors.html#airflow.sensors.base_sensor_operator.BaseSensorOperator" title="airflow.sensors.base_sensor_operator.BaseSensorOperator"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.sensors.base_sensor_operator.BaseSensorOperator</span></code></a></p>
+<p>Waits for a Redshift cluster to reach a specific status.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>cluster_identifier</strong> (<em>str</em>) – The identifier for the cluster being pinged.</li>
+<li><strong>target_status</strong> (<em>str</em>) – The cluster status desired.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="airflow.contrib.sensors.aws_redshift_cluster_sensor.AwsRedshiftClusterSensor.poke">
+<code class="descname">poke</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/sensors/aws_redshift_cluster_sensor.html#AwsRedshiftClusterSensor.poke"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.sensors.aws_redshift_cluster_sensor.AwsRedshiftClusterSensor.poke" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that the sensors defined while deriving this class should
+override.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.contrib.sensors.aws_redshift_cluster_sensor.AwsRedshiftClusterSensor.template_fields">
+<code class="descname">template_fields</code><em class="property"> = ('cluster_identifier', 'target_status')</em><a class="headerlink" href="#airflow.contrib.sensors.aws_redshift_cluster_sensor.AwsRedshiftClusterSensor.template_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.contrib.sensors.bash_sensor">
+<span id="airflow-contrib-sensors-bash-sensor-module"></span><h2>airflow.contrib.sensors.bash_sensor module<a class="headerlink" href="#module-airflow.contrib.sensors.bash_sensor" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.contrib.sensors.bash_sensor.BashSensor">
+<em class="property">class </em><code class="descclassname">airflow.contrib.sensors.bash_sensor.</code><code class="descname">BashSensor</code><span class="sig-paren">(</span><em>bash_command</em>, <em>env=None</em>, <em>output_encoding='utf-8'</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/sensors/bash_sensor.html#BashSensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.sensors.bash_sensor.BashSensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="airflow.sensors.html#airflow.sensors.base_sensor_operator.BaseSensorOperator" title="airflow.sensors.base_sensor_operator.BaseSensorOperator"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.sensors.base_sensor_operator.BaseSensorOperator</span></code></a></p>
+<p>Executes a bash command/script and returns True if and only if the
+return code is 0.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>bash_command</strong> (<em>string</em>) – The command, set of commands or reference to a
+bash script (must be ‘.sh’) to be executed.</li>
+<li><strong>env</strong> (<em>dict</em>) – If env is not None, it must be a mapping that defines the
+environment variables for the new process; these are used instead
+of inheriting the current process environment, which is the default
+behavior. (templated)</li>
+<li><strong>output_encoding</strong> (<em>string</em>) – output encoding of bash command.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="airflow.contrib.sensors.bash_sensor.BashSensor.poke">
+<code class="descname">poke</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/sensors/bash_sensor.html#BashSensor.poke"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.sensors.bash_sensor.BashSensor.poke" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute the bash command in a temporary directory
+which will be cleaned afterwards</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.contrib.sensors.bash_sensor.BashSensor.template_fields">
+<code class="descname">template_fields</code><em class="property"> = ('bash_command', 'env')</em><a class="headerlink" href="#airflow.contrib.sensors.bash_sensor.BashSensor.template_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.contrib.sensors.bigquery_sensor">
+<span id="airflow-contrib-sensors-bigquery-sensor-module"></span><h2>airflow.contrib.sensors.bigquery_sensor module<a class="headerlink" href="#module-airflow.contrib.sensors.bigquery_sensor" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.contrib.sensors.bigquery_sensor.BigQueryTableSensor">
+<em class="property">class </em><code class="descclassname">airflow.contrib.sensors.bigquery_sensor.</code><code class="descname">BigQueryTableSensor</code><span class="sig-paren">(</span><em>project_id</em>, <em>dataset_id</em>, <em>table_id</em>, <em>bigquery_conn_id='bigquery_default_conn'</em>, <em>delegate_to=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/sensors/bigquery_sensor.html#BigQueryTableSensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.sensors.bigquery_sensor.BigQueryTableSensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="airflow.sensors.html#airflow.sensors.base_sensor_operator.BaseSensorOperator" title="airflow.sensors.base_sensor_operator.BaseSensorOperator"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.sensors.base_sensor_operator.BaseSensorOperator</span></code></a></p>
+<p>Checks for the existence of a table in Google Bigquery.</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">param project_id:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">The Google cloud project in which to look for the table.
+The connection supplied to the hook must provide
+access to the specified project.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">type project_id:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">string</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">param dataset_id:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">The name of the dataset in which to look for the table.
+storage bucket.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">type dataset_id:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">string</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">param table_id:</th><td class="field-body">The name of the table to check the existence of.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">type table_id:</th><td class="field-body">string</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">param bigquery_conn_id:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">The connection ID to use when connecting to
+Google BigQuery.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">type bigquery_conn_id:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">string</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">param delegate_to:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">The account to impersonate, if any.
+For this to work, the service account making the request must
+have domain-wide delegation enabled.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">type delegate_to:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<dl class="method">
+<dt id="airflow.contrib.sensors.bigquery_sensor.BigQueryTableSensor.poke">
+<code class="descname">poke</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/sensors/bigquery_sensor.html#BigQueryTableSensor.poke"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.sensors.bigquery_sensor.BigQueryTableSensor.poke" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that the sensors defined while deriving this class should
+override.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.contrib.sensors.bigquery_sensor.BigQueryTableSensor.template_fields">
+<code class="descname">template_fields</code><em class="property"> = ('project_id', 'dataset_id', 'table_id')</em><a class="headerlink" href="#airflow.contrib.sensors.bigquery_sensor.BigQueryTableSensor.template_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.contrib.sensors.bigquery_sensor.BigQueryTableSensor.ui_color">
+<code class="descname">ui_color</code><em class="property"> = '#f0eee4'</em><a class="headerlink" href="#airflow.contrib.sensors.bigquery_sensor.BigQueryTableSensor.ui_color" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="airflow-contrib-sensors-cassandra-sensor-module">
+<h2>airflow.contrib.sensors.cassandra_sensor module<a class="headerlink" href="#airflow-contrib-sensors-cassandra-sensor-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-airflow.contrib.sensors.datadog_sensor">
+<span id="airflow-contrib-sensors-datadog-sensor-module"></span><h2>airflow.contrib.sensors.datadog_sensor module<a class="headerlink" href="#module-airflow.contrib.sensors.datadog_sensor" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.contrib.sensors.datadog_sensor.DatadogSensor">
+<em class="property">class </em><code class="descclassname">airflow.contrib.sensors.datadog_sensor.</code><code class="descname">DatadogSensor</code><span class="sig-paren">(</span><em>datadog_conn_id='datadog_default'</em>, <em>from_seconds_ago=3600</em>, <em>up_to_seconds_from_now=0</em>, <em>priority=None</em>, <em>sources=None</em>, <em>tags=None</em>, <em>response_check=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/sensors/datadog_sensor.html#DatadogSensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.sensors.datadog_sensor.DatadogSensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="airflow.sensors.html#airflow.sensors.base_sensor_operator.BaseSensorOperator" title="airflow.sensors.base_sensor_operator.BaseSensorOperator"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.sensors.base_sensor_operator.BaseSensorOperator</span></code></a></p>
+<p>A sensor to listen, with a filter, to datadog event streams and determine
+if some event was emitted.</p>
+<p>Depends on the datadog API, which has to be deployed on the same server where
+Airflow runs.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>datadog_conn_id</strong> – The connection to datadog, containing metadata for api keys.</li>
+<li><strong>datadog_conn_id</strong> – string</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="airflow.contrib.sensors.datadog_sensor.DatadogSensor.poke">
+<code class="descname">poke</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/sensors/datadog_sensor.html#DatadogSensor.poke"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.sensors.datadog_sensor.DatadogSensor.poke" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that the sensors defined while deriving this class should
+override.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.contrib.sensors.datadog_sensor.DatadogSensor.ui_color">
+<code class="descname">ui_color</code><em class="property"> = '#66c3dd'</em><a class="headerlink" href="#airflow.contrib.sensors.datadog_sensor.DatadogSensor.ui_color" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.contrib.sensors.emr_base_sensor">
+<span id="airflow-contrib-sensors-emr-base-sensor-module"></span><h2>airflow.contrib.sensors.emr_base_sensor module<a class="headerlink" href="#module-airflow.contrib.sensors.emr_base_sensor" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.contrib.sensors.emr_base_sensor.EmrBaseSensor">
+<em class="property">class </em><code class="descclassname">airflow.contrib.sensors.emr_base_sensor.</code><code class="descname">EmrBaseSensor</code><span class="sig-paren">(</span><em>aws_conn_id='aws_default'</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/sensors/emr_base_sensor.html#EmrBaseSensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.sensors.emr_base_sensor.EmrBaseSensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="airflow.sensors.html#airflow.sensors.base_sensor_operator.BaseSensorOperator" title="airflow.sensors.base_sensor_operator.BaseSensorOperator"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.sensors.base_sensor_operator.BaseSensorOperator</span></code></a></p>
+<p>Contains general sensor behavior for EMR.
+Subclasses should implement get_emr_response() and state_from_response() methods.
+Subclasses should also implement NON_TERMINAL_STATES and FAILED_STATE constants.</p>
+<dl class="method">
+<dt id="airflow.contrib.sensors.emr_base_sensor.EmrBaseSensor.poke">
+<code class="descname">poke</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/sensors/emr_base_sensor.html#EmrBaseSensor.poke"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.sensors.emr_base_sensor.EmrBaseSensor.poke" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that the sensors defined while deriving this class should
+override.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.contrib.sensors.emr_base_sensor.EmrBaseSensor.ui_color">
+<code class="descname">ui_color</code><em class="property"> = '#66c3ff'</em><a class="headerlink" href="#airflow.contrib.sensors.emr_base_sensor.EmrBaseSensor.ui_color" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.contrib.sensors.emr_job_flow_sensor">
+<span id="airflow-contrib-sensors-emr-job-flow-sensor-module"></span><h2>airflow.contrib.sensors.emr_job_flow_sensor module<a class="headerlink" href="#module-airflow.contrib.sensors.emr_job_flow_sensor" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.contrib.sensors.emr_job_flow_sensor.EmrJobFlowSensor">
+<em class="property">class </em><code class="descclassname">airflow.contrib.sensors.emr_job_flow_sensor.</code><code class="descname">EmrJobFlowSensor</code><span class="sig-paren">(</span><em>job_flow_id</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/sensors/emr_job_flow_sensor.html#EmrJobFlowSensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.sensors.emr_job_flow_sensor.EmrJobFlowSensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.contrib.sensors.emr_base_sensor.EmrBaseSensor" title="airflow.contrib.sensors.emr_base_sensor.EmrBaseSensor"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.contrib.sensors.emr_base_sensor.EmrBaseSensor</span></code></a></p>
+<p>Asks for the state of the JobFlow until it reaches a terminal state.
+If it fails the sensor errors, failing the task.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>job_flow_id</strong> (<em>string</em>) – job_flow_id to check the state of</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="airflow.contrib.sensors.emr_job_flow_sensor.EmrJobFlowSensor.FAILED_STATE">
+<code class="descname">FAILED_STATE</code><em class="property"> = ['TERMINATED_WITH_ERRORS']</em><a class="headerlink" href="#airflow.contrib.sensors.emr_job_flow_sensor.EmrJobFlowSensor.FAILED_STATE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.contrib.sensors.emr_job_flow_sensor.EmrJobFlowSensor.NON_TERMINAL_STATES">
+<code class="descname">NON_TERMINAL_STATES</code><em class="property"> = ['STARTING', 'BOOTSTRAPPING', 'RUNNING', 'WAITING', 'TERMINATING']</em><a class="headerlink" href="#airflow.contrib.sensors.emr_job_flow_sensor.EmrJobFlowSensor.NON_TERMINAL_STATES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.contrib.sensors.emr_job_flow_sensor.EmrJobFlowSensor.get_emr_response">
+<code class="descname">get_emr_response</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/sensors/emr_job_flow_sensor.html#EmrJobFlowSensor.get_emr_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.sensors.emr_job_flow_sensor.EmrJobFlowSensor.get_emr_response" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.contrib.sensors.emr_job_flow_sensor.EmrJobFlowSensor.state_from_response">
+<code class="descname">state_from_response</code><span class="sig-paren">(</span><em>response</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/sensors/emr_job_flow_sensor.html#EmrJobFlowSensor.state_from_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.sensors.emr_job_flow_sensor.EmrJobFlowSensor.state_from_response" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.contrib.sensors.emr_job_flow_sensor.EmrJobFlowSensor.template_ext">
+<code class="descname">template_ext</code><em class="property"> = ()</em><a class="headerlink" href="#airflow.contrib.sensors.emr_job_flow_sensor.EmrJobFlowSensor.template_ext" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.contrib.sensors.emr_job_flow_sensor.EmrJobFlowSensor.template_fields">
+<code class="descname">template_fields</code><em class="property"> = ['job_flow_id']</em><a class="headerlink" href="#airflow.contrib.sensors.emr_job_flow_sensor.EmrJobFlowSensor.template_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.contrib.sensors.emr_step_sensor">
+<span id="airflow-contrib-sensors-emr-step-sensor-module"></span><h2>airflow.contrib.sensors.emr_step_sensor module<a class="headerlink" href="#module-airflow.contrib.sensors.emr_step_sensor" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.contrib.sensors.emr_step_sensor.EmrStepSensor">
+<em class="property">class </em><code class="descclassname">airflow.contrib.sensors.emr_step_sensor.</code><code class="descname">EmrStepSensor</code><span class="sig-paren">(</span><em>job_flow_id</em>, <em>step_id</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/sensors/emr_step_sensor.html#EmrStepSensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.sensors.emr_step_sensor.EmrStepSensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.contrib.sensors.emr_base_sensor.EmrBaseSensor" title="airflow.contrib.sensors.emr_base_sensor.EmrBaseSensor"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.contrib.sensors.emr_base_sensor.EmrBaseSensor</span></code></a></p>
+<p>Asks for the state of the step until it reaches a terminal state.
+If it fails the sensor errors, failing the task.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>job_flow_id</strong> (<em>string</em>) – job_flow_id which contains the step check the state of</li>
+<li><strong>step_id</strong> (<em>string</em>) – step to check the state of</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="airflow.contrib.sensors.emr_step_sensor.EmrStepSensor.FAILED_STATE">
+<code class="descname">FAILED_STATE</code><em class="property"> = ['CANCELLED', 'FAILED']</em><a class="headerlink" href="#airflow.contrib.sensors.emr_step_sensor.EmrStepSensor.FAILED_STATE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.contrib.sensors.emr_step_sensor.EmrStepSensor.NON_TERMINAL_STATES">
+<code class="descname">NON_TERMINAL_STATES</code><em class="property"> = ['PENDING', 'RUNNING', 'CONTINUE']</em><a class="headerlink" href="#airflow.contrib.sensors.emr_step_sensor.EmrStepSensor.NON_TERMINAL_STATES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.contrib.sensors.emr_step_sensor.EmrStepSensor.get_emr_response">
+<code class="descname">get_emr_response</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/sensors/emr_step_sensor.html#EmrStepSensor.get_emr_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.sensors.emr_step_sensor.EmrStepSensor.get_emr_response" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.contrib.sensors.emr_step_sensor.EmrStepSensor.state_from_response">
+<code class="descname">state_from_response</code><span class="sig-paren">(</span><em>response</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/sensors/emr_step_sensor.html#EmrStepSensor.state_from_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.sensors.emr_step_sensor.EmrStepSensor.state_from_response" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.contrib.sensors.emr_step_sensor.EmrStepSensor.template_ext">
+<code class="descname">template_ext</code><em class="property"> = ()</em><a class="headerlink" href="#airflow.contrib.sensors.emr_step_sensor.EmrStepSensor.template_ext" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.contrib.sensors.emr_step_sensor.EmrStepSensor.template_fields">
+<code class="descname">template_fields</code><em class="property"> = ['job_flow_id', 'step_id']</em><a class="headerlink" href="#airflow.contrib.sensors.emr_step_sensor.EmrStepSensor.template_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.contrib.sensors.file_sensor">
+<span id="airflow-contrib-sensors-file-sensor-module"></span><h2>airflow.contrib.sensors.file_sensor module<a class="headerlink" href="#module-airflow.contrib.sensors.file_sensor" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.contrib.sensors.file_sensor.FileSensor">
+<em class="property">class </em><code class="descclassname">airflow.contrib.sensors.file_sensor.</code><code class="descname">FileSensor</code><span class="sig-paren">(</span><em>filepath</em>, <em>fs_conn_id='fs_default2'</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/sensors/file_sensor.html#FileSensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.sensors.file_sensor.FileSensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="airflow.sensors.html#airflow.sensors.base_sensor_operator.BaseSensorOperator" title="airflow.sensors.base_sensor_operator.BaseSensorOperator"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.sensors.base_sensor_operator.BaseSensorOperator</span></code></a></p>
+<p>Waits for a file or folder to land in a filesystem.</p>
+<p>If the path given is a directory then this sensor will only return true if
+any files exist inside it (either directly, or within a subdirectory)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fs_conn_id</strong> (<em>string</em>) – reference to the File (path)
+connection id</li>
+<li><strong>filepath</strong> – File or folder name (relative to
+the base path set within the connection)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="airflow.contrib.sensors.file_sensor.FileSensor.poke">
+<code class="descname">poke</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/sensors/file_sensor.html#FileSensor.poke"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.sensors.file_sensor.FileSensor.poke" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that the sensors defined while deriving this class should
+override.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.contrib.sensors.file_sensor.FileSensor.template_fields">
+<code class="descname">template_fields</code><em class="property"> = ('filepath',)</em><a class="headerlink" href="#airflow.contrib.sensors.file_sensor.FileSensor.template_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.contrib.sensors.file_sensor.FileSensor.ui_color">
+<code class="descname">ui_color</code><em class="property"> = '#91818a'</em><a class="headerlink" href="#airflow.contrib.sensors.file_sensor.FileSensor.ui_color" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.contrib.sensors.ftp_sensor">
+<span id="airflow-contrib-sensors-ftp-sensor-module"></span><h2>airflow.contrib.sensors.ftp_sensor module<a class="headerlink" href="#module-airflow.contrib.sensors.ftp_sensor" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.contrib.sensors.ftp_sensor.FTPSSensor">
+<em class="property">class </em><code class="descclassname">airflow.contrib.sensors.ftp_sensor.</code><code class="descname">FTPSSensor</code><span class="sig-paren">(</span><em>path</em>, <em>ftp_conn_id='ftp_default'</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/sensors/ftp_sensor.html#FTPSSensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.sensors.ftp_sensor.FTPSSensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.contrib.sensors.ftp_sensor.FTPSensor" title="airflow.contrib.sensors.ftp_sensor.FTPSensor"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.contrib.sensors.ftp_sensor.FTPSensor</span></code></a></p>
+<p>Waits for a file or directory to be present on FTP over SSL.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="airflow.contrib.sensors.ftp_sensor.FTPSensor">
+<em class="property">class </em><code class="descclassname">airflow.contrib.sensors.ftp_sensor.</code><code class="descname">FTPSensor</code><span class="sig-paren">(</span><em>path</em>, <em>ftp_conn_id='ftp_default'</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/sensors/ftp_sensor.html#FTPSensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.sensors.ftp_sensor.FTPSensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="airflow.sensors.html#airflow.sensors.base_sensor_operator.BaseSensorOperator" title="airflow.sensors.base_sensor_operator.BaseSensorOperator"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.sensors.base_sensor_operator.BaseSensorOperator</span></code></a></p>
+<p>Waits for a file or directory to be present on FTP.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>path</strong> (<em>str</em>) – Remote file or directory path</li>
+<li><strong>ftp_conn_id</strong> (<em>str</em>) – The connection to run the sensor against</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="airflow.contrib.sensors.ftp_sensor.FTPSensor.poke">
+<code class="descname">poke</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/sensors/ftp_sensor.html#FTPSensor.poke"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.sensors.ftp_sensor.FTPSensor.poke" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that the sensors defined while deriving this class should
+override.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.contrib.sensors.ftp_sensor.FTPSensor.template_fields">
+<code class="descname">template_fields</code><em class="property"> = ('path',)</em><a class="headerlink" href="#airflow.contrib.sensors.ftp_sensor.FTPSensor.template_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.contrib.sensors.gcs_sensor">
+<span id="airflow-contrib-sensors-gcs-sensor-module"></span><h2>airflow.contrib.sensors.gcs_sensor module<a class="headerlink" href="#module-airflow.contrib.sensors.gcs_sensor" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.contrib.sensors.gcs_sensor.GoogleCloudStorageObjectSensor">
+<em class="property">class </em><code class="descclassname">airflow.contrib.sensors.gcs_sensor.</code><code class="descname">GoogleCloudStorageObjectSensor</code><span class="sig-paren">(</span><em>bucket</em>, <em>object</em>, <em>google_cloud_conn_id='google_cloud_default'</em>, <em>delegate_to=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/sensors/gcs_sensor.html#GoogleCloudStorageObjectSensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.sensors.gcs_sensor.GoogleCloudStorageObjectSensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="airflow.sensors.html#airflow.sensors.base_sensor_operator.BaseSensorOperator" title="airflow.sensors.base_sensor_operator.BaseSensorOperator"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.sensors.base_sensor_operator.BaseSensorOperator</span></code></a></p>
+<p>Checks for the existence of a file in Google Cloud Storage.
+Create a new GoogleCloudStorageObjectSensor.</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param bucket:</th><td class="field-body">The Google cloud storage bucket where the object is.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">type bucket:</th><td class="field-body">string</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">param object:</th><td class="field-body">The name of the object to check in the Google cloud
+storage bucket.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">type object:</th><td class="field-body">string</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">param google_cloud_storage_conn_id:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">The connection ID to use when
+connecting to Google cloud storage.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">type google_cloud_storage_conn_id:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">string</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">param delegate_to:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">The account to impersonate, if any.
+For this to work, the service account making the request must have
+domain-wide delegation enabled.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">type delegate_to:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<dl class="method">
+<dt id="airflow.contrib.sensors.gcs_sensor.GoogleCloudStorageObjectSensor.poke">
+<code class="descname">poke</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/sensors/gcs_sensor.html#GoogleCloudStorageObjectSensor.poke"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.sensors.gcs_sensor.GoogleCloudStorageObjectSensor.poke" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that the sensors defined while deriving this class should
+override.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.contrib.sensors.gcs_sensor.GoogleCloudStorageObjectSensor.template_fields">
+<code class="descname">template_fields</code><em class="property"> = ('bucket', 'object')</em><a class="headerlink" href="#airflow.contrib.sensors.gcs_sensor.GoogleCloudStorageObjectSensor.template_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.contrib.sensors.gcs_sensor.GoogleCloudStorageObjectSensor.ui_color">
+<code class="descname">ui_color</code><em class="property"> = '#f0eee4'</em><a class="headerlink" href="#airflow.contrib.sensors.gcs_sensor.GoogleCloudStorageObjectSensor.ui_color" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="airflow.contrib.sensors.gcs_sensor.GoogleCloudStorageObjectUpdatedSensor">
+<em class="property">class </em><code class="descclassname">airflow.contrib.sensors.gcs_sensor.</code><code class="descname">GoogleCloudStorageObjectUpdatedSensor</code><span class="sig-paren">(</span><em>bucket</em>, <em>object</em>, <em>ts_func=&lt;function ts_function&gt;</em>, <em>google_cloud_conn_id='google_cloud_default'</em>, <em>delegate_to=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/sensors/gcs_sensor.html#GoogleCloudStorageObjectUpdatedSensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.sensors.gcs_sensor.GoogleCloudStorageObjectUpdatedSensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="airflow.sensors.html#airflow.sensors.base_sensor_operator.BaseSensorOperator" title="airflow.sensors.base_sensor_operator.BaseSensorOperator"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.sensors.base_sensor_operator.BaseSensorOperator</span></code></a></p>
+<p>Checks if an object is updated in Google Cloud Storage.
+Create a new GoogleCloudStorageObjectUpdatedSensor.</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param bucket:</th><td class="field-body">The Google cloud storage bucket where the object is.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">type bucket:</th><td class="field-body">string</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">param object:</th><td class="field-body">The name of the object to download in the Google cloud
+storage bucket.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">type object:</th><td class="field-body">string</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">param ts_func:</th><td class="field-body">Callback for defining the update condition. The default callback
+returns execution_date + schedule_interval. The callback takes the context
+as parameter.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">type ts_func:</th><td class="field-body">function</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">param google_cloud_storage_conn_id:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">The connection ID to use when
+connecting to Google cloud storage.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">type google_cloud_storage_conn_id:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">string</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">param delegate_to:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">The account to impersonate, if any.
+For this to work, the service account making the request must have domain-wide
+delegation enabled.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">type delegate_to:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<dl class="method">
+<dt id="airflow.contrib.sensors.gcs_sensor.GoogleCloudStorageObjectUpdatedSensor.poke">
+<code class="descname">poke</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/sensors/gcs_sensor.html#GoogleCloudStorageObjectUpdatedSensor.poke"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.sensors.gcs_sensor.GoogleCloudStorageObjectUpdatedSensor.poke" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that the sensors defined while deriving this class should
+override.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.contrib.sensors.gcs_sensor.GoogleCloudStorageObjectUpdatedSensor.template_ext">
+<code class="descname">template_ext</code><em class="property"> = ('.sql',)</em><a class="headerlink" href="#airflow.contrib.sensors.gcs_sensor.GoogleCloudStorageObjectUpdatedSensor.template_ext" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.contrib.sensors.gcs_sensor.GoogleCloudStorageObjectUpdatedSensor.template_fields">
+<code class="descname">template_fields</code><em class="property"> = ('bucket', 'object')</em><a class="headerlink" href="#airflow.contrib.sensors.gcs_sensor.GoogleCloudStorageObjectUpdatedSensor.template_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.contrib.sensors.gcs_sensor.GoogleCloudStorageObjectUpdatedSensor.ui_color">
+<code class="descname">ui_color</code><em class="property"> = '#f0eee4'</em><a class="headerlink" href="#airflow.contrib.sensors.gcs_sensor.GoogleCloudStorageObjectUpdatedSensor.ui_color" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="airflow.contrib.sensors.gcs_sensor.GoogleCloudStoragePrefixSensor">
+<em class="property">class </em><code class="descclassname">airflow.contrib.sensors.gcs_sensor.</code><code class="descname">GoogleCloudStoragePrefixSensor</code><span class="sig-paren">(</span><em>bucket</em>, <em>prefix</em>, <em>google_cloud_conn_id='google_cloud_default'</em>, <em>delegate_to=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/sensors/gcs_sensor.html#GoogleCloudStoragePrefixSensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.sensors.gcs_sensor.GoogleCloudStoragePrefixSensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="airflow.sensors.html#airflow.sensors.base_sensor_operator.BaseSensorOperator" title="airflow.sensors.base_sensor_operator.BaseSensorOperator"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.sensors.base_sensor_operator.BaseSensorOperator</span></code></a></p>
+<p>Checks for the existence of a files at prefix in Google Cloud Storage bucket.
+Create a new GoogleCloudStorageObjectSensor.</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param bucket:</th><td class="field-body">The Google cloud storage bucket where the object is.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">type bucket:</th><td class="field-body">string</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">param prefix:</th><td class="field-body">The name of the prefix to check in the Google cloud
+storage bucket.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">type prefix:</th><td class="field-body">string</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">param google_cloud_storage_conn_id:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">The connection ID to use when
+connecting to Google cloud storage.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">type google_cloud_storage_conn_id:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">string</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">param delegate_to:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">The account to impersonate, if any.
+For this to work, the service account making the request must have
+domain-wide delegation enabled.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">type delegate_to:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<dl class="method">
+<dt id="airflow.contrib.sensors.gcs_sensor.GoogleCloudStoragePrefixSensor.poke">
+<code class="descname">poke</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/sensors/gcs_sensor.html#GoogleCloudStoragePrefixSensor.poke"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.sensors.gcs_sensor.GoogleCloudStoragePrefixSensor.poke" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that the sensors defined while deriving this class should
+override.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.contrib.sensors.gcs_sensor.GoogleCloudStoragePrefixSensor.template_fields">
+<code class="descname">template_fields</code><em class="property"> = ('bucket', 'prefix')</em><a class="headerlink" href="#airflow.contrib.sensors.gcs_sensor.GoogleCloudStoragePrefixSensor.template_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.contrib.sensors.gcs_sensor.GoogleCloudStoragePrefixSensor.ui_color">
+<code class="descname">ui_color</code><em class="property"> = '#f0eee4'</em><a class="headerlink" href="#airflow.contrib.sensors.gcs_sensor.GoogleCloudStoragePrefixSensor.ui_color" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.contrib.sensors.gcs_sensor.ts_function">
+<code class="descclassname">airflow.contrib.sensors.gcs_sensor.</code><code class="descname">ts_function</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/sensors/gcs_sensor.html#ts_function"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.sensors.gcs_sensor.ts_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default callback for the GoogleCloudStorageObjectUpdatedSensor. The default
+behaviour is check for the object being updated after execution_date +
+schedule_interval.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.contrib.sensors.hdfs_sensor">
+<span id="airflow-contrib-sensors-hdfs-sensor-module"></span><h2>airflow.contrib.sensors.hdfs_sensor module<a class="headerlink" href="#module-airflow.contrib.sensors.hdfs_sensor" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.contrib.sensors.hdfs_sensor.HdfsSensorFolder">
+<em class="property">class </em><code class="descclassname">airflow.contrib.sensors.hdfs_sensor.</code><code class="descname">HdfsSensorFolder</code><span class="sig-paren">(</span><em>be_empty=False</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/sensors/hdfs_sensor.html#HdfsSensorFolder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.sensors.hdfs_sensor.HdfsSensorFolder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="airflow.sensors.html#airflow.sensors.hdfs_sensor.HdfsSensor" title="airflow.sensors.hdfs_sensor.HdfsSensor"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.sensors.hdfs_sensor.HdfsSensor</span></code></a></p>
+<dl class="method">
+<dt id="airflow.contrib.sensors.hdfs_sensor.HdfsSensorFolder.poke">
+<code class="descname">poke</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/sensors/hdfs_sensor.html#HdfsSensorFolder.poke"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.sensors.hdfs_sensor.HdfsSensorFolder.poke" title="Permalink to this definition">¶</a></dt>
+<dd><p>poke for a non empty directory</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Bool depending on the search criteria</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="airflow.contrib.sensors.hdfs_sensor.HdfsSensorRegex">
+<em class="property">class </em><code class="descclassname">airflow.contrib.sensors.hdfs_sensor.</code><code class="descname">HdfsSensorRegex</code><span class="sig-paren">(</span><em>regex</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/sensors/hdfs_sensor.html#HdfsSensorRegex"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.sensors.hdfs_sensor.HdfsSensorRegex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="airflow.sensors.html#airflow.sensors.hdfs_sensor.HdfsSensor" title="airflow.sensors.hdfs_sensor.HdfsSensor"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.sensors.hdfs_sensor.HdfsSensor</span></code></a></p>
+<dl class="method">
+<dt id="airflow.contrib.sensors.hdfs_sensor.HdfsSensorRegex.poke">
+<code class="descname">poke</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/sensors/hdfs_sensor.html#HdfsSensorRegex.poke"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.sensors.hdfs_sensor.HdfsSensorRegex.poke" title="Permalink to this definition">¶</a></dt>
+<dd><p>poke matching files in a directory with self.regex</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Bool depending on the search criteria</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.contrib.sensors.jira_sensor">
+<span id="airflow-contrib-sensors-jira-sensor-module"></span><h2>airflow.contrib.sensors.jira_sensor module<a class="headerlink" href="#module-airflow.contrib.sensors.jira_sensor" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.contrib.sensors.jira_sensor.JiraSensor">
+<em class="property">class </em><code class="descclassname">airflow.contrib.sensors.jira_sensor.</code><code class="descname">JiraSensor</code><span class="sig-paren">(</span><em>jira_conn_id='jira_default'</em>, <em>method_name=None</em>, <em>method_params=None</em>, <em>result_processor=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/sensors/jira_sensor.html#JiraSensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.sensors.jira_sensor.JiraSensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="airflow.sensors.html#airflow.sensors.base_sensor_operator.BaseSensorOperator" title="airflow.sensors.base_sensor_operator.BaseSensorOperator"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.sensors.base_sensor_operator.BaseSensorOperator</span></code></a></p>
+<p>Monitors a jira ticket for any change.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>jira_conn_id</strong> (<em>str</em>) – reference to a pre-defined Jira Connection</li>
+<li><strong>method_name</strong> (<em>str</em>) – method name from jira-python-sdk to be execute</li>
+<li><strong>method_params</strong> (<em>dict</em>) – parameters for the method method_name</li>
+<li><strong>result_processor</strong> (<em>function</em>) – function that return boolean and act as a sensor response</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="airflow.contrib.sensors.jira_sensor.JiraSensor.poke">
+<code class="descname">poke</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/sensors/jira_sensor.html#JiraSensor.poke"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.sensors.jira_sensor.JiraSensor.poke" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that the sensors defined while deriving this class should
+override.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="airflow.contrib.sensors.jira_sensor.JiraTicketSensor">
+<em class="property">class </em><code class="descclassname">airflow.contrib.sensors.jira_sensor.</code><code class="descname">JiraTicketSensor</code><span class="sig-paren">(</span><em>jira_conn_id='jira_default'</em>, <em>ticket_id=None</em>, <em>field=None</em>, <em>expected_value=None</em>, <em>field_checker_func=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/sensors/jira_sensor.html#JiraTicketSensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.sensors.jira_sensor.JiraTicketSensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.contrib.sensors.jira_sensor.JiraSensor" title="airflow.contrib.sensors.jira_sensor.JiraSensor"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.contrib.sensors.jira_sensor.JiraSensor</span></code></a></p>
+<p>Monitors a jira ticket for given change in terms of function.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>jira_conn_id</strong> (<em>str</em>) – reference to a pre-defined Jira Connection</li>
+<li><strong>ticket_id</strong> (<em>str</em>) – id of the ticket to be monitored</li>
+<li><strong>field</strong> (<em>str</em>) – field of the ticket to be monitored</li>
+<li><strong>expected_value</strong> (<em>str</em>) – expected value of the field</li>
+<li><strong>result_processor</strong> (<em>function</em>) – function that return boolean and act as a sensor response</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="airflow.contrib.sensors.jira_sensor.JiraTicketSensor.issue_field_checker">
+<code class="descname">issue_field_checker</code><span class="sig-paren">(</span><em>context</em>, <em>issue</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/sensors/jira_sensor.html#JiraTicketSensor.issue_field_checker"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.sensors.jira_sensor.JiraTicketSensor.issue_field_checker" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.contrib.sensors.jira_sensor.JiraTicketSensor.poke">
+<code class="descname">poke</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/sensors/jira_sensor.html#JiraTicketSensor.poke"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.sensors.jira_sensor.JiraTicketSensor.poke" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that the sensors defined while deriving this class should
+override.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.contrib.sensors.jira_sensor.JiraTicketSensor.template_fields">
+<code class="descname">template_fields</code><em class="property"> = ('ticket_id',)</em><a class="headerlink" href="#airflow.contrib.sensors.jira_sensor.JiraTicketSensor.template_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.contrib.sensors.pubsub_sensor">
+<span id="airflow-contrib-sensors-pubsub-sensor-module"></span><h2>airflow.contrib.sensors.pubsub_sensor module<a class="headerlink" href="#module-airflow.contrib.sensors.pubsub_sensor" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.contrib.sensors.pubsub_sensor.PubSubPullSensor">
+<em class="property">class </em><code class="descclassname">airflow.contrib.sensors.pubsub_sensor.</code><code class="descname">PubSubPullSensor</code><span class="sig-paren">(</span><em>project</em>, <em>subscription</em>, <em>max_messages=5</em>, <em>return_immediately=False</em>, <em>ack_messages=False</em>, <em>gcp_conn_id='google_cloud_default'</em>, <em>delegate_to=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/sensors/pubsub_sensor.html#PubSubPullSensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.sensors.pubsub_sensor.PubSubPullSensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="airflow.sensors.html#airflow.sensors.base_sensor_operator.BaseSensorOperator" title="airflow.sensors.base_sensor_operator.BaseSensorOperator"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.sensors.base_sensor_operator.BaseSensorOperator</span></code></a></p>
+<p>Pulls messages from a PubSub subscription and passes them through XCom.</p>
+<p>This sensor operator will pull up to <code class="docutils literal notranslate"><span class="pre">max_messages</span></code> messages from the
+specified PubSub subscription. When the subscription returns messages,
+the poke method’s criteria will be fulfilled and the messages will be
+returned from the operator and passed through XCom for downstream tasks.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">ack_messages</span></code> is set to True, messages will be immediately
+acknowledged before being returned, otherwise, downstream tasks will be
+responsible for acknowledging them.</p>
+<p><code class="docutils literal notranslate"><span class="pre">project</span></code> and <code class="docutils literal notranslate"><span class="pre">subscription</span></code> are templated so you can use
+variables in them.</p>
+<dl class="method">
+<dt id="airflow.contrib.sensors.pubsub_sensor.PubSubPullSensor.execute">
+<code class="descname">execute</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/sensors/pubsub_sensor.html#PubSubPullSensor.execute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.sensors.pubsub_sensor.PubSubPullSensor.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Overridden to allow messages to be passed</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.contrib.sensors.pubsub_sensor.PubSubPullSensor.poke">
+<code class="descname">poke</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/sensors/pubsub_sensor.html#PubSubPullSensor.poke"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.sensors.pubsub_sensor.PubSubPullSensor.poke" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that the sensors defined while deriving this class should
+override.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.contrib.sensors.pubsub_sensor.PubSubPullSensor.template_fields">
+<code class="descname">template_fields</code><em class="property"> = ['project', 'subscription']</em><a class="headerlink" href="#airflow.contrib.sensors.pubsub_sensor.PubSubPullSensor.template_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.contrib.sensors.pubsub_sensor.PubSubPullSensor.ui_color">
+<code class="descname">ui_color</code><em class="property"> = '#ff7f50'</em><a class="headerlink" href="#airflow.contrib.sensors.pubsub_sensor.PubSubPullSensor.ui_color" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.contrib.sensors.qubole_sensor">
+<span id="airflow-contrib-sensors-qubole-sensor-module"></span><h2>airflow.contrib.sensors.qubole_sensor module<a class="headerlink" href="#module-airflow.contrib.sensors.qubole_sensor" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.contrib.sensors.qubole_sensor.QuboleFileSensor">
+<em class="property">class </em><code class="descclassname">airflow.contrib.sensors.qubole_sensor.</code><code class="descname">QuboleFileSensor</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/sensors/qubole_sensor.html#QuboleFileSensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.sensors.qubole_sensor.QuboleFileSensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.contrib.sensors.qubole_sensor.QuboleSensor" title="airflow.contrib.sensors.qubole_sensor.QuboleSensor"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.contrib.sensors.qubole_sensor.QuboleSensor</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="airflow.contrib.sensors.qubole_sensor.QubolePartitionSensor">
+<em class="property">class </em><code class="descclassname">airflow.contrib.sensors.qubole_sensor.</code><code class="descname">QubolePartitionSensor</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/sensors/qubole_sensor.html#QubolePartitionSensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.sensors.qubole_sensor.QubolePartitionSensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.contrib.sensors.qubole_sensor.QuboleSensor" title="airflow.contrib.sensors.qubole_sensor.QuboleSensor"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.contrib.sensors.qubole_sensor.QuboleSensor</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="airflow.contrib.sensors.qubole_sensor.QuboleSensor">
+<em class="property">class </em><code class="descclassname">airflow.contrib.sensors.qubole_sensor.</code><code class="descname">QuboleSensor</code><span class="sig-paren">(</span><em>data</em>, <em>qubole_conn_id='qubole_default'</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/sensors/qubole_sensor.html#QuboleSensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.sensors.qubole_sensor.QuboleSensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="airflow.sensors.html#airflow.sensors.base_sensor_operator.BaseSensorOperator" title="airflow.sensors.base_sensor_operator.BaseSensorOperator"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.sensors.base_sensor_operator.BaseSensorOperator</span></code></a></p>
+<p>Base class for all Qubole Sensors</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>qubole_conn_id</strong> (<em>string</em>) – The qubole connection to run the sensor against</li>
+<li><strong>data</strong> (<em>a JSON object</em>) – a JSON object containing payload, whose presence needs to be checked</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Both <code class="docutils literal notranslate"><span class="pre">data</span></code> and <code class="docutils literal notranslate"><span class="pre">qubole_conn_id</span></code> fields are template-supported. You can</p>
+</div>
+<p>also use <code class="docutils literal notranslate"><span class="pre">.txt</span></code> files for template driven use cases.</p>
+<dl class="method">
+<dt id="airflow.contrib.sensors.qubole_sensor.QuboleSensor.poke">
+<code class="descname">poke</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/sensors/qubole_sensor.html#QuboleSensor.poke"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.sensors.qubole_sensor.QuboleSensor.poke" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that the sensors defined while deriving this class should
+override.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.contrib.sensors.qubole_sensor.QuboleSensor.template_ext">
+<code class="descname">template_ext</code><em class="property"> = ('.txt',)</em><a class="headerlink" href="#airflow.contrib.sensors.qubole_sensor.QuboleSensor.template_ext" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.contrib.sensors.qubole_sensor.QuboleSensor.template_fields">
+<code class="descname">template_fields</code><em class="property"> = ('data', 'qubole_conn_id')</em><a class="headerlink" href="#airflow.contrib.sensors.qubole_sensor.QuboleSensor.template_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.contrib.sensors.redis_key_sensor">
+<span id="airflow-contrib-sensors-redis-key-sensor-module"></span><h2>airflow.contrib.sensors.redis_key_sensor module<a class="headerlink" href="#module-airflow.contrib.sensors.redis_key_sensor" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.contrib.sensors.redis_key_sensor.RedisKeySensor">
+<em class="property">class </em><code class="descclassname">airflow.contrib.sensors.redis_key_sensor.</code><code class="descname">RedisKeySensor</code><span class="sig-paren">(</span><em>key</em>, <em>redis_conn_id</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/sensors/redis_key_sensor.html#RedisKeySensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.sensors.redis_key_sensor.RedisKeySensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="airflow.sensors.html#airflow.sensors.base_sensor_operator.BaseSensorOperator" title="airflow.sensors.base_sensor_operator.BaseSensorOperator"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.sensors.base_sensor_operator.BaseSensorOperator</span></code></a></p>
+<p>Checks for the existence of a key in a Redis database</p>
+<dl class="method">
+<dt id="airflow.contrib.sensors.redis_key_sensor.RedisKeySensor.poke">
+<code class="descname">poke</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/sensors/redis_key_sensor.html#RedisKeySensor.poke"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.sensors.redis_key_sensor.RedisKeySensor.poke" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that the sensors defined while deriving this class should
+override.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.contrib.sensors.redis_key_sensor.RedisKeySensor.template_fields">
+<code class="descname">template_fields</code><em class="property"> = ('key',)</em><a class="headerlink" href="#airflow.contrib.sensors.redis_key_sensor.RedisKeySensor.template_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.contrib.sensors.redis_key_sensor.RedisKeySensor.ui_color">
+<code class="descname">ui_color</code><em class="property"> = '#f0eee4'</em><a class="headerlink" href="#airflow.contrib.sensors.redis_key_sensor.RedisKeySensor.ui_color" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="airflow-contrib-sensors-sftp-sensor-module">
+<h2>airflow.contrib.sensors.sftp_sensor module<a class="headerlink" href="#airflow-contrib-sensors-sftp-sensor-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-airflow.contrib.sensors.wasb_sensor">
+<span id="airflow-contrib-sensors-wasb-sensor-module"></span><h2>airflow.contrib.sensors.wasb_sensor module<a class="headerlink" href="#module-airflow.contrib.sensors.wasb_sensor" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.contrib.sensors.wasb_sensor.WasbBlobSensor">
+<em class="property">class </em><code class="descclassname">airflow.contrib.sensors.wasb_sensor.</code><code class="descname">WasbBlobSensor</code><span class="sig-paren">(</span><em>container_name</em>, <em>blob_name</em>, <em>wasb_conn_id='wasb_default'</em>, <em>check_options=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/sensors/wasb_sensor.html#WasbBlobSensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.sensors.wasb_sensor.WasbBlobSensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="airflow.sensors.html#airflow.sensors.base_sensor_operator.BaseSensorOperator" title="airflow.sensors.base_sensor_operator.BaseSensorOperator"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.sensors.base_sensor_operator.BaseSensorOperator</span></code></a></p>
+<p>Waits for a blob to arrive on Azure Blob Storage.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>container_name</strong> (<em>str</em>) – Name of the container.</li>
+<li><strong>blob_name</strong> (<em>str</em>) – Name of the blob.</li>
+<li><strong>wasb_conn_id</strong> (<em>str</em>) – Reference to the wasb connection.</li>
+<li><strong>check_options</strong> (<em>dict</em>) – Optional keyword arguments that
+<cite>WasbHook.check_for_blob()</cite> takes.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="airflow.contrib.sensors.wasb_sensor.WasbBlobSensor.poke">
+<code class="descname">poke</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/sensors/wasb_sensor.html#WasbBlobSensor.poke"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.sensors.wasb_sensor.WasbBlobSensor.poke" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that the sensors defined while deriving this class should
+override.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.contrib.sensors.wasb_sensor.WasbBlobSensor.template_fields">
+<code class="descname">template_fields</code><em class="property"> = ('container_name', 'blob_name')</em><a class="headerlink" href="#airflow.contrib.sensors.wasb_sensor.WasbBlobSensor.template_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="airflow.contrib.sensors.wasb_sensor.WasbPrefixSensor">
+<em class="property">class </em><code class="descclassname">airflow.contrib.sensors.wasb_sensor.</code><code class="descname">WasbPrefixSensor</code><span class="sig-paren">(</span><em>container_name</em>, <em>prefix</em>, <em>wasb_conn_id='wasb_default'</em>, <em>check_options=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/sensors/wasb_sensor.html#WasbPrefixSensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.sensors.wasb_sensor.WasbPrefixSensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="airflow.sensors.html#airflow.sensors.base_sensor_operator.BaseSensorOperator" title="airflow.sensors.base_sensor_operator.BaseSensorOperator"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.sensors.base_sensor_operator.BaseSensorOperator</span></code></a></p>
+<p>Waits for blobs matching a prefix to arrive on Azure Blob Storage.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>container_name</strong> (<em>str</em>) – Name of the container.</li>
+<li><strong>prefix</strong> (<em>str</em>) – Prefix of the blob.</li>
+<li><strong>wasb_conn_id</strong> (<em>str</em>) – Reference to the wasb connection.</li>
+<li><strong>check_options</strong> (<em>dict</em>) – Optional keyword arguments that
+<cite>WasbHook.check_for_prefix()</cite> takes.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="airflow.contrib.sensors.wasb_sensor.WasbPrefixSensor.poke">
+<code class="descname">poke</code><span class="sig-paren">(</span><em>context</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/contrib/sensors/wasb_sensor.html#WasbPrefixSensor.poke"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.contrib.sensors.wasb_sensor.WasbPrefixSensor.poke" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that the sensors defined while deriving this class should
+override.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.contrib.sensors.wasb_sensor.WasbPrefixSensor.template_fields">
+<code class="descname">template_fields</code><em class="property"> = ('container_name', 'prefix')</em><a class="headerlink" href="#airflow.contrib.sensors.wasb_sensor.WasbPrefixSensor.template_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.contrib.sensors">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-airflow.contrib.sensors" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

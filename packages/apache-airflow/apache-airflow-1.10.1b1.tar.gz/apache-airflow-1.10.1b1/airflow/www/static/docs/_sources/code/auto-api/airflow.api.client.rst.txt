@@ -1,0 +1,38 @@
+airflow.api.client package
+==========================
+
+Submodules
+----------
+
+airflow.api.client.api\_client module
+-------------------------------------
+
+.. automodule:: airflow.api.client.api_client
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.api.client.json\_client module
+--------------------------------------
+
+.. automodule:: airflow.api.client.json_client
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.api.client.local\_client module
+---------------------------------------
+
+.. automodule:: airflow.api.client.local_client
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: airflow.api.client
+    :members:
+    :undoc-members:
+    :show-inheritance:

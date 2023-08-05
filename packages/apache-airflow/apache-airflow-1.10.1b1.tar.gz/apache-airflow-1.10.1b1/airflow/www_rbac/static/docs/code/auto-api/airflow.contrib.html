@@ -1,0 +1,440 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>airflow.contrib package &mdash; Airflow Documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Airflow Documentation" href="../../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Airflow
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howto/index.html">How-to Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ui.html">UI / Screenshots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../profiling.html">Data Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../scheduler.html">Scheduling &amp; Triggers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../security.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../timezone.html">Time zones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">Experimental Rest API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../integration.html">Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lineage.html">Lineage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../code.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Airflow</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>airflow.contrib package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/code/auto-api/airflow.contrib.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="airflow-contrib-package">
+<h1>airflow.contrib package<a class="headerlink" href="#airflow-contrib-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="airflow.contrib.auth.html">airflow.contrib.auth package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.auth.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="airflow.contrib.auth.backends.html">airflow.contrib.auth.backends package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="airflow.contrib.auth.backends.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="airflow.contrib.auth.backends.html#airflow-contrib-auth-backends-github-enterprise-auth-module">airflow.contrib.auth.backends.github_enterprise_auth module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="airflow.contrib.auth.backends.html#airflow-contrib-auth-backends-google-auth-module">airflow.contrib.auth.backends.google_auth module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="airflow.contrib.auth.backends.html#module-airflow.contrib.auth.backends.kerberos_auth">airflow.contrib.auth.backends.kerberos_auth module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="airflow.contrib.auth.backends.html#module-airflow.contrib.auth.backends.ldap_auth">airflow.contrib.auth.backends.ldap_auth module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="airflow.contrib.auth.backends.html#module-airflow.contrib.auth.backends.password_auth">airflow.contrib.auth.backends.password_auth module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="airflow.contrib.auth.backends.html#module-airflow.contrib.auth.backends">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.auth.html#module-airflow.contrib.auth">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="airflow.contrib.executors.html">airflow.contrib.executors package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.executors.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.executors.html#module-airflow.contrib.executors.kubernetes_executor">airflow.contrib.executors.kubernetes_executor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.executors.html#airflow-contrib-executors-mesos-executor-module">airflow.contrib.executors.mesos_executor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.executors.html#module-airflow.contrib.executors">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="airflow.contrib.hooks.html">airflow.contrib.hooks package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.hooks.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.hooks.html#module-airflow.contrib.hooks.aws_dynamodb_hook">airflow.contrib.hooks.aws_dynamodb_hook module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.hooks.html#module-airflow.contrib.hooks.aws_firehose_hook">airflow.contrib.hooks.aws_firehose_hook module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.hooks.html#module-airflow.contrib.hooks.aws_hook">airflow.contrib.hooks.aws_hook module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.hooks.html#module-airflow.contrib.hooks.aws_lambda_hook">airflow.contrib.hooks.aws_lambda_hook module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.hooks.html#airflow-contrib-hooks-azure-data-lake-hook-module">airflow.contrib.hooks.azure_data_lake_hook module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.hooks.html#module-airflow.contrib.hooks.azure_fileshare_hook">airflow.contrib.hooks.azure_fileshare_hook module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.hooks.html#module-airflow.contrib.hooks.bigquery_hook">airflow.contrib.hooks.bigquery_hook module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.hooks.html#airflow-contrib-hooks-cassandra-hook-module">airflow.contrib.hooks.cassandra_hook module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.hooks.html#module-airflow.contrib.hooks.cloudant_hook">airflow.contrib.hooks.cloudant_hook module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.hooks.html#module-airflow.contrib.hooks.databricks_hook">airflow.contrib.hooks.databricks_hook module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.hooks.html#module-airflow.contrib.hooks.datadog_hook">airflow.contrib.hooks.datadog_hook module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.hooks.html#module-airflow.contrib.hooks.datastore_hook">airflow.contrib.hooks.datastore_hook module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.hooks.html#module-airflow.contrib.hooks.discord_webhook_hook">airflow.contrib.hooks.discord_webhook_hook module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.hooks.html#module-airflow.contrib.hooks.emr_hook">airflow.contrib.hooks.emr_hook module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.hooks.html#module-airflow.contrib.hooks.fs_hook">airflow.contrib.hooks.fs_hook module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.hooks.html#module-airflow.contrib.hooks.ftp_hook">airflow.contrib.hooks.ftp_hook module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.hooks.html#module-airflow.contrib.hooks.gcp_api_base_hook">airflow.contrib.hooks.gcp_api_base_hook module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.hooks.html#airflow-contrib-hooks-gcp-container-hook-module">airflow.contrib.hooks.gcp_container_hook module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.hooks.html#module-airflow.contrib.hooks.gcp_dataflow_hook">airflow.contrib.hooks.gcp_dataflow_hook module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.hooks.html#module-airflow.contrib.hooks.gcp_dataproc_hook">airflow.contrib.hooks.gcp_dataproc_hook module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.hooks.html#module-airflow.contrib.hooks.gcp_mlengine_hook">airflow.contrib.hooks.gcp_mlengine_hook module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.hooks.html#module-airflow.contrib.hooks.gcp_pubsub_hook">airflow.contrib.hooks.gcp_pubsub_hook module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.hooks.html#module-airflow.contrib.hooks.gcs_hook">airflow.contrib.hooks.gcs_hook module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.hooks.html#airflow-contrib-hooks-jenkins-hook-module">airflow.contrib.hooks.jenkins_hook module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.hooks.html#module-airflow.contrib.hooks.jira_hook">airflow.contrib.hooks.jira_hook module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.hooks.html#airflow-contrib-hooks-mongo-hook-module">airflow.contrib.hooks.mongo_hook module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.hooks.html#airflow-contrib-hooks-pinot-hook-module">airflow.contrib.hooks.pinot_hook module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.hooks.html#module-airflow.contrib.hooks.qubole_check_hook">airflow.contrib.hooks.qubole_check_hook module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.hooks.html#module-airflow.contrib.hooks.qubole_hook">airflow.contrib.hooks.qubole_hook module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.hooks.html#module-airflow.contrib.hooks.redis_hook">airflow.contrib.hooks.redis_hook module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.hooks.html#module-airflow.contrib.hooks.redshift_hook">airflow.contrib.hooks.redshift_hook module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.hooks.html#airflow-contrib-hooks-salesforce-hook-module">airflow.contrib.hooks.salesforce_hook module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.hooks.html#airflow-contrib-hooks-segment-hook-module">airflow.contrib.hooks.segment_hook module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.hooks.html#airflow-contrib-hooks-sftp-hook-module">airflow.contrib.hooks.sftp_hook module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.hooks.html#module-airflow.contrib.hooks.slack_webhook_hook">airflow.contrib.hooks.slack_webhook_hook module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.hooks.html#airflow-contrib-hooks-snowflake-hook-module">airflow.contrib.hooks.snowflake_hook module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.hooks.html#module-airflow.contrib.hooks.spark_jdbc_hook">airflow.contrib.hooks.spark_jdbc_hook module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.hooks.html#airflow-contrib-hooks-spark-jdbc-script-module">airflow.contrib.hooks.spark_jdbc_script module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.hooks.html#module-airflow.contrib.hooks.spark_sql_hook">airflow.contrib.hooks.spark_sql_hook module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.hooks.html#module-airflow.contrib.hooks.spark_submit_hook">airflow.contrib.hooks.spark_submit_hook module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.hooks.html#module-airflow.contrib.hooks.sqoop_hook">airflow.contrib.hooks.sqoop_hook module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.hooks.html#module-airflow.contrib.hooks.ssh_hook">airflow.contrib.hooks.ssh_hook module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.hooks.html#module-airflow.contrib.hooks.vertica_hook">airflow.contrib.hooks.vertica_hook module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.hooks.html#module-airflow.contrib.hooks.wasb_hook">airflow.contrib.hooks.wasb_hook module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.hooks.html#airflow-contrib-hooks-winrm-hook-module">airflow.contrib.hooks.winrm_hook module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.hooks.html#module-airflow.contrib.hooks">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="airflow.contrib.kubernetes.html">airflow.contrib.kubernetes package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.kubernetes.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="airflow.contrib.kubernetes.kubernetes_request_factory.html">airflow.contrib.kubernetes.kubernetes_request_factory package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="airflow.contrib.kubernetes.kubernetes_request_factory.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="airflow.contrib.kubernetes.kubernetes_request_factory.html#module-airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory">airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="airflow.contrib.kubernetes.kubernetes_request_factory.html#module-airflow.contrib.kubernetes.kubernetes_request_factory.pod_request_factory">airflow.contrib.kubernetes.kubernetes_request_factory.pod_request_factory module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="airflow.contrib.kubernetes.kubernetes_request_factory.html#module-airflow.contrib.kubernetes.kubernetes_request_factory">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.kubernetes.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.kubernetes.html#module-airflow.contrib.kubernetes.kube_client">airflow.contrib.kubernetes.kube_client module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.kubernetes.html#module-airflow.contrib.kubernetes.pod">airflow.contrib.kubernetes.pod module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.kubernetes.html#module-airflow.contrib.kubernetes.pod_generator">airflow.contrib.kubernetes.pod_generator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.kubernetes.html#module-airflow.contrib.kubernetes.pod_launcher">airflow.contrib.kubernetes.pod_launcher module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.kubernetes.html#module-airflow.contrib.kubernetes.secret">airflow.contrib.kubernetes.secret module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.kubernetes.html#module-airflow.contrib.kubernetes.volume">airflow.contrib.kubernetes.volume module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.kubernetes.html#module-airflow.contrib.kubernetes.volume_mount">airflow.contrib.kubernetes.volume_mount module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.kubernetes.html#module-airflow.contrib.kubernetes.worker_configuration">airflow.contrib.kubernetes.worker_configuration module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.kubernetes.html#module-airflow.contrib.kubernetes">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="airflow.contrib.operators.html">airflow.contrib.operators package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#module-airflow.contrib.operators.awsbatch_operator">airflow.contrib.operators.awsbatch_operator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#module-airflow.contrib.operators.bigquery_check_operator">airflow.contrib.operators.bigquery_check_operator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#module-airflow.contrib.operators.bigquery_get_data">airflow.contrib.operators.bigquery_get_data module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#module-airflow.contrib.operators.bigquery_operator">airflow.contrib.operators.bigquery_operator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#module-airflow.contrib.operators.bigquery_table_delete_operator">airflow.contrib.operators.bigquery_table_delete_operator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#module-airflow.contrib.operators.bigquery_to_bigquery">airflow.contrib.operators.bigquery_to_bigquery module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#module-airflow.contrib.operators.bigquery_to_gcs">airflow.contrib.operators.bigquery_to_gcs module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#airflow-contrib-operators-cassandra-to-gcs-module">airflow.contrib.operators.cassandra_to_gcs module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#module-airflow.contrib.operators.databricks_operator">airflow.contrib.operators.databricks_operator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#module-airflow.contrib.operators.dataflow_operator">airflow.contrib.operators.dataflow_operator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#module-airflow.contrib.operators.dataproc_operator">airflow.contrib.operators.dataproc_operator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#module-airflow.contrib.operators.datastore_export_operator">airflow.contrib.operators.datastore_export_operator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#module-airflow.contrib.operators.datastore_import_operator">airflow.contrib.operators.datastore_import_operator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#module-airflow.contrib.operators.discord_webhook_operator">airflow.contrib.operators.discord_webhook_operator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#airflow-contrib-operators-druid-operator-module">airflow.contrib.operators.druid_operator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#module-airflow.contrib.operators.ecs_operator">airflow.contrib.operators.ecs_operator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#module-airflow.contrib.operators.emr_add_steps_operator">airflow.contrib.operators.emr_add_steps_operator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#module-airflow.contrib.operators.emr_create_job_flow_operator">airflow.contrib.operators.emr_create_job_flow_operator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#module-airflow.contrib.operators.emr_terminate_job_flow_operator">airflow.contrib.operators.emr_terminate_job_flow_operator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#module-airflow.contrib.operators.file_to_gcs">airflow.contrib.operators.file_to_gcs module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#module-airflow.contrib.operators.file_to_wasb">airflow.contrib.operators.file_to_wasb module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#airflow-contrib-operators-gcp-container-operator-module">airflow.contrib.operators.gcp_container_operator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#module-airflow.contrib.operators.gcs_download_operator">airflow.contrib.operators.gcs_download_operator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#module-airflow.contrib.operators.gcs_list_operator">airflow.contrib.operators.gcs_list_operator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#module-airflow.contrib.operators.gcs_operator">airflow.contrib.operators.gcs_operator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#module-airflow.contrib.operators.gcs_to_bq">airflow.contrib.operators.gcs_to_bq module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#module-airflow.contrib.operators.gcs_to_gcs">airflow.contrib.operators.gcs_to_gcs module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#module-airflow.contrib.operators.gcs_to_s3">airflow.contrib.operators.gcs_to_s3 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#module-airflow.contrib.operators.hipchat_operator">airflow.contrib.operators.hipchat_operator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#airflow-contrib-operators-hive-to-dynamodb-module">airflow.contrib.operators.hive_to_dynamodb module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#airflow-contrib-operators-jenkins-job-trigger-operator-module">airflow.contrib.operators.jenkins_job_trigger_operator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#module-airflow.contrib.operators.jira_operator">airflow.contrib.operators.jira_operator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#module-airflow.contrib.operators.kubernetes_pod_operator">airflow.contrib.operators.kubernetes_pod_operator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#module-airflow.contrib.operators.mlengine_operator">airflow.contrib.operators.mlengine_operator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#module-airflow.contrib.operators.mlengine_operator_utils">airflow.contrib.operators.mlengine_operator_utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#airflow-contrib-operators-mlengine-prediction-summary-module">airflow.contrib.operators.mlengine_prediction_summary module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#airflow-contrib-operators-mongo-to-s3-module">airflow.contrib.operators.mongo_to_s3 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#airflow-contrib-operators-mysql-to-gcs-module">airflow.contrib.operators.mysql_to_gcs module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#module-airflow.contrib.operators.postgres_to_gcs_operator">airflow.contrib.operators.postgres_to_gcs_operator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#module-airflow.contrib.operators.pubsub_operator">airflow.contrib.operators.pubsub_operator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#module-airflow.contrib.operators.qubole_check_operator">airflow.contrib.operators.qubole_check_operator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#module-airflow.contrib.operators.qubole_operator">airflow.contrib.operators.qubole_operator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#module-airflow.contrib.operators.s3_list_operator">airflow.contrib.operators.s3_list_operator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#module-airflow.contrib.operators.s3_to_gcs_operator">airflow.contrib.operators.s3_to_gcs_operator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#airflow-contrib-operators-segment-track-event-operator-module">airflow.contrib.operators.segment_track_event_operator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#module-airflow.contrib.operators.sftp_operator">airflow.contrib.operators.sftp_operator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#module-airflow.contrib.operators.slack_webhook_operator">airflow.contrib.operators.slack_webhook_operator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#airflow-contrib-operators-snowflake-operator-module">airflow.contrib.operators.snowflake_operator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#module-airflow.contrib.operators.spark_jdbc_operator">airflow.contrib.operators.spark_jdbc_operator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#module-airflow.contrib.operators.spark_sql_operator">airflow.contrib.operators.spark_sql_operator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#module-airflow.contrib.operators.spark_submit_operator">airflow.contrib.operators.spark_submit_operator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#module-airflow.contrib.operators.sqoop_operator">airflow.contrib.operators.sqoop_operator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#module-airflow.contrib.operators.ssh_operator">airflow.contrib.operators.ssh_operator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#module-airflow.contrib.operators.vertica_operator">airflow.contrib.operators.vertica_operator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#airflow-contrib-operators-vertica-to-hive-module">airflow.contrib.operators.vertica_to_hive module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#airflow-contrib-operators-vertica-to-mysql-module">airflow.contrib.operators.vertica_to_mysql module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#airflow-contrib-operators-winrm-operator-module">airflow.contrib.operators.winrm_operator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.operators.html#module-airflow.contrib.operators">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="airflow.contrib.sensors.html">airflow.contrib.sensors package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.sensors.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.sensors.html#module-airflow.contrib.sensors.aws_redshift_cluster_sensor">airflow.contrib.sensors.aws_redshift_cluster_sensor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.sensors.html#module-airflow.contrib.sensors.bash_sensor">airflow.contrib.sensors.bash_sensor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.sensors.html#module-airflow.contrib.sensors.bigquery_sensor">airflow.contrib.sensors.bigquery_sensor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.sensors.html#airflow-contrib-sensors-cassandra-sensor-module">airflow.contrib.sensors.cassandra_sensor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.sensors.html#module-airflow.contrib.sensors.datadog_sensor">airflow.contrib.sensors.datadog_sensor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.sensors.html#module-airflow.contrib.sensors.emr_base_sensor">airflow.contrib.sensors.emr_base_sensor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.sensors.html#module-airflow.contrib.sensors.emr_job_flow_sensor">airflow.contrib.sensors.emr_job_flow_sensor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.sensors.html#module-airflow.contrib.sensors.emr_step_sensor">airflow.contrib.sensors.emr_step_sensor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.sensors.html#module-airflow.contrib.sensors.file_sensor">airflow.contrib.sensors.file_sensor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.sensors.html#module-airflow.contrib.sensors.ftp_sensor">airflow.contrib.sensors.ftp_sensor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.sensors.html#module-airflow.contrib.sensors.gcs_sensor">airflow.contrib.sensors.gcs_sensor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.sensors.html#module-airflow.contrib.sensors.hdfs_sensor">airflow.contrib.sensors.hdfs_sensor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.sensors.html#module-airflow.contrib.sensors.jira_sensor">airflow.contrib.sensors.jira_sensor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.sensors.html#module-airflow.contrib.sensors.pubsub_sensor">airflow.contrib.sensors.pubsub_sensor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.sensors.html#module-airflow.contrib.sensors.qubole_sensor">airflow.contrib.sensors.qubole_sensor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.sensors.html#module-airflow.contrib.sensors.redis_key_sensor">airflow.contrib.sensors.redis_key_sensor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.sensors.html#airflow-contrib-sensors-sftp-sensor-module">airflow.contrib.sensors.sftp_sensor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.sensors.html#module-airflow.contrib.sensors.wasb_sensor">airflow.contrib.sensors.wasb_sensor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.sensors.html#module-airflow.contrib.sensors">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="airflow.contrib.task_runner.html">airflow.contrib.task_runner package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.task_runner.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.task_runner.html#airflow-contrib-task-runner-cgroup-task-runner-module">airflow.contrib.task_runner.cgroup_task_runner module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.task_runner.html#module-airflow.contrib.task_runner">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="airflow.contrib.utils.html">airflow.contrib.utils package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.utils.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.utils.html#module-airflow.contrib.utils.sendgrid">airflow.contrib.utils.sendgrid module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airflow.contrib.utils.html#module-airflow.contrib.utils">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="module-airflow.contrib">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-airflow.contrib" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

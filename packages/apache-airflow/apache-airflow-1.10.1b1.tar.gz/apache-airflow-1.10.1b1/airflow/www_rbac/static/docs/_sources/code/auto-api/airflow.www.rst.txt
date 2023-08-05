@@ -1,0 +1,77 @@
+airflow.www package
+===================
+
+Subpackages
+-----------
+
+.. toctree::
+
+    airflow.www.api
+
+Submodules
+----------
+
+airflow.www.app module
+----------------------
+
+.. automodule:: airflow.www.app
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.www.blueprints module
+-----------------------------
+
+.. automodule:: airflow.www.blueprints
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.www.forms module
+------------------------
+
+.. automodule:: airflow.www.forms
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.www.gunicorn\_config module
+-----------------------------------
+
+.. automodule:: airflow.www.gunicorn_config
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.www.utils module
+------------------------
+
+.. automodule:: airflow.www.utils
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.www.validators module
+-----------------------------
+
+.. automodule:: airflow.www.validators
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.www.views module
+------------------------
+
+.. automodule:: airflow.www.views
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: airflow.www
+    :members:
+    :undoc-members:
+    :show-inheritance:

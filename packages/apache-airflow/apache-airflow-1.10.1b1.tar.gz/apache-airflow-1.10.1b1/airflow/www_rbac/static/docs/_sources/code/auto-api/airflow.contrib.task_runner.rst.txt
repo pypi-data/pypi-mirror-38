@@ -1,0 +1,22 @@
+airflow.contrib.task\_runner package
+====================================
+
+Submodules
+----------
+
+airflow.contrib.task\_runner.cgroup\_task\_runner module
+--------------------------------------------------------
+
+.. automodule:: airflow.contrib.task_runner.cgroup_task_runner
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: airflow.contrib.task_runner
+    :members:
+    :undoc-members:
+    :show-inheritance:

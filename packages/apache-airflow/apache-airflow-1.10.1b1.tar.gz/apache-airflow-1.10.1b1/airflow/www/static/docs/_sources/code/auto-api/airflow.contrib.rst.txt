@@ -1,0 +1,24 @@
+airflow.contrib package
+=======================
+
+Subpackages
+-----------
+
+.. toctree::
+
+    airflow.contrib.auth
+    airflow.contrib.executors
+    airflow.contrib.hooks
+    airflow.contrib.kubernetes
+    airflow.contrib.operators
+    airflow.contrib.sensors
+    airflow.contrib.task_runner
+    airflow.contrib.utils
+
+Module contents
+---------------
+
+.. automodule:: airflow.contrib
+    :members:
+    :undoc-members:
+    :show-inheritance:

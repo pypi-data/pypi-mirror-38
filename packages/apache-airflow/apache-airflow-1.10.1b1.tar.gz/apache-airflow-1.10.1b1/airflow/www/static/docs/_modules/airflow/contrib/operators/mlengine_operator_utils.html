@@ -1,0 +1,483 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>airflow.contrib.operators.mlengine_operator_utils &mdash; Airflow Documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../search.html"/>
+    <link rel="top" title="Airflow Documentation" href="../../../../index.html"/>
+        <link rel="up" title="airflow" href="../../../airflow.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Airflow
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../howto/index.html">How-to Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ui.html">UI / Screenshots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../profiling.html">Data Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cli.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../scheduler.html">Scheduling &amp; Triggers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../security.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../timezone.html">Time zones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api.html">Experimental Rest API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../integration.html">Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../lineage.html">Lineage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../code.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Airflow</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../../airflow.html">airflow</a> &raquo;</li>
+        
+      <li>airflow.contrib.operators.mlengine_operator_utils</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for airflow.contrib.operators.mlengine_operator_utils</h1><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+<span class="c1"># Licensed to the Apache Software Foundation (ASF) under one or more</span>
+<span class="c1"># contributor license agreements.  See the NOTICE file distributed with</span>
+<span class="c1"># this work for additional information regarding copyright ownership.</span>
+<span class="c1"># The ASF licenses this file to You under the Apache License, Version 2.0</span>
+<span class="c1"># (the &#39;License&#39;); you may not use this file except in compliance with</span>
+<span class="c1"># the License.  You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#    http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &#39;AS IS&#39; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+
+<span class="kn">import</span> <span class="nn">base64</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="kn">import</span> <span class="nn">dill</span>
+
+<span class="kn">from</span> <span class="nn">airflow.contrib.hooks.gcs_hook</span> <span class="k">import</span> <span class="n">GoogleCloudStorageHook</span>
+<span class="kn">from</span> <span class="nn">airflow.contrib.operators.mlengine_operator</span> <span class="k">import</span> <span class="n">MLEngineBatchPredictionOperator</span>
+<span class="kn">from</span> <span class="nn">airflow.contrib.operators.dataflow_operator</span> <span class="k">import</span> <span class="n">DataFlowPythonOperator</span>
+<span class="kn">from</span> <span class="nn">airflow.exceptions</span> <span class="k">import</span> <span class="n">AirflowException</span>
+<span class="kn">from</span> <span class="nn">airflow.operators.python_operator</span> <span class="k">import</span> <span class="n">PythonOperator</span>
+<span class="kn">from</span> <span class="nn">six.moves.urllib.parse</span> <span class="k">import</span> <span class="n">urlsplit</span>
+
+
+<div class="viewcode-block" id="create_evaluate_ops"><a class="viewcode-back" href="../../../../code/auto-api/airflow.contrib.operators.html#airflow.contrib.operators.mlengine_operator_utils.create_evaluate_ops">[docs]</a><span class="k">def</span> <span class="nf">create_evaluate_ops</span><span class="p">(</span><span class="n">task_prefix</span><span class="p">,</span>
+                        <span class="n">data_format</span><span class="p">,</span>
+                        <span class="n">input_paths</span><span class="p">,</span>
+                        <span class="n">prediction_path</span><span class="p">,</span>
+                        <span class="n">metric_fn_and_keys</span><span class="p">,</span>
+                        <span class="n">validate_fn</span><span class="p">,</span>
+                        <span class="n">batch_prediction_job_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                        <span class="n">project_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                        <span class="n">region</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                        <span class="n">dataflow_options</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                        <span class="n">model_uri</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                        <span class="n">model_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                        <span class="n">version_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                        <span class="n">dag</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Creates Operators needed for model evaluation and returns.</span>
+
+<span class="sd">    It gets prediction over inputs via Cloud ML Engine BatchPrediction API by</span>
+<span class="sd">    calling MLEngineBatchPredictionOperator, then summarize and validate</span>
+<span class="sd">    the result via Cloud Dataflow using DataFlowPythonOperator.</span>
+
+<span class="sd">    For details and pricing about Batch prediction, please refer to the website</span>
+<span class="sd">    https://cloud.google.com/ml-engine/docs/how-tos/batch-predict</span>
+<span class="sd">    and for Cloud Dataflow, https://cloud.google.com/dataflow/docs/</span>
+
+<span class="sd">    It returns three chained operators for prediction, summary, and validation,</span>
+<span class="sd">    named as &lt;prefix&gt;-prediction, &lt;prefix&gt;-summary, and &lt;prefix&gt;-validation,</span>
+<span class="sd">    respectively.</span>
+<span class="sd">    (&lt;prefix&gt; should contain only alphanumeric characters or hyphen.)</span>
+
+<span class="sd">    The upstream and downstream can be set accordingly like:</span>
+<span class="sd">      pred, _, val = create_evaluate_ops(...)</span>
+<span class="sd">      pred.set_upstream(upstream_op)</span>
+<span class="sd">      ...</span>
+<span class="sd">      downstream_op.set_upstream(val)</span>
+
+<span class="sd">    Callers will provide two python callables, metric_fn and validate_fn, in</span>
+<span class="sd">    order to customize the evaluation behavior as they wish.</span>
+<span class="sd">    - metric_fn receives a dictionary per instance derived from json in the</span>
+<span class="sd">      batch prediction result. The keys might vary depending on the model.</span>
+<span class="sd">      It should return a tuple of metrics.</span>
+<span class="sd">    - validation_fn receives a dictionary of the averaged metrics that metric_fn</span>
+<span class="sd">      generated over all instances.</span>
+<span class="sd">      The key/value of the dictionary matches to what&#39;s given by</span>
+<span class="sd">      metric_fn_and_keys arg.</span>
+<span class="sd">      The dictionary contains an additional metric, &#39;count&#39; to represent the</span>
+<span class="sd">      total number of instances received for evaluation.</span>
+<span class="sd">      The function would raise an exception to mark the task as failed, in a</span>
+<span class="sd">      case the validation result is not okay to proceed (i.e. to set the trained</span>
+<span class="sd">      version as default).</span>
+
+<span class="sd">    Typical examples are like this:</span>
+
+<span class="sd">    def get_metric_fn_and_keys():</span>
+<span class="sd">        import math  # imports should be outside of the metric_fn below.</span>
+<span class="sd">        def error_and_squared_error(inst):</span>
+<span class="sd">            label = float(inst[&#39;input_label&#39;])</span>
+<span class="sd">            classes = float(inst[&#39;classes&#39;])  # 0 or 1</span>
+<span class="sd">            err = abs(classes-label)</span>
+<span class="sd">            squared_err = math.pow(classes-label, 2)</span>
+<span class="sd">            return (err, squared_err)  # returns a tuple.</span>
+<span class="sd">        return error_and_squared_error, [&#39;err&#39;, &#39;mse&#39;]  # key order must match.</span>
+
+<span class="sd">    def validate_err_and_count(summary):</span>
+<span class="sd">        if summary[&#39;err&#39;] &gt; 0.2:</span>
+<span class="sd">            raise ValueError(&#39;Too high err&gt;0.2; summary=%s&#39; % summary)</span>
+<span class="sd">        if summary[&#39;mse&#39;] &gt; 0.05:</span>
+<span class="sd">            raise ValueError(&#39;Too high mse&gt;0.05; summary=%s&#39; % summary)</span>
+<span class="sd">        if summary[&#39;count&#39;] &lt; 1000:</span>
+<span class="sd">            raise ValueError(&#39;Too few instances&lt;1000; summary=%s&#39; % summary)</span>
+<span class="sd">        return summary</span>
+
+<span class="sd">    For the details on the other BatchPrediction-related arguments (project_id,</span>
+<span class="sd">    job_id, region, data_format, input_paths, prediction_path, model_uri),</span>
+<span class="sd">    please refer to MLEngineBatchPredictionOperator too.</span>
+
+<span class="sd">    :param task_prefix: a prefix for the tasks. Only alphanumeric characters and</span>
+<span class="sd">        hyphen are allowed (no underscores), since this will be used as dataflow</span>
+<span class="sd">        job name, which doesn&#39;t allow other characters.</span>
+<span class="sd">    :type task_prefix: string</span>
+
+<span class="sd">    :param data_format: either of &#39;TEXT&#39;, &#39;TF_RECORD&#39;, &#39;TF_RECORD_GZIP&#39;</span>
+<span class="sd">    :type data_format: string</span>
+
+<span class="sd">    :param input_paths: a list of input paths to be sent to BatchPrediction.</span>
+<span class="sd">    :type input_paths: list of strings</span>
+
+<span class="sd">    :param prediction_path: GCS path to put the prediction results in.</span>
+<span class="sd">    :type prediction_path: string</span>
+
+<span class="sd">    :param metric_fn_and_keys: a tuple of metric_fn and metric_keys:</span>
+<span class="sd">        - metric_fn is a function that accepts a dictionary (for an instance),</span>
+<span class="sd">          and returns a tuple of metric(s) that it calculates.</span>
+<span class="sd">        - metric_keys is a list of strings to denote the key of each metric.</span>
+<span class="sd">    :type metric_fn_and_keys: tuple of a function and a list of strings</span>
+
+<span class="sd">    :param validate_fn: a function to validate whether the averaged metric(s) is</span>
+<span class="sd">        good enough to push the model.</span>
+<span class="sd">    :type validate_fn: function</span>
+
+<span class="sd">    :param batch_prediction_job_id: the id to use for the Cloud ML Batch</span>
+<span class="sd">        prediction job. Passed directly to the MLEngineBatchPredictionOperator as</span>
+<span class="sd">        the job_id argument.</span>
+<span class="sd">    :type batch_prediction_job_id: string</span>
+
+<span class="sd">    :param project_id: the Google Cloud Platform project id in which to execute</span>
+<span class="sd">        Cloud ML Batch Prediction and Dataflow jobs. If None, then the `dag`&#39;s</span>
+<span class="sd">        `default_args[&#39;project_id&#39;]` will be used.</span>
+<span class="sd">    :type project_id: string</span>
+
+<span class="sd">    :param region: the Google Cloud Platform region in which to execute Cloud ML</span>
+<span class="sd">        Batch Prediction and Dataflow jobs. If None, then the `dag`&#39;s</span>
+<span class="sd">        `default_args[&#39;region&#39;]` will be used.</span>
+<span class="sd">    :type region: string</span>
+
+<span class="sd">    :param dataflow_options: options to run Dataflow jobs. If None, then the</span>
+<span class="sd">        `dag`&#39;s `default_args[&#39;dataflow_default_options&#39;]` will be used.</span>
+<span class="sd">    :type dataflow_options: dictionary</span>
+
+<span class="sd">    :param model_uri: GCS path of the model exported by Tensorflow using</span>
+<span class="sd">        tensorflow.estimator.export_savedmodel(). It cannot be used with</span>
+<span class="sd">        model_name or version_name below. See MLEngineBatchPredictionOperator for</span>
+<span class="sd">        more detail.</span>
+<span class="sd">    :type model_uri: string</span>
+
+<span class="sd">    :param model_name: Used to indicate a model to use for prediction. Can be</span>
+<span class="sd">        used in combination with version_name, but cannot be used together with</span>
+<span class="sd">        model_uri. See MLEngineBatchPredictionOperator for more detail. If None,</span>
+<span class="sd">        then the `dag`&#39;s `default_args[&#39;model_name&#39;]` will be used.</span>
+<span class="sd">    :type model_name: string</span>
+
+<span class="sd">    :param version_name: Used to indicate a model version to use for prediciton,</span>
+<span class="sd">        in combination with model_name. Cannot be used together with model_uri.</span>
+<span class="sd">        See MLEngineBatchPredictionOperator for more detail. If None, then the</span>
+<span class="sd">        `dag`&#39;s `default_args[&#39;version_name&#39;]` will be used.</span>
+<span class="sd">    :type version_name: string</span>
+
+<span class="sd">    :param dag: The `DAG` to use for all Operators.</span>
+<span class="sd">    :type dag: airflow.DAG</span>
+
+<span class="sd">    :returns: a tuple of three operators, (prediction, summary, validation)</span>
+<span class="sd">    :rtype: tuple(DataFlowPythonOperator, DataFlowPythonOperator,</span>
+<span class="sd">                  PythonOperator)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Verify that task_prefix doesn&#39;t have any special characters except hyphen</span>
+    <span class="c1"># &#39;-&#39;, which is the only allowed non-alphanumeric character by Dataflow.</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^[a-zA-Z][-A-Za-z0-9]*$&quot;</span><span class="p">,</span> <span class="n">task_prefix</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="n">AirflowException</span><span class="p">(</span>
+            <span class="s2">&quot;Malformed task_id for DataFlowPythonOperator (only alphanumeric &quot;</span>
+            <span class="s2">&quot;and hyphens are allowed but got: &quot;</span> <span class="o">+</span> <span class="n">task_prefix</span><span class="p">)</span>
+
+    <span class="n">metric_fn</span><span class="p">,</span> <span class="n">metric_keys</span> <span class="o">=</span> <span class="n">metric_fn_and_keys</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">callable</span><span class="p">(</span><span class="n">metric_fn</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="n">AirflowException</span><span class="p">(</span><span class="s2">&quot;`metric_fn` param must be callable.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">callable</span><span class="p">(</span><span class="n">validate_fn</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="n">AirflowException</span><span class="p">(</span><span class="s2">&quot;`validate_fn` param must be callable.&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">dag</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">dag</span><span class="o">.</span><span class="n">default_args</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">default_args</span> <span class="o">=</span> <span class="n">dag</span><span class="o">.</span><span class="n">default_args</span>
+        <span class="n">project_id</span> <span class="o">=</span> <span class="n">project_id</span> <span class="ow">or</span> <span class="n">default_args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;project_id&#39;</span><span class="p">)</span>
+        <span class="n">region</span> <span class="o">=</span> <span class="n">region</span> <span class="ow">or</span> <span class="n">default_args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;region&#39;</span><span class="p">)</span>
+        <span class="n">model_name</span> <span class="o">=</span> <span class="n">model_name</span> <span class="ow">or</span> <span class="n">default_args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;model_name&#39;</span><span class="p">)</span>
+        <span class="n">version_name</span> <span class="o">=</span> <span class="n">version_name</span> <span class="ow">or</span> <span class="n">default_args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;version_name&#39;</span><span class="p">)</span>
+        <span class="n">dataflow_options</span> <span class="o">=</span> <span class="n">dataflow_options</span> <span class="ow">or</span> \
+            <span class="n">default_args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;dataflow_default_options&#39;</span><span class="p">)</span>
+
+    <span class="n">evaluate_prediction</span> <span class="o">=</span> <span class="n">MLEngineBatchPredictionOperator</span><span class="p">(</span>
+        <span class="n">task_id</span><span class="o">=</span><span class="p">(</span><span class="n">task_prefix</span> <span class="o">+</span> <span class="s2">&quot;-prediction&quot;</span><span class="p">),</span>
+        <span class="n">project_id</span><span class="o">=</span><span class="n">project_id</span><span class="p">,</span>
+        <span class="n">job_id</span><span class="o">=</span><span class="n">batch_prediction_job_id</span><span class="p">,</span>
+        <span class="n">region</span><span class="o">=</span><span class="n">region</span><span class="p">,</span>
+        <span class="n">data_format</span><span class="o">=</span><span class="n">data_format</span><span class="p">,</span>
+        <span class="n">input_paths</span><span class="o">=</span><span class="n">input_paths</span><span class="p">,</span>
+        <span class="n">output_path</span><span class="o">=</span><span class="n">prediction_path</span><span class="p">,</span>
+        <span class="n">uri</span><span class="o">=</span><span class="n">model_uri</span><span class="p">,</span>
+        <span class="n">model_name</span><span class="o">=</span><span class="n">model_name</span><span class="p">,</span>
+        <span class="n">version_name</span><span class="o">=</span><span class="n">version_name</span><span class="p">,</span>
+        <span class="n">dag</span><span class="o">=</span><span class="n">dag</span><span class="p">)</span>
+
+    <span class="n">metric_fn_encoded</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">dill</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">metric_fn</span><span class="p">,</span> <span class="n">recurse</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+    <span class="n">evaluate_summary</span> <span class="o">=</span> <span class="n">DataFlowPythonOperator</span><span class="p">(</span>
+        <span class="n">task_id</span><span class="o">=</span><span class="p">(</span><span class="n">task_prefix</span> <span class="o">+</span> <span class="s2">&quot;-summary&quot;</span><span class="p">),</span>
+        <span class="n">py_options</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;-m&quot;</span><span class="p">],</span>
+        <span class="n">py_file</span><span class="o">=</span><span class="s2">&quot;airflow.contrib.operators.mlengine_prediction_summary&quot;</span><span class="p">,</span>
+        <span class="n">dataflow_default_options</span><span class="o">=</span><span class="n">dataflow_options</span><span class="p">,</span>
+        <span class="n">options</span><span class="o">=</span><span class="p">{</span>
+            <span class="s2">&quot;prediction_path&quot;</span><span class="p">:</span> <span class="n">prediction_path</span><span class="p">,</span>
+            <span class="s2">&quot;metric_fn_encoded&quot;</span><span class="p">:</span> <span class="n">metric_fn_encoded</span><span class="p">,</span>
+            <span class="s2">&quot;metric_keys&quot;</span><span class="p">:</span> <span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">metric_keys</span><span class="p">)</span>
+        <span class="p">},</span>
+        <span class="n">dag</span><span class="o">=</span><span class="n">dag</span><span class="p">)</span>
+    <span class="n">evaluate_summary</span><span class="o">.</span><span class="n">set_upstream</span><span class="p">(</span><span class="n">evaluate_prediction</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">apply_validate_fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">prediction_path</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;templates_dict&quot;</span><span class="p">][</span><span class="s2">&quot;prediction_path&quot;</span><span class="p">]</span>
+        <span class="n">scheme</span><span class="p">,</span> <span class="n">bucket</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">urlsplit</span><span class="p">(</span><span class="n">prediction_path</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">scheme</span> <span class="o">!=</span> <span class="s2">&quot;gs&quot;</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">bucket</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">obj</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Wrong format prediction_path: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span>
+                             <span class="n">prediction_path</span><span class="p">)</span>
+        <span class="n">summary</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">),</span>
+                               <span class="s2">&quot;prediction.summary.json&quot;</span><span class="p">)</span>
+        <span class="n">gcs_hook</span> <span class="o">=</span> <span class="n">GoogleCloudStorageHook</span><span class="p">()</span>
+        <span class="n">summary</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">gcs_hook</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">bucket</span><span class="p">,</span> <span class="n">summary</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">validate_fn</span><span class="p">(</span><span class="n">summary</span><span class="p">)</span>
+
+    <span class="n">evaluate_validation</span> <span class="o">=</span> <span class="n">PythonOperator</span><span class="p">(</span>
+        <span class="n">task_id</span><span class="o">=</span><span class="p">(</span><span class="n">task_prefix</span> <span class="o">+</span> <span class="s2">&quot;-validation&quot;</span><span class="p">),</span>
+        <span class="n">python_callable</span><span class="o">=</span><span class="n">apply_validate_fn</span><span class="p">,</span>
+        <span class="n">provide_context</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">templates_dict</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;prediction_path&quot;</span><span class="p">:</span> <span class="n">prediction_path</span><span class="p">},</span>
+        <span class="n">dag</span><span class="o">=</span><span class="n">dag</span><span class="p">)</span>
+    <span class="n">evaluate_validation</span><span class="o">.</span><span class="n">set_upstream</span><span class="p">(</span><span class="n">evaluate_summary</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">evaluate_prediction</span><span class="p">,</span> <span class="n">evaluate_summary</span><span class="p">,</span> <span class="n">evaluate_validation</span></div>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

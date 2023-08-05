@@ -1,0 +1,38 @@
+airflow.api.auth.backend package
+================================
+
+Submodules
+----------
+
+airflow.api.auth.backend.default module
+---------------------------------------
+
+.. automodule:: airflow.api.auth.backend.default
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.api.auth.backend.deny\_all module
+-----------------------------------------
+
+.. automodule:: airflow.api.auth.backend.deny_all
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.api.auth.backend.kerberos\_auth module
+----------------------------------------------
+
+.. automodule:: airflow.api.auth.backend.kerberos_auth
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: airflow.api.auth.backend
+    :members:
+    :undoc-members:
+    :show-inheritance:

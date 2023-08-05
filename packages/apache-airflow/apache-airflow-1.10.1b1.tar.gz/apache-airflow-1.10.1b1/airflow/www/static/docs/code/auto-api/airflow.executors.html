@@ -1,0 +1,620 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>airflow.executors package &mdash; Airflow Documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Airflow Documentation" href="../../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Airflow
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howto/index.html">How-to Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ui.html">UI / Screenshots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../profiling.html">Data Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../scheduler.html">Scheduling &amp; Triggers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../security.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../timezone.html">Time zones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">Experimental Rest API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../integration.html">Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lineage.html">Lineage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../code.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Airflow</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>airflow.executors package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/code/auto-api/airflow.executors.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="airflow-executors-package">
+<h1>airflow.executors package<a class="headerlink" href="#airflow-executors-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-airflow.executors.base_executor">
+<span id="airflow-executors-base-executor-module"></span><h2>airflow.executors.base_executor module<a class="headerlink" href="#module-airflow.executors.base_executor" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.executors.base_executor.BaseExecutor">
+<em class="property">class </em><code class="descclassname">airflow.executors.base_executor.</code><code class="descname">BaseExecutor</code><span class="sig-paren">(</span><em>parallelism=32</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/executors/base_executor.html#BaseExecutor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.executors.base_executor.BaseExecutor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="airflow.utils.log.html#airflow.utils.log.logging_mixin.LoggingMixin" title="airflow.utils.log.logging_mixin.LoggingMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.utils.log.logging_mixin.LoggingMixin</span></code></a></p>
+<dl class="method">
+<dt id="airflow.executors.base_executor.BaseExecutor.change_state">
+<code class="descname">change_state</code><span class="sig-paren">(</span><em>key</em>, <em>state</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/executors/base_executor.html#BaseExecutor.change_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.executors.base_executor.BaseExecutor.change_state" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.executors.base_executor.BaseExecutor.end">
+<code class="descname">end</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/executors/base_executor.html#BaseExecutor.end"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.executors.base_executor.BaseExecutor.end" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is called when the caller is done submitting job and is
+wants to wait synchronously for the job submitted previously to be
+all done.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.executors.base_executor.BaseExecutor.execute_async">
+<code class="descname">execute_async</code><span class="sig-paren">(</span><em>key</em>, <em>command</em>, <em>queue=None</em>, <em>executor_config=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/executors/base_executor.html#BaseExecutor.execute_async"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.executors.base_executor.BaseExecutor.execute_async" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method will execute the command asynchronously.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.executors.base_executor.BaseExecutor.fail">
+<code class="descname">fail</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/executors/base_executor.html#BaseExecutor.fail"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.executors.base_executor.BaseExecutor.fail" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.executors.base_executor.BaseExecutor.get_event_buffer">
+<code class="descname">get_event_buffer</code><span class="sig-paren">(</span><em>dag_ids=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/executors/base_executor.html#BaseExecutor.get_event_buffer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.executors.base_executor.BaseExecutor.get_event_buffer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns and flush the event buffer. In case dag_ids is specified
+it will only return and flush events for the given dag_ids. Otherwise
+it returns and flushes all</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dag_ids</strong> – to dag_ids to return events for, if None returns all</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a dict of events</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.executors.base_executor.BaseExecutor.has_task">
+<code class="descname">has_task</code><span class="sig-paren">(</span><em>task_instance</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/executors/base_executor.html#BaseExecutor.has_task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.executors.base_executor.BaseExecutor.has_task" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if a task is either queued or running in this executor</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>task_instance</strong> – TaskInstance</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if the task is known to this executor</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.executors.base_executor.BaseExecutor.heartbeat">
+<code class="descname">heartbeat</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/executors/base_executor.html#BaseExecutor.heartbeat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.executors.base_executor.BaseExecutor.heartbeat" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.executors.base_executor.BaseExecutor.queue_command">
+<code class="descname">queue_command</code><span class="sig-paren">(</span><em>task_instance</em>, <em>command</em>, <em>priority=1</em>, <em>queue=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/executors/base_executor.html#BaseExecutor.queue_command"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.executors.base_executor.BaseExecutor.queue_command" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.executors.base_executor.BaseExecutor.queue_task_instance">
+<code class="descname">queue_task_instance</code><span class="sig-paren">(</span><em>task_instance</em>, <em>mark_success=False</em>, <em>pickle_id=None</em>, <em>ignore_all_deps=False</em>, <em>ignore_depends_on_past=False</em>, <em>ignore_task_deps=False</em>, <em>ignore_ti_state=False</em>, <em>pool=None</em>, <em>cfg_path=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/executors/base_executor.html#BaseExecutor.queue_task_instance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.executors.base_executor.BaseExecutor.queue_task_instance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.executors.base_executor.BaseExecutor.start">
+<code class="descname">start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/executors/base_executor.html#BaseExecutor.start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.executors.base_executor.BaseExecutor.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executors may need to get things started. For example LocalExecutor
+starts N workers.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.executors.base_executor.BaseExecutor.success">
+<code class="descname">success</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/executors/base_executor.html#BaseExecutor.success"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.executors.base_executor.BaseExecutor.success" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="airflow.executors.base_executor.BaseExecutor.sync">
+<code class="descname">sync</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/executors/base_executor.html#BaseExecutor.sync"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.executors.base_executor.BaseExecutor.sync" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sync will get called periodically by the heartbeat method.
+Executors should override this to perform gather statuses.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.executors.base_executor.BaseExecutor.terminate">
+<code class="descname">terminate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/executors/base_executor.html#BaseExecutor.terminate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.executors.base_executor.BaseExecutor.terminate" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is called when the daemon receives a SIGTERM</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.executors.celery_executor">
+<span id="airflow-executors-celery-executor-module"></span><h2>airflow.executors.celery_executor module<a class="headerlink" href="#module-airflow.executors.celery_executor" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.executors.celery_executor.CeleryExecutor">
+<em class="property">class </em><code class="descclassname">airflow.executors.celery_executor.</code><code class="descname">CeleryExecutor</code><span class="sig-paren">(</span><em>parallelism=32</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/executors/celery_executor.html#CeleryExecutor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.executors.celery_executor.CeleryExecutor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.executors.base_executor.BaseExecutor" title="airflow.executors.base_executor.BaseExecutor"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.executors.base_executor.BaseExecutor</span></code></a></p>
+<p>CeleryExecutor is recommended for production use of Airflow. It allows
+distributing the execution of task instances to multiple worker nodes.</p>
+<p>Celery is a simple, flexible and reliable distributed system to process
+vast amounts of messages, while providing operations with the tools
+required to maintain such a system.</p>
+<dl class="method">
+<dt id="airflow.executors.celery_executor.CeleryExecutor.end">
+<code class="descname">end</code><span class="sig-paren">(</span><em>synchronous=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/executors/celery_executor.html#CeleryExecutor.end"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.executors.celery_executor.CeleryExecutor.end" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is called when the caller is done submitting job and is
+wants to wait synchronously for the job submitted previously to be
+all done.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.executors.celery_executor.CeleryExecutor.execute_async">
+<code class="descname">execute_async</code><span class="sig-paren">(</span><em>key</em>, <em>command</em>, <em>queue='default'</em>, <em>executor_config=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/executors/celery_executor.html#CeleryExecutor.execute_async"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.executors.celery_executor.CeleryExecutor.execute_async" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method will execute the command asynchronously.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.executors.celery_executor.CeleryExecutor.start">
+<code class="descname">start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/executors/celery_executor.html#CeleryExecutor.start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.executors.celery_executor.CeleryExecutor.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executors may need to get things started. For example LocalExecutor
+starts N workers.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.executors.celery_executor.CeleryExecutor.sync">
+<code class="descname">sync</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/executors/celery_executor.html#CeleryExecutor.sync"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.executors.celery_executor.CeleryExecutor.sync" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sync will get called periodically by the heartbeat method.
+Executors should override this to perform gather statuses.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="data">
+<dt id="airflow.executors.celery_executor.PARALLELISM">
+<code class="descclassname">airflow.executors.celery_executor.</code><code class="descname">PARALLELISM</code><em class="property"> = '32'</em><a class="headerlink" href="#airflow.executors.celery_executor.PARALLELISM" title="Permalink to this definition">¶</a></dt>
+<dd><p>To start the celery worker, run the command:
+airflow worker</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.executors.dask_executor">
+<span id="airflow-executors-dask-executor-module"></span><h2>airflow.executors.dask_executor module<a class="headerlink" href="#module-airflow.executors.dask_executor" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.executors.dask_executor.DaskExecutor">
+<em class="property">class </em><code class="descclassname">airflow.executors.dask_executor.</code><code class="descname">DaskExecutor</code><span class="sig-paren">(</span><em>cluster_address=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/executors/dask_executor.html#DaskExecutor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.executors.dask_executor.DaskExecutor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.executors.base_executor.BaseExecutor" title="airflow.executors.base_executor.BaseExecutor"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.executors.base_executor.BaseExecutor</span></code></a></p>
+<p>DaskExecutor submits tasks to a Dask Distributed cluster.</p>
+<dl class="method">
+<dt id="airflow.executors.dask_executor.DaskExecutor.end">
+<code class="descname">end</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/executors/dask_executor.html#DaskExecutor.end"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.executors.dask_executor.DaskExecutor.end" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is called when the caller is done submitting job and is
+wants to wait synchronously for the job submitted previously to be
+all done.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.executors.dask_executor.DaskExecutor.execute_async">
+<code class="descname">execute_async</code><span class="sig-paren">(</span><em>key</em>, <em>command</em>, <em>queue=None</em>, <em>executor_config=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/executors/dask_executor.html#DaskExecutor.execute_async"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.executors.dask_executor.DaskExecutor.execute_async" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method will execute the command asynchronously.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.executors.dask_executor.DaskExecutor.start">
+<code class="descname">start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/executors/dask_executor.html#DaskExecutor.start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.executors.dask_executor.DaskExecutor.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executors may need to get things started. For example LocalExecutor
+starts N workers.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.executors.dask_executor.DaskExecutor.sync">
+<code class="descname">sync</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/executors/dask_executor.html#DaskExecutor.sync"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.executors.dask_executor.DaskExecutor.sync" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sync will get called periodically by the heartbeat method.
+Executors should override this to perform gather statuses.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.executors.dask_executor.DaskExecutor.terminate">
+<code class="descname">terminate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/executors/dask_executor.html#DaskExecutor.terminate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.executors.dask_executor.DaskExecutor.terminate" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is called when the daemon receives a SIGTERM</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.executors.local_executor">
+<span id="airflow-executors-local-executor-module"></span><h2>airflow.executors.local_executor module<a class="headerlink" href="#module-airflow.executors.local_executor" title="Permalink to this headline">¶</a></h2>
+<p>LocalExecutor runs tasks by spawning processes in a controlled fashion in different
+modes. Given that BaseExecutor has the option to receive a <cite>parallelism</cite> parameter to
+limit the number of process spawned, when this parameter is <cite>0</cite> the number of processes
+that LocalExecutor can spawn is unlimited.</p>
+<p>The following strategies are implemented:
+1. Unlimited Parallelism (self.parallelism == 0): In this strategy, LocalExecutor will
+spawn a process every time <cite>execute_async</cite> is called, that is, every task submitted to the
+LocalExecutor will be executed in its own process. Once the task is executed and the
+result stored in the <cite>result_queue</cite>, the process terminates. There is no need for a
+<cite>task_queue</cite> in this approach, since as soon as a task is received a new process will be
+allocated to the task. Processes used in this strategy are of class LocalWorker.</p>
+<p>2. Limited Parallelism (self.parallelism &gt; 0): In this strategy, the LocalExecutor spawns
+the number of processes equal to the value of <cite>self.parallelism</cite> at <cite>start</cite> time,
+using a <cite>task_queue</cite> to coordinate the ingestion of tasks and the work distribution among
+the workers, which will take a task as soon as they are ready. During the lifecycle of
+the LocalExecutor, the worker processes are running waiting for tasks, once the
+LocalExecutor receives the call to shutdown the executor a poison token is sent to the
+workers to terminate them. Processes used in this strategy are of class QueuedLocalWorker.</p>
+<p>Arguably, <cite>SequentialExecutor</cite> could be thought as a LocalExecutor with limited
+parallelism of just 1 worker, i.e. <cite>self.parallelism = 1</cite>.
+This option could lead to the unification of the executor implementations, running
+locally, into just one <cite>LocalExecutor</cite> with multiple modes.</p>
+<dl class="class">
+<dt id="airflow.executors.local_executor.LocalExecutor">
+<em class="property">class </em><code class="descclassname">airflow.executors.local_executor.</code><code class="descname">LocalExecutor</code><span class="sig-paren">(</span><em>parallelism=32</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/executors/local_executor.html#LocalExecutor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.executors.local_executor.LocalExecutor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.executors.base_executor.BaseExecutor" title="airflow.executors.base_executor.BaseExecutor"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.executors.base_executor.BaseExecutor</span></code></a></p>
+<p>LocalExecutor executes tasks locally in parallel. It uses the
+multiprocessing Python library and queues to parallelize the execution
+of tasks.</p>
+<dl class="method">
+<dt id="airflow.executors.local_executor.LocalExecutor.end">
+<code class="descname">end</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/executors/local_executor.html#LocalExecutor.end"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.executors.local_executor.LocalExecutor.end" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is called when the caller is done submitting job and is
+wants to wait synchronously for the job submitted previously to be
+all done.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.executors.local_executor.LocalExecutor.execute_async">
+<code class="descname">execute_async</code><span class="sig-paren">(</span><em>key</em>, <em>command</em>, <em>queue=None</em>, <em>executor_config=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/executors/local_executor.html#LocalExecutor.execute_async"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.executors.local_executor.LocalExecutor.execute_async" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method will execute the command asynchronously.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.executors.local_executor.LocalExecutor.start">
+<code class="descname">start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/executors/local_executor.html#LocalExecutor.start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.executors.local_executor.LocalExecutor.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executors may need to get things started. For example LocalExecutor
+starts N workers.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.executors.local_executor.LocalExecutor.sync">
+<code class="descname">sync</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/executors/local_executor.html#LocalExecutor.sync"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.executors.local_executor.LocalExecutor.sync" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sync will get called periodically by the heartbeat method.
+Executors should override this to perform gather statuses.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="airflow.executors.local_executor.LocalWorker">
+<em class="property">class </em><code class="descclassname">airflow.executors.local_executor.</code><code class="descname">LocalWorker</code><span class="sig-paren">(</span><em>result_queue</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/executors/local_executor.html#LocalWorker"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.executors.local_executor.LocalWorker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">multiprocessing.context.Process</span></code>, <a class="reference internal" href="airflow.utils.log.html#airflow.utils.log.logging_mixin.LoggingMixin" title="airflow.utils.log.logging_mixin.LoggingMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.utils.log.logging_mixin.LoggingMixin</span></code></a></p>
+<p>LocalWorker Process implementation to run airflow commands. Executes the given
+command and puts the result into a result queue when done, terminating execution.</p>
+<dl class="method">
+<dt id="airflow.executors.local_executor.LocalWorker.execute_work">
+<code class="descname">execute_work</code><span class="sig-paren">(</span><em>key</em>, <em>command</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/executors/local_executor.html#LocalWorker.execute_work"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.executors.local_executor.LocalWorker.execute_work" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executes command received and stores result state in queue.
+:param key: the key to identify the TI
+:type key: Tuple(dag_id, task_id, execution_date)
+:param command: the command to execute
+:type command: string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.executors.local_executor.LocalWorker.run">
+<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/executors/local_executor.html#LocalWorker.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.executors.local_executor.LocalWorker.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to be run in sub-process; can be overridden in sub-class</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="airflow.executors.local_executor.QueuedLocalWorker">
+<em class="property">class </em><code class="descclassname">airflow.executors.local_executor.</code><code class="descname">QueuedLocalWorker</code><span class="sig-paren">(</span><em>task_queue</em>, <em>result_queue</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/executors/local_executor.html#QueuedLocalWorker"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.executors.local_executor.QueuedLocalWorker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.executors.local_executor.LocalWorker" title="airflow.executors.local_executor.LocalWorker"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.executors.local_executor.LocalWorker</span></code></a></p>
+<p>LocalWorker implementation that is waiting for tasks from a queue and will
+continue executing commands as they become available in the queue. It will terminate
+execution once the poison token is found.</p>
+<dl class="method">
+<dt id="airflow.executors.local_executor.QueuedLocalWorker.run">
+<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/executors/local_executor.html#QueuedLocalWorker.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.executors.local_executor.QueuedLocalWorker.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to be run in sub-process; can be overridden in sub-class</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.executors.sequential_executor">
+<span id="airflow-executors-sequential-executor-module"></span><h2>airflow.executors.sequential_executor module<a class="headerlink" href="#module-airflow.executors.sequential_executor" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.executors.sequential_executor.SequentialExecutor">
+<em class="property">class </em><code class="descclassname">airflow.executors.sequential_executor.</code><code class="descname">SequentialExecutor</code><a class="reference internal" href="../../_modules/airflow/executors/sequential_executor.html#SequentialExecutor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.executors.sequential_executor.SequentialExecutor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#airflow.executors.base_executor.BaseExecutor" title="airflow.executors.base_executor.BaseExecutor"><code class="xref py py-class docutils literal notranslate"><span class="pre">airflow.executors.base_executor.BaseExecutor</span></code></a></p>
+<p>This executor will only run one task instance at a time, can be used
+for debugging. It is also the only executor that can be used with sqlite
+since sqlite doesn’t support multiple connections.</p>
+<p>Since we want airflow to work out of the box, it defaults to this
+SequentialExecutor alongside sqlite as you first install it.</p>
+<dl class="method">
+<dt id="airflow.executors.sequential_executor.SequentialExecutor.end">
+<code class="descname">end</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/executors/sequential_executor.html#SequentialExecutor.end"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.executors.sequential_executor.SequentialExecutor.end" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is called when the caller is done submitting job and is
+wants to wait synchronously for the job submitted previously to be
+all done.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.executors.sequential_executor.SequentialExecutor.execute_async">
+<code class="descname">execute_async</code><span class="sig-paren">(</span><em>key</em>, <em>command</em>, <em>queue=None</em>, <em>executor_config=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/executors/sequential_executor.html#SequentialExecutor.execute_async"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.executors.sequential_executor.SequentialExecutor.execute_async" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method will execute the command asynchronously.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="airflow.executors.sequential_executor.SequentialExecutor.sync">
+<code class="descname">sync</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/executors/sequential_executor.html#SequentialExecutor.sync"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.executors.sequential_executor.SequentialExecutor.sync" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sync will get called periodically by the heartbeat method.
+Executors should override this to perform gather statuses.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-airflow.executors">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-airflow.executors" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="airflow.executors.Executors">
+<em class="property">class </em><code class="descclassname">airflow.executors.</code><code class="descname">Executors</code><a class="reference internal" href="../../_modules/airflow/executors.html#Executors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.executors.Executors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="airflow.executors.Executors.CeleryExecutor">
+<code class="descname">CeleryExecutor</code><em class="property"> = 'CeleryExecutor'</em><a class="headerlink" href="#airflow.executors.Executors.CeleryExecutor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.executors.Executors.DaskExecutor">
+<code class="descname">DaskExecutor</code><em class="property"> = 'DaskExecutor'</em><a class="headerlink" href="#airflow.executors.Executors.DaskExecutor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.executors.Executors.KubernetesExecutor">
+<code class="descname">KubernetesExecutor</code><em class="property"> = 'KubernetesExecutor'</em><a class="headerlink" href="#airflow.executors.Executors.KubernetesExecutor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.executors.Executors.LocalExecutor">
+<code class="descname">LocalExecutor</code><em class="property"> = 'LocalExecutor'</em><a class="headerlink" href="#airflow.executors.Executors.LocalExecutor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.executors.Executors.MesosExecutor">
+<code class="descname">MesosExecutor</code><em class="property"> = 'MesosExecutor'</em><a class="headerlink" href="#airflow.executors.Executors.MesosExecutor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="airflow.executors.Executors.SequentialExecutor">
+<code class="descname">SequentialExecutor</code><em class="property"> = 'SequentialExecutor'</em><a class="headerlink" href="#airflow.executors.Executors.SequentialExecutor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="airflow.executors.GetDefaultExecutor">
+<code class="descclassname">airflow.executors.</code><code class="descname">GetDefaultExecutor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airflow/executors.html#GetDefaultExecutor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#airflow.executors.GetDefaultExecutor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new instance of the configured executor if none exists and returns it</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

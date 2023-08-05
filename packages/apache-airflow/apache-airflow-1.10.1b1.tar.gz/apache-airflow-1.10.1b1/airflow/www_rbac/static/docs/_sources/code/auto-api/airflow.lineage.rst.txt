@@ -1,0 +1,29 @@
+airflow.lineage package
+=======================
+
+Subpackages
+-----------
+
+.. toctree::
+
+    airflow.lineage.backend
+
+Submodules
+----------
+
+airflow.lineage.datasets module
+-------------------------------
+
+.. automodule:: airflow.lineage.datasets
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: airflow.lineage
+    :members:
+    :undoc-members:
+    :show-inheritance:

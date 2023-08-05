@@ -1,0 +1,93 @@
+airflow.www\_rbac package
+=========================
+
+Subpackages
+-----------
+
+.. toctree::
+
+    airflow.www_rbac.api
+
+Submodules
+----------
+
+airflow.www\_rbac.app module
+----------------------------
+
+.. automodule:: airflow.www_rbac.app
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.www\_rbac.blueprints module
+-----------------------------------
+
+.. automodule:: airflow.www_rbac.blueprints
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.www\_rbac.decorators module
+-----------------------------------
+
+.. automodule:: airflow.www_rbac.decorators
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.www\_rbac.forms module
+------------------------------
+
+.. automodule:: airflow.www_rbac.forms
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.www\_rbac.security module
+---------------------------------
+
+.. automodule:: airflow.www_rbac.security
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.www\_rbac.utils module
+------------------------------
+
+.. automodule:: airflow.www_rbac.utils
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.www\_rbac.validators module
+-----------------------------------
+
+.. automodule:: airflow.www_rbac.validators
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.www\_rbac.views module
+------------------------------
+
+.. automodule:: airflow.www_rbac.views
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+airflow.www\_rbac.widgets module
+--------------------------------
+
+.. automodule:: airflow.www_rbac.widgets
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: airflow.www_rbac
+    :members:
+    :undoc-members:
+    :show-inheritance:
