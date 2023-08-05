@@ -1,0 +1,13 @@
+Metadata-Version: 1.2
+Name: PyCausality
+Version: 1.1.0
+Summary:  Replaced Linear_TE() F-test with Geweke measure for Granger Causality,                     which was shown by Barnett et al. to be equivalent to Transfer Entropy                     under Gaussian assumptions
+Home-page: https://github.com/ZacKeskin/PyCausality
+Author: Zac Keskin
+Author-email: Zac.Keskin.17@ucl.ac.uk
+Maintainer: Zac Keskin
+Maintainer-email: zackeskin@outlook.com
+License: GNU GPLv3
+Description: Python package for detection and quantification                     of statistical causality between time series, using information                     theoretic models. See https://github.com/ZacKeskin/PyCausality for details
+Platform: UNKNOWN
+Requires-Python: >3.5.2
