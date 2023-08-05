@@ -1,0 +1,50 @@
+Metadata-Version: 2.1
+Name: only
+Version: 1.0.3
+Summary: @only.<OS> decorator. raise OSError if not supported OS
+Home-page: https://github.com/looking-for-a-job/only.py
+License: UNKNOWN
+Description: [![](https://img.shields.io/badge/OS-Linux,%20MacOS,%20Unix,%20Windows-blue.svg?longCache=True)]()
+        [![](https://img.shields.io/pypi/pyversions/only.svg?longCache=True)](https://pypi.org/pypi/only/)
+        
+        ### Install
+        ```bash
+        $ [sudo] pip install only
+        ```
+        
+        ### Examples
+        ```python
+        >>> @only.linux
+        >>> @only.osx
+        >>> @only.unix
+        >>> @only.windows
+        ```
+        
+        ```python
+        >>> import only
+        
+        >>> @only.osx
+        >>> def osascript(): pass
+        
+        >>> osascript() # raise OSError if not OS X
+        ```
+Keywords: only decorator
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Software Development :: Quality Assurance
+Classifier: Topic :: Software Development :: Testing
+Classifier: Topic :: System :: Operating System
+Description-Content-Type: text/markdown
