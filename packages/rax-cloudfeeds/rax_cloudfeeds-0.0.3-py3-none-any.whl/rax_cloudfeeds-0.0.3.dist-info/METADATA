@@ -1,0 +1,95 @@
+Metadata-Version: 2.1
+Name: rax-cloudfeeds
+Version: 0.0.3
+Summary: Client for Cloud Feeds
+Home-page: https://github.rackspace.com/andrew-dorrycott/cloudfeeds_client.git
+Author: Customer And Racker Experience Team
+Author-email: CARE-CORERackers@rackspace.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+# cloudfeeds_client
+This python client is a Cloud Feeds library, that is built to be used with Rackspace's Cloud
+
+
+**Creating Auth Client**
+
+Implement AuthClient with following two methods
+
+```
+class AuthClient:
+
+    def fetch_auth_token(self):
+        #Logic to generate auth token
+        return ""
+
+
+    def get_auth_header(self):
+        return {
+            "${HEADER_NAME}": self.fetch_auth_token()
+        }
+
+```
+
+
+**Creating Feed Client**
+
+
+```
+
+feed_url = "https://feed.com/type/events"
+auth_client = AuthClient()
+feed_client = FeedClient(feed_url, auth_client)
+
+```
+
+
+
+** Reading Events **
+
+To read events,
+
+```
+  feed_client.fetch(url, headers, params)
+```
+
+All fields url, headers and params are optional.
+
+
+
+** Get an Event **
+
+To read one particular event,
+
+```
+  feed_client.fetch_event(event_id, url, headers)
+```
+
+url and headers are optional
+
+
+
+** Publish an Event **
+
+To publish an event,
+
+```
+  feed_client.create_entry(entry, url, headers)
+```
+
+
+url and headers are optional
+
+
+ To create an entry json to publish, there are entry, content, event classes defined and
+ also method to transform the object to json as feed requires
+
+
+** Work In Progress **
+
+We are currently working on setting up Redis, so that we can queue the events and publish the events by reading the queue
+
+
