@@ -1,0 +1,21 @@
+globus-sdk<2,>=1.6.1
+
+[development]
+tox<4.0,>=3.5.3
+flake8<4.0,>=3.0
+isort<5.0,>=4.3
+pytest<4.0,>=3.7.4
+pytest-cov<3.0,>=2.5.1
+pytest-xdist<2.0,>=1.22.5
+twine==1.12.1
+wheel==0.32.2
+sphinx==1.8.1
+
+[development:python_version < "3.6"]
+mock==2.0.0
+
+[development:python_version >= "3.5"]
+flake8-bugbear==18.8.0
+
+[development:python_version >= "3.6"]
+black==18.9b0

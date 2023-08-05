@@ -1,0 +1,12 @@
+README.rst
+setup.cfg
+setup.py
+globus_sdk_tokenstorage/__init__.py
+globus_sdk_tokenstorage/abstract_base.py
+globus_sdk_tokenstorage/file_adapters.py
+globus_sdk_tokenstorage/version.py
+globus_sdk_tokenstorage.egg-info/PKG-INFO
+globus_sdk_tokenstorage.egg-info/SOURCES.txt
+globus_sdk_tokenstorage.egg-info/dependency_links.txt
+globus_sdk_tokenstorage.egg-info/requires.txt
+globus_sdk_tokenstorage.egg-info/top_level.txt
