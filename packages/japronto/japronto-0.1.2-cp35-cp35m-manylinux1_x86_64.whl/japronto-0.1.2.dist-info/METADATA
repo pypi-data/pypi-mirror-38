@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: japronto
+Version: 0.1.2
+Summary: A HTTP application toolkit and server bundle based on uvloop and picohttpparser
+Home-page: http://github.com/squeaky-pl/japronto/
+Author: Paweł Piotr Przeradowski
+Author-email: przeradowski@gmail.com
+License: MIT
+Keywords: web,asyncio
+Platform: x86_64 Linux and MacOS X
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Environment :: Web Environment
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: C
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Internet :: WWW/HTTP
+Requires-Dist: uvloop (>=0.11.3)
+
+UNKNOWN
+
+
