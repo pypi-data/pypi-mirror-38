@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+data/published.json
+nucleic/__init__.py
+nucleic/extra.py
+nucleic/figures.py
+nucleic/signatures.py
+nucleic/util.py
+nucleic.egg-info/PKG-INFO
+nucleic.egg-info/SOURCES.txt
+nucleic.egg-info/dependency_links.txt
+nucleic.egg-info/not-zip-safe
+nucleic.egg-info/requires.txt
+nucleic.egg-info/top_level.txt
