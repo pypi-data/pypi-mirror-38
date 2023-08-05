@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: SSIM-PIL
+Version: 1.0.2
+Summary: Structural similarity
+Home-page: https://github.com/ChsHub/SSIM-PIL
+Author: ChsHub
+Author-email: christian1193@web.com
+License: MIT License
+Description: # SSIM-PIL
+        Structural similarity algorithm with compatibility to PIL.
+        
+        ## Installation
+        `python3 -m pip install SSIM-PIL`
+        
+        ## Usage Example
+        
+        ```python
+        
+        from SSIM_PIL import compare_ssim
+        from PIL import Image
+        
+        image1 = Image.open(path)
+        image2 = Image.open(path)
+        value = compare_ssim(image1, image2)
+        print(value)
+        
+        ```
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
