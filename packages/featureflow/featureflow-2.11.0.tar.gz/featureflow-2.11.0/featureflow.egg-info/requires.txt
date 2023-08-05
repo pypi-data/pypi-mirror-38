@@ -1,0 +1,10 @@
+dill
+nose
+unittest2
+certifi==2017.7.27.1
+requests
+lmdb
+redis
+
+[numpy]
+numpy==1.15.3
