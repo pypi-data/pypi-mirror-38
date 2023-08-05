@@ -1,0 +1,11 @@
+include .coveragerc
+include .flake8
+include .gitignore
+include CHANGES.txt
+include LICENSE.txt
+include README.rst
+include example.ini
+include pyproject.toml
+include tox.ini
+include tests/*.ini
+include tests/*.py

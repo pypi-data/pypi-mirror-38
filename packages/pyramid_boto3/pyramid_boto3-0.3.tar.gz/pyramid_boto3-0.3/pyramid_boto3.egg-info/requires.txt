@@ -1,0 +1,9 @@
+boto3
+botocore
+pyramid
+
+[:python_version<"3.4"]
+pyramid_services<2.0
+
+[:python_version>="3.4"]
+pyramid_services
