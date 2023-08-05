@@ -1,0 +1,1 @@
+{"": "", "Bookmark this": "Tandai posting ini", "Notepad": "Buku catatan", "Save As...": "Simpan Sebagai...", "Tab": "Tab", "New": "Baru", "Bookmarks": "Tandai", "Save": "Simpan", "Open": "Buka"}

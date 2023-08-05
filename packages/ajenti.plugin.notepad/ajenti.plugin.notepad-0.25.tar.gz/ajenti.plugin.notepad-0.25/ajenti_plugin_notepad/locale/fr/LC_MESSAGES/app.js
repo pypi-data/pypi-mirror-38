@@ -1,0 +1,1 @@
+{"": "", "Bookmark this": "Ajouter ceci aux favoris", "Notepad": "Bloc-notes", "Save As...": "Enregistrer sous...", "Tab": "Onglet", "New": "Nouveau", "Bookmarks": "Favoris", "Save": "Sauvegarder", "Open": "Ouvrir"}

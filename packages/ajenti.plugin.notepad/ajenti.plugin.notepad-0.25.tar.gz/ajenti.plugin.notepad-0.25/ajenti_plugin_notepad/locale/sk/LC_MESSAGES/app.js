@@ -1,0 +1,1 @@
+{"": "", "Bookmark this": "Prida\u0165 do z\u00e1lo\u017eiek", "Notepad": "", "Save As...": "", "Tab": "", "New": "", "Bookmarks": "Z\u00e1lo\u017eky", "Save": "", "Open": ""}

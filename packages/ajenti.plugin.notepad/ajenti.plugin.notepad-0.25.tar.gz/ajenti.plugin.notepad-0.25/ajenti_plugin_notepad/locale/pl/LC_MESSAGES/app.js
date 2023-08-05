@@ -1,0 +1,1 @@
+{"": "", "Bookmark this": "Dodaj do zak\u0142adek", "Notepad": "", "Save As...": "Zapisz jako...", "Tab": "Karta", "New": "Nowy", "Bookmarks": "Zak\u0142adki", "Save": "", "Open": ""}
