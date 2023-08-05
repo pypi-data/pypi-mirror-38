@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!-- This file is part of Adiczion's Tryton Module.
+The COPYRIGHT and LICENSE files at the top level of this repository contains
+the full copyright notices and license terms. -->
+<data>
+    <xpath expr="/form/field[@name='sale_shipment_method']" position="after">
+        <label name="sale_tandc" />
+        <field name="sale_tandc" />
+    </xpath>
+</data>

@@ -1,0 +1,124 @@
+#
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "field:party.party,sale_tandc:"
+msgid "Terms & Conditions of sale"
+msgstr "Conditions générales de vente"
+
+msgctxt "field:party.party,sale_tandcs:"
+msgid "Terms & Conditions of sale"
+msgstr "Conditions générales de vente"
+
+#, fuzzy
+msgctxt "field:party.party.sale_tandc,company:"
+msgid "Company"
+msgstr "Société"
+
+#, fuzzy
+msgctxt "field:party.party.sale_tandc,create_date:"
+msgid "Create Date"
+msgstr "Date de création"
+
+#, fuzzy
+msgctxt "field:party.party.sale_tandc,create_uid:"
+msgid "Create User"
+msgstr "Créé par"
+
+#, fuzzy
+msgctxt "field:party.party.sale_tandc,id:"
+msgid "ID"
+msgstr "ID"
+
+#, fuzzy
+msgctxt "field:party.party.sale_tandc,party:"
+msgid "Party"
+msgstr "Tiers"
+
+#, fuzzy
+msgctxt "field:party.party.sale_tandc,rec_name:"
+msgid "Record Name"
+msgstr "Nom de l'enregistrement"
+
+msgctxt "field:party.party.sale_tandc,sale_tandc:"
+msgid "Terms & Conditions of sale"
+msgstr "Conditions générales de vente"
+
+#, fuzzy
+msgctxt "field:party.party.sale_tandc,write_date:"
+msgid "Write Date"
+msgstr "Date de modification"
+
+#, fuzzy
+msgctxt "field:party.party.sale_tandc,write_uid:"
+msgid "Write User"
+msgstr "Modifié par"
+
+msgctxt "field:sale.configuration,sale_tandc:"
+msgid "Terms & Conditions of sale"
+msgstr "Conditions générales de vente"
+
+#, fuzzy
+msgctxt "field:sale.configuration.sale_tandc,company:"
+msgid "Company"
+msgstr "Société"
+
+#, fuzzy
+msgctxt "field:sale.configuration.sale_tandc,create_date:"
+msgid "Create Date"
+msgstr "Date de création"
+
+#, fuzzy
+msgctxt "field:sale.configuration.sale_tandc,create_uid:"
+msgid "Create User"
+msgstr "Créé par"
+
+#, fuzzy
+msgctxt "field:sale.configuration.sale_tandc,id:"
+msgid "ID"
+msgstr "ID"
+
+#, fuzzy
+msgctxt "field:sale.configuration.sale_tandc,rec_name:"
+msgid "Record Name"
+msgstr "Nom de l'enregistrement"
+
+msgctxt "field:sale.configuration.sale_tandc,sale_tandc:"
+msgid "Terms & Conditions"
+msgstr "Conditions générales"
+
+#, fuzzy
+msgctxt "field:sale.configuration.sale_tandc,write_date:"
+msgid "Write Date"
+msgstr "Date de modification"
+
+#, fuzzy
+msgctxt "field:sale.configuration.sale_tandc,write_uid:"
+msgid "Write User"
+msgstr "Modifié par"
+
+msgctxt "field:sale.sale,tandc:"
+msgid "Terms & Conditions of sale"
+msgstr "Condition générale"
+
+msgctxt "help:party.party,sale_tandc:"
+msgid "The default Terms & Conditions of new sale."
+msgstr "Conditions générales de vente par défaut pour les nouvelles ventes"
+
+msgctxt "help:sale.configuration,sale_tandc:"
+msgid "The default Terms & Conditions of new sale."
+msgstr "Conditions générales de vente par défaut pour les nouvelles ventes"
+
+#, fuzzy
+msgctxt "help:sale.sale,tandc:"
+msgid "Terms & Conditions associated to this sale."
+msgstr "Conditions générales de vente pour cette commande"
+
+msgctxt "model:party.party.sale_tandc,name:"
+msgid "Party Sale Terms & Conditions"
+msgstr "Conditions générales de vente du tiers"
+
+#, fuzzy
+msgctxt "model:sale.configuration.sale_tandc,name:"
+msgid "Sale Configuration Sale Terms & Conditions"
+msgstr "Configuration de vente conditions générales de vente"

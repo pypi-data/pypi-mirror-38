@@ -1,0 +1,31 @@
+Metadata-Version: 1.2
+Name: a4t-sale-terms-and-conditions
+Version: 5.0.1
+Summary: UNKNOWN
+Home-page: http://adiczion.com/
+Author: Adiczion (Christophe CRIER)
+Author-email: support@adiczion.net
+License: GPL-3
+Download-URL: https://gitlab.com/ate_modules/a4t-sale_terms_and_conditions
+Description: UNKNOWN
+Keywords: tryton sale Terms & Conditions
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Plugins
+Classifier: Framework :: Tryton
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Financial and Insurance Industry
+Classifier: Intended Audience :: Legal Industry
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Natural Language :: English
+Classifier: Natural Language :: French
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Office/Business
+Classifier: Topic :: Office/Business :: Financial :: Accounting
+Requires-Python: >=3.4

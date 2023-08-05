@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!-- This file is part of Adiczion's Tryton Module.
+The COPYRIGHT and LICENSE files at the top level of this repository contains
+the full copyright notices and license terms. -->
+<tryton>
+    <data>
+        <record model="ir.model.access"
+                id="access_terms_and_conditions_sale_admin">
+            <field name="model"
+                search="[('model', '=', 'terms_and_conditions')]"/>
+            <field name="group" ref="sale.group_sale_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+        <record model="ir.model.access"
+                id="access_terms_and_conditions_line_sale_admin">
+            <field name="model"
+                search="[('model', '=', 'terms_and_conditions.line')]"/>
+            <field name="group" ref="sale.group_sale_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+        <record model="ir.model.access"
+                id="access_terms_and_conditions_article_sale_admin">
+            <field name="model"
+                search="[('model', '=', 'terms_and_conditions.article')]"/>
+            <field name="group" ref="sale.group_sale_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+    </data>
+</tryton>
