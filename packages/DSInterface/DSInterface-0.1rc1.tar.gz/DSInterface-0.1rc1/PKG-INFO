@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: DSInterface
+Version: 0.1rc1
+Summary: A tiny python port of WPILib's driverstation class
+Home-page: https://github.com/frc5024/DSInterface
+Author: Evan Pratten
+Author-email: ewpratten@gmail.com
+License: MIT
+Description: # DSInterface
+        A tiny python port of WPILib's driverstation class
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 5 - Production/Stable
+Description-Content-Type: text/markdown
