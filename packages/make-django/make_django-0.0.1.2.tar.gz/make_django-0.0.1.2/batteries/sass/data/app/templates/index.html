@@ -1,0 +1,10 @@
+{% extends "%DM_PROJECT_NAME%/base.html" %}
+{% load static %}
+{% load sass_tags %}
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% sass_src '%DM_PROJECT_NAME%/css/index.sass' %}" />
+{% endblock %}
+
+{% block content %}
+    <div class="demo">Index page. SASS installed.</div>
+{% endblock %}
