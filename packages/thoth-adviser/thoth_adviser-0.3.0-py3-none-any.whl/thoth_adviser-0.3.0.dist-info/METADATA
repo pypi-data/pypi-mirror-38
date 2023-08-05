@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: thoth-adviser
+Version: 0.3.0
+Summary: Package and package stack adviser for the Thoth project
+Home-page: UNKNOWN
+Author: Fridolin Pokorny
+Author-email: fridolin@redhat.com
+License: GPLv3+
+Description-Content-Type: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: click (<6.7)
+Requires-Dist: thoth-analyzer
+Requires-Dist: thoth-common
+Requires-Dist: thoth-storages
+
+Package and package stack adviser for the Thoth project
+
+
