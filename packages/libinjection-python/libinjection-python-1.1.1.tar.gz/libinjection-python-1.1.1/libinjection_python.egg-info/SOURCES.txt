@@ -1,0 +1,11 @@
+README.md
+setup.py
+libinjection/libinjection.pyx
+libinjection/src/libinjection_html5.c
+libinjection/src/libinjection_sqli.c
+libinjection/src/libinjection_xss.c
+libinjection_python.egg-info/PKG-INFO
+libinjection_python.egg-info/SOURCES.txt
+libinjection_python.egg-info/dependency_links.txt
+libinjection_python.egg-info/requires.txt
+libinjection_python.egg-info/top_level.txt
