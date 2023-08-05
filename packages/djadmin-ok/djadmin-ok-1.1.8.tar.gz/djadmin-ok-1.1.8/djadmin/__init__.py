@@ -1,0 +1,6 @@
+default_app_config = 'djadmin.apps.ActivityAppConfig'
+__name__ = 'djadmin'
+__author__ = 'Pablo Henrique'
+__version__ = '1.1.8'
+__author_email__ = 'sainineeraj1234@gmail.com'
+__description__ = 'Djadmin is a django admin theme compatible with django 2.1'
