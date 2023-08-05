@@ -1,0 +1,13 @@
+Metadata-Version: 2.0
+Name: Mini-Exchange
+Version: 0.0.6
+Summary: Time based strategy back testing system
+Home-page: UNKNOWN
+Author: Yili Peng
+Author-email: yili_peng@outlook.com
+License: UNKNOWN
+Requires-Dist: plotly
+
+This project is to simulate an exchange in order to bakc test quant
+
+
