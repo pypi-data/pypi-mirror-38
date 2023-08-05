@@ -1,0 +1,3 @@
+[console_scripts]
+reaper = tf_reaper.reaper:main
+
