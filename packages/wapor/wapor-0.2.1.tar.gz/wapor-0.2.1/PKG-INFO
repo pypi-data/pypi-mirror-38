@@ -1,0 +1,83 @@
+Metadata-Version: 1.1
+Name: wapor
+Version: 0.2.1
+Summary: Wapor algorithms
+Home-page: https://github.com/francbartoli/wapor
+Author: Francesco Bartoli
+Author-email: francesco.bartoli@geobeyond.it
+License: GPLv3 license
+Description: =========
+        wapor
+        =========
+        
+        
+        .. image:: https://img.shields.io/pypi/v/wapor.svg
+           :target: https://pypi.python.org/pypi/wapor
+        
+        .. image:: https://img.shields.io/travis/francbartoli/wapor.svg
+           :target: https://travis-ci.org/francbartoli/wapor
+        
+        .. image:: https://readthedocs.org/projects/gee-pheno/badge/?version=latest
+           :target: https://gee-pheno.readthedocs.io/en/latest/?badge=latest
+           :alt: Documentation Status
+        
+        
+        .. image:: https://pyup.io/repos/github/francbartoli/wapor/shield.svg
+           :target: https://pyup.io/repos/github/francbartoli/wapor/
+           :alt: Updates
+        
+        
+        
+        WAPOR
+        
+        
+        * Free software: GPLv3 license
+        * Documentation: https://wapor.readthedocs.io.
+        
+        
+        Features
+        --------
+        
+        * Calculate the following products:
+            * AETI
+            * AGBP
+            * GBWP
+            * NBWP
+        
+        Install
+        -------
+        Using pip tool::
+        
+            pip install wapor --process-dependency-links
+        
+        
+        Credits
+        -------
+        
+        This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+        
+        .. _Cookiecutter: https://github.com/audreyr/cookiecutter
+        .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+        
+        
+        =======
+        History
+        =======
+        
+        0.2.0 (2018-11-07)
+        ------------------
+        
+        * First release on PyPI.
+        
+Keywords: wapor
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
