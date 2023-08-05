@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: fuzzycsv
+Version: 0.0.1
+Summary: Fuzzy matching for CSVs
+Home-page: https://github.com/hmnd/fuzzycsv
+Author: David Roizenman
+Author-email: david@hmnd.io
+License: UNKNOWN
+Description: # fuzzycsv
+        
+        >Fuzzy matching for CSVs
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.7
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 1 - Planning
+Classifier: Topic :: Utilities
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Intended Audience :: Science/Research
+Description-Content-Type: text/markdown
