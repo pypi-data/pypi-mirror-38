@@ -1,0 +1,11 @@
+cachetools
+
+[dev]
+black
+flake8-bugbear
+flake8-mypy
+
+[test]
+coveralls
+flake8
+tox-venv

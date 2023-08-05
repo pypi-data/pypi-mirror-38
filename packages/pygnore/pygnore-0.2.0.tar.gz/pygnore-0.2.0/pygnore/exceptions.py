@@ -1,0 +1,2 @@
+class UnsupportedTemplateError(Exception):
+    pass
