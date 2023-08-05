@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: sav
+Version: 1.0
+Summary: Namespace for my individual projects (e.g. ``sav.channels``).
+Home-page: UNKNOWN
+Author: Sander Voerman
+Author-email: sander@savoerman.nl
+License: UNKNOWN
+Description: Namespace for my individual projects (e.g. ``sav.channels``).
+        
+Platform: UNKNOWN
+Classifier: Topic :: Documentation
+Requires-Python: >=3.7
+Description-Content-Type: text/x-rst
