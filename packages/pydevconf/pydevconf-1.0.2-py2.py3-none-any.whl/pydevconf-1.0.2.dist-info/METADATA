@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: pydevconf
+Version: 1.0.2
+Summary: Library to get information identical to python-config
+Home-page: https://github.com/ktnyt/PythonConfig
+Author: Kotone Itaya
+Author-email: kotone@sfc.keio.ac.jp
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown
+
+
+# PythonConfig
+Library to get information identical to python-config
+
+## Available methods
+1. `prefix`
+2. `exec_prefix`
+3. `includes`
+4. `cflags`
+5. `libs`
+6. `ldflags`
+7. `extension_suffix`
+8. `abiflags`
+9. `configdir`
+
+## License
+MIT (C) Kotone Itaya
+
+
