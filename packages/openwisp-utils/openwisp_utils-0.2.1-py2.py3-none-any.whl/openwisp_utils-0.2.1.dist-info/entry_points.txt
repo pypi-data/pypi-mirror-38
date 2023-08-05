@@ -1,0 +1,3 @@
+[console_scripts]
+checkmigrations = openwisp_utils.ci:initialize
+
