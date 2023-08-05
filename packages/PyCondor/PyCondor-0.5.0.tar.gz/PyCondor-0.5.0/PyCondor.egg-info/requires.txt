@@ -1,0 +1,11 @@
+click
+
+[dev]
+sphinx
+numpydoc
+sphinx_rtd_theme
+sphinx-click
+pytest
+pytest-cov
+flake8
+twine

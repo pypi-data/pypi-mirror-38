@@ -1,0 +1,11 @@
+# Documentation
+sphinx
+numpydoc
+sphinx_rtd_theme
+sphinx-click
+# Testing
+pytest
+pytest-cov
+flake8
+# Release
+twine
