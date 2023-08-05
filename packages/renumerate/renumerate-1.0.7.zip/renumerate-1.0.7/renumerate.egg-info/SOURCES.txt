@@ -1,0 +1,16 @@
+CHANGES.rst
+LICENSE
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+tox.ini
+renumerate/__about__.py
+renumerate/__init__.py
+renumerate/_renumerate.py
+renumerate.egg-info/PKG-INFO
+renumerate.egg-info/SOURCES.txt
+renumerate.egg-info/dependency_links.txt
+renumerate.egg-info/requires.txt
+renumerate.egg-info/top_level.txt
+renumerate.egg-info/zip-safe
