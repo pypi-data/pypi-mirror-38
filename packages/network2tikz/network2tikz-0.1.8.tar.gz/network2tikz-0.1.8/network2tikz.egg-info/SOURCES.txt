@@ -1,0 +1,16 @@
+README.md
+setup.cfg
+setup.py
+network2tikz/__about__.py
+network2tikz/__init__.py
+network2tikz/canvas.py
+network2tikz/drawing.py
+network2tikz/exceptions.py
+network2tikz/layout.py
+network2tikz/plot.py
+network2tikz/units.py
+network2tikz.egg-info/PKG-INFO
+network2tikz.egg-info/SOURCES.txt
+network2tikz.egg-info/dependency_links.txt
+network2tikz.egg-info/requires.txt
+network2tikz.egg-info/top_level.txt
