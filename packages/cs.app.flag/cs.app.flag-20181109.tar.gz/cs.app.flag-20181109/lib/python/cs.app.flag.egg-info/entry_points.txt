@@ -1,0 +1,3 @@
+[console_scripts]
+flagset = cs.app.flag:main_flagset
+

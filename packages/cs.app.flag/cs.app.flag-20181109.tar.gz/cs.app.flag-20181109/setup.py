@@ -1,0 +1,18 @@
+#!/usr/bin/env python
+from setuptools import setup
+setup(
+  name = 'cs.app.flag',
+  description = 'Persistent filesystem based flags for state and control.',
+  author = 'Cameron Simpson',
+  author_email = 'cs@cskk.id.au',
+  version = '20181109',
+  url = 'https://bitbucket.org/cameron_simpson/css/commits/all',
+  classifiers = ['Programming Language :: Python', 'Programming Language :: Python :: 2', 'Programming Language :: Python :: 3', 'Development Status :: 4 - Beta', 'Intended Audience :: Developers', 'Operating System :: OS Independent', 'Topic :: Software Development :: Libraries :: Python Modules', 'License :: OSI Approved :: GNU General Public License v3 (GPLv3)'],
+  entry_points = {'console_scripts': ['flagset = cs.app.flag:main_flagset']},
+  install_requires = ['cs.env', 'cs.lex', 'cs.pfx'],
+  keywords = ['python2', 'python3'],
+  long_description = 'Persistent filesystem based flags for state and control.\n\nFilesystem visible boolean flags\nfor control and status,\nallowing easy monitoring of services or other status,\nand control by flag management\nfor programmes which also monitor the flags.\n\nThe flags are expressed as individual files with uppercase names\nin a common directory ($HOME/var/flags by default);\nan empty or missing file is "false"\nand a nonempty file is "true".\n\nThe Flags class provides easy Pythonic access to this directory.\nIt presents as a modifiable mapping whose keys are the flag names:\n\n      flags = Flags()\n      flags[\'UNTOPPOST\'] = True\n\nThere is also a FlaggedMixin class providing convenient methods and attributes\nfor maintaining a collection of flags associated with some object\nwith flag names prefixed by the object\'s .name attribute\nuppercased and with an underscore appended:\n\n      class SvcD(...,FlaggedMixin):\n        def __init__(self, name, ...)\n          self.name = name\n          FlaggedMixin.__init__(self)\n          ...\n        def disable(self):\n          self.flag_disable = True\n        def restart(self):\n          self.flag_restart = True\n        def _restart(self):\n          self.flag_restart = False\n          ... restart the SvcD ...\n\nso that an object set up as:\n\n      svcd = SvcD("portfwd")\n      print(svcd.flag_disable)\n\naccesses the flag named "PORTFWD_DISABLE".\n\n## Class `FlaggedMixin`\n\nA mixin class adding flag_* and flagname_* attributes.\n\n## Class `Flags`\n\nMRO: `collections.abc.MutableMapping`, `collections.abc.Mapping`, `collections.abc.Collection`, `collections.abc.Sized`, `collections.abc.Iterable`, `collections.abc.Container`, `FlaggedMixin`  \nA mapping which directly inspects the flags directory.\n\n## Function `lowername(s)`\n\nLowercase letters, transmute \'_\' to \'-\'. Note: NOT the reverse of uppername.\n\n## Function `main(argv=None)`\n\nMain program: inspect or modify flags.\n\n## Function `main_flagset(argv=None, stdin=None)`\n\nMain program for "flagset" command.\n\n## Class `PolledFlags`\n\nMRO: `builtins.dict`  \nA mapping which maintains a dict of the current state of the flags directory\nand updates it regularly.\n\nThis allows an application to consult the flags very frequently\nwithout hammering the filesystem.\n\n## Function `truthy(value)`\n\nDecide whether a value is considered true.\n\nStrings are converted to:\n* `\'0\'`: False\n* `\'1\'`: True\n* `\'true\'`: True (case insensitive)\n* `\'false\'`: False (case insensitive)\n* Other values are unchanged.\n\nOther types are converted with bool().\n\n## Function `uppername(s)`\n\nUppercase letters, transmute some characters to \'_\' or \'__\'.',
+  long_description_content_type = 'text/markdown',
+  package_dir = {'': 'lib/python'},
+  py_modules = ['cs.app.flag'],
+)
