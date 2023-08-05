@@ -1,0 +1,73 @@
+Metadata-Version: 2.1
+Name: hip2slack-emoji
+Version: 0.2.2
+Summary: Importer of Hipchat emojis to Slack
+Home-page: http://github.com/ivancrneto/hip2slack-emoji/
+Author: Ivan Rocha
+Author-email: ivan.cr.neto@gmail.com
+License: MIT License
+Platform: any
+Classifier: Programming Language :: Python
+Classifier: Development Status :: 3 - Alpha
+Classifier: Natural Language :: English
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Requires-Dist: splinter (==0.7.2)
+Requires-Dist: requests (==2.6.2)
+Requires-Dist: beautifulsoup4 (==4.6.3)
+Provides-Extra: testing
+Requires-Dist: pytest; extra == 'testing'
+
+hit2slack-emoji
+===============
+
+Did you migrate from Hipchat to Slack and now miss the funny emojis?
+Your problems are over!
+
+Install
+-------
+
+1. We use
+   `splinter <http://splinter.readthedocs.org/en/latest/index.html>`__
+   to make the browser interactions needed to upload the emojis and as
+   we are using only chromedriver for now, you have to first follow
+   `these
+   instructions <http://splinter.readthedocs.org/en/latest/drivers/chrome.html>`__
+   to setup chromedriver in your machine.
+2. Make sure to create and activate a Python 3 virtualenv, then type the
+   following:
+
+.. code:: bash
+
+    (venv) $ pip install hip2slack-emoji
+
+Run
+---
+
+You need thre environment variables: - **SLACK\_TEAM**: your Slack
+team's name as in https:/.slack.com/ - **SLACK\_EMAIL**: your Slack
+email - **SLACK\_PASS**: your Slack password
+
+So you can run by doing this:
+
+.. code:: bash
+
+    (venv) $ env SLACK_TEAM=yourslackteam SLACK_EMAIL=your@slack.email SLACK_PASS=yourslackpass catchemall
+
+If you want, you can just run:
+
+.. code:: bash
+
+    (venv) $ catchemall
+
+And you will get an interactive prompt asking for Slack info.
+
+Make sure you have permissions in your team to upload emojis.
+
+Enjoy!
+
+
