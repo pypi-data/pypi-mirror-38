@@ -1,0 +1,11 @@
+setuptools
+
+[:python_version == "3.4"]
+pathlib2
+subprocess32
+
+[pipdeptree]
+pipdeptree
+
+[ptyng]
+ptyng
