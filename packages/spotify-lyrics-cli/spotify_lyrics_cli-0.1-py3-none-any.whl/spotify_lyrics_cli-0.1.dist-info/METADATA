@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: spotify-lyrics-cli
+Version: 0.1
+Summary: Automatically fetch lyrics from spotify and other music players
+Home-page: https://github.com/kenogo/spotify-lyrics-cli
+Author: Keno Goertz
+Author-email: keno@goertz-berlin.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: beautifulsoup4
+Requires-Dist: requests
+Requires-Dist: lxml
+
+UNKNOWN
+
+
