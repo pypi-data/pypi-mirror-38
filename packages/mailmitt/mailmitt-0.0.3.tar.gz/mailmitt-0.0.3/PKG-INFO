@@ -1,0 +1,18 @@
+Metadata-Version: 1.2
+Name: mailmitt
+Version: 0.0.3
+Summary: Simple SMTP server for testing mailing code.
+Home-page: https://github.com/trvrm/mailmitt
+Author: Trevor Morgan
+License: UNKNOWN
+Description: # mailmitt
+        Simple SMTP server for testing mailing code.
+        
+        Provides an SMTP interface, a web interface, and a RESTFUL api.
+        
+        Inspired by `maildump`, and written for Python3 using asyncio.
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Requires-Python: >=3.5
