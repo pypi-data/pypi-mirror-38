@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: elastictools
+Version: 0.0.1
+Summary: Useful tools to work with Elastic stack in Python
+Home-page: https://github.com/ncthuc/elastictools
+Author: Thuc Nguyen
+Author-email: gthuc.nguyen@gmail.com
+License: MIT
+Keywords: Elastic,ElasticSearch,ElasticStack
+Platform: UNKNOWN
+Requires-Dist: elasticsearch (<7.0.0,>=6.0.0)
+Requires-Dist: jinja2
+
+UNKNOWN
+
+
