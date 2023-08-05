@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: thea
+Version: 0.0.1
+Summary: Thea is used to control the lighting of model(-train) layouts based on simulations and real world data.
+Home-page: https://mikevansighem.github.io/thea/
+Author: Mike van Sighem
+Author-email: mikevansighem@gmail.com
+Keywords: lighting,modeling,mqtt,simulation,model-trains
+Requires-Python: >=3.6,<4.0
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Provides-Extra: docs
+Requires-Dist: arrow (>=0,<1)
+Requires-Dist: mkdocs (>=1,<2); extra == "docs"
+Requires-Dist: mkdocs-material (>=3,<4); extra == "docs"
+Requires-Dist: paho-mqtt (>=1,<2)
+Requires-Dist: pvlib (>=0,<1)
+Requires-Dist: pygments (>=2,<3); extra == "docs"
+Requires-Dist: pymdown-extensions (>=6,<7)
+Project-URL: Documentation, https://mikevansighem.github.io/thea/
+Project-URL: Repository, https://github.com/mikevansighem/thea/
