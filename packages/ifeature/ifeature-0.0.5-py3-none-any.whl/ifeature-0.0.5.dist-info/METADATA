@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: ifeature
+Version: 0.0.5
+Summary: description
+Home-page: https://github.com/Jie-Yuan/iFeature
+Author: JieYuan
+Author-email: 313303303@qq.com
+Maintainer: JieYuan
+Maintainer-email: 313303303@qq.com
+License: MIT
+Keywords: DeepLearning,313303303@qq.com
+Platform: all
+Classifier: Development Status :: 4 - Beta
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: Implementation
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Software Development :: Libraries
+Requires-Python: >=3, <4
+Description-Content-Type: text/markdown
+
+## 特征工程
+
+### Install
+```bash
+pip install git+https://github.com/Jie-Yuan/iFeature.git
+```
+
+```
+_clf = LGBMClassifier(n_estimators=1)
+X = iris.data[:100, :]
+y = iris.target[:100]
+_clf.fit(X, y)
+show_info = ['split_gain', 'internal_value', 'internal_count', 'leaf_count']
+lgb.plot_tree(_clf.booster_, figsize=(60, 80), show_info=show_info)
+
+model = _clf.booster_.dump_model()
+tree_infos = model['tree_info'] # xgb_._Booster.get_dump()
+```
+
+
