@@ -1,0 +1,4 @@
+
+OhTaylor is a single function python library with just the function `taylor`.
+
+It can do multi-variate Taylor series approximation (R^n -> R^m) both symbolically and numerically.
