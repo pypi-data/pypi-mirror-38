@@ -1,0 +1,17 @@
+Metadata-Version: 2.0
+Name: pylibczi
+Version: 1.1.1
+Summary: Python module utilizing libCZI for reading Zeiss CZI files.
+Home-page: https://github.com/elhuhdron/pylibczi
+Author: Paul Watkins
+Author-email: pwatkins@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: lxml
+Requires-Dist: numpy
+Requires-Dist: scipy
+
+
+Python module to expose libCZI functionality for reading (subset of) Zeiss CZI files and meta-data.
+
+
