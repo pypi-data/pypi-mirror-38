@@ -1,0 +1,11 @@
+migration_sql/__init__.py,sha256=pyyk4wPjQ90RhL7K4ulqoijH4j21hqPcFqIOJzsFToQ,817
+migration_sql/db.py,sha256=szw1Chgyw7bxDBSIDbnTaqwJBCSeI_uNKkiwc5OjCRg,10200
+migration_sql/migrate.py,sha256=JeybtDjhDJI430n-yl5Q8y4MrXRRmx_mGsl6aCIEc6s,5340
+migration_sql/schema_version.py,sha256=ybM4RkNG9qTbrTpOdJfHIAN4Tm2nNRRJHihjx1bHMGM,1268
+migration_sql/utils.py,sha256=2dIfAEcpjXXBmsGnJsygmciQdMN7coxcXu9oAT2MdZ8,1567
+migration_sql/version.py,sha256=7J13fS3TXjb71EAel8Deud1ce3Y-XFd-DS2HRIvCgCI,1213
+migration_sql/version_helper.py,sha256=AT2OQ3oHl3GVIjEqiLwWbXZM9KdNaXj0qI2VBuzG0_M,849
+migration_sql-0.0.12.dist-info/METADATA,sha256=u98wIebqHVGa5oN68W-fQtRY5b10xoYxWItRGc7E4Ig,695
+migration_sql-0.0.12.dist-info/RECORD,,
+migration_sql-0.0.12.dist-info/WHEEL,sha256=NzFAKnL7g-U64xnS1s5e3mJnxKpOTeOtlXdFwS9yNXI,92
+migration_sql-0.0.12.dist-info/top_level.txt,sha256=LHFbb05emrXUpal-RxUXMdNfABwKrg8f6lBu1aaO_5U,14

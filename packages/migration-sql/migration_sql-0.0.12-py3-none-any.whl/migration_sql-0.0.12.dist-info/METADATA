@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: migration-sql
+Version: 0.0.12
+Summary: SQL Migration
+Home-page: https://github.com/Workwell/migration-sql
+Author: Workwell
+Author-email: friends@workwell.io
+License: MIT
+Keywords: migration,sql,mysql
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Natural Language :: English
+Requires-Dist: PyMySQL (>=0.7.10)
+Requires-Dist: SQLAlchemy (>=1.1.6)
+Requires-Dist: pytz (>=2016.10)
+
+Support sql migration using pure sql. Only support MySQL for now.
+
+
