@@ -1,0 +1,28 @@
+[
+    {
+        "service": "network.Ping",
+        "group": "all",
+        "description": "Ping IPv4",
+        "timeout": 3,
+        "repeat": 60,
+        "ip_version": 4,
+        "ping_command": "ping",
+        "ping6_command": "ping -6"
+
+    },
+    {
+        "service": "network.Ping",
+        "group": "all",
+        "description": "Ping IPv6",
+        "timeout": 3,
+        "repeat": 60,
+        "ip_version": 6,
+        "ping_command": "ping",
+        "ping6_command": "ping -6"
+    },
+    {
+        "service": "network.HTTP",
+        "group": "all",
+        "url": "http://localhost:8888/"
+    }
+]
