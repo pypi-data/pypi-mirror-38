@@ -1,0 +1,3 @@
+[console_scripts]
+teamchat = teamchat.cli:main
+
