@@ -1,0 +1,8 @@
+MANIFEST.in
+setup.py
+lightnimage/hello.py
+lightnimage.egg-info/PKG-INFO
+lightnimage.egg-info/SOURCES.txt
+lightnimage.egg-info/dependency_links.txt
+lightnimage.egg-info/not-zip-safe
+lightnimage.egg-info/top_level.txt
