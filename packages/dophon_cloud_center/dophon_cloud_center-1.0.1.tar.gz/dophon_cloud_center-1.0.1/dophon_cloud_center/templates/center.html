@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% extends "bootstrap/base.html" %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>reg_center</title>
+</head>
+<body>
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <th>服务名</th>
+            <th>服务实例</th>
+        </thead>
+        <tbody>
+            {% for service in reg_info %}
+                <tr>
+                    <td>{{ service }}</td>
+                    <td>{% for instance in reg_info[service] %}
+                            <a href="/request/{{ service }}/{{ instance['id'] }}">{{ instance['host'] }}:{{ instance['port'] }}</a>;
+                        {% endfor %}
+                        </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
+{% endblock %}
