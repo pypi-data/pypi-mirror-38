@@ -1,0 +1,17 @@
+core/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+core/admin.py,sha256=p6xop1PuuDG2Uwv3G_aRfldxOfBzTRfMaoZmORVkqyU,66
+core/apps.py,sha256=LtkKdNekySRNuUEXNZFq5Jw05Ald8viThFHePX1SwKE,88
+core/models.py,sha256=4OVMcDDx9fVgBEJ91B7dfMEG2Ni1LRSLJOKzIkVPsKo,60
+core/tests.py,sha256=2uDafv3Ns6f7Vy1ekUtgYxCZEi1KRyesZDTAFhYcX-E,63
+core/urls.py,sha256=HXsgr2aPIdazaKEq1xhcUWJrpA5F5Mf_UkLHIn6FQQg,461
+core/views.py,sha256=hmKNbPohUtl2g4o5AWFwR1XGd2fwzYqXHiHc67H1fFY,1014
+core/migrations/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+nfckey/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+nfckey/settings.py,sha256=eI7_Emau5PaYHctqkD1tRoAs8PSpuyiTd2G7EknX2VA,3593
+nfckey/urls.py,sha256=chPk7SWyyUXizdOl1jfYTAnVeZMQWI2RsE4lNcUvKW8,907
+nfckey/wsgi.py,sha256=lmHx3qq4QdD8GDmCUJl79en43pD3lZ428si6XYM0Ceo,405
+NFC_Key-0.1.0.dist-info/LICENSE,sha256=0-qePQYtWhTyur0jFQcnhZ64jgJ-N8vixMN5A2ttGzI,1525
+NFC_Key-0.1.0.dist-info/METADATA,sha256=TXLXyUzlHqJvPjjyIwoGh6oE-tZOPbz3FiJ69a-mQzc,1085
+NFC_Key-0.1.0.dist-info/WHEEL,sha256=NvLheO0f8_uAcwoMijaCN7IVIIaldpzEnN1plXS6P6E,97
+NFC_Key-0.1.0.dist-info/top_level.txt,sha256=wFBe7Vfc7D4YxIhjQ4SUAnUDPgQUZnM4FUW3tMgk-9k,12
+NFC_Key-0.1.0.dist-info/RECORD,,
