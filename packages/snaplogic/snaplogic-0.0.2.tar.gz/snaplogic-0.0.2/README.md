@@ -1,0 +1,1 @@
+This is a package containing modules to be used together with SnapLogic platform.

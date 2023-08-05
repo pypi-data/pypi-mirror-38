@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: snaplogic
+Version: 0.0.2
+Summary: This package contains modules to be used with SnapLogic.
+Home-page: https://www.snaplogic.com
+Author: Jump Thanawut
+Author-email: jumpthanawut@snaplogic.com
+License: UNKNOWN
+Description: This is a package containing modules to be used together with SnapLogic platform.
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: Other/Proprietary License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown

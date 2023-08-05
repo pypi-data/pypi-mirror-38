@@ -1,0 +1,448 @@
+<style>
+    .snaplogic-main-menu-box {
+        width: 100%;
+        height: 500px;
+        border: 1px solid #558593
+    }
+
+    .widget-inline-hbox {
+        color: #53717c;
+        font-size: 12px;
+        text-align: left;
+    }
+
+    .widget-label {
+        color: #53717c;
+        font-size: 12px;
+        text-align: right;
+    }
+
+    .widget-text input[type="text"],
+    input[type="password"] {
+        width: 100%;
+        height: 24px;
+        margin: 3px 0 0;
+        padding-left: 3px;
+        border: 0;
+        border-bottom: solid 1.5px #7b667e;
+        border-left: solid 1.5px #7b667e;
+        font-size: 14px;
+        border-radius: 2px;
+        font-weight: 400;
+    }
+
+    @media (min-width: 576px) {
+        .widget-dropdown>select {
+            width: 65%;
+        }
+    }
+
+    @media (min-width: 992px) {
+        .widget-dropdown>select {
+            width: 74%;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .widget-dropdown>select {
+            width: 79%;
+        }
+    }
+
+    .widget-button {
+        width: 300px;
+        height: 35px;
+        font-size: 14px;
+        border-radius: 2px;
+        background-color: #7b667e;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    .snaplogic-tab-bar {
+        overflow: hidden;
+        background: #E6F1F5;
+    }
+
+    .snaplogic-tab-bar button {
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        transition: 0.3s;
+        font-size: 18px;
+        height: 40px;
+        width: 12%;
+        padding: 10px;
+        background: #E6F1F5;
+    }
+
+    .snaplogic-tab-bar button:hover {
+        background: lightblue;
+        color: #000;
+    }
+
+    .snaplogic-tab-bar button.active {
+        background: white;
+        color: black;
+    }
+
+    #snaplogic-status-tab {
+        float: right;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        width: 200px;
+    }
+
+    .snaplogic-tabcontent {
+        display: none;
+        font-size: 13px;
+        background-color: white;
+    }
+
+    #snaplogic-input-box-value pre,
+    #snaplogic-output-box-value pre,
+    #snaplogic-error-box-value pre,
+    #snaplogic-console-box-value pre {
+        max-height: 400px;
+        width: 100%;
+    }
+
+    .renderjson {
+        max-height: 100% !important;
+    }
+
+    #snaplogic-script-box-value {
+        margin-top: -30px;
+        margin-bottom: -40px;
+        height: 461px;
+        min-width: 100%;
+        overflow: scroll;
+    }
+
+    #snaplogic-input-box-value,
+    #snaplogic-output-box-value,
+    #snaplogic-error-box-value,
+    #snaplogic-console-box-value {
+        padding-left: 0px;
+        height: 421px;
+        overflow: scroll;
+        width: 100%;
+    }
+
+    #snaplogic-console-box-value,
+    #snaplogic-pre-script-box-value {
+        margin-top: 5px;
+    }
+
+    select {
+        -webkit-appearance: none;
+        appearance: none;
+        background-image: none !important;
+        width: 60px;
+        padding-left: 10px;
+        margin-bottom: 5px;
+    }
+
+    label {
+        white-space: pre-wrap;
+    }
+
+    .snaplogic-load-script-btn .snaplogic-save-script-btn .snaplogic-publish-btn .snaplogic-publish-and-validate-btn .snaplogic-local-validate-btn {
+        visibility: hidden;
+    }
+
+    .snaplogic-tablinks.info {
+        background: #6D96DE;
+    }
+
+    .snaplogic-tablinks.warning {
+        background: #F6AD49;
+    }
+
+    .snaplogic-tablinks.danger {
+        background: #dc3545;
+    }
+
+    .snaplogic-tablinks.success {
+        background-color: #715B73;
+    }
+
+    #snaplogic-console-box-value.wraptext,
+    #snaplogic-pre-script-box-value.wraptext {
+        white-space: pre-wrap;
+        /* css-3 */
+        white-space: -moz-pre-wrap;
+        /* Mozilla, since 1999 */
+        white-space: -pre-wrap;
+        /* Opera 4-6 */
+        white-space: -o-pre-wrap;
+        /* Opera 7 */
+        word-wrap: break-word;
+        /* Internet Explorer 5.5+ */
+    }
+
+    #snaplogic-console-box-value.nowrap,
+    #snaplogic-pre-script-box-value.nowrap {
+        white-space: pre !important;
+    }
+
+    .snaplogic-snapinfo-table {
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .snaplogic-snapinfo-table th {
+        text-align: left;
+        height: 50px;
+        width: 20%;
+        padding-left: 10%;
+    }
+
+    .snaplogic-snapinfo-table td {
+        text-align: left;
+    }
+
+    .snaplogic-menu-btn {
+        width: 14% !important;
+        margin-top: 7px;
+        height: 33px;
+        font-weight: bold;
+        background-color: #558593;
+        border-radius: 2px;
+    }
+
+    .snaplogic-menu-critical-btn {
+        color: #558593;
+        background-color: #E2E2E2 !important;
+        border: 1px solid #558593;
+    }
+
+    .snaplogic-menu-logo {
+        height: 50px !important;
+        margin-left: 20px;
+        margin-right: 5px;
+        width: auto;
+    }
+
+    .snaplogic-btn-group {
+        display: block;
+        float: right;
+        position: relative;
+        top: 9px;
+        right: 9px;
+        margin-bottom: 12px;
+    }
+
+    #snaplogic-console-wrap-button,
+    #snaplogic-console-unwrap-button,
+    #snaplogic-script-wrap-button,
+    #snaplogic-script-unwrap-button {
+        background-color: #d4d4d4;
+        color: black;
+        cursor: pointer;
+        border-radius: 4px;
+        width: 75px;
+    }
+
+    #snaplogic-script-wrap-button,
+    #snaplogic-console-wrap-button {
+        top: 34px;
+        left: 70px;
+        position: relative;
+    }
+
+    #snaplogic-script-unwrap-button,
+    #snaplogic-console-unwrap-button {
+        top: 34px;
+        left: -9px;
+        position: relative;
+    }
+
+    .snaplogic-btn-group button {
+        background-color: #d4d4d4;
+        color: black;
+        cursor: pointer;
+        float: left;
+    }
+
+    .snaplogic-btn-group button:not(:last-child) {
+        border-right: none;
+    }
+
+    .snaplogic-btn-group:after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+    .snaplogic-btn-group button:hover {
+        background-color: grey;
+    }
+
+    .snaplogic-btn-group button:focus {
+        outline: none;
+    }
+
+    .snaplogic-btn-group button:first-child {
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+    }
+
+    .snaplogic-btn-group button:last-child {
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+    }
+
+    .modal-body {
+        white-space: pre;
+    }
+
+    .snaplogic-snapinfo-table th,
+    .snaplogic-snapinfo-table td {
+        font-size: 16px;
+    }
+
+    .snaplogic-tooltip {
+        position: relative;
+        display: inline-block;
+        font-weight: bold;
+        color: #C29FEE;
+    }
+
+    .snaplogic-tooltip .snaplogic-tooltiptext {
+        visibility: hidden;
+        width: max-content !important;
+        max-height: 300px !important;
+        background-color: black;
+        color: #fff;
+        text-align: left;
+        border-radius: 6px;
+        padding: 10px;
+
+        /* Position the tooltip */
+        position: absolute;
+        z-index: 1;
+    }
+
+    .snaplogic-tooltip:hover .snaplogic-tooltiptext {
+        visibility: visible;
+    }
+</style>
+
+<div class="snaplogic-main-menu-box">
+    <div class="snaplogic-tab-bar">
+        <button id="snap-tab" class="snaplogic-tablinks active" onclick="openTab(event, 'snaplogic-snap-box')">Snap
+            Info</button>
+        <button id="script-tab" class="snaplogic-tablinks" onclick="openTab(event, 'snaplogic-script-box')" style="visibility: hidden">Script</button>
+        <button id="snaplogic-input-tab" class="snaplogic-tablinks" onclick="openTab(event, 'snaplogic-input-box')"
+            style="visibility: hidden">Input</button>
+        <button id="snaplogic-output-tab" class="snaplogic-tablinks" onclick="openTab(event, 'snaplogic-output-box')"
+            style="visibility: hidden">Output</button>
+        <button id="snaplogic-error-tab" class="snaplogic-tablinks" onclick="openTab(event, 'snaplogic-error-box')"
+            style="visibility: hidden">Error</button>
+        <button id="snaplogic-console-tab" class="snaplogic-tablinks" onclick="openTab(event, 'snaplogic-console-box')"
+            style="visibility: hidden">Console</button>
+        <button id="snaplogic-status-tab" class="snaplogic-tablinks"></button>
+    </div>
+    <div id="snaplogic-snap-box" class="snaplogic-tabcontent active" style="display: block;">
+        <label id="snapinfo-label" style="display: block;"><br>      Please go to the designer and copy the info of the Snap you would like to link, then, click "Paste Info" below.</label>
+    </div>
+    <div id="snaplogic-script-box" class="snaplogic-tabcontent">
+        <div style="display: block;margin-top: -30px;margin-bottom: 5px;float: right;">
+            <button id="snaplogic-script-wrap-button" style="visibility: visible" onclick="setScriptBoxClass('wraptext')">UNWRAP</button>
+            <button id="snaplogic-script-unwrap-button" style="visibility: hidden" onclick="setScriptBoxClass('nowrap')">WRAP</button>
+        </div>
+        <pre id="snaplogic-pre-script-box-value" class="nowrap">
+            <code class="python" id="snaplogic-script-box-value"></code>
+        </pre>
+    </div>
+    <div id="snaplogic-input-box" class="snaplogic-tabcontent"></div>
+    <div id="snaplogic-output-box" class="snaplogic-tabcontent"></div>
+    <div id="snaplogic-error-box" class="snaplogic-tabcontent"></div>
+    <div id="snaplogic-console-box" class="snaplogic-tabcontent">
+        <div style="display: block;margin-top: -25px; margin-bottom: 0px;float: right;">
+            <button id="snaplogic-console-wrap-button" style="visibility: visible" onclick="setConsoleBoxClass('wraptext')">UNWRAP</button>
+            <button id="snaplogic-console-unwrap-button" style="visibility: hidden" onclick="setConsoleBoxClass('nowrap')">WRAP</button>
+        </div>
+        <textarea disabled="" id="snaplogic-console-box-value" wrap="soft" style="resize: none; margin: 0px; padding-left: 10px; width: 100%;height: 452px;border: none;font-family: monospace;"
+            class="nowrap"></textarea>
+    </div>
+</div>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css">
+<script>
+    console.log("Operation: Render Main Menu")
+
+    var tempTextArea = document.createElement("textarea");
+    function escapeHTML(html) {
+        tempTextArea.textContent = html;
+        return tempTextArea.innerHTML;
+    }
+
+    function openTab(evt, boxName) {
+        var i, tabcontent, tablinks;
+
+        tablinks = document.getElementsByClassName("snaplogic-tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+            tablinks[i].style.backgroundColor = null;
+        }
+
+        tabcontent = document.getElementsByClassName("snaplogic-tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+
+        document.getElementById(boxName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+    function setConsoleBoxClass(className) {
+        document.getElementById("snaplogic-console-box-value").className = className;
+        if (className === "nowrap") {
+            document.getElementById("snaplogic-console-wrap-button").style.visibility = "visible"
+            document.getElementById("snaplogic-console-unwrap-button").style.visibility = "hidden"
+        } else if (className === "wraptext") {
+            document.getElementById("snaplogic-console-wrap-button").style.visibility = "hidden"
+            document.getElementById("snaplogic-console-unwrap-button").style.visibility = "visible"
+        }
+    }
+
+    function setScriptBoxClass(className) {
+        if (className === "nowrap") {
+            document.getElementById("snaplogic-script-wrap-button").style.visibility = "visible"
+            document.getElementById("snaplogic-script-unwrap-button").style.visibility = "hidden"
+
+            function findLongestWord(str) {
+                var words = str.split(" ");
+                var maxLength = 0;
+
+                for (var i = 0; i < words.length; i++) {
+                    if (words[i].length > maxLength) {
+                        maxLength = words[i].length;
+                    }
+                }
+
+                return maxLength;
+            }
+
+            var lines = document.getElementById("snaplogic-script-box-value").innerHTML.split("\n");
+            var longest_lines = 0
+            for (var i = 0; i < lines.length; i++) {
+                if (longest_lines < lines[i].length) {
+                    longest_lines = lines[i].length
+                }
+            }
+
+            document.getElementById('snaplogic-script-box-value').style.width = "" + longest_lines * 8 + "px"
+
+        } else if (className === 'wraptext') {
+            document.getElementById("snaplogic-script-wrap-button").style.visibility = "hidden"
+            document.getElementById("snaplogic-script-unwrap-button").style.visibility = "visible"
+
+            document.getElementById('snaplogic-script-box-value').style.width = "auto"
+        }
+    }
+
+</script>
