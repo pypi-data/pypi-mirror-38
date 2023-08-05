@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: superconf18-midibadge
+Version: 0.1.0
+Summary: Generate Basic code for the Hackaday Superconf 2018 Badge from a MIDI file
+Home-page: https://github.com/jonemo/superconf18-midibadge
+Author: Jonas Neubert
+Author-email: jn@jonasneubert.com
+Keywords: badgelife,superconference
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: midi
+Requires-Dist: toml (>=0.9,<0.10)
+Project-URL: Repository, https://github.com/jonemo/superconf18-midibadge
