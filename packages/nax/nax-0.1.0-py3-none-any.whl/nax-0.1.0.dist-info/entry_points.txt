@@ -1,0 +1,3 @@
+[console_scripts]
+nax = nax.__init__:main
+
