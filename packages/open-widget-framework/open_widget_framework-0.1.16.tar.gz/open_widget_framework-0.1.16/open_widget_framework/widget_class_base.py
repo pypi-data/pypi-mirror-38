@@ -1,0 +1,71 @@
+from rest_framework import serializers
+from django.db.models import ObjectDoesNotExist
+
+from open_widget_framework.react_fields import ReactCharField
+from open_widget_framework.models import WidgetList, WidgetInstance
+
+
+class WidgetBaseToo(serializers.ModelSerializer):
+    """
+    WidgetBase is the base serializer for a a widget instance. It handles configuration for fields that all widgets have:
+        - react_renderer (default: DefaultRenderer
+        - title
+
+    A widget class must extend WidgetBase, specify a name, and implement render method that DOES NOT handle the widget
+        title. The extended class can also implement pre-configure and post-configure to further manage the
+        widget rendering. Widget classes should specify input fields using the React input fields in react_fields
+        in order to get proper form generation on the frontend
+    """
+    class Meta:
+        model = WidgetInstance
+        fields = '__all__'
+
+    def render(self, request, configuration):
+        """Must be implemented in the subclass"""
+        raise NotImplementedError
+
+    def pre_configure(self):
+        """Pre configure can be used to dynamically load configuration settings at reference / validation time"""
+        # Can be overridden by child class
+        pass
+
+    def post_configure(self):
+        """Configure widget data after serializer instantiation"""
+        # Can be overridden by child class
+        pass
+
+    def validate_configuration(self, value):
+        widget_class_serializer = WidgetInstance.get_widget_class_serializer(self.initial_data['widget_class'])
+        if widget_class_serializer(data = value).is_valid():
+            return value
+        else:
+            #TODO: better error messaging
+            raise serializers.ValidationError('Bad configuration')
+
+    def validate_position(self, value):
+        #TODO check for proper positioning
+        return value
+
+    def render_with_title(self):
+        """
+        Runs the class's render function and adds on the title. If the render function returns a string, that string
+        will be set to the inner HTML of the default renderer. If it returns a dict, that dict will be passed as a
+        configuration to a react_renderer which must be specified.
+        """
+        widget_class_serializer = WidgetInstance.get_widget_class_serializer(self.data['widget_class'])
+        widget_serializer = widget_class_serializer(data=self.data['configuration'])
+        if not widget_serializer.is_valid():
+            #TODO: handle error here
+            raise Exception
+        base_configuration = self.data
+        base_configuration.pop('configuration')
+        rendered_body = widget_serializer.render()
+        if isinstance(rendered_body, dict):
+            base_configuration.update(rendered_body)
+        else:
+            base_configuration.update({'html': rendered_body})
+        return base_configuration
+
+    def get_configuration_form_spec(self):
+        """Returns the specifications for the configuration of a widget class"""
+        return [self.fields[key].configure_form_spec() for key in self.fields]
