@@ -1,0 +1,10 @@
+README.md
+setup.py
+pyhtmlreport/__init__.py
+pyhtmlreport/report.py
+pyhtmlreport.egg-info/PKG-INFO
+pyhtmlreport.egg-info/SOURCES.txt
+pyhtmlreport.egg-info/dependency_links.txt
+pyhtmlreport.egg-info/requires.txt
+pyhtmlreport.egg-info/top_level.txt
+pyhtmlreport/templates/report.html
