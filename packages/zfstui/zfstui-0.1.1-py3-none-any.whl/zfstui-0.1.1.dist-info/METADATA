@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: zfstui
+Version: 0.1.1
+Summary: terminal user interface for the ZFS filesystem
+Home-page: http://github.com/volkerp/zfstui
+Author: Volker Poplawski
+Author-email: volker@openbios.org
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console :: Curses
+Classifier: Intended Audience :: System Administrators
+Classifier: Topic :: System :: Filesystems
+Description-Content-Type: text/markdown
+
+
+# zfstui
+Terminal user interface for the ZFS filesystem
+
+## Installation
+
+### From PyPI
+```bash
+pip install zfstui
+```
+
+### From git
+```bash
+git clone https://github.com/volkerp/zfstui.git
+cd zfstui
+python3 setup.py install
+```
+
+
+
