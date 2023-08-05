@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: zenoh
+Version: 0.1.0
+Summary: Python client API for zenoh
+Home-page: https://github.com/atolab/zenoh-python
+Author: kydos
+License: UNKNOWN
+Description: README.md
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: License :: OSI Approved :: Eclipse Public License 2.0 (EPL-2.0)
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
