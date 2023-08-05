@@ -1,0 +1,9 @@
+README.rst
+setup.py
+gendocs/__init__.py
+gendocs/generator.py
+gendocs.egg-info/PKG-INFO
+gendocs.egg-info/SOURCES.txt
+gendocs.egg-info/dependency_links.txt
+gendocs.egg-info/requires.txt
+gendocs.egg-info/top_level.txt
