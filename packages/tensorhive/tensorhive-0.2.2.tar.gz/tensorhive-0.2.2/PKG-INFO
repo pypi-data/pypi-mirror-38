@@ -1,0 +1,12 @@
+Metadata-Version: 1.1
+Name: tensorhive
+Version: 0.2.2
+Summary: Lightweight computing resource management tool for executing distributed TensorFlow programs
+Home-page: https://github.com/roscisz/TensorHive
+Author: Pawel Rosciszewski, Michal Martyniak, Filip Schodowski, Tomasz Menet
+Author-email: pawel.rosciszewski@pg.edu.pl
+License: Apache License 2.0
+Download-URL: https://github.com/roscisz/TensorHive/archive/0.2.2.tar.gz
+Description: UNKNOWN
+Keywords: distributed machine learning tensorflow resource management
+Platform: UNKNOWN

@@ -1,0 +1,12 @@
+parallel-ssh
+passlib
+sqlalchemy
+sqlalchemy-utils
+click
+connexion
+flask_cors
+flask_jwt_extended
+gunicorn
+coloredlogs
+Safe
+python-usernames
