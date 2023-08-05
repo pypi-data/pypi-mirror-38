@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.py
+norutil/__init__.py
+norutil/core.py
+norutil/helpers.py
+norutil.egg-info/PKG-INFO
+norutil.egg-info/SOURCES.txt
+norutil.egg-info/dependency_links.txt
+norutil.egg-info/requires.txt
+norutil.egg-info/top_level.txt
