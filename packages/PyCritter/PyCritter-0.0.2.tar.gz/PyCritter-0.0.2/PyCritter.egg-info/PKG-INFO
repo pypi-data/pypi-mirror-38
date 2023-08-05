@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: PyCritter
+Version: 0.0.2
+Summary: An API wrapper for CritterDB
+Home-page: https://github.com/arconyx/pycritter
+Author: ArcOnyx
+Author-email: arconyx6@gmail.com
+License: UNKNOWN
+Description: # PyCritter
+        
+        This package is a simple wrapper for the CritterDB API.
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 3 - Alpha
+Description-Content-Type: text/markdown
