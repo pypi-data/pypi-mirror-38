@@ -1,0 +1,84 @@
+{
+    "timestamp": {
+        "f50ec0b7-f960-400d-91f0-c42a6d44e3d0": {
+            "start_time": "2018-10-24T11:23:23.876627",
+            "end_time": "2018-10-24T11:23:54.993046"
+        }
+    },
+    "version": "ldt v. 0.3.1",
+    "class": "experiment",
+    "task": "annotate_neighbors",
+    "uuid": "dcf09ff5-6436-4eb8-a742-03082957e3a9",
+    "ldt_config": {
+        "path_to_resources": "/home/anna/PycharmProjects/ldt/ldt/tests/sample_files/",
+        "default_language": "English",
+        "lowercasing": true,
+        "babelnet_key": null,
+        "wiktionary_cache": false,
+        "cache_size": null,
+        "language_resources": {
+            "en": {
+                "names": "names.vocab",
+                "numbers": "numbers.vocab",
+                "associations": "associations.json",
+                "gdeps": "gdeps.jsonl"
+            }
+        },
+        "corpus": "Wiki201308",
+        "corpus_resources": {
+            "Wiki201308": {
+                "freqdict": "Wiki201308.freqdict",
+                "vocabulary": "Wiki201308.vocab",
+                "cooccurrence": "3grams.jsonl"
+            }
+        },
+        "experiments": {
+            "vocab_sample": "test_sample",
+            "embeddings": [
+                "/home/anna/PycharmProjects/ldt/ldt/tests/sample_files/sample_embeddings"
+            ],
+            "experiment_name": "testing",
+            "top_n": 2,
+            "overwrite": true,
+            "multiprocessing": 2
+        },
+        "path_to_cache": "/home/anna/PycharmProjects/ldt/ldt/tests/sample_files/cache"
+    },
+    "output_dir": "/home/anna/PycharmProjects/ldt/ldt/tests/sample_files/experiments/testing/neighbors_annotated",
+    "neighbors_metadata_path": "/home/anna/PycharmProjects/ldt/ldt/tests/sample_files/experiments/testing/neighbors/metadata.json",
+    "embeddings": [
+        {
+            "class": "embeddings",
+            "model": "sample_embeddings",
+            "uuid": "f50ec0b7-f960-400d-91f0-c42a6d44e3d0",
+            "window": 2,
+            "dimensionality": 25,
+            "context": "linear_unbound",
+            "epochs": 2,
+            "path": "/home/anna/PycharmProjects/ldt/ldt/tests/sample_files/sample_embeddings"
+        }
+    ],
+    "missed_pairs": [
+        "premiership:decider"
+    ],
+    "total_pairs": 16,
+    "ld_scores": [
+        "SharedPOS",
+        "SharedMorphForm",
+        "SharedDerivation",
+        "TargetFrequency",
+        "NeighborFrequency",
+        "Associations",
+        "Synonyms",
+        "Antonyms",
+        "Meronyms",
+        "Hyponyms",
+        "Hypernyms",
+        "OtherRelations",
+        "Numbers",
+        "ProperNouns",
+        "Misspellings",
+        "ForeignWords"
+    ],
+    "coverage": 0.94
+}
