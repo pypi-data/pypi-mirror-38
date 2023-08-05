@@ -1,0 +1,16 @@
+gpkg.slim-0.5.1-py2.7-nspkg.pth,sha256=3xb90dBivDFXdtzoeCL9KXHrd-f6F3608fOH6f5Ond0,529
+gpkg/slim/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+gpkg/slim/_custom_dataset.py,sha256=XS6QFEbec6L9jDIRM-gCKe9AlSzu9N2KgWTdLzSNaus,3005
+gpkg/slim/_tfrecord.py,sha256=s68ZEzehRKUsztKZRPUoH3Bnw8WOz0HSguZUobndPB0,5795
+gpkg/slim/_util.py,sha256=JMSV2w4sHug7-flRcMnlUz3PuXaL68xBUQ6q-RQr53Y,2966
+gpkg/slim/eval.py,sha256=IR0EOf_AZEv2wEeMgkI5ZfchBYrJratnhBtKoVpa8GI,2011
+gpkg/slim/export_and_freeze.py,sha256=M7IBG47oksrsf8USP9xr0Kt9vkNzb8w44hWBOedEWy4,3435
+gpkg/slim/guild.yml,sha256=6qWj_j1CP0K1QygUAZG06g_OI_MUMGP_Wveik4vkuTA,25287
+gpkg/slim/images_prepare.py,sha256=TWln41HqetWSVhYx4NK08-0C-Paoub1i97QzgPVXcoU,6457
+gpkg/slim/train.py,sha256=awDJdVfwemzg7ahNdw_q6ttlrUv_tpqMQdOkWaQ6lFU,6794
+gpkg.slim-0.5.1.dist-info/METADATA,sha256=MdKnWHTUjT6pM-Hxy-QGHOQef8ZWeWjSGGbLNqUUCXM,521
+gpkg.slim-0.5.1.dist-info/PACKAGE,sha256=cVfX54fVlb3LWPILEOJ9cJCtkHdZcrIqwOveKWBtDq8,415
+gpkg.slim-0.5.1.dist-info/RECORD,,
+gpkg.slim-0.5.1.dist-info/WHEEL,sha256=J3CsTk7Mf2JNUyhImI-mjX-fmI4oDjyiXgWT4qgZiCE,110
+gpkg.slim-0.5.1.dist-info/namespace_packages.txt,sha256=VrTSvcvxGXQd3LAVUBekNvO1L5FXEzrCdpdy7XtwqRc,5
+gpkg.slim-0.5.1.dist-info/top_level.txt,sha256=VrTSvcvxGXQd3LAVUBekNvO1L5FXEzrCdpdy7XtwqRc,5

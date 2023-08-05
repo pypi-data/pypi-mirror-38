@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: gpkg.slim
+Version: 0.5.1
+Summary: TF-Slim support (Guild AI)
+Home-page: https://github.com/guildai/packages/tree/master/gpkg/slim
+Author: Guild AI
+Author-email: packages@guild.ai
+License: Apache 2.0
+Keywords: gpkg
+Platform: UNKNOWN
+Requires-Dist: Pillow
+
+gpkg.slim
+#########
+
+*TF-Slim support (Guild AI)*
+
+This package contains reusable config for implementing custom TF-Slim models.
+It does not contain model definitions. If you want to use TF-Slim models
+directly, see `gpkg.slim.models`.
+
+
