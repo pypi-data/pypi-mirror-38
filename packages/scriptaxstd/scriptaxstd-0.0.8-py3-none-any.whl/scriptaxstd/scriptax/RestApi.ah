@@ -1,0 +1,61 @@
+
+script makeCmd(endp, dataPost=null, dataHeader=null, dataQuery=null, dataPath = null)
+{
+  cmd = "--url " + endp;
+  if(dataPost)
+  {
+    cmd += " --dataPost \"" + dataPost + "\"";
+  }
+
+  if(dataHeader)
+  {
+    cmd += " --dataHeader \"" + dataHeader + "\"";
+  }
+
+  if(dataQuery)
+  {
+    cmd += " --dataQuery \"" + dataQuery + "\"";
+  }
+
+  if(dataPath)
+  {
+    cmd += " --dataPath \"" + dataPath + "\"";
+  }
+
+  return cmd;
+}
+
+script jget(endp, dataPost=null, dataHeader=null, dataQuery=null, dataPath = null)
+{
+  cmd = "std restapi get " + makeCmd(endp=endp, dataPost=dataPost, dataHeader=dataHeader, dataQuery=dataQuery, dataPath=dataPath);
+  r = ct(cmd);
+  return r.response.result;
+}
+
+script jpost(endp, dataPost=null, dataHeader=null, dataQuery=null, dataPath = null)
+{
+  cmd = "std restapi post " + makeCmd(endp=endp, dataPost=dataPost, dataHeader=dataHeader, dataQuery=dataQuery, dataPath=dataPath);
+  r = ct(cmd);
+  return r.response.result;
+}
+
+script jput(endp, dataPost=null, dataHeader=null, dataQuery=null, dataPath = null)
+{
+  cmd = "std restapi put " + makeCmd(endp=endp, dataPost=dataPost, dataHeader=dataHeader, dataQuery=dataQuery, dataPath=dataPath);
+  r = ct(cmd);
+  return r.response.result;
+}
+
+script jpatch(endp, dataPost=null, dataHeader=null, dataQuery=null, dataPath = null)
+{
+  cmd = "std restapi patch " + makeCmd(endp=endp, dataPost=dataPost, dataHeader=dataHeader, dataQuery=dataQuery, dataPath=dataPath);
+  r = ct(cmd);
+  return r.response.result;
+}
+
+script jdelete(endp, dataPost=null, dataHeader=null, dataQuery=null, dataPath = null)
+{
+  cmd = "std restapi delete " + makeCmd(endp=endp, dataPost=dataPost, dataHeader=dataHeader, dataQuery=dataQuery, dataPath=dataPath);
+  r = ct(cmd);
+  return r.response.result;
+}
