@@ -1,0 +1,16 @@
+CHANGES.txt
+COPYING.txt
+MANIFEST.in
+README.rst
+setup.py
+bin/releaselog
+releaselogparser/__init__.py
+releaselogparser/input.py
+releaselogparser.egg-info/PKG-INFO
+releaselogparser.egg-info/SOURCES.txt
+releaselogparser.egg-info/dependency_links.txt
+releaselogparser.egg-info/top_level.txt
+releaselogparser/format/__init__.py
+releaselogparser/format/cpan.py
+releaselogparser/format/gnu.py
+releaselogparser/format/python.py

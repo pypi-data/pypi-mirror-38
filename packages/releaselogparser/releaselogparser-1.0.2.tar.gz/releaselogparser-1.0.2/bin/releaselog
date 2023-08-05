@@ -1,0 +1,66 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+from __future__ import print_function
+from __future__ import unicode_literals
+
+import sys
+from optparse import OptionParser
+from releaselogparser.input import ReleaseLogFile, ReleaseLogURL
+
+# Set utf-8 as the default encoding for Python 2.7. 
+try:
+    reload(sys)
+    sys.setdefaultencoding('utf-8')
+except:
+    pass
+
+def main():
+    usage = '%prog [OPTIONS] ARG'
+    version = '%prog 1.0'
+    description = """Read release logs in various formats"""
+    parser = OptionParser(usage=usage,
+                          version=version,
+                          description=description)
+    parser.add_option('-H', '--format',
+                      action='store', type='string', dest='format',
+                      default='GNU',
+                      help='set input log format')
+    parser.add_option('-f', '--from', '--start',
+                      action='store', type='int', dest='start',
+                      help='start from this entry')
+    parser.add_option('-t', '--to', '--stop',
+                      action='store', type='int', dest='stop',
+                      help='end on this entry')
+    parser.add_option('-n', '--count',
+                      action='store', type='int', dest='count',
+                      help='read at most that much entries')
+    parser.add_option('-u', '--url',
+                      action="store_true", dest='url',
+                      help='treat ARG as URL')
+    parser.add_option('-l', '--list',
+                      action="store_true", dest='list',
+                      help="list supported formats")
+    (options, args) = parser.parse_args()
+
+    if options.list:
+        for f in ReleaseLogFile.formats():
+            if len(f) > 1:
+                print("%s; %s" % (f[0], ', '.join(f[1:])))
+            else:
+                print("%s" % f[0])
+        sys.exit(0)
+    
+    if len(args) != 1:
+        parser.error("bad number of arguments")
+
+    release_log = ReleaseLogURL if options.url else ReleaseLogFile
+    cl = release_log(options.format, args[0],
+                     start=options.start,
+                     stop=options.stop,
+                     count=options.count)
+    for r in cl:
+        print(r)
+        print('\n'.join(r.descr))
+    
+if __name__ == '__main__':
+    main()
