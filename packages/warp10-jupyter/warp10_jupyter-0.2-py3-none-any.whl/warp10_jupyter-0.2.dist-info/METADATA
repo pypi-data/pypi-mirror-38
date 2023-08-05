@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: warp10-jupyter
+Version: 0.2
+Summary: Jupyter extension that contains a cell magic to execute WarpScript code
+Home-page: UNKNOWN
+Author: Jean-Charles Vialatte
+Author-email: jean-charles.vialatte@senx.io
+License: Apache 2.0
+Platform: UNKNOWN
+Requires-Dist: py4j
+Requires-Dist: jupyter
+
+UNKNOWN
+
+
