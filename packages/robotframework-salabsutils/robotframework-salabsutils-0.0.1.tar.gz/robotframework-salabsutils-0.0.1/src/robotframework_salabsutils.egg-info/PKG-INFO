@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: robotframework-salabsutils
+Version: 0.0.1
+Summary: Random utilities used to help in writing rf libraries
+Home-page: https://github.com/omenia/robotframework-salabsutils
+Author: Jani Mikkonen
+Author-email: jani.mikkonen@siili.com
+License: Apache License 2.0
+Description: UNKNOWN
+Keywords: robot framework testing utils
+Platform: any
+Classifier: Development Status :: 3 - Alpha
+Classifier: Topic :: Software Development :: Testing
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Testing
+Classifier: Framework :: Robot Framework
+Classifier: Framework :: Robot Framework :: Library
+Description-Content-Type: text/markdown
