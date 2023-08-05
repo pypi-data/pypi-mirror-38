@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: ccas
+Version: 0.0.1
+Summary: ccas allows you to convert string between camel-case and snake-case in python3.
+Home-page: https://github.com/ZYunH/ccas
+Author: ZYunH
+Author-email: zyunhjob@163.com
+License: MIT Licence
+Keywords: email python3 package
+Platform: all
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+
+ccas(Convert between Camel-case And Snake-case)allows you to convert string between camel-case and snake-case in python3.
+
+
