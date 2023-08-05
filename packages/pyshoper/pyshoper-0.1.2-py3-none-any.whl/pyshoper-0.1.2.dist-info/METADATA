@@ -1,0 +1,64 @@
+Metadata-Version: 2.1
+Name: pyshoper
+Version: 0.1.2
+Summary: Python client to shoper.pl REST api
+Home-page: https://github.com/przlada/pyshoper
+License: UNKNOWN
+Author: Przemysław Łada
+Author-email: przlada@gmail.com
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+Classifier: License :: OSI Approved :: MIT License
+Requires-Dist: backoff
+Requires-Dist: certifi
+Requires-Dist: chardet
+Requires-Dist: idna
+Requires-Dist: requests
+Requires-Dist: uplink
+Requires-Dist: uritemplate
+Requires-Dist: urllib3
+Requires-Dist: pytest; extra == "test"
+Provides-Extra: .none
+Provides-Extra: test
+
+# pyshoper - Python client to shoper.pl REST api
+
+## Summary
+
+## Exampler of use
+Basic usage of pyshoper:
+```python
+from pyshoper.client import ShoperClient
+
+base_url = "https://example.com"
+api = ShoperClient('login', 'password', base_url=base_url)
+
+print(api.products_list(filters={'stock.stock': 0}))
+```
+and expected result should something alike:
+```python
+{
+    'count': '49',
+    'list': [
+        {'code': 'prod-0001', ...},
+        {'code': 'prod-0002', ...},
+        {'code': 'prod-0003', ...},
+        {'code': 'prod-0004', ...},
+        ...
+    ],
+    'page': 1,
+    'pages': 5,
+}
+```
+
+to iterate through all products using client's generator:
+```python
+for i, prod in enumerate(api.products_generator(limit=100)):
+    print(prod)
+    if i > 200:
+        break
+```
+
+## More
+
+Exceptions
