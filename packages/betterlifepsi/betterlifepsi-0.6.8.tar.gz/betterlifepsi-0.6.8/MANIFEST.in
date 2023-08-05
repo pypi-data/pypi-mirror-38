@@ -1,0 +1,17 @@
+include README.md
+include MANIFEST.in
+include LICENSE.txt
+include swtag
+include Procfile
+include app.json
+include requirements.txt
+include requirements-pypy.txt
+include setup.py
+include codecov.yml
+include setup.cfg.template
+recursive-include psi *
+recursive-include etc/requirements *
+recursive-include tests *
+recursive-exclude psi/static/uploaded *
+prune */__pycache__
+global-exclude *.pyc *~ *.bak *.swp *.pyo
