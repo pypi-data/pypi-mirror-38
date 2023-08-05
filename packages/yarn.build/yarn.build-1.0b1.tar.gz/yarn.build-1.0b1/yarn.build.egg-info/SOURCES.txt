@@ -1,0 +1,13 @@
+CHANGES.rst
+MANIFEST.in
+README.rst
+build.py
+setup.cfg
+setup.py
+yarn.build.egg-info/PKG-INFO
+yarn.build.egg-info/SOURCES.txt
+yarn.build.egg-info/dependency_links.txt
+yarn.build.egg-info/entry_points.txt
+yarn.build.egg-info/not-zip-safe
+yarn.build.egg-info/requires.txt
+yarn.build.egg-info/top_level.txt
