@@ -1,0 +1,3 @@
+[console_scripts]
+meeshkan = client.__main__:cli
+
