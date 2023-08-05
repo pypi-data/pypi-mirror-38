@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: stegoprng
+Version: 1.0.1
+Summary: Steganography prng-Tool
+Home-page: https://github.com/Ludisposed/Steganography
+Author: Ludisposed&Qin
+Author-email: UNKNOWN
+License: MIT license
+Platform: UNKNOWN
+Requires-Dist: Pillow
+Requires-Dist: cryptography
+Requires-Dist: numpy
+
+UNKNOWN
+
+
