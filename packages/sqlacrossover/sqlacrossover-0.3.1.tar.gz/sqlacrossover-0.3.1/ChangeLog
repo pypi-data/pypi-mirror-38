@@ -1,0 +1,31 @@
+CHANGES
+=======
+
+0.3.1
+-----
+
+* Fix pbr setup.cfg py\_modules
+
+0.3.0
+-----
+
+* Update README.rst
+* Use PBR for packaging
+* Use proper table in GenericTarget.insert
+* Make FileTarget work with transaction in source
+* Fix --help description
+* Update README
+* Make flake8 happier
+* Add DDL generation for FileTarget
+* Ability to create tables in target database
+* Refactoring, added file output feature
+* Version 0.2.2
+* Do inserts in single transaction by default
+* Use sa.schema.sort\_tables
+* 0.2.1
+* Updated README.md
+* Require sqlalchemy>=1.0
+* Warn if table lists are not identical
+* Packaging
+* Basic data copy version
+* Initial commit
