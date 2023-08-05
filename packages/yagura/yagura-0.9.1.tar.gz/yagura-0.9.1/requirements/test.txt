@@ -1,0 +1,5 @@
+pytest
+pytest-asyncio
+pytest-django
+aioresponses==0.5.0
+parameterized
