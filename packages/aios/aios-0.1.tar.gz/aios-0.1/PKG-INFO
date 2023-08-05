@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: aios
+Version: 0.1
+Summary: asynchronous state, transition and abstraction manager for Python 3.5+
+Home-page: https://github.com/xlfe/aios
+Author: xlfe
+License: GNU General Public License v3.0
+Description: ## aios
+        
+        asynchronous state, transition and abstraction manager for Python 3.5+
+        
+        ```bash
+        pip install aios
+        ```
+        
+        [Docs are available](http://aios.readthedocs.org) - but are a work in progress.
+        
+        ### Features
+        
+        * State machine
+        * Class hierarchy management
+        
+        #### Todo
+        
+        * Timed & repeated actions
+        * Cron/scheduled actions
+        
+        ### Demo
+        
+        * add demo code *
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
