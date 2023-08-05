@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: click-skeleton
+Version: 0.1.2
+Summary: Click app skeleton
+Home-page: None
+Author: Adrien Pensart
+Author-email: None
+Requires-Python: >=3.7,<3.8
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: attrdict (>=2.0,<3.0)
+Requires-Dist: click (>=7.0,<8.0)
+Requires-Dist: click-completion (>=0.5.0,<0.6.0)
+Requires-Dist: click-didyoumean (>=0.0.3,<0.0.4)
+Requires-Dist: click-repl (>=0.1.5,<0.2.0)
+Requires-Dist: coloredlogs (>=10.0,<11.0)
+Requires-Dist: pytest (>=3.8,<4.0)
+Requires-Dist: pytest-asyncio (>=0.9.0,<0.10.0)
+Requires-Dist: uvloop (>=0.11.3,<0.12.0)
