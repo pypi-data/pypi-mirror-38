@@ -1,0 +1,13 @@
+{
+  "name": "",
+  "header": [
+    "#!/usr/bin/env python",
+    "# encoding: utf-8",
+    ""
+  ],
+  "imports": {
+    "exclude": [],
+    "conditional_exclude": {},
+    "conditional_include": {}
+  }
+}
