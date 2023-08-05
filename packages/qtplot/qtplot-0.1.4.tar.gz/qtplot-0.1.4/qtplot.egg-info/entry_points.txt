@@ -1,0 +1,6 @@
+[console_scripts]
+qtplot-console-0.1.4 = qtplot.qtplot:main
+
+[gui_scripts]
+qtplot-0.1.4 = qtplot.qtplot:main
+
