@@ -1,0 +1,15 @@
+README.md
+setup.py
+Emotion_recognition/__init__.py
+Emotion_recognition/ppsing.py
+Emotion_recognition.egg-info/PKG-INFO
+Emotion_recognition.egg-info/SOURCES.txt
+Emotion_recognition.egg-info/dependency_links.txt
+Emotion_recognition.egg-info/top_level.txt
+Emotion_recognition/Constantes/__init__.py
+Emotion_recognition/Signed_Spectral_Cluster/Signed_clustering.py
+Emotion_recognition/Signed_Spectral_Cluster/__init__.py
+Emotion_recognition/Signed_Spectral_Cluster/metrics_sc.py
+Emotion_recognition/Signed_Spectral_Cluster/wordgraph.py
+Emotion_recognition/utils/__init__.py
+Emotion_recognition/utils/utils.py
