@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: ohtaylor
+Version: 1.1.0
+Summary: Multi-Variate Taylor Series Approximation/Calculation Library for Python
+Home-page: https://gitlab.com/mochan/ohtaylor
+Author: Mochan Shrestha
+Author-email: UNKNOWN
+License: Apache 2.0
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+
+
+OhTaylor is a single function python library with just the function `taylor`.
+
+It can do multi-variate Taylor series approximation (R^n -> R^m) both symbolically and numerically.
+
+
