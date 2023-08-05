@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+setup.cfg
+setup.py
+versioneer.py
+birdwatcher/__init__.py
+birdwatcher/_version.py
+birdwatcher/coordinatedata.py
+birdwatcher/movementdetection.py
+birdwatcher/videoinput.py
+birdwatcher.egg-info/PKG-INFO
+birdwatcher.egg-info/SOURCES.txt
+birdwatcher.egg-info/dependency_links.txt
+birdwatcher.egg-info/requires.txt
+birdwatcher.egg-info/top_level.txt
