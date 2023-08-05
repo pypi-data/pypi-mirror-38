@@ -1,0 +1,4 @@
+[console_scripts]
+bcinfo = bcinfo:main
+snp_pos2rsid = bcinfo:snp_pos2rsid_main
+
