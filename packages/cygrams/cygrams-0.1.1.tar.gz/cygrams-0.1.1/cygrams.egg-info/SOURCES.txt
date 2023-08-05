@@ -1,0 +1,15 @@
+AUTHORS
+ChangeLog
+README.rst
+cygrams.cpp
+cygrams.pyx
+pyproject.toml
+setup.cfg
+setup.py
+cygrams.egg-info/PKG-INFO
+cygrams.egg-info/SOURCES.txt
+cygrams.egg-info/dependency_links.txt
+cygrams.egg-info/not-zip-safe
+cygrams.egg-info/pbr.json
+cygrams.egg-info/top_level.txt
+tests/test_cygrams.py

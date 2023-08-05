@@ -1,0 +1,11 @@
+CHANGES
+=======
+
+0.1.1-8
+-------
+
+* PyPI still hates markdown in 2018
+* Add dist/ to .gitignore
+* Refactor
+* Rewrite and add tests
+* Initial commit
