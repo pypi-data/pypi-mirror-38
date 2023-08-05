@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: databricksapi
+Version: 0.1
+Summary: Python Databricks API wrapper using requests module
+Home-page: https://github.com/angel-hernandez91/databricks_api
+Author: Angel Hernandez
+Author-email: ahernandez0691@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+# databricks_api
+Python Implementation of Databricks API for a structured, programmatic use
+
+
