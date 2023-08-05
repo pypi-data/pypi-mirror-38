@@ -1,0 +1,15 @@
+cloud/__init__.py,sha256=gvPgHxFQ9lYLNDfyE3AM4wivIHpXtVo5k-3d8ED3B4c,761
+cloud/cloud.py,sha256=4ksmpQnix0VA3PSW5z5z7otY35RbROyFWKdXiO7MIoQ,425
+cloud/envs/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+cloud/envs/aws.py,sha256=cZ5DaLVwIyO3-xwG1yrLTO1aaJTJHMPTBhfZU60egiQ,968
+cloud/envs/azure.py,sha256=wbBCxqh49_8lIY9-4xzNwMkztRsdyFR848sjr1BDVjw,949
+cloud/envs/env.py,sha256=hTrWQ2cEvHUyIxuUD-Za6gnOGPdXNcohj2wQ8Qu_GxI,3385
+cloud/envs/gcp.py,sha256=KUJMTIu3vBGqUicXmImo8yTFCvvqGj4mVMEvu-vGxO8,5215
+cloud/envs/registry.py,sha256=888oUWb7-aqm0bKHsGkiMBcZjafyE7n5efB2kcHOUIA,216
+cloud/envs/utils.py,sha256=eHs9lDVALcq7JmzLhTDXWQ5uLtHC-gYMA4ziFo6F9js,2438
+dl_cloud-0.0.3.dist-info/DESCRIPTION.rst,sha256=0maMGYCPSl11QJpGevQdFS61hy0wSeOzEoXyJcoOuPY,5746
+dl_cloud-0.0.3.dist-info/METADATA,sha256=QfioEAIPT2zUh_afVQyAH2d5mj3cY5tszHzqqgm_g30,6342
+dl_cloud-0.0.3.dist-info/RECORD,,
+dl_cloud-0.0.3.dist-info/WHEEL,sha256=8Lm45v9gcYRm70DrgFGVe4WsUtUMi1_0Tso1hqPGMjA,92
+dl_cloud-0.0.3.dist-info/metadata.json,sha256=LqlkGxXbuYqdmpc8nCYVEpo_PGTpYB2UZoONTrNzV9M,759
+dl_cloud-0.0.3.dist-info/top_level.txt,sha256=lBiHHi76sKOBY-DmE0iDypxZxv-TTCnvHeiFleC_PuA,6
