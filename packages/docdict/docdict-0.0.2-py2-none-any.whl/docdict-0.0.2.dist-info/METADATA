@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: docdict
+Version: 0.0.2
+Summary: Generate dict by docstrings
+Home-page: https://github.com/gebeto/docdict
+Author: Slavik Nychkalo
+Author-email: slavik.nychkalo@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+# docdict
+Generate docs page from docstring
+
+
+# Upload package
+```sh
+# Create build
+python setup.py sdist bdist_wheel
+# Upload build
+twine upload dist/*
+```
+
+
