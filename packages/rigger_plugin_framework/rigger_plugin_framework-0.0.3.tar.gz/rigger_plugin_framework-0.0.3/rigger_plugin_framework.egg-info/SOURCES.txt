@@ -1,0 +1,13 @@
+setup.py
+rigger_plugin_framework/__init__.py
+rigger_plugin_framework/plugin.py
+rigger_plugin_framework/plugin_collector.py
+rigger_plugin_framework/plugin_installer.py
+rigger_plugin_framework/plugin_manager.py
+rigger_plugin_framework.egg-info/PKG-INFO
+rigger_plugin_framework.egg-info/SOURCES.txt
+rigger_plugin_framework.egg-info/dependency_links.txt
+rigger_plugin_framework.egg-info/requires.txt
+rigger_plugin_framework.egg-info/top_level.txt
+tests/__init__.py
+tests/test.py
