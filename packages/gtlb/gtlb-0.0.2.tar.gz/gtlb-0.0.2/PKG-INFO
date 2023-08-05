@@ -1,0 +1,18 @@
+Metadata-Version: 1.1
+Name: gtlb
+Version: 0.0.2
+Summary: UNKNOWN
+Home-page: https://github.com/danielwhatmuff/gtlb
+Author: Daniel Whatmuff
+Author-email: UNKNOWN
+License: UNKNOWN
+Description: A CLI to open Gitlab project in a browser
+Keywords: git gtlb gitlab cli open repo commandline browser
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.6
