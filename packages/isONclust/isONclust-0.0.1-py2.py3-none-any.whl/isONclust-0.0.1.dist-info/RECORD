@@ -1,0 +1,10 @@
+isONclust-0.0.1.data/scripts/isONclust,sha256=ZJI3DETOX0LsWT26OxvBvRrHbump4UtWNe0cYE7-UbM,8441
+isONclust-0.0.1.dist-info/METADATA,sha256=JuBEqcTvmqxkgPOauQaiVn3v5vK3mtJ9Zh-kfQIluhI,8296
+isONclust-0.0.1.dist-info/RECORD,,
+isONclust-0.0.1.dist-info/WHEEL,sha256=gduuPyBvFJQSQ0zdyxF7k0zynDXbIbvg5ZBHoXum5uk,110
+isONclust-0.0.1.dist-info/top_level.txt,sha256=F7U4jdIxH3MVMmyX9rbajWuG0bj5tcZN4L1DZSxW72E,8
+modules/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+modules/cluster.py,sha256=vcZqYtOJOmSnhMMLyfkwW5vhuAFHFERnka9573p9axE,40244
+modules/compute_shared_minimizers_probabilities.py,sha256=NAeNE8y8H0MqXJgxPA_MOBU1C6yMCvUmvehPT_QqGcU,11425
+modules/get_sorted_fastq_for_cluster.py,sha256=kSpeW6It8WzHauSdUz5VR5SptQibGHPB_XqzCHUjhyc,11984
+modules/p_minimizers_shared.py,sha256=6vfxx3fB21wkldLAdbbS6XOycKxwp-XiJR_7RVlmedI,1790771
