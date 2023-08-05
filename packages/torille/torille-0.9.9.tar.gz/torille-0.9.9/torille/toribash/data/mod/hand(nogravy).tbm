@@ -1,0 +1,257 @@
+# Mod By RicH
+
+gravity 0 0 0
+
+body head
+shape box
+sides 0.3 0.1 0.1
+pos 1.7 1.5 1
+
+joint neck
+radius 0.1
+pos 1.5 1.5 1
+axis 0 0 -1
+range 2 -2
+strength 2
+velocity 15
+
+body breast
+shape box
+sides 0.42 0.1 0.1
+pos 1.22 1.5 1
+
+joint l_axilla
+range 0 0
+radius 0.01
+pos 1.3 1.5 1
+axis 0 0 1
+strength 2
+velocity 15
+
+joint r_pecs
+range 0 0
+radius 0.01
+pos 1.1 1.5 1
+axis 0 0 1
+strength 2
+velocity 15
+
+joint r_shoulder
+radius 0.1
+range 1 -1
+pos 1.15 1.5 1.1
+axis 1 0 0
+strength 2
+velocity 15
+
+joint l_shoulder
+radius 0.1
+range 1 -1
+pos 1.35 1.5 1.1
+axis -1 0 0
+strength 2
+velocity 15
+
+body l_pecs
+shape box
+sides 0.05 0.05 0.05
+pos 1.35 1.5 1
+
+body r_pecs
+shape box
+sides 0.05 0.05 0.05
+pos 1.35 1.5 1
+
+body l_biceps
+shape box
+sides 0.1 0.1 0.3
+pos 1.35 1.5 1.3
+
+joint l_elbow
+radius 0.1
+pos 1.35 1.5 1.5
+axis 1 0 0
+strength 2
+velocity 15
+
+body l_triceps
+shape box
+sides 0.1 0.1 0.25
+pos 1.35 1.5 1.67
+
+joint l_wrist
+radius 0.1
+pos 1.35 1.5 1.8
+axis 1 0 0
+strength 2
+velocity 15
+
+body l_hand
+shape box
+sides 0.1 0.1 0.15
+pos 1.35 1.5 1.9
+
+body r_biceps
+shape box
+sides 0.1 0.1 0.4
+pos 1.15 1.5 1.35
+
+joint r_elbow
+radius 0.1
+pos 1.15 1.5 1.6
+axis -1 0 0
+strength 2
+velocity 15
+
+body r_triceps
+shape box
+sides 0.1 0.1 0.25
+pos 1.15 1.5 1.77
+
+joint r_wrist
+radius 0.1
+pos 1.15 1.5 1.9
+axis -1 0 0
+strength 2
+velocity 15
+
+body r_hand
+shape box
+sides 0.1 0.1 0.15
+pos 1.15 1.5 2
+
+joint chest
+range 0 0
+radius 0.1
+pos 1.25 1.5 1.0
+strength 2
+velocity 15
+
+body chest
+shape box
+sides 0.65 0.1 0.4
+pos 1.1 1.5 0.65
+
+joint lumbar
+range 0 0
+radius 0.15
+pos 1.1 1.5 0.8
+strength 2
+velocity 15
+
+body stomach
+shape box
+sides 0.8 0.1 0.1
+pos 1.1 1.5 0.9
+
+joint abs
+range 0 0
+radius 0.1
+pos 0.87 1.5 1.0
+strength 2
+velocity 15
+
+body groin
+shape box
+sides 0.42 0.1 0.1
+pos 0.8 1.5 1
+
+joint l_glute
+range 0 0
+radius 0.01
+pos 0.75 1.5 1
+axis 0 0 1
+strength 2
+velocity 15
+
+joint r_glute
+range 0 0
+radius 0.01
+pos 0.8 1.5 1
+axis 0 0 1
+strength 2
+velocity 15
+
+joint l_hip
+radius 0.1
+range 1 -1
+pos 0.96 1.5 1.1
+axis 1 0 0
+strength 2
+velocity 15
+
+joint r_hip
+radius 0.1
+range 1 -1
+pos 0.78 1.5 1.1
+axis 1 0 0
+strength 2
+velocity 15
+
+body r_butt
+shape box
+sides 0.05 0.05 0.05
+pos 0.8 1.5 1.1
+
+body l_butt
+shape box
+sides 0.05 0.05 0.05
+pos 0.8 1.5 1.1
+
+body l_thigh
+shape box
+sides 0.1 0.1 0.3
+pos 0.96 1.5 1.3
+
+joint l_knee
+radius 0.1
+pos 0.96 1.5 1.5
+axis -1 0 0
+strength 2
+velocity 15
+
+body l_leg
+shape box
+sides 0.1 0.1 0.25
+pos 0.96 1.5 1.67
+
+joint l_ankle
+radius 0.1
+pos 0.96 1.5 1.8
+axis -1 0 0
+strength 2
+velocity 15
+
+body l_foot
+shape box
+sides 0.1 0.1 0.15
+pos 0.96 1.5 1.9
+
+body r_thigh
+shape box
+sides 0.1 0.1 0.3
+pos 0.78 1.5 1.3
+
+joint r_knee
+radius 0.1
+pos 0.78 1.5 1.5
+axis -1 0 0
+strength 2
+velocity 15
+
+body r_leg
+shape box
+sides 0.1 0.1 0.25
+pos 0.78 1.5 1.67
+
+joint r_ankle
+radius 0.1
+pos 0.78 1.5 1.8
+axis -1 0 0
+strength 2
+velocity 15
+
+body r_foot
+shape box
+sides 0.1 0.1 0.15
+pos 0.78 1.5 1.9

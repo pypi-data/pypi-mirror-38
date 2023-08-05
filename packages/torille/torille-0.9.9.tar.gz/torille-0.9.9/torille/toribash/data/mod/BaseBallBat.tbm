@@ -1,0 +1,17 @@
+# Mod by MrPoptart =D
+
+joint l_elbow
+axis 0 1 0
+
+joint r_elbow
+axis 0 1 0
+
+joint r_wrist
+axis 0 -1 0
+
+body r_hand
+shape cylinder
+sides 0.07 1.7 0.0
+alt_sides 0.07 1.7 0.0
+pos -0.2 0.9 3.25
+color 2 2 1

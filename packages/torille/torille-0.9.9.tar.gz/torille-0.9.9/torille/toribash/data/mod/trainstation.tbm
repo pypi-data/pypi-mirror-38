@@ -1,0 +1,188 @@
+# Mod by MrPoptart =D
+
+gamerule
+engageheight 100
+
+env_obj 1
+shape box
+pos -3.6 -0.1 0.5
+color 1 1 0.9
+rot 0 0 0
+sides 15 50 1
+material steel
+mass 0.1
+flag 24
+
+env_obj 2
+shape box
+pos 3.3 -0.1 1
+color 1 1 0
+rot 0 0 0
+sides 1.2 50 0.1
+material steel
+mass 0.1
+flag 24
+
+env_obj 3
+shape box
+pos -18.6 -0.1 10
+color 1 1 0.9
+rot 0 0 0
+sides 15 100 20
+material steel
+mass 0.1
+flag 24
+
+env_obj 4
+shape box
+pos -3.6 37.4 10
+color 1 1 0.9
+rot 0 0 0
+sides 15 25 20
+material steel
+mass 0.1
+flag 24
+
+env_obj 5
+shape box
+pos -3.6 -37.6 10
+color 1 1 0.9
+rot 0 0 0
+sides 15 25 20
+material steel
+mass 0.1
+flag 24
+
+env_obj 6
+shape box
+pos -3.6 -0.1 15
+color 1 1 0.9
+rot 0 0 0
+sides 15 50 10
+material steel
+mass 0.1
+flag 24
+
+env_obj 7
+shape box
+pos 8.9 -0.1 17.5
+color 1 1 0.9
+rot 0 0 0
+sides 10 100 5
+material steel
+mass 0.1
+flag 24
+
+env_obj 8
+shape box
+pos 28.9 -0.1 10
+color 1 1 0.9
+rot 0 0 0
+sides 30 100 20
+material steel
+mass 0.1
+flag 24
+
+env_obj 9
+shape box
+pos 11.9 -100 0.3
+color 0.4 0.4 0.4 1
+rot 0 0 0
+sides 1 500 0.5
+material steel
+friction 0
+mass 0.1
+flag 24
+
+env_obj 10
+shape box
+pos 8.9 -320 5.6
+color 1 1 0.9
+rot 0 0 0
+sides 7.5 50 10
+material steel
+friction 0
+mass 0.1
+flag 0
+
+env_obj 11
+shape box
+pos 8.9 -265 5.6
+color 1 1 0.9
+rot 0 0 0
+sides 7.5 50 10
+material steel
+friction 0
+mass 0.1
+flag 0
+
+env_obj 12
+shape box
+pos 8.9 -210 5.6
+color 1 1 0.9
+rot 0 0 0
+sides 7.5 50 10
+friction 0
+material steel
+mass 0.1
+flag 0
+
+env_obj 13
+shape box
+pos 5.9 -100 0.3
+color 0.4 0.4 0.4 1
+rot 0 0 0
+sides 1 500 0.5
+material steel
+friction 0
+mass 0.1
+flag 24
+
+env_obj 14
+shape box
+pos 8.9 -155 5.6
+color 1 1 0.9
+rot 0 0 0
+sides 7.5 50 10
+material steel
+friction 0
+thrust 1 0 50 0
+mass 0.1
+flag 0
+
+env_obj 15
+shape box
+pos 10.9 -129.4 2.5
+color 1 1 0
+rot 0 0 0
+sides 1.5 1 1
+material steel
+friction 0
+mass 0.1
+flag 0
+
+env_obj 16
+shape box
+pos 6.9 -129.4 2.5
+color 1 1 0
+rot 0 0 0
+sides 1.5 1 1
+material steel
+friction 0
+mass 0.1
+flag 0
+
+env_obj_joint 1 16 14
+pos 6.9 -129.9 2.5
+
+env_obj_joint 2 15 14
+pos 10.9 -129.9 2.5
+
+env_obj_joint 3 14 12
+pos 8.9 -180 5.6
+
+env_obj_joint 4 12 11
+pos 8.9 -235 5.6
+
+env_obj_joint 5 11 10
+pos 8.9 -290 5.6

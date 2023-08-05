@@ -1,0 +1,53 @@
+# Mod by Jam0864 =D 
+# Fake helicopter mod!
+
+world
+color 1 1 1
+
+gravity 0 0 -100
+
+friction 999999999999
+
+joint neck
+axis 0 0 1
+range 5.0 -5.0
+strength 200.0
+velocity 250.0
+material steel
+
+body head
+sides 5 0.055 0.015
+flag 6
+color 1,1,1
+shape box
+rot 25 0 0
+
+body stomach 
+	force 0 30 70
+
+body breast
+	force 0 30 70
+
+body chest
+	force 0 30 70
+
+body groin
+	force 0 30 70
+
+body r_pecs
+	force 0 30 70
+
+body l_pecs
+	force 0 30 70
+
+body r_thigh
+	force 0 30 70
+
+body l_thigh
+	force 0 30 70
+
+body l_leg	
+	force 0 30 70
+
+body r_leg
+	force 0 30 70

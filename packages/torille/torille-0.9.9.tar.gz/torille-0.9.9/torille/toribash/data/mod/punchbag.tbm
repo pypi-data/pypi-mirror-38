@@ -1,0 +1,79 @@
+# Toribash Joints with Environment Objects Demonstration Mod File
+# ================================================================
+#
+
+# Punching bag mod
+# ----------------
+# This mod demonstrates the use of joints with environment objects
+# Here we use 2 joints for the bag. The reason is that the joints
+# are hinge joints, but we want the bag to move in 2 axis: x and y .
+# Therefore, we create a dummy object between the bag and the "ceiling".
+# One joint is between the "ceiling" and the dummy object, and the other
+# one is between the dummy object and the bag.
+# One joint has x axis and the other y axis.
+
+
+gamerule
+	engagedistance 250
+
+# "ceiling"
+env_obj 1
+	shape box
+	pos 1 0 4.0
+	color 0.1 0.1 0.1
+	rot 0 0 0
+	sides 4.0 0.3 0.1
+	material steel
+	mass 0.05
+	flag 8
+
+# dummy object
+env_obj 2
+	shape box
+	pos 1 0 3.6
+	color 0.1 0.9 0.1
+	rot 0 0 0
+	sides 0.2 0.2 0.2
+	material steel
+	mass 0.05
+	flag 0
+
+# bag
+env_obj 3
+	shape cylinder
+	pos 1 0 2.5
+	color 0.9 0.9 0.1
+	rot 0 0 0
+	sides 0.3 0.9
+	material steel
+	mass 0.05
+	flag 0
+
+
+# env_obj_joint <joint index> <env obj 1> <env obj 2>
+# creates a hinge joint between 2 environment objects
+
+# here we set strength and velocity to 0 to make the joints 'relax'
+
+env_obj_joint 1 1 2
+
+	pos 1 0 3.85
+	axis 1 0 0
+	range 2 -2
+	strength 0
+	velocity 0
+	visible 1
+
+env_obj_joint 2 2 3
+
+	pos 1 0 3.37
+	axis 0 1 0
+	range 2 -2
+	strength 0
+	velocity 0
+	visible 1
+
+# visible - makes the environment joints and their axis visible
+# (very helpful when creating mods)
+# add # before it to make the joints invisible
+

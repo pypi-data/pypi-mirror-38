@@ -1,0 +1,41 @@
+# Mod by MrPoptart
+
+env_obj 1
+    shape box
+    pos 7 0 5
+    color 1 1 1 0.5
+    rot 0 0 0
+    sides 0.25 50 10
+    material steel
+    mass 0.1
+    flag 8
+
+env_obj 2
+    shape box
+    pos -5 0 5
+    color 1 1 1 0.5
+    rot 0 0 0
+    sides 0.25 50 10
+    material steel
+    mass 0.1
+    flag 8
+
+env_obj 3
+    shape sphere
+    pos 1 -26 19.25
+    color 0.25 0.25 0.25
+    rot 0 0 0
+    sides 5.5 5.5 5.5
+    material steel
+    mass 100
+
+env_obj 4
+    shape box
+    pos 1 -18.5 6.25
+    color 1 1 1
+    rot 30 0 0
+    sides 11.75 25.25 0.25
+    material steel
+    mass 0.1
+    flag 8
+

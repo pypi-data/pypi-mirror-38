@@ -1,0 +1,56 @@
+# Twin Swords V4 by Grath
+# Twin Swords V4 Fixed by Dodekus
+
+gamerule
+	dojosize 1000
+	dojotype 0
+	matchframes 500
+	turnframes 50
+	engagedistance 150
+	dq 0
+	flags 2
+body r_hand
+	sides 1.0 0.008 0.008
+	pos -0.6 0.9 2.3
+	color 100 100 100
+	flag 6
+body l_hand
+	sides 1.0 0.008 0.008
+	pos 2.6 0.9 2.3
+	color 100 100 100
+	flag 6
+
+body r_foot
+        flag 6
+
+body l_foot
+        flag 6
+
+body r_triceps
+   sides 0.400000 0.130000 0.130000
+   flag 2
+
+body l_triceps
+   sides 0.400000 0.130000 0.130000
+   flag 2
+
+body r_leg
+   sides 0.160000 0.300000 0.000000
+        flag 2
+
+body l_leg
+   sides 0.160000 0.300000 0.000000
+        flag 2
+
+env_obj 1
+    shape box
+    pos 1.25 0 0.05
+    color 2.2 0 0 2.2
+    rot 0 0 0
+    sides 58.75 68.25 0
+    material steel
+    bounce 40
+    mass 0.1
+    flag 24
+
+

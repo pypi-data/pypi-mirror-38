@@ -1,0 +1,47 @@
+# Environment exported by WorldBuilder
+######################################
+
+env_obj 1
+    shape box
+    pos 1.0625 1.375 16.4375
+    color 0.5 0.5 0.5 1
+    rot 0 0 0
+    sides 1 1 32.875
+    material steel
+    mass 10.5
+    flag 16
+#END 1
+
+env_obj 2
+    shape box
+    pos 1.0625 -1.625 16.4375
+    color 0.5 0.5 0.5 1
+    rot 0 0 0
+    sides 1 1 32.875
+    material steel
+    mass 10.5
+    flag 16
+#END 2
+
+env_obj 3
+    shape cylinder
+    pos -0.375 1.1875 36.6875
+    color 0 0 -0.1 1
+    rot 1 -180 0
+    sides 0.0625 3.9375 1
+    material steel
+    mass 0.0001
+    flag 0
+#END 3
+
+env_obj 4
+    shape cylinder
+    pos 2.375 -1.3125 36.6875
+    color 0 0 -0.1 1
+    rot 1 -180 0
+    sides 0.0625 3.9375 1
+    material steel
+    mass 0.0001
+    flag 0
+#END 4
+

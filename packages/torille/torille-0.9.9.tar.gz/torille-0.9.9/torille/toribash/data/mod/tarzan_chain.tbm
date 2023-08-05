@@ -1,0 +1,201 @@
+# Mod by Juntalis, editted from MrPoptart's "swingset2.tbm"
+
+gamerule
+engagedistance 1000
+
+player 0
+
+body stomach
+force 0 16 1
+
+body breast
+force 0 16 1
+
+body chest
+force 0 16 1
+
+body groin
+force 0 16 1
+
+body r_pecs
+force 0 16 1
+
+body l_pecs
+force 0 16 1
+
+body r_thigh
+force 0 16 1
+
+body l_thigh
+force 0 16 1
+
+body l_leg
+force 0 16 1
+
+body r_leg
+force 0 16 1
+
+env_obj 1
+shape box
+pos 1 0.0 20
+color 1 1 1
+rot 0 0 0
+sides 2 2 0
+material steel
+mass 0.1
+flag 8
+
+env_obj 2
+shape cylinder
+pos 1 0.0 1.1875
+color 0 0 0
+rot 0 0 0
+sides 0.0625 0.5 0
+material steel
+mass 0.01
+flag 0
+
+env_obj 3
+shape cylinder
+pos 1 0.0 2.0625
+color 0 0 0
+rot 0 0 0
+sides 0.0625 0.5 0
+material steel
+mass 0.01
+flag 0
+
+env_obj 4
+shape cylinder
+pos 1 0.0 2.9375
+color 0 0 0
+rot 0 0 0
+sides 0.0625 0.5 0
+material steel
+mass 0.01
+flag 0
+
+env_obj 5
+shape cylinder
+pos 1 0.0 3.8125
+color 0 0 0
+rot 0 0 0
+sides 0.0625 0.5 0
+material steel
+mass 0.01
+flag 0
+
+env_obj 6
+shape cylinder
+pos 1 0.0 4.6875
+color 0 0 0
+rot 0 0 0
+sides 0.0625 0.5 0
+material steel
+mass 0.01
+flag 0
+
+env_obj 7
+shape cylinder
+pos 1 0.0 5.5625
+color 0 0 0
+rot 0 0 0
+sides 0.0625 0.5 0
+material steel
+mass 0.01
+flag 0
+
+env_obj 8
+shape cylinder
+pos 1 0.0 6.4375
+color 0 0 0
+rot 0 0 0
+sides 0.0625 0.5 0
+material steel
+mass 0.01
+flag 0
+
+env_obj 9
+shape cylinder
+pos 1 0.0 7.3125
+color 0 0 0
+rot 0 0 0
+sides 0.0625 0.5 0
+material steel
+mass 0.01
+flag 0
+
+env_obj 10
+shape box
+pos 1 0.0 7.9655
+color 1 1 1
+rot 0 0 0
+sides 1 1 0
+material steel
+mass 0.1
+flag 8
+
+
+
+env_obj_joint 2 2 3
+pos 1 0.0 1.625
+axis 1 0 0
+range 5 -5
+strength 0
+velocity 0
+
+env_obj_joint 3 3 4
+pos 1 0.0 2.5
+axis 1 0 0
+range 5 -5
+strength 0
+velocity 0
+
+env_obj_joint 4 4 5
+pos 1 0.0 3.375
+axis 1 0 0
+range 5 -5
+strength 0
+velocity 0
+
+env_obj_joint 5 5 6
+pos 1 0.0 4.25
+axis 1 0 0
+range 5 -5
+strength 0
+velocity 0
+
+env_obj_joint 6 6 7
+pos 1 0.0 5.125
+axis 1 0 0
+range 5 -5
+strength 0
+velocity 0
+
+env_obj_joint 7 7 8
+pos 1 0.0 6
+axis 1 0 0
+range 5 -5
+strength 0
+velocity 0
+
+env_obj_joint 8 8 9
+pos 1 0.0 6.875
+axis 1 0 0
+range 5 -5
+strength 0
+velocity 0
+
+env_obj_joint 9 9 10
+pos 1 0.0 7.75
+axis 1 0 0
+range 5 -5
+strength 0
+velocity 0
+
+env_obj_joint 10 9 10
+pos 1 0.0 8.625
+axis 1 0 0
+range 5 -5
+strength 0
+velocity 0

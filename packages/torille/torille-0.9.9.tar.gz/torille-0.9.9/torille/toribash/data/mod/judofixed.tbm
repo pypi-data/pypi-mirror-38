@@ -1,0 +1,42 @@
+#!/usr/bin/toribash
+### judofixed made by Sirss
+
+gamerule
+engagedistance 80
+dismemberthreshold 100
+dismember 1
+fracture 0
+turnframes 70
+matchframes 1000
+sumo 1
+dq 1
+
+body r_hand
+	sides 1.8 0.008 0.008
+	flag 6
+
+body l_hand
+	sides 1.8 0.008 0.008
+	flag 6
+
+body r_foot
+        flag 6
+
+body l_foot
+        flag 6
+
+body r_triceps
+   sides 0.400000 0.130000 0.130000
+   flag 2
+
+body l_triceps
+   sides 0.400000 0.130000 0.130000
+   flag 2
+
+body r_leg
+   sides 0.160000 0.300000 0.000000
+        flag 2
+
+body l_leg
+   sides 0.160000 0.300000 0.000000
+        flag 2

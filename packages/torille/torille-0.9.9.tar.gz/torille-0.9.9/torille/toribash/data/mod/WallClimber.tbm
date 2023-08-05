@@ -1,0 +1,11 @@
+body r_foot
+sides .1 .1 0.1
+pos 0.8 1 0.5
+body l_foot
+shape box
+sides 5 1 10
+pos 1.2 -1.2 5
+body r_hand
+flag 6
+body l_hand
+flag 6

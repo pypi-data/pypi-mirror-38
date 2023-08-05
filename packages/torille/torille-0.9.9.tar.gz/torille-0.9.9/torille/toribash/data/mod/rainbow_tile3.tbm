@@ -1,0 +1,181 @@
+##IDEA AND MOD BY BLKK
+#DO NOT SPLICE WITHOUT MY CONSENT
+
+
+gamerule
+engageheight 500
+dojosize 1
+gravity 0 0 -10
+
+
+# Environment exported by WorldBuilder
+######################################
+
+env_obj 1
+    shape box
+    pos 1 0.75 4.875
+    color -0.1 1.1 -0.1 1
+    rot 0 0 0
+    sides 2 1.5 0.25
+    material steel
+    mass 0.3
+    flag 0
+    thrust 1 0 0 3
+
+#END 1
+
+env_obj 2
+    shape box
+    pos 1 -0.9375 4.875
+    color 1.1 1.1 -0.1 1
+    rot 0 0 0
+    sides 2 1.5 0.25
+    material steel
+    mass 0.3
+    flag 0
+    thrust 1 0 0 3
+
+#END 2
+
+env_obj 3
+    shape box
+    pos -1.1875 -0.9375 4.875
+    color -0.1 1.1 -0.1 1
+    rot 0 0 0
+    sides 2 1.5 0.25
+    material steel
+    mass 0.4
+    flag 0
+    thrust 1 0 0 4
+
+#END 3
+
+env_obj 4
+    shape box
+    pos -1.1875 0.75 4.875
+    color -0.1 -0.1 1 1
+    rot 0 0 0
+    sides 2 1.5 0.25
+    material steel
+    mass 0.4
+    flag 0
+    thrust 1 0 0 4
+
+#END 4
+
+env_obj 5
+    shape box
+    pos -1.1875 2.4375 4.875
+    color 1.1 -0.1 1 1
+    rot 0 0 0
+    sides 2 1.5 0.25
+    material steel
+    mass 0.4
+    flag 0
+    thrust 1 0 0 4
+
+#END 5
+
+env_obj 6
+    shape box
+    pos 1 2.4375 4.875
+    color -0.1 -0.1 1 1
+    rot 0 0 0
+    sides 2 1.5 0.25
+    material steel
+    mass 0.4
+    flag 0
+    thrust 1 0 0 4
+
+#END 6
+
+env_obj 7
+    shape box
+    pos 3.1875 2.4375 4.875
+    color -0.1 1.1 -0.1 1
+    rot 0 0 0
+    sides 2 1.5 0.25
+    material steel
+    mass 0.4
+    flag 0
+    thrust 1 0 0 4
+
+#END 7
+
+env_obj 8
+    shape box
+    pos 3.1875 0.75 4.875
+    color 1.1 1.1 -0.1 1
+    rot 0 0 0
+    sides 2 1.5 0.25
+    material steel
+    mass 0.4
+    flag 0
+    thrust 1 0 0 4
+
+#END 8
+
+env_obj 9
+    shape box
+    pos 3.1875 -0.9375 4.875
+    color 1.1 0.5 -0.1 1
+    rot 0 0 0
+    sides 2 1.5 0.25
+    material steel
+    mass 0.4
+    flag 0
+    thrust 1 0 0 4
+
+#END 9
+
+env_obj 10
+    shape box
+    pos 3.1875 -2.625 4.875
+    color 1.1 0 -0.1 1
+    rot 0 0 0
+    sides 2 1.5 0.25
+    material steel
+    mass 0.4
+    flag 0
+    thrust 1 0 0 4
+
+#END 10
+
+env_obj 11
+    shape box
+    pos 1 -2.625 4.875
+    color 1.1 0.5 -0.1 1
+    rot 0 0 0
+    sides 2 1.5 0.25
+    material steel
+    mass 0.4
+    flag 0
+    thrust 1 0 0 4
+
+#END 11
+
+env_obj 12
+    shape box
+    pos -1.1875 -2.625 4.875
+    color 1.1 1.1 -0.1 1
+    rot 0 0 0
+    sides 2 1.5 0.25
+    material steel
+    mass 0.4
+    flag 0
+    thrust 1 0 0 4
+
+#END 12
+
+env_obj 13
+    shape box
+    pos 1 -0.0625 0
+    color 1.1 1.1 1 1
+    rot 0 0 0
+    sides 30 30 0
+    material steel
+    mass 0.1
+    flag 30
+    bounce 200
+#END 13
+

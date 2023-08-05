@@ -1,0 +1,291 @@
+#!/usr/bin/toribash
+
+#Made by gamer_noob
+#objects 1 and 2 sides of uke
+#objects 3 and 4 back of uke
+
+gamerule
+engagedistance 100
+engageheight 59
+dismemberthreshold 300
+fracturethreshold 150
+dismemberment 1
+fracture 1
+turnframes 5,10
+matchframes 250
+sumo 1
+dq 1
+gravity 0 0 -10
+
+
+env_obj 1
+shape box
+pos -6 0 5
+color 0 0 0 0
+rot 0 0 0
+sides .1 16 10
+material steel
+mass 10
+flag 14
+friction 0
+#END 1
+
+env_obj 2
+shape box
+pos 8 0 5
+color 0 0 0 0
+rot 0 0 0
+sides .1 16 10
+material steel
+mass 10
+flag 14
+friction 0
+#END 2
+
+env_obj 3
+shape box
+pos 1 -8 5
+color 0 0 0 0
+rot 0 0 0
+sides 14 .1 10
+material steel
+mass 10
+flag 14
+friction 0
+#END 3
+
+env_obj 4
+shape box
+pos 1 8 5
+color 0 0 0 0
+rot 0 0 0
+sides 14 .1 10
+material steel
+mass 10
+flag 14
+friction 0
+#END 4
+env_obj 5
+shape box
+pos 1 0 .5
+color 0 0 1.1 1.1
+rot 0 0 0
+sides 14 16 0.1
+material steel
+mass 1
+flag 24
+friction 1
+#END 5
+
+
+
+player1
+
+body r_hand
+velocity 30
+strength 50
+mass 1
+
+
+body l_hand
+velocity 30
+strength 50
+mass 1
+
+
+body r_triceps
+velocity 30
+strength 50
+mass .1
+
+body l_triceps
+velocity 30
+strength 50
+mass .1
+
+body r_biceps
+velocity 30
+strength 50
+mass .1
+
+body l_biceps
+velocity 30
+strength 50
+mass .1
+
+body r_pec
+velocity 30
+strength 50
+mass .1
+
+body l_pec
+velocity 30
+strength 50
+mass .1
+
+body breast
+velocity 30
+strength 50
+mass .1
+
+body chest
+velocity 30
+strength 50
+mass .1
+
+body stomach
+velocity 30
+strength 50
+mass .1
+
+body groin
+velocity 30
+strength 50
+mass .1
+
+body r_butt
+velocity 30
+strength 50
+mass .1
+
+body l_butt
+velocity 30
+strength 50
+mass .1
+
+body r_thigh
+velocity 30
+strength 50
+mass .1
+
+body l_thigh
+velocity 30
+strength 50
+mass .1
+
+body r_leg
+velocity 30
+strength 50
+mass .1
+
+body l_leg
+velocity 30
+strength 50
+mass .1
+
+body r_foot
+velocity 30
+strength 50
+mass 1
+
+body l_foot
+velocity 30
+strength 50
+mass 1
+
+
+joint neck
+velocity 25
+strength 10
+mass .1
+force 0 0 0
+
+joint chest
+velocity 25
+strength 10
+mass .1
+
+joint lumbar
+velocity 25
+strength 10
+mass .1
+
+
+joint abs
+velocity 25
+strength 10
+mass .1
+
+
+joint r_pecs
+velocity 25
+strength 10
+mass .1
+
+
+joint l_pecs
+velocity 25
+strength 10
+mass .1
+
+
+joint r_shoulder
+velocity 25
+strength 10
+mass .1
+
+
+joint r_elbow
+velocity 25
+strength 10
+mass .1
+
+
+joint l_axilla
+velocity 25
+strength 10
+mass .1
+
+joint r_axilla
+velocity 25
+strength 10
+mass .1
+
+joint l_shoulder
+velocity 25
+strength 10
+mass .1
+
+
+joint l_elbow
+velocity 25
+strength 10
+mass .1
+
+
+joint r_wrist
+velocity 25
+strength 10
+mass .1
+
+
+joint l_wrist
+velocity 25
+strength 10
+mass .1
+
+
+joint r_glute
+velocity 15
+strength 10
+mass .1
+
+
+joint l_glute
+velocity 15
+strength 10
+mass .1
+
+
+joint r_hip
+velocity 15
+strength 10
+mass .1
+
+
+joint l_hip
+velocity 15
+strength 10
+mass .1
+
+

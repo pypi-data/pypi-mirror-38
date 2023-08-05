@@ -1,0 +1,200 @@
+#!/usr/bin/toribash
+###########################################
+# mod by tatsujay based on crashtestmp made by Shook
+
+gamerule
+	engagedistance 12002
+	engageheight 4
+
+env_obj 13
+	shape box
+	pos 1 -45.5 0.3
+	color 1 1 1
+	rot -5 0 0
+	sides 0.5 7 0.01
+	material steel
+	mass 0.5
+	flag 8
+	friction -200
+	flag 24
+
+env_obj 14
+	shape box
+	pos 1 -40.5 2
+	color 1 1 1
+	rot -20.5 0 0
+	sides 0.5 9.8 0.01
+	material steel
+	mass 0.5
+	flag 8
+	friction -200
+	flag 24
+
+env_obj 15
+	shape box
+	pos 1 -36 5
+	color 1 1 1
+	rot -35 0 0
+	sides 0.5 10 0.01
+	material steel
+	mass 0.5
+	flag 8
+	friction -200
+	flag 24
+
+env_obj 1
+	shape box
+	pos 1 -52 0.005
+	color 1 1 1
+	rot 0 0 0
+	sides 0.5 22 0.01
+	material steel
+	mass 0.01
+	flag 8
+	friction 0
+	flag 24
+
+env_obj 2
+	shape box
+	pos 1 -60.2 0.03
+	color 1 0.4 0 .99
+	rot 0 0 0
+	sides 0.8 0.7 0.06
+	material steel
+	mass 0.001
+	friction 0.7
+	flag 16
+	thrust 1 0 1.445 -3.5
+
+env_obj 3
+	shape box
+	pos 1 -60.9 0.36
+	color 1 0.4 0 .99
+	rot 0 0 0
+	sides 0.8 0.8 0.7
+	material steel
+	mass 0.001
+	friction 0.7
+	flag 16
+	thrust 1 0 1.445 -1
+
+env_obj 4
+	shape box
+	pos 1 -61.45 1.11
+	color 1 0.4 0 .99
+	rot 0 0 0
+	sides 0.8 0.3 2.2
+	material steel
+	mass 0.001
+	friction 0.7
+	flag 16
+	thrust 1 0 1.445 -1
+
+env_obj 5
+	shape box
+	pos 1 51.9 0.005
+	color 1 1 1
+	rot 0 0 0
+	sides 0.5 22 0.01
+	material steel
+	mass 0.5
+	flag 8
+	friction 0
+	flag 24
+
+env_obj 9
+	shape box
+	pos 1 45.5 0.3
+	color 1 1 1
+	rot 5 0 0
+	sides 0.5 7 0.01
+	material steel
+	mass 0.5
+	flag 8
+	friction -200
+	flag 24
+
+env_obj 10
+	shape box
+	pos 1 40.5 2
+	color 1 1 1
+	rot 20.5 0 0
+	sides 0.5 9.8 0.01
+	material steel
+	mass 0.5
+	flag 8
+	friction -200
+	flag 24
+
+env_obj 11
+	shape box
+	pos 1 36 5
+	color 1 1 1
+	rot 35 0 0
+	sides 0.5 10 0.01
+	material steel
+	mass 0.5
+	flag 8
+	friction -200
+	flag 24
+
+env_obj 12
+	shape box
+	pos 1 0 0
+	color 1 0.4 0 .99
+	rot 0 0 0
+	sides 50 50 0.2
+	material steel
+	mass 20
+	flag 8
+	friction 100
+	bounce 4
+	flag 24
+
+env_obj 6
+	shape box
+	pos 1 60 0.03
+	color 1 0.4 0 .99
+	rot 0 0 0
+	sides 0.8 0.7 0.06
+	material steel
+	mass 0.001
+	friction 0.7
+	flag 16
+	thrust 1 0 -1.445 -3.5
+
+env_obj 7
+	shape box
+	pos 1 60.7 0.36
+	color 1 0.4 0 .99
+	rot 0 0 0
+	sides 0.8 0.8 0.7
+	material steel
+	mass 0.001
+	friction 0.7
+	flag 16
+	thrust 1 0 -1.445 -1
+
+env_obj 8
+	shape box
+	pos 1 61.25 1.11
+	color 1 0.4 0 .99
+	rot 0 0 0
+	sides 0.8 0.3 2.2
+	material steel
+	mass 0.001
+	friction 0.7
+	flag 16
+	thrust 1 0 -1.445 -1
+
+env_obj_joint 1 2 3
+	pos 1 -60.1 0.03
+
+env_obj_joint 2 3 4
+	pos 1 -61.35 1.11
+
+env_obj_joint 3 6 7
+	pos 1 59.9 0.03
+
+env_obj_joint 4 7 8
+	pos 1 61.15 1.11

@@ -1,0 +1,73 @@
+# HaXBoX's Mods =>
+
+hold
+color 0 0 1
+relax
+color 1 0 0
+hold_active
+color 0 0 1
+relax_active
+color 1 0 0
+
+# Tori
+player 0
+
+joint r_wrist
+axis 1 0 0
+range 20 -10
+pos -0.22 0.9 2.3
+velocity 80.00
+strength 100.00
+
+joint l_wrist
+axis 1 0 0
+range 20 -10
+pos 2.22 0.9 2.3
+velocity 80.00
+strength 100.00
+
+body r_hand
+color 1 0 0
+sides 1.1 0.03 0.04
+alt_sides 1.1 0.03 0.04
+pos -0.47 1.05 2.25
+flag 6
+
+body l_hand
+color 1 0 0
+sides 1.1 0.03 0.04
+alt_sides 1.1 0.03 0.04
+pos 2.47 1.05 2.25
+flag 6
+
+
+# Uke
+player 1
+
+joint r_wrist
+axis 1 0 0
+range 20 -10
+pos -0.22 0.9 2.3
+velocity 80.00
+strength 100.00
+
+joint l_wrist
+axis 1 0 0
+range 20 -10
+pos 2.22 0.9 2.3
+velocity 80.00
+strength 100.00
+
+body r_hand
+color 1 0 0
+sides 1.1 0.03 0.04
+alt_sides 1.1 0.03 0.04
+pos -0.47 1.05 2.25
+flag 6
+
+body l_hand
+color 1 0 0
+sides 1.1 0.03 0.04
+alt_sides 1.1 0.03 0.04
+pos 2.47 1.05 2.25
+flag 6

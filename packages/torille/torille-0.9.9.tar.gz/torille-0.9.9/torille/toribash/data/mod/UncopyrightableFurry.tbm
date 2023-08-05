@@ -1,0 +1,21 @@
+#Furry Mod by Uncopyrightable
+# NOW WE CAN YIFF! \(^o^)/
+
+body groin
+shape cylinder
+sides 0.08 1.2 0
+pos 1.0 1.1 2.1
+material steel
+flag 6
+
+joint abs
+range 0.25-1.5
+velocity 10
+
+joint l_hip
+range 1.5 -1.5
+velocity 10
+
+joint r_hip
+range 1.5 -1.5
+velocity 10

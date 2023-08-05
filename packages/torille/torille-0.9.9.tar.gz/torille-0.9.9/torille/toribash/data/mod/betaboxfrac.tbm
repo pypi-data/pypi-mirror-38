@@ -1,0 +1,11 @@
+gamerule
+matchframes 220
+turnframes 10,10,20,20,20,20,20,20,20,20,20,20
+flags 2
+dismemberment  0
+fracture 1
+fracturethreshold 100
+engagedistance 140
+sumo 1
+dojo 2
+dojosize 790

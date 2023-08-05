@@ -1,0 +1,103 @@
+gamerule
+	engagedistance 185
+	engageheight 2000
+
+env_obj 1
+    shape box
+    pos 1.2 -1.125 9.5
+    color 0.3 0.3 0.3
+    sides 0.03 0.03 19
+    material steel
+    mass 0.1
+    flag 24
+	
+env_obj 2
+    shape box
+    pos 0.8 -1.125 9.5
+    color 0.3 0.3 0.3
+    sides 0.03 0.03 19
+    material steel
+    mass 0.1
+    flag 24
+	
+env_obj 3
+    shape box
+    pos 1.2 0.875 9.5
+    color 0.3 0.3 0.3
+    sides 0.03 0.03 19
+    material steel
+    mass 0.1
+    flag 24
+	
+env_obj 4
+    shape box
+    pos 0.8 0.875 9.5
+    color 0.3 0.3 0.3
+    sides 0.03 0.03 19
+    material steel
+    mass 0.1
+    flag 24
+	
+env_obj 5
+    shape box
+    pos 1 -0.125 11
+    color 0.3 0.3 0.3
+    sides 0.03 0.03 22
+    material steel
+    mass 0.1
+    flag 1
+	
+env_obj 6
+    shape box
+    pos 0.8 0.875 19.5
+    color 0.3 0.3 0.3
+	sides 0.2 0.5 1
+    material steel
+    mass 1
+    flag 1
+	
+env_obj 7
+    shape box
+    pos 1.2 -1.125 19.5
+    color 0.3 0.3 0.3
+	sides 0.2 0.5 1
+    material steel
+    mass 1
+    flag 1
+	
+env_obj 8
+    shape box
+    pos 1.2 0.875 19.5
+    color 0.3 0.3 0.3
+    sides 0.2 0.5 1
+    material steel
+    mass 1
+    flag 1
+	
+env_obj 9
+    shape box
+    pos 0.8 -1.125 19.5
+    color 0.3 0.3 0.3
+    sides 0.2 0.5 1
+    material steel
+    mass 1
+    flag 1
+	
+env_obj 10
+    shape box
+    pos 1 -1.125 50
+    color 0.3 0.3 0.3
+    sides 0.37 0.37 0.37
+    material steel
+    mass 0.5
+    flag 1
+	
+env_obj 11
+    shape box
+    pos 1 0.875 50
+    color 0.3 0.3 0.3
+    sides 0.37 0.37 0.37
+    material steel
+    mass 0.5
+    flag 1
+	

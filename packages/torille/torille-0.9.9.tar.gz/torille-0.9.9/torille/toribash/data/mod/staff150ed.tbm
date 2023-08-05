@@ -1,0 +1,64 @@
+gamerule
+ed 150
+
+joint chest
+range 1.5 -1.5
+strength 5.0
+velocity 25.0
+
+joint r_elbow
+range 1.1 -1.55
+
+body r_triceps
+shape box
+pos 0.225 0.7 2.3
+sides 0.1 0.4 0.1
+
+joint r_wrist
+shape sphere
+pos 0.225 0.45 2.3
+range 2.0 -0.7
+
+body r_hand
+shape box
+pos 0.25 0.3 2.3
+sides 0.22 0.22 0.22
+alt_sides 0.21 0.21 0.21
+
+joint l_elbow
+range 1.1 -1.55
+
+body l_triceps
+shape box
+pos 1.75 0.7 2.3
+sides 0.1 0.4 0.1
+
+joint l_wrist
+shape sphere
+pos 1.75 0.45 2.3
+range 2.0 -0.7
+
+body l_hand
+shape box
+pos 1.725 0.3 2.3
+sides 0.22 0.22 0.22
+alt_sides 0.21 0.21 0.21
+
+env_obj 1
+shape cylinder
+pos 1 0.1 2.25
+color 0.6 0.2 -0.1 1
+rot 0 90 0
+sides 0.05 3.5 1
+material steel
+mass 0.0001
+
+env_obj 2
+shape cylinder
+pos 1 -0.3 2.25
+color 0.6 0.2 -0.1 1
+rot 0 90 0
+sides 0.05 3.5 1
+material steel
+mass 0.0001
+

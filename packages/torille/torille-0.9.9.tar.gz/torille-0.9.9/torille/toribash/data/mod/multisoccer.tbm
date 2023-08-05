@@ -1,0 +1,127 @@
+#!/usr/bin/toribash
+#### Created with ModEditor by DeFransen ####
+#### Made by SupahNinja :D ####
+
+
+gamerule
+   damage 0
+   dismemberment 0
+   disqualification 0
+   dojosize 0
+   dojotype 0
+   dqflag 0
+   dqtimeout 0
+   engagedistance 100
+   engageheight 0
+   engageplayerpos 0,5,0,0,-5,0
+   engageplayerrot 0,0,0,0,0,180
+   engagerotation 0
+   engagespace 0
+   flags 0
+   fracture 0
+   gravity 0 0 -30
+   matchframes 1500
+   rpg 0
+   sumo 0
+   turnframes 10
+
+
+# for all players
+
+
+env_obj 1
+   bounce 6
+   color 0.2 0.3 0.4
+   flag 1
+   mass 0.0005
+   pos 0.75 0 0.5
+   shape sphere
+   sides 0.25 1 0.75
+
+env_obj 2
+   color 0.25 0.3 0.25 1
+   flag 8
+   pos 1 -11.5 4.625
+   shape box
+   sides 10.25 3.25 0.25
+
+env_obj 3
+   color 0.25 0.3 0.25 1
+   flag 8
+   pos 1 -13.65 2.3
+   rot 15 0 0
+   shape box
+   sides 10.25 0.25 5
+
+env_obj 4
+   color 0.25 0.3 0.25 1
+   flag 8
+   pos 6 -10 2.375
+   shape box
+   sides 0.25 0.25 4.75
+
+env_obj 5
+   color 0.25 0.3 0.25 1
+   flag 8
+   pos -4 -10 2.375
+   shape box
+   sides 0.25 0.25 4.75
+
+env_obj 6
+   color 0.25 0.3 0.25 1
+   flag 8
+   pos 6 -12.1 0.125
+   shape box
+   sides 0.25 4.45 0.25
+
+env_obj 7
+   color 0.25 0.3 0.25 1
+   flag 8
+   pos -4 -12.1 0.125
+   shape box
+   sides 0.25 4.45 0.25
+
+env_obj 8
+   color 0.25 0.3 0.25 1
+   flag 8
+   pos 1 11.5 4.625
+   shape box
+   sides 10.25 3.25 0.25
+
+env_obj 9
+   color 0.25 0.3 0.25 1
+   flag 8
+   pos 1 13.65 2.3
+   rot -15 0 0
+   shape box
+   sides 10.25 0.25 5
+
+env_obj 10
+   color 0.25 0.3 0.25 1
+   flag 8
+   pos 6 10 2.375
+   shape box
+   sides 0.25 0.25 4.75
+
+env_obj 11
+   color 0.25 0.3 0.25 1
+   flag 8
+   pos -4 10 2.375
+   shape box
+   sides 0.25 0.25 4.75
+
+env_obj 12
+   color 0.25 0.3 0.25 1
+   flag 8
+   pos 6 12.1 0.125
+   shape box
+   sides 0.25 4.45 0.25
+
+env_obj 13
+   color 0.25 0.3 0.25 1
+   flag 8
+   pos -4 12.1 0.125
+   shape box
+   sides 0.25 4.45 0.25
+
+

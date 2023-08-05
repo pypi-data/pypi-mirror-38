@@ -1,0 +1,329 @@
+#!/usr/bin/toribash
+# MOD BY q12
+######################################
+
+gamerule
+
+gravity 0 0 -30
+turnframes 20
+matchframes 500
+dqtimeout 30
+flags 4
+dismemberment 1
+dt 350
+fracture 1
+fracturethreshold 325
+sumo 1
+disqualification 0
+engagedistance 800
+engageheight 75
+friction 100.0
+dojotype 1
+dojosize 600
+reactiontime 15
+###############################
+
+###
+player 0
+
+body head
+force 0 15 0
+body stomach
+force 0 30 1
+body breast
+force 0 30 2
+body chest
+force 0 30 1
+body groin
+force 0 60 1
+
+body r_pecs
+force 0 30 1
+body l_pecs
+force 0 30 1
+
+body r_thigh
+force 0 80 1
+body l_thigh
+force 0 80 1
+
+body l_leg
+force 0 90 1
+body r_leg
+force 0 90 1
+
+body r_foot
+force 0 50 1
+body l_foot
+force 0 50 1
+
+player 1
+friction 100.0
+
+body head
+force 0 15 0
+body stomach
+force 0 30 1
+body breast
+force 0 30 2
+body chest
+force 0 30 1
+body groin
+force 0 60 1
+
+body r_pecs
+force 0 30 1
+body l_pecs
+force 0 30 1
+
+body r_thigh
+force 0 80 1
+body l_thigh
+force 0 80 1
+
+body l_leg
+force 0 90 1
+body r_leg
+force 0 90 1
+
+body r_foot
+force 0 50 1
+body l_foot
+force 0 50 1
+
+#########
+
+player 0
+
+body r_hand
+	pos -0.35 0.85 2.275
+        shape box
+        sides 0.20 0.20 0.20
+	alt_sides 0.15 0.15 0.15
+        density 0.09
+        thrust 10 0 0 0.8
+        friction 100
+
+body l_hand
+	pos 2.35 0.85 2.275
+        shape box
+        sides 0.20 0.20 0.20
+	alt_sides 0.15 0.15 0.15
+        density 0.09
+        thrust 10 0 0 0.8
+        friction 100
+
+body l_foot
+density 0.10
+thrust 1 0 0 -.4
+
+body r_foot
+density 0.10
+thrust 1 0 0 -.4
+
+joint l_ankle
+range 1.5 -0.7
+strength 4
+velocity 14
+
+joint r_ankle
+range 1.5 -0.7
+strength 4
+velocity 14
+
+body l_leg
+density 0.15
+thrust 1 0 0 -.3
+
+body r_leg
+density 0.15
+thrust 1 0 0 -.3
+
+joint l_knee
+range 2.4 0.0
+strength 6.0
+velocity 50.0
+
+joint r_knee
+range 2.4 0.0
+strength 6.0
+velocity 50.0
+
+body l_thigh
+density 0.2
+thrust 1 0 0 -.1
+
+body r_thigh
+density 0.2
+thrust 1 0 0 -.1
+
+joint l_hip
+range 1.3 -1.8
+strength 4.0
+velocity 22.0
+
+joint r_hip
+range 1.3 -1.8
+strength 4.0
+velocity 22.0
+
+joint l_glute
+range 1.2 -0.2
+strength 5.0
+velocity 15.0
+
+joint r_glute
+range 1.4 -0.3
+strength 5.0
+velocity 15.0
+
+body groin
+density 0.2
+thrust 1 0 -.1 .5
+
+joint abs
+range 0.8 -0.7
+strength 6.5
+velocity 6.0
+
+body stomach
+density 0.2
+thrust 1 0 0 -1
+
+joint lumbar
+range 0.5 -0.5
+strength 4.5
+velocity 5.0
+
+body chest
+density 0.25
+thrust 1 0 -.05 .1
+
+joint chest
+range 1.3 -1.3
+strength 4.5
+velocity 25.0
+
+body breast
+thrust 1 0 0 0.5
+
+body head
+thrust 1 0 0 0.0
+
+#########
+#########
+player 1
+
+body r_hand
+	pos -0.35 0.85 2.275
+        shape box
+        sides 0.20 0.20 0.20
+	alt_sides 0.15 0.15 0.15
+        density 0.09
+        thrust 10 0 0 0.8
+        friction 100
+body l_hand
+	pos 2.35 0.85 2.275
+        shape box
+        sides 0.20 0.20 0.20
+	alt_sides 0.15 0.15 0.15
+        density 0.09
+        thrust 10 0 0 0.8
+        friction 100
+
+body l_foot
+density 0.10
+thrust 1 0 0 -.4
+
+body r_foot
+density 0.10
+thrust 1 0 0 -.4
+
+joint l_ankle
+range 1.5 -0.7
+strength 4
+velocity 14
+
+joint r_ankle
+range 1.5 -0.7
+strength 4
+velocity 14
+
+body l_leg
+density 0.15
+thrust 1 0 0 -.3
+
+body r_leg
+density 0.15
+thrust 1 0 0 -.3
+
+joint l_knee
+range 2.4 0.0
+strength 6.0
+velocity 50.0
+
+joint r_knee
+range 2.4 0.0
+strength 6.0
+velocity 50.0
+
+body l_thigh
+density 0.2
+thrust 1 0 0 -.1
+
+body r_thigh
+density 0.2
+thrust 1 0 0 -.1
+
+joint l_hip
+range 1.3 -1.8
+strength 4.0
+velocity 22.0
+
+joint r_hip
+range 1.3 -1.8
+strength 4.0
+velocity 22.0
+
+joint l_glute
+range 1.2 -0.2
+strength 5.0
+velocity 15.0
+
+joint r_glute
+range 1.4 -0.3
+strength 5.0
+velocity 15.0
+
+body groin
+density 0.2
+thrust 1 0 -.1 .5
+
+joint abs
+range 0.8 -0.7
+strength 6.5
+velocity 6.0
+
+body stomach
+density 0.2
+thrust 1 0 0 -1
+
+joint lumbar
+range 0.5 -0.5
+strength 4.5
+velocity 5.0
+
+body chest
+density 0.25
+thrust 1 0 -.05 .1
+
+joint chest
+range 1.3 -1.3
+strength 5.5
+velocity 25.0
+
+body breast
+thrust 1 0 0 0.5
+
+body head
+thrust 1 0 0 0.0

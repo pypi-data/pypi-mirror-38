@@ -1,0 +1,25 @@
+# Tori
+player 0
+
+joint chest
+radius 0.18
+pos 1.0 0.9 2.05
+axis 0 0 1
+rot 0 0 0
+range 5.0 -5.0
+strength 50.0
+velocity 0.0
+
+
+# Uke
+player 1
+
+joint chest
+radius 0.18
+pos 1.0 0.9 2.05
+axis 0 0 1
+rot 0 0 0
+range 5.0 -5.0
+strength 50.0
+velocity 0.0
+

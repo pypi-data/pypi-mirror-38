@@ -1,0 +1,160 @@
+gamerule
+matchframes 2000
+engagedistance 1000
+gravity 0 0 -25
+
+#Body Modifications
+
+body head
+thrust 1 0 0 1.75
+pos 1.0 0.85 2.6
+
+body r_biceps 
+pos 0.45 0.85 2.275
+thrust 1 0 0 0.01
+
+body r_triceps 
+pos 0.05 0.85 2.275
+thrust 1 0 0 0.00025
+flag 2
+
+body l_biceps 
+pos 1.55 0.85 2.275
+thrust 1 0 0 0.01
+
+body l_triceps  
+pos 1.95 0.85 2.275
+thrust 1 0 0 0.00025
+flag 2
+
+body l_pec
+density 0.5
+body r_pec
+density 0.5
+
+body r_butt 
+thrust 10 0 0 -0.6
+density 0.3
+
+body l_butt 
+thrust 10 0 0 -0.6
+density 0.3
+
+body r_thigh 
+thrust 5 0 0 -0.575
+flag 2
+
+body l_thigh 
+thrust 5 0 0 -0.575
+flag 2 
+
+body r_leg 
+thrust 1 0 0 -0.45
+flag 2
+
+body l_leg 
+thrust 1 0 0 -0.45
+flag 2
+
+body l_thigh
+sides 0.11 0.3 0.2
+density 1.35
+
+body r_thigh
+sides 0.11 0.3 0.2
+density 1.35
+
+body l_leg
+sides 0.12 0.3 0.0
+
+body r_leg
+sides 0.12 0.3 0.0
+
+
+body r_foot 
+sides 0.20 0.55 0.085
+pos 0.8 0.925 0.1
+friction 75
+thrust 5 0 0 -0.75
+density 0.35
+
+body l_foot 
+sides 0.20 0.55 0.085
+pos 1.2 0.925 0.1
+friction 75
+thrust 5 0 0 -0.75
+density 0.35
+
+joint r_knee
+velocity 45
+radius 0.12
+
+joint l_knee
+velocity 45
+radius 0.12
+
+joint l_shoulder
+radius 0.16
+strength 8.0
+velocity 30.0
+joint r_shoulder
+radius 0.16
+strength 8.0
+velocity 30.0
+
+joint l_elbow
+radius 0.14
+strength 6.0
+joint r_elbow
+radius 0.14
+strength 6.0
+
+joint l_wrist
+radius 0.08
+joint r_wrist
+radius 0.08
+
+joint chest
+radius 0.16
+
+joint lumbar
+range 0.45 -0.45
+strength 8.0
+velocity 15.0
+radius 0.14
+
+joint abs
+range 0.05 -0.175
+strength 8.0
+velocity 15.0
+density 0.25
+radius 0.12
+
+joint l_glute
+strength 8
+range 0.5 -0.0125
+radius 0.14
+
+joint r_glute
+strength 8
+range 0.5 -0.0125
+radius 0.14
+
+joint r_hip
+strength 8.25
+velocity 21.75
+range 0.20 -1.2
+radius 0.14
+
+joint l_hip
+strength 8.25
+velocity 21.75
+range 0.20 -1.2
+radius 0.14
+
+joint r_ankle
+strength 1.25
+velocity 20.0
+joint l_ankle
+strength 1.25
+velocity 20.0

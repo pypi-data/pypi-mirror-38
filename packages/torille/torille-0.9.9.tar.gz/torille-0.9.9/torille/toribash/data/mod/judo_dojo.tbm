@@ -1,0 +1,28 @@
+#!/usr/bin/toribash
+###  Faster Mixed Martial Arts Toribash number 9 by neoliminal
+###  Grabbing heads, DQ in and out of ring after 45 tics
+
+gamerule
+matchframes 1000
+turnframes 70
+flags 10
+dismemberment 0
+fracture 1
+disqualification 1
+dqtimeout 45
+dqflag 0
+
+gravity 0.00 0.00 -30.00
+engagedistance 90
+
+dismemberthreshold 1000
+
+fracturethreshold 240
+
+dojosize 500
+dojotype 1
+
+sumo 1
+
+body head
+flag 15

@@ -1,0 +1,21 @@
+#timefight mode, made by lightningkid and alexownz
+
+
+gamerule
+	engagedistance 149
+	matchframes 200
+	turnframes 10,10,10,20,20,25,25,30,50
+	dismemberment 1
+	fracture 0
+	dq 1
+	dqflag 1
+	sumo 1
+	dqtimeout 20
+	dismemberthreshold 220
+	fracturethreshold 0
+	dojotype 1
+	dojosize 385
+	engagerotation 4
+	damage 0
+	gravity 0 0 -9.82
+	

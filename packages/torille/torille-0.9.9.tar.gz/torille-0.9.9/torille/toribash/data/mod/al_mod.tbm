@@ -1,0 +1,17 @@
+#!lenkido.tbm/usr/bin/toribash
+#defcon was here too
+gamerule
+gravity 0.00 0.00 -22.00
+engagedistance 140
+dismemberthreshold 5000
+dismember 1
+fracture 1
+fracturethreshold 200
+matchframes 500
+turnframes 10,20,20,30,30,30,30,30,50,50,50,50,50,50
+dojosize 400
+dojotype 1
+dq 1
+sumo 1
+flags 11
+dqtimeout 20

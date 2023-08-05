@@ -1,0 +1,70 @@
+# Open The Present Mod by Uncopyrightable
+
+friction 0
+
+env_obj 1
+    shape box
+    pos 1 -1.75 1.5
+    color 1.1 0 -0.1 1
+    rot 0 0 0
+    sides 3.25 0.25 3
+    material steel
+    mass 0.1
+    flag 8
+#END 1
+
+env_obj 2
+    shape box
+    pos 1 -0.75 1.5
+    color 1.1 0 -0.1 1
+    rot 0 0 0
+    sides 3.24 0.24 2.99
+    material steel
+    mass 0.1
+    flag 0
+#END 2
+
+env_obj 3
+    shape box
+    pos -0.75 -1.25 1.5
+    color 1.1 0 -0.1 1
+    rot 0 0 0
+    sides 0.25 1.25 3
+    material steel
+    mass 0.1
+    flag 8
+#END 3
+
+env_obj 4
+    shape box
+    pos 2.75 -1.25 1.5
+    color 1.1 0 -0.1 1
+    rot 0 0 0
+    sides 0.25 1.25 3
+    material steel
+    mass 0.1
+    flag 8
+#END 4
+
+env_obj 5
+    shape box
+    pos 1 -1.25 3.125
+    color 1.1 0 -0.1 1
+    rot 0 0 0
+    sides 3.75 1.25 0.25
+    material steel
+    mass 0.1
+    flag 8
+#END 5
+
+env_obj 6
+    shape box
+    pos 1 -1.25 0
+    color 1.1 0 -0.1 1
+    rot 0 0 0
+    sides 3.75 1.25 0.05
+    material steel
+    mass 0.1
+    flag 8
+#END 6
+

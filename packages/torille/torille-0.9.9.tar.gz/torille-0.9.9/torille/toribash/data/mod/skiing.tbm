@@ -1,0 +1,62 @@
+friction 0
+body l_hand
+shape box
+sides 0.05 0.05 2.4
+alt_sides 0.05 0.05 2.4
+pos 2.2 0.85 1.35
+rot 0 0 0
+force 0 0 0
+color 1 1 1
+material flesh
+flag 32
+
+body r_hand
+shape box
+sides 0.05 0.05 2.4
+alt_sides 0.05 0.05 2.4
+pos -0.2 0.85 1.35
+rot 0 0 0
+force 0 0 0
+color 1 1 1
+material flesh
+flag 36
+
+body r_foot
+shape box
+sides 0.05 3 0.05
+pos 0.8 0.9 0.1
+rot 0 0 0
+force 0 30 0
+color 1 1 1
+material flesh
+flag 32
+
+body l_foot
+shape box
+sides 0.05 3 0.05
+pos 1.2 0.9 0.1
+rot 0 0 0
+force 0 30 0
+color 1 1 1
+material flesh
+flag 32
+body l_leg
+force 0 35 0
+body r_leg
+force 0 35 0 
+body r_thigh
+force 0 30 0
+body l_thigh
+force 0 30 0 
+body stomach
+force 0 20 0
+body breast
+force 0 20 0
+body chest
+force 0 20 0
+body groin
+force 0 20 0
+body r_pecs
+force 0 20 0
+body l_pecs
+force 0 20 0 

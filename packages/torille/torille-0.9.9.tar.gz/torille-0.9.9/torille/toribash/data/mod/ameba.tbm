@@ -1,0 +1,143 @@
+body head
+sides .2 .2 .2
+pos .1 .1 .5
+body breast
+shape sphere
+sides .1 .1 .1
+pos .1 .1 1
+body chest
+shape sphere
+sides .1 .1 .1
+pos .1 .1 1
+body stomach
+shape sphere
+sides .1 .1 .1
+pos .1 .1 1
+body groin
+shape sphere
+sides .1 .1 .1
+pos .1 .1 1
+body r_pecs
+shape sphere
+sides .1 .1 .1
+pos .1 .1 1
+body l_pecs
+shape sphere
+sides .1 .1 .1
+pos .1 .1 1
+body r_biceps
+shape sphere
+sides .1 .1 .1
+pos .1 .1 1
+body l_biceps
+shape sphere
+sides .1 .1 .1
+pos .1 .1 1
+body r_triceps
+shape sphere
+sides .1 .1 .1
+pos .1 .1 1
+body l_triceps
+shape sphere
+sides .1 .1 .1
+pos .1 .1 1
+body r_hand
+sides .1 .1 .1
+pos .1 .1 1
+body l_hand
+sides .1 .1 .1
+pos .1 .1 1
+body r_butt
+shape sphere
+sides .1 .1 .1
+pos .1 .1 1
+body l_butt
+shape sphere
+sides .1 .1 .1
+pos .1 .1 1
+body r_thigh
+shape sphere
+sides .1 .1 .1
+pos .1 .1 1
+body l_thigh
+shape sphere
+sides .1 .1 .1
+pos .1 .1 1
+body r_leg
+shape sphere
+sides .1 .1 .1
+pos .1 .1 1
+body l_leg
+shape sphere
+sides .1 .1 .1
+pos .1 .1 1
+body r_foot
+shape sphere
+sides .1 .1 .1
+pos .1 .1 1
+body l_foot
+shape sphere
+sides .1 .1 .1
+pos .1 .1 1
+joint neck
+radius .1
+pos .1 .1 .1
+joint chest
+radius .1
+pos .1 .1 .1
+joint lumbar
+radius .1
+pos .1 .1 .1
+joint abs
+radius .1
+pos .1 .1 .1
+joint r_pecs
+radius .1
+pos .1 .1 .1
+joint l_axilla
+radius .1
+pos .1 .1 .1
+joint r_shoulder
+radius .1
+pos .1 .1 .1
+joint l_shoulder
+radius .1
+pos .1 .1 .1
+joint r_elbow
+radius .1
+pos .1 .1 .1
+joint l_elbow
+radius .1
+pos .1 .1 .1
+joint r_wrist
+radius .1
+pos .1 .1 .1
+joint l_wrist
+radius .1
+pos .1 .1 .1
+joint r_glute
+radius .1
+pos .1 .1 .1
+joint l_glute
+radius .1
+pos .1 .1 .1
+joint r_hip
+radius .1
+pos .1 .1 .1
+joint l_hip
+radius .1
+pos .1 .1 .1
+joint r_knee
+radius .1
+pos .1 .1 .1
+joint l_knee
+radius .1
+pos .1 .1 .1
+joint r_ankle
+radius .1
+pos .1 .1 .1
+joint l_ankle
+radius .1
+pos .1 .1 .1
+
+gravity 0 0 -5

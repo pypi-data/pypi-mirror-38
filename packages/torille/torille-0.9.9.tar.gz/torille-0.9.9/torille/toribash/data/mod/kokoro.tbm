@@ -1,0 +1,26 @@
+# Mod Name: KoKoRo
+# Mod Created By Zaki =)
+# Mod Settings:
+
+gamerule
+        engagedistance 230
+        gravity 0 0 -15
+        matchframes 450
+        turnframes 45
+        disqualifaction 0
+        dojosize 700
+
+# Body Alters
+
+body l_foot
+density .5
+
+body r_foot
+density .5
+
+body l_hand
+density .5
+
+body r_hand
+density .5
+

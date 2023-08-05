@@ -1,0 +1,24 @@
+#runningf.tbm by DareDron. Used fracturethreshold and dismemberthreshold same as Ninjutsu.tbm
+#fixed: dq, flags, tf. a bit but setting it alltime is boring)) so I fixed my mod))
+gamerule
+
+gravity 0 0 -30
+
+engagedistance 1000
+matchframes 230
+dismemberthreshold 250
+fracturethreshold 140
+turnframes 10
+engageheight 0
+sumo 1
+damage 1
+dojosize 0
+flags 7
+dismemberment 1
+fracture 1
+disqualification 0
+dqtimeout 0
+dqflag 8
+dojotype 0
+damage 0
+dq 1

@@ -1,0 +1,53 @@
+gamerule
+gravity 0.00 0.00 -30.00
+engagedistance 90
+dismemberthreshold 315
+dismember 1
+fracture 1
+fracturethreshold 190
+matchframes 435
+turnframes 10,20,25,30,35,40,45,50,55,40,35,30,20
+dojosize 560
+dojotype 0
+dq 1
+sumo 0
+flags 11
+
+body r_thigh
+flag 32
+
+body l_thigh
+flag 32
+
+body r_leg
+flag 32
+
+body l_leg
+flag 32
+
+body l_hand
+material steel
+
+body r_hand
+material steel
+
+joint r_wrist
+flag 32
+
+joint l_wrist
+flag 32
+
+joint r_knee
+flag 32
+
+joint l_knee
+flag 32
+
+joint r_ankle
+flag 32
+
+joint l_ankle
+flag 32
+
+###################################
+Made by Shahid. v0.8

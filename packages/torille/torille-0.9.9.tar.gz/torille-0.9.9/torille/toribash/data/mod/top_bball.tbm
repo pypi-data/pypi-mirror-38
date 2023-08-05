@@ -1,0 +1,540 @@
+#!/usr/bin/toribash
+gamerule
+matchframes 270
+turnframes 20,10,10,10,10
+engagedistance 260
+dismemberment 0
+fracture 0
+gravity 0 0 -25
+re 30
+drawwinner 2
+
+#Body Modifications
+
+player 0
+body head
+thrust 1 0 0 1.75
+pos 1.0 0.85 2.6
+flag 16
+
+body breast
+flag 16
+
+body chest
+flag 16
+
+body stomach
+flag 16
+
+body groin
+flag 16
+
+body r_pecs
+flag 16
+
+body l_pecs
+flag 16
+
+body r_biceps 
+pos 0.45 0.85 2.275
+thrust 1 0 0 0.01
+flag 16
+
+body r_triceps 
+pos 0.05 0.85 2.275
+thrust 1 0 0 0.00025
+flag 2
+flag 16
+
+body l_biceps 
+pos 1.55 0.85 2.275
+thrust 1 0 0 0.01
+flag 16
+
+body l_triceps  
+pos 1.95 0.85 2.275
+thrust 1 0 0 0.00025
+flag 2
+flag 16
+
+body r_butt 
+thrust 1 0 0 -0.45
+flag 16
+
+body l_butt 
+thrust 1 0 0 -0.45
+flag 16
+
+body r_thigh 
+thrust 1 0 0 -0.45
+flag 16
+
+body l_thigh 
+thrust 1 0 0 -0.45
+flag 16 
+
+body r_leg 
+thrust 1 0 0 -0.43
+flag 16
+
+body l_leg 
+thrust 1 0 0 -0.43
+flag 16
+
+body l_thigh
+sides 0.11 0.3 0.2
+body r_thigh
+sides 0.11 0.3 0.2
+body l_leg
+sides 0.12 0.3 0.0
+body r_leg
+sides 0.12 0.3 0.0
+
+body r_foot 
+sides 0.225 0.6 0.0825
+pos 0.8 0.925 0.1
+thrust 5 0 0 -0.86
+density 0.925
+friction 80
+flag 16
+
+body l_foot 
+thrust 5 0 0 -0.86
+density 0.925
+sides 0.225 0.6 0.0825
+pos 1.2 0.925 0.1
+friction 80
+flag 16
+
+joint l_glute
+strength 15
+range 0.3 -0.02
+flag 16
+
+joint r_glute
+strength 15
+range 0.3 -0.02
+flag 16
+
+joint r_hip
+strength 10.0
+velocity 12.5
+range 0.75 -1
+flag 16
+
+joint l_hip
+strength 10.0
+velocity 12.5
+range 0.75 -1
+flag 16
+
+joint r_knee
+strength 5.0
+velocity 30.0
+flag 16
+
+joint l_knee
+strength 5.0
+velocity 30.0
+flag 16
+
+joint lumbar
+range 0.55 -0.55
+strength 8.0
+velocity 15.0
+flag 16
+
+joint abs
+range 0.5 -0.3
+strength 5.0
+velocity 7.5
+density 0.25
+flag 16
+
+joint l_elbow
+axis 0 1 0
+velocity 25.0
+flag 16
+
+joint r_elbow
+axis 0 1 0
+velocity 25.0
+flag 16
+
+joint l_wrist
+axis 0 1 0
+velocity 21.5
+range 2.35 -1.1
+flag 16
+
+joint r_wrist
+axis 0 1 0
+velocity 21.5
+range 2.35 -1.1
+flag 16
+
+body l_hand
+sides 0.375 0.17 0.095
+flag 16
+body r_hand
+sides 0.375 0.17 0.095
+flag 16
+
+joint l_ankle
+velocity 42.5
+strength 12.5
+range 0.575 -0.345
+flag 16
+
+joint r_ankle
+velocity 42.5
+strength 12.5
+range 0.575 -0.345
+flag 16
+
+joint l_pecs
+strength 3.5
+flag 16
+
+joint r_pecs
+strength 3.5
+flag 16
+
+joint l_shoulder
+range 0.975 -0.975
+flag 16
+
+joint r_shoulder
+range 0.975 -0.975
+flag 16
+
+player 1
+body head
+thrust 1 0 0 1.75
+
+body l_hand
+trig_id 7
+trig_mask 8
+
+body r_hand
+trig_id 7
+trig_mask 8
+
+body r_biceps 
+thrust 1 0 0 0.01
+
+body r_triceps 
+thrust 1 0 0 0.00025
+flag 2
+
+body l_biceps 
+thrust 1 0 0 0.01
+
+body l_triceps  
+thrust 1 0 0 0.00025
+flag 2
+
+body r_butt 
+thrust 1 0 0 -0.45
+
+body l_butt 
+thrust 1 0 0 -0.45
+
+body r_thigh 
+thrust 1 0 0 -0.45
+flag 2
+
+body l_thigh 
+thrust 1 0 0 -0.45
+flag 2 
+
+body r_leg 
+thrust 1 0 0 -0.43
+flag 2
+
+body l_leg 
+thrust 1 0 0 -0.43
+flag 2
+
+body l_thigh
+sides 0.11 0.3 0.2
+body r_thigh
+sides 0.11 0.3 0.2
+body l_leg
+sides 0.12 0.3 0.0
+body r_leg
+sides 0.12 0.3 0.0
+
+body r_foot 
+sides 0.225 0.6 0.0825
+pos 0.8 0.925 0.1
+thrust 5 0 0 -0.86
+density 0.925
+friction 80
+
+body l_foot 
+thrust 5 0 0 -0.86
+density 0.925
+sides 0.225 0.6 0.0825
+pos 1.2 0.925 0.1
+friction 80
+
+joint l_glute
+strength 15
+range 0.3 -0.02
+flag 16
+
+joint r_glute
+strength 15
+range 0.3 -0.02
+flag 16
+
+joint r_hip
+strength 10.0
+velocity 12.5
+range 0.75 -1
+flag 16
+
+joint l_hip
+strength 10.0
+velocity 12.5
+range 0.75 -1
+flag 16
+
+joint r_knee
+strength 5.0
+velocity 30.0
+flag 16
+
+joint l_knee
+strength 5.0
+velocity 30.0
+flag 16
+
+joint lumbar
+range 0.55 -0.55
+strength 8.0
+velocity 15.0
+flag 16
+
+joint abs
+range 0.5 -0.3
+strength 5.0
+velocity 7.5
+density 0.25
+flag 16
+
+joint l_ankle
+velocity 42.5
+strength 12.5
+range 0.575 -0.345
+flag 16
+
+joint r_ankle
+velocity 42.5
+strength 12.5
+range 0.575 -0.345
+flag 16
+
+#Basketball Net
+
+env_obj 1
+    shape box
+    pos 1 -2.9375 4.2125
+    color 0.8 0.8 0.8 1
+    rot 0 0 0
+    sides 2.1875 0.125 1.35
+    material steel
+    mass 0.1
+    flag 24
+#END 1
+
+env_obj 2
+    shape cylinder
+    pos 1.3125 -2.6875 3.875
+    color 1 0.7 -0.1 1
+    rot 90 0 0
+    sides 0.015 0.375 1
+    material steel
+    mass 0.1
+    flag 24
+    trig_id 8
+    trig_mask 7
+    trig_action 1
+#END 2
+
+env_obj 3
+    shape cylinder
+    pos 1.25 -2.375 3.875
+    color 1 0.7 -0.1 1
+    rot 90 50 0
+    sides 0.015 0.125 1
+    material steel
+    mass 0.1
+    flag 24
+    trig_id 8
+    trig_mask 7
+    trig_action 1
+#END 3
+
+env_obj 4
+    shape cylinder
+    pos 1 -2.3125 3.875
+    color 1 0.7 -0.1 1
+    rot 90 90 0
+    sides 0.015 0.3125 1
+    material steel
+    mass 0.1
+    flag 24
+    trig_id 8
+    trig_mask 7
+    trig_action 1
+#END 4
+
+env_obj 5
+    shape cylinder
+    pos 0.75 -2.375 3.875
+    color 1 0.7 -0.1 1
+    rot 90 -50 0
+    sides 0.015 0.125 1
+    material steel
+    mass 0.1
+    flag 24
+    trig_id 8
+    trig_mask 7
+    trig_action 1
+#END 5
+
+env_obj 6
+    shape cylinder
+    pos 0.6875 -2.6875 3.875
+    color 1 0.7 -0.1 1
+    rot 90 0 0
+    sides 0.015 0.375 1
+    material steel
+    mass 0.1
+    flag 24
+    trig_id 8
+    trig_mask 7
+    trig_action 1
+#END 6
+
+env_obj 7
+    shape sphere
+    pos 1 0.375 2.965
+    color 1 0.5 -0.1 1
+    rot 0 0 0
+    sides 0.215 1 1
+    material steel
+    mass 0.0065
+    flag 64
+    bounce 6
+    trig_id 1
+    trig_mask 6
+#END 7
+
+env_obj 8
+    shape box
+    pos 1 -15.875 2.75
+    color 0.1 0.1 0.1 1
+    rot 0 0 0
+    sides 22.1875 25.8125 5.5
+    material steel
+    mass 0.1
+    flag 24
+    trig_id 2
+    trig_action 2
+    trig_mask 1
+#END 8
+
+env_obj 9
+    shape box
+    pos 1 6.25 0
+    color 0.9 0.7 0 1
+    rot 0 0 0
+    sides 22 19 0.016
+    material steel
+    mass 0.1
+    flag 24
+#END 9
+
+env_obj 10
+    shape box
+    pos 1 1.0625 0
+    color 1 0 0 1
+    rot 0 0 0
+    sides 4.5 8.0625 0.019
+    material steel
+    mass 0.1
+    flag 24
+#END 10
+
+env_obj 11
+    shape box
+    pos -6.5 1.25 0
+    color 1 1 1 1
+    rot 0 0 0
+    sides 0.25 9 0.019
+    material steel
+    mass 0.1
+    flag 24
+#END 11
+
+env_obj 12
+    shape box
+    pos 8.5 1.25 0
+    color 1 1 1 1
+    rot 0 0 0
+    sides 0.25 9 0.019
+    material steel
+    mass 0.1
+    flag 24
+#END 12
+
+env_obj 13
+    shape box
+    pos 1 9.5625 0
+    color 1 1 1 1
+    rot 0 0 0
+    sides 7.375 0.25 0.019
+    material steel
+    mass 0.1
+    flag 24
+#END 13
+
+env_obj 14
+    shape box
+    pos -4.5625 7.625 0
+    color 1 1 1 1
+    rot 0 0 -45
+    sides 5.5625 0.25 0.019
+    material steel
+    mass 0.1
+    flag 24
+#END 14
+
+env_obj 15
+    shape box
+    pos 6.5625 7.625 0
+    color 1 1 1 1
+    rot 0 0 45
+    sides 5.5625 0.25 0.019
+    material steel
+    mass 0.1
+    flag 24
+#END 15
+
+env_obj 16
+    shape box
+    pos 1 -2.625 3.55
+    color 1 1 1 0
+    rot 0 0 0
+    sides 0.005 0.005 4.5e-005
+    material steel
+    mass 0.1
+    flag 24
+    trig_id 4
+    trig_action 1
+    trig_mask 1
+    visible 0
+#END 16

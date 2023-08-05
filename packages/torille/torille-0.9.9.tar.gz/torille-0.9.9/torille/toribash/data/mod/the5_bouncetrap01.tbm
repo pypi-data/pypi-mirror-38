@@ -1,0 +1,197 @@
+##THE5_BounceTrap01
+##by THE5
+
+# Environment exported by WorldBuilder
+######################################
+
+env_obj 1
+    shape box
+    pos 10 0 10
+    color 0 0 1 0.3
+    rot 0 0 0
+    sides 9.75 29.75 20
+    material steel
+    mass 0
+    flag 8
+    bounce 1
+#END 1
+
+env_obj 2
+    shape box
+    pos -10 0 10
+    color 0 0 1 0.3
+    rot 0 0 0
+    sides 9.75 29.75 20
+    material steel
+    mass 0
+    flag 8
+    bounce 1
+#END 2
+
+env_obj 3
+    shape box
+    pos 0 10 10
+    color 0 0 1 0.3
+    rot 0 0 90
+    sides 10 30 20
+    material steel
+    mass 0
+    flag 8
+    bounce 1
+#END 3
+
+env_obj 4
+    shape box
+    pos 0 -10 10
+    color 0 0 1 0.3
+    rot 0 0 90
+    sides 10 30 20
+    material steel
+    mass 0
+    flag 8
+    bounce 1
+#END 4
+
+env_obj 5
+    shape box
+    pos 0 0 20
+    color 0 0 1 0.3
+    rot 0 0 90
+    sides 29.25 29.25 20
+    material steel
+    mass 0
+    flag 8
+    bounce 1
+#END 5
+
+env_obj 11
+    shape box
+    pos 0 0 0.01
+    color 0 0 1 0.3
+    rot 0 0 90
+    sides 29.25 29.25 0.01
+    material steel
+    mass 0
+    flag 8
+    bounce 1
+#END 11
+
+env_obj 6
+    shape sphere
+    pos 1 -0.125 3
+    color 1.1 -0.1 -0.1 1
+    rot 0 0 0
+    sides 0.25 1 1
+    material steel
+    mass 0.01
+    flag 0
+    bounce 3
+#END 6
+
+env_obj 7
+    shape sphere
+    pos 1 0.625 3
+    color 1.1 -0.1 -0.1 1
+    rot 0 0 0
+    sides 0.25 1 1
+    material steel
+    mass 0.01
+    flag 0
+    bounce 3
+#END 7
+
+env_obj 8
+    shape sphere
+    pos 1 -0.875 3
+    color 1.1 -0.1 -0.1 1
+    rot 0 0 0
+    sides 0.25 1 1
+    material steel
+    mass 0.01
+    flag 0
+    bounce 3
+#END 8
+
+env_obj 9
+    shape sphere
+    pos 0.25 -0.125 3
+    color 1.1 -0.1 -0.1 1
+    rot 0 0 0
+    sides 0.25 1 1
+    material steel
+    mass 0.01
+    flag 0
+    bounce 3
+#END 9
+
+env_obj 10
+    shape sphere
+    pos 1.75 -0.125 3
+    color 1.1 -0.1 -0.1 1
+    rot 0 0 0
+    sides 0.25 1 1
+    material steel
+    mass 0.01
+    flag 0
+    bounce 3
+#END 10
+
+env_obj 12
+    shape sphere
+    pos 1 -0.125 4
+    color 1.1 -0.1 -0.1 1
+    rot 0 0 0
+    sides 0.25 1 1
+    material steel
+    mass 0.01
+    flag 0
+    bounce 3
+#END 6
+
+env_obj 13
+    shape sphere
+    pos 1 0.625 4
+    color 1.1 -0.1 -0.1 1
+    rot 0 0 0
+    sides 0.25 1 1
+    material steel
+    mass 0.01
+    flag 0
+    bounce 3
+#END 7
+
+env_obj 14
+    shape sphere
+    pos 1 -0.875 4
+    color 1.1 -0.1 -0.1 1
+    rot 0 0 0
+    sides 0.25 1 1
+    material steel
+    mass 0.01
+    flag 0
+    bounce 3
+#END 8
+
+env_obj 15
+    shape sphere
+    pos 0.25 -0.125 4
+    color 1.1 -0.1 -0.1 1
+    rot 0 0 0
+    sides 0.25 1 1
+    material steel
+    mass 0.01
+    flag 0
+    bounce 3
+#END 9
+
+env_obj 16
+    shape sphere
+    pos 1.75 -0.125 4
+    color 1.1 -0.1 -0.1 1
+    rot 0 0 0
+    sides 0.25 1 1
+    material steel
+    mass 0.01
+    flag 0
+    bounce 3
+#END 10

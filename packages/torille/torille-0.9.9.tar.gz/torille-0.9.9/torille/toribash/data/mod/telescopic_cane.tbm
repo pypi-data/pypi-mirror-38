@@ -1,0 +1,15 @@
+#!/usr/bin/toribash
+
+gamerule
+    matchframes 400
+    turnframes 50
+    engagedistance 300
+
+body l_hand
+	sides 0.5 0.09 0.09
+	alt_sides 8.0 0.09 0.09
+	pos 2.0 1.0 2.3
+	material steel
+	color 0.2 0.2 0.2
+                    flag 3
+                   

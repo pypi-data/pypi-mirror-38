@@ -1,0 +1,185 @@
+#!/usr/bin/toribash
+
+######################################
+# by Oracul
+######################################
+
+gamerule
+	gravity 0.00 0.00 -10.00
+	engageheight 95
+	engagedistance 150
+	dismemberthreshold 500
+	dismember 1
+	matchframes 500
+	turnframes 10,20,20,25,25,30,30,35,35,40,40,45,45,50,50
+	dojosize 500
+	dq 0
+	sumo 0
+
+#CTO/\
+env_obj 1
+    shape box
+    pos 1 -0.125 0.9 
+    color 0.3 0.1 0.05
+    rot 0 0 0
+    sides 3 3 0.075
+    material steel
+    mass 0.1
+    flag 32
+#END 1
+
+#OCb CTO/\A
+env_obj 2
+    shape box
+    pos 1 -0.125 0.5 
+    color 0.1 0.1 0.1
+    rot 0 0 0
+    sides 0.125 0.125 0.85
+    material steel
+    mass 0.1
+    flag 8
+#END 2
+
+#KO/\
+env_obj 3
+    shape box
+    pos 3 3 0.25 
+    color 255 0 0
+    rot 0 0 0
+    sides 0.05 0.05 0.75
+    material steel
+    mass 0.1
+    flag 12
+#END 3
+
+#KO/\
+env_obj 4
+    shape box
+    pos 4 2 0.25 
+    color 255 0 0
+    rot 0 0 0
+    sides 0.05 0.05 0.75
+    material steel
+    mass 0.1
+    flag 12
+#END 4
+
+#KO/\
+env_obj 5
+    shape box
+    pos 2 3.5 0.25 
+    color 255 0 0
+    rot 0 0 0
+    sides 0.05 0.05 0.75
+    material steel
+    mass 0.1
+    flag 12
+#END 5
+
+#KO/\
+env_obj 6
+    shape box
+    pos 1 3 0.25 
+    color 255 0 0
+    rot 0 0 0
+    sides 0.05 0.05 0.75
+    material steel
+    mass 0.1
+    flag 12
+#END 6
+
+#KO/\
+env_obj 7
+    shape box
+    pos 0 2.75 0.25 
+    color 255 0 0
+    rot 0 0 0
+    sides 0.05 0.05 0.75
+    material steel
+    mass 0.1
+    flag 12
+#END 7
+
+#KO/\
+env_obj 8
+    shape box
+    pos -1 3.1 0.25 
+    color 255 0 0
+    rot 0 0 0
+    sides 0.05 0.05 0.75
+    material steel
+    mass 0.1
+    flag 12
+#END 8
+
+#KO/\
+env_obj 9
+    shape box
+    pos 3 -3 0.25 
+    color 255 0 0
+    rot 0 0 0
+    sides 0.05 0.05 0.75
+    material steel
+    mass 0.1
+    flag 12
+#END 3
+
+#KO/\
+env_obj 10
+    shape box
+    pos 4 -2 0.25 
+    color 255 0 0
+    rot 0 0 0
+    sides 0.05 0.05 0.75
+    material steel
+    mass 0.1
+    flag 12
+#END 10
+
+#KO/\
+env_obj 11
+    shape box
+    pos 2 -3.5 0.25 
+    color 255 0 0
+    rot 0 0 0
+    sides 0.05 0.05 0.75
+    material steel
+    mass 0.1
+    flag 12
+#END 11
+
+#KO/\
+env_obj 12
+    shape box
+    pos 1 -3 0.25 
+    color 255 0 0
+    rot 0 0 0
+    sides 0.05 0.05 0.75
+    material steel
+    mass 0.1
+    flag 12
+#END 12
+
+#KO/\
+env_obj 13
+    shape box
+    pos 0 -2.75 0.25 
+    color 255 0 0
+    rot 0 0 0
+    sides 0.05 0.05 0.75
+    material steel
+    mass 0.1
+    flag 12
+#END 13
+
+#KO/\
+env_obj 14
+    shape box
+    pos -1 -3.1 0.25 
+    color 255 0 0
+    rot 0 0 0
+    sides 0.05 0.05 0.75
+    material steel
+    mass 0.1
+    flag 12
+#END 14

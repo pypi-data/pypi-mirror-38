@@ -1,0 +1,22 @@
+world
+gravity 0 0 -9.82
+
+gamerule
+engagedistance 100
+matchframes 400
+turnframes 10, 20, 30, 30, 30, 30, 30, 30, 30, 30, 30,
+flags 3
+dismemberment 1
+fracture 1
+disqualification 1
+dismemberthreshold 80
+fracturetreshold 100
+engageheight 0
+dojotype 0
+dojosize 500
+
+body r_foot
+force 0 0 20
+
+body l_foot
+force 0 0 20

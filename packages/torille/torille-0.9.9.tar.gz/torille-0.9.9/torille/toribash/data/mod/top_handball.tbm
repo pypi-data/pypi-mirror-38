@@ -1,0 +1,229 @@
+#!/usr/bin/toribash
+
+
+gamerule
+
+gravity 0 0 -30
+
+engagedistance 1000
+engageheight 0
+matchframes 1200
+dismemberthreshold 250
+fracturethreshold 500
+turnframes 10
+sumo 1
+dojosize 0
+flags 7
+dismemberment 0
+fracture 0
+disqualification 0
+flags 8
+
+
+ 
+
+
+body r_hand
+shape box
+sides 0.22 0.22 0.22
+alt_sides 0.2 0.2 0.2
+rot 0 0 0
+force 0 0 0
+color 1 1 1
+material flesh
+flag 32
+
+
+body l_hand
+shape box
+sides 0.22 0.22 0.22
+alt_sides 0.2 0.2 0.2
+rot 0 0 0
+force 0 0 0
+color 1 1 1
+material flesh
+flag 32
+
+
+env_obj 1
+shape box
+pos  1 7 1.9375 
+color 0.7 0.7 0.7 0.1
+rot 0 0 0
+sides 9.25 0.25 4 
+material steel
+mass 0.0001
+flag 24
+
+
+env_obj 2
+shape box
+pos  1 -7 1.9375 
+color 0.7 0.7 0.7 0.1
+rot 0 0 0
+sides 9.25 0.25 4 
+material steel
+mass 0.0001
+flag 24
+
+
+env_obj 3
+shape box
+pos  -3.75 0 1.9375 
+color 1 0.6 0.2 1
+rot 0 0 0
+sides 0.25 14.25 4  
+material steel
+mass 0.0001
+flag 24
+visible 0
+
+env_obj 4
+shape box
+pos  5.75 0 1.9375 
+color 1 1 1 
+rot 0 0 0
+sides 0.25 14.25 4  
+material steel
+mass 0.0001
+flag 24
+visible 0
+
+env_obj 5
+shape box
+pos  -3.5625 0 0 
+color 0 0 1 
+rot 0 0 0
+sides 0.125 13.75 0.06   
+material steel
+mass 0.0001
+flag 24
+
+
+env_obj 6
+shape box
+pos  5.5625 0 0 
+color 0 0 1 
+rot 0 0 0
+sides 0.125 13.75 0.06  
+material steel
+mass 0.0001
+flag 24
+
+
+env_obj 7
+shape box
+pos  1 0 0 
+color 0.9 0.9 0.9 1 
+rot 0 0 0
+sides 9 0.25 0.06   
+material steel
+mass 0.0001
+flag 24
+
+env_obj 8
+shape box
+pos  1 6.25 2.5 
+color 0.5 0.5 0.5 0.4 
+rot 0 0 0
+sides 3.5 0.875 0.125  
+material steel
+mass 0.0001
+flag 24
+
+env_obj 9
+shape box
+pos  1 -6.25 2.5 
+color 0.5 0.5 0.5 0.4 
+rot 0 0 0
+sides 3.5 0.875 0.125  
+material steel
+mass 0.0001
+flag 24
+
+env_obj 10
+shape box
+pos  -0.6875 6.25 1.25 
+color 0.5 0.5 0.5 0.4 
+rot 0 0 0
+sides 0.125 0.875 2.625 
+material steel
+mass 0.0001
+flag 24
+
+env_obj 11
+shape box
+pos  -0.6875 -6.25 1.25 
+color 0.5 0.5 0.5 0.4 
+rot 0 0 0
+sides 0.125 0.875 2.625 
+material steel
+mass 0.0001
+flag 24
+
+env_obj 12
+shape box
+pos  2.6875 -6.25 1.25 
+color 0.5 0.5 0.5 0.4 
+rot 0 0 0
+sides 0.125 0.875 2.625 
+material steel
+mass 0.0001
+flag 24
+
+env_obj 13
+shape box
+pos  2.6875 6.25 1.25 
+color 0.5 0.5 0.5 0.4 
+rot 0 0 0
+sides 0.125 0.875 2.625 
+material steel
+mass 0.0001
+flag 24
+
+#UKEBACKNET
+
+env_obj 14
+shape box
+pos  1 -6.8125 1.25
+color 0.3 0.3 0.3 0.4 
+rot 0 0 0
+sides 3.4375 0.25 2.5625
+material steel
+mass 0.0001
+flag 24
+# I am of id 2
+    trig_id 2
+    trig_mask 1
+# player 1 wins
+    trig_action 1
+
+#TORIBACKNET
+
+env_obj 15
+shape box
+pos  1 6.8125 1.25
+color 0.3 0.3 0.3 0.4 
+rot 0 0 0
+sides 3.4375 0.25 2.5625
+material steel
+mass 0.0001
+# I am of id 3
+    trig_id 3
+    trig_mask 1
+# player 2 wins
+    trig_action 2
+
+env_obj 16
+shape sphere
+pos -0.4375 4.9375 2.25 
+color 0 0.4 1  
+rot 0 0 0
+sides 0.1875 1 1
+material flesh
+mass 0.0005
+bounce 5
+# I am of id 1
+    trig_id 1
+# I want to collide with id 2 or 4 
+    trig_mask 6

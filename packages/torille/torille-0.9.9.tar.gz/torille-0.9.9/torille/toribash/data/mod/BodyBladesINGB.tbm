@@ -1,0 +1,31 @@
+# Mod by MrPoptart =D
+
+body r_triceps
+sides 0.1 0.8 0.01
+pos 0.05 0.9 2.3
+color 1.0 1.0 1.0
+material flesh
+flag 6
+
+body l_triceps
+sides 0.1 0.8 0.01
+pos 1.95 0.9 2.3
+color 1.0 1.0 1.0
+material flesh
+flag 6
+
+body r_leg
+sides 0.1 0.8 0.01
+pos 0.8 1.0 0.5
+color 1.0 1.0 1.0
+shape box
+material flesh
+flag 6
+
+body l_leg
+sides 0.1 0.8 0.01
+pos 1.2 1.0 0.50
+color 1.0 1.0 1.0
+shape box
+material flesh
+flag 6

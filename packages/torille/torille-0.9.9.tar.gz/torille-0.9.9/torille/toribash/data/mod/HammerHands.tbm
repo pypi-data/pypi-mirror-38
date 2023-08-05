@@ -1,0 +1,54 @@
+#Mod by MrPoptart =D
+
+body head
+material flesh
+body breast
+material flesh
+body chest
+material flesh
+body stomach
+material flesh
+body groin
+material flesh
+body r_pecs
+material flesh
+body l_pecs
+material flesh
+body r_biceps
+material flesh
+body l_biceps
+material flesh
+body r_triceps
+material steel
+color 0 0 0
+body l_triceps
+material steel
+color 0 0 0
+body r_hand
+shape box
+sides 0.25 0.25 0.50
+material steel
+color 0 0 0
+flag 6
+body l_hand
+shape box
+sides 0.25 0.25 0.50
+material steel
+color 0 0 0
+flag 6
+body r_butt
+material flesh
+body l_butt
+material flesh
+body r_thigh
+material flesh
+body l_thigh
+material flesh
+body r_leg
+material flesh
+body l_leg
+material flesh
+joint r_wrist
+radius 0.10
+joint l_wrist
+radius 0.10

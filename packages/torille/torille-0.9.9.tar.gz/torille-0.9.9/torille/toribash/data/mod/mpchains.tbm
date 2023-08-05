@@ -1,0 +1,197 @@
+gamerule
+engagedistance 500
+engageheight 2400
+turnframes 15
+matchframes 700
+
+#held
+env_obj 1
+shape box
+sides 0.05 0.6 0.05
+pos -0.45 2.4 26.3
+mass 0.000001
+color 0.5 0.5 0.5
+
+#up1
+env_obj 2
+shape box
+sides 0.05 0.6 0.05
+pos -0.45 1.8 26.3
+mass 0.000001
+color 0.5 0.5 0.5
+
+#up2
+env_obj 3
+shape box
+sides 0.05 0.6 0.05
+pos -0.45 1.2 26.3
+mass 0.000001
+color 0.5 0.5 0.5
+
+#down1
+env_obj 4
+shape box
+sides 0.05 0.6 0.05
+pos -0.45 3 26.3
+mass 0.000001
+color 0.5 0.5 0.5
+
+#down2
+env_obj 5
+shape box
+sides 0.05 0.6 0.05
+pos -0.45 3.6 26.3
+mass 0.000001
+color 0.5 0.5 0.5
+
+#dagger
+env_obj 6
+shape box
+sides 0.02 0.8 0.1
+pos -0.45 0.5 26.3
+mass 0.000005
+color 0.2 0.2 0.2
+
+#ball
+env_obj 7
+shape sphere
+sides 0.2 0.2 0.2
+pos -0.45 4.1 26.3
+mass 0.000005
+color 0.9 0.9 0.9
+
+env_obj_joint 1 1 2
+pos -0.45 2.1 26.3
+range 0.7 -0.7
+
+env_obj_joint 2 2 3
+pos -0.45 1.5 26.3
+range 0.7 -0.7
+
+env_obj_joint 3 3 6
+pos -0.45 1.7 26.3
+range 0.2 -0.2
+
+env_obj_joint 4 1 4
+pos -0.45 2.7 26.3
+range 0.7 -0.7
+
+env_obj_joint 5 4 5
+pos -0.45 3.3 26.3
+range 0.7 -0.7
+
+env_obj_joint 6 5 7
+pos -0.45 3.6 26.3
+range 0.7 -0.7
+
+env_obj 15
+shape box
+pos 0 0 7.5
+color 1.1 1.1 1 1
+rot 0 0 0
+sides 20 20 15
+material steel
+mass 0.1
+flag 8
+
+env_obj 16
+shape box
+pos 0 0 16.5
+color 1.1 1.1 1 1
+rot 0 0 0
+sides 19 19 15
+material steel
+mass 0.1
+flag 8
+
+joint r_wrist
+axis 1 0 0
+range 100 -100
+velocity 40
+strength 4.0
+
+joint l_wrist
+axis 1 0 0
+range 100 -100
+velocity 40
+strength 4.0
+
+#held
+env_obj 8
+shape box
+sides 0.05 0.6 0.05
+pos 2.47 -2.6 26.3
+mass 0.000001
+color 0.5 0.5 0.5
+
+#up1
+env_obj 9
+shape box
+sides 0.05 0.6 0.05
+pos 2.47 -2 26.3
+mass 0.000001
+color 0.5 0.5 0.5
+
+#up2
+env_obj 10
+shape box
+sides 0.05 0.6 0.05
+pos 2.47 -1.4 26.3
+mass 0.000001
+color 0.5 0.5 0.5
+
+#down1
+env_obj 11
+shape box
+sides 0.05 0.6 0.05
+pos 2.47 -3.2 26.3
+mass 0.000001
+color 0.5 0.5 0.5
+
+#down2
+env_obj 12
+shape box
+sides 0.05 0.6 0.05
+pos 2.47 -3.8 26.3
+mass 0.000001
+color 0.2 0.2 0.2
+
+#dagger
+env_obj 13
+shape box
+sides 0.02 0.8 0.1
+pos 2.47 -0.7 26.3
+mass 0.000005
+color 0.7 0.7 0.7
+
+#ball
+env_obj 14
+shape sphere
+sides 0.2 0.2 0.2
+pos 2.37 -4.3 26.3
+mass 0.000005
+color 0.9 0.9 0.9
+
+env_obj_joint 7 8 9
+pos 2.47 -2.3 26.3
+range 0.7 -0.7
+
+env_obj_joint 8 9 10
+pos 2.47 -1.7 26.3
+range 0.7 -0.7
+
+env_obj_joint 9 10 13
+pos 2.47 -1.9 26.3
+range 0.2 -0.2
+
+env_obj_joint 10 8 11
+pos 2.47 -2.9 26.3
+range 0.7 -0.7
+
+env_obj_joint 11 11 12
+pos 2.47 -3.5 26.3
+range 0.7 -0.7
+
+env_obj_joint 12 12 14
+pos 2.47 -3.8 26.3
+range 0.7 -0.7

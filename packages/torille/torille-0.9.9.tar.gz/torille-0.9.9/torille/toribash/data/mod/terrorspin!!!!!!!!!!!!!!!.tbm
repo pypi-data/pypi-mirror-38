@@ -1,0 +1,118 @@
+# AIKIDO with a TWIST mod (by Uncopyrightable)
+
+friction 0
+gravity 0 0 -9.82
+
+gamerule
+	dojosize 0
+	turnframes 10
+	matchframes 7000
+                   dismemberment 0
+                   fracture 0
+                   dqtimeout 0
+                   dismemberthreshold 325
+                   fracturethreshold 0
+                   engagedistance 90
+                   engageheight 312,5                   
+
+env_obj 1
+    shape box
+    pos 0 0 0.0625
+    color 1 1 1 1
+    rot 0 0 0
+    sides 200.25 1.25 0.4625
+    material steel
+    mass 0.1
+    flag 16
+    friction 0
+
+env_obj 2
+    shape sphere
+    pos 0 0 0.3375
+    color 0 0 0 0
+    rot 0 0 0
+    sides 0.125 0 0
+    material steel
+    mass 0.1
+    flag 31
+
+env_obj_joint 1 1 2
+	pos 0 0 -0.0625
+	axis 0 0 1
+	range 5 -5
+	strength 1000
+	velocity 200000000
+                   visible 0
+
+env_obj 3
+    shape sphere
+    pos 0 0 3.0625
+    color 100 100 100 100
+    rot 0 0 0
+    sides 0.125 0 0
+    material steel
+    mass 0.1
+    flag 31
+
+env_obj 4
+    shape box
+    pos 0 0 3.1250
+    color 1 1 1 1
+    rot 0 0 0
+    sides 4.25 4.25 0.0625
+    material steel
+    mass 0.1
+    flag 0
+    friction 0
+
+env_obj_joint 3 3 4     
+        pos 0 0 3.1250
+	axis 0 0 1
+	range 5 -5
+	strength 20
+	velocity 200000000
+                   visible 1
+
+env_obj 5
+    shape box
+    pos 0 50.5 500.5
+    color 100 1 1 1
+    rot 0 0 0
+    sides 100.25 4.25 1000
+    material steel
+    mass 0.1
+    flag 8
+    friction 0
+
+env_obj 6
+    shape box
+    pos 50.5 0 500.5
+    color 100 1 1 1
+    rot 0 0 0
+    sides 4.25 100.25 1000
+    material steel
+    mass 0.1
+    flag 8
+    friction 0
+
+env_obj 7
+    shape box
+    pos -50.5 0 500.5
+    color 100 1 1 1
+    rot 0 0 0
+    sides 4.25 100.25 1000
+    material steel
+    mass 0.1
+    flag 8
+    friction 0
+
+env_obj 8
+    shape box
+    pos 0 -50.5 500.5
+    color 100 1 1 1
+    rot 0 0 0
+    sides 100.25 4.25 1000
+    material steel
+    mass 0.1
+    flag 8
+    friction 0

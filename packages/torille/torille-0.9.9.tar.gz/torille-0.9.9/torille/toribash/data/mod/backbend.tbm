@@ -1,0 +1,25 @@
+ 
+
+
+joint chest
+
+radius 0.18
+axis 1 0 0
+pos 1.0 0.9 2.05
+
+
+joint lumbar
+
+radius 0.16
+axis 2 0 0
+pos 1.0 0.95 1.85
+
+
+joint abs
+
+radius 0.14
+axis 3 0 0
+pos 1.0 1.0 1.65
+
+
+

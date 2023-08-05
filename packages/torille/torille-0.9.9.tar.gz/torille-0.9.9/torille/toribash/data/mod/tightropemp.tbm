@@ -1,0 +1,460 @@
+#mod by blkk
+#requested by hampa
+#stuff from tightrope.tbm, skazz's forward arm snippet, and smilies2's (altered) balance system
+gamerule
+engageplayerpos 0,7.19,5,0,-5.5,5
+engageplayerrot 0,0,0,0,0,180
+dismemberment 0
+dojosize 1
+gravity 30
+
+body head
+thrust 1 0 0 2.25
+density 1.0
+
+body r_biceps 
+thrust 1 0 0 0.05
+density 0.5
+
+body r_triceps 
+thrust 1 0 0 0.0001
+density 1.25
+
+body l_biceps 
+thrust 1 0 0 0.05
+density 0.5
+
+body l_triceps  
+thrust 1 0 0 0.0001
+density 1.25
+
+body l_pec
+density 1.0
+thrust 1 0 0 -0.5
+body r_pec
+density 1.0
+thrust 1 0 0 -0.5
+body breast
+density 1.5
+thrust 1 0 0 -1.0
+sides 0.15 0.075 0.31
+body stomach
+density 0.75
+thrust 1 0 0 -1.0
+body groin
+density 0.75
+body l_butt
+density 0.50
+body r_butt
+density 0.50
+
+body r_foot 
+friction 65
+thrust 5 0 0 -2
+density 0.325
+
+body l_foot 
+friction 65
+thrust 5 0 0 -2
+density 0.325
+
+joint r_ankle
+strength 12.0
+velocity 40.0
+range 0.7 -0.075
+radius 0.10
+
+joint l_ankle
+strength 12.0
+velocity 40.0
+range 0.7 -0.075
+radius 0.10
+
+joint l_glute
+strength 8
+range 1.2 -0.0125
+radius 0.14
+
+joint r_glute
+strength 8
+range 1.2 -0.0125
+radius 0.14
+
+joint r_hip
+strength 15.5
+velocity 22.0
+range 0.2 -1.15
+radius 0.14
+
+joint l_hip
+strength 15.5
+velocity 22.0
+range 0.2 -1.15
+radius 0.14
+
+body l_thigh
+density 0.5
+thrust 1 0 0 -0.45
+body r_thigh
+density 0.5
+thrust 1 0 0 -0.45
+body l_leg
+density 0.5
+body r_leg
+density 0.5
+
+joint r_knee
+velocity 45
+radius 0.12
+strength 5.0
+
+joint l_knee
+velocity 45
+radius 0.12
+strength 5.0
+
+joint l_shoulder
+radius 0.16
+strength 8.0
+velocity 25.0
+range 0.5 -1.025
+
+joint r_shoulder
+radius 0.16
+strength 8.0
+velocity 25.0
+range 0.5 -1.025
+
+joint l_elbow
+radius 0.14
+strength 6.0
+joint r_elbow
+radius 0.14
+strength 6.0
+
+joint r_elbow
+range 1.1 -1.55
+
+body r_triceps
+shape box
+pos 0.225 0.7 2.3
+sides 0.1 0.4 0.1
+
+joint r_wrist
+shape sphere
+pos 0.225 0.45 2.3
+
+body r_hand
+shape box
+pos 0.25 0.3 2.3
+sides 0.22 0.22 0.22
+alt_sides 0.21 0.21 0.21
+flag 2
+
+joint l_elbow
+range 1.1 -1.55
+
+body l_triceps
+shape box
+pos 1.75 0.7 2.3
+sides 0.1 0.4 0.1
+
+joint l_wrist
+shape sphere
+pos 1.75 0.45 2.3
+
+body l_hand
+shape box
+pos 1.725 0.3 2.3
+sides 0.22 0.22 0.22
+alt_sides 0.21 0.21 0.21
+flag 2
+
+
+# Environment exported by WorldBuilder
+######################################
+
+
+###tighrope.tbm starts here###
+
+#Platform1
+env_obj 1
+    shape box
+    pos 1 7.3375 4.9375
+    color 0.6 0.4 -0.1 1
+    rot 0 0 0
+    sides 2.5 2.5 0.0625
+    material steel
+    mass 0.1
+    flag 24
+
+#Platform2
+env_obj 2
+    shape box
+    pos 1 -5.65 4.9375
+    color 0.6 0.4 -0.1 1
+    rot 0 0 0
+    sides 2.5 2.5 0.0625
+    material steel
+    mass 0.1
+    flag 24
+
+
+#Rope1
+env_obj 3
+    shape box
+    pos 1 -3.75 4.9375
+    color 0.7 0.7 0.7 1
+    rot 0 0 0
+    sides 0.125 1.3 0.125
+    material steel
+    mass 0.0001
+    flag 16
+
+
+#Rope2
+env_obj 4
+    shape box
+    pos 1 -2.4375 4.9375
+    color 0.7 0.7 0.7 1
+    rot 0 0 0
+    sides 0.125 1.3 0.125
+    material steel
+    mass 0.0001
+    flag 16
+
+
+#Rope3
+env_obj 5
+    shape box
+    pos 1 -1.125 4.9375
+    color 0.7 0.7 0.7 1
+    rot 0 0 0
+    sides 0.125 1.3 0.125
+    material steel
+    mass 0.0001
+    flag 16
+
+
+#Rope4
+env_obj 6
+    shape box
+    pos 1 0.1875 4.9375
+    color 0.7 0.7 0.7 1
+    rot 0 0 0
+    sides 0.125 1.3 0.125
+    material steel
+    mass 0.0001
+    flag 16
+
+
+#Rope5
+env_obj 7
+    shape box
+    pos 1 1.5 4.9375
+    color 0.7 0.7 0.7 1
+    rot 0 0 0
+    sides 0.125 1.3 0.125
+    material steel
+    mass 0.0001
+    flag 16
+
+
+#Rope6
+env_obj 8
+    shape box
+    pos 1 2.8125 4.9375
+    color 0.7 0.7 0.7 1
+    rot 0 0 0
+    sides 0.125 1.3 0.125
+    material steel
+    mass 0.0001
+    flag 16
+
+
+#Rope7
+env_obj 9
+    shape box
+    pos 1 4.125 4.9375
+    color 0.7 0.7 0.7 1
+    rot 0 0 0
+    sides 0.125 1.3 0.125
+    material steel
+    mass 0.0001
+    flag 16
+
+
+#Rope8
+env_obj 10
+    shape box
+    pos 1 5.4375 4.9375
+    color 0.7 0.7 0.7 1
+    rot 0 0 0
+    sides 0.125 1.3 0.125
+    material steel
+    mass 0.0001
+    flag 16
+
+	
+#Connection1
+env_obj_joint 1 2 3
+	pos 1 -4.4 4.9375
+	axis 1 0 0
+	visible 1
+
+#Connection2
+env_obj_joint 2 3 4
+	pos 1 -3.125 4.9375
+	axis 1 0 0
+	visible 1
+
+#Connection3
+env_obj_joint 3 4 5
+	pos 1 -1.75 4.9375
+	axis 1 0 0
+	visible 1
+	
+#Connection4
+env_obj_joint 4 5 6
+	pos 1 -0.4375 4.9375
+	axis 1 0 0
+	visible 1
+	
+#Connection5
+env_obj_joint 5 6 7
+	pos 1 0.8125 4.9375
+	axis 1 0 0
+	visible 1
+	
+#Connection6
+env_obj_joint 6 7 8
+	pos 1 2.125 4.9375
+	axis 1 0 0
+	visible 1
+	
+#Connection7
+env_obj_joint 7 8 9
+	pos 1 3.4375 4.9375
+	axis 1 0 0
+	visible 1
+	
+#Connection8
+env_obj_joint 8 9 10
+	pos 1 4.75 4.9375
+	axis 1 0 0
+	visible 1
+
+#Connection9
+env_obj_joint 9 10 1
+	pos 1 6.0875 4.9375
+	axis 1 0 0
+	visible 1
+
+####tightrope.tbm ends here###
+
+
+#tori pole
+env_obj 11
+    shape cylinder
+    pos 1 6.5 7.25
+    color 1 0 0 1
+    rot -90 90 0
+    sides 0.0625 6.625 0
+    material steel
+    mass 0.01
+    bounce 1
+    flag 2
+    thrust 1 0 -.5 0.02
+    friction 0
+#END 2
+
+#uke pole
+env_obj 12
+    shape cylinder
+    pos 1 -5 7.25
+    color 0 0 1 1
+    rot -90 90 0
+    sides 0.0625 6.625 0
+    material steel
+    mass 0.01
+    bounce 1
+    flag 2
+    thrust 1 0 .5 0.02
+    friction 0
+#END 3
+
+#uke down
+env_obj 13
+    shape sphere
+    pos 1 -3 3
+    color 0 0 1 0
+    rot -90 90 0
+    sides 0.0625 6.625 0
+    material steel
+    mass 0.001
+    flag 0
+    thrust 1 0 0 -1
+#END 4
+
+#uke up
+env_obj 14
+    shape sphere
+    pos 1 -7 11.5
+    color 0 0 1 0
+    rot -90 90 0
+    sides 0.0625 6.625 0
+    material steel
+    mass 0.001
+    flag 0
+    thrust 1 0 0 1
+#END 5
+
+#tori up
+env_obj 15
+    shape sphere
+    pos 1 8 11.5
+    color 0 0 1 0
+    rot -90 90 0
+    sides 0.0625 6.625 0
+    material steel
+    mass 0.001
+    flag 0
+    thrust 1 0 0 1
+#END 6
+
+#tori down
+env_obj 16
+    shape sphere
+    pos 1 5 3
+    color 0 0 1 0
+    rot -90 90 0
+    sides 0.0625 6.625 0
+    material steel
+    mass 0.001
+    flag 0
+    thrust 1 0 0 -1
+#END 7
+
+
+env_obj_joint 10 11 15
+pos 1 6.5 12.5
+
+env_obj_joint 11 11 16
+pos 1 6.5 2
+
+env_obj_joint 12 12 14
+pos 1 -5 12.5
+
+env_obj_joint 13 12 13
+pos 1 -5 2
+
+#happy people:
+#steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin steveirwin 
+#Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath Galrath 
+#Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir Dalir
+#SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran SlainVeteran
+#hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0 hanz0
+#LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny LtKenny 
+#War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero War_Hero
+
+

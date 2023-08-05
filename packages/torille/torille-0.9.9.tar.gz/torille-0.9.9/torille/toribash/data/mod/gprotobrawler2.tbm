@@ -1,0 +1,269 @@
+########
+gamerule
+engagedistance 70
+matchframes 400
+turnframes 15,15,20,20,20,30,30,30,40,40,40,50,50
+dojotype 0
+dojosize 500
+dq 1
+dqflag 1
+dqtimeout 30
+sumo 1
+dismemberment 1
+fracture 1
+fracturethreshold 500
+dismemberthreshold 450
+gravity 0.00 0.00 -35
+
+#####
+Arena
+#####
+
+env_obj 1
+shape box
+pos 1.75 -3.1 1.12
+color 0.4 0.2 0
+rot 0 0 0
+sides 1.8 1.2 0.05
+material wood
+mass 0.08
+flag 1
+
+env_obj 2
+shape box
+pos -0.05 -3.1 1.12
+color 0.4 0.2 0
+rot 0 0 0
+sides 1.8 1.2 0.05
+material wood
+mass 0.08
+flag 1
+
+env_obj 3
+shape box
+pos 2.3 -3.1 0.55
+color 0.3 0.3 0.3
+rot 0 0 0
+sides 0.15 0.8 1.098
+material steel
+mass 0.03
+flag 1
+
+env_obj 4
+shape box
+pos -0.6 -3.1 0.55
+color 0.3 0.3 0.3
+rot 0 0 0
+sides 0.15 0.8 1.098
+material steel
+mass 0.03
+flag 1
+
+env_obj 5
+shape box
+pos 2.35 -3.1 1.17
+color 0.3 0.3 0.3
+rot 0 0 0
+sides 0.25 1.2 0.05
+material steel
+mass 0.4
+flag 1
+
+env_obj 6
+shape box
+pos -0.65 -3.1 1.17
+color 0.3 0.3 0.3
+rot 0 0 0
+sides 0.25 1.2 0.05
+material steel
+mass 0.4
+flag 1
+
+env_obj 7
+shape box
+pos 1.75 2.9 1.12
+color 0.4 0.2 0
+rot 0 0 0
+sides 1.8 1.2 0.05
+material wood
+mass 0.08
+flag 1
+
+env_obj 8
+shape box
+pos -0.05 2.9 1.12
+color 0.4 0.2 0
+rot 0 0 0
+sides 1.8 1.2 0.05
+material wood
+mass 0.08
+flag 1
+
+env_obj 9
+shape box
+pos 2.3 2.9 0.55
+color 0.3 0.3 0.3
+rot 0 0 0
+sides 0.15 0.8 1.098
+material steel
+mass 0.03
+flag 1
+
+env_obj 10
+shape box
+pos -0.6 2.9 0.55
+color 0.3 0.3 0.3
+rot 0 0 0
+sides 0.15 0.8 1.098
+material steel
+mass 0.03
+flag 1
+
+env_obj 11
+shape box
+pos 2.35 2.9 1.17
+color 0.3 0.3 0.3
+rot 0 0 0
+sides 0.25 1.2 0.05
+material steel
+mass 0.4
+flag 1
+
+env_obj 12
+shape box
+pos -0.65 2.9 1.17
+color 0.3 0.3 0.3
+rot 0 0 0
+sides 0.25 1.2 0.05
+material steel
+mass 0.4
+flag 1
+
+#######
+Fighter
+#######
+
+body head
+pos 1.0 0.85 2.6
+
+body r_biceps
+sides 0.25 0.2 0.2
+density 0.35
+
+body r_triceps 
+sides 0.38 0.12 0.12
+
+body l_biceps
+sides 0.25 0.2 0.2
+density 0.35
+
+body l_triceps 
+sides 0.38 0.12 0.12
+
+body r_thigh
+sides 0.14 0.30 0.00
+density 0.35
+
+body l_thigh
+sides 0.14 0.30 0.00
+density 0.35
+
+joint neck
+radius 0.11
+pos 1.0 0.9 2.45
+strength 5.0
+density 0.35
+
+joint r_hip
+strength 5.0
+velocity 5.0
+
+joint l_hip
+strength 5.0
+velocity 5.0
+
+joint l_glute
+strength 5.0
+radius 0.16
+velocity 15.0
+
+joint r_glute
+strength 5.0
+radius 0.16
+velocity 15.0
+
+joint r_hip
+radius 0.16
+strength 5.0
+velocity 15.0
+
+joint l_hip
+radius 0.16
+strength 5.0
+velocity 15.0
+
+joint r_knee
+strength 5.0
+velocity 15.0
+
+joint l_knee
+strength 5.0
+velocity 15.0
+
+joint l_elbow
+strength 6.0
+velocity 20.0
+
+joint r_elbow
+strength 6.0
+velocity 20.0
+
+joint r_wrist
+strength 6.0
+
+joint l_wrist
+strength 6.0
+
+joint chest
+strength 7.0
+velocity 20
+radius 0.21
+
+joint lumbar
+strength 7.0
+velocity 20.0
+
+joint abs
+strength 7.0
+velocity 10.0
+density 0.25
+
+joint r_pecs
+pos 0.8 0.9 2.2
+radius 0.18
+strength 8.0
+velocity 20.0
+density 0.25
+
+joint l_pecs
+pos 1.2 0.9 2.2
+radius 0.18
+strength 8.0
+velocity 20.0
+density 0.25
+
+joint l_shoulder
+radius 0.18
+strength 8.0
+velocity 20.0
+
+joint r_shoulder
+radius 0.18
+strength 8.0
+velocity 20.0
+
+joint l_ankle
+velocity 10.0
+
+joint r_ankle
+velocity 10.0

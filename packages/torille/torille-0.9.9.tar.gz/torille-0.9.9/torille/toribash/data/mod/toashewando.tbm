@@ -1,0 +1,20 @@
+gamerule
+matchframes 200
+turnframes 15,15,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25
+flags 2
+dismemberment 1
+fracture 1
+disqualification 0
+dqtimeout 0
+dqflag 0
+dismemberthreshold 180
+fracturethreshold 120
+dojotype 0
+dojosize 500
+engagedistance 170
+Engagehight 0
+engagerotation 0
+engagespace 0 
+gravity 0.00 0.00 -30.00
+sumo 0
+mod sambo.tbm

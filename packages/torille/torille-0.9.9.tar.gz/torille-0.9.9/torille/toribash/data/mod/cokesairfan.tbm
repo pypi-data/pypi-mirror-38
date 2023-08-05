@@ -1,0 +1,35 @@
+# Mod made by coKe
+######################################
+
+gamerule
+gravity 0 0 10
+engageheight 20
+
+env_obj 1
+shape cylinder
+pos 1 0 14.0
+color 0 0 0
+rot 0 -90 0
+sides 0.05 5 0.5
+material steel
+mass 0.05
+flag 8
+
+env_obj 2
+shape box
+pos 1 0 14.23
+color 0 5 0
+rot 0 -90 0
+sides 0.05 6 0.5
+thrust 1 0 0 0
+material steel
+mass 0.001
+flag 0
+
+env_obj_joint 3 1 2
+pos 1.0 0 14.125
+axis 1 0 0
+range 5 -5
+strength 50
+velocity 400
+visible 0

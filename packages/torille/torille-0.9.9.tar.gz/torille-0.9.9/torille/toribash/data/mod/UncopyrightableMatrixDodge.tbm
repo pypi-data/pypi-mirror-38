@@ -1,0 +1,121 @@
+#Matrix Dodge by Uncopyrightable
+
+gravity 0 0 -1.0
+
+friction 1.5
+
+joint neck
+velocity 2
+
+joint chest
+velocity 2
+
+joint lumbar
+velocity 2
+
+joint abs
+velocity 2
+range 1.8 -1
+
+joint r_pecs
+velocity 2
+
+joint r_shoulder
+velocity 2
+
+joint r_elbow
+velocity 2
+
+joint l_axilla
+velocity 2
+
+joint l_shoulder
+velocity 2
+
+joint l_elbow
+velocity 2
+
+joint r_wrist
+velocity 2
+
+joint l_wrist
+velocity 2
+
+joint r_glute
+velocity 2
+
+joint l_glute
+velocity 2
+
+joint r_hip
+velocity 2
+
+joint l_hip
+velocity 2
+
+joint r_knee
+velocity 2
+
+joint l_knee
+velocity 2
+
+joint r_ankle
+velocity 2
+
+joint l_ankle
+velocity 2
+
+env_obj 1
+    shape box
+    pos 1 -8.5 2
+    color -0.1 -0.1 -0.1 -0.1
+    rot 0 0 0
+    sides 4 4 4
+    material steel
+    mass 10
+    flag 8
+#END 1
+
+env_obj 2
+    shape sphere
+    pos 1 -7.75 2.625
+    color -0.1 0 0.5 1
+    rot 0 0 0
+    sides 0.1 0.1 0.1
+    material steel
+    mass 0.01
+    flag 22
+#END 2
+
+env_obj 3
+    shape sphere
+    pos 1 -7.4 1.5
+    color -0.1 0 0.5 1
+    rot 0 0 0
+    sides 0.1 0.1 0.1
+    material steel
+    mass 0.01
+    flag 22
+#END 3
+
+env_obj 4
+    shape sphere
+    pos 1 -7.1 0.8
+    color -0.1 0 0.3 1
+    rot 0 0 0
+    sides 0.2 0.2 0.2
+    material steel
+    mass 0.01
+    flag 22
+#END 4
+
+env_obj 5
+    shape sphere
+    pos 1 10.5 5
+    color 0 0 0 1
+    rot 0 0 0
+    sides 1 1 1
+    material steel
+    mass 1000
+    flag 22
+#END 5

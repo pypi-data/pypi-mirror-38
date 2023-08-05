@@ -1,0 +1,20 @@
+body head
+shape cylinder
+material steel
+sides 0.1 0.1 0.1
+rot 90
+color 1 1 1
+body r_triceps
+shape cylinder
+body l_triceps
+shape cylinder
+body r_hand
+shape box
+sides 0.4 0.4 0.4
+material steel
+color 0.6 0.6 0.6
+body l_hand
+shape box
+sides 0.4 0.4 0.4
+material steel
+color 0.6 0.6 0.6

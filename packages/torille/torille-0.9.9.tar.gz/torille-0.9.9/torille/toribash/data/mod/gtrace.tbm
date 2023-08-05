@@ -1,0 +1,531 @@
+#!/usr/bin/toribash
+# Environment exported by WorldBuilder
+######################################
+
+gamerule
+engagedistance 280
+dismember 0
+dismemberthreshold 280
+fracture 0
+fracturethreshold 150
+turnframes 50
+matchframes 750
+sumo 1
+dq 1
+flags 15
+dojosize 3000
+reactiontime 15
+engageplayerpos 2,5,0,-2,5,0
+gravity 0 -10 -30
+
+env_obj 1
+    shape box
+    pos 0 -27.125 -0.0625
+    color 0 0 -0.1 -0.1
+    rot 0 0 0
+    sides 57.0625 24.0625 0.125
+    material steel
+    mass 0.1
+    flag 24
+visible 0
+# I am of id 1
+    trig_id 1
+# I want to collide with id 2 or 4 
+    trig_mask 6 
+#END 1
+
+env_obj 2
+    shape box
+    pos 28.0625 -4.9375 -0.0625
+    color 0 0 -0.1 -0.1
+    rot 0 0 90
+    sides 57.0625 24.0625 0.125
+    material steel
+    mass 0.1
+    flag 24
+visible 0
+# I am of id 1
+    trig_id 1
+# I want to collide with id 2 or 4 
+    trig_mask 6 
+#END 2
+
+env_obj 3
+    shape box
+    pos -26.0625 -4.9375 -0.0625
+    color 0 0 -0.1 -0.1
+    rot 0 0 90
+    sides 57.0625 24.0625 0.125
+    material steel
+    mass 0.1
+    flag 24
+visible 0
+# I am of id 1
+    trig_id 1
+# I want to collide with id 2 or 4 
+    trig_mask 6 
+#END 3
+
+env_obj 4
+    shape box
+    pos -3.0625 26.9375 -0.0625
+    color 0 0 -0.1 -0.1
+    rot 0 0 0
+    sides 57.0625 24.0625 0.125
+    material steel
+    mass 0.1
+    flag 24
+visible 0
+# I am of id 1
+    trig_id 1
+# I want to collide with id 2 or 4 
+    trig_mask 6 
+#END 4
+
+
+player 0
+body l_hand
+    trig_id 2
+    trig_mask 1
+# player 1 wins
+    trig_action 1
+
+joint l_shoulder
+    trig_id 2
+    trig_mask 1
+# player 1 wins
+    trig_action 1
+
+joint r_shoulder
+    trig_id 2
+    trig_mask 1
+# player 1 wins
+    trig_action 1
+
+joint r_pecs
+    trig_id 2
+    trig_mask 1
+# player 1 wins
+    trig_action 1
+
+joint l_pecs
+    trig_id 2
+    trig_mask 1
+# player 1 wins
+    trig_action 1
+
+body l_pecs
+    trig_id 2
+    trig_mask 1
+# player 1 wins
+    trig_action 1
+
+body r_pecs
+    trig_id 2
+    trig_mask 1
+# player 1 wins
+    trig_action 1
+
+body groin
+    trig_id 2
+    trig_mask 1
+# player 1 wins
+    trig_action 1
+
+body chest
+    trig_id 2
+    trig_mask 1
+# player 1 wins
+    trig_action 1
+
+body stomach
+    trig_id 2
+    trig_mask 1
+# player 1 wins
+    trig_action 1
+
+joint abs
+    trig_id 2
+    trig_mask 1
+# player 1 wins
+    trig_action 1
+
+joint lumbar
+    trig_id 2
+    trig_mask 1
+# player 1 wins
+    trig_action 1
+
+joint chest
+    trig_id 2
+    trig_mask 1
+# player 1 wins
+    trig_action 1
+
+joint r_glute
+    trig_id 2
+    trig_mask 1
+# player 1 wins
+    trig_action 1
+
+joint l_glute
+    trig_id 2
+    trig_mask 1
+# player 1 wins
+    trig_action 1
+
+joint l_hip
+    trig_id 2
+    trig_mask 1
+# player 1 wins
+    trig_action 1
+
+joint r_hip
+    trig_id 2
+    trig_mask 1
+# player 1 wins
+    trig_action 1
+
+body head
+    trig_id 2
+    trig_mask 1
+# player 1 wins
+    trig_action 1
+
+body l_biceps
+    trig_id 2
+    trig_mask 1
+# player 1 wins
+    trig_action 1
+
+body r_biceps
+    trig_id 2
+    trig_mask 1
+# player 1 wins
+    trig_action 1
+
+body r_thigh
+    trig_id 2
+    trig_mask 1
+# player 1 wins
+    trig_action 1
+
+body l_thigh
+    trig_id 2
+    trig_mask 1
+# player 1 wins
+    trig_action 1
+
+body l_leg
+    trig_id 2
+    trig_mask 1
+# player 1 wins
+    trig_action 1
+
+body r_leg
+    trig_id 2
+    trig_mask 1
+# player 1 wins
+    trig_action 1
+
+body r_triceps
+    trig_id 2
+    trig_mask 1
+# player 1 wins
+    trig_action 1
+
+
+body l_triceps
+    trig_id 2
+    trig_mask 1
+# player 1 wins
+    trig_action 1
+
+body r_hand
+    trig_id 2
+    trig_mask 1
+# player 1 wins
+    trig_action 1
+
+joint l_elbow
+    trig_id 2
+    trig_mask 1
+# player 1 wins
+    trig_action 1
+
+joint r_elbow
+    trig_id 2
+    trig_mask 1
+# player 1 wins
+    trig_action 1
+
+joint r_knee
+    trig_id 2
+    trig_mask 1
+# player 1 wins
+    trig_action 1
+
+joint l_knee
+    trig_id 2
+    trig_mask 1
+# player 1 wins
+    trig_action 1
+
+joint l_ankle
+    trig_id 2
+    trig_mask 1
+# player 1 wins
+    trig_action 1
+
+joint r_ankle
+    trig_id 2
+    trig_mask 1
+# player 1 wins
+    trig_action 1
+
+joint l_wrist
+    trig_id 2
+    trig_mask 1
+# player 1 wins
+    trig_action 1
+
+joint r_wrist
+    trig_id 2
+    trig_mask 1
+# player 1 wins
+    trig_action 1
+
+body l_foot
+    trig_id 2
+    trig_mask 1
+# player 1 wins
+    trig_action 1
+
+body r_foot
+    trig_id 2
+    trig_mask 1
+# player 1 wins
+    trig_action 1
+
+
+
+
+player 1
+body l_hand
+  trig_id 4
+    trig_mask 1
+# player 2 wins
+    trig_action 2
+joint l_shoulder
+    trig_id 4
+    trig_mask 1
+# player 2 wins
+    trig_action 2
+
+joint r_shoulder
+    trig_id 4
+    trig_mask 1
+# player 2 wins
+    trig_action 2
+joint r_pecs
+    trig_id 4
+    trig_mask 1
+# player 2 wins
+    trig_action 2
+
+joint l_pecs
+    trig_id 4
+    trig_mask 1
+# player 2 wins
+    trig_action 2
+body l_pecs
+   trig_id 4
+    trig_mask 1
+# player 2 wins
+    trig_action 2
+body r_pecs
+    trig_id 4
+    trig_mask 1
+# player 2 wins
+    trig_action 2
+
+body groin
+   trig_id 4
+    trig_mask 1
+# player 2 wins
+    trig_action 2
+
+body chest
+    trig_id 4
+    trig_mask 1
+# player 2 wins
+    trig_action 2
+
+body stomach
+    trig_id 4
+    trig_mask 1
+# player 2 wins
+    trig_action 2
+
+joint abs
+    trig_id 4
+    trig_mask 1
+# player 2 wins
+    trig_action 2
+
+joint lumbar
+    trig_id 4
+    trig_mask 1
+# player 2 wins
+    trig_action 2
+
+joint chest
+    trig_id 4
+    trig_mask 1
+# player 2 wins
+    trig_action 2
+
+joint r_glute
+    trig_id 4
+    trig_mask 1
+# player 2 wins
+    trig_action 2
+
+joint l_glute
+    trig_id 4
+    trig_mask 1
+# player 2 wins
+    trig_action 2
+
+joint l_hip
+    trig_id 4
+    trig_mask 1
+# player 2 wins
+    trig_action 2
+
+joint r_hip
+   trig_id 4
+    trig_mask 1
+# player 2 wins
+    trig_action 2
+
+body head
+    trig_id 4
+    trig_mask 1
+# player 2 wins
+    trig_action 2
+
+body l_biceps
+    trig_id 4
+    trig_mask 1
+# player 2 wins
+    trig_action 2
+
+body r_biceps
+    trig_id 4
+    trig_mask 1
+# player 2 wins
+    trig_action 2
+
+body r_thigh
+    trig_id 4
+    trig_mask 1
+# player 2 wins
+    trig_action 2
+
+body l_thigh
+    trig_id 4
+    trig_mask 1
+# player 2 wins
+    trig_action 2
+
+body l_leg
+    trig_id 4
+    trig_mask 1
+# player 2 wins
+    trig_action 2
+
+body r_leg
+    trig_id 4
+    trig_mask 1
+# player 2 wins
+    trig_action 2
+
+body r_triceps
+    trig_id 4
+    trig_mask 1
+# player 2 wins
+    trig_action 2
+
+
+body l_triceps
+    trig_id 4
+    trig_mask 1
+# player 2 wins
+    trig_action 2
+
+body r_hand
+    trig_id 4
+    trig_mask 1
+# player 2 wins
+    trig_action 2
+
+joint l_elbow
+    trig_id 4
+    trig_mask 1
+# player 2 wins
+    trig_action 2
+
+joint r_elbow
+    trig_id 4
+    trig_mask 1
+# player 2 wins
+    trig_action 2
+
+joint r_knee
+    trig_id 4
+    trig_mask 1
+# player 2 wins
+    trig_action 2
+
+joint l_knee
+    trig_id 4
+    trig_mask 1
+# player 2 wins
+    trig_action 2
+
+joint l_ankle
+    trig_id 4
+    trig_mask 1
+# player 2 wins
+    trig_action 2
+
+joint r_ankle
+    trig_id 4
+    trig_mask 1
+# player 2 wins
+    trig_action 2
+
+joint l_wrist
+    trig_id 4
+    trig_mask 1
+# player 2 wins
+    trig_action 2
+
+joint r_wrist
+    trig_id 4
+    trig_mask 1
+# player 2 wins
+    trig_action 2
+
+body l_foot
+    trig_id 4
+    trig_mask 1
+# player 2 wins
+    trig_action 2
+
+body r_foot
+    trig_id 4
+    trig_mask 1
+# player 2 wins
+    trig_action 2

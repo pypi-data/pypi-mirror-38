@@ -1,0 +1,255 @@
+#!/usr/bin/toribash
+gamerule
+engagedistance 1400
+dismemberment 1
+dismemberthreshold 1500
+disqualification 0
+gravity 0 0 -30
+dojosize 1700
+
+joint l_wrist
+axis 0 1 0
+range 1.7 -1.7
+strength 2.0
+velocity 60.0
+
+joint r_wrist
+axis 0 1 0
+range 1.7 -1.7
+strength 2.0
+velocity 60.0
+
+body l_hand
+alt_sides 0.2 0.2 0.2
+
+body r_hand
+alt_sides 0.2 0.2 0.2
+
+env_obj 1
+    shape box
+    pos 5 0 2.5
+    color 0.9 0.9 0.9 1
+    rot 0 0 0
+    sides 0.25 27 5
+    material steel
+    mass 0.1
+    flag 24
+#END 1
+
+env_obj 2
+    shape box
+    pos -3 0 2.5
+    color 0.9 0.9 0.9 1
+    rot 0 0 0
+    sides 0.25 27 5
+    material steel
+    mass 0.1
+    flag 24
+#END 2
+
+env_obj 3
+    shape box
+    pos 1 -13.75 2.5
+    color 0.9 0.9 0.9 1
+    rot 0 0 0
+    sides 8.25 0.5 5
+    material steel
+    mass 0.1
+    flag 24
+#END 3
+
+env_obj 4
+    shape box
+    pos 1 -4.25 0.25
+    color 0 0 0 1
+    rot 0 0 0
+    sides 8 0.5 0.5
+    material steel
+    mass 0.1
+    flag 24
+#END 4
+
+env_obj 5
+    shape box
+    pos 1 -5.25 0.6875
+    color 0.4 0.4 0.4 1
+    rot 0 0 0
+    sides 0.5 2.5 0.125
+    material steel
+    mass 0.00001
+    flag 0
+    friction 0
+#END 5
+
+env_obj 6
+    shape box
+    pos 1.1875 -5.25 0.875
+    color 0.4 0.4 0.4 1
+    rot 0 0 0
+    sides 0.125 2.5 0.5
+    material steel
+    mass 0.001
+    flag 0
+    friction 0
+#END 6
+
+env_obj 7
+    shape box
+    pos 0.8125 -5.25 0.875
+    color 0.4 0.4 0.4 1
+    rot 0 0 0
+    sides 0.125 2.5 0.5
+    material steel
+    mass 0.001
+    flag 0
+    friction 0
+#END 7
+
+env_obj 8
+    shape box
+    pos 1 -4.8125 1.1875
+    color 0.4 0.4 0.4 1
+    rot 0 0 0
+    sides 0.5 1.625 0.125
+    material steel
+    mass 0.001
+    flag 0
+    friction 0
+#END 8
+
+env_obj 9
+    shape box
+    pos 1 -6.4375 0.875
+    color 1 1 1 1
+    rot 0 0 0
+    sides 0.01 0.01 0.01
+    material steel
+    mass 0.0000001
+    flag 0
+    bounce 700
+#END 9
+
+env_obj 10
+    shape sphere
+    pos -0.3125 -7.0625 2.0625
+    color 0 0.8 0 1
+    rot 0 0 0
+    sides 0.11 1 1
+    material steel
+    mass 0.011
+    flag 0
+    friction 0
+#END 10
+
+env_obj 11
+    shape sphere
+    pos 0.1875 -6.75 0.125
+    color 0 0.8 0 1
+    rot 0 0 0
+    sides 0.11 1 1
+    material steel
+    mass 0.011
+    flag 0
+    friction 0
+#END 11
+
+env_obj 12
+    shape sphere
+    pos 0.6875 -6.75 0.125
+    color 0 0.8 0 1
+    rot 0 0 0
+    sides 0.11 1 1
+    material steel
+    mass 0.011
+    flag 0
+    friction 0
+#END 12
+
+env_obj 13
+    shape sphere
+    pos 1.25 -6.75 0.125
+    color 0 0.8 0 1
+    rot 0 0 0
+    sides 0.11 1 1
+    material steel
+    mass 0.011
+    flag 0
+    friction 0
+#END 13
+
+env_obj 14
+    shape sphere
+    pos 1.75 -6.75 0.125
+    color 0 0.8 0 1
+    rot 0 0 0
+    sides 0.11 1 1
+    material steel
+    mass 0.011
+    flag 0
+    friction 0
+#END 14
+
+env_obj 15
+    shape sphere
+    pos 1 -5.625 0.875
+    color 0 0.8 0 1
+    rot 0 0 0
+    sides 0.11 1 1
+    material steel
+    mass 0.011
+    flag 0
+    friction 0
+#END 15
+
+env_obj 16
+    shape box
+    pos -0.4375 6.875 2.25
+    color 0.7 0.7 0.7 1
+    rot 0 0 0
+    sides 0.0625 1 2.25
+    material steel
+    mass 0.001
+    flag 0
+#END 16
+
+env_obj_joint 1 4 5
+pos 1 -4.25 0.5625
+axis 1 0 1
+strength 5
+range 0.15 -0.15
+visible 1
+
+env_obj_joint 2 5 6
+pos 1.1875 -4 0.6875
+axis 0 0 0
+
+env_obj_joint 3 5 7
+pos 0.8125 -4 0.6875
+axis 0 0 0
+
+env_obj_joint 4 8 6
+pos 1.1875 -4 1.1875
+axis 0 0 0
+
+env_obj_joint 5 8 7
+pos 0.8125 -4 1.1875
+axis 0 0 0
+
+env_obj_joint 6 9 6
+pos 1.1 -6.4375 0.875
+axis 0 0 0
+
+env_obj_joint 7 9 7
+pos 0.9 -6.4375 0.875
+axis 0 0 0
+
+env_obj_joint 8 9 8
+pos 1 -6.0625 1.1875
+axis 0 0 0
+
+env_obj_joint 9 9 5
+pos 1 -6.4375 0.77
+axis 0 0 0
+
+
+

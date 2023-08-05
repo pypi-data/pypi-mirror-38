@@ -1,0 +1,50 @@
+#!/usr/bin/toribash
+# by mariacho
+
+gamerule
+
+gravity 0 0 -30
+
+matchframes 500
+turnframes  35,20,15,20,20,30,30,30,30,30,30,30,35,35,40,40,40,40
+flags 7
+dismemberment 1
+fracture 0
+disqualification 1
+dqtimeout 25
+dqflag 1
+dismemberthreshold 250
+fracturethreshold 160
+dojotype 1
+dojosize 500
+engagedistance 1500
+engageheight 100
+engagerotation 0
+engagespace 0
+engageplayerrot 0 0 0 0 0 0
+damage 0
+sumo 1
+
+
+body stomach 
+	force 0 15 1
+body breast
+	force 0 15 1
+body chest
+	force 0 15 1
+body groin
+	force 0 15 1
+body r_pecs
+	force 0 15 1
+body l_pecs
+	force 0 15 1
+body r_thigh
+	force 0 15 1
+body l_thigh
+	force 0 15 1
+body l_leg
+	force 0 15 00
+body r_leg
+	force 0 15 00
+
+

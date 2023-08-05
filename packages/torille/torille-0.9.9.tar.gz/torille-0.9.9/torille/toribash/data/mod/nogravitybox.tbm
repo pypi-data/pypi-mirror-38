@@ -1,0 +1,104 @@
+#!/usr/bin/toribash
+
+
+body stomach 
+	force 0 0 -1
+body breast
+	force 0 0 -1
+body chest
+	force 0 0 -1
+body groin
+	force 0 0 -1
+body r_pecs
+	force 0 0 -1
+body l_pecs
+	force 0 0 -1
+body r_thigh
+	force 0 0 -1
+body l_thigh
+	force 0 0 -1
+body l_leg
+	force 0 0 -1
+body r_leg
+	force 0 0 -1
+body head
+	force 0 0 -1
+body r_hand
+	force 0 0 -1
+body l_hand
+	force 0 0 -1
+body r_triceps
+	force 0 0 -1
+body l_triceps
+	force 0 0 -1
+
+gamerule
+	engagedistance 150
+	engageheight 0
+	dismember 1
+	dismemberthreshold 200
+	dojotype 0
+	dojosize 0
+	dq 0
+	matchframes 350
+	turnframes 25
+	gravity 0.00 0.00 0.00
+	fracture 1
+	fracturethreshold 150
+	flags 15
+
+env_obj 1
+    shape box
+    pos -3 0 3.5
+    color 0 0 0 0.7
+    rot 0 0 90
+    sides 10 0.25 7
+    material steel
+    mass 0.1
+    flag 24
+#END 1
+
+env_obj 2
+    shape box
+    pos 6 0 3.5
+    color 0 0 0 0.7
+    rot 0 0 88
+    sides 10 0.25 7
+    material steel
+    mass 0.1
+    flag 24
+#END 2
+
+env_obj 3
+    shape box
+    pos 1.75 -5 3.5
+    color 0 0 0 0.7
+    rot 0 0 180
+    sides 9.25 0.25 7
+    material steel
+    mass 0.1
+    flag 24
+#END 3
+
+env_obj 4
+    shape box
+    pos 1.5 5 3.5
+    color 0 0 0 0.7
+    rot 0 0 180
+    sides 9.25 0.25 7
+    material steel
+    mass 0.1
+    flag 24
+#END 4
+
+env_obj 5
+    shape box
+    pos 1.5 0 7
+    color 0 0 0 0.7
+    rot 90 0 180
+    sides 9.25 0.25 10.25
+    material steel
+    mass 0.1
+    flag 24
+#END 5
+

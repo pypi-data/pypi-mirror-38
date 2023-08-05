@@ -1,0 +1,10 @@
+# Mod by MrPoptart =P
+
+gamerules
+matchframes 50
+
+body l_foot
+thrust 1 0 0 -10
+
+body r_foot
+thrust 1 0 0 10

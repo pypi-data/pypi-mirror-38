@@ -1,0 +1,32 @@
+body head
+	flag 16	
+body groin
+	flag 16
+body r_pecs
+	flag 16
+body r_biceps
+	flag 16
+body r_triceps
+	flag 16
+body l_pecs
+	flag 16
+body l_biceps
+	flag 16
+body l_triceps
+	flag 16
+body r_hand
+	flag 16
+body l_hand
+	flag 16
+body r_thigh
+	flag 32
+body l_thigh
+	flag 32
+body l_leg
+	flag 32
+body r_leg
+	flag 32
+joint l_knee
+	flag 32
+joint r_knee
+	flag 32

@@ -1,0 +1,52 @@
+gamerule
+engagedistance 250
+turnframes 50
+matchframes 500
+flags 5
+sumo 1
+
+env_obj 1
+shape box
+
+sides 52.8 100 10
+pos -28.90 -.1 5
+color 1 0 0
+material steel
+mass 0.1
+flag 24
+
+env_obj 2
+shape box
+sides 52.8 100 10
+pos 30.90 -.1 5
+color 1 0 0
+material steel 
+mass 0.1
+flag 24
+
+env_obj 3
+shape box
+sides 100 52.8 10
+color 1 0 0
+pos 1 29.8 5
+material steel 
+mass 0.1
+flag 24
+
+env_obj 4
+shape box
+sides 100 52.8 10
+color 1 0 0
+pos 1 -30 5
+material steel 
+mass 0.1
+flag 24
+
+env_obj 5
+shape box
+sides 100 100 10
+color 1 0 0
+pos 1 -.1 12
+material steel 
+mass 0.1
+flag 24

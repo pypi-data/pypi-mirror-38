@@ -1,0 +1,155 @@
+#01F_Twohandet_Sword_1
+
+gamerule
+	engagedistance 400
+
+
+body head
+
+body breast
+color 0 0 0
+
+body chest
+color 0 0 0
+
+body stomach
+color 0.4 0.4 0.4
+
+body groin
+color 0.4 0.4 0.4
+
+body r_pecs
+color 0.4 0.4 0.4
+
+body l_pecs
+color 0.4 0.4 0.4
+
+#Coolerer Arme
+
+body r_biceps
+color 0.4 0.4 0.4
+sides 0.400000 0.250000 0.250000
+
+body l_biceps
+color 0.4 0.4 0.4
+sides 0.400000 0.250000 0.250000
+
+body l_triceps
+sides 0.400000 0.150000 0.150000
+material steel
+color 0 0 0
+
+body r_triceps
+sides 0.400000 0.150000 0.150000
+material steel
+color 0 0 0
+
+#
+
+body l_hand
+sides 0.25000 0.23000 0.23000
+alt_sides 0.30000 0.20000 0.1400
+material steel
+color 0 0 0
+
+body r_butt
+color 0.4 0.4 0.4
+
+body l_butt
+color 0.4 0.4 0.4
+
+#Füße und Beine dicker damit man besser steht!
+
+body r_thigh
+color 0.4 0.4 0.4
+#sides 0.160000 0.300000 0.000000
+sides 0.160000 0.300000 0.000000
+
+body l_thigh
+color 0.4 0.4 0.4
+sides 0.160000 0.300000 0.000000
+
+
+body r_leg
+sides 0.165000 0.300000 0.000000
+#sides 0.130000 0.300000 0.000000
+material steel
+color 0.1 0.1 0.1
+
+body l_leg
+sides 0.165000 0.300000 0.000000
+material steel
+color 0.1 0.1 0.1
+
+# Füße größer für besseren Stand
+
+body r_foot
+sides 0.30000 0.550000 0.1800000
+#sides 0.200000 0.500000 0.080000
+pos 0.800000 0.900000 0.130000
+#pos 0.800000 0.900000 0.100000
+material steel
+color 0.2 0.2 0.2
+mass 10000
+
+body l_foot
+sides 0.30000 0.550000 0.1800000
+#sides 0.200000 0.500000 0.080000
+pos 1.200000 0.900000 0.130000
+#pos 0.800000 0.900000 0.100000
+material steel
+color 0.2 0.2 0.2
+mass 10000
+
+#Chest Drehung erhöhen
+
+joint chest
+radius 0.180000
+range 1.0 -1.0
+strength 5
+velocity 12
+
+
+#Der Schwertarm
+
+body r_hand
+shape box
+sides 0.08 0.0001 2.6
+pos -0.35 0.9 3.65
+material steel
+flag 10
+alt_sides  0.04 0.0001 2.6
+#alt_sides 0.06 0.0001 2.6
+
+#Schwertarm Joints
+
+joint r_shoulder
+radius 0.180000
+pos 0.650000 0.900000 2.300000
+strength 5
+velocity 13
+
+joint r_glute
+radius 0.160000
+pos 0.900000 1.100000 1.510000
+strength 5
+velocity 13
+
+joint r_wrist
+axis 0.000000 -2.000000 1.000000
+#axis 0.000000 -1.000000 1.000000
+range 1.7 -0
+#range 2 -1
+radius 0.15
+pos -0.35 0.9 2.30
+material steel
+color 0.2 0.2 0.2
+strength 2
+velocity 10
+
+joint r_elbow
+axis 0.000000 1.000000 0.000000
+material steel
+color 0.2 0.2 0.2
+strength 5
+velocity 13

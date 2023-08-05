@@ -1,0 +1,35 @@
+#mod by blkk
+#8D
+
+gamerule
+engageplayerpos 0
+engagedistance 1000
+disqualification 1
+dismemberthreshold 300
+
+joint neck
+strength 80
+velocity 800.0
+flag 38
+
+body head
+density 0.1
+flag 38
+
+body r_hand
+flag 2
+body l_hand
+flag 2
+body r_bicept
+flag 2
+body l_bicept
+flag 2
+
+body r_foot
+flag 2
+body l_foot
+flag 2
+body r_leg
+flag 2
+body l_leg
+flag 2

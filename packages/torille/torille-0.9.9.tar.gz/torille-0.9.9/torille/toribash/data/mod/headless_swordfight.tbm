@@ -1,0 +1,57 @@
+#mod by blkk
+#8D
+
+gamerule
+engageplayerpos -1.4,1,0,1.4,-1,0
+engageplayerrot 0,0,0,0,0,180
+mf 150
+tf 3,10,10,10,1000
+
+body head
+shape box
+sides 0.1 0.01 2
+pos -0.375 0.85 3
+color 0 0 0
+rot 0 0 0
+material steel
+density 0.1
+flag 4
+
+joint neck
+radius 0.1
+pos -0.375 0.85 2.4
+strength 500
+velocity 5
+axis 0 0 1
+
+
+body r_hand
+shape box
+sides 0.22 0.22 0.22
+alt_sides 0.2 0.2 0.2
+pos -0.35 0.85 2.3
+rot 0 0 0
+force 0 0 0
+color 1 1 1
+material flesh
+flag 32
+
+joint r_wrist
+radius 0.11
+pos -0.2 0.9 2.3
+axis 0 1 0
+rot 0 0 0
+range 0.5 -1.4
+strength 2.0
+velocity 60.0
+flag 6
+
+env_obj 1
+pos 1 0 3.8
+sides 200 200 0
+visible 0
+thrust 1 0 0 100
+friction 0
+flag 6
+
+

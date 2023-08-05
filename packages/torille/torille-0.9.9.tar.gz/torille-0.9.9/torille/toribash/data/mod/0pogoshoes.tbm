@@ -1,0 +1,196 @@
+# Made by Pnut!
+
+gamerule
+engageheight 50
+engagedistance 260
+
+
+
+env_obj 1
+    shape box
+    pos 0.8 1.2375 0.4075
+    color 0 1.1 -0.1 1
+    rot 0 0 0
+    sides 0.25 0.5625 0.0625
+    material steel
+             bounce 20
+    mass 0.0001
+    flag 0
+
+
+env_obj 2
+    shape box
+    pos 1.18 1.2375 0.4075
+    color 0 1.1 -0.1 1
+    rot 0 0 0
+    sides 0.25 0.5625 0.0625
+    material steel
+             bounce 20
+    mass 0.0001
+    flag 0
+
+
+env_obj 3
+    shape box
+    pos 0.68 1.2375 0.525
+    color -0.1 0 -0.1 1
+    rot 0 0 0
+    sides 0.0625 0.5 0.1875
+    material steel
+    mass 0.0001
+    flag 0
+
+
+env_obj 4
+    shape box
+    pos 0.93 1.2375 0.525
+    color -0.1 0 -0.1 1
+    rot 0 0 0
+    sides 0.0625 0.5 0.1875
+    material steel
+    mass 0.0001
+    flag 0
+
+
+env_obj 5
+    shape box
+    pos 1.07 1.2375 0.525
+    color -0.1 0 -0.1 1
+    rot 0 0 0
+    sides 0.0625 0.5 0.1875
+    material steel
+    mass 0.0001
+    flag 0
+
+
+env_obj 6
+    shape box
+    pos 1.31 1.2375 0.525
+    color -0.1 0 -0.1 1
+    rot 0 0 0
+    sides 0.0625 0.5 0.1875
+    material steel
+    mass 0.0001
+    flag 0
+
+
+env_obj 7
+    shape box
+    pos 0.81 1.2375 0.585
+    color -0.1 0 -0.1 1
+    rot 0 0 0
+    sides 0.25 0.5625 0.0625
+    material steel
+    mass 0.0001
+    flag 0
+
+
+env_obj 8
+    shape box
+    pos 1.18 1.2375 0.585
+    color -0.1 0 -0.1 1
+    rot 0 0 0
+    sides 0.25 0.5625 0.0625
+    material steel
+    mass 0.0001
+    flag 0
+
+
+# First shoe Objs: 1,3,4,7
+env_obj_joint 0 1 3
+	pos 1 0.75 2.4375
+	axis 0 0 0
+	range 0 0
+	strength 100
+	velocity 0
+	visible
+	
+env_obj_joint 1 1 4
+	pos 1 0.75 2.4375
+	axis 0 0 0
+	range 0 0
+	strength 100
+	velocity 0
+	visible
+
+env_obj_joint 2 1 7
+	pos 1 0.75 2.4375
+	axis 0 0 0
+	range 0 0
+	strength 100
+	velocity 0
+	visible
+
+env_obj_joint 3 3 4
+	pos 1 0.75 2.4375
+	axis 0 0 0
+	range 0 0
+	strength 100
+	velocity 0
+	visible
+	
+env_obj_joint 4 3 7
+	pos 1 0.75 2.4375
+	axis 0 0 0
+	range 0 0
+	strength 100
+	velocity 0
+	visible
+
+env_obj_joint 5 4 7
+	pos 1 0.75 2.4375
+	axis 0 0 0
+	range 0 0
+	strength 100
+	velocity 0
+	visible
+	
+
+# Second shoe Objs: 2,5,6,8
+env_obj_joint 6 2 5
+	pos 1 0.75 2.4375
+	axis 0 0 0
+	range 0 0
+	strength 100
+	velocity 0
+	visible
+
+env_obj_joint 7 2 6
+	pos 1 0.75 2.4375
+	axis 0 0 0
+	range 0 0
+	strength 100
+	velocity 0
+	visible
+
+env_obj_joint 8 2 8
+	pos 1 0.75 2.4375
+	axis 0 0 0
+	range 0 0
+	strength 100
+	velocity 0
+	visible
+
+env_obj_joint 9 5 6
+	pos 1 0.75 2.4375
+	axis 0 0 0
+	range 0 0
+	strength 100
+	velocity 0
+	visible
+
+env_obj_joint 10 5 8
+	pos 1 0.75 2.4375
+	axis 0 0 0
+	range 0 0
+	strength 100
+	velocity 0
+	visible
+
+env_obj_joint 11 6 8
+	pos 1 0.75 2.4375
+	axis 0 0 0
+	range 0 0
+	strength 100
+	velocity 0
+	visible

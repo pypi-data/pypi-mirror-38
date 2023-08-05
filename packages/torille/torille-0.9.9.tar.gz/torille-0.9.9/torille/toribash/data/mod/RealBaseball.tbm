@@ -1,0 +1,20 @@
+# Mod by MrPoptart =D
+# Mod settings: engage distance: 1000
+
+env_obj 1
+shape cylinder
+pos -0.35 4.9 3.0
+color 2 2 1
+rot 0 0 0
+sides 0.05 1.25 2.5
+material steel
+mass 0.0001
+
+env_obj 2
+shape sphere
+pos -0.35 -4.9 2.5
+color 1 1 1
+rot 0 0 0
+sides 0.1 0.1 0.1
+material steel
+mass 0.0001

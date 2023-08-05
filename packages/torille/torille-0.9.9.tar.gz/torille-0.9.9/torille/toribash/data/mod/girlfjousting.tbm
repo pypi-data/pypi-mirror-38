@@ -1,0 +1,251 @@
+#Edited by JePoY GirlFight + Jousting
+
+matchframes 100
+turnframes 30,30,20,10,10
+flags 10
+dismemberment 1
+fracture 1
+disqualification 0
+dqtimeout 0
+dqflag 0
+dismemberthreshold 200
+fracturethreshold 100
+dojotype 0
+dojosize 0
+engagedistance 900
+engageheight 0
+engagerotation 0
+engagespace 0
+engageplayerpos 
+engageplayerrot 0,0,0,0,0,0
+damage 0
+gravity 0.00 0.00 -9.82
+sumo 0
+
+blood
+	color 0 0 1
+body stomach 
+	force 0 5 1
+body breast
+	force 0 5 1
+body chest
+	force 0 5 1
+body groin
+	force 0 5 1
+body r_pecs
+	force 0 15 1
+body l_pecs
+	force 0 15 1
+body r_thigh
+	force 0 15 1
+body l_thigh
+	force 0 15 1
+body l_leg
+	force 0 25 00
+body r_leg
+	force 0 25 00
+
+body head
+
+radius 0.20000
+pos 1.000000 0.850000 2.600000
+
+body breast
+
+sides 0.200000 0.100000 0.300000
+pos 1.000000 0.900000 2.200000
+
+body chest
+
+sides 0.290000 0.150000 0.200000
+pos 1.000000 0.900000 1.950000
+
+body stomach
+
+sides 0.220000 0.150000 0.200000
+pos 1.000000 0.950000 1.750000
+
+body groin
+
+sides 0.100000 0.150000 0.200000
+pos 1.000000 1.000000 1.550000
+
+body r_pecs
+
+sides 0.200000 0.150000 0.200000
+pos 0.900000 0.850000 2.200000
+
+body r_biceps
+
+sides 0.400000 0.150000 0.150000
+pos 0.450000 0.900000 2.200000
+
+body r_triceps
+
+sides 0.400000 0.100000 0.100000
+pos 0.050000 0.900000 2.200000
+
+body l_pecs
+
+sides 0.200000 0.150000 0.200000
+pos 1.100000 0.850000 2.200000
+
+body l_biceps
+
+sides 0.400000 0.150000 0.150000
+pos 1.550000 0.900000 2.200000
+
+body l_triceps
+
+sides 0.400000 0.100000 0.100000
+pos 1.950000 0.900000 2.200000
+
+body r_hand
+
+sides 0.150000 0.150000 0.150000
+pos -0.350000 0.850000 2.200000
+
+body l_hand
+
+sides 0.150000 0.150000 0.150000
+pos 2.350000 0.850000 2.200000
+
+body r_butt
+
+sides 0.100000 0.100000 0.100000
+pos 0.850000 1.000000 1.450000
+
+body l_butt
+
+sides 0.100000 0.100000 0.100000
+pos 1.150000 1.000000 1.450000
+
+body r_thigh
+
+sides 0.135000 0.300000 0.000000
+pos 0.830000 1.000000 1.100000
+
+body l_thigh
+
+sides 0.135000 0.300000 0.200000
+pos 1.170000 1.000000 1.100000
+
+body l_leg
+
+sides 0.120000 0.300000 0.000000
+pos 1.150000 1.000000 0.500000
+
+body r_leg
+
+sides 0.120000 0.300000 0.000000
+pos 0.850000 1.000000 0.500000
+
+body r_foot
+
+sides 0.150000 0.350000 0.080000
+pos 0.850000 0.900000 0.100000
+
+body l_foot
+
+sides 0.150000 0.350000 0.080000
+pos 1.150000 0.900000 0.100000
+
+joint neck
+
+radius 0.090000
+pos 1.000000 0.900000 2.400000
+
+joint chest
+
+radius 0.180000
+pos 1.000000 0.900000 2.050000
+
+joint lumbar
+
+radius 0.160000
+pos 1.000000 0.950000 1.850000
+
+joint abs
+
+radius 0.140000
+pos 1.000000 1.000000 1.650000
+
+joint r_pecs
+
+radius 0.170000
+pos 0.860000 0.800000 2.100000
+
+joint r_shoulder
+
+radius 0.140000
+pos 0.650000 0.900000 2.200000
+
+joint r_elbow
+
+radius 0.130000
+pos 0.250000 0.900000 2.200000
+
+joint l_axilla
+
+radius 0.170000
+pos 1.140000 0.800000 2.100000
+
+joint l_shoulder
+
+radius 0.140000
+pos 1.350000 0.900000 2.200000
+
+joint l_elbow
+
+radius 0.130000
+pos 1.750000 0.900000 2.200000
+
+joint r_wrist
+
+radius 0.100000
+pos -0.200000 0.900000 2.200000
+
+joint l_wrist
+
+radius 0.100000
+pos 2.200000 0.900000 2.200000
+
+joint r_glute
+
+radius 0.175000
+pos 0.900000 1.100000 1.510000
+
+joint l_glute
+
+radius 0.175000
+pos 1.100000 1.100000 1.510000
+
+joint r_hip
+
+radius 0.170000
+pos 0.850000 1.000000 1.400000
+
+joint l_hip
+
+radius 0.170000
+pos 1.150000 1.000000 1.400000
+
+joint r_knee
+
+radius 0.140000
+pos 0.840000 1.000000 0.800000
+
+joint l_knee
+
+radius 0.140000
+pos 1.160000 1.000000 0.800000
+
+joint r_ankle
+
+radius 0.100000
+pos 0.850000 1.050000 0.250000
+
+joint l_ankle
+
+radius 0.100000
+pos 1.150000 1.050000 0.250000

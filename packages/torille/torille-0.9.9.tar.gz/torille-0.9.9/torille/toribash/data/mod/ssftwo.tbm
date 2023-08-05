@@ -1,0 +1,278 @@
+#!/usr/bin/toribash
+gamerule
+engagedistance 600
+engageheight 1500
+dismemberment 1
+dojosize 1
+dismemberthreshold 1500
+disqualification 0
+gravity 0 0 -30
+
+joint l_wrist
+axis 0 1 0
+range 1.7 -1.7
+strength 2.0
+velocity 60.0
+
+joint r_wrist
+axis 0 1 0
+range 1.7 -1.7
+strength 2.0
+velocity 60.0
+
+body l_hand
+alt_sides 0.2 0.2 0.2
+
+body r_hand
+alt_sides 0.2 0.2 0.2
+
+env_obj 1
+    shape box
+    pos 1 -50 10.5
+    color 0.9 0.9 0.9 1
+    rot 0 0 0
+    sides 13.25 17.25 21
+    material steel
+    mass 0.1
+    flag 24
+#END 1
+
+env_obj 2
+    shape box
+    pos 1 21 10.5
+    color 0.9 0.9 0.9 1
+    rot 0 0 0
+    sides 13.25 17.25 21
+    material steel
+    mass 0.1
+    flag 24
+#END 2
+
+env_obj 3
+    shape box
+    pos 1 10.25 14.5
+    color 0.9 0.9 0.9 1
+    rot 0 0 0
+    sides 7.25 6.25 0.25
+    material steel
+    mass 0.1
+    flag 24
+#END 3
+
+env_obj 4
+    shape box
+    pos 1 -39.5 14.5
+    color 0.9 0.9 0.9 1
+    rot 0 0 0
+    sides 7.25 6.25 0.25
+    material steel
+    mass 0.1
+    flag 24
+#END 4
+
+env_obj 5
+    shape box
+    pos 1 0 8.25
+    color 0.9 0.4 0 1
+    rot 0 0 0
+    sides 11 11 13.5
+    material steel
+    mass 0.0001
+    flag 0
+    thrust 1 0 -10 0
+#END 5
+
+env_obj 6
+    shape box
+    pos 1 -5.375 15.5
+    color 0 0 0 1
+    rot 0 0 0
+    sides 11 0.25 1
+    material steel
+    mass 0.00001
+    flag 0
+#END 6
+
+env_obj 7
+    shape box
+    pos 1 5.375 15.5
+    color 0 0 0 1
+    rot 0 0 0
+    sides 11 0.25 1
+    material steel
+    mass 0.00001
+    flag 0
+#END 7
+
+env_obj 8
+    shape box
+    pos 6.375 0 15.5
+    color 0 0 0 1
+    rot 0 0 0
+    sides 0.25 11 1
+    material steel
+    mass 0.00001
+    flag 0
+#END 8
+
+env_obj 9
+    shape box
+    pos -4.375 0 15.5
+    color 0 0 0 1
+    rot 0 0 0
+    sides 0.25 11 1
+    material steel
+    mass 0.00001
+    flag 0
+    thrust 1 0 0 -10
+#END 9
+
+env_obj 10
+    shape sphere
+    pos -7.25 -3.75 1.75
+    color 0 0 0 1
+    rot 0 0 0
+    sides 2.25 1 1
+    material steel
+    mass 0.1
+    flag 0
+    thrust 1 0 0 -50
+#END 10
+
+env_obj 11
+    shape sphere
+    pos -7.25 3.75 1.75
+    color 0 0 0 1
+    rot 0 0 0
+    sides 2.25 1 1
+    material steel
+    mass 0.1
+    flag 0
+    thrust 1 0 0 -10
+#END 11
+
+env_obj 12
+    shape sphere
+    pos 9.75 -3.75 1.75
+    color 0 0 0 1
+    rot 0 0 0
+    sides 2.25 1 1
+    material steel
+    mass 0.1
+    flag 0
+    thrust 1 0 0 -50
+#END 12
+
+env_obj 13
+    shape sphere
+    pos 9.75 3.75 1.75
+    color 0 0 0 1
+    rot 0 0 0
+    sides 2.25 1 1
+    material steel
+    mass 0.1
+    flag 0
+#END 13
+
+env_obj 14
+    shape box
+    pos 2.375 -3.0625 17.4375
+    color 1 0 0 1
+    rot 0 0 0
+    sides 0.0625 0.0625 0.6875
+    material steel
+    mass 0.0001
+    flag 0
+#END 14
+
+env_obj 15
+    shape box
+    pos 2.4375 -3.0625 17.8125
+    color 0 0 0 1
+    rot 0 0 0
+    sides 0.0625 0.0625 0.1875
+    material steel
+    mass 0.01
+    flag 0
+#END 15
+
+env_obj 16
+    shape box
+    pos 2.3125 -3.0625 17.8125
+    color 0 0 0 1
+    rot 0 0 0
+    sides 0.0625 0.0625 0.1875
+    material steel
+    mass 0.01
+    flag 0
+    friction 0
+#END 16
+
+env_obj_joint 1 10 5
+pos -5.125 -3.75 1.75
+axis 1 0 0
+strength 3
+range 5 -5
+velocity 50
+
+env_obj_joint 2 11 5
+pos -5.125 3.75 1.75
+axis 1 0 0
+strength 3
+range 5 -5
+velocity 50
+
+env_obj_joint 3 12 5
+pos 7.125 -3.75 1.75
+axis 1 0 0
+strength 3
+range 5 -5
+velocity 50
+
+env_obj_joint 4 13 5
+pos 7.125 3.75 1.75
+axis 1 0 0
+strength 3
+range 5 -5
+velocity 50
+
+env_obj_joint 5 15 14
+pos 2.4375 -3.0625 17.75
+axis 0 0 0
+
+env_obj_joint 6 16 14
+pos 2.3125 -3.0625 17.75
+axis 0 0 0
+
+env_obj_joint 7 5 6
+pos 1 -5.375 15.5 
+axis 0 0 0
+
+env_obj_joint 8 5 7
+pos 1 5.375 15.5
+axis 0 0 0
+
+env_obj_joint 9 5 8
+pos 6.375 0 15.5
+axis 0 0 0
+
+env_obj_joint 10 5 9
+pos -4.375 0 15.5
+axis 0 0 0
+
+env_obj_joint 11 6 8
+pos -4.375 -5.375 15.5
+axis 0 0 0
+
+env_obj_joint 12 6 9
+pos 6.375 -5.375 15.5
+axis 0 0 0
+
+env_obj_joint 13 7 8
+pos 6.375 5.375 15.5
+axis 0 0 0
+
+env_obj_joint 14 7 9
+pos -4.375 5.375 15.5
+axis 0 0 0
+

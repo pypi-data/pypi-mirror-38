@@ -1,0 +1,107 @@
+
+env_obj 1
+    shape box
+    pos 27 -2.5 35
+    color 0.3 0.3 0.3
+    rot 0 0 0
+    sides 22 0.25 70
+    material steel
+    mass 0.1
+    flag 8
+
+env_obj 2
+    shape box
+    pos 27 2.5 35
+    color 0.3 0.3 0.3
+    rot 0 0 0
+    sides 22 0.25 70
+    material steel
+    mass 7
+    flag 8
+	
+
+env_obj 3
+    shape box
+    pos 20 0 1.5
+    color 0.3 0.3 0.3
+    rot 0 0 0
+    sides 2 5 3
+    material steel
+    mass 0.1
+    flag 8
+
+env_obj 4
+    shape box
+    pos 17 0 60.000
+    color 0.3 0.3 0.3
+    rot 0 0 90
+    sides 4.5 2 10
+    material steel
+    mass 100
+    flag 1
+	
+env_obj 5
+    shape box
+    pos 26 0 4
+    color 0.3 0.3 0.3
+    rot 0 0 90
+    sides 4.5 20 0.2
+    material steel
+    mass 0.1
+    flag 1
+	
+env_obj 6
+    shape box
+    pos 34 0 6
+    color 0.3 0.3 0.3
+    rot 0 0 90
+    sides 3 3 3
+    material steel
+    mass 0.1
+    flag 1
+	
+env_obj 7
+    shape box
+    pos 16.001 0 59.25
+    color 0.3 0.3 0.3
+    rot 0 0 0
+    sides 0.001 5 22.5
+    material steel
+    mass 7
+    flag 8
+	
+env_obj 8
+    shape box
+    pos 16.001 0 20.5
+    color 0.3 0.3 0.3
+    rot 0 0 0
+    sides 0.001 5 41
+    material steel
+    mass 7
+    flag 8
+	
+env_obj 9
+    shape box
+    pos 37 0 35
+    color 0.3 0.3 0.3
+    rot 0 0 0
+    sides 0.001 5 70
+    material steel
+    mass 7
+    flag 8
+	
+env_obj 10
+    shape box
+    pos 27 0 68
+    color 0.3 0.3 0.3
+    rot 0 0 0
+    sides 20 5 4
+    material steel
+    mass 7
+    flag 8
+
+
+	
+	
+
+

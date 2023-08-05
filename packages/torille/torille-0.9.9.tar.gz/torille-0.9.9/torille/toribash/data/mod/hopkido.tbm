@@ -1,0 +1,25 @@
+gamerule
+matchframes 500
+turnframes 50
+engagedistance 200
+fracture 0
+dismember 1
+dismemberthreshold 100
+sumo 1
+dq 1
+body r_leg
+flag 2
+body l_leg 
+flag 2
+joint r_knee 
+strength 3
+joint l_knee
+strength 3
+joint r_ankle
+strength 3
+joint l_ankle
+strength 3 
+
+
+
+

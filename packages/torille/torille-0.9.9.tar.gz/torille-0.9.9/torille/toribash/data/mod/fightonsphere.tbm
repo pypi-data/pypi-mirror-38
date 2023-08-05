@@ -1,0 +1,59 @@
+# Environment exported by WorldBuilder
+######################################
+gamerule
+gravity 0 0 -30
+engageheight 1650
+engagedistance 1000
+matchframes 1000
+turnframes 25
+disqualification 1
+dismemberthreshold 200
+
+body stomach 
+	force 0 10 1
+body breast
+	force 0 10 1
+body chest
+	force 0 10 1
+body groin
+	force 0 10 1
+body r_pecs
+	force 0 10 1
+body l_pecs
+	force 0 10 1
+body r_thigh
+	force 0 10 1
+body l_thigh
+	force 0 10 1
+body l_leg
+	force 0 10 00
+body r_leg
+	force 0 10 00
+
+env_obj 1
+    shape sphere
+    pos 1 0 12
+    color 1 0.5 0 1
+    rot 0 0 0
+    sides 4.5625 0 0
+    material steel
+    mass 0.5
+    flag 0
+#END 1
+
+env_obj 2
+    shape box
+    pos 1 0 50
+    color 0 0 0 0
+    rot 0 0 0
+    sides 0.0625 0.0625 0.0625
+    material steel
+    mass 1
+    flag 8
+#END 2
+
+env_obj_joint 1 1 2
+    pos 1 0 12
+    axis 1 0 0
+    range 5 -5
+    strength 99999

@@ -1,0 +1,51 @@
+#Combination of Instagibhands, Instagibfeet and Running by ThaPriest with special settings. I hope you enjoy
+body r_foot
+   color 0 0 0
+   flag 6
+   material steel
+
+body l_foot
+   color 0 0 0
+   flag 6
+   material steel
+
+body r_leg
+   color 0 0 0
+   flag 6
+   material steel
+
+body l_leg
+   color 0 0 0
+   flag 6
+   material steel
+
+body l_hand
+   color 0 0 0
+   flag 6
+   material steel
+
+body r_hand
+   color 0 0 0
+   flag 6
+   material steel
+
+gamerule
+gravity 0 0 -30
+
+engagedistance 1200
+matchframes 450
+dismemberthreshold 250
+fracturethreshold 140
+turnframes 20,20,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,30,30,30,50,50,50
+engageheight 0
+sumo 1
+damage 1
+dojosize 0
+flags 8
+dismemberment 1
+fracture 1
+disqualification 1
+dqtimeout 0
+dqflag 8
+dojotype 0
+damage 0

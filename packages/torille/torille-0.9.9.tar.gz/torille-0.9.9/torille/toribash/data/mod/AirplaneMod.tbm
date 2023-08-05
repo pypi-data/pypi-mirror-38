@@ -1,0 +1,119 @@
+#Mod by MrPoptart =D
+
+body head
+shape box
+sides 0.3 0.1 0.8
+pos 1.0 1.0 3
+body breast
+sides 0.3 0.15 0.7
+pos 1.0 1.125 2.3
+body chest
+sides 0.65 0.15 0.45
+pos 1.0 1.0 1.75
+body r_pecs
+sides 0.2 0.2 1.1
+pos 0.75 1.0 2.55
+body l_pecs
+sides 0.2 0.2 1.1
+pos 1.25 1.0 2.55
+body r_biceps
+sides 0.4 0.15 0.8
+pos 0.45 1.0 2.3
+body l_biceps
+sides 0.4 0.15 0.8
+pos 1.55 1.0 2.3
+body r_triceps
+sides 0.4 0.1 0.6
+pos 0.05 1.0 2.2
+body l_triceps
+sides 0.4 0.1 0.6
+pos 1.95 1.0 2.2
+body r_hand
+sides 0.3 0.05 0.4
+pos -0.35 1.0 2.1
+body l_hand
+sides 0.3 0.05 0.4
+pos 2.35 1.0 2.1
+body r_butt
+sides 0.3 0.2 0.1
+body l_butt
+sides 0.3 0.2 0.1
+body r_thigh
+shape box
+sides 0.3 0.2 0.5
+body l_thigh
+shape box
+sides 0.3 0.2 0.5
+body r_leg
+shape box
+sides 0.3 0.2 0.2
+pos 0.8 1.0 0.7
+body l_leg
+shape box
+sides 0.3 0.2 0.2
+pos 1.2 1.0 0.7
+body r_foot
+sides 0.1 0.5 0.85
+pos 1.0 1.25 0.7
+body l_foot
+sides 1.1 0.1 0.5
+pos 1.0 1.0 0.35
+joint neck
+radius 0.10
+pos 1.0 1.0 2.5
+joint chest
+radius 0.15
+pos 1.0 1.0 2.05
+joint lumbar
+radius 0.15
+pos 1.0 1.0 1.85
+joint abs
+radius 0.15
+joint r_pecs
+radius 0.15
+pos 0.85 1.0 2.2
+joint l_axilla
+radius 0.15
+pos 1.15 1.0 2.2
+joint r_shoulder
+radius 0.15
+pos 0.65 1.0 2.3
+joint l_shoulder
+radius 0.15
+pos 1.35 1.0 2.3
+joint r_elbow
+radius 0.15
+pos 0.25 1.0 2.3
+joint l_elbow
+radius 0.15
+pos 1.75 1.0 2.3
+joint r_wrist
+radius 0.10
+pos -0.2 1.0 2.3
+joint l_wrist
+radius 0.10
+pos 2.2 1.0 2.3
+joint r_glute
+radius 0.15
+pos 1.0 1.0 1.51
+joint l_glute
+radius 0.15
+pos 1.0 1.0 1.51
+joint r_hip
+radius 0.15
+pos 1.0 1.0 1.4
+joint l_hip
+radius 0.15
+pos 1.0 1.0 1.4
+joint r_knee
+radius 0.15
+pos 1.0 1.0 0.8
+joint l_knee
+radius 0.15
+pos 1.0 1.0 0.8
+joint r_ankle
+radius 0.10
+pos 1.0 1.0 0.5
+joint l_ankle
+radius 0.10
+pos 1.0 1.0 0.5

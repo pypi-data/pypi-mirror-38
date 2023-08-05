@@ -1,0 +1,33 @@
+#!/usr/bin/toribash
+######################################
+
+gamerule
+matchframes 1200
+turnframes 20
+fracture 0
+dismember 1
+dismemberthreshold 200
+sumo 1
+dq 1
+gravity 0.00 0.00 -30.00
+engagedistance 300
+
+joint l_knee
+	flag 32
+	velocity 70 
+joint r_knee
+	flag 32
+	velocity 70 
+joint l_hip
+	flag 16
+	velocity 70 
+joint r_hip
+	flag 16
+	velocity 70 
+joint chest
+	velocity 70
+body r_foot
+	force 0 10 00
+body l_foot
+	force 0 10 00
+

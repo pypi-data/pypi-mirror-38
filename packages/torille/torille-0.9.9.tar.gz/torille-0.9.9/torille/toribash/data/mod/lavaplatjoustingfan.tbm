@@ -1,0 +1,88 @@
+######################################
+#Lava Plat Jousting Fan mod, made by Danvari
+
+gamerule
+engagedistance 1000
+engageheight 200
+matchframes 150
+turnframes 30,30,20,20,50
+
+blood
+color 0 0 1
+body stomach 
+force 0 10 1
+body breast
+force 0 10 1
+body chest
+force 0 10 1
+body groin
+force 0 10 1
+body r_pecs
+force 0 20 1
+body l_pecs
+force 0 20 1
+body r_thigh
+force 0 20 1
+body l_thigh
+force 0 20 1
+body l_leg
+force 0 30 00
+body r_leg
+force 0 30 00
+
+env_obj 1
+shape box
+pos 2.75 -1.5 0.0625
+color 1.1 0.3 -0.1 1
+rot 0 0 0
+sides 38 29.5 0
+material steel
+mass 0.1
+flag 14
+
+env_obj 2
+shape box
+pos 1 -5.25 1
+color 0.3 0.3 0.4 1
+rot 0 0 0
+sides 1 1.25 2
+material steel
+mass 0.1
+flag 8
+
+env_obj 3
+shape box
+pos 1 5 1
+color 0.3 0.3 0.4 1
+rot 0 0 0
+sides 1 1.25 2
+material steel
+mass 0.1
+flag 8
+
+env_obj 4
+shape box
+pos 1.0625 0.125 0.125
+color 0.3 0.3 0.4 1
+rot 0 0 0
+sides 0.25 0.25 0.25
+material steel
+mass 0.1
+flag 8
+
+env_obj 5
+shape box
+pos 1.0625 0 0.5
+color 0.3 0.3 0.4 1
+rot 0 0 0
+sides 0.25 8 0
+material steel
+mass 0.1
+flag 6
+
+env_obj_joint 1 4 5
+pos 1.0625 0.125 0.3
+axis 0 0 -1
+range 5 -5
+strength 10
+velocity -200

@@ -1,0 +1,64 @@
+#!/usr/bin/toribash
+######################################
+
+gamerule
+gravity 0.00 0.00 -30.00
+engagedistance 250
+engageheight 100
+dismemberthreshold 325
+dismember 1
+fracture 1
+fracturethreshold 200
+matchframes 500
+turnframes 30 #10,20,20,30,30,35,35,40,40,40,50
+dojosize 500
+dojotype 0
+dq 1
+sumo 1
+flags 11
+
+
+
+env_obj 1
+    shape cylinder
+    pos 1 2 3
+    color 0.9 0.9 0.8 1
+    rot 0 -90 0
+    sides 0.0625 4 1.125
+    material steel
+    mass 0.1
+    flag 8
+#END 1
+
+env_obj 2
+    shape cylinder
+    pos 1 -2 3
+    color 0.9 0.9 0.8 1
+    rot 0 -90 0
+    sides 0.0625 4 1.125
+    material steel
+    mass 0.1
+    flag 8
+#END 1
+
+env_obj 3
+    shape cylinder
+    pos 3 0 3
+    color 0.9 0.9 0.8 1
+    rot 90 0 0
+    sides 0.0625 4 1.125
+    material steel
+    mass 0.1
+    flag 8
+#END 3
+
+env_obj 4
+    shape cylinder
+    pos -1 0 3
+    color 0.9 0.9 0.8 1
+    rot 90 0 0
+    sides 0.0625 4 1.125
+    material steel
+    mass 0.1
+    flag 8
+#END 4

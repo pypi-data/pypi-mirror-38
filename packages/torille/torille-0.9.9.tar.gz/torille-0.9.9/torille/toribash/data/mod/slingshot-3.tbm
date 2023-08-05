@@ -1,0 +1,205 @@
+# Mod by MrPoptart =D
+
+gamerule
+engagedistance 1000
+dismemberment 0
+
+env_obj 1
+shape box
+pos 1 4.4 2.1
+color 1 1 0.9
+rot 0 0 0
+sides 3.2 0.1 0.1
+material steel
+friction 0
+mass 0.1
+flag 8
+
+env_obj 2
+shape box
+pos 1 2.6 0.025
+color 1 1 1
+rot 0 0 0
+sides 5 15 0.025
+material steel
+friction 0
+mass 0.1
+flag 8
+
+env_obj 5
+shape box
+pos 1 4.95 0
+color 0 0 0
+rot 0 0 0
+sides 1 0.55 0.025
+material steel
+thrust 1 0 50 25
+mass 0.1
+flag 16
+
+env_obj 6
+shape box
+pos 1 4.95 0.075
+color 0 0 0
+rot 0 0 0
+sides 1.5 1.5 0.1
+material steel
+thrust 1 0 50 25
+mass 1
+flag 16
+
+env_obj 7
+shape box
+pos 1 5.25 0.05
+color 0 0 0
+rot 0 0 0
+sides 1 0.075 0.1
+material steel
+thrust 1 0 50 25
+mass 0.1
+flag 16
+
+env_obj 8
+shape box
+pos 1 4.65 0.05
+color 0 0 0
+rot 0 0 0
+sides 1 0.075 0.1
+material steel
+thrust 1 0 50 25
+mass 0.1
+flag 16
+
+env_obj 9
+shape box
+pos 0.45 4.95 0.05
+color 0 0 0
+rot 0 0 0
+sides 0.1 0.675 0.1
+material steel
+thrust 1 0 50 25
+mass 0.1
+flag 16
+
+env_obj 10
+shape box
+pos 1.55 4.95 0.05
+color 0 0 0
+rot 0 0 0
+sides 0.1 0.675 0.1
+material steel
+thrust 1 0 50 25
+mass 0.1
+flag 16
+
+env_obj_joint 1 10 6
+pos 1.5 5.175 0.075
+axis 0 1 0
+range 0 0
+strength 0
+velocity 0
+
+env_obj_joint 2 10 6
+pos 1.5 4.725 0.075
+axis 0 1 0
+range 0 0
+strength 0
+velocity 0
+
+env_obj_joint 3 10 5
+pos 1.5 4.725 0
+axis 0 1 0
+range 0 0
+strength 0
+velocity 0
+
+env_obj_joint 4 10 5
+pos 1.5 5.175 0
+axis 0 1 0
+range 0 0
+strength 0
+velocity 0
+
+env_obj_joint 5 7 5
+pos 1.45 5.225 0
+axis 0 1 0
+range 0 0
+strength 0
+velocity 0
+
+env_obj_joint 6 7 6
+pos 1.45 5.225 0.075
+axis 0 1 0
+range 0 0
+strength 0
+velocity 0
+
+env_obj_joint 7 7 6
+pos 0.55 5.225 0.075
+axis 0 1 0
+range 0 0
+strength 0
+velocity 0
+
+env_obj_joint 8 7 5
+pos 0.55 5.225 0
+axis 0 1 0
+range 0 0
+strength 0
+velocity 0
+
+env_obj_joint 9 9 5
+pos 0.5 5.175 0
+axis 0 1 0
+range 0 0
+strength 0
+velocity 0
+
+env_obj_joint 10 9 6
+pos 0.5 5.175 0.075
+axis 0 1 0
+range 0 0
+strength 0
+velocity 0
+
+env_obj_joint 11 9 6
+pos 0.5 4.725 0.075
+axis 0 1 0
+range 0 0
+strength 0
+velocity 0
+
+env_obj_joint 12 9 5
+pos 0.5 4.725 0
+axis 0 1 0
+range 0 0
+strength 0
+velocity 0
+
+env_obj_joint 13 8 5
+pos 0.55 4.675 0
+axis 0 1 0
+range 0 0
+strength 0
+velocity 0
+
+env_obj_joint 14 8 6
+pos 0.55 4.675 0.075
+axis 0 1 0
+range 0 0
+strength 0
+velocity 0
+
+env_obj_joint 15 8 6
+pos 1.45 4.675 0.075
+axis 0 1 0
+range 0 0
+strength 0
+velocity 0
+
+env_obj_joint 16 8 5
+pos 1.45 4.675 0
+axis 0 1 0
+range 0 0
+strength 0
+velocity 0

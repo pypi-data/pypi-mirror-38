@@ -1,0 +1,16 @@
+#!/usr/bin/toribash
+#made by n8t
+gamerule
+gravity 0.00 0.00 -0.0
+engagedistance 90
+dismemberthreshold 325
+dismember 1
+fracture 1
+fracturethreshold 350
+matchframes 300
+turnframes 10,20,20,30,30,35,35,40,40,40,50
+dojosize 200
+dojotype 0
+dq 1
+sumo 1
+flags 11

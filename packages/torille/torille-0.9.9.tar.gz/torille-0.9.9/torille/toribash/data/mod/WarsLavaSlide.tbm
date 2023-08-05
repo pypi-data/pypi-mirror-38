@@ -1,0 +1,59 @@
+# Environment exported by WorldBuilder
+######################################
+friction 0.000001
+
+env_obj 1
+    shape box
+    pos 1 5.125 4.25
+    color 0 0 1 1
+    rot -56 0 0
+    sides 4 10 0.0625
+    material steel
+    mass 0.1
+    flag 24
+#END 1
+
+env_obj 2
+    shape box
+    pos 1 -5.625 4.5
+    color 0 0 1 1
+    rot 56 0 0
+    sides 4 10.5 0.0625
+    material steel
+    mass 0.1
+    flag 24
+#END 2
+
+env_obj 3
+    shape box
+    pos 1 2.125 1.25
+    color 0 0 1 1
+    rot -20 0 0
+    sides 4 3.5 0.0625
+    material steel
+    mass 0.1
+    flag 24
+#END 3
+
+env_obj 4
+    shape box
+    pos 1 -2.625 1.25
+    color 0 0 1 1
+    rot 20 0 0
+    sides 4 3.5 0.0625
+    material steel
+    mass 0.1
+    flag 24
+#END 4
+
+env_obj 5
+    shape box
+    pos 1 -0.125 0.25
+    color 0.7 0 0.1 1
+    rot 0 0 0
+    sides 20 20 0.25
+    material steel
+    mass 0.1
+    flag 30
+#END 5
+

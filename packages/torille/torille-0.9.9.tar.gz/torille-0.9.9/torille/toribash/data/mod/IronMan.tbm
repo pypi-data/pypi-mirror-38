@@ -1,0 +1,63 @@
+#Mod by MrPoptart =D
+
+body head
+material steel
+color 150  
+body breast
+material steel
+body chest
+material steel
+body stomach
+material steel
+color 0 0 0
+body groin
+material steel
+color 0 0 0
+body r_pecs
+material steel
+body l_pecs
+material steel
+body r_biceps
+material steel
+color 0 0 0
+body l_biceps
+material steel
+color 0 0 0
+body r_triceps
+material steel
+color 0 0 0
+body l_triceps
+material steel
+color 0 0 0
+body r_hand
+shape box
+material steel
+color 0 0 0
+body l_hand
+shape box
+material steel
+color 0 0 0
+body r_butt
+material steel
+color 0 0 0
+body l_butt
+material steel
+color 0 0 0
+body r_thigh
+material steel
+color 0 0 0
+body l_thigh
+material steel
+color 0 0 0
+body r_leg
+material steel
+color 0 0 0
+body l_leg
+material steel
+color 0 0 0
+body r_foot
+material steel
+color 0 0 0
+body l_foot
+material steel
+color 0 0 0

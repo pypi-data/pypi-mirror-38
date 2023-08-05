@@ -1,0 +1,101 @@
+player 0
+
+body head
+sides 0.22 0.0 0.0
+pos 1.0 0.15 1.75
+body breast
+sides 0.4 0.1 0.4
+pos 1.0 0.33 1.86
+rot -15 0 0
+body chest
+pos 1.0 0.6 1.86
+body stomach
+sides 0.1 0.6 0.1
+pos 1.0 0.60 1.78
+rot -38 0 0
+body groin
+pos 1.0 0.97 1.55
+body r_pecs
+pos 0.75 0.60 1.83
+body l_pecs
+pos 1.25 0.60 1.83
+body r_biceps
+pos 0.45 0.60 1.83
+body l_biceps
+pos 1.55 0.60 1.83
+body r_triceps
+pos 0.05 0.60 1.83
+body l_triceps
+pos 1.95 0.60 1.83
+body r_hand
+pos -0.35 0.60 1.83
+body l_hand
+pos 2.35 0.60 1.83
+body r_thigh
+sides 0.12 0.43 0.0
+pos 0.8 1.00 1.00
+rot -45 0 0
+body l_thigh
+sides 0.12 0.43 0.0
+pos 1.2 1.00 1.00
+rot -45 0 0
+body r_leg
+sides 0.10 0.50 0.0
+pos 0.8 0.85 0.65
+rot 43 0 0
+body l_leg
+sides 0.10 0.50 0.2
+pos 1.2 0.85 0.65
+rot 43 0 0
+body r_foot
+sides 0.2 0.5 0.2
+pos 0.8 0.7 0.2
+body l_foot
+sides 0.2 0.5 0.2
+pos 1.2 0.7 0.2
+joint neck
+radius 0.16
+pos 1.0 0.35 1.78
+joint chest
+radius 0.23
+pos 1.0 0.57 1.90
+joint lumbar
+radius 0.30
+pos 1.0 0.85 1.90
+joint abs
+radius 0.12
+pos 1.0 1.00 1.60
+joint r_pecs
+pos 0.85 0.60 1.87
+joint l_axilla
+pos 1.15 0.60 1.87
+joint r_shoulder
+pos 0.65 0.60 1.83
+joint l_shoulder
+pos 1.35 0.60 1.83
+joint r_elbow
+pos 0.25 0.60 1.83
+joint l_elbow
+pos 1.75 0.60 1.83
+joint r_wrist
+pos -0.2 0.60 1.83
+joint l_wrist
+pos 2.2 0.60 1.83
+joint r_glute
+pos 0.9 1.1 1.35
+joint l_glute
+pos 1.1 1.1 1.35
+joint r_hip
+radius 0.18
+pos 0.79 1.0 1.2
+joint l_hip
+radius 0.18
+pos 1.21 1.0 1.2
+joint r_knee
+pos 0.8 1.20 0.70
+joint l_knee
+pos 1.2 1.20 0.70
+joint r_ankle
+pos 0.8 0.85 0.25
+joint l_ankle
+pos 1.2 0.85 0.25

@@ -1,0 +1,154 @@
+#!/usr/bin/toribash
+#### Created with ModEditor by DeFransen ####
+
+
+gamerule
+   damage 0
+   dismemberment 1
+   dismemberthreshold 202
+   disqualification 1
+   dojosize 300
+   dojotype 1
+   dqflag 0
+   dqtimeout 0
+   engagedistance 120
+   engageheight 0
+   engagerotation 0
+   engagespace 0
+   flags 15
+   fracture 1
+   fracturethreshold 200
+   gravity 0 0 -30
+   matchframes 50
+   rpg 0
+   sumo 1
+   turnframes 5
+
+
+# for all players
+
+   body breast
+      density 0.37
+
+   body groin
+      density 0.51
+
+   body head
+      density 0.44
+      sides 0.18 0 0
+
+   body l_butt
+      density 0.51
+
+   body l_foot
+      density 4
+      pos 1.25 0.9 0.1
+      sides 0.25 0.55 0.08
+
+   body l_hand
+      density 0.09
+      sides 0.25 0.25 0.25
+
+   body l_leg
+      density 0.51
+      pos 1.25 1 0.5
+
+   body l_pecs
+      density 0.39
+
+   body l_thigh
+      density 0.51
+      pos 1.25 1 1.1
+
+   body r_butt
+      density 0.51
+
+   body r_foot
+      density 4
+      pos 0.75 0.9 0.1
+      sides 0.25 0.55 0.08
+
+   body r_hand
+      density 0.09
+      sides 0.25 0.25 0.25
+
+   body r_leg
+      density 0.51
+      pos 0.75 1 0.5
+
+   body r_pecs
+      density 0.39
+
+   body r_thigh
+      density 0.51
+      pos 0.75 1 1.1
+
+   body stomach
+      density 0.51
+
+   joint chest
+      velocity 40
+      strength 8
+
+   joint l_ankle
+      pos 1.25 1.05 0.25
+      range 0.1 -0.3
+      strength 2
+
+   joint l_elbow
+      velocity 80
+      strength 4
+      axis 0 1 0
+
+   joint l_hip
+      strength 4
+
+   joint l_knee
+      pos 1.25 1 0.8
+      strength 8
+
+   joint l_pecs
+      velocity 30
+      strength 6
+
+   joint l_shoulder
+      velocity 50
+      strength 10
+
+   joint l_wrist
+      range 1 -0.3
+      strength 10
+      axis 0 1 1
+
+   joint r_ankle
+      pos 0.75 1.05 0.25
+      range 0.1 -0.3
+      strength 2
+
+   joint r_elbow
+      velocity 80
+      strength 4
+      axis 0 1 0
+
+   joint r_hip
+      strength 4
+
+   joint r_knee
+      pos 0.75 1 0.8
+      strength 8
+
+   joint r_pecs
+      velocity 30
+      strength 6
+
+   joint r_shoulder
+      velocity 50
+      strength 10
+
+   joint r_wrist
+      range 1 -0.3
+      strength 10
+      axis 0 1 1
+
+
+

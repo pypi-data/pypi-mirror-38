@@ -1,0 +1,41 @@
+#!  D
+gamerule
+dismemberthreshold 25
+fracturethreshold 10
+
+ body r_hand
+   material steel
+ body l_hand
+   material steel
+ body r_foot
+   material steel
+body l_foot
+   material steel
+body r_leg
+   material steel
+body l_leg
+   material steel
+body r_triceps
+   material steel
+body l_triceps
+   material steel
+body stomach 
+   material steel
+body breast
+   material steel
+body chest
+   material steel
+body groin
+   material steel
+body r_pecs
+   material steel
+body l_pecs
+   material steel
+body r_thigh
+   material steel
+body l_thigh
+   material steel
+body l_leg
+   material steel
+body r_leg
+   material steel

@@ -1,0 +1,135 @@
+# Mod by MrPoptart =D
+# Mod settings: engage distance: 2500 engage height: 250
+
+env_obj 1
+shape box
+pos 1.0 -8.0 3
+color 0.5 0.5 0.5
+rot 0 0 0
+sides 3.0 0.5 6.0
+material steel
+mass 1
+
+env_obj 2
+shape box
+pos 1.0 -6.0 3
+color 0.5 0.5 0.5
+rot 0 0 0
+sides 3.0 0.5 6.0
+material steel
+mass 1
+
+env_obj 3
+shape box
+pos 1.0 -4.0 3
+color 0.5 0.5 0.5
+rot 0 0 0
+sides 3.0 0.5 6.0
+material steel
+mass 1
+
+env_obj 4
+shape box
+pos 1.0 -2.0 3
+color 0.5 0.5 0.5
+rot 0 0 0
+sides 3.0 0.5 6.0
+material steel
+mass 1
+
+env_obj 5
+shape box
+pos 1.0 0.0 3
+color 0.5 0.5 0.5
+rot 0 0 0
+sides 3.0 0.5 6.0
+material steel
+mass 1
+
+env_obj 6
+shape box
+pos 1.0 2.0 3
+color 0.5 0.5 0.5
+rot 0 0 0
+sides 3.0 0.5 6.0
+material steel
+mass 1
+
+env_obj 7
+shape box
+pos 1.0 4.0 3
+color 0.5 0.5 0.5
+rot 0 0 0
+sides 3.0 0.5 6.0
+material steel
+mass 1
+
+env_obj 8
+shape box
+pos 1.0 6.0 3
+color 0.5 0.5 0.5
+rot 0 0 0
+sides 3.0 0.5 6.0
+material steel
+mass 1
+
+env_obj 9
+shape box
+pos 1.0 8.0 3
+color 0.5 0.5 0.5
+rot 0 0 0
+sides 3.0 0.5 6.0
+material steel
+mass 1
+
+player 0
+
+body stomach 
+
+force 0 10 1
+
+
+body breast
+
+force 0 10 1
+
+
+body chest
+
+force 0 10 1
+
+
+body groin
+
+force 0 10 1
+
+
+body r_pecs
+
+force 0 20 1
+
+
+body l_pecs
+
+force 0 20 1
+
+
+body r_thigh
+
+force 0 20 1
+
+
+body l_thigh
+
+force 0 20 1
+
+
+body l_leg
+
+force 0 30 0
+
+body r_leg
+
+force 0 30 0
+
+player 1

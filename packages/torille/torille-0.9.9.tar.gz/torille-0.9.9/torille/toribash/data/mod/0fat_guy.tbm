@@ -1,0 +1,46 @@
+body chest
+shape box
+material steel
+body r_pecs
+shape box
+sides 0.3 0.20 0.2
+material steel
+body l_pecs
+shape box
+sides 0.3 0.20 0.2
+material steel
+body r_hand
+shape box
+sides 0.30 0.30 0.22
+material steel
+body l_hand
+shape box
+sides 0.30 0.30 0.22
+material steel
+body r_foot
+sides 0.3 0.6 0.08
+body l_foot
+shape box
+sides 0.3 0.6 0.08
+joint chest
+radius 0.24
+joint lumbar
+radius 0.2
+joint abs
+radius 0.18
+joint r_pecs
+radius 0.30
+joint l_axilla
+radius 0.30
+joint r_glute
+radius 0.2
+joint l_glute
+radius 0.2
+joint r_hip
+radius 0.20
+joint l_hip
+radius 0.20
+joint r_knee
+radius 0.16
+joint l_knee
+radius 0.16

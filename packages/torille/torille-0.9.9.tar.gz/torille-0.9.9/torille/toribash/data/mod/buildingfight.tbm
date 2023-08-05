@@ -1,0 +1,17 @@
+#Mod create by Pedr0
+
+gamerule
+	engageheight 5000
+        engagedistance 100
+         matchframes 1500
+
+
+env_obj 1
+shape box
+pos 1 0 25
+color 0 0 0
+rot 0 0 0
+sides 6 6 50
+material steel
+mass 10000
+flag 8

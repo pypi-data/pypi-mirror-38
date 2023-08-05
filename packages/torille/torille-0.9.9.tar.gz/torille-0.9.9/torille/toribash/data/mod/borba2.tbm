@@ -1,0 +1,39 @@
+gamerule
+engagedistance 50
+dismember 1
+dismemberthreshold 430
+fracture 1
+fracturethreshold 310
+turnframes 10,10,10,10,20,20,20,20,30,30,30,30
+matchframes 350
+dojosize 190
+dojotype 1
+gravity 0 0 -45
+sumo 1
+dq 1
+flags 15
+
+
+############################
+
+
+body l_hand 
+	sides 0.35 0.1 0.18
+	pos 2.35 0.85 2.3
+	material flesh
+	color 0.2 0.2 0.2
+	friction 100
+	
+body r_hand
+	sides 0.33 0.1 0.18
+	pos -0.33 0.85 2.3
+	material flesh
+	color 0.2 0.2 0.2
+	friction 100
+body r_foot 
+	density 0.38
+	
+
+body l_foot 
+	density 0.38
+	

@@ -1,0 +1,22 @@
+# Environment exported by WorldBuilder
+######################################
+gamerule
+gravity 0 0 -30
+
+engagedistance 600
+matchframes 600
+dismemberthreshold 100
+fracturethreshold 80
+turnframes 20,20,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,30,30,30,20,20,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,30,30,30
+engageheight 0
+sumo 1
+damage 1
+dojosize 1000
+flags 8
+dismemberment 1
+fracture 1
+disqualification 1
+dqtimeout 30
+dqflag 8
+dojotype 0
+damage 0

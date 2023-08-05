@@ -1,0 +1,76 @@
+#Cula suggested. I MADE! ^_^ go Pnut!
+
+gamerule 
+engagedistance
+player 0
+joint r_elbow
+axis 0 1 0
+range -0.75 1.5
+joint r_wrist
+axis 0 1 0
+range -0.8 1.
+body l_foot
+density 100
+mass 100
+thrust 1 0 0 -60
+body r_foot
+density 100
+mass 100
+thrust 1 0 0 -60
+
+
+env_obj 1
+    shape cylinder
+    pos 1 -8 2
+    color 1.1 1.1 -0.1 1
+    rot 0 0 0
+    sides 0.25 4.25 0.75
+    material steel
+    mass 0.1
+    flag 8
+#END 1
+
+env_obj 2
+    shape cylinder
+    pos 1 -8 4.25
+    color 1.1 1.1 -0.1 1
+    rot 0 90 0
+    sides 0.25 6.5 0.75
+    material steel
+    mass 0.1
+    flag 8
+#END 2
+
+env_obj 3
+    shape cylinder
+    pos -2.25 -8 6.5
+    color 1.1 1.1 -0.1 1
+    rot 0 0 0
+    sides 0.25 4.25 0.75
+    material steel
+    mass 0.1
+    flag 8
+#END 3
+
+env_obj 4
+    shape cylinder
+    pos 4.25 -8 6.5
+    color 1.1 1.1 -0.1 1
+    rot 0 0 0
+    sides 0.25 4.25 0.75
+    material steel
+    mass 0.1
+    flag 8
+#END 4
+
+env_obj 5
+    shape cylinder
+    pos -0.65 4 2.2
+    color 0.7 0.3 0 1
+    rot 0 0 0
+    sides 0.17 0.15 0.5
+    material flesh
+    mass 0.001
+    bounce 10
+    flag 0
+#END 5

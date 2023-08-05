@@ -1,0 +1,48 @@
+blood
+	
+color 0 0 1
+
+
+body head
+force 0 0 15
+
+body stomach 
+
+force 0 0 10
+
+body breast
+
+force 0 0 10
+
+body chest
+
+force 0 0 10
+
+body groin
+
+force 0 0 10
+
+
+body r_pecs
+
+force 0 0 20
+
+body l_pecs
+
+force 0 0 20
+
+body r_thigh
+
+force 0 0 20
+
+body l_thigh
+
+force 0 0 20
+
+body l_leg
+
+force 0 0 30
+
+body r_leg
+
+force 0 0 30

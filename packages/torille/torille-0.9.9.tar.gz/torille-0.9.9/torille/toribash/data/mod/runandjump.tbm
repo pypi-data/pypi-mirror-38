@@ -1,0 +1,28 @@
+gamerule
+gravity 0 0 -30
+dojosize 350
+dojotype 1
+dismemberthreshold 250
+fracturethreshold 140
+engagedistance 1450
+engageheight 500
+
+env_obj 1
+    shape box
+    pos 1 -5.75 2.5
+    color 0.8 0.8 0.8 1
+    rot 0 0 0
+    sides 2.6 5 5
+    material steel
+    mass 10
+    flag 24
+
+env_obj 2
+    shape box
+    pos 1 5.5 2.5
+    color 0.8 0.8 0.8 1
+    rot 0 0 0
+    sides 2.6 5 5
+    material steel
+    mass 10
+    flag 24

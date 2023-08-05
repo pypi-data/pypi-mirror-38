@@ -1,0 +1,40 @@
+joint neck
+    axis 1.000000 0.000000 0.000000
+joint chest
+    axis 0.000000 0.000000 1.000000
+joint lumbar
+    axis 0.000000 0.000000 1.000000
+joint abs
+    axis 1.000000 0.000000 0.000000
+joint r_pecs
+    axis 0.000000 0.000000 1.000000
+joint r_shoulder
+    axis 0.000000 1.000000 0.000000
+joint r_elbow
+    axis 0.000000 1.000000 0.000000
+joint l_axilla
+    axis 0.000000 0.000000 1.000000
+joint l_shoulder
+    axis 0.000000 1.000000 0.000000
+joint l_elbow
+    axis 0.000000 1.000000 0.000000
+joint r_wrist
+    axis 0.000000 0.000000 1.000000
+joint l_wrist
+    axis 0.000000 0.000000 1.000000
+joint r_glute
+    axis 0.000000 1.000000 0.000000
+joint l_glute
+    axis 0.000000 1.000000 0.000000
+joint r_hip
+    axis 1.000000 0.000000 0.000000
+joint l_hip
+    axis 1.000000 0.000000 0.000000
+joint r_knee
+    axis -1.000000 0.000000 0.000000
+joint l_knee
+    axis -1.000000 0.000000 0.000000
+joint r_ankle
+    axis 1.000000 0.000000 0.000000
+joint l_ankle
+    axis 1.000000 0.000000 0.000000 

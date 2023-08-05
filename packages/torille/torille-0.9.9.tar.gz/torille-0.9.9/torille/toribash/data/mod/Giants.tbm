@@ -1,0 +1,288 @@
+body head
+
+shape 
+sides 0.4 0.0 0.0
+pos 2.000000 1.70000 5.30000
+material 
+color   
+
+
+body breast
+
+shape 
+sides 0.4 0.2 0.6
+pos 2.0 1.8 3.9
+material 
+color   
+
+
+body chest
+
+shape 
+sides 1 0.3 0.4
+pos 2.0 1.8 3.9
+material 
+color   
+
+
+body stomach
+
+shape 
+sides 0.7 0.3 0.4
+pos 2.0 1.9 3.5
+material 
+color   
+
+
+body groin
+
+shape 
+sides 0.4 0.3 0.4
+pos 2.0 2.0 3.1
+material 
+color   
+
+
+body r_pecs
+
+shape 
+sides 0.2 0.15 0.2
+pos 1.5 1.8 4.3
+material 
+color   
+
+
+body r_biceps
+
+shape 
+sides 0.8 0.4 0.4
+pos 0.9 1.8 4.6
+material 
+color   
+
+
+body r_triceps
+
+shape 
+sides 0.8 0.2 0.2
+pos 0.1 1.8 4.6
+material 
+color   
+
+
+body r_hand
+
+shape 
+sides 0.44 0.44 0.44
+pos -0.7 1.7 4.6
+material 
+color   
+
+
+body l_pecs
+
+shape 
+sides 0.2 0.15 0.2
+pos 2.5 1.8 4.3
+material 
+color   
+
+
+body l_biceps
+
+sides 0.8 0.4 0.4
+pos 3.10000 1.800000 4.600000
+material 
+color   
+
+
+body l_triceps
+
+shape 
+sides 0.8 0.2 0.2
+pos 3.90000 1.800000 4.600000
+material 
+color   
+
+
+body l_hand
+
+shape 
+sides 0.44 0.44 0.44
+pos 4.7 1.7 4.6
+material 
+color   
+
+
+body r_butt
+
+shape 
+sides 0.2 0.2 0.2
+pos 1.6 2.0 2.9
+material 
+color   
+
+
+body r_thigh
+
+shape 
+sides 0.24 0.6 0.0
+pos 1.6 2 2.2
+material 
+color   
+
+
+body r_leg
+
+shape 
+sides 0.26 0.6 0.0
+pos 1.6 2.0 1.0
+material 
+color   
+
+
+body r_foot
+
+shape 
+sides 0.4 1 0.16
+pos 1.6 1.8 0.2
+material 
+color   
+
+
+body l_butt
+
+shape 
+sides 0.2 0.2 0.2
+pos 2.4 2.0 2.9
+material 
+color   
+
+
+body l_thigh
+
+shape 
+sides 0.24 0.6 0.0
+pos 2.4 2.0 2.2
+material 
+color   
+
+
+body l_leg
+
+shape 
+sides 0.26 0.6 0.0
+pos 2.400000 2.000000 1.00000
+material 
+color   
+
+
+body l_foot
+
+shape 
+sides 0.4 1 0.16
+pos 2.4 1.8 0.2
+material 
+color   
+
+
+
+joint neck
+
+   radius 0.220000
+   pos 2.000000 1.800000 5.00000
+
+joint chest
+
+   radius 0.360000
+   pos 2.000000 1.800000 4.10000
+
+joint lumbar
+
+   radius 0.320000
+   pos 2.000000 1.90000 3.70000
+
+joint abs
+
+   radius 0.280000
+   pos 2.000000 2.000000 3.30000
+
+joint r_pecs
+
+   radius 0.360000
+   pos 1.70000 1.70000 4.400000
+
+joint r_shoulder
+
+   radius 0.360000
+   pos 1.30000 1.800000 4.600000
+
+joint r_elbow
+
+   radius 0.320000
+   pos 0.50000 1.800000 4.600000
+
+joint l_axilla
+
+   radius 0.360000
+   pos 2.30000 1.70000 4.400000
+
+joint l_shoulder
+
+   radius 0.360000
+   pos 2.70000 1.800000 4.600000
+
+joint l_elbow
+
+   radius 0.320000
+   pos 3.50000 1.800000 4.600000
+
+joint r_wrist
+
+   radius 0.220000
+   pos -0.400000 1.800000 4.600000
+
+joint l_wrist
+
+   radius 0.220000
+   pos 4.400000 1.800000 4.600000
+
+joint r_glute
+
+   radius 0.320000
+   pos 1.800000 2.200000 3.020000
+
+joint l_glute
+
+   radius 0.320000
+   pos 2.200000 2.200000 3.020000
+
+joint r_hip
+
+   radius 0.320000
+   pos 1.580000 2.000000 2.800000
+
+joint l_hip
+
+   radius 0.320000
+   pos 2.420000 2.000000 2.800000
+
+joint r_knee
+
+   radius 0.280000
+   pos 1.600000 2.000000 1.600000
+
+joint l_knee
+
+   radius 0.280000
+   pos 2.400000 2.000000 1.600000
+
+joint r_ankle
+
+   radius 0.220000
+   pos 1.600000 2.10000 0.50000
+
+joint l_ankle
+
+   radius 0.220000
+   pos 2.400000 2.10000 0.50000

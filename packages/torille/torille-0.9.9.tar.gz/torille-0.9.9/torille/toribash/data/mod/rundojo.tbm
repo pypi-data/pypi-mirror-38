@@ -1,0 +1,32 @@
+#!/usr/bin/toribash
+#### Created by arnaufall ####
+
+
+gamerule
+   damage 0
+   dismemberment 1
+   dismemberthreshold 100
+   disqualification 1
+   dojosize 450
+   dojotype 0
+   dqflag 0
+   dqtimeout 100
+   engagedistance 1000
+   engageheight 0
+   engageplayerpos 0,7,0,0,-7,0
+   engageplayerrot 0,0,0,0,0,180
+   engagerotation 0
+   engagespace 0
+   flags 3
+   fracture 0
+   gravity 0 0 -30
+   matchframes 1000
+   rpg 0
+   sumo 1
+   turnframes 10
+
+
+# for all players
+
+
+

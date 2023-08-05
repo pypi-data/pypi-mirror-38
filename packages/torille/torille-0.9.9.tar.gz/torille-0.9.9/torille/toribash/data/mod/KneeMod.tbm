@@ -1,0 +1,26 @@
+#Mod by MrPoptart =D
+
+body r_thigh
+shape box
+sides 0.2 0.5 0.2
+pos 0.8 1.25 1.4
+body l_thigh
+shape box
+sides 0.2 0.5 0.2
+pos 1.2 1.25 1.4
+body r_leg
+pos 0.8 1.5 1.1
+body l_leg
+pos 1.2 1.5 1.1
+body r_foot
+pos 0.8 1.3 0.7
+body l_foot
+pos 1.2 1.3 0.7
+joint r_knee
+pos 0.8 1.5 1.4
+joint l_knee
+pos 1.2 1.5 1.4
+joint r_ankle
+pos 0.8 1.55 0.85
+joint l_ankle
+pos 1.2 1.55 0.85

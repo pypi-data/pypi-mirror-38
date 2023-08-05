@@ -1,0 +1,24 @@
+body r_biceps
+shape box
+material steel
+body l_biceps
+shape box
+material steel
+body r_triceps
+shape box
+material steel
+body l_triceps
+shape box
+material steel
+body r_hand
+shape box
+sides 2 .000001 .1
+pos -0.55 0.9 2.65
+material steel
+body l_hand
+shape box
+sides 2 .000001 .1
+pos 2.55 .9 2.55
+material steel
+body l_foot
+sides .2 0.5 0.08

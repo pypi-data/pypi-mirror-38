@@ -1,0 +1,57 @@
+# Environment exported by WorldBuilder
+######################################
+
+env_obj 1
+    shape box
+    pos 1 2.3125 1.25
+    color 0 0 1 1
+    rot 0 0 0
+    sides 1.25 1.5 2.5
+    material steel
+    mass 0.1
+    flag 0
+#END 1
+
+env_obj 2
+    shape box
+    pos 1 -2.75 1.25
+    color 0 0 1 1
+    rot 0 0 0
+    sides 1.25 1.5 2.5
+    material steel
+    mass 0.1
+    flag 0
+#END 2
+
+env_obj 3
+    shape cylinder
+    pos 1 -0.125 4.5
+    color 0 0 1 1
+    rot -90 0 0
+    sides 0.0625 4.4375 6.5
+    material steel
+    mass 0.1
+    flag 0
+#END 3
+
+env_obj 4
+    shape box
+    pos 1 -0.1875 0
+    color 1.1 0 -0.1 1
+    rot 0 0 0
+    sides 12.4375 17.8125 0
+    material steel
+    mass 0.1
+    flag 14
+#END 4
+
+gamerule
+    engagedistance 500
+    dismemberment 1
+    fracture 1
+    fracturethreshold 80
+    dismemberthreshold 150
+    dq 1
+    engageheight 250
+#END 5
+

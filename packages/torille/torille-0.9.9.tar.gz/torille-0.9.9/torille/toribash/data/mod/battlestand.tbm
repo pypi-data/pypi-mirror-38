@@ -1,0 +1,115 @@
+# RicH by Mod -.-
+
+gamerule
+engageheight 1997
+
+env_obj 1
+    shape box
+    pos 1 -0.125 9.9375
+    color 0.5 0.5 0.5 1
+    rot 0 0 0
+    sides 12.0625 2.875 20.0625
+    material steel
+    mass 0.1
+    flag 24
+
+env_obj 2
+    shape box
+    pos 1 -9.0625 12.25
+    color 1.1 0.5 0.5 1
+    rot 0 0 0
+    sides 12 14.875 0.1875
+    material steel
+    mass 0.1
+    flag 30
+
+env_obj 3
+    shape box
+    pos 1 2.6875 11.625
+    color 0.5 0.5 0.5 1
+    rot -21 0 0
+    sides 7.6875 3.25 0.125
+    material steel
+    mass 0.1
+    flag 24
+
+env_obj 4
+    shape box
+    pos 1 12.625 11.75
+    color 0.5 0.5 0.5 1
+    rot 15 0 0
+    sides 7.6875 3.25 0.125
+    material steel
+    mass 0.1
+    flag 24
+
+env_obj 5
+    shape box
+    pos 4.1875 7.625 12.1875
+    color 0.5 0.5 0.5 1
+    rot 0 0 0
+    sides 1.3125 6.875 0.125
+    material steel
+    mass 0.1
+    flag 24
+
+env_obj 6
+    shape box
+    pos -2.1875 7.625 12.1875
+    color 0.5 0.5 0.5 1
+    rot 0 0 0
+    sides 1.3125 6.875 0.125
+    material steel
+    mass 0.1
+    flag 24
+
+env_obj 7
+    shape box
+    pos 1 7.625 12.25
+    color 1.1 1.1 1 0.4
+    rot 0 0 0
+    sides 5.1875 0.1875 0.0625
+    material steel
+    mass 0.0001
+    flag 22
+
+env_obj 8
+    shape box
+    pos 2.3125 9.375 12.3125
+    color 1.1 1.1 1 0.4
+    rot 0 0 0
+    sides 2.5625 3.5 0.0625
+    material steel
+    mass 0.0001
+    flag 22
+
+env_obj 9
+    shape box
+    pos -0.3125 9.375 12.3125
+    color 1.1 1.1 1 0.4
+    rot 0 0 0
+    sides 2.5625 3.5 0.0625
+    material steel
+    mass 0.0001
+    flag 22
+
+env_obj 10
+    shape box
+    pos -0.3125 5.8125 12.3125
+    color 1.1 1.1 1 0.4
+    rot 0 0 0
+    sides 2.5625 3.5 0.0625
+    material steel
+    mass 0.0001
+    flag 22
+
+env_obj 11
+    shape box
+    pos 2.3125 5.8125 12.3125
+    color 1.1 1.1 1 0.4
+    rot 0 0 0
+    sides 2.5625 3.5 0.0625
+    material steel
+    mass 0.0001
+    flag 22
+

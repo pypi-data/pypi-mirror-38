@@ -1,0 +1,56 @@
+#
+#Fan mod
+#Author: SL7549
+#
+
+gamerule
+    engagedistance 700
+    engageheight 300
+
+env_obj 1
+    shape box
+    pos 1 -0.125 5.25
+    color 0 0 1 1
+    rot 0 0 0
+    sides 1 2 1
+    material steel
+    mass 0.1
+    flag 24
+
+env_obj 2
+    shape box
+    pos 1 -0.125 4.4375
+    color 0 0 1 1
+    rot 0 0 0
+    sides 5 0.3125 0.001
+    material steel
+    mass 0.1
+    flag 0
+
+env_obj 3
+    shape box
+    pos 1 3.5 1.5
+    color 0 0 1 1
+    rot 0 0 0
+    sides 1 1 3
+    material steel
+    mass 0.1
+    flag 24
+
+env_obj 4
+    shape box
+    pos 1 -3.5 1.5
+    color 0 0 1 1
+    rot 0 0 0
+    sides 1 1 3
+    material steel
+    mass 0.1
+    flag 24
+
+env_obj_joint 1 1 2
+	pos 1 -0.125 4.4375
+	axis 0 0 1
+	range 5 -5
+	strength 10
+	velocity -10
+	visible 1

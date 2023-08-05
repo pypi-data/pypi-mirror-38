@@ -1,0 +1,30 @@
+set mod freestyle.tbm
+set matchframes 352
+set turnframes 11,33,44,44,44,44,44,44,44,44,44,44,44,44
+set flags 11
+set dismemberment 1
+set fracture 1
+set disqualification 1
+set dqtimeout 0
+set dqflag 0
+set dismemberthreshold 180
+set fracturethreshold 165
+set dojotype 0
+set dojosize 625
+set engagedistance 150
+set engageheight 0
+set engagerotation 0
+set engagespace 0
+set engageplayerpos 
+set engageplayerrot 0,0,0,0,0,0
+set damage 1
+set gravity 0.00 0.00 -9.82
+set sumo 1
+set rpg 0
+set default multi
+set desc none
+set motd none
+set maxclients 32
+set minbelt none
+set maxbelt none
+set queuejump none

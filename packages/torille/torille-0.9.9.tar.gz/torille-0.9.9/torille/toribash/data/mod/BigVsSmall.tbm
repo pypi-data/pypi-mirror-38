@@ -1,0 +1,341 @@
+# Giant vs Mini-toribashian
+# For Toribash 2.6
+# Fixed by MrPoptart =D
+
+# Tori
+player 0
+
+body head
+sides 0.1 0.0 0.0
+pos 0.5 0.425 1.325
+
+body breast
+sides 0.1 0.05 0.15
+pos 0.5 0.45 1.1
+
+body chest
+sides 0.25 0.075 0.1
+pos 0.5 0.45 .975
+
+body stomach
+sides 0.175 0.075 0.1
+pos 0.5 0.475 0.875
+
+body groin
+sides 0.1 0.075 0.1
+pos 0.5 0.5 0.775
+
+body r_pecs
+sides 0.1 0.075 0.1
+pos 0.375 0.45 1.075
+
+body r_biceps
+sides 0.2 0.1 0.1
+pos 0.225 0.45 1.15
+
+body r_triceps
+sides 0.2 0.05 0.05
+pos 0.025 0.45 1.15
+
+body r_hand
+sides 0.11 0.11 0.11
+alt_sides 0.15 0.055 0.08
+pos -0.175 0.425 1.15
+
+body l_pecs
+sides 0.1 0.075 0.1
+pos 0.625 0.45 1.075
+
+body l_biceps
+sides 0.2 0.1 0.1
+pos 0.775 0.45 1.15
+
+body l_triceps
+sides 0.2 0.05 0.05
+pos 0.975 0.45 1.15
+
+body l_hand
+sides 0.11 0.11 0.11
+alt_sides 0.15 0.055 0.08
+pos 1.175 0.425 1.15
+
+body r_butt
+sides 0.05 0.05 0.05
+pos 0.4 0.5 0.725
+
+body r_thigh
+sides 0.06 0.15 0.0
+pos 0.4 0.5 0.55
+
+body r_leg
+sides 0.065 0.15 0.0
+pos 0.4 0.5 0.25
+
+body r_foot
+sides 0.1 0.25 0.04
+pos 0.4 0.45 0.05
+
+body l_butt
+sides 0.05 0.05 0.05
+pos 0.6 0.5 0.725
+
+body l_thigh
+sides 0.06 0.15 0.0
+pos 0.6 0.5 0.55
+
+body l_leg
+sides 0.065 0.15 0.1
+pos 0.6 0.5 0.25
+
+body l_foot
+sides 0.1 0.25 0.04
+pos 0.6 0.45 0.05
+
+joint neck
+radius 0.0550
+pos 0.5 0.45 1.25
+
+joint chest
+radius 0.09
+pos 0.5 0.45 1.025
+
+joint lumbar
+radius 0.08
+pos 0.5 0.475 0.925
+
+joint abs
+radius 0.07
+pos 0.5 0.5 0.825
+
+joint r_pecs
+radius 0.09
+pos 0.425 0.425 1.1
+
+joint r_shoulder
+radius 0.09
+pos 0.325 0.45 1.15
+
+joint r_elbow
+radius 0.08
+pos 0.125 0.45 1.15
+
+joint l_axilla
+radius 0.09
+pos 0.575 0.425 1.1
+
+joint l_shoulder
+radius 0.09
+pos 0.675 0.45 1.15
+
+joint l_elbow
+radius 0.08
+pos 0.875 0.45 1.15
+
+joint r_wrist
+radius 0.055
+pos -0.1 0.45 1.15
+
+joint l_wrist
+radius 0.055
+pos 1.1 0.45 1.15
+
+joint r_glute
+radius 0.08
+pos 0.45 0.55 0.755
+
+joint l_glute
+radius 0.08
+pos 0.55 0.55 0.755
+
+joint r_hip
+radius 0.08
+pos 0.395 0.5 0.7
+
+joint l_hip
+radius 0.08
+pos 0.605 0.5 0.7
+
+joint r_knee
+radius 0.07
+pos 0.4 0.5 0.4
+
+joint l_knee
+radius 0.07
+pos 0.6 0.5 0.4
+
+joint r_ankle
+radius 0.055
+pos 0.4 0.525 0.125
+
+joint l_ankle
+radius 0.055
+pos 0.6 0.525 0.125
+
+# Uke
+player 1
+
+body head
+sides 0.4 0.0 0.0
+pos 0.5 1.7 5.3
+
+body breast
+sides 0.4 0.3 0.6
+pos 0.5 1.8 4.4
+
+body chest
+sides 1 0.3 0.4
+pos 0.5 1.8 3.9
+
+body stomach
+sides 0.7 0.3 0.4
+pos 0.5 1.9 3.5
+
+body groin
+sides 0.4 0.3 0.4
+pos 0.5 2.0 3.1
+
+body r_pecs
+sides 0.4 0.3 0.4
+pos 0.0 1.8 4.3
+
+body r_biceps
+sides 0.8 0.4 0.4
+pos -0.6 1.8 4.6
+
+body r_triceps
+sides 0.8 0.2 0.2
+pos -1.4 1.8 4.6
+
+body r_hand
+sides 0.44 0.44 0.44
+alt_sides 0.6 0.22 0.32
+pos -2.2 1.7 4.6
+
+body l_pecs
+sides 0.4 0.3 0.4
+pos 1.0 1.8 4.3
+
+body l_biceps
+sides 0.8 0.4 0.4
+pos 1.6 1.8 4.6
+
+body l_triceps
+sides 0.8 0.2 0.2
+pos 2.4 1.8 4.6
+
+body l_hand
+sides 0.44 0.44 0.44
+alt_sides 0.6 0.22 0.32
+pos 3.2 1.7 4.6
+
+body r_butt
+sides 0.2 0.2 0.2
+pos 0.1 2.0 2.9
+
+body r_thigh
+sides 0.24 0.6 0.0
+pos 0.1 2.0 2.2
+
+body r_leg
+sides 0.26 0.6 0.0
+pos 0.1 2.0 1.0
+
+body r_foot
+sides 0.4 1 0.16
+pos 0.1 1.8 0.2
+
+body l_butt
+sides 0.2 0.2 0.2
+pos 0.9 2.0 2.9
+
+body l_thigh
+sides 0.24 0.6 0.0
+pos 0.9 2.0 2.2
+
+body l_leg
+sides 0.26 0.6 0.0
+pos 0.9 2.0 1.0
+
+body l_foot
+sides 0.4 1 0.16
+pos 0.9 1.8 0.2
+
+joint neck
+radius 0.22
+pos 0.5 1.8 5.0
+
+joint chest
+radius 0.36
+pos 0.5 1.8 4.1
+
+joint lumbar
+radius 0.32
+pos 0.5 1.9 3.7
+
+joint abs
+radius 0.28
+pos 0.5 2.0 3.3
+
+joint r_pecs
+radius 0.36
+pos 0.2 1.7 4.4
+
+joint r_shoulder
+radius 0.36
+pos -0.2 1.8 4.6
+
+joint r_elbow
+radius 0.32
+pos -1.0 1.8 4.6
+
+joint l_axilla
+radius 0.36
+pos 0.8 1.7 4.4
+
+joint l_shoulder
+radius 0.36
+pos 1.2 1.8 4.6
+
+joint l_elbow
+radius 0.32
+pos 2.0 1.8 4.6
+
+joint r_wrist
+radius 0.22
+pos -1.9 1.8 4.6
+
+joint l_wrist
+radius 0.22
+pos 2.9 1.8 4.6
+
+joint r_glute
+radius 0.32
+pos 0.3 2.2 3.02
+
+joint l_glute
+radius 0.32
+pos 0.7 2.2 3.02
+
+joint r_hip
+radius 0.32
+pos 0.08 2.0 2.8
+
+joint l_hip
+radius 0.32
+pos 0.92 2.0 2.8
+
+joint r_knee
+radius 0.28
+pos 0.1 2.0 1.6
+
+joint l_knee
+radius 0.28
+pos 0.9 2.0 1.6
+
+joint r_ankle
+radius 0.22
+pos 0.1 2.1 0.5
+
+joint l_ankle
+radius 0.22
+pos 0.9 2.1 0.5

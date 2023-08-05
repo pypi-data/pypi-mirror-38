@@ -1,0 +1,285 @@
+# This mod makes Chuck Norris proud.
+
+gamerule
+dismemberment 0
+fr 1
+ft 300
+dojotype 1
+dojosize 350
+tf 10,10,20,20,20,30,30,30,40,40,40
+gravity 0 0 -17.5
+dq 1
+dqtimeout 25
+mf 250
+
+body r_thigh
+shape cylinder
+sides 0.12 0.3 0.0
+pos 0.8 1.0 1.1
+rot 0 0 0
+force 0 0 0
+thrust 0 0 0 0
+color 1 1 1
+density 0.25
+material flesh
+flag 0
+
+body l_thigh
+shape cylinder
+sides 0.12 0.3 0.0
+pos 1.2 1.0 1.1
+rot 0 0 0
+force 0 0 0
+thrust 0 0 0 0
+color 1 1 1
+density 0.25
+material flesh
+flag 0
+
+body r_leg
+shape cylinder
+sides 0.13 0.3 0.0
+pos 0.8 1.0 0.5
+rot 0 0 0
+force 0 0 0
+thrust 0 0 0 0
+color 1 1 1
+density 0.25
+material flesh
+flag 0
+
+body l_leg
+shape cylinder
+sides 0.13 0.3 0.0
+pos 1.2 1.0 0.5
+rot 0 0 0
+force 0 0 0
+thrust 0 0 0 0
+color 1 1 1
+density 0.25
+material flesh
+flag 0
+
+body r_foot
+shape box
+sides 0.2 0.5 0.08
+pos 0.8 0.9 0.1
+rot 0 0 0
+force 0 0 0
+thrust 0 0 0 0
+color 1 1 1
+density 0.25
+material flesh
+flag 32
+
+body l_foot
+shape box
+sides 0.2 0.5 0.08
+pos 1.2 0.9 0.1
+rot 0 0 0
+force 0 0 0
+thrust 0 0 0 0
+color 1 1 1
+density 0.25
+material flesh
+flag 32
+
+joint neck
+radius 0.11
+pos 1.0 0.9 2.5
+axis 1 0 0
+rot 0 0 0
+range 0.5 -0.5
+strength 1.0
+velocity 50.0
+density 0.25
+
+joint chest
+radius 0.18
+pos 1.0 0.9 2.05
+axis 0 0 1
+rot 0 0 0
+range 2.0 -2.0
+strength 4.0
+velocity 50.0
+density 0.25
+
+joint lumbar
+radius 0.16
+pos 1.0 0.95 1.85
+axis 0 1 0
+rot 0 0 0
+range 0.75 -0.75
+strength 3.0
+velocity 5.0
+density 0.25
+
+joint abs
+radius 0.14
+pos 1.0 1.0 1.65
+axis 1 0 0
+rot 0 0 0
+range 0.4 -0.6
+strength 3.0
+velocity 15.0
+density 0.25
+
+joint r_pecs
+radius 0.18
+pos 0.85 0.85 2.2
+axis 0 0 1
+rot 0 0 0
+range 1.5 -0.7
+strength 3.0
+velocity 5.0
+density 0.25
+
+joint r_shoulder
+radius 0.18
+pos 0.65 0.9 2.3
+axis 0 1 0
+rot 0 0 0
+range 1.2 -1.2
+strength 4.0
+velocity 10.0
+density 0.25
+
+joint r_elbow
+radius 0.16
+pos 0.25 0.90 2.3
+axis 0 0 1
+rot 0 0 0
+range 2.3 0.05
+strength 2.0
+velocity 10.0
+density 0.25
+
+joint r_wrist
+radius 0.11
+pos -0.2 0.9 2.3
+axis 0 0 1
+rot 0 0 0
+range 2.0 -0.3
+strength 2.0
+velocity 20.0
+density 0.25
+
+joint l_pecs
+radius 0.18
+pos 1.15 0.85 2.2
+axis 0 0 1
+rot 0 0 0
+range 1.5 -0.7
+strength 3.0
+velocity 5.0
+density 0.25
+
+joint l_shoulder
+radius 0.18
+pos 1.35 0.9 2.3
+axis 0 1 0
+rot 0 0 0
+range 1.2 -1.2
+strength 4.0
+velocity 10.0
+density 0.25
+
+joint l_elbow
+radius 0.16
+pos 1.75 0.9 2.3
+axis 0 0 1
+rot 0 0 0
+range 2.3 0.05
+strength 2.0
+velocity 10.0
+density 0.25
+
+joint l_wrist
+radius 0.11
+pos 2.2 0.9 2.3
+axis 0 0 1
+rot 0 0 0
+range 2.0 -0.3
+strength 2.0
+velocity 30.0
+density 0.25
+
+joint r_glute
+radius 0.16
+pos 0.9 1.1 1.51
+axis 0 1 0
+rot 0 0 0
+range 1.2 -0.2
+strength 3.0
+velocity 25.0
+density 0.25
+
+joint l_glute
+radius 0.16
+pos 1.1 1.1 1.51
+axis 0 1 0
+rot 0 0 0
+range 1.2 -0.2
+strength 3.0
+velocity 25.0
+density 0.25
+
+joint r_hip
+radius 0.16
+pos 0.79 1.0 1.4
+axis 1 0 0
+rot 0 0 0
+range 1.0 -1.8
+strength 8.0
+velocit 40.0
+density 0.25
+
+joint l_hip
+radius 0.16
+pos 1.21 1.0 1.4
+axis 1 0 0
+rot 0 0 0
+range 1.0 -1.8
+strength 8.0
+velocity 40.0
+density 0.25
+
+joint r_knee
+radius 0.14
+pos 0.8 1.0 0.8
+axis 1 0 0
+rot 0 0 0
+range 2.3 0.0
+strength 6.0
+velocity 60.0
+density 0.25
+
+joint l_knee
+radius 0.14
+pos 1.2 1.0 0.8
+axis 1 0 0
+rot 0 0 0
+range 2.3 0.0
+strength 6.0
+velocity 60.0
+density 0.25
+
+joint r_ankle
+radius 0.11
+pos 0.8 1.05 0.25
+axis 1 0 0
+rot 0 0 0
+range 1.1 -0.3
+strength 4.0
+velocity 20.0
+density 0.25
+
+joint l_ankle
+radius 0.11
+pos 1.2 1.05 0.25
+axis 1 0 0
+rot 0 0 0
+range 1.1 -0.3
+strength 4.0
+velocity 20.0
+density 0.25

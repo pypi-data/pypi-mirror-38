@@ -1,0 +1,14 @@
+body r_hand
+shape cylinder
+sides .01 5 5
+pos -0.35 0.85 4.5
+material steel
+color 100 100 100
+flag 10
+body l_hand
+shape cylinder
+sides .01 5 5
+pos 2.35 0.85 4.5
+material steel
+color 100 100 100
+flag 10

@@ -1,0 +1,193 @@
+#Mod Team application mod by Skazz
+
+gamerule
+engagedistance 750
+player 0
+joint r_wrist
+axis 0 1 0
+range 0.5 -1.35
+joint l_wrist
+axis 0 1 0
+range 0.5 -1.35
+body chest
+thrust 1 0 0 1
+body r_foot
+thrust 1 0 0 -0.5
+body l_foot
+thrust 1 0 0 -0.5
+
+env_obj 1
+shape box
+pos 1 -4.25 2
+color 0.5 0.2 0.1 1
+rot 0 -45 0
+sides 2.75 0.25 2.75
+mass 0.0005
+
+env_obj 2
+shape box
+pos 1.5625 -3.75 2.3125
+color -0.1 -0.1 -0.1 1
+sides 0.0625 0.0625 0.3125
+material steel
+mass 0.00005
+
+env_obj 3
+shape box
+pos 0.4375 -3.75 2.3125
+color -0.1 -0.1 -0.1 1
+sides 0.0625 0.0625 0.3125
+material steel
+mass 0.00005
+
+env_obj 4
+shape box
+pos 0.4375 -3.9375 2.4375
+color -0.1 -0.1 -0.1 1
+sides 0.0625 0.375 0.0625
+material steel
+mass 0.00005
+
+env_obj 5
+shape box
+pos 0.4375 -3.9375 2.1875
+color -0.1 -0.1 -0.1 1
+sides 0.0625 0.375 0.0625
+material steel
+mass 0.00005
+
+env_obj 6
+shape box
+pos 1.5625 -3.9375 2.1875
+color -0.1 -0.1 -0.1 1
+sides 0.0625 0.375 0.0625
+material steel
+mass 0.00005
+
+env_obj 7
+shape box
+pos 1.5625 -3.9375 2.4375
+color -0.1 -0.1 -0.1 1
+sides 0.0625 0.375 0.0625
+material steel
+mass 0.00005
+
+env_obj 8
+shape box
+pos 1 -4.9375 2
+color -0.1 -0.1 -0.1 0
+sides 1.0625 -1.1875 3.0625
+material steel
+mass 1
+flag 8
+
+env_obj 9
+shape cylinder
+pos -0.5 3.625 2.625
+color 0.5 0.2 -0.1 1
+sides 0.0425 0.8125 0.25
+material steel
+mass 0.001
+
+env_obj 10
+shape cylinder
+pos 2.5 3.625 2.625
+color 0.5 0.2 -0.1 1
+sides 0.0425 0.8125 0.25
+material steel
+mass 0.001
+
+env_obj 11
+shape box
+pos 2.5625 3.625 2.9375
+color 0.7 0.7 0.8 1
+sides 0.4375 0.0325 0.125
+material steel
+mass 0.002
+flag 6
+
+env_obj 12
+shape box
+pos -0.5625 3.625 2.9375
+color 0.7 0.7 0.8 1
+sides 0.4375 0.0325 0.125
+material steel
+mass 0.002
+flag 6
+
+env_obj_joint 1 8 1
+pos 1 -4.475 2
+axis 0 1 0
+range 5 -5
+strength 50
+velocity 5
+
+env_obj_joint 2 2 7
+pos 1.5625 -3.75 2.4375
+axis 0 1 0
+strength 0 0
+Velocity 0 0
+range 0 0
+
+env_obj_joint 3 7 1
+pos 1.5625 -4.125 2.4375
+axis 0 1 0
+strength 0 0
+Velocity 0 0
+range 0 0
+
+env_obj_joint 4 6 2
+pos 1.5625 -3.75 2.1875
+axis 0 1 0
+strength 0 0
+Velocity 0 0
+range 0 0
+
+env_obj_joint 5 6 1
+pos 1.5625 -4.125 2.1875
+axis 0 1 0
+strength 0 0
+Velocity 0 0
+range 0 0
+
+env_obj_joint 6 3 4
+pos 0.4375 -3.75 2.4375
+axis 0 1 0
+strength 0 0
+Velocity 0 0
+range 0 0
+
+env_obj_joint 7 4 1
+pos 0.4375 -4.125 2.4375
+axis 0 1 0
+strength 0 0
+Velocity 0 0
+range 0 0
+
+env_obj_joint 8 3 5
+pos 0.4375 -3.75 2.1875
+axis 0 1 0
+strength 0 0
+Velocity 0 0
+range 0 0
+
+env_obj_joint 9 5 1
+pos 0.4375 -4.125 2.1875
+axis 0 1 0
+strength 0 0
+Velocity 0 0
+range 0 0
+
+env_obj_joint 10 9 12
+pos -0.4375 3.625 2.9375
+axis 0 1 0
+strength 0 0
+Velocity 0 0
+range 0 0
+
+env_obj_joint 11 10 11
+pos 2.5 3.625 2.9375
+axis 0 1 0
+strength 0 0
+Velocity 0 0
+range 0 0

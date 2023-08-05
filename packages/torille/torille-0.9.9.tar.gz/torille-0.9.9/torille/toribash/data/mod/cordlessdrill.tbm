@@ -1,0 +1,37 @@
+# Cordless drill mod by Jam0864 =D
+# Both players version
+# There is also a just tori version and joust version =)
+
+body r_biceps
+sides 0.15 0.45 0.10
+pos -0.30 0.75 2.45
+color 0 0 1
+
+body r_triceps
+sides 0.15 0.15 0.40
+pos -0.30 0.85 2.25
+color 0 0 1
+
+body r_hand
+sides 0.03 0.25 0.03
+alt_sides 0.05 0.25 0.05
+pos -0.30 0.25 2.45
+material steel
+flag 6
+
+joint r_wrist
+radius 0.08
+pos -0.30 0.45 2.45
+axis 0 1 0
+range 5.0 -5.0
+strength 100.0
+velocity 100.0
+material steel
+
+joint r_elbow
+velocity 0.0
+#immobilised the elbow because the handle doesn't follow 
+#the drill when moving the elbow. If someone can fix it so
+#the handle stays in place, that would be greatly #appreciated. =D
+
+

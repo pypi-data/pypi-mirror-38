@@ -1,0 +1,133 @@
+#!/usr/bin/toribash 
+# Environment exported by WorldBuilder
+######################################
+
+gamerule
+engageplayerpos -0,11,19.98,0,-25,15.50
+matchframes 2000
+dismemberment 0
+fracture 0
+dq 1
+gravity 0 0 -30
+
+env_obj 1
+    shape box
+    pos 0.75 8.625 10
+    color 0.8 0.8 0.8 1
+    rot 0 0 0
+    sides 7.6875 8.3125 20
+    material steel
+    mass 0.1
+    flag 24
+#END 1
+
+env_obj 2
+    shape box
+    pos 0.75 4.5625 20.5625
+    color 0.8 0.8 0.8 1
+    rot 0 0 0
+    sides 7.6875 0.1875 1.125
+    material steel
+    mass 0.1
+    flag 24
+#END 2
+
+env_obj 3
+    shape box
+    pos 0.75 0.3125 8.875
+    color 0.8 0.8 0.8 1
+    rot 0 0 0
+    sides 7.6875 8.3125 17.75
+    material steel
+    mass 0.1
+    flag 24
+#END 3
+
+env_obj 4
+    shape box
+    pos 4.875 -6 18.375
+    color 0.8 0.8 0.8 1
+    rot -4 -48 5
+    sides 0.25 7.4375 2.4375
+    material steel
+    mass 0.1
+    flag 24
+#END 4
+
+env_obj 5
+    shape box
+    pos -3.625 -6 18.1875
+    color 0.8 0.8 0.8 1
+    rot -1 48 1
+    sides 0.25 7.4375 2.4375
+    material steel
+    mass 0.1
+    flag 24
+#END 5
+
+env_obj 6
+    shape box
+    pos 0.8125 -13 8.6875
+    color 0.8 0.8 0.8 1
+    rot 0 0 0
+    sides 7.6875 8.3125 17.6875
+    material steel
+    mass 0.1
+    flag 24
+#END 6
+
+env_obj 7
+    shape box
+    pos -1.125 -19.6875 18.4375
+    color 0.8 0.8 0.8 1
+    rot 0 0 0
+    sides 0.3125 0.375 3.5625
+    material steel
+    mass 0.1
+    flag 24
+#END 7
+
+env_obj 8
+    shape box
+    pos 2.3125 -19.6875 18.4375
+    color 0.8 0.8 0.8 1
+    rot 0 0 0
+    sides 0.3125 0.375 3.5625
+    material steel
+    mass 0.1
+    flag 24
+#END 8
+
+env_obj 9
+    shape box
+    pos 0.625 -19.6875 16.625
+    color 0.8 0.8 0.8 1
+    rot 0 -90 0
+    sides 0.375 0.375 3.75
+    material steel
+    mass 0.1
+    flag 24
+#END 9
+
+env_obj 10
+    shape box
+    pos 0.625 -19.6875 20.0625
+    color 0.8 0.8 0.8 1
+    rot 0 -90 0
+    sides 0.375 0.375 3.75
+    material steel
+    mass 0.1
+    flag 24
+#END 10
+
+env_obj 11
+    shape box
+    pos 0.8125 -24.5 7.5625
+    color 0.8 0.8 0.8 1
+    rot 0 0 0
+    sides 7.6875 8.3125 15.3125
+    material steel
+    mass 0.1
+    flag 24
+#END 11
+

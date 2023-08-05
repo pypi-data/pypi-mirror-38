@@ -1,0 +1,63 @@
+
+gamerule
+        engagedistance 4600
+
+env_obj 1
+    shape cylinder
+    thrust 1 0 -130.5 9.82
+    pos 1 23.0 4
+    color 0 0 1.1 1.1
+    rot 90 0 0
+    sides 1 1.5 0.0625
+    material steel
+    mass 1
+    flag 0
+    
+env_obj 2
+    shape cylinder
+    thrust 1 0 -130.5 9.82
+    pos 1 23.0 4
+    color 0 0 1.1 1.1
+    rot 90 0 0
+    sides 0.2 1.5 0.0625
+    material steel
+    mass 1
+    flag 0
+    
+env_obj 3
+    shape cylinder
+    thrust 1 0 130.5 9.82
+    pos 1 -23.15 4
+    color 0 0 1.1 1.1
+    rot 90 0 0
+    sides 1 1.5 0.0625
+    material steel
+    mass 1
+    flag 0
+    
+env_obj 4
+    shape cylinder
+    thrust 1 0 130.5 9.82
+    pos 1 -23.15 4
+    color 0 0 1.1 1.1
+    rot 90 0 0
+    sides 0.2 1.5 0.0625
+    material steel
+    mass 1
+    flag 0
+    
+env_obj_joint 1 1 2
+	pos 1 23.0 4
+	axis 0 0 1
+	range 10000 -10000
+	strength 1000000
+	velocity -100
+	visible 0
+	
+env_obj_joint 2 3 4
+	pos 1 -23.15 4
+	axis 0 0 1
+	range 10000 -10000
+	strength 1000000
+	velocity 100
+	visible 0

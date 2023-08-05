@@ -1,0 +1,23 @@
+##Tako.tbm Created by Hero-
+###Have Fun! =)
+
+gamerule
+	matchframes 750
+	turnframes 20,30,70
+	dojosize 750
+	disqualification 1
+	gravity 0.00 0.00 -17.00
+	engagedistance 220
+	engageheight 1
+	dismemberment 1
+	dismembermentthreshold 175
+	fracture 1
+	fracturethreshold 200
+
+#Player Alterations
+joint r_ankle
+	velocity 75
+joint l_ankle
+	velocity 75
+joint chest
+	velocity 50

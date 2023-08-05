@@ -1,0 +1,39 @@
+# Red Brick Escape by Uncopyrightable
+
+gravity 10
+
+friction 0.6
+
+env_obj 1
+    shape box
+    pos 1 2.875 1.5
+    color 0.6 0.6 0.6 0.4
+    rot 0 0 0
+    sides 3.25 0.0625 3
+    material steel
+    mass 0.1
+    flag 24
+#END 1
+
+env_obj 2
+    shape box
+    pos 1 2.1875 1.5
+    color 0.6 0.6 0.6 0.6
+    rot 0 0 0
+    sides 3.25 0.0625 3
+    material steel
+    mass 0.1
+    flag 24
+#END 2
+
+env_obj 3
+    shape box
+    pos 1 2.5 10
+    color 1.1 -0.1 -0.1 1
+    rot 0 0 0
+    sides 3.25 0.5625 3
+    material steel
+    mass 1
+    flag 22
+#END 3
+

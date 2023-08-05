@@ -1,0 +1,17 @@
+#!/usr/bin/toribash
+###  Mixed Martial Arts Toribash similar to UFC by neoliminal
+
+gamerule
+gravity 0.00 0.00 -30.00
+engagedistance 145
+dismemberthreshold 250
+dismember 1
+fracture 1
+fracturethreshold 140
+matchframes 700
+turnframes 10,15,20,25,30,30,35,40,45,50,50,50,50,50,50,50,50,50
+dojosize 380
+dojotype 1
+dq 0
+sumo 1
+flags 10

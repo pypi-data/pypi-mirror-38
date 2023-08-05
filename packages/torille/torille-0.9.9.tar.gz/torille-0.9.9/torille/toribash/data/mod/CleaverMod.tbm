@@ -1,0 +1,52 @@
+# Mod by MrPoptart =D
+
+body head
+color 0 0 0
+body breast
+color 0 0 0
+body chest
+color 0 0 0
+body stomach
+color 0 0 0
+body groin
+color 0 0 0
+body r_pecs
+color 0 0 0
+body l_pecs
+color 0 0 0
+body r_biceps
+color 0 0 0
+body l_biceps
+color 0 0 0
+body r_triceps
+shape cylinder
+sides 0.02 2.5 0.05
+pos -0.2 0.9 3.2
+material steel
+color 0 0 0
+body l_triceps
+color 0 0 0
+body r_hand
+sides 0.4 0.01 2.0
+alt_sides 0.4 0.01 2.0
+pos -0.4 0.9 3.5
+material steel
+flag 6
+body l_hand
+color 0 0 0
+body r_butt
+color 0 0 0
+body l_butt
+color 0 0 0
+body r_thigh
+color 0 0 0
+body l_thigh
+color 0 0 0
+body r_leg
+color 0 0 0
+body l_leg
+color 0 0 0
+body r_foot
+color 0 0 0
+body l_foot
+color 0 0 0

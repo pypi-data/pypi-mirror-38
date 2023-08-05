@@ -1,0 +1,14 @@
+#by hampa
+gravity 0 0 -30
+gamerule
+	engageheight 100
+	dojosize 10
+env_obj 1 
+    shape box
+    pos 1 0 0.9 
+    color 1.00 0.00 1.0
+    rot 0 0 0
+    sides 0.8 3 0.2 
+    material flesh
+    mass 100.0
+    flag 8

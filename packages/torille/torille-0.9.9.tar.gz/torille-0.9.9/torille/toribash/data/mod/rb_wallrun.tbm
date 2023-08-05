@@ -1,0 +1,385 @@
+#!/usr/bin/toribash
+# Mod by sir
+# Created for the Upright Twist by rubash
+# Visit us at http://forum.toribash.com/forumdisplay.php?f=446
+
+gamerule
+   matchframes 2000
+   turnframes 10
+   flags 0
+   dismemberment 1
+   fracture 0
+   disqualification 0
+   dqtimeout 0
+   dqflag 1
+   dismemberthreshold 5000
+   fracturethreshold 0
+   dojotype 0
+   dojosides 0
+   engagedistance 100
+   engageheight 0
+   engagerotation 0
+   engagespace 0
+   engageplayerpos 0,1,0.03,0.5,-0.3,-.6
+   engageplayerrot 0,0,0,0,0,0
+   damage 0
+   gravity 0.00 -30.00 30.00
+   sumo 1
+   
+player 0
+body head
+	force 0 25 -30
+body breast
+	force 0 10 -10
+body chest
+	force 0 10 -10
+body r_thigh
+	force 0 -10 10
+body l_thigh
+	force 0 -10 10
+body l_leg
+	force 0 -25 30
+body r_leg
+	force 0 -25 30
+
+player 1
+
+body head
+	sides 0.1 0.0 0.0
+	pos 0.5 0.425 1.325
+
+body breast
+	sides 0.1 0.05 0.15
+	pos 0.5 0.45 1.1
+
+body chest
+	sides 0.25 0.075 0.1
+	pos 0.5 0.45 .975
+
+body stomach
+	sides 0.175 0.075 0.1
+	pos 0.5 0.475 0.875
+
+body groin
+	sides 0.1 0.075 0.1
+	pos 0.5 0.5 0.775
+
+body r_pecs
+	sides 0.1 0.075 0.1
+	pos 0.375 0.45 1.075
+
+body r_biceps
+	sides 0.2 0.1 0.1
+	pos 0.225 0.45 1.15
+
+body r_triceps
+	sides 0.2 0.05 0.05
+	pos 0.025 0.45 1.15
+
+body r_hand
+	sides 0.11 0.11 0.11
+	alt_sides 0.15 0.055 0.08
+	pos -0.175 0.425 1.15
+
+body l_pecs
+	sides 0.1 0.075 0.1
+	pos 0.625 0.45 1.075
+
+body l_biceps
+	sides 0.2 0.1 0.1
+	pos 0.775 0.45 1.15
+
+body l_triceps
+	sides 0.2 0.05 0.05
+	pos 0.975 0.45 1.15
+
+body l_hand
+	sides 0.11 0.11 0.11
+	alt_sides 0.15 0.055 0.08
+	pos 1.175 0.425 1.15
+
+body r_butt
+	sides 0.05 0.05 0.05
+	pos 0.4 0.5 0.725
+
+body r_thigh
+	sides 0.06 0.15 0.0
+	pos 0.4 0.5 0.55
+
+body r_leg
+	sides 0.065 0.15 0.0
+	pos 0.4 0.5 0.25
+
+body r_foot
+	sides 0.1 0.25 0.04
+	pos 0.4 0.45 0.05
+
+body l_butt
+	sides 0.05 0.05 0.05
+	pos 0.6 0.5 0.725
+
+body l_thigh
+	sides 0.06 0.15 0.0
+	pos 0.6 0.5 0.55
+
+body l_leg
+	sides 0.065 0.15 0.1
+	pos 0.6 0.5 0.25
+
+body l_foot
+	sides 0.1 0.25 0.04
+	pos 0.6 0.45 0.05
+
+joint neck
+	radius 0.0550
+	pos 0.5 0.45 1.25
+
+joint chest
+	radius 0.09
+	pos 0.5 0.45 1.025
+
+joint lumbar
+	radius 0.08
+	pos 0.5 0.475 0.925
+
+joint abs
+	radius 0.07
+	pos 0.5 0.5 0.825
+
+joint r_pecs
+	radius 0.09
+	pos 0.425 0.425 1.1
+
+joint r_shoulder
+	radius 0.09
+	pos 0.325 0.45 1.15
+
+joint r_elbow
+	radius 0.08
+	pos 0.125 0.45 1.15
+
+joint l_axilla
+	radius 0.09
+	pos 0.575 0.425 1.1
+
+joint l_shoulder
+	radius 0.09
+	pos 0.675 0.45 1.15
+
+joint l_elbow
+	radius 0.08
+	pos 0.875 0.45 1.15
+
+joint r_wrist
+	radius 0.055
+	pos -0.1 0.45 1.15
+
+joint l_wrist
+	radius 0.055
+	pos 1.1 0.45 1.15
+
+joint r_glute
+	radius 0.08
+	pos 0.45 0.55 0.755
+
+joint l_glute
+	radius 0.08
+	pos 0.55 0.55 0.755
+
+joint r_hip
+	radius 0.08
+	pos 0.395 0.5 0.7
+
+joint l_hip
+	radius 0.08
+	pos 0.605 0.5 0.7
+
+joint r_knee
+	radius 0.07
+	pos 0.4 0.5 0.4
+
+joint l_knee
+	radius 0.07
+	pos 0.6 0.5 0.4
+
+joint r_ankle
+	radius 0.055
+	pos 0.4 0.525 0.125
+
+joint l_ankle
+	radius 0.055
+	pos 0.6 0.525 0.125
+	
+env_obj 1
+	shape box
+	pos 1 -0.63 1.9925
+    color 2 2 0 0.5
+    rot 0 0 0
+    sides 5 .4 3.985
+    material steel
+    mass 12
+    flag 24
+	friction 400    
+   
+env_obj 2
+	shape box
+	pos 1 1.47 5.93
+    color .1 .1 .1
+    rot 45 0 0
+    sides 5 .5 6
+    material steel
+    mass 12
+    flag 24
+	friction 400   
+	
+env_obj 3
+	shape box
+	pos 1 3.236 7.037
+    color .8 .8 0
+    rot 45 0 0
+    sides 5 .7 .8
+    material steel
+    mass 12
+    flag 24
+	friction 400  
+	
+env_obj 4
+	shape box
+	pos 1 3.467 7.473
+    color .8 .8 0
+    rot 0 0 0
+    sides 5 .6 .8
+    material steel
+    mass 12
+    flag 24
+	friction 400  
+	
+env_obj 5
+	shape box
+	pos 2 6 10.5
+    color .1 .1 .1
+    rot 45 0 0
+    sides 7.5 .2 1
+    material steel
+    mass 12
+    flag 8
+	friction 5  
+	
+env_obj 6
+	shape box
+	pos 2 7.7 9.366
+    color .1 .1 .1
+    rot 45 0 0
+    sides 7.5 4 .2
+    material steel
+    mass 12
+    flag 24
+	friction 0
+	
+env_obj 7
+	shape cylinder
+	pos 3.6 8 9
+    color 1 1 0
+    rot 45 90 0
+    sides .1 4
+    material steel
+    mass 12
+    flag 8
+	friction 0
+	
+env_obj 8
+	shape cylinder
+	pos 2 7.6 9.4
+    color 1 1 0
+    rot 45 90 0
+    sides .1 6
+    material steel
+    mass 12
+    flag 8
+	friction 0
+	
+env_obj 9
+	shape cylinder
+	pos 5.7 7.7 9.35
+    color 1 1 0
+    rot -45 0 0
+    sides .17 3.85
+    material steel
+    mass 12
+    flag 8
+	friction 0
+
+env_obj 10
+	shape box
+	pos 6 7 11.5
+    color .1 .1 .1
+    rot 45 0 0
+    sides 5 .2 3.82
+    material steel
+    mass 12
+    flag 24
+	friction 400
+	
+env_obj 11
+	shape box
+	pos 8.92 7.855 12.355
+    color .1 .1 .1
+    rot 45 45 0
+    sides 5 .2 3.82
+    material steel
+    mass 12
+    flag 24
+	friction 400
+	
+env_obj 12
+	shape box
+	pos 9 7.98 12.355
+    color 2 0 0
+    rot 45 45 0
+    sides 2 .05 3.7
+    material steel
+    mass 12
+    flag 14
+	friction 5000
+	
+env_obj 13
+	shape sphere
+	pos 8.2 10 11.355
+    color .1 .1 .1
+    sides .2
+    material steel
+    mass 12
+    flag 8
+	friction 40
+	
+env_obj 14
+	shape sphere
+	pos 9.8 9.7 11.055
+    color .1 .1 .1
+    sides .2
+    material steel
+    mass 12
+    flag 8
+	friction 40
+	
+env_obj 15
+	shape box
+	pos 10.04638 8.701515 13.101515
+    color .1 .1 .1
+    rot 45 45 20
+    sides 2 1 3.82
+    material steel
+    mass 12
+    flag 24
+	friction 400
+	
+env_obj 16
+	shape box
+	pos 12.14638 9.08 15.455
+    color 2 2 0 0.5
+    rot 45 45 0
+    sides 3 0.5 3
+    material steel
+    mass 12
+    flag 8
+	friction 400

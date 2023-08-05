@@ -1,0 +1,91 @@
+#by Riddix
+gravity 0 0 -10
+gamerule
+engageheight 600
+turnframes 50
+matchframes 1000
+disqualification 1
+engagedistance 120
+dojotype 1
+dojosize 1000
+
+env_obj 1 
+    shape box
+    pos 1 1 4. 
+    color 0.5 0 0
+    rot 0 0 0
+    sides 1 1 4 
+    material flesh
+    mass 50.0
+    flag 1
+
+env_obj 2 
+    shape box
+    pos 1 -1 4. 
+    color 0 00 0.5
+    rot 0 0 0
+    sides 1 1 4 
+    material flesh
+    mass 50.0
+    flag 1
+
+
+env_obj 3
+    shape sphere
+    pos 1 1.5 1
+    color 0.5 0.5 0.5
+    rot 0 0 0
+    sides 1
+    material steel
+    mass 0.000001
+    flag 1
+env_obj 4
+    shape sphere
+    pos 1 -1.5 1
+    color 0.5 0.5 0.5
+    rot 0 0 0
+    sides 1
+    material steel
+    mass 0.000001
+    flag 1
+
+body r_hand
+flag 34
+body l_hand
+flag 34
+
+env_obj 5
+shape box
+pos -0.4 0.65 8.240
+material steel
+sides 0.2 0.3 0.25
+mass 0.00001
+color 0.5 0.5 0.5
+flag 38
+
+env_obj 6
+shape box
+pos 2.4 0.65 8.240
+material steel
+sides 0.2 0.3 0.25
+mass 0.00001
+color 0.5 0.5 0.5
+flag 38
+
+env_obj 7
+shape box
+pos -0.4 -0.85 8.24
+material steel
+sides 0.2 0.3 0.25
+mass 0.00001
+color 0.5 0.5 0.5
+flag 38
+
+env_obj 8
+shape box
+pos 2.4 -0.85 8.24
+material steel
+sides 0.2 0.30 0.25
+mass 0.00001
+color 0.5 0.5 0.5
+flag 38

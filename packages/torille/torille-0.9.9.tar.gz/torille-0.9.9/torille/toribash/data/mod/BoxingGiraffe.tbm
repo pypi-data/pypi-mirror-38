@@ -1,0 +1,49 @@
+#Mod by MrPoptart =D
+
+body head
+pos 1.0 0.85 3.95
+color 999 999 0
+body breast
+sides 0.2 0.1 1.3
+pos 1.0 0.9 3.0
+color 999 999 0
+body chest
+color 999 999 0
+body stomach
+color 999 999 0
+body groin
+color 999 999 0
+body r_pecs
+color 999 999 0
+body l_pecs
+color 999 999 0
+body r_biceps
+color 999 999 0
+body l_biceps
+color 999 999 0
+body r_triceps
+color 999 999 0
+body l_triceps
+color 999 999 0
+body r_hand
+sides 0.25 0.25 0.25
+color 999 0 0
+flag 6
+body l_hand
+sides 0.25 0.25 0.25
+color 999 0 0
+flag 6
+body r_butt
+color 999 999 0
+body l_butt
+color 999 999 0
+body r_thigh
+color 999 999 0
+body l_thigh
+color 999 999 0
+body r_leg
+color 999 999 0
+body l_leg
+color 999 999 0
+joint neck
+pos 1.0 0.9 3.8

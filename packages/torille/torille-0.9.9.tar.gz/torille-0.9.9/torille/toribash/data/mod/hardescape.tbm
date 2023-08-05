@@ -1,0 +1,47 @@
+
+######################################
+
+env_obj 1
+    shape box
+    pos 1 0 0.625
+    color 0 0 1 1
+    rot 0 0 0
+    sides 0.25 100.3125 1.3125
+    material steel
+    mass 0.1
+    flag 24
+#END 1
+
+env_obj 2
+    shape box
+    pos 1.25 -0.125 2.75
+    color 0 0 1 1
+    rot 0 0 0
+    sides 0.0625 100 0.5
+    material steel
+    mass 0.1
+    flag 24
+#END 2
+
+env_obj 3
+    shape box
+    pos 0.75 -0.125 2.75
+    color 0 0 1 1
+    rot 0 0 0
+    sides 0.0625 100 0.5
+    material steel
+    mass 0.1
+    flag 24
+#END 3
+
+env_obj 4
+    shape box
+    pos 1 -0.125 4.125
+    color 0 0 1 1
+    rot 0 0 0
+    sides 0.375 100 1
+    material steel
+    mass 1
+    flag 22
+#END 4
+

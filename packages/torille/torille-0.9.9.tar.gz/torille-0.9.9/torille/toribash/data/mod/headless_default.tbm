@@ -1,0 +1,15 @@
+#mod by blkk
+#xD
+
+#WAT NO HEAD?
+
+body head
+box
+sides 0.01 0.01 0.01
+pos 1 0.9 2.35
+
+joint neck
+radius 0.01
+pos 1 0.9 2.25
+range 0 0
+axis 0 0 1

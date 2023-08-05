@@ -1,0 +1,71 @@
+env_obj 1
+	shape box
+	sides 3.31371 .005 2.75
+	pos 1 -4.1 1.375
+	rot 0 0 0
+	color 0.6 0.6 0.6 0.4
+	material steel
+	flag 24
+
+env_obj 2
+	shape box
+	sides 3.31371 .005 2.75
+	pos 1 3.9 1.375
+	rot 0 0 0
+	color 0.6 0.6 0.6 0.4
+	material steel
+	flag 24
+
+env_obj 3
+	shape box
+	sides 3.31371 .005 2.75
+	pos 5 -0.1 1.375
+	rot 0 0 90
+	color 0.6 0.6 0.6 0.4
+	material steel
+	flag 24
+
+env_obj 4
+	shape box
+	sides 3.31371 .005 2.75
+	pos -3 -0.1 1.375
+	rot 0 0 90
+	color 0.6 0.6 0.6 0.4
+	material steel
+	flag 24
+
+env_obj 5
+	shape box
+	sides 3.31371 .005 2.75
+	pos 3.82843 2.72843 1.375
+	rot 0 0 45
+	color 0.6 0.6 0.6 0.4
+	material steel
+	flag 24
+
+env_obj 6
+	shape box
+	sides 3.31371 .005 2.75
+	pos -1.82843 2.72843 1.375
+	rot 0 0 135
+	color 0.6 0.6 0.6 0.4
+	material steel
+	flag 24
+
+env_obj 7
+	shape box
+	sides 3.31371 .005 2.75
+	pos -1.82843 -2.92843 1.375
+	rot 0 0 225
+	color 0.6 0.6 0.6 0.4
+	material steel
+	flag 24
+
+env_obj 8
+	shape box
+	sides 3.31371 .005 2.75
+	pos 3.82843 -2.92843 1.375
+	rot 0 0 315
+	color 0.6 0.6 0.6 0.4
+	material steel
+	flag 24

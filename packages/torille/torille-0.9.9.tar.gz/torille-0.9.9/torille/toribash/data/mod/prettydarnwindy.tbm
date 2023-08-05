@@ -1,0 +1,32 @@
+# Environment exported by WorldBuilder
+######################################
+
+gamerule
+    dq 1
+    dojosize 300
+    mf 1000
+    tf 50
+    gravity 30.00 0.00 -5.00
+
+env_obj 1
+    shape cylinder
+    pos 0 0 3.1875
+    color 0.6 0 1 1.1
+    rot -90 0 0
+    sides 0.0625 1.5 11
+    material steel
+    mass 0.1
+    flag 8
+#END 1
+
+env_obj 2
+    shape box
+    pos 4.8125 0 3.1875
+    color 1.1 0 -0.1 1.1
+    rot -90 0 0
+    sides 0.0625 6.5625 5.375
+    material steel
+    mass 0.1
+    flag 14
+#END 2
+

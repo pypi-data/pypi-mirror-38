@@ -1,0 +1,90 @@
+    friction 0
+
+env_obj 1
+    shape box
+    pos 1 28.625 1.5
+    color 0 0 1 1
+    rot 0 0 0
+    sides 6.5 6.75 3
+    material steel
+    mass .1
+    flag 0
+#END 1
+
+env_obj 2
+    shape box
+    pos 1 32.25 2.75
+    color 0 0 1 1
+    rot 0 0 0
+    sides 15 5.5 57
+    material steel
+    mass 0.1
+    flag 14
+#END 2
+
+env_obj 3
+    shape cylinder
+    pos 3.25 20.25 2.25
+    color 0 0 1 1
+    rot 0 0 0
+    sides 0.25 4.5 0.5
+    material steel
+    mass 0.1
+    flag 8
+#END 3
+
+env_obj 4
+    shape cylinder
+    pos -1 20.25 2.25
+    color 0 0 1 1
+    rot 0 0 0
+    sides 0.25 4.5 0
+    material steel
+    mass 0.1
+    flag 8
+#END 4
+
+env_obj 5
+    shape box
+    pos 1 -28.625 1.5
+    color 0 0 1 1
+    rot 0 0 0
+    sides 6.5 6.75 3
+    material steel
+    mass .1
+    flag 0
+#END 5
+
+env_obj 6
+    shape box
+    pos 1 -32.25 2.75
+    color 0 0 1 1
+    rot 0 0 0
+    sides 15 5.5 57
+    material steel
+    mass 0.1
+    flag 14
+#END 6
+
+env_obj 7
+    shape cylinder
+    pos 3.25 -20.25 2.25
+    color 0 0 1 1
+    rot 0 0 0
+    sides 0.25 4.5 0.5
+    material steel
+    mass 0.1
+    flag 8
+#END 7
+
+env_obj 8
+    shape cylinder
+    pos -1 -20.25 2.25
+    color 0 0 1 1
+    rot 0 0 0
+    sides 0.25 4.5 0
+    material steel
+    mass 0.1
+    flag 8
+#END 8
+

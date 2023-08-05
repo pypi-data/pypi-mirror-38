@@ -1,0 +1,222 @@
+#mod by blkk
+#8D
+
+gamerule
+engagedistance 2150
+engageheight 50
+
+
+body r_foot
+shape box
+sides 0.2 0.65 0.08
+pos 0.8 0.9 0.1
+rot 0 0 0
+force 0 0 0
+thrust 0 0 0 0
+color 1 1 1
+density 0.2
+material metal
+flag 2
+
+body l_foot
+shape box
+sides 0.2 0.65 0.08
+pos 1.2 0.9 0.1
+rot 0 0 0
+force 0 0 0
+thrust 0 0 0 0
+color 1 1 1
+density 0.2
+material metal
+flag 2
+
+player 0
+body head
+thrust 1 0 -0.05 0
+body breast
+thrust 1 0 -0.005 0
+body chest
+thrust 1 0 -0.05 0
+body stomach
+thrust 1 0 -0.005 0
+body groin
+thrust 1 0 -0.05 0
+body r_pecs
+thrust 1 0 -0.005 0
+body r_biceps
+thrust 1 0 -0.05 0
+body r_triceps
+thrust 1 0 -0.05 0
+body l_pecs
+thrust 1 0 -0.005 0
+body l_biceps
+thrust 1 0 -0.05 0
+body l_triceps
+thrust 1 0 -0.05 0
+body r_hand
+thrust 1 0 -0.05 0
+body l_hand
+thrust 1 0 -0.05 0
+body r_butt
+thrust 1 0 -0.05 0
+body l_butt
+thrust 1 0 -0.05 0
+body r_thigh
+thrust 1 0 -0.05 0
+body l_thigh
+thrust 1 0 -0.05 0
+body r_leg
+thrust 1 0 -0.05 0
+body l_leg
+thrust 1 0 -0.05 0
+
+player 1
+body head
+thrust 1 0 0.05 0
+body breast
+thrust 1 0 0.005 0
+body chest
+thrust 1 0 0.05 0
+body stomach
+thrust 1 0 0.005 0
+body groin
+thrust 1 0 0.05 0
+body r_pecs
+thrust 1 0 0.005 0
+body r_biceps
+thrust 1 0 0.05 0
+body r_triceps
+thrust 1 0 0.05 0
+body l_pecs
+thrust 1 0 0.005 0
+body l_biceps
+thrust 1 0 0.05 0
+body l_triceps
+thrust 1 0 0.05 0
+body r_hand
+thrust 1 0 0.05 0
+body l_hand
+thrust 1 0 0.05 0
+body r_butt
+thrust 1 0 0.05 0
+body l_butt
+thrust 1 0 0.05 0
+body r_thigh
+thrust 1 0 0.05 0
+body l_thigh
+thrust 1 0 0.05 0
+body r_leg
+thrust 1 0 0.05 0
+body l_leg
+thrust 1 0 0.05 0
+
+
+
+# Environment exported by WorldBuilder
+######################################
+
+env_obj 1
+    shape box
+    pos 1.1875 10.7 0.625
+    color 0 0 1 1
+    rot 0 0 0
+    sides 0.3 0.7 0.0625
+    material steel
+    mass 0.001
+    friction 100
+    flag 0
+#END 1
+
+env_obj 2
+    shape box
+    pos 0.8125 10.7 0.625
+    color 0 0 1 1
+    rot 0 0 0
+    sides 0.3 0.7 0.0625
+    material steel
+    mass 0.001
+    flag 0
+    friction 100
+#END 2
+
+env_obj 3
+    shape sphere
+    pos 0.8125 10.875 0.375
+    color 0 0 1 1
+    rot 0 0 0
+    sides 0.125 1 1
+    material steel
+    mass 0.0001
+    flag 2
+    friction 2.5
+#END 3
+
+env_obj 4
+    shape sphere
+    pos 0.8125 10.5 0.375
+    color 0 0 1 1
+    rot 0 0 0
+    sides 0.125 1 1
+    material steel
+    mass 0.0001
+    flag 2
+    friction 2.5
+#END 4
+
+env_obj 5
+    shape sphere
+    pos 1.1875 10.5 0.375
+    color 0 0 1 1
+    rot 0 0 0
+    sides 0.125 1 1
+    material steel
+    mass 0.0001
+    flag 2
+    friction 2.5
+#END 5
+
+env_obj 6
+    shape sphere
+    pos 1.1875 10.875 0.375
+    color 0 0 1 1
+    rot 0 0 0
+    sides 0.125 1 1
+    material steel
+    mass 0.0001
+    flag 2
+    friction 2.5
+#END 6
+
+env_obj_joint 1 1 5
+    pos 1.1875 10.5 0.375
+    axis 1 0 0
+    range 200 -200
+    strength 0.1
+    velocity -100
+
+env_obj_joint 2 1 6
+    pos 1.1875 10.875 0.375
+    axis 1 0 0
+    range 200 -200
+    strength 0.1
+    velocity -100
+
+
+env_obj_joint 3 2 3
+    pos 0.8125 10.875 0.375
+    axis 1 0 0
+    range 200 -200
+    strength 0.1
+    velocity -100
+
+
+env_obj_joint 4 2 4
+    pos 0.8125 10.5 0.375
+    axis 1 0 0
+    range 200 -200
+    strength 0.1
+    velocity -100
+
+
+
+

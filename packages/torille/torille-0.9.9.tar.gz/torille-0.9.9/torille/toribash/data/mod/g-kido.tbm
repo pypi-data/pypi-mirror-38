@@ -1,0 +1,18 @@
+#!/usr/bin/toribash
+# Created by sir995 #
+
+gamerules
+gravity 0.00 0.00 -30.00
+engagedistance 225
+engageheight 60
+dismemberthreshold 325
+dismember 1
+fracture 0
+matchframes 500
+turnframes 40,20,20,30,30,35,35,40,40,40,40,40,40,50
+dojosize 600
+dojotype 0
+dq 1
+dqtimeout 10
+sumo 1
+flags 3

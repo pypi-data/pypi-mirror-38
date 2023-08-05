@@ -1,0 +1,341 @@
+#!/usr/bin/toribash
+#Bazooka!#
+#game rules
+
+gamerule
+mf 200
+tf 20
+dt 1000
+ft 600
+gravity 0 0 -30
+flags 11
+ed 1500
+damage 0
+
+#body mods
+
+joint l_elbow
+axis 0 1 0
+range 1.7 0
+strength 5.0
+velocity 60.0
+
+joint l_shoulder
+strength 20.0
+
+joint lumbar
+range 0.1 -0.1
+strength 20.0
+velocity 5.0
+
+joint abs
+axis 1 0 0
+rot 0 0 0
+range 0.005 -0.0075
+strength 10.0
+velocity 5.0
+
+joint r_pecs
+axis 0 0 1
+rot 0 0 0
+range 0.1 -0.05
+strength 3.0
+velocity 15.0
+
+
+joint l_pecs
+axis 0 0 1
+rot 0 0 0
+range 0.1 -0.05
+strength 3.0
+velocity 15.0
+
+joint chest
+range 0.05 -0.05
+strength 4.0
+velocity 5.0
+
+joint l_wrist
+axis 0 0 1
+range 0.00 -0.3
+velocity 10
+
+joint r_elbow
+axis 0 1 0
+range 1.7 0
+strength 2.0
+velocity 60.0
+env_obj 1
+
+#objects
+
+#left panel
+env_obj 1
+    shape box
+    pos 1.3875 7.4375 2.6875
+    color 0.2 0.2 0.3 1
+    rot 0 0 0
+    sides 0.1 3 0.2
+    material steel
+friction 0
+    mass 0.001
+    flag 0
+#END left panel
+
+#right panel
+env_obj 2
+    shape box
+    pos 1.6875 7.4375 2.6875
+    color 0.2 0.2 0.3 1
+    rot 0 0 0
+    sides 0.1 3 0.2
+    material steel
+friction 0
+    mass 0.001
+    flag 0
+#END right panel
+
+
+#top panel
+env_obj 3
+    shape box
+    pos 1.5375 7.4375 2.8375
+    color 0.2 0.2 0.3 1
+    rot 0 0 0
+    sides 0.4 3 0.1
+    material steel
+friction 0
+    mass 0.001
+    flag 0
+#END top panel
+
+#bottom panel
+env_obj 4
+    shape box
+    pos 1.5375 7.4375 2.5375
+    color 0.2 0.2 0.3 1
+    rot 0 0 0
+    sides 0.4 3 0.1
+    material steel
+friction 0
+    mass 0.001
+    flag 0
+#END bottom panel
+
+#shell
+env_obj 5
+    shape cylinder
+    pos 1.5375 7.375 2.6875
+   color 0.2 0.2 0.3 1
+    rot 90 0 0
+    sides 0.1 0.25 0.9375
+    material steel
+friction 0
+    mass 0.001
+    flag 6
+#END shell
+
+#firing block
+env_obj 6
+    shape box
+    pos 1.5375 8.575 2.6875
+  color 0.2 0.2 0.3 1
+    rot 90 0 0
+    sides 0.2 0.2 0.2
+    material steel
+friction 0
+    mass 0.001
+thrust 1 0 -0.01 0
+    flag 0
+#END firing block
+
+#firing pin
+env_obj 7
+    shape box
+    pos 1.5375 8.45 2.6875
+ color 0.2 0.2 0.3 1
+    rot 90 0 0
+    sides 0.02 0.02 0.02
+    material steel
+    mass 0.001
+friction 0
+    flag 0
+bounce 700
+#END pin
+
+
+##gun 2##
+#left panel
+env_obj 8
+    shape box
+    pos 0.3875 -7.4375 2.6875
+    color 0.2 0.2 0.3 1
+    rot 0 0 0
+    sides 0.1 3 0.2
+    material steel
+friction 0
+    mass 0.001
+    flag 0
+#END left panel
+
+#right panel
+env_obj 9
+    shape box
+    pos 0.6875 -7.4375 2.6875
+    color 0.2 0.2 0.3 1
+    rot 0 0 0
+    sides 0.1 3 0.2
+    material steel
+friction 0
+    mass 0.001
+    flag 0
+#END right panel
+
+
+#top panel
+env_obj 10
+    shape box
+    pos 0.5375 -7.4375 2.8375
+    color 0.2 0.2 0.3 1
+    rot 0 0 0
+    sides 0.4 3 0.1
+    material steel
+friction 0
+    mass 0.001
+    flag 0
+#END top panel
+
+#bottom panel
+env_obj 11
+    shape box
+    pos 0.5375 -7.4375 2.5375
+    color 0.2 0.2 0.3 1
+    rot 0 0 0
+    sides 0.4 3 0.1
+    material steel
+friction 0
+    mass 0.001
+    flag 0
+#END bottom panel
+
+#shell
+env_obj 12
+    shape cylinder
+    pos 0.5375 -7.375 2.6875
+ color 0.2 0.2 0.3 1
+    rot 90 0 0
+    sides 0.1 0.25 0.9375
+    material steel
+friction 0
+    mass 0.001
+    flag 6
+#END shell
+
+#firing block
+env_obj 13
+    shape box
+    pos 0.5375 -8.575 2.6875
+ color 0.2 0.2 0.3 1
+    rot 90 0 0
+    sides 0.2 0.2 0.2
+    material steel
+friction 0
+    mass 0.001
+thrust 1 0 0.01 0
+    flag 0
+#END firing block
+
+#firing pin
+env_obj 14
+    shape box
+    pos 0.5375 -8.45 2.6875
+ color 0.2 0.2 0.3 1
+    rot 90 0 0
+    sides 0.02 0.02 0.02
+    material steel
+    mass 0.001
+friction 0
+    flag 0
+bounce 700
+#END pin
+
+#back panel
+env_obj 15
+    shape box
+    pos 1.5375 8.9375 2.6875
+    color 0.2 0.2 0.3 1
+    rot 0 0 0
+    sides 0.4 0.1 0.4
+    material steel
+friction 0
+    mass 0.001
+    flag 0
+#END back panel
+
+
+#back panel
+env_obj 16
+    shape box
+    pos 0.5375 -8.9375 2.6875
+    color 0.2 0.2 0.3 1
+    rot 0 0 0
+    sides 0.4 0.1 0.4
+    material steel
+friction 0
+    mass 0.001
+    flag 0
+#END back panel
+
+#gun joints
+
+env_obj_joint 1 1 4
+    pos 1.6875 8.8125 2.5625
+
+env_obj_joint 2 2 3
+    pos 1.375 8.8125 2.75
+
+env_obj_joint 3 9 10
+    pos 0.375 -8.8125 2.75
+
+env_obj_joint 4 2 4
+    pos 1.375 6.0625 2.625
+
+env_obj_joint 5 1 4
+    pos 1.6875 6.0625 2.5625
+
+env_obj_joint 6 1 3
+    pos 1.6875 6.0625 2.75
+
+env_obj_joint 7 6 7
+    pos 1.5375 8.48 2.6875
+
+env_obj_joint 8 8 10
+    pos 0.6875 -8.8125 2.75
+
+env_obj_joint 9 8 11
+    pos 0.6875 -8.8125 2.5625
+
+env_obj_joint 10 9 11
+    pos 0.375 -8.8125 2.5625
+
+
+env_obj_joint 11 9 10
+  pos 0.375 -6.0625 2.75
+
+
+env_obj_joint 12 8 11
+    pos 0.6875 -6.0625 2.5625
+
+
+env_obj_joint 13 13 14
+    pos 0.5375 -8.48 2.6875
+
+
+env_obj_joint 14 1 3
+    pos 1.6875 8.8125 2.75
+
+env_obj_joint 15 1 15
+    pos 1.6875 8.9375 2.75
+
+env_obj_joint 16 8 16
+    pos 0.6875 -8.9375 2.75

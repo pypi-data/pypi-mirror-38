@@ -1,0 +1,261 @@
+# Toribash's FIRST steerable motorbike EVER!!!
+# Made by Pnut, who fucking rocks.
+gamerule
+ed 1500
+dt 250
+mf 10000
+
+#chassis block
+env_obj 1
+    shape box
+    pos 1 7.5625 1.0625
+    color 1.1 0 1.3877787807814e-016 1
+    rot 0 0 0
+    sides 0.1875 1.5625 0.5
+    material steel
+    mass 0.01
+    thrust 1 0 0 1
+    flag 0
+#END 1
+#right handlebar holder
+env_obj 2
+    shape box
+    pos 0.875 6.6875 1.1875
+    color 1.1 0 1.3877787807814e-016 1
+    rot 0 0 0
+    sides 0.2025 0.3125 0.1875
+    material steel
+    mass 0.01
+    flag 0
+#END 2
+#left handlebar holder
+env_obj 3
+    shape box
+    pos 1.125 6.6875 1.1875
+    color 1.1 0 1.3877787807814e-016 1
+    rot 0 0 0
+    sides 0.2025 0.3125 0.1875
+    material steel
+    mass 0.01
+    flag 0
+#END 3
+#front handlebar holder
+env_obj 4
+    shape box
+    pos 1 6.5 1.1875
+    color 1.1 0 1.3877787807814e-016 1
+    rot 0 0 0
+    sides 0.3125 0.2625 0.1875
+    material steel
+    mass 0.01
+    flag 0
+#END 4
+#vertical handlebar
+env_obj 5
+    shape cylinder
+    pos 1 6.625 1.5625
+    color -0.1 0 -0.1 1
+    rot 0 0 0
+    sides 0.0625 1 0
+    material steel
+    mass 0.01
+    flag 0
+#END 5
+#horizontal handlebar (grab me)
+env_obj 6
+    shape cylinder
+    pos 1 6.625 2.125
+    color -0.1 0 -0.1 1
+    rot 0 90 0
+    sides 0.0625 0.875 0
+    material steel
+    mass 0.01
+    flag 0
+#END 6
+#front wheel
+env_obj 7
+    shape box
+    pos 1 6.625 0.375
+    color -0.1 0 -0.1 1
+    rot 0 0 0
+    sides 0.4875 0.625 0.625
+    material steel
+    mass .05
+    thrust 1 0 0 -25
+    flag 0
+#END 7
+#back wheel
+env_obj 15
+    shape box
+    pos 1 8.6875 0.375
+    color -0.1 0 -0.1 1
+    rot 0 0 0
+    sides 0.4875 0.625 0.625
+    material steel
+    mass 0.05
+    thrust 1 0 0 -10
+    flag 0
+#END 15
+#front horizontal axel spacer
+env_obj 9
+    shape cylinder
+    pos 1 6.625 1
+    color -0.1 0 -0.1 1
+    rot 0 90 0
+    sides 0.0625 0.5 0
+    material steel
+    mass 0.01
+    flag 0
+#END 9
+#front right wheel axel
+env_obj 10
+    shape box
+    pos 1.2785 6.625 0.6875
+    color -0.1 0 -0.1 1
+    rot 0 0 0
+    sides  .0625 .0825 .625
+    material steel
+    mass 0.01
+    thrust 1 50 0 0
+    flag 0
+#END 10
+#front left wheel axel
+env_obj 11
+    shape box
+    pos 0.7125 6.625 0.6875
+    color -0.1 0 -0.1 1
+    rot 0 0 0
+    sides  .0625 .0825 .625
+    material steel
+    mass 0.01
+    thrust 1 -50 0 0
+    flag 0
+#END 11
+#rear right wheel axel
+env_obj 12
+    shape cylinder
+    pos 0.7125 8.4375 0.625
+    color -0.1 0 -0.1 1
+    rot -45 0 0
+    sides 0.0625 0.75 0
+    material steel
+    mass 0.01
+    thrust 1 -50 0 0
+    flag 0
+#END 12
+#rear left wheel axel
+env_obj 13
+    shape cylinder
+    pos 1.2875 8.4375 0.625
+    color -0.1 0 -0.1 1
+    rot -45 0 0
+    sides 0.0625 0.75 0
+    material steel
+    mass 0.01
+    thrust 1 50 0 0
+    flag 0
+#END 13
+#seat backing
+env_obj 16
+    shape box
+    pos 1 7.9375 1.6875
+    color 1.1 0 1.3877787807814e-016 1
+    rot 14 0 0
+    sides 0.5 0.0625 0.875
+    material steel
+    mass 0.05
+    flag 0
+#END 16
+
+
+#chassis
+env_obj_joint 1 1 16
+pos 1 7.5625 1.0625
+
+env_obj_joint 2 1 2
+pos 0.875 6.6875 1.1875
+
+env_obj_joint 3 1 3
+pos 1.125 6.6875 1.1875
+
+env_obj_joint 4 1 4
+pos 1 6.5 1.1875
+
+env_obj_joint 5 1 12
+pos 0.8125 8.4375 0.625
+
+env_obj_joint 6 1 13
+pos 1.1875 8.4375 0.625
+
+#handlebars
+env_obj_joint 14 1 5
+pos 1 6.625 1.5625
+axis 0 0 1
+range 5 -5
+
+env_obj_joint 7 5 6
+pos 1 6.625 1.5625
+axis 0 1 0
+
+env_obj_joint 8 6 9
+pos 1 6.625 1
+axis 0 1 0
+
+env_obj_joint 9 9 10
+pos 1.1785 6.625 0.6875
+axis 0 1 0
+
+env_obj_joint 10 9 11
+pos 0.8125 6.625 0.6875
+axis 0 1 0
+
+#axels
+env_obj_joint 11 10 7
+pos 1 6.625 0.375
+axis 1 0 0
+range 5 -5
+velocity -75
+strength 50
+
+env_obj_joint 12 11 7
+pos 1 6.625 0.375
+axis 1 0 0
+range 5 -5
+velocity -75
+strength 50
+
+env_obj_joint 13 12 15
+pos 1 8.6875 0.375
+axis 1 0 0
+range 5 -5
+velocity -75
+strength 50
+
+env_obj_joint 15 13 15
+pos 1 8.6875 0.375
+axis 1 0 0
+range 5 -5
+velocity -75
+strength 50
+
+
+
+
+player 0
+joint l_pecs
+velocity 50
+
+joint r_pecs
+velocity 50
+
+joint l_elbow
+velocity 50
+
+joint r_elbow
+velocity 50
+
+joint l_wrist
+velocity 50
+
+joint r_wrist
+velocity 50

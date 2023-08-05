@@ -1,0 +1,13 @@
+gamerule
+engagedistance 250
+
+flags 2
+dismemberment 1
+
+dismemberthreshold 200
+matchframes 300
+turnframes 50,20,20,20,20,20,25,25,25,25,25,25
+dojosize 600
+dojotype 1
+disqualification 1
+

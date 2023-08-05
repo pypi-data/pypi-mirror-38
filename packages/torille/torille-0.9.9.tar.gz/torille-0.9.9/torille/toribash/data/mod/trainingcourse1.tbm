@@ -1,0 +1,61 @@
+# Environment exported by WorldBuilder
+######################################
+
+gamerule
+	engagedistance 900
+
+env_obj 1
+    shape box
+    pos 1 1.5 1
+    color 0 0 1 1
+    rot 28 0 0
+    sides 3.25 3.75 1
+    material steel
+    mass 0.1
+    flag 8
+#END 1
+
+env_obj 2
+    shape box
+    pos 1.25 0 1.5
+    color 0 0 1 1
+    rot 0 0 0
+    sides 5.25 0.25 4
+    material steel
+    mass 0.1
+    flag 8
+#END 2
+
+env_obj 3
+    shape box
+    pos 1 -1.5 5
+    color 0 0 1 1
+    rot 0 0 0
+    sides 5.5 0.25 5.25
+    material steel
+    mass 0.1
+    flag 8
+#END 3
+
+env_obj 4
+    shape box
+    pos 0.5 -3 1
+    color 0 0 1 1
+    rot 24 0 0
+    sides 6 2.75 0.25
+    material steel
+    mass 0.1
+    flag 8
+#END 4
+
+env_obj 5
+    shape box
+    pos 0.5 -1 0.5
+    color 0 0 1 1
+    rot 0 0 0
+    sides 5.75 1.75 0.25
+    material steel
+    mass 0.1
+    flag 8
+#END 5
+

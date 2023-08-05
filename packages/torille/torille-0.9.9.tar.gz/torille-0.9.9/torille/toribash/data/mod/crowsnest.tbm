@@ -1,0 +1,82 @@
+gamerule
+	engageheight 2050
+
+env_obj 1
+    shape box
+    pos 1 -0.125 2.5
+    color 0.4 0.20 0
+    rot 0 0 0
+    sides 15 8 5
+    material steel
+    mass 0.1
+    flag 24
+	
+env_obj 2
+    shape box
+    pos 1 -0.125 12.5
+    color 0.5 0.25 0
+    rot 0 0 0
+    sides 0.5 0.5 15
+    material steel
+    mass 0.1
+    flag 24
+	
+env_obj 3
+    shape box
+    pos 1 -0.125 20.25
+    color 0.5 0.25 0
+    rot 0 0 0
+    sides 4 4 0.5
+    material steel
+    mass 0.1
+    flag 24
+	
+env_obj 4
+    shape box
+    pos 2.95 -0.125 21
+    color 0.5 0.25 0
+    rot 0 0 0
+    sides 0.1 4 1.5
+    material steel
+    mass 0.1
+    flag 24
+	
+env_obj 5
+    shape box
+    pos 1.0 1.83 21
+    color 0.5 0.25 0
+    rot 0 0 0
+    sides 4 0.1 1.5
+    material steel
+    mass 0.1
+    flag 24
+	
+env_obj 6
+    shape box
+    pos -0.95 -0.125 21
+    color 0.5 0.25 0
+    rot 0 0 0
+    sides 0.1 4 1.5
+    material steel
+    mass 0.1
+    flag 24
+	
+env_obj 7
+    shape box
+    pos 1.0 -2.1 21
+    color 0.5 0.25 0
+    rot 0 0 0
+    sides 4 0.1 1.5
+    material steel
+    mass 0.1
+    flag 24
+	
+env_obj 8
+    shape box
+    pos 1.35 -0.125 12
+    color 0.9 0.7 0.5
+    rot 0 0 0
+    sides 0.2 12 10
+    material steel
+    mass 0.1
+    flag 24

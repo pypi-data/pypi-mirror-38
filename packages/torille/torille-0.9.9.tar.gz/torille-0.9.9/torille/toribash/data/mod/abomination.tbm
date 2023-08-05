@@ -1,0 +1,78 @@
+# RicH by Mod :D
+
+gravity 0 0 -20
+
+friction 20
+
+blood
+color 0 0.7 0
+
+body r_foot
+color 0 0.5 0
+sides 0.05 0.03 1.2
+pos 0.8 1.04 -0.1
+material steel
+flag 6
+
+body l_foot
+color 0 0.5 0
+sides 0.05 0.03 1.2
+pos 1.2 1.04 -0.1
+material steel
+flag 6
+
+joint l_ankle
+axis 0 0 1
+range 10 -10
+velocity 100.00
+strength 100.oo
+
+joint r_ankle
+axis 0 0 1
+range 10 -10
+velocity 100.00
+strength 100.00
+
+joint r_wrist
+axis 1 0 0
+range 10 -10
+pos -0.22 0.9 2.3
+velocity 80.00
+strength 100.00
+
+joint l_wrist
+axis 1 0 0
+range 10 -10
+pos 2.22 0.9 2.3
+velocity 80.00
+strength 100.00
+
+body r_hand
+color 1 0 0
+sides 1.1 0.03 0.04
+alt_sides 1.1 0.03 0.04
+pos -0.47 1.05 2.25
+flag 6
+
+body l_hand
+color 1 0 0
+sides 1.1 0.03 0.04
+alt_sides 1.1 0.03 0.04
+pos 2.47 1.05 2.25
+flag 6
+
+body r_triceps
+shape box
+color 0 0 0
+sides 1.1 0.03 0.04
+pos -0.47 1.05 2.32
+flag 6
+
+body l_triceps
+shape box
+color 0 0 0
+sides 1.1 0.03 0.04
+pos 2.47 1.05 2.32
+flag 6
+
+

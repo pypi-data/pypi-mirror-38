@@ -1,0 +1,137 @@
+#!/usr/bin/toribash
+# Environment exported by WorldBuilder
+######################################
+
+gamerule
+matchframes 2000
+turnframes 10
+flags 4
+engageheight 1400
+
+engagedistance 2400
+gravity 0 0 -30
+
+
+env_obj 1
+    shape box
+    pos 0.75 0.25 4
+    color 0.6 0.6 0.6 1
+    rot 0 0 0
+    sides 18.5 21 8
+    material steel
+    mass 0.1
+    flag 24
+#END 1
+
+env_obj 2
+    shape box
+    pos 1 -9.75 9.75
+    color 0.6 0.6 0.6 1
+    rot 28 0 0
+    sides 3.25 8.75 0.75
+    friction yes
+    material steel
+    mass 0.1
+    flag 24
+#END 2
+
+env_obj 3
+    shape box
+    pos 1 9.5 9.5
+    color 0.6 0.6 0.6 1
+    rot 152 0 0
+    sides 3.25 9.25 0.75
+    friction yes
+    material steel
+    mass 0.1
+    flag 24
+#END 3
+
+env_obj 4
+    shape cylinder
+    pos -3.5 -4.75 10.75
+    color 1.1 -0.1 -0.1 1
+    rot 0 0 0
+    sides 0.25 6 1
+    material steel
+    mass 0.1
+    flag 24
+#END 4
+
+env_obj 5
+    shape sphere
+    pos -3.5 -4.75 14
+    color 1.1 1.1 -0.1 0.5
+    rot 0 0 -4
+    sides 0.75 0 0.5
+    material steel
+    mass 0.1
+    flag 24
+#END 5
+
+env_obj 6
+    shape box
+    pos 8 0 8.25
+    color 0.8 0.3 -0.1 1
+    rot 0 0 0
+    sides 1.25 3 1
+    material steel
+    mass 0.1
+    flag 24
+#END 6
+
+env_obj 7
+    shape box
+    pos 8.5 0 9.25
+    color 0.8 0.3 -0.1 1
+    rot 0 0 0
+    sides 0.25 3 1
+    material steel
+    mass 0.1
+    flag 24
+#END 7
+
+env_obj 8
+    shape box
+    pos -5.25 3.25 12.5
+    color 0.6 0.6 0.6 1
+    rot 92 4 0
+    sides 3.25 0.25 2.5
+    material steel
+    mass 0.1
+    flag 24
+#END 8
+
+env_obj 9
+    shape sphere
+    pos -6.75 3 10.75
+    color 0.8 0.3 -0.1 1
+    rot 92 4 0
+    sides 0.25 0.25 2.5
+    material steel
+    mass 0.1
+    flag 24
+#END 9
+
+env_obj 10
+    shape box
+    pos -5.25 4.5 10.25
+    color 0.6 0.6 0.6 1
+    rot 92 4 0
+    sides 3.5 4.75 0.25
+    material steel
+    mass 0.1
+    flag 24
+#END 10
+
+env_obj 11
+    shape box
+    pos -6.75 3 8.5
+    color 0.6 0.6 0.6 1
+    rot 92 4 0
+    sides 0.25 1 2.75
+    material steel
+    mass 0.1
+    flag 24
+#END 11
+

@@ -1,0 +1,152 @@
+gamerule
+	engagedistance 1000
+	engageheight 30
+	disqualification 0
+	matchframes 500
+	turnframes 5
+	gravity 0 0 -20
+
+#board base
+env_obj 1
+shape box
+pos 1 5 .3
+sides 1.75 .5 .1
+mass .0003
+friction 3
+force 1 0 0
+thrust 100 0 0
+
+#wheel 1
+env_obj 2
+shape sphere
+pos 1.5 4.75 .1
+sides .1 .1 .1
+mass .0003
+friction 0
+color 0 0 0
+
+#wheel1-base
+env_obj_joint 1 1 2
+pos 1.5 5.75 .1
+range 5 -5
+axis 0 1 0
+
+
+#wheel 2
+env_obj 3
+shape sphere
+pos .5 4.75 .1
+sides .1 .1 .1
+mass .0003
+friction 0
+color 0 0 0
+
+#wheel2-base
+env_obj_joint 2 1 3
+pos .5 4.75 .1
+range 5 -5
+axis 0 1 0
+
+#wheel 3
+env_obj 4
+shape sphere
+pos .5 5.25 .1
+sides .1 .1 .1
+mass .0003
+friction 0
+color 0 0 0
+
+
+#wheel3-base
+env_obj_joint 3 1 4
+pos .5 5.25 .1
+range 5 -5
+axis 0 1 0
+
+#wheel 4
+env_obj 5
+shape sphere
+pos 1.5 5.25 .1
+sides .1 .1 .1
+mass .0003
+friction 0
+color 0 0 0
+
+
+#wheel4-base
+env_obj_joint 4 1 5
+pos 1.5 5.25 .1
+range 5 -5
+axis 0 1 0
+
+#lip left
+env_obj 6
+pos 1.9 5 .32
+sides .25 .5 .1
+rot 0 15 0
+mass .0003
+
+#lip to base
+env_obj_joint 5 1 6
+pos 1.7 5 .32
+range 5 -5
+velocity 0
+strength 1000
+axis 0 1 0
+
+#lip right
+env_obj 7
+pos .1 5 .32
+sides .25 .5 .1
+rot 0 -15 0
+mass .0003
+
+#lip to base 2
+env_obj_joint 6 1 7
+pos .1 5 .32
+range 5 -5
+velocity 0
+strength 1000
+axis 0 1 0
+
+#body alterations
+player 0
+
+body head
+density .1
+
+body breast
+density .1
+
+body chest
+density .1
+
+body stomach
+density .1
+
+body groin
+density .1
+
+body r_pec
+density .1
+
+body l_pec
+density .1
+
+body r_biceps
+density .1
+
+body r_triceps
+density .1
+
+body l_biceps
+density .1
+
+body l_tricps
+density .1
+
+body r_hand
+density .1
+
+body l_hand
+density .1

@@ -1,0 +1,47 @@
+
+
+
+
+gamerule
+engagedistance 100
+engageheight 300
+turnframe 5
+
+
+
+env_obj 1
+    shape box
+    thrust 30 0 -150 25
+    pos 1 10 2.6896
+    color -1 1 0.3 1
+    rot 1 0 1
+    sides 1 0.460 0.0605
+    material steel
+    mass 0.1
+    flag 0
+#END 1
+
+
+env_obj 2
+    shape box
+    thrust 30 0 -150 25
+    pos 1 10 2.6896
+    color 3 0 0.8 5
+    rot 1 0 1
+    sides 1 0.460 0.0605
+    material steel
+    mass 0.1
+    flag 0
+#END 2
+
+env_obj 3
+    shape box
+    thrust 30 0 -150 25
+    pos 1 10 2.6896
+    color 6 1 0.9 4
+    rot 1 0 1
+    sides 1 0.460 0.0605
+    material steel
+    mass 0.1
+    flag 0
+#END 3

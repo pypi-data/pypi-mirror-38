@@ -1,0 +1,64 @@
+# engage height 1858
+# dq on
+
+gravity 0 0 -14
+
+env_obj 1
+    shape sphere
+    pos 1 0 3
+    color 0.5 0.5 0.5
+    rot 0 0 0
+    sides 3 3 3
+    material steel
+    mass 0.1
+    flag 1
+	
+env_obj 2
+    shape box
+    pos 1 0 6
+    color 0.5 0.5 0.5
+    rot 0 0 0
+    sides 10 10 0.2
+    material steel
+    mass 0.5
+    flag 1
+
+env_obj 3
+    shape sphere
+    pos 1 0 9
+    color 0.5 0.5 0.5
+    rot 0 0 0
+    sides 3 3 3
+    material steel
+    mass 0.1
+    flag 1
+	
+env_obj 4
+    shape box
+    pos 1 0 12.2
+    color 0.5 0.5 0.5
+    rot 0 0 0
+    sides 10 10 0.2
+    material steel
+    mass 0.5
+    flag 1
+	
+env_obj 5
+    shape sphere
+    pos 1 0 15.5
+    color 0.5 0.5 0.5
+    rot 0 0 0
+    sides 3 3 3
+    material steel
+    mass 0.1
+    flag 1
+	
+env_obj 6
+    shape box
+    pos 1 0 18.5
+    color 0.5 0.5 0.5
+    rot 0 0 0
+    sides 10 10 0.2
+    material steel
+    mass 0.5
+    flag 1

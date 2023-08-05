@@ -1,0 +1,142 @@
+# Environment exported by WorldBuilder
+######################################
+
+gamerule
+matchframes 500
+turnframes 50
+engagedistance 200
+engageheight 0
+dojosize 400
+dojotype 1
+
+
+env_obj 1
+    shape cylinder
+    pos 1 -0.0625 3.9375
+    color 0 1 0 1
+    rot 0 0 0
+    sides 0.125 0.4375 0.5
+    material steel
+thrust 1 0 0 10
+    mass 0.1
+    flag 16
+
+env_obj 2
+    shape sphere
+    pos 1 -0.0625 3.5
+    color 0 0 0 1
+    rot 0 0 0
+    sides 0.4 0.4 0.4
+    material steel
+    mass 0.1
+    flag 16
+
+env_obj 3
+    shape box
+    pos 1 -0.6125 3.5
+    color  0 1 0 1
+    rot 0 0 0
+    sides 0.25 0.5 0.0625
+    material steel
+    mass 0.1
+    flag 16
+
+env_obj 4
+    shape box
+    pos 1 0.4875 3.5
+    color 0 1 0 1
+    rot 0 0 0
+    sides 0.25 0.5 0.0625
+    material steel
+    mass 0.1
+    flag 16
+
+env_obj 5
+    shape cylinder
+    pos 1 0.7625 3.5
+    color 0 0 0 1
+    rot 0 90 0
+    sides 0.1 1.0625 2
+    material steel
+    mass 0.1
+    flag 0
+
+env_obj 6
+    shape cylinder
+    pos 1 -0.8875 3.5
+    color 0 0 0 1
+    rot 0 90 0
+    sides 0.1 1.0625 2
+    material steel
+    mass 0.1
+    flag 0
+
+env_obj 7
+    shape box
+    pos 1 -0.0625 4.3125
+    color 1 1 1 1
+    rot 0 0 0
+    sides 0.25 3.5 0.01
+    material steel
+    mass 0.01
+    flag 0
+
+env_obj 10
+    shape sphere
+    pos 1 -0.125 -4
+    color 5 5 5 1
+    rot 0 0 0
+    sides 4 1 1
+    material steel
+    friction 0
+    mass 10000
+    flag 16
+
+
+env_obj_joint 1 1 7
+pos 1 -0.0625 4.3125
+axis 0 0 1
+range 5 -5
+strength 100
+velocity 100
+visible 0
+
+env_obj_joint 2 1 2
+pos 1 -0.0625 3.5
+axis 0 0 0
+range 0 0
+strength 0
+velocity 0
+visible 0
+
+env_obj_joint 3 2 3
+pos 1 -0.0625 3.9375
+axis 0 0 0
+range 0 0
+strength 0
+velocity 0
+visible 0
+
+env_obj_joint 4 2 4
+pos 1 -0.0625 3.9375
+axis 0 0 0
+range 0 0
+strength 0
+velocity 0
+visible 0
+
+env_obj_joint 5 3 5
+pos 1 0.7625 3.5
+axis 0 1 0
+range 0 0
+strength 0
+velocity 0
+visible 0
+
+env_obj_joint 6 4 6
+pos 1 -0.8875 3.5
+axis 0 1 0
+range 0 0
+strength 0
+velocity 0
+visible 0

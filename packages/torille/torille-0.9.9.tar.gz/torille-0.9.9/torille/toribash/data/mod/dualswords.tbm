@@ -1,0 +1,33 @@
+gamerule
+engagedistance 150
+dismemberthreshold 100
+dismember 1
+fracture 0
+turnframes 70
+matchframes 1000
+sumo 1
+dq 0
+
+body r_hand 
+shape box
+sides 0.90 0.22 0.1
+alt_sides  0.80 0.22 0.1
+rot 0 0 0 
+force 0 0 0 
+color 1 1 1 
+material flesh 
+flag 38
+
+body l_hand 
+shape box
+sides 0.90 0.22 0.1
+alt_sides  0.80 0.22 0.1
+rot 0 0 0 
+force 0 0 0 
+color 1 1 1 
+material flesh 
+flag 38
+
+
+
+ 

@@ -1,0 +1,156 @@
+gamerule
+	engageheight 1250
+	disqualification 1
+	matchframes 1000
+	turnframes 50
+	dismemberment 1
+	dismemberthreshold 2000
+
+env_obj 1
+	shape box
+	pos 1.0 -1.5 8
+	color 1 0 0
+	rot 90 0 0
+	sides 10.0 14 0.25
+	material steel
+	flag 24
+
+env_obj 2
+	shape box
+	pos -1.3 0 11
+	color 1 1 1 
+	rot 0 0 0
+	sides .1 3.75 .1
+	material steel
+	flag 8
+
+env_obj 3
+	shape box
+	pos 1 0 11
+	color 1 1 1 
+	rot 0 0 0
+	sides .1 3.75 .1
+	material steel
+	flag 8
+
+env_obj 4
+	shape box
+	pos 3.3 0 11
+	color 1 1 1 
+	rot 0 0 0
+	sides .1 3.75 .1
+	material steel
+	flag 8
+
+
+env_obj 5
+	shape box
+	pos 2.2 0 9
+	color 1 1 1
+	rot 0 0 0
+	sides .1 3.75 .1
+	material steel
+	flag 8
+
+env_obj 6
+	shape box
+	pos -.1 0 9
+	color 1 1 1
+	rot 0 0 0
+	sides .1 3.75 .1
+	material steel
+	flag 8
+
+env_obj 7
+	shape box
+	pos -1.3 0 7
+	color 1 1 1 
+	rot 0 0 0
+	sides .1 3.75 .1
+	material steel
+	flag 8
+
+env_obj 8
+	shape box
+	pos 1 0 7
+	color 1 1 1 
+	rot 0 0 0
+	sides .1 3.75 .1
+	material steel
+	flag 8
+
+env_obj 9
+	shape box
+	pos 3.3 0 7
+	color 1 1 1 
+	rot 0 0 0
+	sides .1 3.75 .1
+	material steel
+	flag 8
+
+env_obj 10
+	shape box
+	pos 2.2 0 5
+	color 1 1 1
+	rot 0 0 0
+	sides .1 3.75 .1
+	material steel
+	flag 8
+
+env_obj 11
+	shape box
+	pos -.1 0 5
+	color 1 1 1
+	rot 0 0 0
+	sides .1 3.75 .1
+	material steel
+	flag 8
+
+env_obj 12
+	shape box
+	pos -1.3 0 3
+	color 1 1 1 
+	rot 0 0 0
+	sides .1 3.75 .1
+	material steel
+	flag 8
+
+env_obj 13
+	shape box
+	pos 1 0 3
+	color 1 1 1 
+	rot 0 0 0
+	sides .1 3.75 .1
+	material steel
+	flag 8
+
+env_obj 14
+	shape box
+	pos 3.3 0 3
+	color 1 1 1 
+	rot 0 0 0
+	sides .1 3.75 .1
+	material steel
+	flag 8
+
+env_obj 15
+	shape box
+	pos 2.2 0 1.25
+	color 1 1 1
+	rot 0 0 0
+	sides .1 3.75 .1
+	material steel
+	flag 8
+
+env_obj 16
+	shape box
+	pos -.1 0 1.25
+	color 1 1 1
+	rot 0 0 0
+	sides .1 3.75 .1
+	material steel
+	flag 8
+#All done by flpwch
+#goons are best
+#thats rite
+#don't h8

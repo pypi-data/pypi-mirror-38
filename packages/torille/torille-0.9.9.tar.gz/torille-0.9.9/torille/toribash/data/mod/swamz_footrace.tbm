@@ -1,0 +1,146 @@
+#!/usr/bin/toribash
+#By Swammy2
+
+gamerule
+engageplayerpos 0.00,0.00,0.00,4.50,0.00,0.00
+gravity 0 0 -30
+
+matchframes 1000
+turnframes 10
+dq 0
+
+env_obj 1
+    shape box
+    pos 3.25 -9.5 0
+    color 0 0 -0.1 1
+    rot 0 0 0
+    sides 0.25 21.25 0.25
+    material steel
+    mass 0.1
+    flag 8
+#END 1
+
+env_obj 2
+    shape box
+    pos 7.5 -9.5 0
+    color 0 0 -0.1 1
+    rot 0 0 0
+    sides 0.25 21.25 0.25
+    material steel
+    mass 0.1
+    flag 8
+#END 2
+
+env_obj 3
+    shape box
+    pos -1.25 -9.5 0
+    color 0 0 -0.1 1
+    rot 0 0 0
+    sides 0.25 21.25 0.25
+    material steel
+    mass 0.1
+    flag 8
+#END 3
+
+env_obj 4
+    shape box
+    pos -1.25 -9.5 1.25
+    color 0 0 -0.1 1
+    rot 0 0 0
+    sides 0.25 21.25 0.25
+    material steel
+    mass 0.1
+    flag 8
+friction 0
+#END 4
+
+env_obj 5
+    shape box
+    pos 7.5 -9.5 1.25
+    color 0 0 -0.1 1
+    rot 0 0 0
+    sides 0.25 21.25 0.25
+    material steel
+    mass 0.1
+    flag 8
+friction 0
+#END 5
+
+env_obj 6
+    shape cylinder
+    pos -1.25 0.75 0.75
+    color 0 0 -0.1 1
+    rot 0 0 0
+    sides 0.25 2.25 1.5
+    material steel
+    mass 0.1
+    flag 8
+#END 6
+
+env_obj 7
+    shape cylinder
+    pos -1.25 -19.5 0.75
+    color 0 0 -0.1 1
+    rot 0 0 0
+    sides 0.25 2.25 1.5
+    material steel
+    mass 0.1
+    flag 8
+#END 7
+
+env_obj 8
+    shape cylinder
+    pos -1.25 -9 0.75
+    color 0 0 -0.1 1
+    rot 0 0 0
+    sides 0.25 2.25 1.5
+    material steel
+    mass 0.1
+    flag 8
+#END 8
+
+env_obj 9
+    shape cylinder
+    pos 7.5 -9 0.75
+    color 0 0 -0.1 1
+    rot 0 0 0
+    sides 0.25 2.25 1.5
+    material steel
+    mass 0.1
+    flag 8
+#END 9
+
+env_obj 10
+    shape cylinder
+    pos 7.5 0.5 0.75
+    color 0 0 -0.1 1
+    rot 0 0 0
+    sides 0.25 2.25 1.5
+    material steel
+    mass 0.1
+    flag 8
+#END 10
+
+env_obj 11
+    shape cylinder
+    pos 7.5 -19.5 0.75
+    color 0 0 -0.1 1
+    rot 0 0 0
+    sides 0.25 2.25 1.5
+    material steel
+    mass 0.1
+    flag 8
+#END 11
+
+env_obj 12
+    shape box
+    pos 3.25 -22.75 0
+    color 0 1.1 1.3877787807814e-016 1
+    rot 0 0 0
+    sides 9.25 5.5 0.25
+    material steel
+    mass 0.1
+    flag 8
+friction 0
+#END 12
+

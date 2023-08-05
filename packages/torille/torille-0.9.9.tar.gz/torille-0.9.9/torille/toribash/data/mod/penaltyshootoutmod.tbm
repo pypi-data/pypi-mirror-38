@@ -1,0 +1,48 @@
+# Environment exported by WorldBuilder#crudely edited by smeebob :P
+######################################
+#make the engage distance between 500 and 515 for best results
+
+env_obj 1
+    shape box
+    pos -2.25 -2.75 1.75
+    color 0 0 1 1
+    rot 0 0 0
+    sides 0.25 0.25 3.25
+    material steel
+    mass 0.1
+    flag 0
+#END 1
+
+env_obj 2
+    shape box
+    pos 4.5 -2.75 1.75
+    color 0 0 1 1
+    rot 0 0 0
+    sides 0.25 0.25 3.25
+    material steel
+    mass 0.1
+    flag 0
+#END 2
+
+env_obj 3
+    shape box
+    pos 1.125 -2.75 3.5
+    color 0 0 1 1
+    rot 0 0 0
+    sides 7 0.25 0.25
+    material steel
+    mass 0.1
+    flag 0
+#END 3
+
+env_obj 4
+    shape sphere
+    pos 1 1.5 0.25
+    color 0 0 1 1
+    rot 0 0 0
+    sides 0.25 1 1
+    material flesh
+    mass 0.0001
+    flag 0
+#END 4
+

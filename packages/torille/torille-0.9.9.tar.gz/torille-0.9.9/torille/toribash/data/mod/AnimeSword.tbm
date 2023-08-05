@@ -1,0 +1,37 @@
+#FNugget
+gamerule
+matchframes 200
+turnframes 10,10,15,15,50,100
+dismemberthreshold 300
+fracturethreshold 200
+engage distance 1000
+
+body stomach 
+	force 0 10 1
+body breast
+	force 0 15 1
+body chest
+	force 0 20 1
+body groin
+	force 0 5 1
+body r_pecs
+	force 0 20 3
+body l_pecs
+	force 0 20 3
+body r_thigh
+	force 0 15 1
+body l_thigh
+	force 0 15 1
+body l_leg
+	force 0 15 3
+body r_leg
+	force 0 15 3
+
+body l_hand
+	flag 6
+	force 0 -3 0
+	sides 1.7 0.16 0.015
+	alt_sides 1.7 0.16 0.015
+	pos 3.0 1.0 2.3
+	material steel
+	color 0.2 0.2 0.2

@@ -1,0 +1,42 @@
+#!/usr/bin/toribash
+#made by NNIICCKK
+
+gamerule
+engagedistance 400
+engageheight 0
+engagerotation 0
+dojosize 650
+dojotype 1
+disqualification 0
+matchframes 600
+turnframes 60,60,100,100,100,100,100,
+dismemberment 1
+dismemberthreshold 9999
+fracture 0
+fracturethreshold 0
+gravity 0 0 0
+
+body head
+thrust 1 0 0 -6
+
+body l_hand
+thrust 1 0 0 -0.05
+
+body r_hand
+thrust 1 0 0 -0.05
+
+body l_foot
+thrust 1 0 0 0.3
+material steel
+flag 6
+
+body r_foot
+thrust 1 0 0 0.3
+material steel
+flag 6
+
+joint chest
+radius 0.180000
+pos 1.000000 0.900000 2.050000
+range 5-5
+velocity 40

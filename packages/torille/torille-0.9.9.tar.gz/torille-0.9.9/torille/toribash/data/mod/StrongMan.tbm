@@ -1,0 +1,103 @@
+#Mod by MrPoptart =D
+
+body r_biceps
+sides 0.8 0.35 0.35
+pos 0.2 0.9 2.3
+
+body l_biceps
+sides 0.8 0.35 0.35
+pos 1.8 0.9 2.3
+
+body r_triceps
+sides 0.8 0.2 0.2
+pos -0.55 0.9 2.3
+
+body l_triceps
+sides 0.8 0.2 0.2
+pos 2.55 0.9 2.3
+
+body r_hand
+sides 0.3 0.3 0.3
+pos -1.2 0.9 2.3
+
+body l_hand
+sides 0.3 0.3 0.3
+pos 3.2 0.9 2.3
+
+joint neck
+radius 0.1
+
+joint chest
+radius 0.2
+
+joint lumbar
+radius 0.15
+
+joint abs
+radius 0.15
+
+joint r_pecs
+radius 0.25
+strength 10.0
+velocity 15.0
+
+joint l_axilla
+radius 0.25
+strength 10.0
+velocity 15.0
+
+joint r_shoulder
+radius 0.3
+pos 0.55 0.9 2.3
+strength 10.0
+velocity 15.0
+
+joint l_shoulder
+radius 0.3
+pos 1.45 0.9 2.3
+strength 10.0
+velocity 15.0
+
+joint r_elbow
+radius 0.275
+pos -0.2 0.9 2.3
+strength 10.0
+velocity 15.0
+
+joint l_elbow
+radius 0.275
+pos 2.2 0.9 2.3
+strength 10.0
+velocity 15.0
+
+joint r_wrist
+radius 0.2
+pos -0.95 0.9 2.3
+
+joint l_wrist
+radius 0.2
+pos 2.95 0.9 2.3
+
+joint r_glute
+radius 0.15
+
+joint l_glute
+radius 0.15
+
+joint r_hip
+radius 0.15
+
+joint l_hip
+radius 0.15
+
+joint r_knee
+radius 0.15
+
+joint l_knee
+radius 0.15
+
+joint r_ankle
+radius 0.1
+
+joint l_ankle
+radius 0.1

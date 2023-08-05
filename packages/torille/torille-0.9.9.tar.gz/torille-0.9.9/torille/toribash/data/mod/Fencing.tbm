@@ -1,0 +1,14 @@
+# Mod by MrPoptart =D
+
+joint r_wrist
+   radius 0.11
+   axis 0 0 1
+   pos -0.2 0.9 2.3
+
+body r_hand
+   sides 1.5 0.01 0.01
+   alt_sides 1.5 0.01 0.01
+   pos -1.0 0.9 2.3
+   color 9 9 9
+   material flesh
+   flag 6

@@ -1,0 +1,110 @@
+# Mod by MrPoptart =D
+# Mod settings: (on the roofs) engage height:5000 engage distance: 500(at least)
+# (In the ally way) normal settings
+
+gamerule
+	engageheight 5000
+	engagedistance 500
+
+env_obj 1
+shape box
+pos 21.0 0.0 25.0
+color 1 1 1
+rot 0 0 45
+sides 25.0 25.0 50.0
+material steel
+mass 0.01
+flag 8
+
+env_obj 2
+shape box
+pos -19.0 0.0 25.0
+color 1 1 1
+rot 0 0 45
+sides 25.0 25.0 50.0
+material steel
+mass 0.01
+flag 8
+
+env_obj 3
+shape box
+pos 1.0 20.0 25.0
+color 1 1 1
+rot 0 0 -45
+sides 25.0 25.0 50.0
+material steel
+mass 0.01
+flag 8
+
+env_obj 4
+shape box
+pos 1.0 -20.0 25.0
+color 1 1 1
+rot 0 0 -45
+sides 25.0 25.0 50.0
+material steel
+mass 0.01
+flag 8
+
+env_obj 5
+shape box
+pos 2.0 -2.5 0.5
+color 1 1 1
+rot 0 0 -45
+sides 1.0 1.0 1.0
+material steel
+mass 0.01
+
+env_obj 6
+shape box
+pos 0.0 2.5 0.5
+color 1 1 1
+rot 0 0 -45
+sides 1.0 1.0 1.0
+material steel
+mass 0.01
+
+env_obj 7
+shape sphere
+pos 0.1 2.6 1.25
+color 1 1 1
+rot 0 0 -45
+sides 0.2 0.2 0.2
+material steel
+mass 0.001
+
+env_obj 8
+shape sphere
+pos 2.1 -2.6 1.25
+color 1 1 1
+rot 0 0 -45
+sides 0.2 0.2 0.2
+material steel
+mass 0.001
+
+env_obj 9
+shape cylinder
+pos 0.5 2.0 1.0
+color 0 0 0
+rot 15 -5 0
+sides 0.05 1.5 0.3
+material steel
+mass 0.01
+
+env_obj 10
+shape cylinder
+pos 1.5 -2.0 1.0
+color 0 0 0
+rot -15 5 0
+sides 0.05 1.5 0.3
+material steel
+mass 0.01
+
+env_obj 11
+shape cylinder
+pos 1.0 0.0 50.01
+color 0 0 0
+rot 90 90 0
+sides 0.05 5.0 0.3
+material steel
+mass 0.01

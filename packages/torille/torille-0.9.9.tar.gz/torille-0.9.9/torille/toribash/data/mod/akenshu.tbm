@@ -1,0 +1,25 @@
+#!/usr/bin/toribash
+gamerule   
+matchframes 500   
+turnframes 30   
+flags 7   
+dismemberment 1   
+fracture 0   
+disqualification 0   
+dqflag 1 
+dqtimeout 0   
+dismemberthreshold 160   
+dojotype 1   
+dojosize 350   
+engagedistance 200   
+engageheight 0   
+engagerotation 0   
+ngagespace 0   engageplayerpos    e
+ngageplayerrot 0,0,0,0,0,0   
+damage 0   
+gravity 0.00 0.00 -30.00   
+sumo 1   
+rpg 0
+|||||||||||||||
+By Sbaduna <- |
+|||||||||||||||

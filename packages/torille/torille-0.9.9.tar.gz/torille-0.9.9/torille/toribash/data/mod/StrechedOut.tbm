@@ -1,0 +1,101 @@
+#Mod by MrPoptart =D
+
+body head
+pos 10. 08.5 26.5
+body breast
+pos 10. 09. 22.
+body chest
+sides 1.0 0.15 0.2
+pos 10. 09. 19.5
+body stomach
+sides 0.7 0.15 0.2
+pos 10. 09.5 17.5
+body groin
+sides 0.4 0.15 0.2
+pos 10. 10. 15.5
+body r_pecs
+sides 0.4 0.15 0.2
+pos 07.5 09. 21.5
+body l_pecs
+sides 0.4 0.15 0.2
+pos 12.5 09. 21.5
+body r_biceps
+sides 03.5 0.2 0.2
+pos 04.5 09. 23.
+body l_biceps
+sides 03.5 0.2 0.2
+pos 15.5 09. 23.
+body r_triceps
+sides 03.5 0.1 0.1
+pos 00.5 09. 23.
+body l_triceps
+sides 03.5 0.1 0.1
+pos 19.5 09. 23.
+body r_hand
+pos -03.5 08.5 23.
+body l_hand
+pos 23.5 08.5 23.
+body r_butt
+pos 08. 10. 14.5
+body l_butt
+pos 12. 10. 14.5
+body r_thigh
+sides 0.12 03. 0.0
+pos 08. 10. 11.
+body l_thigh
+sides 0.12 03. 0.0
+pos 12. 10. 11.
+body r_leg
+sides 0.13 03. 0.0
+pos 08. 10. 05.
+body l_leg
+sides 0.13 03. 0.2
+pos 12. 10. 05.
+body r_foot
+sides 0.2 03.5 0.08
+pos 08. 09. 01.
+body l_foot
+sides 0.2 03.5 0.08
+pos 12. 09. 01.
+joint neck
+pos 10. 09. 25.
+joint chest
+pos 10. 09. 20.5
+joint lumbar
+pos 10. 09.5 18.5
+joint abs
+pos 10. 10. 16.5
+joint r_pecs
+pos 08.5 08.5 22.
+joint l_axilla
+pos 11.5 08.5 22.
+joint r_shoulder
+pos 06.5 09. 23.
+joint l_shoulder
+pos 13.5 09. 23.
+joint r_elbow
+pos 02.5 09. 23.
+joint l_elbow
+pos 17.5 09. 23.
+joint r_wrist
+pos -02. 09. 23.
+joint l_wrist
+pos 22. 09. 23.
+joint r_glute
+pos 09. 11. 15.1
+joint l_glute
+pos 11. 11. 15.1
+joint r_hip
+pos 07.9 10. 14.
+joint l_hip
+pos 12.1 10. 14.
+joint r_knee
+pos 08. 10. 08.
+joint l_knee
+pos 12. 10. 08.
+joint r_ankle
+pos 08. 10.5 02.5
+joint l_ankle
+pos 12. 10.5 02.5
+
+gravity 0 0 -5

@@ -1,0 +1,40 @@
+#See-Saw Escape by Uncopyrightable 
+
+gamerule
+	engagedistance 500
+
+friction 10
+
+env_obj 1
+    shape box
+    pos 1 0.5 1.125
+    color 0.7 0.7 0.7 1
+    rot 0 0 0
+    sides 0.0625 5 0.0625
+    material steel
+    mass 0.1
+    flag 22
+#END 1
+
+env_obj 2
+    shape box
+    pos 1 0.5 0.5625
+    color 0.7 0 -0.1 1
+    rot 0 0 0
+    sides 0.25 0.25 1.0625
+    material steel
+    mass 10
+    flag 24
+#END 2
+
+env_obj 3
+    shape box
+    pos 1 -1.375 10
+    color 0 0.5 1 0.3
+    rot 0 0 0
+    sides 0.25 0.25 0.25
+    material steel
+    mass 20
+    flag 16
+#END 3
+

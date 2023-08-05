@@ -1,0 +1,35 @@
+# Mod by MrPoptart =D
+# Mod settings: engage distance 8000 engage height: 2000
+
+friction 0
+
+env_obj 1
+shape box
+pos 1.0 20.0 10.0
+color 0.5 0.5 0.5
+rot -25 0 0
+sides 10.0 50.0 0.1
+material steel
+mass 0.1
+flag 8
+
+env_obj 2
+shape box
+pos 1.0 -20.0 10.0
+color 0.5 0.5 0.5
+rot 25 0 0
+sides 10.0 50.0 0.1
+material steel
+mass 0.1
+flag 8
+
+env_obj 3
+shape box
+pos 1.0 0.0 0.5
+color 1 0 0
+rot 0 0 0
+sides 50.0 100.0 0.1
+material steel
+mass 0.1
+flag 8
+flag 12

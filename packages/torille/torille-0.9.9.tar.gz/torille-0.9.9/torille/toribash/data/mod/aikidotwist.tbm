@@ -1,0 +1,47 @@
+# AIKIDO with a TWIST mod (by Uncopyrightable)
+
+friction 0
+gravity 0 0 -30
+
+gamerule
+	dojosize 1
+	turnframes 10,20,20,30,30,35,35,40,40,40,50
+	matchframes 350
+                   dismemberment 1
+                   fracture 1
+                   disqualification 1
+                   dqtimeout 0
+                   dismemberthreshold 325
+                   fracturethreshold 200
+                   engagedistance 90
+                   engageheight 12.5                   
+
+env_obj 1
+    shape box
+    pos 1 -0.0625 0.0625
+    color 1 1 1 1
+    rot 0 0 0
+    sides 4.25 4.25 0.0625
+    material steel
+    mass 0.1
+    flag 16
+    friction 0
+
+env_obj 2
+    shape sphere
+    pos 1 -0.0625 -0.0625
+    color 0 0 0 0
+    rot 0 0 0
+    sides 0.125 0 0
+    material steel
+    mass 0.1
+    flag 31
+
+env_obj_joint 1 1 2
+	pos 1 -0.0625 -0.0625
+	axis 0 0 1
+	range 5 -5
+	strength 100
+	velocity 20
+                   visible 0
+

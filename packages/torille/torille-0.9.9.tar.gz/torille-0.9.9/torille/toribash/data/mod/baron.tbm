@@ -1,0 +1,140 @@
+# ride the rocket!
+##################
+
+env_obj 1
+    shape box
+    pos 2.5 37.9375 1.4375
+    color 1 1 1 1
+    rot 45 0 0
+    sides 0.8125 8.4375 0.25
+    material steel
+    mass 0.1
+    flag 8
+#END 1
+
+env_obj 2
+    shape cylinder
+    pos 2.5 38.3125 -0.6875
+    color 0 0 0 1
+    rot -45 0 0
+    sides 1.125 2.75 0.25
+    material steel
+    mass 11
+    flag 0
+#END 2
+
+env_obj 3
+    shape box
+    pos 2.5 36.3125 -0.4375
+    color 1 1 1 1
+    rot 45 0 0
+    sides 0.8125 8.4375 0.25
+    material steel
+    mass 0.1
+    flag 8
+#END 3
+
+env_obj 4
+    shape box
+    pos -0.5 -37.9375 1.4375
+    color 1 1 1 1
+    rot -45 0 0
+    sides 0.8125 8.4375 0.25
+    material steel
+    mass 0.1
+    flag 8
+#END 4
+
+env_obj 5
+    shape cylinder
+    pos -0.5 -38.3125 -0.6875
+    color 0 0 0 1
+    rot 45 0 0
+    sides 1.125 2.75 0.25
+    material steel
+    mass 11
+    flag 0
+#END 5
+
+env_obj 6
+    shape box
+    pos -0.5 -36.3125 -0.4375
+    color 1 1 1 1
+    rot -45 0 0
+    sides 0.8125 8.4375 0.25
+    material steel
+    mass 0.1
+    flag 8
+#END 6
+
+env_obj 7
+    shape box
+    pos -1.75 39.875 2.25
+    color 0.9 1 1 1
+    rot 0 90 0
+    sides 0.1875 0.0625 2.625
+    material steel
+    mass 0.001
+    flag 0
+#END 7
+
+env_obj 8
+    shape box
+    pos 3.75 -40.0625 2.25
+    color 0.9 1 1
+    rot 0 90 0
+    sides 0.1875 0.0625 2.625
+    material steel
+    mass 0.001
+    flag 0
+#END 8
+
+env_obj 9
+    shape box
+    pos 2.5 -60 10.5
+    color 0.9 0.9 0.9 1
+    rot 0 0 0
+    sides 5 5 21
+    material steel
+    mass 20
+    flag 0
+#END 1
+
+env_obj 10
+    shape box
+    pos -0.5 60 10.5
+    color 0.9 0.9 0.9 1
+    rot 0 0 0
+    sides 5 5 21
+    material steel
+    mass 20
+    flag 0
+#END 10
+
+
+
+body head
+	force 0 30 15
+joint neck
+	force 0 20 100
+body stomach 
+	force 0 20 10
+body breast
+	force 0 20 10
+body chest
+	force 0 20 10
+body groin
+	force 0 20 10
+body r_pecs
+	force 0 20 10
+body l_pecs
+	force 0 20 10
+body r_thigh
+	force 0 20 10
+body l_thigh
+	force 0 20 10
+body l_leg
+	force 0 20 10
+body r_leg
+	force 0 20 10
+

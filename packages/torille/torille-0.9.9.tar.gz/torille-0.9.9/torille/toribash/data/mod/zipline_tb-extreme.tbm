@@ -1,0 +1,105 @@
+#!/usr/bin/toribash     
+
+#################
+# Made by EzPax #
+#################
+
+gamerule
+engagedistance 3000
+engageheight 950
+gravity 0 0 -20
+dojo 1
+dojosize 800
+turnframes 50
+matchframes 600
+dismemberthreshold 300
+
+env_obj 1
+shape cylinder
+sides 0.1 15 0.1
+pos 1 8 10
+friction 0
+flag 8
+rot 70 0 90
+
+env_obj 2
+shape cylinder
+sides 0.1 15 0.1
+pos 1 -8 10
+friction 0
+flag 8
+rot -70 0 90
+
+env_obj 3
+shape box
+sides 1 0.05 0.05
+pos 1 14.5 12.5
+friction 0
+rot 90 0 0
+mass 0.1
+
+env_obj 4
+shape box
+sides 1 0.05 0.05
+pos 1 -14.7 12.5
+friction 0
+rot 90 0 0
+mass 0.1
+
+env_obj 5
+    shape box
+    pos 1 -0.0625 4.3125
+    color 0 0 1 1
+    rot 90 0 0
+    sides 5.25 1.1875 5.25
+    material steel
+    mass 0.1
+    flag 8
+#END 1
+
+env_obj 6
+    shape box
+    pos -1.375 2.375 2
+    color 0 0 1 1
+    rot 0 0 0
+    sides 0.1875 0.0625 4.125
+    material steel
+    mass 0.1
+    flag 8
+#END 2
+
+env_obj 7
+    shape box
+    pos -1.375 -2.5625 2
+    color 0 0 1 1
+    rot 0 0 0
+    sides 0.1875 0.0625 4.125
+    material steel
+    mass 0.1
+    flag 8
+#END 3
+
+env_obj 8
+    shape box
+    pos 3.375 -2.5625 2
+    color 0 0 1 1
+    rot 0 0 0
+    sides 0.1875 0.0625 4.125
+    material steel
+    mass 0.1
+    flag 8
+#END 4
+
+env_obj 9
+    shape box
+    pos 3.375 2.375 2
+    color 0 0 1 1
+    rot 0 0 0
+    sides 0.1875 0.0625 4.125
+    material steel
+    mass 0.1
+    flag 8
+#END 5
+
+
+

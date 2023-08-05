@@ -1,0 +1,105 @@
+#  Mod by xanalex if anybodey like this mod send to xanalex some tc  :)
+######################################
+
+gamerule
+engageplayerpos 1.5,5,0,-1.5,5,0
+gravity 0 0 -30
+
+
+env_obj 1
+    shape box
+    pos 8 2 4
+    color 1 1 1
+    rot 0 0 0
+    sides 7 8 8
+    material steel
+    mass 5
+    flag 0
+    friction 0
+        
+#END 1
+
+
+env_obj 2
+    shape box
+    pos 4 4 10
+    color 1 1 1
+    rot 0 0 0
+    sides 3 3 4
+    material steel
+    mass 5
+    flag 0
+    friction 0
+        
+#END 2
+
+env_obj 3
+    shape box
+    pos 4.55 1 10
+    color 1 1 1
+    rot 0 0 0
+    sides 3 3 4
+    material steel
+    mass 5
+    flag 0
+    friction 0
+        
+#END 3
+
+env_obj 4
+    shape box
+    pos -6 2 4
+    color 1 1 1
+    rot 0 0 0
+    sides 7 8 8
+    material steel
+    mass 5
+    flag 0
+    friction 0
+        
+#END 4
+
+
+env_obj 5
+    shape box
+    pos -2 4 10
+    color 1 1 1
+    rot 0 0 0
+    sides 3 3 4
+    material steel
+    mass 5
+    flag 0
+    friction 0
+        
+#END 5
+
+env_obj 6
+    shape box
+    pos -2.55 1 10
+    color 1 1 1
+    rot 0 0 0
+    sides 3 3 4
+    material steel
+    mass 5
+    flag 0
+    friction 0
+        
+#END 6
+
+env_obj 7
+    shape box
+    pos 1 -1.95 8.1
+    color 1 1 1
+    rot 0 0 0
+    sides 14 2 0.2
+    material steel
+    mass 5
+    flag 0
+    friction 0
+        
+#END 7
+
+
+
+
+

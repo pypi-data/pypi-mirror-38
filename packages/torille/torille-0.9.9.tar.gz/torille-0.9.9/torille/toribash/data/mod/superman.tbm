@@ -1,0 +1,78 @@
+gamerule
+engageheight 2000
+engagedistace 1000
+
+body head
+force 0 10 0
+body stomach 
+force 0 10 0 
+body breast 
+force 0 10 0 
+body chest 
+force 0 10 0 
+body groin 
+force 0 10 0 
+body r_pecs 
+force 0 10 0 
+body l_pecs 
+force 0 10 0 
+body r_triceps
+force 0 10 0
+body r_hand
+force 0 10 0
+body l_hand
+force 0 10 0
+body l_triceps
+force 0 10 0
+body lumbar 
+force 0 10 0
+body r_butt
+force 0 5 0
+body l_butt
+force 0 5 0
+body r_thigh 
+force 0 10 0 
+body l_thigh 
+force 0 10 0 
+body l_leg 
+force 0 10 0 
+body r_leg 
+force 0 10 0 
+body l_foot 
+force 0 10 0 
+body r_foot 
+force 0 10 0 
+joint head
+force 0 10 0
+joint stomach 
+force 0 10 0 
+joint breast 
+force 0 10 0 
+joint chest 
+force 0 10 0 
+joint groin 
+force 0 10 0 
+joint abs
+force 0 10 0
+joint lumbar
+force 0 10 0
+joint r_pecs 
+force 0 10 0 
+joint l_pecs 
+force 0 10 0 
+joint r_butt
+force 0 10 0
+joint l_butt
+force 0 10 0
+joint r_thigh 
+force 0 10 0 
+joint l_thigh 
+force 0 10 0 
+joint l_leg 
+force 0 10 0 
+joint r_leg 
+force 0 10 0 
+joint l_foot 
+force 0 10 0 
+joint r_foot 
+force 0 10 0 

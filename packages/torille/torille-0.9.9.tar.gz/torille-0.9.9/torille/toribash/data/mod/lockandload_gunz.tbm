@@ -1,0 +1,24 @@
+# Mod by Danstar
+
+player 0
+tori
+
+joint l_elbow
+pos 2.30 0.85 2.40
+axis 0 1 0
+range 3 0
+
+joint r_elbow
+pos -0.30 0.85 2.40
+axis 0 1 0
+range 3 0
+
+body l_hand
+sides 0.22 0.1 0.1
+alt_sides 5.0 0.05 0.05
+flag 6
+
+body r_hand
+sides 0.22 0.1 0.10
+alt_sides 5.0 0.05 0.05
+flag 6

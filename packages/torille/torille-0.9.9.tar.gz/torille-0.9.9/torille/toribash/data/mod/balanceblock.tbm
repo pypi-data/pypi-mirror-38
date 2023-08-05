@@ -1,0 +1,35 @@
+# Environment exported by WorldBuilder
+######################################
+gravity 20
+env_obj 1
+    shape box
+    pos 1 -0.25 3.5
+    color 1.1 -0.1 -0.1 1
+    rot 0 0 0
+    sides 1 2 1
+    material steel
+    mass 1
+    flag 0
+#END 1
+
+env_obj 2
+    shape box
+    pos 1 -0.25 1.75
+    color 1.1 0.8 -0.1 1
+    rot 0 0 0
+    sides -0.25 0 3.75
+    material steel
+    mass 1
+    flag 16
+#END 2
+
+body head
+material steel
+ 
+player 0
+body r triceps
+strength 40
+
+player 1
+body r triceps
+strength 40

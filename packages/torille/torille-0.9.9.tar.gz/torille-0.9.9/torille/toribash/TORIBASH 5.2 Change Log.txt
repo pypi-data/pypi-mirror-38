@@ -1,0 +1,156 @@
+5.2 Change Log
+Added daily rewards
+Updated torishop items
+Updated popup menu for player list in multiplayer match
+
+
+5.14 Change Log
+Added rank tier
+Fixed customs' obj download
+
+5.13
+Added obj for joints
+Updated colors for player list
+
+5.12
+Updated matchmaker menu
+Fixed autosave when on new matchmake
+Fixed crash on read only customs folder
+Fixed auto load on shader menu
+
+5.11
+Updated new colors
+Fixed bugs
+
+5.1
+Added limit between 0 to 10 for hardness parameter in mods
+Added world shader search button in modmaker
+Added search to script, shader, replay menu
+Added automatic load bumpmap for obj model if option is enabled and bumpmap texture is available
+Added support for right to left in localized language
+Added modmaker_draft folder for modmaker to backup mod before using another mod in modmaker
+Fixed multiple trigger sound not playing at the same time
+Fixed reset all in modmaker not resetting world shader, button caption, motd textfield
+
+5.02
+Fixed missing assets
+Fixed spectator colors
+Fixed chat while playing
+Added remember matchmaker menu position, visibility when starting game
+Added pause to matchmake button when searching
+Added chat focus option, when enabled it will not lose chat focus on mouse over but only if clicked
+
+5.01
+Added colors and symbols for certain groups
+Fixed crashes
+
+5.0
+Added matchmaking
+Added torishop multibuy
+Added steam voice chat (default volume is 0, /voichat to enable)
+Added push-to-talk key (Q) for voicechat
+Added commands voicechat, voicevolume, voicemute, voiceunmute
+
+4.96
+Updated tutorial and torishop
+Added chat network forum link to main menu
+
+4.95
+Fixed pop up message on menu
+Fixed multiplayer server search, crash on scroll
+Added delete confimation window to replay menu
+Added rename label to for rename textfield
+Fixed obj alpha
+
+4.94
+Fixed test button in modmaker
+Fixed saving effects option
+Moved realtime ghost update from world state to option
+Fixed auto complete to add space after word
+Fixed joint texture not showing
+Fixed send server info to offline client
+Fixed low quality audio
+
+4.93
+Updated Multiplayer menu
+Updated tutorial
+Fixed bruise option affecting decap
+Fixed ghost on obj
+
+4.92
+Fixed Torishop for non-steam version
+Fixed chat crash
+
+4.91
+Updated Torishop with new announcement
+Fixed crash when enabling shader option
+Fixed crash at browsing mod directory
+Disabled download if directory is read only
+
+4.9
+Added language option to setup menu
+Added world_shader setting to mod file
+(ex: world_shader data/shader/blackholesun.inc)
+Added WORLD_SHADER setting to replay file that has to be inserted after NEWGAME line
+(ex: WORLD_SHADER 0;data/shader/inverted.inc)
+Added camera zoom to tori, uke hotkey with '6', '7' key
+Updated Torishop with new UI and latest prices
+
+4.82
+Added crashtempmp_fix.tbm to mod
+Added /opt filesort 0 - default, 1 - sort lower cap name, 2 - sort original name
+Added support for replay file with over 4096 frames (cache will be disabled)
+Added /opt replaycache to enable/disable replay cache
+Fixed crash on systems without hardware acceleration for opengl
+Fixed crash when running with raytrace and using atmosphere lua script
+Fixed multiplayer window crash
+
+4.8
+Added obj model with normal face support
+Added buy tori credits menu
+Added TC balance
+Added adjustable replay speed value while playing match
+Added new country flags
+Fixed zero mass crash in mods
+Fixed reversing replay skips movement
+Fixed loading replay crash when replay speed is negative
+Fixed hiding non-joinable rooms due to belt in multiplayer
+Fixed camera moves on keyboard press when opening menus
+Fixed crash due to no kiai sound
+Fixed crash at lua set_grip_info due to invalid player index
+Removed all customs except for tori, uke, toriko, ukeko
+
+4.7
+Added scoringmeter when pointthreshold is enabled
+Fixed scoring mod, mod maker crash
+Fixed spacing on game over in multiplayer freezes replay
+Fixed hair drawing in shader mode
+Fixed mod list scroll when typing in textbox
+Fixed crash on startup
+Fixed multiplayer menu buttons when changing resolution
+Updated ToriShop
+Fixed joint dm_threshold for mods on this version onwards
+
+4.62
+Fixed audio, sound effects
+Fixed reflection on the ground when object passes through
+Fixed closing whisper tab
+Fixed crash on some systems
+Fixed sorting server order by belt restriction
+
+4.61
+Added automatic resize to server browser
+Fixed crash on some systems
+
+4.6
+Added afk suffix to afk muliclient players
+Added room info, show room name on tab
+Added unicode text support to lua
+Added spectate both afk players
+Added changeable scoring system available via modmaker, point_hit and point_dm
+Added point threshold, scoring point if damaged above threshold moddable with '/set pointthreshold 100'. 0 for normal, 1 or above for threshold
+Added '/ss' screenshot command
+Added new replays
+Fixed fullscreen resolution
+Fixed taking screenshot on certain resolution crash
+Fixed information on player list

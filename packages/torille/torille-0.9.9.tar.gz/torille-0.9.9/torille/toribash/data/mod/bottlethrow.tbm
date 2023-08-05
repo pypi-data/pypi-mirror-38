@@ -1,0 +1,87 @@
+# ah! just like at the carnival! the rigged bottles! :D
+made by Daxx777 revised by pnut for multiplayer 
+
+gamerule
+ed 1000
+tf 2,2,5,5,10,10,50,50,500,500,500
+mf 750
+
+
+
+env_obj 1
+    shape box
+    pos 1.5 -3.5 0.51
+    color 0 0 1 1
+    rot 0 0 0
+    sides 0.125 1 1
+    material steel
+    mass 0.1
+    flag 8
+#END 1
+
+env_obj 2
+    shape box
+    pos 0.5 -3.5 0.51
+    color 0 0 1 1
+    rot 0 0 0
+    sides 0.125 1 1
+    material steel
+    mass 0.1
+    flag 8
+#END 2
+
+env_obj 3
+    shape box
+    pos 1 -3.5 1.0625
+    color 0 0 1 1
+    rot 0 0 0
+    sides 1.125 1 0.0625
+    material steel
+    mass 0.1
+    flag 8
+#END 3
+
+env_obj 4
+    shape cylinder
+    pos 0.6875 -3.3125 1.4375
+    color .2 1 .2 1
+    rot 0 0 0
+    sides 0.125 0.5 0.9375
+    material steel
+    mass 0.05
+    flag 0
+#END 4
+
+env_obj 5
+    shape cylinder
+    pos 1 -3.3125 1.4375
+    color .2 1 .2 1
+    rot 0 0 0
+    sides 0.125 0.5 0.9375
+    material steel
+    mass 0.05
+    flag 0
+#END 5
+
+env_obj 6
+    shape cylinder
+    pos 1.3125 -3.3125 1.4375
+    color .2 1 .2 1
+    rot 0 0 0
+    sides 0.125 0.5 0.9375
+    material steel
+    mass 0.05
+    flag 0
+#END 6
+
+env_obj 7
+    shape sphere
+    pos -0.44 4.9375 2.25
+    color -0.1 -0.1 -0.1 1
+    rot 0 0 0
+    sides 0.3 1 1
+    material steel
+    mass 0.001
+    flag 0
+#END 7
+

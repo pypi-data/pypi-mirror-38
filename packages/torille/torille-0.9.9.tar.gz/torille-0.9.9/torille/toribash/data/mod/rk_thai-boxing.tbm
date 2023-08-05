@@ -1,0 +1,16 @@
+joint r_elbow
+    axis 0.000000 1.000000 0.000000
+joint l_elbow
+    axis 0.000000 1.000000 0.000000
+
+gamerule
+matchframes 220
+turnframes 20
+gravity 0 0 -45
+engagedistance 150
+dojosize 150
+dojotype 1
+fracture 1
+fracturethreshold 100
+dqtimeout 25
+flags 9

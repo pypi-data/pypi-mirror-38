@@ -1,0 +1,34 @@
+################### 
+#made by Inst1nkt
+blood
+	color 0 0 1
+body stomach 
+	force 0 10 1
+body breast
+	force 0 10 1
+body chest
+	force 0 10 1
+body groin
+	force 0 10 1
+body r_pecs
+	force 0 20 1
+body l_pecs
+	force 0 20 1
+body r_thigh
+	force 0 20 1
+body l_thigh
+	force 0 20 1
+body l_leg
+	force 0 30 00
+body r_leg
+	force 0 30 00
+friction 0
+
+gamerule
+      engagerotation 90
+      matchframes 160
+      engagedistance 2000      
+      turnframes 70,50,30,10
+      dismembermenthreshold 150
+      engageheight 30
+      

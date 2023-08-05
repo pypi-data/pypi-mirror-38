@@ -1,0 +1,44 @@
+#Mod by GrayNinja
+worldbuilder
+
+gamerule
+gravity 0 0 -15
+engagedistance 1250
+matchframes 380
+turnframes 80,30,30,30,30,30,30,30,30,30,30
+flags 12
+dismemberment 1
+fracture 1
+disqualification 0
+dismemberthreshold 125
+fracturetreshold 110
+engageheight 75
+dojotype 1
+dojosize 300
+
+body head
+force 0 14 2
+body stomach
+force 0 12 1
+body breast
+force 0 12 2
+body chest
+force 0 12 1
+body groin
+force 0 12 1
+body r_pecs
+force 0 9 1
+body l_pecs
+force 0 9 1
+body r_thigh
+force 0 8 1
+body l_thigh
+force 0 8 1
+body l_leg
+force 0 10 1
+body r_leg
+force 0 10 1
+body r_foot
+force 0 3 1
+body l_foot
+force 0 3 1

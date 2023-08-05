@@ -1,0 +1,105 @@
+#!/usr/bin/toribash
+
+THANKS TO BRUCIA FOR BRUSHU I BRING YOU ITS EPIC DOJO FOR MAX ACTION ^_^ ENJOY!
+~SWAMMY
+
+gamerule
+engagedistance 300
+dismember 1
+dismemberthreshold 300
+fracture 1
+fracturethreshold 180
+turnframes 50
+matchframes 1000
+sumo 1
+dq 1
+flags 15
+
+env_obj 1
+    shape box
+    pos -8 0.25 3.5
+    color 0.7 2.7755575615629e-017 -0.1 1
+    rot 0 0 0
+    sides 0.25 15.5 7
+    material steel
+    mass 0.1
+    flag 8
+#END 1
+
+env_obj 2
+    shape box
+    pos 8 0.25 3.5
+    color 0.7 2.7755575615629e-017 -0.1 1
+    rot 0 0 0
+    sides 0.25 15.5 7
+    material steel
+    mass 0.1
+    flag 8
+#END 2
+
+env_obj 3
+    shape box
+    pos 0 8 3.5
+    color 0.7 2.7755575615629e-017 -0.1 1
+    rot 0 0 0
+    sides 15.75 0.25 7
+    material steel
+    mass 0.1
+    flag 8
+#END 3
+
+env_obj 4
+    shape box
+    pos 0 -7.5 3.5
+    color 0.7 2.7755575615629e-017 -0.1 1
+    rot 0 0 0
+    sides 15.75 0.25 7
+    material steel
+    mass 0.1
+    flag 8
+#END 4
+
+env_obj 5
+    shape sphere
+    pos 7.75 8 8.25
+    color 1.1 0.9 -0.1 1
+    rot 0 0 0
+    sides 1.25 0.75 1
+    material steel
+    mass 0.1
+    flag 8
+#END 5
+
+env_obj 6
+    shape sphere
+    pos -8 8 8.25
+    color 1.1 0.9 -0.1 1
+    rot 0 0 0
+    sides 1.25 0.75 1
+    material steel
+    mass 0.1
+    flag 8
+#END 6
+
+env_obj 7
+    shape sphere
+    pos -8 -7.5 8.25
+    color 1.1 0.9 -0.1 1
+    rot 0 0 0
+    sides 1.25 0.75 1
+    material steel
+    mass 0.1
+    flag 8
+#END 7
+
+env_obj 8
+    shape sphere
+    pos 7.75 -7.5 8.25
+    color 1.1 0.9 -0.1 1
+    rot 0 0 0
+    sides 1.25 0.75 1
+    material steel
+    mass 0.1
+    flag 8
+#END 8
+

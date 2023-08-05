@@ -1,0 +1,124 @@
+###############################
+# MP_twist.tbm By Brain112 :D #
+###############################
+
+gamerule
+    engagedistance 200
+    matchframes 500
+    turnframes 30
+
+env_obj 1
+    shape box
+    pos -1.25 1 100
+    color 0.4 0 -0.1 1
+    rot 0 0 0
+    sides 1 1 3
+    material steel
+    mass 0.1
+    flag 8
+#END 1
+
+env_obj 2
+    shape box
+    pos 3.25 1 100
+    color 0.4 0 -0.1 1
+    rot 0 0 0
+    sides 1 1 3
+    material steel
+    mass 0.1
+    flag 8
+#END 2
+
+env_obj 3
+    shape sphere
+    pos -0.75 1 2.25
+    color -0.1 0 -0.1 1
+    rot 0 0 0
+    sides 0.5 1 1
+    material steel
+    mass 0.1
+    flag 0
+#END 3
+
+env_obj 4
+    shape sphere
+    pos 2.75 1 2.25
+    color -0.1 0 -0.1 1
+    rot 0 0 0
+    sides 0.5 1 1
+    material steel
+    mass 0.1
+    flag 0
+#END 4
+
+env_obj 5
+    shape box
+    pos -1.25 -1.25 100
+    color 0.4 0 -0.1 1
+    rot 0 0 0
+    sides 1 1 3
+    material steel
+    mass 0.1
+    flag 8
+#END 5
+
+env_obj 6
+    shape box
+    pos 3.25 -1.25 100
+    color 0.4 0 -0.1 1
+    rot 0 0 0
+    sides 1 1 3
+    material steel
+    mass 0.1
+    flag 8
+#END 6
+
+env_obj 7
+    shape sphere
+    pos -0.75 -1.25 2.25
+    color -0.1 0 -0.1 1
+    rot 0 0 0
+    sides 0.5 1 1
+    material steel
+    mass 0.1
+    flag 0
+#END 7
+
+env_obj 8
+    shape sphere
+    pos 2.75 -1.25 2.25
+    color -0.1 0 -0.1 1
+    rot 0 0 0
+    sides 0.5 1 1
+    material steel
+    mass 0.1
+    flag 0
+#END 8
+
+env_obj_joint 1 1 3
+	pos -0.75 1 2.25
+	strength 100
+        axis 1 0 0
+        velocity -20
+        range 5 -5
+
+env_obj_joint 2 2 4
+	pos 2.75 1 2.25
+	strength 100
+        axis 1 0 0
+        velocity -20
+        range 5 -5
+
+env_obj_joint 3 5 7
+	pos -0.75 -1.25 2.25
+	strength 100
+        axis 1 0 0
+        velocity 20
+        range 5 -5
+
+env_obj_joint 4 6 8
+	pos 2.75 -1.25 2.25
+	strength 100
+        axis 1 0 0
+        velocity 20
+        range 5 -5

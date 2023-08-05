@@ -1,0 +1,50 @@
+
+gamerule
+##########
+matchframes 500
+turnframes 40,40,40,50,50,50,50,50,50,50,30
+flags 2
+dismemberment 1
+fracture 0
+disqualification 0
+dqtimeout 0
+dqflag 1
+dismemberthreshold 100
+fracturethreshold 0
+dojotype 1
+dojosize 200
+engagedistance 2000
+engageheight 200
+engagerotation 0
+engagespace 0
+engageplayerpos 
+engageplayerrot 0,0,0,0,0,0
+damage 0
+gravity 0.00 0.00 -9.82
+sumo 1
+rpg 0
+
+################
+
+
+body stomach 
+	force 0 10 5
+body breast
+	force 0 10 5
+body chest
+	force 0 10 5
+body groin
+	force 0 10 5
+body r_pecs
+	force 0 20 5
+body l_pecs
+	force 0 20 5
+body r_thigh
+	force 0 20 5
+body l_thigh
+	force 0 20 5
+body l_leg
+	force 0 30 00
+body r_leg
+	force 0 30 00
+

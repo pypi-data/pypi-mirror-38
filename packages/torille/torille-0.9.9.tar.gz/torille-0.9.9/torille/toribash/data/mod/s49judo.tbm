@@ -1,0 +1,113 @@
+#!/usr/bin/toribash
+#### Created with ModEditor by DeFransen ####
+
+#### Smogard49 idea ####
+#some kind of judo
+
+
+gamerule
+   damage 2
+   dismemberment 0
+   disqualification 1
+   dojosize 600
+   dojotype 0
+   dqflag 1
+   dqtimeout 30
+   engagedistance 80
+   engageheight 0
+   engagerotation 0
+   engagespace 0
+   flags 11
+   fracture 1
+   fracturethreshold 333
+   gravity 0 0 -50
+   matchframes 432
+   rpg 0
+   sumo 1
+   turnframes 6,6,10,10,15,15,21,21,28,28,36,36,45,45,55,55
+
+
+# for all players
+
+   body head
+      flag 16
+
+   body l_foot
+      flag 48
+
+   body l_hand
+      flag 48
+
+   body l_leg
+      flag 16
+
+   body l_triceps
+      flag 16
+
+   body r_foot
+      flag 48
+
+   body r_hand
+      flag 48
+
+   body r_leg
+      flag 16
+
+   body r_triceps
+      flag 16
+
+   joint abs
+      velocity 30
+      strength 7
+
+   joint chest
+      velocity 50
+      strength 15
+
+   joint l_elbow
+      strength 1
+
+   joint l_hip
+      velocity 20
+      strength 5
+
+   joint l_pecs
+      velocity 20
+      strength 10
+
+   joint l_shoulder
+      velocity 10
+
+   joint lumbar
+      velocity 40
+      strength 10
+
+   joint neck
+      velocity 10
+      strength 0.4
+
+   joint r_elbow
+      strength 1
+
+   joint r_hip
+      velocity 20
+      strength 5
+
+   joint r_pecs
+      velocity 20
+      strength 10
+
+   joint r_shoulder
+      velocity 10
+
+
+env_obj 1
+   color 0 0 1 0
+   flag 16
+   mass 0.9
+   pos 1 0 -0.0175
+   shape box
+   sides 6 6 0.0001
+   visible 0
+
+

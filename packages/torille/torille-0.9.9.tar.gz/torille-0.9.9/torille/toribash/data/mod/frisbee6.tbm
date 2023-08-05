@@ -1,0 +1,16 @@
+gamerule 
+engagedistance 1000
+
+env_obj 1
+    shape box
+	pos -0.9 5 2.2
+    color 0.3 0.3 0.3
+    sides 1 1 0.03
+    material steel
+    mass 0.003
+    flag 6
+
+player 0
+	
+body r_hand
+flag 6

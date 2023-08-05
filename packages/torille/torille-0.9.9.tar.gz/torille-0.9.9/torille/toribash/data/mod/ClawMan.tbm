@@ -1,0 +1,43 @@
+# Mod by MrPoptart =D
+
+joint r_elbow
+pos 0.25 0.9 2.3
+
+joint l_elbow
+pos 1.75 0.9 2.3
+
+body r_triceps
+sides 1.0 0.1 0.1
+pos -0.2 0.9 2.3
+color 0 0 0
+material steel
+
+body l_triceps
+sides 1.0 0.1 0.1
+pos 2.2 0.9 2.3
+color 0 0 0
+material steel
+
+joint r_wrist
+radius 0.11
+axis 0 1 0
+pos -0.1 0.9 2.45
+
+joint l_wrist
+radius 0.11
+axis 0 1 0
+pos 2.1 0.9 2.45
+
+body r_hand
+sides 1.2 0.1 0.01
+alt_sides 1.2 0.2 0.01
+pos -0.2 0.9 2.55
+color 1 0 0
+material steel
+
+body l_hand
+sides 1.2 0.1 0.01
+alt_sides 1.2 0.2 0.01
+pos 2.2 0.9 2.55
+color 1 0 0
+material steel

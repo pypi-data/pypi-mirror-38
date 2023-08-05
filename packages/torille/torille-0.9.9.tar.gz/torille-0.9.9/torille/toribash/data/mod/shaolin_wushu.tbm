@@ -1,0 +1,118 @@
+#!/usr/bin/toribash
+body head
+  density 0.5
+body breast
+  density 0.5
+body chest
+  density 0.5
+body stomach
+  density 0.5
+body groin
+  density 0.5
+body r_pecs
+  density 0.5
+body r_biceps
+  density 0.5
+body r_triceps
+  density 0.5
+body l_pecs
+  density 0.5
+body l_biceps
+  density 0.5
+body l_triceps
+  density 0.5
+body r_hand
+  density 0.5
+body l_hand
+  density 0.5
+body r_butt
+  density 0.5
+body l_butt
+  density 0.5
+body r_thigh
+  density 0.5
+body l_thigh
+  density 0.5
+body l_leg
+  density 0.5
+body r_leg
+  density 0.5
+body r_foot
+  density 0.5
+body l_foot
+  density 0.5
+
+
+joint neck
+  velocity 30
+  strength 3
+joint chest
+  velocity 30
+  strength 3
+joint lumbar
+  velocity 30
+  strength 3
+joint abs
+  velocity 30
+  strength 3
+joint r_pecs
+  velocity 30
+  strength 3
+joint r_shoulder
+  velocity 30
+  strength 3
+joint r_elbow
+  velocity 30
+  strength 3
+joint l_axilla
+  velocity 30
+  strength 3
+joint l_shoulder
+  velocity 30
+  strength 3
+joint l_elbow
+  velocity 30
+  strength 3
+joint r_wrist
+  velocity 30
+  strength 3
+joint l_wrist
+  velocity 30
+  strength 3
+joint r_glute
+  velocity 30
+  strength 3
+joint l_glute
+  velocity 30
+  strength 3
+joint r_hip
+  velocity 30
+  strength 3
+joint l_hip
+  velocity 30
+  strength 3
+joint r_knee
+  velocity 30
+  strength 3
+joint l_knee
+  velocity 30
+  strength 3
+joint r_ankle
+  velocity 30
+  strength 3
+joint l_ankle
+  velocity 30
+  strength 3
+
+gamerule
+engagedistance 280
+dismember 1
+dismemberthreshold 150
+fracture 1
+fracturethreshold 100
+gravity 0 0 -9.82
+turnframes 50
+matchframes 750
+sumo 1
+dq 1
+flags 15

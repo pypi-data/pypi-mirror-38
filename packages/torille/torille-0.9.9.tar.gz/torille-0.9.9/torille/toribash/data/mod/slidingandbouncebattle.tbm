@@ -1,0 +1,135 @@
+#  Mod by xanalex if anybodey like this mod send to xanalex some tc  :)
+######################################
+
+friction 0
+
+gamerule
+engagedistance 4100
+engageheight 1700
+matchframes 1000
+turnframes 10,10,10,10,50,100,180,50,20,20,20,20,40,20,20,20,20,20,20,50,50,50,50
+dojosize 1
+
+env_obj 1
+    shape box
+    pos 1 -5 5
+    color 0 0 0 1
+    rot 0 0 0
+    sides 5 5 10
+    material steel
+    mass 0.1
+    flag 8
+#END 1
+
+env_obj 6
+    shape box
+    pos 1 5 5
+    color 0 0 0 1
+    rot 0 0 0
+    sides 5 5 10
+    material steel
+    mass 0.1
+    flag 8
+#END 6
+
+env_obj 10
+    shape box
+    pos 1 0 3
+    color 0 0 0 1
+    rot 0 0 0
+    sides 5 5 6
+    material steel
+    mass 0.1
+    flag 8
+#END 10
+
+
+
+env_obj 2
+    shape cylinder
+    pos 1 20 20
+    color 0 0 0 1
+    rot 90 90 0
+    sides 0.05 1 0.1
+    material steel
+    mass 0.1
+    flag 1
+    friction 0
+#END 2
+
+env_obj 3
+    shape cylinder
+    pos 1 -20 20
+    color 0 0 0 1
+    rot 90 90 0
+    sides 0.05 1 0.1
+    material steel
+    mass 0.1
+    flag 1
+    friction 0
+#END 3
+
+
+
+env_obj 4
+    shape cylinder
+    pos 1 15 17.3
+    color 0 0 1 1
+    rot 65 0 0
+    sides 0.05 11.3 1
+    material steel
+    mass 0.1
+    flag 24
+    friction 0
+#END 4
+
+env_obj 5
+    shape cylinder
+    pos 1 -15 17.3
+    color 0 0 1 1
+    rot -65 0 0
+    sides 0.05 11.3 1
+    material steel
+    mass 0.1
+    flag 24
+    friction 0
+#END 5
+
+env_obj 7
+    shape box
+    pos 1 -5 10.05
+    color 1.1 0 0 1.1
+    rot 0 0 0
+    sides 5 5 0
+    material steel
+    bounce 10
+    mass 0.001
+    flag 8
+    friction 0
+#END 7
+
+env_obj 8
+    shape box
+    pos 1 5 10.05
+    color 1.1 0 0 1.1
+    rot 0 0 0
+    sides 5 5 0
+    material steel
+    bounce 10
+    mass 0.001
+    flag 8
+    friction 0
+#END 8
+
+env_obj 9
+    shape box
+    pos 1 0 6.05
+    color 1.1 0 0 1.1
+    rot 0 0 0
+    sides 5 5 0
+    material steel
+    bounce 10
+    mass 0.001
+    flag 8
+    friction 0
+#END 9

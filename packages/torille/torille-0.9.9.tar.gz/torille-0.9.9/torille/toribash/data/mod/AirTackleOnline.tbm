@@ -1,0 +1,64 @@
+#Created by Budster
+#Online Version 
+#Suggested Settings:
+#Matchframes: 180
+#Turnframes: 20
+#Dismemberment threshold: 500+
+#Engage Distance: 1000
+
+player 1
+
+
+body stomach 
+	force 0 25 10
+
+body breast
+	force 0 25 10
+body chest
+	force 0 25 1
+0
+body groin
+	force 0 25 1
+0
+body r_pecs
+	force 0 35 20
+
+body l_pecs
+	force 0 35 20
+body r_thigh
+	force 0 30 20
+
+body l_thigh
+	force 0 30 20
+body l_leg
+	force 0 30 30
+
+body r_leg
+	force 0 30 30
+
+player 0
+
+body stomach 
+	force 0 0 5
+body breast
+	force 0 0 5
+
+body chest
+	force 0 0 5
+body groin
+	force 0 0 5
+
+body r_pecs
+	force 0 0 15
+body l_pecs
+	force 0 0 15
+body r_thigh
+	force 0 0 15
+body l_thigh
+	force 0 0 15
+body l_leg
+	force 0 0 25
+
+body r_leg
+	force 0 0 25
+

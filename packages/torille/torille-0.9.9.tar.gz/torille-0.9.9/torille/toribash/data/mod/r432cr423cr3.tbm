@@ -1,0 +1,36 @@
+#!  D
+ body r_hand
+   shape cylinder
+   sides 0.02 0.002 0.002
+   material flesh
+ body l_hand
+   shape cylinder
+   sides 0.02 0.02 0.02
+   material flesh
+ body r_foot
+   color 0 0 0
+   flag 6
+   material steel
+
+body l_foot
+   color 0 0 0
+   flag 6
+   material steel
+
+body r_leg
+   color 0 0 0
+   flag 6
+   material steel
+
+body l_leg
+   color 0 0 0
+   flag 6
+   material steel
+
+gamerule
+engagedistance 250
+turnframes 50
+matchframes 500
+dismemberment 1
+dismember threshold 100
+dq 1

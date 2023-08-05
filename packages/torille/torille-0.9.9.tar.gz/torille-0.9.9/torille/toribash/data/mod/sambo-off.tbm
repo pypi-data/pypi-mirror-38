@@ -1,0 +1,15 @@
+#!/usr/bin/toribash
+gamerule
+gravity 0.00 0.00 -30.00
+engagedistance 80
+dismemberthreshold 250
+dismember 1
+fracture 1
+fracturethreshold 200
+matchframes 280
+turnframes 10,10,10,25,25,25,25,50,50,50,50
+dojosize 500
+dojotype 0
+dq 1
+sumo 1
+flags 11

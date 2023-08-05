@@ -1,0 +1,58 @@
+# MoD by RicH :P
+
+gamerule
+engagedistance 200
+engageheight 670
+
+env_obj 1
+    shape cylinder
+    pos 1 -2.0625 3.5625
+    color 0.6 0.4 0.1 1
+    rot 0 0 0
+    sides 0.1875 7.125 0
+    material steel
+    mass 0.1
+    flag 8
+
+env_obj 2
+    shape cylinder
+    pos 1 1.875 3.5625
+    color 0.6 0.4 0.1 1
+    rot 0 0 0
+    sides 0.1875 7.125 0
+    material steel
+    mass 0.1
+    flag 8
+
+env_obj 3
+    shape box
+    pos 1 -0.0625 6.625
+    color 0 0 -0.1 1
+    rot 0 0 0
+    sides 1.3125 4.5625 0.125
+    material steel
+    mass 0.1
+    flag 24
+
+body r_foot
+   color 0 0 0
+   flag 6
+   material steel
+
+body l_foot
+   color 0 0 0
+   flag 6
+   material steel
+
+body r_leg
+   color 0 0 0
+   flag 6
+   material steel
+
+body l_leg
+   color 0 0 0
+   flag 6
+   material steel
+
+
+

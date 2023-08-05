@@ -1,0 +1,139 @@
+# Made by Tamer0 ^.^
+
+gamerule
+engageheight 1025
+engagedistance 140
+
+
+env_obj 1
+    shape box
+    pos 0.9375 7 5
+    color 1.1 1.1 1 0.3
+    rot 0 0 0
+    sides 20 9 10
+    material steel
+    mass 10
+    flag 14
+#END 1
+
+env_obj 2
+    shape box
+    pos -5.25 0 5
+    color 1.1 1.1 1 0.3
+    rot 0 0 0
+    sides 7.6875 5 10
+    material steel
+    mass 10
+    flag 14
+#END 2
+
+env_obj 3
+    shape box
+    pos 0.9375 -7 5
+    color 1.1 1.1 1 0.3
+    rot 0 0 0
+    sides 20 9 10
+    material steel
+    mass 10
+    flag 14
+#END 3
+
+env_obj 4
+    shape box
+    pos 7.125 0 5
+    color 1.1 1.1 1 0.3
+    rot 0 0 0
+    sides 7.6875 5 10
+    material steel
+    mass 10
+    flag 14
+#END 4
+
+env_obj 5
+    shape box
+    pos 0.9375 -1.875 5
+    color 1.1 1.1 1 1
+    rot 0 0 0
+    sides 4.75 0.25 10
+    material steel
+    mass 10
+    flag 14
+#END 5
+
+env_obj 6
+    shape box
+    pos 0.9375 1.875 5
+    color 1.1 1.1 1 1
+    rot 0 0 0
+    sides 4.75 0.25 10
+    material steel
+    mass 10
+    flag 14
+#END 6
+
+env_obj 7
+    shape box
+    pos 0.9375 1 10.125
+    color -0.1 1 1 1
+    rot 0 0 0
+    sides 4.625 2 0.25
+    material steel
+    mass 0.1
+    flag 0
+#END 7
+
+env_obj 8
+    shape box
+    pos 0.9375 -1 10.125
+    color -0.1 1 1 1
+    rot 0 0 0
+    sides 4.625 2 0.25
+    material steel
+    mass 0.1
+    flag 0
+#END 8
+
+env_obj 9
+    shape box
+    pos 1 0.5 1.5
+    color 1.1 2.7755575615629e-017 -2.7755575615629e-017 0.8
+    rot 0 0 0
+    sides 0.25 0.25 3
+    material steel
+    mass 0.1
+    flag 14
+#END 9
+
+env_obj 10
+    shape box
+    pos 1 -0.6875 1.5625
+    color 1.1 2.7755575615629e-017 -2.7755575615629e-017 0.8
+    rot 0 0 0
+    sides 0.25 0.25 3
+    material steel
+    mass 0.1
+    flag 14
+#END 10
+
+env_obj 11
+    shape box
+    pos 0.375 0 5.375
+    color 1.1 2.7755575615629e-017 -2.7755575615629e-017 0.8
+    rot 0 0 0
+    sides 0.25 3.5 0.25
+    material steel
+    mass 0.1
+    flag 14
+#END 11
+
+env_obj 12
+    shape box
+    pos 1.625 0 5.375
+    color 1.1 2.7755575615629e-017 -2.7755575615629e-017 0.8
+    rot 0 0 0
+    sides 0.25 3.5 0.25
+    material steel
+    mass 0.1
+    flag 14
+#END 12
+

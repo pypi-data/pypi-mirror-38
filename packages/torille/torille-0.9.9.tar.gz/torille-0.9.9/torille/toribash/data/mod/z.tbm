@@ -1,0 +1,32 @@
+# Created By Darkspace!
+
+gamerule
+        engagedistance 800
+        engageheight 120
+        matchframes 200
+        turnframes 20
+        disqualification 1
+env_obj 1
+    shape box
+    pos 1 -0.125 1
+    color 0 0 1 1
+    rot 0 0 0
+    sides 1.125 8.6875 0.0625
+    material steel
+    mass 0.1
+    flag 6
+#END 1
+
+env_obj 2
+    shape sphere
+    pos 1 -0.0625 0.5
+    color 0 0 1 1
+    rot 0 0 0
+    sides 0.5 0.125 1
+    material steel
+    mass 0.1
+    flag 0
+#END 2
+
+
+

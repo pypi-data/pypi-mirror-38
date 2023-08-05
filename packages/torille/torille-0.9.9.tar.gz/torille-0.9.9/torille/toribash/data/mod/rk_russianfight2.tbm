@@ -1,0 +1,61 @@
+gamerule
+matchframes 90
+turnframes 10,10,10,10,10,10,10,10,20
+flags 2
+dismemberment 1
+dismemberthreshold 120
+fracture 0
+engagedistance 145
+
+
+
+
+joint l_knee
+	flag 2
+joint r_knee
+	flag 2
+joint chest
+	velocity 50
+
+
+joint r_shoulder 
+flag 2 
+joint r_elbow
+flag 2  
+joint l_shoulder 
+flag 2 
+joint l_elbow 
+flag 2 
+joint r_wrist
+flag 2  
+joint l_wrist
+flag 2  
+joint r_ankle 
+flag 2 
+joint l_ankle
+flag 2 
+
+body r_thigh
+flag 2  
+body l_thigh
+flag 2 
+body r_biceps 
+flag 2 
+body r_triceps
+flag 2  
+body l_biceps
+flag 2  
+body l_triceps
+flag 6  
+body r_hand
+flag 6 
+body l_hand
+flag 6  
+body r_leg 
+flag 2  
+body l_leg
+flag 2   
+body r_foot
+flag 6 
+body l_foot
+flag 6

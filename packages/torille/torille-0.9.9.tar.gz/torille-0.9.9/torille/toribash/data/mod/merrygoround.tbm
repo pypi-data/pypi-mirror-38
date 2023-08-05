@@ -1,0 +1,38 @@
+MERRYGOROUNDOFDEATHOMFGWHATSASPACEBAR!?
+
+gamerule
+flags 7
+turnframes 50
+engageheight 75
+
+env_obj 1
+    shape box
+    pos 0.75 -0.5 0.5
+    color 0 0 1 1
+    rot 0 0 0
+    sides 10 10 0.25
+    material steel
+    mass 1
+    friction 10
+    flag 0
+#END 1
+
+env_obj 2
+    shape sphere
+    pos 1 0 4.75
+    color 0 0 1 1
+    rot 0 0 0
+    sides 0.25 1 0.75
+    material steel
+    mass 0.1
+    friction 10
+    flag 8
+#END 2
+
+env_obj_joint 1 1 2
+	pos 0.75 -0.5 0.25
+	axis 0 0 1
+	range 50 -50
+	strength 250
+	velocity -250
+	visible 1

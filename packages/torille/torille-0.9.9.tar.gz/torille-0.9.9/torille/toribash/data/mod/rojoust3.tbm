@@ -1,0 +1,130 @@
+# Version 3: SNIPER VS. STALKER (Weapons: Composite Bow & Composite Bow (held ghetto like a rogue))
+# A mod by DoubleDagR with the help of Jousting.tbm & whoever made gorilla_fight.tbm (unknown authors?)
+# Special thanks also goes to MrPoptart, NewbLuck & Danstar
+# Ragnarok Online is trademark of Gravity Interactive
+# Known Bug: Right hands WILL grab eachother.
+gamerule
+engagedistance 1000
+engageheight 30
+matchframes 100
+turnframes 10
+dojotype 1
+dojosize 512
+
+player 0
+blood
+	color 0 0 1
+body stomach 
+	force 0 9 1
+	flag 16
+body breast
+	force 0 9 1
+	flag 16
+body chest
+	force 0 9 1
+	flag 16
+body groin
+	force 0 9 1
+	flag 16
+body r_pecs
+	force 0 9 1
+	flag 16
+body l_pecs
+	force 0 9 1
+	flag 16
+body r_thigh
+	force 0 9 1
+	flag 16
+body l_thigh
+	force 0 9 1
+	flag 16
+body l_leg
+	force 0 9 00
+	flag 16
+body r_leg
+	force 0 9 00
+	flag 16
+body head
+	flag 16
+body r_biceps
+	flag 16
+body r_triceps
+	flag 16
+body l_biceps
+	flag 16
+body l_triceps
+	flag 16
+body l_hand
+	flag 16
+body r_butt
+	flag 16
+body r_foot
+	flag 16
+body l_butt
+	flag 16
+body l_foot
+	flag 16
+body r_hand
+pos -0.35 0.85 2.6
+sides 0.5 0.0625 0.5
+alt_sides 5 0.0625 0.0625
+flag 6
+
+player 1
+blood
+	color 0 0 1
+body stomach 
+	force 0 9 1
+	flag 16
+body breast
+	force 0 9 1
+	flag 16
+body chest
+	force 0 9 1
+	flag 16
+body groin
+	force 0 9 1
+	flag 16
+body r_pecs
+	force 0 9 1
+	flag 16
+body l_pecs
+	force 0 9 1
+	flag 16
+body r_thigh
+	force 0 9 1
+	flag 16
+body l_thigh
+	force 0 9 1
+	flag 16
+body l_leg
+	force 0 9 00
+	flag 16
+body r_leg
+	force 0 9 00
+	flag 16
+body head
+	flag 16
+body r_biceps
+	flag 16
+body r_triceps
+	flag 16
+body l_biceps
+	flag 16
+body l_triceps
+	flag 16
+body l_hand
+	flag 16
+body r_butt
+	flag 16
+body r_foot
+	flag 16
+body l_butt
+	flag 16
+body l_foot
+	flag 16
+body r_hand
+pos -0.35 0.85 2.6
+sides 0.5 0.5 0.0625
+alt_sides 5 0.0625 0.0625
+flag 6

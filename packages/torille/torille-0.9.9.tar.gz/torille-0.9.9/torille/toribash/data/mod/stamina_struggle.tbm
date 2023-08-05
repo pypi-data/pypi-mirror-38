@@ -1,0 +1,8 @@
+gamerule
+    engagedistance 150
+    matchframes 450
+env_obj 1
+	shape box
+	pos 0.50 -0.25 -1.50
+	sides 10000 10000 0.001
+	material steel

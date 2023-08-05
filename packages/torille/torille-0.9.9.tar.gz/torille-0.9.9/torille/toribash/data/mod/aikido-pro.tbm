@@ -1,0 +1,17 @@
+#!/usr/bin/toribash
+#Mod by ReMiNo
+
+gamerule
+gravity 0.00 0.00 -30.00
+engagedistance 120
+dismemberthreshold 325
+dismember 1
+fracture 1
+fracturethreshold 200
+matchframes 400
+turnframes 5
+dojosize 800
+dojotype 0
+dq 1
+sumo 1
+flags 11

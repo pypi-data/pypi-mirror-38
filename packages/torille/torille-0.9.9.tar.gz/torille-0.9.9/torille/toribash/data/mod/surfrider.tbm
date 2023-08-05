@@ -1,0 +1,230 @@
+#!/usr/bin/toribash
+# Environment exported by WorldBuilder
+######################################
+gamerule
+
+engageplayerpos 5,-0.6,10,-5,-0.6,10
+mf 800
+tf 1,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60
+dt 500
+ft 400
+gravity 0 0 -45
+
+env_obj 1
+    shape box
+    pos 1 -98 3.1875
+    color 0 0.1 0.3 1
+    rot 0 0 0
+    sides 27 200 6.25
+    material steel
+    mass 0.1
+friction 0
+    flag 24
+#END 1
+
+env_obj 2
+    shape box
+    pos 1 -97.6 5.1875
+    color 0.1 0.7 1 1
+    rot 0 0 0
+    sides 24 199 6.25
+    material steel
+    mass 0.1
+friction 0
+    flag 30
+#END 3
+
+
+
+env_obj 3
+    shape box
+    pos 1 -17.6875 6.875
+    color 0.4 0.8 1 1
+    rot 9 0 0
+    sides 23.75 7.5 3.25
+    material steel
+friction 0
+    mass 0.1
+    flag 30
+#END 2
+
+env_obj 4
+    shape box
+    pos 1 -38.5 6.8125
+    color 0.4 0.8 1 1
+    rot 6 0 0
+    sides 23.75 7.5 3.25
+friction 0
+    material steel
+    mass 0.1
+    flag 30
+#END 3
+
+env_obj 5
+    shape box
+    pos 1.0625 -42.9375 7.3125
+    color 0.4 0.8 1 1
+    rot 8 0 0
+friction 0
+    sides 23.75 7.5 3.25
+    material steel
+    mass 0.1
+    flag 30
+#END 4
+
+env_obj 6
+    shape box
+    pos 1.0625 -47.9375 8.25
+    color 0.4 0.8 1 1
+    rot 17 0 0
+friction 0
+    sides 23.75 10.4375 3.25
+    material steel
+    mass 0.1
+    flag 30
+#END 5
+
+env_obj 7
+    shape box
+    pos 1.0625 -94.375 7.2625
+    color 0.4 0.8 1 1
+    rot 6 0 0
+friction 0
+    sides 23.75 15.3125 3.25
+    material steel
+    mass 0.1
+    flag 30
+#END 6
+
+env_obj 8
+    shape box
+    pos 1.0625 -102.625 7.75
+    color 0.4 0.8 1 1
+    rot 15 0 0
+    sides 23.75 19.25 5.75
+friction 0
+    material steel
+    mass 0.1
+    flag 30
+#END 7
+
+env_obj 9
+    shape box
+    pos 1.0625 -112.25 8
+    color 0.4 0.8 1 1
+    rot 24 0 0
+    sides 23.75 19.25 12
+friction 0
+    material steel
+    mass 0.1
+    flag 30
+#END 8
+
+######Surf Boards######
+
+env_obj 10
+    shape box
+    pos 6.0625 -0.3125 9.875
+    color 0.7 0 0.1 1
+friction 0
+    rot 0 0 0
+thrust 1 0 -6 -2
+    sides 1 4 0.25
+    material steel
+    mass 0.5
+    flag 0
+#END 1
+
+env_obj 11
+    shape box
+    pos 6.0625 -1.25 12.3625
+    color 0.7 0 0.1 1
+thrust 1 0 -6 3
+    rot 20 0 0
+    sides 0.0625 0.0625 0.175
+    material steel
+    mass 0.1
+    flag 0
+#END 2
+
+
+env_obj 12
+    shape box
+    pos -4.0625 -0.3125 9.875
+friction 0
+    color 0 0.1 0.7 1
+    rot 0 0 0
+thrust 1 0 -6 -2
+    sides 1 4 0.25
+    material steel
+    mass 0.5
+    flag 0
+#END 1
+
+env_obj 13
+    shape box
+    pos -4.0625 -1.25 12.3625
+    color 0 0.1 0.7 1
+thrust 1 0 -6 3
+    rot 20 0 0
+    sides 0.0625 0.0625 0.175
+    material steel
+    mass 0.1
+    flag 0
+#END 2
+
+
+#####CHOPPER#####
+
+env_obj 14
+    shape cylinder
+    pos 1.6375 -140.0625 19.5
+    color 1.1 1 0.2 1
+    rot 0 -90 0
+    sides 2.375 5.25 2.875
+    material steel
+    mass 0.2
+    flag 30
+#END 3
+
+env_obj 15
+    shape cylinder
+    pos -4.2 -140.0625 20.4375
+    color 1.1 1 0.2 1
+    rot 0 -94 0
+    sides 1.25 8 2.0625
+    material steel
+    mass 0.2
+    flag 30
+#END 4
+
+env_obj 16
+    shape box
+    pos 1 -140.0625 22.625
+    color 2.7755575615629e-017 2.7755575615629e-017 0.1 1
+    rot 0 0 0
+    sides 1.25 22.75 0.1875
+    material steel
+    mass 0.01
+    flag 6
+#END 5
+
+
+#chopper blade joint#
+env_obj_joint 1 14 16
+	pos 1 -140.0625 21.625
+	axis 0 0 1
+	range 5 -5
+	strength 10
+	velocity 200
+	visible 1
+
+
+#board joints#
+env_obj_joint 2 10 11
+	pos 6.0625 -1.75 10.3
+
+
+#board joints#
+env_obj_joint 3 12 13
+	pos -4.0625 -1.75 10.3

@@ -1,0 +1,48 @@
+#M#a#d#e##b#y##R#i#d#d#i#x#
+gravity 0 0 -10
+gamerule
+engageheight 800
+turnframes 50
+matchframes 1000
+disqualification 1
+engagedistance 250
+
+env_obj 1 
+    shape box
+    pos 1 1.06 4 
+    color 0.5 0 0
+    rot 0 0 0
+    sides 1 1 8 
+    material steel
+    mass 50.0
+    flag 1
+
+env_obj 2 
+    shape box
+    pos 1 -1.25 4 
+    color 0 00 0.5
+    rot 0 0 0
+    sides 1 1 8 
+    material steel
+    mass 50.0
+    flag 1
+
+body r_foot
+   color 0 0 0
+   flag 6
+   material steel
+
+body l_foot
+   color 0 0 0
+   flag 6
+   material steel
+
+body r_leg
+   color 0 0 0
+   flag 6
+   material steel
+
+body l_leg
+   color 0 0 0
+   flag 6
+   material steel

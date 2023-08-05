@@ -1,0 +1,10 @@
+gamerule
+    engagedistance 150
+    disqualification 1
+    matchframes 300
+    turnframes 15
+    dismemberment 1
+	dismemberthreshold 500
+    fracture 1
+    fracturethreshold 100
+	sumo 1

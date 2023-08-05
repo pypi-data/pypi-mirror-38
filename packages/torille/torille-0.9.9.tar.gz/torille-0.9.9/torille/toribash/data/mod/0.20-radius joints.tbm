@@ -1,0 +1,54 @@
+body r_hand
+shape box
+material steel
+color red red red
+body l_hand
+shape box
+material steel
+color red red red
+body r_foot
+material steel
+color red red red
+body l_foot
+material steel
+color red red red
+joint neck
+radius 0.20
+joint chest
+radius 0.20
+joint lumbar
+radius 0.20
+joint abs
+radius 0.20
+joint r_pecs
+radius 0.20
+joint l_axilla
+radius 0.20
+joint r_shoulder
+radius 0.20
+joint l_shoulder
+radius 0.20
+joint r_elbow
+radius 0.20
+joint l_elbow
+radius 0.20
+joint r_wrist
+radius 0.20
+joint l_wrist
+radius 0.20
+joint r_glute
+radius 0.20
+joint l_glute
+radius 0.20
+joint r_hip
+radius 0.20
+joint l_hip
+radius 0.20
+joint r_knee
+radius 0.20
+joint l_knee
+radius 0.20
+joint r_ankle
+radius 0.20
+joint l_ankle
+radius 0.20

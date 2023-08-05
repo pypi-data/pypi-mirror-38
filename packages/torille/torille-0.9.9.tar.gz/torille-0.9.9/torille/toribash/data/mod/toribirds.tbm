@@ -1,0 +1,301 @@
+# toribirds by chuji
+gamerule
+	engagedistance 275
+
+# head
+env_obj 1
+	shape sphere
+	pos 1 0.4 0.375
+	color 1 1 1
+	rot 0 0 0
+	sides 0.1 0 0
+	flag 6
+	material flesh
+	mass 0.00001
+	visible 1
+
+# body
+env_obj 2
+	shape sphere
+	pos 1 0.15 0.275
+	color 1 1 1
+	rot 0 0 0
+	sides 0.2 0 0
+    thrust 1 0 0 0.0102
+	flag 0
+	material flesh
+	mass 0.0001
+	visible 1
+
+# 'legs'
+env_obj 3
+	shape sphere
+	pos 1.075 0.15 0.05
+	color 0.9 0.5 0.1
+	rot 0 0 0
+	sides 0.05 0 0
+	flag 16
+	material flesh
+	thrust 1 0 0 -0.005
+	mass 0.00001
+	visible 1
+
+env_obj 4
+	shape sphere
+	pos 0.925 0.15 0.05
+	color 0.9 0.5 0.1
+	rot 0 0 0
+	sides 0.05 0 0
+	flag 16
+	material flesh
+	thrust 1 0 0 -0.005
+	mass 0.00001
+	visible 1
+
+# head
+env_obj 5
+	shape sphere
+	pos 1 -0.6 0.375
+	color 1 1 0.33
+	rot 0 0 0
+	sides 0.1 0 0
+	flag 6
+	material flesh
+	mass 0.00001
+	visible 1
+
+# body
+env_obj 6
+	shape sphere
+	pos 1 -0.35 0.275
+	color 1 1 0.33
+	rot 0 0 0
+	sides 0.2 0 0
+    thrust 1 0 0 0.0102
+	flag 0
+	material flesh
+	mass 0.0001
+	visible 1
+
+# 'legs'
+env_obj 7
+	shape sphere
+	pos 1.075 -0.35 0.05
+	color 0.9 0.5 0.1
+	rot 0 0 0
+	sides 0.05 0 0
+	flag 16
+	material flesh
+	thrust 1 0 0 -0.005
+	mass 0.00001
+	visible 1
+
+env_obj 8
+	shape sphere
+	pos 0.925 -0.35 0.05
+	color 0.9 0.5 0.1
+	rot 0 0 0
+	sides 0.05 0 0
+	flag 16
+	material flesh
+	thrust 1 0 0 -0.005
+	mass 0.00001
+	visible 1
+
+# head
+env_obj 9
+	shape sphere
+	pos 1 0.4 2.375
+	color 0.57 0.45 .21
+	rot 0 0 0
+	sides 0.1 0 0
+	flag 6
+	force 0 0.033 0
+	material flesh
+	mass 0.00001
+	visible 1
+
+# body
+env_obj 10
+	shape sphere
+	pos 1 0.15 2.275
+	color 0.57 0.45 .21
+	rot 0 0 0
+	sides 0.2 0 0
+    thrust 1 0 0 0.0102
+	flag 0
+	material flesh
+	mass 0.0001
+	visible 1
+
+# 'legs'
+env_obj 11
+	shape sphere
+	pos 1.075 0.15 2.05
+	color 0.9 0.5 0.1
+	rot 0 0 0
+	sides 0.05 0 0
+	flag 16
+	material flesh
+	thrust 1 0 0 -0.005
+	mass 0.00001
+	visible 1
+
+env_obj 12
+	shape sphere
+	pos 0.925 0.15 2.05
+	color 0.9 0.5 0.1
+	rot 0 0 0
+	sides 0.05 0 0
+	flag 16
+	material flesh
+	thrust 1 0 0 -0.005
+	mass 0.00001
+	visible 1
+
+# head
+env_obj 13
+	shape sphere
+	pos 1 -0.6 2.375
+	color 0.30 0.57 0.21
+	rot 0 0 0
+	sides 0.1 0 0
+	flag 6
+	material flesh
+	mass 0.00001
+	visible 1
+	force 0 -0.033 0
+
+# body
+env_obj 14
+	shape sphere
+	pos 1 -0.35 2.275
+	color 0.30 0.57 0.21
+	rot 0 0 0
+	sides 0.2 0 0
+    thrust 1 0 0 0.0102
+	flag 0
+	material flesh
+	mass 0.0001
+	visible 1
+
+# 'legs'
+env_obj 15
+	shape sphere
+	pos 1.075 -0.35 2.05
+	color 0.9 0.5 0.1
+	rot 0 0 0
+	sides 0.05 0 0
+	flag 16
+	material flesh
+	thrust 1 0 0 -0.005
+	mass 0.00001
+	visible 1
+
+env_obj 16
+	shape sphere
+	pos 0.925 -0.35 2.05
+	color 0.9 0.5 0.1
+	rot 0 0 0
+	sides 0.05 0 0
+	flag 16
+	material flesh
+	thrust 1 0 0 -0.005
+	mass 0.00001
+	visible 1
+
+env_obj_joint 1 1 2
+	pos 1 0.15 0.275
+	axis 1 0 0
+	range 0.25 -0.25
+	strength 0
+	velocity 0
+	visible 0
+
+env_obj_joint 2 2 3
+	pos 1.075 0.15 0.05
+	axis 1 0 0
+	range 50 -50
+	strength 1
+	velocity 60
+	visible 0
+
+env_obj_joint 3 2 4
+	pos 0.925 0.15 0.05
+	axis 1 0 0
+	range 50 -50
+	strength 1
+	velocity 60
+	visible 0
+
+env_obj_joint 4 5 6
+	pos 1 -0.35 0.275
+	axis 1 0 0
+	range 0.25 -0.25
+	strength 0
+	velocity 0
+	visible 0
+
+env_obj_joint 5 6 7
+	pos 1.075 -0.35 0.05
+	axis 1 0 0
+	range 50 -50
+	strength 1
+	velocity -60
+	visible 0
+
+env_obj_joint 6 6 8
+	pos 0.925 -0.35 0.05
+	axis 1 0 0
+	range 50 -50
+	strength 1
+	velocity -60
+	visible 0
+
+env_obj_joint 7 10 9
+	pos 1 0.15 2.275
+	axis 1 0 0
+	range 0.25 -0.25
+	strength 0
+	velocity 0
+	visible 0
+
+env_obj_joint 8 10 11
+	pos 1.075 0.15 2.05
+	axis 1 0 0
+	range 50 -50
+	strength 1
+	velocity 60
+	visible 0
+
+env_obj_joint 9 10 12
+	pos 0.925 0.15 2.05
+	axis 1 0 0
+	range 50 -50
+	strength 1
+	velocity 60
+	visible 0
+
+env_obj_joint 10 14 13
+	pos 1 -0.35 2.275
+	axis 1 0 0
+	range 0.25 -0.25
+	strength 0
+	velocity 0
+	visible 0
+
+env_obj_joint 11 14 15
+	pos 1.075 -0.35 2.05
+	axis 1 0 0
+	range 50 -50
+	strength 1
+	velocity -60
+	visible 0
+
+env_obj_joint 12 14 16
+	pos 0.925 -0.35 2.05
+	axis 1 0 0
+	range 50 -50
+	strength 1
+	velocity -60
+	visible 0

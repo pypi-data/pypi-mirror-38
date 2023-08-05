@@ -1,0 +1,8 @@
+body r_hand
+shape box
+sides 0.22 0.100 0.30
+material steel
+body l_hand
+shape box
+sides 0.22 0.100 0.30
+material steel

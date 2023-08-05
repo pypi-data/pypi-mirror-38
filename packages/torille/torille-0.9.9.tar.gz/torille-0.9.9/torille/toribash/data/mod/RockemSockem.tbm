@@ -1,0 +1,53 @@
+body head
+pos 1.0 0.85 2.60
+body r_biceps
+sides 0.4 0.21 0.21
+body l_biceps
+sides 0.4 0.21 0.21
+body r_triceps
+sides 0.4 0.12 0.12
+body l_triceps
+sides 0.4 0.12 0.12
+body r_hand
+sides 0.28 0.28 0.28
+body l_hand
+sides 0.28 0.28 0.28
+body r_leg
+sides 0.05 0.1 0.0
+body l_leg
+sides 0.05 0.1 0.2
+body r_foot
+sides 1.9 3 0.4
+pos 0 1.9 0.2
+material steel
+color 1 1 0
+body l_foot
+sides 1.9 3 0.4
+pos 2 1.9 0.2
+material steel
+color 1 1 0
+joint neck
+radius 0.10
+pos 1.0 0.9 2.4
+joint r_shoulder
+radius 0.19
+joint l_shoulder
+radius 0.19
+joint r_elbow
+radius 0.17
+joint l_elbow
+radius 0.17
+joint r_wrist
+radius 0.12
+joint l_wrist
+radius 0.12
+joint r_knee
+radius 0.20
+joint l_knee
+radius 0.20
+joint r_ankle
+radius 0.20
+pos 0.8 1 .5
+joint l_ankle
+radius 0.20
+pos 1.2 1 .5

@@ -1,0 +1,70 @@
+world
+gravity 0.0 0.0 -13.8
+body breast
+sides 0.15 0.05 0.25
+body chest
+sides 0.45 0.10 0.15
+body stomach
+sides 0.30 0.10 0.15
+body groin
+sides 0.15 0.10 0.15
+body r_pecs
+sides 0.15 0.05 0.15
+body l_pecs
+sides 0.15 0.05 0.15
+body r_biceps
+sides 0.35 0.15 0.15
+body l_biceps
+sides 0.35 0.15 0.15
+body r_triceps
+sides 0.35 0.05 0.05
+body l_triceps
+sides 0.35 0.05 0.05
+body r_butt
+sides 0.05 0.05 0.05
+body l_butt
+sides 0.05 0.05 0.05
+body r_thigh
+sides 0.115 0.25 0.0
+body l_thigh
+sides 0.115 0.25 0.0
+body r_leg
+sides 0.125 0.25 0.0
+body l_leg
+sides 0.125 0.25 0.0
+joint neck
+radius 0.10
+joint chest
+radius 0.16
+joint lumbar
+radius 0.14
+joint abs
+radius 0.13
+joint r_pecs
+radius 0.16
+joint l_axilla
+radius 0.16
+joint r_shoulder
+radius 0.16
+joint l_shoulder
+radius 0.16
+joint r_elbow
+radius 0.15
+joint l_elbow
+radius 0.15
+joint r_wrist
+radius 0.10
+joint l_wrist
+radius 0.10
+joint r_glute
+radius 0.14
+joint l_glute
+radius 0.14
+joint r_knee
+radius 0.13
+joint l_knee
+radius 0.13
+joint r_ankle
+radius 0.10
+joint l_ankle
+radius 0.10

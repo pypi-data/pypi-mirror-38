@@ -1,0 +1,113 @@
+# Made By Darkspace!
+
+gamerule
+        engagedistance 200
+        matchframes 200
+        turnframes 20
+        disqualication 0
+env_obj 1
+    shape box
+    pos -0.5 0.875 3.25
+    color 0.6 0.6 0.6 1
+    rot 0 0 0
+    sides 0.0625 0 1.8125
+    material steel
+    mass .00005
+    flag 6
+#END 1
+
+env_obj 2
+    shape cylinder
+    pos -0.5 0.875 2.3125
+    color 0.6 -0.1 -0.1 1
+    rot 0 0 0
+    sides 0.0625 0.375 0.3125
+    material steel
+    mass .00005
+    flag 0
+#END 2
+
+env_obj 3
+    shape cylinder
+    pos 2.5 0.875 2.3125
+    color 0.6 -0.1 -0.1 1
+    rot 0 0 0
+    sides 0.0625 0.375 0.3125
+    material steel
+    mass .00005
+    flag 0
+#END 3
+
+env_obj 4
+    shape cylinder
+    pos 2.5 -1.0625 2.3125
+    color 0.6 -0.1 -0.1 1
+    rot 0 0 0
+    sides 0.0625 0.375 0.3125
+    material steel
+    mass .00005
+    flag 0
+#END 4
+
+env_obj 5
+    shape cylinder
+    pos -0.5 -1.0625 2.3125
+    color 0.6 -0.1 -0.1 1
+    rot 0 0 0
+    sides 0.0625 0.375 0.3125
+    material steel
+    mass .00005
+    flag 0
+#END 5
+
+env_obj 6
+    shape box
+    pos 2.5 0.875 3.25
+    color 0.6 0.6 0.6 1
+    rot 0 0 0
+    sides 0.0625 0 1.8125
+    material steel
+    mass .00005
+    flag 6
+#END 6
+
+env_obj 7
+    shape box
+    pos 2.5 -1.0625 3.25
+    color 0.6 0.6 0.6 1
+    rot 0 0 0
+    sides 0.0625 0 1.8125
+    material steel
+    mass .00005
+    flag 6
+#END 7
+
+env_obj 8
+    shape box
+    pos -0.5 -1.0625 3.25
+    color 0.6 0.6 0.6 1
+    rot 0 0 0
+    sides 0.0625 0 1.8125
+    material steel
+    mass .00005
+    flag 6
+#END 8
+
+
+
+env_obj_joint 1 1 2
+
+env_obj_joint 2 2 1
+
+env_obj_joint 3 3 6
+
+env_obj_joint 4 4 7
+
+env_obj_joint 5 5 8
+
+env_obj_joint 6 6 3
+
+env_obj_joint 7 7 4
+
+env_obj_joint 8 8 5
+

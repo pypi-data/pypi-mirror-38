@@ -1,0 +1,147 @@
+# Mod by MrPoptart =D Weeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee!!!!!!!!!!!!!!!!!!!!!!! I'm going insane!!!!
+
+body r_biceps
+sides 1.500000 0.100000 0.010000
+rot 0.000000 0.000000 0.000000
+pos 0.0000 0.900000 2.200000
+color 1 0 0
+material flesh
+shape box
+flag 6
+
+body l_biceps
+sides 1.500000 0.100000 0.010000
+rot 0.000000 0.000000 0.000000
+pos 2.0000 0.900000 2.200000
+color 1 0 0
+material flesh
+shape box
+flag 6
+
+joint r_elbow
+radius 0.160000
+axis 0.000000 0.000000 1.000000
+pos 0.250000 0.900000 2.300000
+
+joint l_elbow
+radius 0.160000
+axis 0.000000 0.000000 1.000000
+pos 1.750000 0.900000 2.300000
+
+body r_triceps
+sides 1.250000 0.100000 0.0100000
+rot 0.000000 0.000000 0.000000
+pos -0.50000 0.900000 2.250000
+color 1 0 0
+material flesh
+shape box
+flag 6
+
+body l_triceps
+sides 1.250000 0.100000 0.0100000
+rot 0.000000 0.000000 0.000000
+pos 2.50000 0.900000 2.250000
+color 1 0 0
+material flesh
+shape box
+flag 6
+
+joint r_wrist
+radius 0.110000
+axis 0.000000 0.000000 1.000000
+pos -0.200000 0.900000 2.300000
+
+joint l_wrist
+radius 0.110000
+axis 0.000000 0.000000 1.000000
+pos 2.200000 0.900000 2.300000
+
+body r_hand
+sides 1.2000 0.10000 0.010000
+alt_sides 1.00000 0.10000 0.010000
+rot 0.000000 0.000000 0.000000
+pos -0.9000 0.90000 2.300000
+color 0 0 0
+material flesh
+flag 6
+
+body l_hand
+sides 1.2000 0.10000 0.010000
+alt_sides 1.00000 0.10000 0.010000
+rot 0.000000 0.000000 0.000000
+pos 2.9000 0.90000 2.300000
+color 0 0 0
+material flesh
+flag 6
+
+body r_thigh
+sides 0.120000 0.300000 0.000000
+rot 0.000000 0.000000 0.000000
+pos 0.800000 1.000000 1.100000
+color 1.000000 1.000000 1.000000
+material flesh
+shape cylinder
+flag 1
+
+body l_thigh
+sides 0.120000 0.300000 0.000000
+rot 0.000000 0.000000 0.000000
+pos 1.200000 1.000000 1.100000
+color 1.000000 1.000000 1.000000
+material flesh
+shape cylinder
+flag 1
+
+joint r_knee
+radius 0.140000
+axis 1.000000 0.000000 0.000000
+pos 0.800000 1.000000 0.800000
+
+joint l_knee
+radius 0.140000
+axis 1.000000 0.000000 0.000000
+pos 1.200000 1.000000 0.800000
+
+body r_leg
+sides 0.130000 0.300000 0.000000
+rot 0.000000 0.000000 0.000000
+pos 0.800000 1.000000 0.500000
+color 1.000000 1.000000 1.000000
+material flesh
+shape cylinder
+flag 1
+
+body l_leg
+sides 0.130000 0.300000 0.000000
+rot 0.000000 0.000000 0.000000
+pos 1.200000 1.000000 0.500000
+color 1.000000 1.000000 1.000000
+material flesh
+shape cylinder
+flag 1
+
+joint r_ankle
+radius 0.110000
+axis 1.000000 0.000000 0.000000
+pos 0.800000 1.050000 0.250000
+
+joint l_ankle
+radius 0.110000
+axis 1.000000 0.000000 0.000000
+pos 1.200000 1.050000 0.250000
+
+body r_foot
+sides 0.200000 0.500000 0.080000
+rot 0.000000 0.000000 0.000000
+pos 0.800000 0.900000 0.100000
+color 1.000000 1.000000 1.000000
+material flesh
+flag 1
+
+body l_foot
+sides 0.200000 0.500000 0.080000
+rot 0.000000 0.000000 0.000000
+pos 1.200000 0.900000 0.100000
+color 1.000000 1.000000 1.000000
+material flesh
+flag 1

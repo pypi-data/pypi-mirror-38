@@ -1,0 +1,103 @@
+# Mod by MrPoptart =D
+
+hold
+color 0 0 1
+relax
+color 1 0 0
+hold_active
+color 0 0 1
+relax_active
+color 1 0 0
+
+# Tori
+player 0
+
+body head
+color 1 0 0
+body breast
+color 1 0 0
+body chest
+color 1 0 0
+body stomach
+color 1 0 0
+body groin
+color 1 0 0
+body r_pecs
+color 1 0 0
+body l_pecs
+color 1 0 0
+body r_biceps
+color 1 0 0
+body l_biceps
+color 1 0 0
+body r_triceps
+color 1 0 0
+body l_triceps
+color 1 0 0
+body r_hand
+color 1 0 0
+body l_hand
+color 1 0 0
+body r_butt
+color 1 0 0
+body l_butt
+color 1 0 0
+body r_thigh
+color 1 0 0
+body l_thigh
+color 1 0 0
+body r_leg
+color 1 0 0
+body l_leg
+color 1 0 0
+body r_foot
+color 1 0 0
+body l_foot
+color 1 0 0
+
+
+# Uke
+player 1
+
+body head
+color 0 0 1
+body breast
+color 0 0 1
+body chest
+color 0 0 1
+body stomach
+color 0 0 1
+body groin
+color 0 0 1
+body r_pecs
+color 0 0 1
+body l_pecs
+color 0 0 1
+body r_biceps
+color 0 0 1
+body l_biceps
+color 0 0 1
+body r_triceps
+color 0 0 1
+body l_triceps
+color 0 0 1
+body r_hand
+color 0 0 1
+body l_hand
+color 0 0 1
+body r_butt
+color 0 0 1
+body l_butt
+color 0 0 1
+body r_thigh
+color 0 0 1
+body l_thigh
+color 0 0 1
+body r_leg
+color 0 0 1
+body l_leg
+color 0 0 1
+body r_foot
+color 0 0 1
+body l_foot
+color 0 0 1

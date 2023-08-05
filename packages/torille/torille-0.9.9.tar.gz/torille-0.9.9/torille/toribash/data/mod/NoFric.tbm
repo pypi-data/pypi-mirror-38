@@ -1,0 +1,17 @@
+friction -2
+
+body head
+force 0 20 0
+
+body l_foot
+sides 0.01 0.8 0.1
+force 0 10 0
+flag 6
+
+body r_foot
+sides 0.01 0.8 0.1
+force 0 10 0
+flag 6
+
+body chest
+force 0 40 0

@@ -1,0 +1,119 @@
+ton# Pyramid Mod by Jam0864
+# DONT FALL OFF PYRAMID! floor is instagib.
+# PLAY AT 550 ENGAGE HEIGHT!
+
+env_obj 1
+    shape box
+    pos 1 0.0 0.25
+    color 0.3 0.3 0.5
+    rot 0 0 0
+    sides 40 40.0 0.5
+    material steel
+    mass 0.1
+    flag 14
+
+env_obj 2
+    shape box
+    pos 1 0.0 0.75
+    color 1 1 1
+    rot 0 0 0
+    sides 15 15.0 0.5
+    material steel
+    mass 0.1
+    flag 24
+
+env_obj 3
+    shape box
+    pos 1 0.0 1.25
+    color 1 1 1
+    rot 0 0 0
+    sides 14 14.0 0.5
+    material steel
+    mass 0.1
+    flag 24
+
+env_obj 4
+    shape box
+    pos 1 0.0 1.75
+    color 1 1 1
+    rot 0 0 0
+    sides 13 13.0 0.5
+    material steel
+    mass 0.1
+    flag 24
+
+env_obj 5
+    shape box
+    pos 1 0.0 2.25
+    color 1 1 1
+    rot 0 0 0
+    sides 12 12.0 0.5
+    material steel
+    mass 0.1
+    flag 24
+
+env_obj 6
+    shape box
+    pos 1 0.0 2.75
+    color 1 1 1
+    rot 0 0 0
+    sides 11 11.0 0.5
+    material steel
+    mass 0.1
+    flag 24
+
+env_obj 7
+    shape box
+    pos 1 0.0 3.25
+    color 1 1 1
+    rot 0 0 0
+    sides 10 10.0 0.5
+    material steel
+    mass 0.1
+    flag 24
+
+env_obj 8
+    shape box
+    pos 1 0.0 3.75
+    color 1 1 1
+    rot 0 0 0
+    sides 9 9.0 0.5
+    material steel
+    mass 0.1
+    flag 24
+
+env_obj 9
+    shape box
+    pos 1 0.0 4.25
+    color 1 1 1
+    rot 0 0 0
+    sides 8 8.0 0.5
+    material steel
+    mass 0.1
+    flag 24
+
+env_obj 10
+    shape box
+    pos 1 0.0 4.75
+    color 1 1 1
+    rot 0 0 0
+    sides 7 7.0 0.5
+    material steel
+    mass 0.1
+    flag 24
+	
+env_obj 11
+    shape box
+    pos 1 0.0 5.25
+    color 1 1 1
+    rot 0 0 0
+    sides 6 6.0 0.5
+    material steel
+    mass 0.1
+    flag 24
+
+gravity 0 0 -25
+
+
+
+

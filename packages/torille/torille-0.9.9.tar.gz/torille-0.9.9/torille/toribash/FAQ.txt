@@ -1,0 +1,67 @@
+Toribash FAQ
+
+Latest version can be found on http://www.toribash.com
+
+
+1. How do I play Multi player?
+Press Escape, choose Multi player from the menu, type in a nickname and    press Enter. If there is more than 1 player on the server you will be placed last in the queue, where you can spectate the ongoing game(s) while waiting for your turn.
+When its your turn you have to press Space to start the game. Now you control the player in the same manner as in single player. The difference is that you and your opponent only have 20 seconds to decide your moves before time advances 10 frames, and then you have another 20 seconds before time advances again, it continues like that until time reaches    zero, or until a player gets disqualified. (See next question)
+When time reaches zero the player with the most points win.
+And finally, last man standing rule applies, you win you stay. You loose,    it's back to the queue.
+
+2.Why do i sometimes get disqualified and the game ends even if time isn't up?
+Only hands and feet are allowed to touch the ground. A player who touches the ground with any other body part or joint is disqualified. When this happens a circle is drawn in the color of the player that lost (red or blue). The origo of the circle is where the body part touched the ground.
+
+3. Why won't Multi player work for me?
+Make sure you check that your firewall is allowing outgoing connections. Also if you're using a it for the first time and the firewall pops up and asks you if you wish to allow toribash.exe to connect to the internet, make sure you press 'yes' or multi player will fail to work in the future.
+
+4. Can I have my own head texture?
+Yes you can. Save a picture in 24bit TGA format and put it in the \heads folder. Give the file the same name as your player name(yourname.tga). The size of the head should be 128x128 pixels. In photoshop select 24/bits pixel and no alpha channel when saving. In Gimp make sure RLE compression is disabled.
+
+An easy way to try out the new head texture is to change the default heads (tori.tga, uke.tga) to your new head.
+
+5. How do i kick, punch, grip etc?
+Please watch the turorial videos on www.toribash.com, or refer to the    manual distributed with the game. And if you're not satisfied by then come visit us at the official forums. A general beginner tip is not to set    force on too many joints at the same time.
+
+6. When will this really important feature that i want, be implemented?   Patience, my son. Toribash is a one man, part time project. However, when v2.0 is released many parts of the game will be moddable, and you might be able to create that hot feature by yourself Smiley
+
+7. Who is the developer of Toribash?
+Hampa, the game is released though his own company, Nabi Studios;   http://www.nabistudios.com/
+
+
+8.I've seen some near perfected replays where people pull off almost insane moves, how do they do that?
+All replays can be edited with the E key. Playback your replay and hit E where you think your replay 'starts to go wrong'. Using the Pause key (P) coupled with Shift-P (for one frame stepping) find the exact frame where you want to start the edit. Now tweak your player into doing desired move, save and watch, now rinse & repeat lots and lots of times for perfection. Also, once you enter edit mode, all remaining time frames from the original replay are cleared.
+
+
+9. Will Toribash run on my computer?
+Toribash should be able to run just fine on most computers, even those    with low ram and graphics cards. It uses no next-generation shaders or renderers. It just typhically uses spheres a boxes and some textures to make it look nice.
+ 
+10.What modding cabilities will there be?
+Custom character models, including the options to create weapons. Alterable physics parameters. Configurable server software. Enviroment options too.
+
+11. I have an awesome suggestion for Toribash!
+Please post in the Troibash Suggestion thread – thanks!
+
+12. Where does the names Toribash and Uke come from?
+Tori and Uke are terms commonly used in Japanese martial arts, meaning 
+attacker and defender. Read more here: http://www.judoinfo.com/kataju.htm
+
+13. How do I get a custom head?
+Visit the link: http://forum.toribash.com/tori_textures.php
+
+14. Toribash on Linux
+Toribash does work on Linux with Cedega. (thanks sinred!)
+
+15. Help, mods wont work!
+Check to see the mod is in the /data/mod/ folder. Make sure you are starting Toribash.exe with the correct filename.
+
+16. How do i use the options in the setup screen?
+Nick - self explanatory
+Match frames - length of the match
+Turn frames - length of each turn
+Engage distance - starting length between players. higher number for further apart
+Dismemberment - turns dismemberment on and off
+Disqualifications - turns disqualifications on ground impact on and off
+Self damage - turns self damage on and off
+
+changes will take effect when a new game is started

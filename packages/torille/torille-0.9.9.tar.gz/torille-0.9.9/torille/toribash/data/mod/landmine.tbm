@@ -1,0 +1,11 @@
+################### 
+#
+
+body r_thigh
+	force 0 100 0
+body l_thigh 
+	force 0 100 0
+body l_leg
+	force 100 0 00
+body r_leg
+	force -100 0 00

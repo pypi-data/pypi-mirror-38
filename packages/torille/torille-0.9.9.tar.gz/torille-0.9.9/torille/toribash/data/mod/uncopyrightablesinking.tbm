@@ -1,0 +1,64 @@
+#Sinking Mod by Uncopyrightable
+
+friction 100
+gravity 0 0 -30
+
+env_obj 1
+    shape box
+    pos 1 -0.125 5
+    color 1 1 1 1
+    rot 0 0 0
+    sides 2 2 0.5
+    material steel
+    mass -0.0001
+    flag 0
+
+env_obj 2
+    shape box
+    pos 1 -0.125 8
+    color 1 1 1 1
+    rot 0 0 0
+    sides 3 3 0.5
+    material steel
+    mass -0.0001
+    flag 0
+
+env_obj 3
+    shape box
+    pos 1 -0.125 11
+    color 1 1 1 1
+    rot 0 0 0
+    sides 4 4 0.5
+    material steel
+    mass -0.0001
+    flag 0
+
+env_obj 4
+    shape box
+    pos 1 -0.125 11
+    color 1 1 1 1
+    rot 0 0 0
+    sides 5 5 0.5
+    material steel
+    mass -0.0001
+    flag 0
+
+env_obj 4
+    shape box
+    pos 1 -0.125 14
+    color 1 1 1 1
+    rot 0 0 0
+    sides 5 5 0.5
+    material steel
+    mass -0.0001
+    flag 0
+
+env_obj 5
+    shape box
+    pos 1 -0.125 17
+    color 1 1 1 1
+    rot 0 0 0
+    sides 6 6 0.5
+    material steel
+    mass -0.0001
+    flag 0

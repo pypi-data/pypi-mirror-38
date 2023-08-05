@@ -1,0 +1,9 @@
+# Mod by MrPoptart =P
+
+gravity 0 0 0
+
+body l_foot
+thrust 1 0 0 -1
+
+body r_foot
+thrust 1 0 0 -1

@@ -1,0 +1,83 @@
+
+
+env_obj 1
+    shape box
+    pos 0.5 -0. 17.9375
+    color 10 2 3 0.5
+    rot 0 0 0
+    sides 5 5 0.0625
+    material wood
+    bounce 35
+    mass 0.1
+    flag 8
+
+env_obj 2
+    shape box
+    pos 0.5 -2.5625 15.4375
+    color 10 2 3 0.5
+    rot 0 0 0
+    sides 5 0.0625 5
+    material wood
+    bounce 35
+    mass 0.1
+    flag 8
+
+env_obj 3
+    shape box
+    pos 0.5 2.4375 15.4375
+    color 10 2 3 0.5
+    rot 0 0 0
+    sides 5 0.0625 5
+    material wood
+    bounce 35
+    mass 0.1
+    flag 8
+
+env_obj 4
+    shape box
+    pos 0.5 -0.0625 12.9375
+    color 10 2 3 0.5
+    rot 0 0 0
+    sides 5 5 0.0625
+    material wood
+    bounce 35
+    mass 0.1
+    flag 8
+
+env_obj 5
+    shape box
+    pos -2 -0.0625 15.4375
+    color 10 2 3 0.5
+    rot 0 0 0
+    sides 0.0625 5 5
+    material wood
+    bounce 35
+    mass 0.1
+    flag 8
+
+env_obj 6
+    shape box
+    pos 3 -0.0625 15.4375
+    color 10 2 3 0.5
+    rot 0 0 0
+    sides 0.0625 5 5
+    material wood
+    bounce 35
+    mass 0.1
+    flag 8
+
+
+env_obj 7
+    shape box
+    pos 0.0.0.0 13.0
+    color 10 2 3 0.5
+    rot 1 1 1
+    sides 0.50.0.50.0.50
+    material wood
+    bounce 25
+    mass 0.1
+    flag 22
+
+
+
+

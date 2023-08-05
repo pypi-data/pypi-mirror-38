@@ -1,0 +1,81 @@
+# TIP: if falling, grab onto something stable, such as the poles that hold it up.
+# If your holding/standing on something that is falling, rock your boy weight to try and balance it.
+
+gamerule
+	engageheight 1139
+	engagedistance 100
+
+gravity 0 0 -14
+
+env_obj 1
+    shape box
+    pos 1 0 3
+    color 0.3 0.3 0.3
+    rot 0 0 0
+    sides 0.2 0.2 6
+    material steel
+    mass 0.1
+    flag 1
+	
+env_obj 2
+    shape box
+    pos 1 0 6
+    color 0.3 0.3 0.3
+    rot 0 0 0
+    sides 10 10 0.2
+    material steel
+    mass 0.3
+    flag 1
+	
+env_obj 3
+    shape box
+    pos 5.5 3.5 8.7
+    color 0.3 0.3 0.3
+    rot 0 0 0
+    sides 0.2 0.2 5
+    material steel
+    mass 0.05
+    flag 1
+
+	
+env_obj 4
+    shape box
+    pos 5.5 -3.5 8.7
+    color 0.3 0.3 0.3
+    rot 0 0 0
+    sides 0.2 0.2 5
+    material steel
+    mass 0.05
+    flag 1	
+	
+		
+env_obj 5
+    shape box
+    pos -3.5 3.5 8.7
+    color 0.3 0.3 0.3
+    rot 0 0 0
+    sides 0.2 0.2 5
+    material steel
+    mass 0.05
+    flag 1
+	
+		
+env_obj 6
+    shape box
+    pos -3.5 -3.5 8.7
+    color 0.3 0.3 0.3
+    rot 0 0 0
+    sides 0.2 0.2 5
+    material steel
+    mass 0.05
+    flag 1
+	
+env_obj 7
+    shape box
+    pos 1 0 11.3
+    color 0.3 0.3 0.3
+    rot 0 0 0
+    sides 9.5 7.2 0.2
+    material steel
+    mass 0.005
+    flag 1

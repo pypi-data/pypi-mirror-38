@@ -1,0 +1,166 @@
+Mod by RAYClovis
+
+gamerule
+engageheight 697
+mf 1000
+dt 400
+
+env_obj 1
+    shape box
+    pos 1 -0.1 6.775
+    color 0 0 1 1
+    rot 0 0 0
+    sides 3 5.5 0.3875
+    material steel
+    mass 0.001
+    flag 0
+
+env_obj 2
+    shape box
+    pos 2.5 -0.1 6.8125
+    color 0 0 1 1
+    rot 0 0 0
+    sides 0.3 5.5 4.8
+    material steel
+    mass 0.01
+    flag 0
+
+
+env_obj 3
+    shape box
+    pos -0.5 -0.1 6.8125
+    color 0 0 1 1
+    rot 0 0 0
+    sides 0.3 5.5 4.8
+    material steel
+    mass 0.01
+    flag 0
+
+
+env_obj 4
+    shape box
+    pos 1 -3.1 14
+    color 0 0 1 0.5
+    rot 0 0 0
+    sides 1 0.25 16
+    material steel
+    mass 0.001
+    flag 16
+
+
+env_obj 5
+    shape box
+    pos 1 2.9 14
+    color 0 0 1 0.5
+    rot 0 0 0
+    sides 1 0.25 16
+    material steel
+    mass 0.001
+    flag 16
+
+
+env_obj 6
+    shape box
+    pos 1 3.3 15
+    color 0 0 1 1
+    rot 0 0 0
+    sides 1.0 0.5 1.0
+    material steel
+    mass 1
+    flag 8
+
+
+env_obj 7
+    shape box
+    pos 1 -3.5 15
+    color 0 0 1 1
+    rot 0 0 0
+    sides 1.0 0.5 1.0
+    material steel
+    mass 1
+    flag 8
+
+
+env_obj 8
+    shape box
+    pos 1 -0.1 22
+    color 0 0 1 1
+    rot 0 0 0
+    sides 1.5 5.5 1.5
+    material steel
+    mass 1.0
+    flag 0
+
+******************
+
+env_obj_joint 1 1 2
+pos 2.5 -1.9 6.8125
+axis 0 0 0
+range 0 0
+visible 1
+
+env_obj_joint 10 1 2
+pos 2.5 1.7 6.8125
+axis 0 0 0
+range 0 0
+visible 1
+
+env_obj_joint 2 1 3
+pos -0.5 -1.9 6.8125
+axis 0 0 0
+range 0 0
+visible 1
+
+env_obj_joint 3 1 3
+pos -0.5 1.7 6.8125
+axis 0 0 0
+range 0 0
+visible 1
+
+env_obj_joint 4 4 1
+pos 1 -2.9 6.875
+axis 0 1 0
+range 10000 -10000
+strength 100000
+velocity 20
+visible 1
+
+env_obj_joint 5 5 1
+pos 1 2.7 6.875
+axis 0 1 0
+range 10000 -10000
+strength 100000
+velocity 20
+visible 1
+
+*************
+
+env_obj_joint 6 4 7
+pos 1 -2.9 15
+axis 0 1 0
+range 100 -100
+strength 1000000
+velocity 80
+visible 1
+
+env_obj_joint 7 5 6
+pos 1 2.7 15
+axis 0 1 0
+range 100 -100
+strength 1000000
+velocity 80
+visible 1
+
+*************
+
+env_obj_joint 8 5 8
+pos 1 2.7 22
+axis 0 1 0
+range 10 -10
+visible 1
+
+env_obj_joint 9 4 8
+pos 1 -2.9 22
+range 10 -10
+axis 0 1 0
+visible 1

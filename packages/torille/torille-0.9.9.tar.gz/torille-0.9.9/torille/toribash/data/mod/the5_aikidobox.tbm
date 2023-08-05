@@ -1,0 +1,15 @@
+#Nightmare aikido-box
+gamerule
+	matchframes 200
+	turnframes 10,10,10,10,10,25,25,1000
+	flags 15
+	dismemberment 1
+	fracture 1
+	disqualification 1
+	dismemberthreshold 100
+	fracturethreshold 80
+	dojotype 1
+	dojosize 200
+	engagedistance 200
+	engageheigh 0
+	sumo 1

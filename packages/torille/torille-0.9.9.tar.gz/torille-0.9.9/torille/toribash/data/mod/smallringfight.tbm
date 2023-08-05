@@ -1,0 +1,11 @@
+# Mod by DoubleDagR and TacCom
+gamerule
+gravity 0 0 -30
+dismemberthreshold 325
+fracturethreshold 200
+dojotype 1
+dojosize 225
+matchframes 300
+turnframes 10
+engagedistance 80
+flags 10

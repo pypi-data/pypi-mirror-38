@@ -1,0 +1,334 @@
+gamerule
+   matchframes 800
+   turnframes 10,20,70,70,70,70,70,70,70,70,70,70,70
+   flags 2
+   dismemberment 1
+   fracture 0
+   disqualification 0
+   dqtimeout 40
+   dqflag 0
+   dismemberthreshold 100
+   fracturethreshold 0
+   dojotype 0
+   dojosize 1
+   engagedistance 350
+   engageheight 0
+   engagerotation 0
+   engagespace 0
+   engageplayerpos 
+   engageplayerrot 0,0,0,0,0,0
+   damage 0
+   gravity 0.00 0.00 -9.82
+   sumo 1
+   rpg 0
+
+env_obj 1
+shape box
+pos -0.375 -1.85 2.15
+color 0 0 0
+rot 0 0 0
+sides 0.1 0.1 0.5
+material steel
+mass 0.0001
+
+env_obj 2
+shape box
+pos -0.375 -1.85 2.4
+color 0 0 0
+rot 0 0 0
+sides 0.2 0.2 0.01
+material steel
+mass 0.0001
+
+env_obj 3
+shape box
+pos -0.375 -1.85 3.25
+color 0.85882352941176470588235294117647 0.85882352941176470588235294117647 0.85882352941176470588235294117647
+rot 0 0 0
+sides 0.1 0.0001 1.7
+material steel
+mass 0.0001
+flag 38
+
+env_obj 4
+shape box
+pos 2.375 1.65 2.15
+color 0 0 0
+rot 0 0 0
+sides 0.1 0.1 0.5
+material steel
+mass 0.0001
+
+env_obj 5
+shape box
+pos 2.375 1.65 2.4
+color 0 0 0
+rot 0 0 0
+sides 0.2 0.2 0.01
+material steel
+mass 0.0001
+
+env_obj 6
+shape box
+pos 2.375 1.65 3.25
+color 0.85882352941176470588235294117647 0.85882352941176470588235294117647 0.85882352941176470588235294117647
+rot 0 0 0
+sides 0.1 0.0001 1.7
+material steel
+mass 0.0001
+flag 36
+
+
+env_obj 7
+shape cylinder
+pos 1 1 25
+color 1 1 1
+sides 0.05 50 5000
+friction 0
+flag 8
+
+env_obj 8
+shape cylinder
+pos 1 -1 25
+color 1 1 1
+sides 0.05 50 5000
+friction 0
+flag 8
+
+env_obj_joint 1 1 2
+axis 0 1 0
+range 0 0
+
+env_obj_joint 2 2 3
+axis 0 1 0
+range 0 0
+
+env_obj_joint 3 1 3
+
+env_obj_joint 4 4 5
+axis 0 1 0
+range 0 0
+
+env_obj_joint 5 5 6
+axis 0 1 0
+range 0 0
+
+env_obj_joint 6 4 6
+
+
+
+body head
+radius 0.20000
+pos 1.000000 0.850000 2.600000
+
+body breast
+
+sides 0.200000 0.100000 0.300000
+pos 1.000000 0.900000 2.200000
+
+body chest
+
+sides 0.290000 0.150000 0.200000
+pos 1.000000 0.900000 1.950000
+
+body stomach
+
+sides 0.220000 0.150000 0.200000
+pos 1.000000 0.950000 1.750000
+
+body groin
+
+sides 0.100000 0.150000 0.200000
+pos 1.000000 1.000000 1.550000
+
+body r_pecs
+
+sides 0.200000 0.150000 0.200000
+pos 0.900000 0.850000 2.200000
+
+body r_biceps
+
+sides 0.400000 0.150000 0.150000
+pos 0.450000 0.900000 2.200000
+
+body r_triceps
+
+sides 0.400000 0.100000 0.100000
+pos 0.050000 0.900000 2.200000
+
+body l_pecs
+
+sides 0.200000 0.150000 0.200000
+pos 1.100000 0.850000 2.200000
+
+body l_biceps
+
+sides 0.400000 0.150000 0.150000
+pos 1.550000 0.900000 2.200000
+
+body l_triceps
+
+sides 0.400000 0.100000 0.100000
+pos 1.950000 0.900000 2.200000
+
+body r_hand
+
+sides 0.150000 0.150000 0.150000
+pos -0.350000 0.850000 2.200000
+
+body l_hand
+
+sides 0.150000 0.150000 0.150000
+pos 2.350000 0.850000 2.200000
+alt_sides 0.2 0.2 0.2
+rot 0 0 0
+force 0 0 0
+color 1 1 1
+material flesh
+flag 32
+
+body r_butt
+
+sides 0.100000 0.100000 0.100000
+pos 0.850000 1.000000 1.450000
+
+body l_butt
+
+sides 0.100000 0.100000 0.100000
+pos 1.150000 1.000000 1.450000
+
+body r_thigh
+
+sides 0.135000 0.300000 0.000000
+pos 0.830000 1.000000 1.100000
+
+body l_thigh
+
+sides 0.135000 0.300000 0.200000
+pos 1.170000 1.000000 1.100000
+
+body l_leg
+
+sides 0.120000 0.300000 0.000000
+pos 1.150000 1.000000 0.500000
+
+body r_leg
+
+sides 0.120000 0.300000 0.000000
+pos 0.850000 1.000000 0.500000
+
+body r_foot
+
+sides 0.150000 0.350000 0.080000
+pos 0.850000 0.900000 0.100000
+
+body l_foot
+
+sides 0.150000 0.350000 0.080000
+pos 1.150000 0.900000 0.100000
+
+joint neck
+
+radius 0.090000
+pos 1.000000 0.900000 2.400000
+
+joint chest
+
+radius 0.180000
+pos 1.000000 0.900000 2.050000
+
+joint lumbar
+
+radius 0.160000
+pos 1.000000 0.950000 1.850000
+
+joint abs
+
+radius 0.140000
+pos 1.000000 1.000000 1.650000
+
+joint r_pecs
+
+radius 0.170000
+pos 0.860000 0.800000 2.100000
+
+joint r_shoulder
+
+radius 0.140000
+pos 0.650000 0.900000 2.200000
+
+joint r_elbow
+
+radius 0.130000
+pos 0.250000 0.900000 2.200000
+
+joint l_axilla
+
+radius 0.170000
+pos 1.140000 0.800000 2.100000
+
+joint l_shoulder
+
+radius 0.140000
+pos 1.350000 0.900000 2.200000
+
+joint l_elbow
+
+radius 0.130000
+pos 1.750000 0.900000 2.200000
+
+joint r_wrist
+
+radius 0.100000
+pos -0.200000 0.900000 2.200000
+
+joint l_wrist
+
+radius 0.100000
+pos 2.200000 0.900000 2.200000
+axis 0 1 0
+rot 0 0 0
+range 0.5 -1.4
+strength 2.0
+velocity 60.0
+flag 6
+
+joint r_glute
+
+radius 0.175000
+pos 0.900000 1.100000 1.510000
+
+joint l_glute
+
+radius 0.175000
+pos 1.100000 1.100000 1.510000
+
+joint r_hip
+
+radius 0.170000
+pos 0.850000 1.000000 1.400000
+
+joint l_hip
+
+radius 0.170000
+pos 1.150000 1.000000 1.400000
+
+joint r_knee
+
+radius 0.140000
+pos 0.840000 1.000000 0.800000
+
+joint l_knee
+
+radius 0.140000
+pos 1.160000 1.000000 0.800000
+
+joint r_ankle
+
+radius 0.100000
+pos 0.850000 1.050000 0.250000
+
+joint l_ankle
+
+radius 0.100000
+pos 1.150000 1.050000 0.250000

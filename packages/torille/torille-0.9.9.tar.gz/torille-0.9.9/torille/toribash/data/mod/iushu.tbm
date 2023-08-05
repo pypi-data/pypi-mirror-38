@@ -1,0 +1,57 @@
+#!/usr/bin/toribash
+gamerule
+engagedistance 250
+dismember 1
+dismemberthreshold 100
+fracture 0
+turnframes 50
+matchframes 500
+sumo 1
+dq 1
+flags 7
+
+
+# for all players
+
+   body head
+      flag 6
+      material steel
+
+   body l_biceps
+      flag 2
+
+   body l_foot
+      flag 38
+      material steel
+
+   body l_hand
+      flag 38
+      material steel
+
+   body l_leg
+      flag 2
+
+   body l_triceps
+      flag 2
+
+   body r_biceps
+      flag 2
+
+   body r_foot
+      flag 38
+      material steel
+
+   body r_hand
+      flag 38
+      material steel
+
+   body r_leg
+      flag 2
+
+   body r_triceps
+      flag 2
+
+
+
+
+

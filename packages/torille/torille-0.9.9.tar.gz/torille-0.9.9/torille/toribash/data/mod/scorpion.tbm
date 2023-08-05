@@ -1,0 +1,388 @@
+# Mod by MrPoptart =D originaly started by ghastly
+
+blood
+   color 0 200 0
+
+body head
+   sides 0.200000 0.000000 0.000000
+   rot 0.000000 0.000000 0.000000
+   pos 1.000000 0.850000 1.00000
+   force 0.000000 0.000000 0.000000
+   material flesh
+   flag 1
+
+joint neck
+   radius 0.110000
+   rot 0.000000 0.000000 0.000000
+   axis 1.000000 0.000000 0.000000
+   pos 1.000000 1.000000 0.95000000
+   force 0.000000 0.000000 0.000000
+   material flesh
+   flag 1
+
+body breast
+   sides 0.200000 0.100000 0.300000
+   rot 0.000000 0.000000 0.000000
+   pos 1.000000 1.100000 1.000000
+   force 0.000000 0.000000 0.000000
+   material flesh
+   shape box
+   flag 1
+
+joint r_pecs
+   radius 0.180000
+   rot 0.000000 0.000000 0.000000
+   axis 0.000000 0.000000 -1.000000
+   pos 0.850000 1.10000 1.00000
+   force 0.000000 0.000000 0.000000
+   material flesh
+   flag 1
+
+joint l_axilla
+   radius 0.180000
+   rot 0.000000 0.000000 0.000000
+   axis 0.000000 0.000000 -1.000000
+   pos 1.150000 1.1000 1.00000
+   force 0.000000 0.000000 0.000000
+   material flesh
+   flag 1
+
+body r_pecs
+   sides 0.200000 0.150000 0.200000
+   rot 0.000000 0.000000 0.000000
+   pos 0.750000 1.0500000 1.00000
+   force 0.000000 0.000000 0.000000
+   material flesh
+   shape box
+   flag 1
+
+body l_pecs
+   sides 0.200000 0.150000 0.200000
+   rot 0.000000 0.000000 0.000000
+   pos 1.250000 1.0500000 1.0000
+   force 0.000000 0.000000 0.000000
+   material flesh
+   shape box
+   flag 1
+
+joint r_shoulder
+   radius 0.180000
+   rot 0.000000 0.000000 0.000000
+   axis 0.000000 1.2000000 0.000000
+   pos 0.650000 1.20000 1.0000
+   force 0.000000 0.000000 0.000000
+   material flesh
+   flag 1
+
+joint l_shoulder
+   radius 0.180000
+   rot 0.000000 0.000000 0.000000
+   axis 0.000000 1.000000 0.000000
+   pos 1.350000 1.200000 1.00000
+   force 0.000000 0.000000 0.000000
+   material flesh
+   flag 1
+
+body r_biceps
+   sides 0.400000 0.200000 0.200000
+   rot 0.000000 0.000000 0.000000
+   pos 0.450000 1.200000 1.00000
+   color 0.000000 0.000000 0.000000
+   force 0.000000 0.000000 0.000000
+   material flesh
+   shape box
+   flag 1
+
+body l_biceps
+   sides 0.400000 0.200000 0.200000
+   rot 0.000000 0.000000 0.000000
+   pos 1.550000 1.200000 1.000000
+   color 0.000000 0.000000 0.000000
+   force 0.000000 0.000000 0.000000
+   material flesh
+   shape box
+   flag 1
+
+joint r_elbow
+   radius 0.160000
+   rot 0.000000 0.000000 0.000000
+   axis 0.000000 -1.000000 0.000000
+   pos 0.250000 1.200000 1.000000
+   force 0.000000 0.000000 0.000000
+   material flesh
+   flag 1
+
+joint l_elbow
+   radius 0.160000
+   rot 0.000000 0.000000 0.000000
+   axis 0.000000 -1.000000 0.000000
+   pos 1.750000 1.200000 1.000000
+   force 0.000000 0.000000 0.000000
+   material flesh
+   flag 1
+
+body r_triceps
+   sides 0.40000 0.100000 0.100000
+   rot 0.000000 45.000000 0.000000
+   pos 0.050000 1.200000 1.000000
+   color 0.000000 0.000000 0.000000
+   force 0.000000 0.000000 0.000000
+   material flesh
+   shape box
+   flag 1
+
+body l_triceps
+   sides 0.40000 0.100000 0.100000
+   rot 0.000000 -45.000000 0.000000
+   pos 1.950000 1.200000 1.00000
+   color 0.000000 0.000000 0.000000
+   force 0.000000 0.000000 0.000000
+   material flesh
+   shape box
+   flag 1
+
+joint r_wrist
+   radius 0.110000
+   rot 0.000000 0.000000 0.000000
+   axis 0.000000 -1.000000 0.000000
+   pos -0.100000 1.20000 0.750000
+   force 0.000000 0.000000 0.000000
+   material flesh
+   flag 1
+
+joint l_wrist
+   radius 0.110000
+   rot 0.000000 0.000000 0.000000
+   axis 0.000000 -1.000000 0.000000
+   pos 2.10000 1.2000000 0.7500000
+   force 0.000000 0.000000 0.000000
+   material flesh
+   flag 1
+
+body r_hand
+   sides 0.010000 0.10000 1.20000
+   alt_sides 0.010000 0.20000 1.20000
+   rot 0.000000 -25.000000 0.000000
+   pos -0.20000 1.200000 0.500000
+   color 1.000000 0.000000 0.000000
+   force 0.000000 0.000000 0.000000
+   material steel
+   flag 1
+
+body l_hand
+   sides 0.010000 0.10000 1.20000
+   alt_sides 0.010000 0.20000 1.20000
+   rot 0.000000 25.000000 0.000000
+   pos 2.20000 1.20000 0.50000
+   color 1.000000 0.000000 0.000000
+   force 0.000000 0.000000 0.000000
+   material steel
+   flag 1
+
+joint chest
+   radius 0.180000
+   rot 0.000000 0.000000 0.000000
+   axis 0.000000 0.000000 1.000000
+   pos 1.000000 1.3500000 1.0000
+   force 0.000000 0.000000 0.000000
+   material flesh
+   flag 1
+
+body chest
+   sides 0.500000 0.15000 0.200000
+   rot 0.000000 0.000000 0.000000
+   pos 1.000000 1.4500000 1.00000
+   force 0.000000 0.000000 0.000000
+   material flesh
+   shape box
+   flag 1
+
+joint lumbar
+   radius 0.160000
+   rot 0.000000 0.000000 0.000000
+   axis 0.000000 1.000000 0.000000
+   pos 1.000000 1.550000 1.0000
+   force 0.000000 0.000000 0.000000
+   material flesh
+   flag 1
+
+body stomach
+   sides 0.350000 0.150000 0.200000
+   rot 0.000000 0.000000 0.000000
+   pos 1.000000 1.650000 1.00000
+   color 0.000000 0.000000 0.000000
+   force 0.000000 0.000000 0.000000
+   material flesh
+   shape box
+   flag 1
+
+joint abs
+   radius 0.140000
+   rot 0.000000 0.000000 0.000000
+   axis 1.000000 0.000000 0.000000
+   pos 1.000000 1.7500000 1.00000
+   force 0.000000 0.000000 0.000000
+   material flesh
+   flag 1
+
+body groin
+   sides 0.200000 0.150000 0.200000
+   rot 0.000000 0.000000 0.000000
+   pos 1.000000 1.8500000 1.0000
+   color 0.000000 0.000000 0.000000
+   force 0.000000 0.000000 0.000000
+   material flesh
+   shape box
+   flag 1
+
+joint r_glute
+   radius 0.160000
+   rot 0.000000 0.000000 0.000000
+   axis 1.000000 0.000000 0.000000
+   pos 1.000000 1.900000 1.20000
+   force 0.000000 0.000000 0.000000
+   material flesh
+   flag 1
+
+joint l_glute
+   radius 0.160000
+   rot 0.000000 0.000000 0.000000
+   axis 1.000000 0.000000 0.000000
+   pos 1.00000 1.900000 1.00000
+   force 0.000000 0.000000 0.000000
+   material flesh
+   flag 1
+
+body r_butt
+   sides 0.100000 0.100000 0.100000
+   rot 0.000000 0.000000 0.000000
+   pos 1.000000 1.900000 1.20000
+   color 0.000000 0.000000 0.000000
+   force 0.000000 0.000000 0.000000
+   material flesh
+   shape box
+   flag 1
+
+body l_butt
+   sides 0.100000 0.100000 0.100000
+   rot 0.000000 0.000000 0.000000
+   pos 1.00000 1.900000 1.00000
+   color 0.000000 0.000000 0.000000
+   force 0.000000 0.000000 0.000000
+   force 0.000000 0.000000 0.000000
+   material flesh
+   shape box
+   flag 1
+
+joint r_hip
+   radius 0.160000
+   rot 0.000000 0.000000 0.000000
+   axis 1.000000 0.000000 0.000000
+   pos 1.0000 1.9500000 1.400000
+   force 0.000000 0.000000 0.000000
+   material flesh
+   flag 1
+
+joint l_hip
+   radius 0.160000
+   rot 0.000000 0.000000 0.000000
+   axis 1.000000 0.000000 0.000000
+   pos 1.0000 2.1500000 1.000000
+   force 0.000000 0.000000 0.000000
+   material flesh
+   flag 1
+
+body r_thigh 
+   sides 0.130000 0.500000 0.000000
+   rot 0.000000 0.000000 0.000000
+   pos 1.00000 1.9500000 1.8000000
+   color 0.000000 0.000000 0.000000
+   force 0.000000 0.000000 0.000000
+   material flesh
+   shape cylinder
+   flag 1
+
+body l_thigh
+   sides 0.15 0.5 0.15
+   rot 0.000000 0.000000 0.000000
+   pos 1.00000 2.50000 1.00000
+   color 0.000000 0.000000 0.000000
+   force 0.000000 0.000000 0.000000
+   material flesh
+   shape box
+   flag 1
+
+joint r_knee
+   radius 0.180000
+   rot 0.000000 0.000000 0.000000
+   axis -1.000000 0.000000 0.000000
+   pos 1.000000 1.9500000 2.20000
+   force 0.000000 0.000000 0.000000
+   material flesh
+   flag 1
+
+joint l_knee
+   radius 0.140000
+   rot 0.000000 0.000000 0.000000
+   axis 1.000000 0.000000 0.000000
+   pos 1.000000 2.800000 1.00000
+   force 0.000000 0.000000 0.000000
+   material flesh
+   flag 1
+
+body r_leg
+   sides 0.130000 0.7500000 0.000000
+   rot 90 0 0
+   pos 1.00000 0.800000 2.75000000
+   color 0.000000 0.000000 0.000000
+   force 0.000000 0.000000 0.000000
+   material flesh
+   shape cylinder
+   flag 1
+
+body l_leg
+   sides 0.130000 0.300000 0.000000
+   pos 1.000000 2.80000 0.650000
+   color 0.000000 0.000000 0.000000
+   force 0.000000 0.000000 0.000000
+   material flesh
+   shape cylinder
+   flag 1
+
+joint r_ankle
+   radius 0.20000
+   rot 0.000000 0.000000 0.000000
+   axis -1.000000 0.000000 0.000000
+   pos 1.00000 0.870000 2.20000
+   force 0.000000 0.000000 0.000000
+   material flesh
+   flag 1
+
+joint l_ankle
+   radius 0.110000
+   rot 0.000000 0.000000 0.000000
+   axis -1.000000 0.000000 0.000000
+   pos 1.00000 2.9000 0.3.00000
+   force 0.000000 0.000000 0.000000
+   material flesh
+   flag 1
+
+body r_foot
+   sides 0.100000 0.01000 0.40000
+   rot 0.000000 0.000000 0.000000
+   pos 1.00000 0.900000 2.000000
+   color 1.000000 0.000000 0.000000
+   force 0.000000 0.000000 0.000000
+   material flesh
+   shape box
+   flag 6
+
+body l_foot
+   sides 0.100000 0.010000 0.40000
+   rot 30.000000 0.000000 0.000000
+   pos 1.00000 3.0000 0.200000
+   color 1.000000 0.000000 0.000000
+   force 0.000000 0.000000 0.000000
+   material flesh
+   shape box
+   flag 1

@@ -1,0 +1,74 @@
+#Mod edited from origanal by MrPoptart =D
+
+friction 0.01
+
+blood
+	
+color 0 0 1
+
+
+player 0
+
+body stomach 
+
+force 0 10 1
+
+
+body breast
+
+force 0 10 1
+
+
+body chest
+
+force 0 10 1
+
+
+body groin
+
+force 0 10 1
+
+
+body r_pecs
+
+force 0 20 1
+
+
+body l_pecs
+
+force 0 20 1
+
+
+body r_thigh
+
+force 0 20 1
+
+
+body l_thigh
+
+force 0 20 1
+
+
+body l_leg
+
+force 0 30 0
+
+body r_leg
+
+force 0 30 0
+
+player 1
+
+body r_hand
+sides 1.4 0.01 0.1
+pos -0.6 0.9 2.3
+material steel
+color 0 0 0
+flag 6
+
+body l_hand
+sides 1.4 0.01 0.1
+pos 2.6 0.9 2.3
+material steel
+color 0 0 0
+flag 6

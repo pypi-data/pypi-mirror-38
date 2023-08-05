@@ -1,0 +1,215 @@
+#######################################
+# Environment exported by WorldBuilder#
+#     ([Revolution-Major]Vamp_09)     #
+#######################################
+
+gamerule
+engagedistance 500
+gravity 0 0 -20
+fracture 1
+fracturethreshold 50
+turnframes 10,10,10,20,30,35,40,1000
+matchframes 1000
+disqualification 1
+
+env_obj 1
+    shape box
+    pos -0.9375 2.4375 2.25
+    color 0.5 0.5 0.5 1
+    rot 90 0 0
+    sides 0.8125 0.0625 0.8125
+    material steel
+    mass 0.0001
+    flag 6
+#END 1
+
+env_obj 2
+    shape box
+    pos -0.5625 2.4375 2.25
+    color -0.1 -0.1 -0.1 1
+    rot 90 0 0
+    sides 0.1875 0.125 0.5625
+    material steel
+    mass 0.0001
+    flag 0
+#END 2
+
+env_obj 3
+    shape box
+    pos 2.9375 2.4375 2.25
+    color 0.5 0.5 0.5 1
+    rot 90 0 0
+    sides 0.8125 0.0625 0.8125
+    material steel
+    mass 0.0001
+    flag 6
+#END 3
+
+env_obj 4
+    shape box
+    pos 2.5625 2.4375 2.25
+    color -0.1 -0.1 -0.1 1
+    rot 90 0 0
+    sides 0.1875 0.125 0.5625
+    material steel
+    mass 0.0001
+    flag 0
+#END 4
+
+env_obj 5
+    shape box
+    pos 2.5625 -2.5625 2.25
+    color 1.1 1.1 0.6 1
+    rot 90 0 0
+    sides 0.375 0.0625 0.0625
+    material steel
+    mass 0.0001
+    flag 0
+#END 5
+
+env_obj 6
+    shape box
+    pos 2.9375 -2.5625 2.25
+    color 1 0.8 -0.1 1
+    rot 90 0 0
+    sides 0.375 0.0625 0.0625
+    material steel
+    mass 0.0001
+    flag 0
+#END 6
+
+env_obj 7
+    shape box
+    pos 3.3125 -2.5625 2.25
+    color 1 0.8 -0.1 1
+    rot 90 0 0
+    sides 0.375 0.0625 0.0625
+    material steel
+    mass 0.0001
+    flag 0
+#END 7
+
+env_obj 8
+    shape box
+    pos 3.6875 -2.5625 2.25
+    color 1 0.8 -0.1 1
+    rot 90 0 0
+    sides 0.375 0.0625 0.0625
+    material steel
+    mass 0.0001
+    flag 0
+#END 8
+
+env_obj 9
+    shape box
+    pos 4.0625 -2.5625 2.25
+    color 1 0.8 -0.1 1
+    rot 90 0 0
+    sides 0.375 0.0625 0.0625
+    material steel
+    mass 0.0001
+    flag 0
+#END 9
+
+env_obj 10
+    shape box
+    pos 4.4375 -2.5625 2.25
+    color 1 0.8 -0.1 1
+    rot 90 0 0
+    sides 0.375 0.0625 0.0625
+    material steel
+    mass 0.0001
+    flag 0
+#END 10
+
+env_obj 11
+    shape box
+    pos 4.8125 -2.5625 2.25
+    color 1 0.8 -0.1 1
+    rot 90 0 0
+    sides 0.375 0.0625 0.0625
+    material steel
+    mass 0.0001
+    flag 0
+#END 11
+
+env_obj 12
+    shape box
+    pos 5.1875 -2.5625 2.25
+    color 1.1 1.1 0.6 1
+    rot 90 0 0
+    sides 0.375 0.0625 0.0625
+    material steel
+    mass 0.0001
+    flag 6
+#END 12
+
+env_obj_joint 1 1 2
+	pos -0.6875 2.4375 2.25
+	axis 0 0 0
+	range 0 0
+	strength 0
+	velocity 0
+	visible 0
+
+env_obj_joint 2 3 4
+	pos 2.6875 2.4375 2.25
+	axis 0 0 0
+	range 0 0
+	strength 0
+	velocity 0
+	visible 0
+
+env_obj_joint 3 5 6
+	pos 2.75 -2.5625 2.25
+	axis 0 0 0
+	range 0 0
+	strength 0
+	velocity 0
+	visible 0
+
+env_obj_joint 4 6 7
+	pos 3.125 -2.5625 2.25
+	axis 0 0 0
+	range 0 0
+	strength 0
+	velocity 0
+
+env_obj_joint 5 7 8
+	pos 3.5 -2.5625 2.25
+	axis 0 0 0
+	range 0 0
+	strength 0
+	velocity 0
+
+env_obj_joint 6 8 9
+	pos 3.875 -2.5625 2.25
+	axis 0 0 0
+	range 0 0
+	strength 0
+	velocity 0
+	visible 0
+
+env_obj_joint 7 9 10
+	pos 4.25 -2.5625 2.25
+	axis 0 0 0
+	range 0 0
+	strength 0
+	velocity 0
+	visible 0
+
+env_obj_joint 8 10 11
+	pos 4.625 -2.5625 2.25
+	axis 0 0 0
+	range 0 0
+	strength 0
+	velocity 0
+	visible 0
+
+env_obj_joint 9 11 12
+	pos 5 -2.5625 2.25
+	axis 0 0 0
+	range 0 0
+	strength 0
+	velocity 0
+	visible 0

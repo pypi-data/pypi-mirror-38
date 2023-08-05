@@ -1,0 +1,158 @@
+#!/usr/bin/toribash
+#### Created with ModEditor by DeFransen ####
+
+
+gamerule
+   damage 0
+   dismemberment 1
+   dismemberthreshold 100
+   disqualification 1
+   dojosize 1000
+   dojotype 1
+   dqflag 0
+   dqtimeout 0
+   engagedistance 500
+   engageheight 0
+   engagerotation 0
+   engagespace 0
+   flags 3
+   fracture 0
+   gravity 0 0 -30
+   matchframes 1500
+   rpg 0
+   sumo 0
+   turnframes 10
+
+
+player 0
+
+   joint abs
+      dm_threshold 500
+
+   joint chest
+      dm_threshold 500
+
+   joint l_ankle
+      dm_threshold 500
+
+   joint l_elbow
+      dm_threshold 500
+
+   joint l_glute
+      dm_threshold 500
+
+   joint l_hip
+      dm_threshold 500
+
+   joint l_knee
+      dm_threshold 500
+
+   joint l_pecs
+      dm_threshold 500
+
+   joint l_shoulder
+      dm_threshold 500
+
+   joint l_wrist
+      dm_threshold 500
+
+   joint lumbar
+      dm_threshold 500
+
+   joint r_ankle
+      dm_threshold 500
+
+   joint r_elbow
+      dm_threshold 500
+
+   joint r_glute
+      dm_threshold 500
+
+   joint r_hip
+      dm_threshold 500
+
+   joint r_knee
+      dm_threshold 500
+
+   joint r_pecs
+      dm_threshold 500
+
+   joint r_shoulder
+      dm_threshold 500
+
+   joint r_wrist
+      dm_threshold 500
+
+
+player 1
+
+   joint abs
+      dm_threshold 500
+
+   joint chest
+      dm_threshold 500
+
+   joint l_ankle
+      dm_threshold 500
+
+   joint l_elbow
+      dm_threshold 500
+
+   joint l_glute
+      dm_threshold 500
+
+   joint l_hip
+      dm_threshold 500
+
+   joint l_knee
+      dm_threshold 500
+
+   joint l_pecs
+      dm_threshold 500
+
+   joint l_shoulder
+      dm_threshold 500
+
+   joint l_wrist
+      dm_threshold 500
+
+   joint lumbar
+      dm_threshold 500
+
+   joint r_ankle
+      dm_threshold 500
+
+   joint r_elbow
+      dm_threshold 500
+
+   joint r_glute
+      dm_threshold 500
+
+   joint r_hip
+      dm_threshold 500
+
+   joint r_knee
+      dm_threshold 500
+
+   joint r_pecs
+      dm_threshold 500
+
+   joint r_shoulder
+      dm_threshold 500
+
+   joint r_wrist
+      dm_threshold 500
+
+
+env_obj 1
+   pos -28.8809 14.7732 10.05
+   shape box
+   sides 15 15 20
+   visible 0
+
+env_obj 2
+   pos 0 0 1000
+   shape box
+   visible 0
+
+

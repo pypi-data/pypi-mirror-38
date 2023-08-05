@@ -1,0 +1,45 @@
+body r_hand
+	sides 1.8 0.008 0.008
+	pos -0.6 0.9 2.3
+	color 100 100 100
+	flag 6
+body l_hand
+	sides 1.8 0.008 0.008
+	pos 2.6 0.9 2.3
+	color 100 100 100
+	flag 6
+
+body r_foot
+        flag 6
+
+body l_foot
+        flag 6
+
+body r_triceps
+   sides 0.400000 0.130000 0.130000
+   flag 2
+
+body l_triceps
+   sides 0.400000 0.130000 0.130000
+   flag 2
+
+body r_leg
+   sides 0.160000 0.300000 0.000000
+        flag 2
+
+body l_leg
+   sides 0.160000 0.300000 0.000000
+        flag 2
+
+gamerule
+        matchframes 500 
+        turnframes 50
+        flags 2
+        fracture 0
+        disqualification 0
+        dismemberthreshold 325
+        fracturethreshold 200
+        dojotype 1
+        dojosize 500
+        engagedistance 275
+        sumo 1

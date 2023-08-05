@@ -1,0 +1,398 @@
+#!/usr/bin/toribash
+#Mod Created by fett175
+
+gamerule
+damage 0
+dismemberment 0
+disqualification 0
+dojosize 0
+dojotype 0
+dqflag 0
+dqtimeout 0  
+engageplayerpos 4,-2,.06,1.5,2,.01 
+engageplayerrot 0,0,0,0,0,0
+flags 0
+fracture 0  
+gravity 0 0 -30       
+matchframes 3000      
+sumo 1
+turnframes 10
+
+env_obj 1                 floor line
+    shape box
+    pos 0 -34.3125 0             
+    color 1.1 1.1 1.1 1.1
+    rot 0 0 0
+    sides 45.75 0 0.1875
+    material steel
+    mass 0.1
+    flag 24
+#END 1
+
+env_obj 2                 floor line
+    shape box
+    pos 0 -28.8125 0
+    color 1.1 1.1 1.1 1.1
+    rot 0 0 0
+    sides 45.75 0 0.1875
+    material steel
+    mass 0.1
+    flag 24
+#END 2
+
+env_obj 3                 floor line
+    shape box
+    pos 0 -23.0625 0
+    color 1.1 1.1 1.1 1.1
+    rot 0 0 0
+    sides 45.75 0 0.1875
+    material steel
+    mass 0.1
+    flag 24
+#END 3
+
+env_obj 4                 floor line
+    shape box
+    pos 0 -17.3125 0
+    color 1.1 1.1 1.1 1.1
+    rot 0 0 0
+    sides 45.75 0 0.1875
+    material steel
+    mass 0.1
+    flag 24
+#END 4
+
+env_obj 5                floor line
+    shape box
+    pos 0 -11.0625 0
+    color 1.1 1.1 1.1 1.1
+    rot 0 0 0
+    sides 45.75 0 0.1875
+    material steel
+    mass 0.1
+    flag 24
+#END 5
+
+env_obj 6                 floor line
+    shape box
+    pos 0 -5.0625 0
+    color 1.1 1.1 1.1 1.1
+    rot 0 0 0
+    sides 45.75 0 0.1875
+    material steel
+    mass 0.1
+    flag 24
+#END 6
+
+env_obj 7                green floor
+    shape box
+    pos 0 -0.25 0.0625
+    color 0 0.5 0 1.1
+    rot 0 0 0
+    sides 45.75 77.5 0
+    material steel
+    mass 0.1
+    flag 24
+	trig_id 7
+	trig_mask 4
+	trig_action 2           fumble!
+#END 7
+
+env_obj 8                 floor line
+    shape box
+    pos 0 -0.1875 0
+    color 1.1 1.1 1.1 1.1
+    rot 0 0 0
+    sides 45.75 0 0.1875
+    material steel
+    mass 0.1
+    flag 24
+#END 8
+
+env_obj 9                  floor line
+    shape box
+    pos 0 5.4375 0
+    color 1.1 1.1 1.1 1.1
+    rot 0 0 0
+    sides 45.75 0 0.1875
+    material steel
+    mass 0.1
+    flag 24
+#END 9
+
+env_obj 10                  floor line
+    shape box
+    pos 0 11.0625 0
+    color 1.1 1.1 1.1 1.1
+    rot 0 0 0
+    sides 45.75 0 0.1875
+    material steel
+    mass 0.1
+    flag 24
+#END 10
+
+env_obj 11             floor line
+    shape box
+    pos 0 18.0625 0
+    color 1.1 1.1 1.1 1.1
+    rot 0 0 0
+    sides 45.75 0 0.1875
+    material steel
+    mass 0.1
+    flag 24
+#END 11
+
+env_obj 12                        touchdown zone
+    shape box
+    pos 0 -36.6875 0.0625
+    color 0.4 1.1 0 1.1
+    rot 0 0 0
+    sides 45.5 4.6875 0.0625
+    material steel
+    mass 0.1
+    flag 24
+	trig_id 5                     
+	trig_mask 3                   
+	trig_action 1                   touchdown!
+#END 12
+
+env_obj 13                  launch side
+    shape box
+    pos -11.75 30.75 0.625
+    color 0 0 0 1.1
+    rot -60 -21 -88
+    sides 1.25 0.25 2.75
+    material steel
+    mass 0.1
+    flag 24
+#END 13
+
+env_obj 14                launch side
+    shape box
+    pos -12.75 30.5 0.8125
+    color 0 0 0 1.1
+    rot -60 -21 -88
+    sides 1.25 0.25 2.75
+    material steel
+    mass 0.1
+    flag 24
+#END 14
+
+env_obj 15               launch back
+    shape box
+    pos -12.625 31.2875 0.5
+    color 0 0 0 1.1
+    rot -60 -21 -88
+    sides 1.25 1 1.1875
+    material steel
+    mass 0.1
+    flag 24
+	bounce 148
+#END 15
+
+env_obj 16                     ball
+    shape cylinder
+    pos -12.125 30.25 1.375
+    color 0.3 0.3 -0.1 1.1
+    rot -60 -19 0
+    sides 0.25 0.5 1.1875
+    material steel
+    mass 0.0000000001
+    flag 0
+	trig_id 4
+	trig_mask 1
+	trig_action 2             ball strip!
+#END 16
+
+#tori
+player 0
+
+body head 
+thrust 5 0 -.2 1.6              
+trig_id 2
+trig_mask 1
+trig_action 2                       tackle!
+
+body r_biceps 
+thrust 1 0 -.2 0.9              
+trig_id 2
+trig_mask 1
+trig_action 2                       tackle!
+
+body l_biceps 
+thrust 1 0 -.2 0.9           
+trig_id 2
+trig_mask 1
+trig_action 2                       tackle!
+
+body r_triceps 
+thrust 1 0 -.2 0.0003            
+trig_id 2
+trig_mask 1
+trig_action 2                       tackle!
+
+body l_triceps 
+thrust 1 0 -.2 0.0003           
+trig_id 2
+trig_mask 1
+trig_action 2                       tackle!
+
+body l_pec
+thrust 1 0 0 -0.25
+trig_id 2
+trig_mask 1
+trig_action 2                       tackle!
+
+body r_pec
+thrust 1 0 0 -0.25
+trig_id 2
+trig_mask 1
+trig_action 2                       tackle!
+
+body breast
+thrust 5 0 0 -0.35
+trig_id 2
+trig_mask 1
+trig_action 2                       tackle!
+
+body stomach
+thrust 1 0 0 -0.35
+trig_id 2
+trig_mask 1
+trig_action 2                       tackle!
+
+body groin
+thrust 1 0 0 -0.35
+
+body l_thigh
+thrust 1 0 0 -0.35
+
+body l_thigh
+thrust 1 0 0 -0.35
+
+body l_leg
+thrust 1 0 0 -0.285
+
+body r_leg
+thrust 1 0 0 -0.285
+
+body r_foot 
+thrust 1 0 0 -0.1
+trig_id 3                        touchdown!
+trig_mask 5                      
+
+body l_foot 
+thrust 1 0 0 -0.1
+trig_id 3                        touchdown!
+trig_mask 5                      
+
+joint neck
+trig_id 6
+trig_mask 1
+trig_action 2                       tackle!
+
+joint chest
+trig_id 6
+trig_mask 1
+trig_action 2                       tackle!
+
+joint lumbar
+trig_id 6
+trig_mask 1
+trig_action 2                       tackle!
+
+joint abs
+trig_id 6
+trig_mask 1
+trig_action 2                       tackle!
+
+joint r_pecs
+trig_id 6
+trig_mask 1
+trig_action 2                       tackle!
+
+joint r_shoulder
+trig_id 6
+trig_mask 1
+trig_action 2                       tackle!
+
+joint r_elbow
+trig_id 6
+trig_mask 1
+trig_action 2                       tackle!
+
+joint l_pecs
+trig_id 6
+trig_mask 1
+trig_action 2                       tackle!
+
+joint l_shoulder
+trig_id 6
+trig_mask 1
+trig_action 2                       tackle!
+
+joint l_elbow
+trig_id 6
+trig_mask 1
+trig_action 2                       tackle!
+
+#Uke
+player 1
+
+body r_hand
+    trig_id 1
+    trig_mask 6
+	trig_action 2
+
+body l_hand
+    trig_id 1
+    trig_mask 6
+	trig_action 2
+
+body head 
+thrust 5 0 -.21 1.6              
+
+body r_biceps 
+thrust 1 0 -.21 0.9              
+
+body l_biceps 
+thrust 1 0 -.21 0.9           
+
+body r_triceps 
+thrust 1 0 -.21 0.0003            
+
+body l_triceps 
+thrust 1 0 -.21 0.0003           
+
+body l_pec
+thrust 1 0 0 -0.25
+
+body r_pec
+thrust 1 0 0 -0.25
+
+body breast
+thrust 5 0 0 -0.35
+
+body stomach
+thrust 1 0 0 -0.35
+
+body groin
+thrust 1 0 0 -0.35
+
+body l_thigh
+thrust 1 0 0 -0.35
+
+body l_thigh
+thrust 1 0 0 -0.35
+
+body l_leg
+thrust 1 0 0 -0.285
+
+body r_leg
+thrust 1 0 0 -0.285
+
+body r_foot 
+thrust 1 0 0 -0.1
+
+body l_foot 
+thrust 1 0 0 -0.1

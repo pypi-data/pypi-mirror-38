@@ -1,0 +1,33 @@
+gamerule
+engagedistance 500
+turnframes 15,35
+
+player 0
+
+joint r_wrist
+strength 30
+velocity 30
+
+body r_hand
+pos -0.2 0.5 2.3
+thrust 1 0 -10 0
+
+body r_triceps
+pos -0.2 1.2 2.3
+thrust 1 0 10 0
+sides 0.22 0.22 0.22
+
+player 1
+
+joint r_wrist
+strength 30
+velocity 30
+
+body r_hand
+pos -0.2 0.5 2.3
+thrust 1 0 10 0
+
+body r_triceps
+pos -0.2 1.2 2.3
+thrust 1 0 -10 0
+sides 0.22 0.22 0.22

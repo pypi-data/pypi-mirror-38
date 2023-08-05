@@ -1,0 +1,154 @@
+# Mod By MrPoptart =O
+
+gamerule
+engagedistance 500
+
+env_obj 1
+shape cylinder
+pos 2 0 3.1
+color 1 1 0.9
+rot -90 0 0
+sides 0.1 7 1
+material steel
+mass 0.1
+flag 8
+
+env_obj 2
+shape cylinder
+pos 0 0 3.1
+color 1 1 0.9
+rot -90 0 0
+sides 0.1 7 1
+material steel
+mass 0.1
+flag 8
+
+env_obj 3
+shape cylinder
+pos -0.3 1.5 2.65
+color 1 1 0.9
+rot 0 -32 0
+sides 0.075 1 1
+material steel
+mass 0.1
+flag 24
+
+env_obj 4
+shape cylinder
+pos -0.3 -1.5 2.65
+color 1 1 0.9
+rot 0 -32 0
+sides 0.075 1 1
+material steel
+mass 0.1
+flag 24
+
+env_obj 5
+shape cylinder
+pos 2.3 -1.5 2.65
+color 1 1 0.9
+rot 0 32 0
+sides 0.075 1 1
+material steel
+mass 0.1
+flag 24
+
+env_obj 6
+shape cylinder
+pos 2.3 1.5 2.65
+color 1 1 0.9
+rot 0 32 0
+sides 0.075 1 1
+material steel
+mass 0.1
+flag 24
+
+env_obj 7
+shape cylinder
+pos -0.575 1.5 1.7
+color 1 1 0.9
+rot 0 0 0
+sides 0.075 1 1
+material steel
+mass 0.1
+flag 24
+
+env_obj 8
+shape cylinder
+pos -0.575 -1.5 1.7
+color 1 1 0.9
+rot 0 0 0
+sides 0.075 1 1
+material steel
+mass 0.1
+flag 24
+
+env_obj 9
+shape cylinder
+pos 2.575 -1.5 1.7
+color 1 1 0.9
+rot 0 0 0
+sides 0.075 1 1
+material steel
+mass 0.1
+flag 24
+
+env_obj 10
+shape cylinder
+pos 2.575 1.5 1.7
+color 1 1 0.9
+rot 0 0 0
+sides 0.075 1 1
+material steel
+mass 0.1
+flag 24
+
+env_obj 11
+shape cylinder
+pos -0.575 1.5 0.6
+color 0 0 0
+rot 0 0 0
+sides 0.1 1.2 1
+material steel
+mass 0.1
+flag 24
+
+env_obj 12
+shape cylinder
+pos -0.575 -1.5 0.6
+color 0 0 0
+rot 0 0 0
+sides 0.1 1.2 1
+material steel
+mass 0.1
+flag 24
+
+env_obj 13
+shape cylinder
+pos 2.575 -1.5 0.6
+color 0 0 0
+rot 0 0 0
+sides 0.1 1.2 1
+material steel
+mass 0.1
+flag 24
+
+env_obj 14
+shape cylinder
+pos 2.575 1.5 0.6
+color 0 0 0
+rot 0 0 0
+sides 0.1 1.2 1
+material steel
+mass 0.1
+flag 24
+
+env_obj 15
+shape box
+pos 1 0 0.025
+color 0 0 1
+rot 0 0 0
+sides 8.5 8.5 0.025
+material steel
+mass 0.1
+flag 24

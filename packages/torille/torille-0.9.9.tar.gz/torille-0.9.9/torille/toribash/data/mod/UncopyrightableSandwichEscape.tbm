@@ -1,0 +1,72 @@
+#Sandwich Escape by Uncopyrightable
+
+gravity 0, 0, -5
+
+friction 0
+
+env_obj 1
+    shape box
+    pos -1 2.5 1.5
+    color 1.1 0 -0.1 1
+    rot 0 0 0
+    sides 1 1 3
+    material steel
+    mass 0.1
+    flag 24
+#END 1
+
+env_obj 2
+    shape box
+    pos 3 2.5 1.5
+    color 1.1 0 -0.1 1
+    rot 0 0 0
+    sides 1 1 3
+    material steel
+    mass 0.1
+    flag 24
+#END 2
+
+env_obj 3
+    shape box
+    pos 1 2.5 3.5
+    color 1.1 0 -0.1 1
+    rot 0 0 0
+    sides 5 1 1
+    material steel
+    mass 0.1
+    flag 24
+#END 3
+
+env_obj 4
+    shape box
+    pos 1 1.5 2
+    color 1.1 1.1 1.1 0.5
+    rot 0 0 0
+    sides 5 1 4
+    material steel
+    mass 0.1
+    flag 24
+#END 4
+
+env_obj 5
+    shape box
+    pos 1 15.1 2.5
+    color 0.7 0.7 0.7 1
+    rot 0 0 0
+    sides 5 1 5
+    material steel
+    mass 10000
+    flag 24
+#END 5
+
+env_obj 6
+    shape box
+    pos 1 15 1.5
+    color 0.7 0.7 0.7 0.5
+    rot 0 0 0
+    sides 3 0.1 3
+    material steel
+    mass 100
+    flag 22
+#END 6
+

@@ -1,0 +1,132 @@
+# Made by: [TTF]Supakiller
+# As the last mod before i quit Toribash.
+# Made in Toribash 3.69 with 14 object allowed.
+# When more than 14 objects are allowed please add this:
+# A head sized sphere with the color : color 0 0.412 0.784
+# Thank you verry much for your co-orporation.
+# Hopefully it will be used in a clan pic.
+# The EngageHeight is set for an EngageDistance of: 100.
+# I dont think this mod i ment to be played.
+# I will start making the mod now.
+
+
+env_obj 1
+shape box
+sides 1 1 4
+color 0.388 0.004 0
+material steel
+flag 8
+pos 20 4.5 2
+
+env_obj 2
+shape box
+sides 1 4 1
+color 0.388 0.004 0
+material steel
+flag 8
+pos 20 4.5 4.5
+
+env_obj 3
+shape box
+sides 1 1 4
+color 0.388 0.004 0
+material steel
+flag 8
+pos 20 0 2
+
+env_obj 4
+shape box
+sides 1 4 1
+color 0.388 0.004 0
+material steel
+flag 8
+pos 20 0 4.5
+
+env_obj 5
+shape box
+sides 1 1 5
+color 0.388 0.004 0
+material steel
+flag 8
+pos 20 -3 2.5
+
+env_obj 6
+shape box
+sides 1 2 1
+color 0.388 0.004 0
+material steel
+flag 8
+pos 20 -4.5 4.5
+
+env_obj 7
+shape box
+sides 1 1 1
+color 0.388 0.004 0
+material steel
+flag 8
+pos 20 -4.0 2.5
+
+# That where the letters. You can edit them like you want.
+# Now i'm goin to make the cookie.
+# Please don't edit anything of the cookie unless you know what you're doing.
+
+env_obj 8
+shape sphere
+sides 7 10 10
+pos 1 -0.1 -5
+color 0.9 0.675 0.149
+flag 8
+
+env_obj 9
+shape sphere
+sides 7 10 10
+pos 7 -0.1 -5
+flag 8
+color 0.9 0.675 0.149
+
+env_obj 10
+shape sphere
+sides 7 10 10
+pos 6 -4.1 -5
+flag 8
+color 0.9 0.675 0.149
+
+env_obj 11
+shape sphere
+sides 7 10 10
+pos 1 2.5 -5
+flag 8
+color 0.9 0.675 0.149
+
+env_obj 12
+shape sphere
+sides 7 10 10
+pos -3 -2.1 -5
+flag 8
+color 0.9 0.675 0.149
+
+env_obj 13
+shape sphere
+sides 7 10 10
+pos 1.2 -3.8 -5
+flag 8
+color 0.9 0.675 0.149
+
+env_obj 14
+shape box
+sides 100 100 0.1
+color 1 1 1
+flag 8
+
+gamerule
+engageheight 200
+
+# Special thanks to: UncleLeo1 for lovely eating my brain cookies.
+# Ty mate. Due to Toribash environment restriction's the cookie look like crap.
+# Sorry about that.
+#
+# This script was about a littly piece of myself.
+# The art of mod making is a fine art wich i never mastered.
+# Good luck to every one who did master it. (like MrPoptart and uncopyrightable and much more)
+#
+# copyright (©) 2008 Okke Klaassen.

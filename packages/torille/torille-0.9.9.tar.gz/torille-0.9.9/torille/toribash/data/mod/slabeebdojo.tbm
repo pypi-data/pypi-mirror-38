@@ -1,0 +1,16 @@
+#!/habeeb/bin/toribash
+#made by slabeeb
+
+gamerule
+gravity 0.00 0.00 -9.82
+engagedistance 200
+dismemberthreshold 100
+dismember 1
+fracture 0
+fracturethreshold 768765867865856768
+matchframes 300
+turnframes 15
+dojosize 1000
+dojotype 0
+dq 1
+sumo 1

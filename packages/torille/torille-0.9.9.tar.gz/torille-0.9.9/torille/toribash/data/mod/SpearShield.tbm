@@ -1,0 +1,8 @@
+body r_hand
+sides 0.1 1.22 1.22
+material steel
+flag 6
+body l_hand
+sides 0.1 0.1 3.22
+material steel
+flag 6

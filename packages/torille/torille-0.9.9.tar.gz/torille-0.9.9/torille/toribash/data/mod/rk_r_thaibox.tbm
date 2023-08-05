@@ -1,0 +1,171 @@
+# Environment exported by WorldBuilder
+######################################
+
+env_obj 1
+    shape cylinder
+    pos 1 3.875 0.75
+    color 1.1 0 -0.1 1
+    rot 0 0 0
+    sides 0.1875 1.4375 2.5
+    material steel
+    mass 0.1
+    flag 8
+#END 1
+
+env_obj 2
+    shape cylinder
+    pos 1 -4 0.75
+    color -0.1 0 1 1
+    rot 0 0 0
+    sides 0.1875 1.4375 2.5625
+    material steel
+    mass 0.1
+    flag 8
+#END 2
+
+env_obj 3
+    shape cylinder
+    pos -2.875 0.625 0.75
+    color -0.1 -0.1 -0.1 1
+    rot 0 0 0
+    sides 0.1875 1.4375 2.5625
+    material steel
+    mass 0.1
+    flag 8
+#END 3
+
+env_obj 4
+    shape cylinder
+    pos 4.875 -0.75 0.75
+    color -0.1 0 -0.1 1
+    rot 0 0 0
+    sides 0.1875 1.4375 2.5625
+    material steel
+    mass 0.1
+    flag 8
+#END 4
+
+env_obj 5
+    shape cylinder
+    pos 2.9375 -2.375 1.1875
+    color 1.1 1.1 1 1
+    rot 91 -50 0
+    sides 0.125 5 2.5625
+    material steel
+    mass 0.1
+    flag 8
+#END 5
+
+env_obj 6
+    shape cylinder
+    pos -0.9375 2.25 0.5
+    color 1.1 1.1 1 1
+    rot 91 -50 0
+    sides 0.125 5 2.5625
+    material steel
+    mass 0.1
+    flag 8
+#END 6
+
+env_obj 7
+    shape cylinder
+    pos -0.9375 2.25 1.1875
+    color 1.1 1.1 1 1
+    rot 91 -50 0
+    sides 0.125 5 2.5625
+    material steel
+    mass 0.1
+    flag 8
+#END 7
+
+env_obj 8
+    shape cylinder
+    pos 2.9375 -2.375 0.5
+    color 1.1 1.1 1 1
+    rot 91 -50 0
+    sides 0.125 5 2.5625
+    material steel
+    mass 0.1
+    flag 8
+#END 8
+
+env_obj 9
+    shape cylinder
+    pos -0.9375 -1.6875 1.1875
+    color 1.1 1.1 1 1
+    rot 90 -140 -16
+    sides 0.125 5.9375 2.5625
+    material steel
+    mass 0.1
+    flag 8
+#END 9
+
+env_obj 10
+    shape cylinder
+    pos -0.9375 -1.6875 0.5
+    color 1.1 1.1 1 1
+    rot 90 -140 -16
+    sides 0.125 5.9375 2.5625
+    material steel
+    mass 0.1
+    flag 8
+#END 10
+
+env_obj 11
+    shape cylinder
+    pos 2.9375 1.5625 0.4375
+    color 1.1 1.1 1 1
+    rot 90 -140 -16
+    sides 0.125 5.9375 2.5625
+    material steel
+    mass 0.1
+    flag 8
+#END 11
+
+env_obj 12
+    shape cylinder
+    pos 2.9375 1.5625 1.125
+    color 1.1 1.1 1 1
+    rot 90 -140 -16
+    sides 0.125 5.9375 2.5625
+    material steel
+    mass 0.1
+    flag 8
+#END 12
+
+body r_thigh
+	force 0 5 0
+body l_thigh
+	force 0 5 0
+body l_leg
+	force 0 0 0
+body r_leg
+	force 0 0 0
+body l_biceps
+        force 0 5 0
+body r_biceps
+        force 0 5 0
+body l_hand
+force 0 5 0
+body r_hand
+force 0 5 0
+body head
+force 0 10 0
+
+gamerule
+matchframes 220
+turnframes 20
+gravity 0 0 -45
+engagedistance 250
+dojosize 400
+dojotype 1
+fracture 1
+fracturethreshold 100
+dqtimeout 25
+flags 9
+sumo 1
+
+joint r_elbow
+    axis 0.000000 1.000000 0.000000
+joint l_elbow
+    axis 0.000000 1.000000 0.000000

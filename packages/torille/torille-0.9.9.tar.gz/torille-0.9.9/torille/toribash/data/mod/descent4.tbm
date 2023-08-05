@@ -1,0 +1,110 @@
+# Environment exported by WorldBuilder
+######################################
+
+gamerule
+engagedistance 550
+engageheight 5850
+gravity 0 0 -25
+flags 3
+dismemberment 1
+dismembermentthreshold 150
+
+
+body stomach 
+	force 0 6 -1
+
+body breast
+	force 0 6 -1
+
+body chest
+	force 0 6 -1
+
+body groin
+	force 0 6 -1
+
+body r_pecs
+	force 0 6 -1
+
+body l_pecs
+	force 0 6 -1
+
+body r_thigh
+	force 0 6 -1
+
+body l_thigh
+	force 0 6 -1
+
+body l_leg
+	force 0 6 -1
+
+body r_leg
+	force 0 6 -1
+
+
+
+env_obj 1
+    shape box
+    pos 1 -0.125 20
+    color 0.9 1 1 1
+    rot 0 0 0
+    sides 73.5 22.75 1
+    material steel
+    mass 20
+    flag 8
+#END 1
+
+env_obj 2
+    shape box
+    pos 1 -0.125 39
+    color 0.9 1 1 1
+    rot 0 0 0
+    sides 6.5 6.5 38.875
+    material steel
+    mass 20
+    flag 8
+#END 2
+
+env_obj 3
+    shape box
+    pos 39.25 -0.125 10.5
+    color 0.9 1 1 1
+    rot 0 0 0
+    sides 3 80.25 19.75
+    material steel
+    mass 20
+    flag 8
+#END 3
+
+env_obj 4
+    shape box
+    pos -37.25 -0.125 10.5
+    color 0.9 1 1 1
+    rot 0 0 0
+    sides 3 80.5 19.75
+    material steel
+    mass 20
+    flag 8
+#END 4
+
+env_obj 5
+    shape box
+    pos 1 -0.125 49.25
+    color 0.9 1 1 1
+    rot 0 0 0
+    sides 8.5 8.5 0.25
+    material steel
+    mass 20
+    flag 8
+#END 5
+
+env_obj 6
+    shape box
+    pos 1 -0.125 37
+    color 0.9 1 1 1
+    rot 0 0 0
+    sides 13.5 13.5 0.25
+    material steel
+    mass 20
+    flag 8
+#END 6
+

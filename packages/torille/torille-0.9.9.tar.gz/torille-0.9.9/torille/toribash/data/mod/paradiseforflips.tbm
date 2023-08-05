@@ -1,0 +1,132 @@
+#!/usr/bin/toribash
+
+#Mod by Shin777
+
+gamerule
+ gravity 0.00 0.00 -30.00
+ engagedistance 825
+ dismemberthreshold 600
+ matchframes 800
+ engageheight 1510
+
+env_obj 1
+    shape box
+    pos 1 0 15
+    color 0 0 -0.1 0.6
+    rot 0 0 0
+    sides 3.75 9.25 0.25
+    material steel
+    mass 0.1
+    flag 24
+#END 1
+
+env_obj 2
+    shape box
+    pos 1 11.75 0
+    color 0 0 1 0.9
+    rot 0 0 0
+    sides 10.25 11.75 0.25
+    material steel
+    mass 0.1
+    flag 24
+#END 2
+
+env_obj 3
+    shape box
+    pos 1 -11.75 0
+    color 0 0 1 0.9
+    rot 0 0 0
+    sides 10.25 11.75 0.25
+    material steel
+    mass 0.1
+    flag 24
+#END 3
+
+env_obj 4
+    shape box
+    pos 1 -17.75 1.25
+    color 0.5 0 0.2 0.9
+    rot 0 0 0
+    sides 10.25 0.25 3
+    material steel
+    mass 0.1
+    flag 24
+#END 4
+
+env_obj 5
+    shape box
+    pos 1 17.75 1.25
+    color 0.5 0 0.2 0.9
+    rot 0 0 0
+    sides 10.25 0.25 3
+    material steel
+    mass 0.1
+    flag 24
+#END 5
+
+env_obj 6
+    shape box
+    pos -4 15 1.25
+    color 0.5 0 0.2 0.9
+    rot 0 0 0
+    sides 0.25 5.5 3
+    material steel
+    mass 0.1
+    flag 24
+#END 6
+
+env_obj 7
+    shape box
+    pos 6 15 1.25
+    color 0.5 0 0.2 0.9
+    rot 0 0 0
+    sides 0.25 5.5 3
+    material steel
+    mass 0.1
+    flag 24
+#END 7
+
+env_obj 8
+    shape box
+    pos 6 -15 1.25
+    color 0.5 0 0.2 0.9
+    rot 0 0 0
+    sides 0.25 5.5 3
+    material steel
+    mass 0.1
+    flag 24
+#END 8
+
+env_obj 9
+    shape box
+    pos -4 -15 1.25
+    color 0.5 0 0.2 0.9
+    rot 0 0 0
+    sides 0.25 5.5 3
+    material steel
+    mass 0.1
+    flag 24
+#END 9
+
+env_obj 10
+    shape box
+    pos 3 0 15.5
+    color 0.5 0 0.2 0.9
+    rot 0 0 0
+    sides 0.25 9.25 1.25
+    material steel
+    mass 0.1
+    flag 24
+#END 10
+
+env_obj 11
+    shape box
+    pos -1 0 15.5
+    color 0.5 0 0.2 0.9
+    rot 0 0 0
+    sides 0.25 9.25 1.25
+    material steel
+    mass 0.1
+    flag 24
+#END 11
+

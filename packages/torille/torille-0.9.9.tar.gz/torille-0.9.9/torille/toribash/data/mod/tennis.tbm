@@ -1,0 +1,108 @@
+#net
+env_obj 1
+
+shape box
+sides 10 0.01 1.5
+pos 1.0 0.0 0.75
+flag 8
+
+#net paal 
+env_obj 2
+
+shape cylinder
+sides 0.18 1.7 
+pos 6.0 0.01 0.85
+flag 8
+color 0.956 0.913 0.533
+material wood
+
+#net paal
+env_obj 3
+
+shape cylinder
+sides 0.18 1.7 
+pos -4.0 0.01 0.85
+flag 8
+color 0.956 0.913 0.533
+material wood
+
+env_obj 4
+sides 0.3 20 0.001
+pos 6.0 0.01 0.0001
+flag 8
+color 0.0 0.0 0.0
+
+env_obj 5
+sides 0.3 20 0.001
+pos -4.0 0.01 0.0001
+flag 8
+color 0.0 0.0 0.0
+
+env_obj 6
+sides 0.3 10 0.001
+pos 1.0 0.01 0.0001
+flag 8
+color 0.0 0.0 0.0
+
+env_obj 7
+sides 10 0.3 0.001
+pos 1.0 5.01 0.0001
+flag 8
+color 0.0 0.0 0.0
+
+env_obj 8
+sides 10 0.3 0.001
+pos 1.0 -5.01 0.0001
+flag 8
+color 0.0 0.0 0.0
+
+env_obj 9
+sides 10 0.3 0.001
+pos 1.0 9.85 0.0001
+flag 8
+color 0.0 0.0 0.0
+
+env_obj 10
+sides 10 0.3 0.001
+pos 1.0 -9.86 0.0001
+flag 8
+color 0.0 0.0 0.0
+
+env_obj 11
+sides 10.0 20.0 0.001
+pos 1.0 0.01 0.00001
+flag 8
+color 1.0 0.1 0.09
+
+env_obj 12
+shape cylinder
+sides 0.2 0.005
+pos 2.35 8.7 2.8
+mass 0.0001
+flag 6
+
+env_obj 13
+shape cylinder
+sides 0.2 0.005
+pos -0.35 -8.9 2.8
+mass 0.0001
+flag 6
+
+joint l_wrist
+pos 2.35 0.9 2.45
+
+body l_hand
+sides 0.7 0.005 0.7
+pos 2.35 0.9 2.8
+material steel
+flag 15
+
+body l_triceps
+shape cylinder
+sides 0.05 0.5 0.05
+pos 2.35 0.9 2.15
+material steel
+color 0.2 0.2 0.2
+
+
+

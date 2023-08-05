@@ -1,0 +1,135 @@
+#!
+
+#runningwithzweihander_v1.tbm by 1boris1
+gamerule
+
+gravity 0 0 -30
+
+engagedistance 1000
+matchframes 300
+dismemberthreshold 250
+fracturethreshold 140
+turnframes 20,20,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,30,30,30
+engageheight 0
+sumo 1
+damage 1
+dojosize 0
+flags 8
+dismemberment 1
+fracture 1
+disqualification 0
+dqtimeout 0
+dqflag 8
+dojotype 0
+damage 0
+
+joint r_wrist
+axis 0 1 0
+range 0.5 -1.4
+body r_hand
+alt_sides 0.2 0.2 0.2
+
+
+env_obj 1
+shape cylinder
+pos -0.375 4.90 2.5
+color 0.3 0.1 0.1 1
+rot 0 0 0
+sides 0.0625 1 1
+material steel
+mass 0.000001
+
+env_obj 2
+shape box
+pos -0.375 4.90 3
+color 0.7 0.4 0.1 1
+rot 0 0 0
+sides 0.625 0.1875 0.0625
+material steel
+mass 0.0001
+
+env_obj 3
+shape box
+pos -0.375 4.90 4.625
+color 0.6 0.6 0.6 1
+rot 0 0 0
+sides 0.5 0.0625 3.1875
+material steel
+mass 0.000002
+
+env_obj 4
+shape box
+pos -0.375 4.90 6.1875
+color 0.6 0.6 0.6 1
+rot 0 45 0
+sides 0.375 0.0625 0.375
+material steel
+mass 0.000005
+flag 6
+
+env_obj 5
+shape cylinder
+pos 2.375 -5.15 2.5
+color 0.3 0.1 0.1 1
+rot 0 0 0
+sides 0.0625 1 1
+material steel
+mass 0.000001
+
+env_obj 6
+shape box
+pos 2.375 -5.15 3
+color 0.7 0.4 0.1 1
+rot 0 0 0
+sides 0.625 0.1875 0.0625
+material steel
+mass 0.000001
+
+env_obj 7
+shape box
+pos 2.375 -5.15 4.625
+color 0.6 0.6 0.6 1
+rot 0 0 0
+sides 0.5 0.0625 3.1875
+material steel
+mass 0.000002
+
+env_obj 8
+shape box
+pos 2.375 -5.15 6.1875
+color 0.6 0.6 0.6 1
+rot 0 45 0
+sides 0.375 0.0625 0.375
+material steel
+mass 0.000005
+flag 6
+
+env_obj_joint 1 3 4
+pos -0.375 4.90 6.1875
+axis 0 1 0
+range 0 0 
+
+env_obj_joint 2 3 2
+pos -0.375 4.90 3
+axis 0 1 0
+range 0 0
+
+env_obj_joint 3 2 1
+pos -0.375 4.90 3
+axis 0 1 0
+range 0 0
+
+env_obj_joint 4 8 7
+pos 2.375 -5.15 6.1875
+axis 0 1 0
+range 0 0
+
+env_obj_joint 5 7 6
+pos 2.375 -5.15 3
+axis 0 1 0
+range 0 0
+
+env_obj_joint 6 6 5
+pos 2.375 -5.15 3
+axis 0 1 0
+range 0 0

@@ -1,0 +1,94 @@
+gamerule
+gravity 0 0 -30
+engageheight 1300
+engagedistance 200
+dismemberthreshold 200
+
+env_obj 1
+    shape box
+    pos -1 -0.0625 15
+    color 0 0 1 0.5
+    rot 0 0 0
+    sides 0.875 6.4375 4.3125
+    material steel
+    mass 1
+    flag 24
+    friction 0
+
+env_obj 2
+    shape box
+    pos 1.0625 3.5625 15
+    color 0 0 1 0.9
+    rot 0 0 90
+    sides 0.75 4.9375 4.3125
+    material steel
+    mass 1
+    flag 24
+    friction 0
+
+env_obj 3
+    shape box
+    pos 1.0625 -3.6875 15
+    color 0 0 1 0.9
+    rot 0 0 90
+    sides 0.75 4.9375 4.3125
+    material steel
+    mass 1
+    flag 24
+    friction 0
+
+env_obj 4
+    shape box
+    pos 7.125 2.375 6.4375
+    color 1.1 -0.1 -0.1 0.9
+    rot 0 55 13
+    sides 0.875 4.8125 19.8125
+    material steel
+    mass 1
+    flag 24
+    friction 0
+
+env_obj 5
+    shape box
+    pos 7.125 -2.5 6.4375
+    color 1 0 0 0.9
+    rot 0 55 -13
+    sides 0.875 4.8125 19.8125
+    material steel
+    mass 1
+    flag 24
+    friction 0
+
+env_obj 6
+    shape box
+    pos -0.5 -0.0625 15
+    color 1 0 0 0.9
+    rot 0 0 0
+    sides 0.125 6.4375 0.875
+    material steel
+    mass 1
+    flag 8
+    friction 0
+
+env_obj 7
+    shape box
+    pos 8.25 5 7.875
+    color 0 1 0 0.9
+    rot 0 55 90
+    sides 0.875 1.6875 19.625
+    material steel
+    mass 1
+    flag 24
+    friction 0
+
+env_obj 8
+    shape box
+    pos 8.25 -5.1875 7.875
+    color 0 1 0 0.9
+    rot 0 55 90
+    sides 0.875 1.6875 19.625
+    material steel
+    mass 1
+    flag 24
+    friction 0
+

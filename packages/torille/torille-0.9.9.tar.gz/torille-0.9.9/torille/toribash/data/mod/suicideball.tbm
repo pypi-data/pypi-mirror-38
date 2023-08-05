@@ -1,0 +1,22 @@
+# Environment exported by WorldBuilder
+######################################
+# "How about a game of Suicideball?"
+#       Mod by FeliK
+######################################
+
+# Why yes, I DID just copy Deathball.tbm.
+
+# The Suicideball
+
+env_obj 1
+    shape sphere
+    pos 1 -0.0625 2.25
+    color -0.1 0 -0.1 1
+    rot 0 0 0
+    sides 2 1 0
+    material steel
+    mass 0.05
+    flag 22
+
+dojosize 900
+engagedistance 650

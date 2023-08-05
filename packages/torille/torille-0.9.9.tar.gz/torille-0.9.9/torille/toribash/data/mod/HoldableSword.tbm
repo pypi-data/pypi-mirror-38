@@ -1,0 +1,19 @@
+body l_hand
+alt_sides 0.1 0.01 1.25
+pos -0.35 0.85 3.0
+material steel
+flag 6
+
+body l_triceps
+force 100 0 0
+
+body l_biceps
+force -100 0 0
+
+body l_pecs
+force 10 0 0
+
+joint l_wrist
+pos -0.35 0.85 2.65
+radius 0.06
+

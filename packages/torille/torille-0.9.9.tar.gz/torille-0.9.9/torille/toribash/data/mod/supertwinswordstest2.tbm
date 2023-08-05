@@ -1,0 +1,68 @@
+#!/usr/bin/toribash
+#### Created with ModEditor by DeFransen ####
+
+
+gamerule
+   damage 0
+   dismemberment 1
+   dismemberthreshold 1000
+   disqualification 1
+   dojosize 500
+   dojotype 1
+   dqflag 0
+   dqtimeout 12
+   engagedistance 300
+   engageheight 0
+   engagerotation 0
+   engagespace 0
+   flags 7
+   fracture 0
+   gravity 0 0 -30
+   matchframes 150
+   rpg 0
+   sumo 1
+   turnframes 15
+
+
+# for all players
+
+   body l_foot
+      density 0.3
+
+   body l_hand
+      density 0.02
+      flag 38
+      material steel
+      pos 2.2 0.9 3
+      sides 0.02 0.03 1.5
+
+   body r_foot
+      density 0.3
+
+   body r_hand
+      density 0.02
+      flag 38
+      material steel
+      pos -0.2 0.9 3
+      sides 0.02 0.03 1.5
+
+   joint l_elbow
+      axis 0 1 1
+
+   joint l_wrist
+      range 0.4 -1.6
+      velocity 40
+      strength 1
+      axis 0 1 0
+
+   joint r_elbow
+      axis 0 1 1
+
+   joint r_wrist
+      range 0.4 -1.6
+      velocity 40
+      strength 1
+      axis 0 1 0
+
+
+

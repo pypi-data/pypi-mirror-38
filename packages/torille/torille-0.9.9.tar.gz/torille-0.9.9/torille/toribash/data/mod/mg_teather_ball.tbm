@@ -1,0 +1,227 @@
+#!/usr/bin/toribash
+#TEATHER BALL BY TRICHARD
+
+gamerule
+matchframes 750
+turnframes 10,15,20
+gravity 0 0 -15
+engagedistance 300
+dismemberment 0
+fracture 1
+
+fracturetreshold 150
+dojotype 1
+dqtimeout 15
+dqflag 0
+dojosize 300
+
+joint l_knee
+flag 16
+joint r_knee
+flag 16
+
+
+
+body chest
+thrust 1 0 0 1
+
+joint r_pecs
+velocity 25
+strength 10
+mass .0001
+
+
+joint l_pecs
+velocity 25
+strength 10
+mass .0001
+
+body r_foot
+thrust 1 0 0 -0.5
+body l_foot
+thrust 1 0 0 -0.5
+
+joint r_wrist
+axis 0 1 0
+range 0.5 -1.35
+joint l_wrist
+axis 0 1 0
+range 0.5 -1.35
+
+body r_biceps 
+thrust 1 0 0 0.01
+
+body r_triceps 
+thrust 1 0 0 0.00025
+flag 2
+
+body l_biceps 
+thrust 1 0 0 0.01
+
+body l_triceps  
+thrust 1 0 0 0.00025
+flag 2
+
+
+env_obj 1
+shape box
+pos 1 0.0 20
+color 1 1 1
+rot 0 0 0
+sides 2 2 0
+material steel
+mass 0.1
+flag 8
+
+env_obj 2
+shape sphere
+pos 1 0 2.125
+color 1 1 0
+rot 0 0 0
+sides 0.3125 1 1
+material steel
+ mass 0.005
+    flag 0
+    bounce 10
+
+env_obj 4
+shape cylinder
+pos 1 0.0 2.9375
+color 0 0 0
+rot 0 0 0
+sides 0.0625 0.5 0
+material steel
+mass 0.0001
+flag 0
+
+env_obj 5
+shape cylinder
+pos 1 0.0 3.8125
+color 0 0 0
+rot 0 0 0
+sides 0.0625 0.5 0
+material steel
+mass 0.0001
+flag 0
+
+env_obj 6
+shape cylinder
+pos 1 0.0 4.6875
+color 0 0 0
+rot 0 0 0
+sides 0.0625 0.5 0
+material steel
+mass 0.0001
+flag 0
+
+env_obj 7
+shape cylinder
+pos 1 0.0 5.5625
+color 0 0 0
+rot 0 0 0
+sides 0.0625 0.5 0
+material steel
+mass 0.0001
+flag 0
+
+
+env_obj 8
+shape cylinder
+pos 1 0.0 6.4375
+color 0 0 0
+rot 0 0 0
+sides 0.0625 0.5 0
+material steel
+mass 0.0001
+flag 0
+
+env_obj 9
+shape cylinder
+pos 1 0.0 7.3125
+color 0 0 0
+rot 0 0 0
+sides 0.0625 0.5 0
+material steel
+mass 0.0001
+flag 0
+
+env_obj 10
+shape box
+pos 1 0.0 7.9655
+color 1 1 1
+rot 0 0 0
+sides 1 1 0
+material steel
+mass 0.0001
+flag 8
+
+env_obj_joint 1 2 4
+pos 1 0 2.5
+axis 1 0 0
+range 5 -5
+strength 0
+velocity 0
+visible 1
+
+env_obj_joint 2 2 3
+pos 1 0 2.5625
+axis 1 0 0
+range 5 -5
+strength 0
+velocity 0
+
+env_obj_joint 3 3 4
+pos 1 0.0 2.5
+axis 1 0 0
+range 5 -5
+strength 0
+velocity 0
+
+env_obj_joint 4 4 5
+pos 1 0.0 3.375
+axis 1 0 0
+range 5 -5
+strength 0
+velocity 0
+
+env_obj_joint 5 5 6
+pos 1 0.0 4.25
+axis 1 0 0
+range 5 -5
+strength 0
+velocity 0
+
+env_obj_joint 6 6 7
+pos 1 0.0 5.125
+axis 1 0 0
+range 5 -5
+strength 0
+velocity 0
+
+env_obj_joint 7 7 8
+pos 1 0.0 6
+axis 1 0 0
+range 5 -5
+strength 0
+velocity 0
+
+env_obj_joint 8 8 9
+pos 1 0.0 6.875
+axis 1 0 0
+range 5 -5
+strength 0
+velocity 0
+
+env_obj_joint 9 9 10
+pos 1 0.0 7.75
+axis 1 0 0
+range 5 -5
+strength 0
+velocity 0
+
+env_obj_joint 10 9 10
+pos 1 0.0 8.625
+axis 1 0 0
+range 5 -5
+strength 0
+velocity 0

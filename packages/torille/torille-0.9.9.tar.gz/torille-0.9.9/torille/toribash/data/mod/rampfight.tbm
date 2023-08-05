@@ -1,0 +1,71 @@
+# Environment exported by WorldBuilder
+######################################
+
+env_obj 1
+    shape box
+    pos 1 -17 2.625
+    color 1 1 1
+    rot -36 0 0
+    sides 10 9.25 0.25
+    material steel
+    mass 0.1
+    flag 24
+
+env_obj 2
+    shape box
+    pos 1 -12.0625 5.4375
+    color 1 1 1
+    rot 0 0 0
+    sides 10.25 2.5 0.0625
+    material steel
+    mass 0.1
+    flag 24
+
+env_obj 3
+    shape box
+    pos 1 -7 8.125
+    color 1 1 1
+    rot -36 0 0
+    sides 10 9.25 0.25
+    material steel
+    mass 0.1
+    flag 24
+
+env_obj 4
+    shape box
+    pos 1 2.1875 10.875
+    color 1 1 1
+    rot 0 0 0
+    sides 10.25 11 0.0625
+    material steel
+    mass 0.1
+    flag 24
+
+gravity 0 -12 -20
+
+# Tori
+player 0
+
+body stomach 
+	force 0 10 1
+body breast
+	force 0 10 1
+body chest
+	force 0 10 1
+body groin
+	force 0 10 1
+body r_pecs
+	force 0 15 1
+body l_pecs
+	force 0 15 1
+body r_thigh
+	force 0 15 1
+body l_thigh
+	force 0 15 1
+body l_leg
+	force 0 20 00
+body r_leg
+	force 0 20 00
+
+
+

@@ -1,0 +1,117 @@
+#Created by Pedr0
+
+gamerule
+	engageheight 2000
+        engagedistance 100
+         matchframes 1520
+
+env_obj 1
+shape box
+sides 50 50 2
+pos 1 0 1
+color 0.458 0.845 0.654
+rot 0 0 0
+material steel
+mass 1000
+flag 30
+friction 0
+
+env_obj 2
+shape box
+sides 45 45 2
+pos 1 0 3
+color 0.458 0.845 0.654
+rot 0 0 0
+material steel
+mass 1000
+flag 30
+friction 0
+
+env_obj 3
+shape box
+sides 40 40 2
+pos 1 0 5
+color 0.458 0.845 0.654
+rot 0 0 0
+material steel
+mass 1000
+flag 30
+
+
+env_obj 4
+shape box
+sides 35 35 2
+pos 1 0 7
+color 0.458 0.845 0.654
+rot 0 0 0
+material steel
+mass 1000
+flag 30
+friction 0
+
+env_obj 5
+shape box
+sides 30 30 2
+pos 1 0 9
+color 0.458 0.845 0.654
+rot 0 0 0
+material steel
+mass 1000
+flag 30
+friction 0
+
+env_obj 6
+shape box
+sides 25 25 2
+pos 1 0 11
+color 0.458 0.845 0.654
+rot 0 0 0
+material steel
+mass 1000
+flag 30
+friction 0
+
+env_obj 7
+shape box
+sides 20 20 2
+pos 1 0 13
+color 0.458 0.845 0.654
+rot 0 0 0
+material steel
+mass 1000
+flag 30
+friction 0
+
+env_obj 8
+shape box
+sides 15 15 2
+pos 1 0 15
+color 0.458 0.845 0.654
+rot 0 0 0
+material steel
+mass 1000
+flag 30
+friction 0
+
+env_obj 9
+shape box
+sides 10 10 2
+pos 1 0 17
+color 0.458 0.845 0.654
+rot 0 0 0
+material steel
+mass 1000
+flag 30
+friction 0
+
+env_obj 10
+shape box
+sides 5 5 2
+pos 1 0 19
+color 0.458 0.845 0.654
+rot 0 0 0
+material steel
+mass 1000
+flag 24
+
+

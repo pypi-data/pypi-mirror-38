@@ -1,0 +1,34 @@
+body r_hand
+sides 0.30 0.30 0.30
+material steel
+destiny 2
+flag 5
+body l_hand
+sides 0.30 0.30 0.30
+material steel
+destiny 2
+flag 5
+joint l_pecs
+strenght 5
+velocity 7
+joint r_pecs
+strenght 5
+velocity 7
+joint l_shoulder
+strenght 5
+velocity 7
+joint r_shoulder
+strenght 5
+velocity 7
+joint l_elbow
+strenght 5
+velocity 7
+joint r_elbow
+strenght 5
+velocity 7
+joint l_wrist
+strenght 5
+velocity 7
+joint r_wrist
+strenght 5
+velocity 7

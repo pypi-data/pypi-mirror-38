@@ -1,0 +1,66 @@
+#Matrix Fighters Mod by Uncopyrightable
+
+gravity 0 0 -1.0
+
+friction 1.5
+
+joint neck
+velocity 2
+
+joint chest
+velocity 2
+
+joint lumbar
+velocity 2
+
+joint abs
+velocity 2
+range 1.8 -1
+
+joint r_pecs
+velocity 2
+
+joint r_shoulder
+velocity 2
+
+joint r_elbow
+velocity 2
+
+joint l_axilla
+velocity 2
+
+joint l_shoulder
+velocity 2
+
+joint l_elbow
+velocity 2
+
+joint r_wrist
+velocity 2
+
+joint l_wrist
+velocity 2
+
+joint r_glute
+velocity 2
+
+joint l_glute
+velocity 2
+
+joint r_hip
+velocity 2
+
+joint l_hip
+velocity 2
+
+joint r_knee
+velocity 2
+
+joint l_knee
+velocity 2
+
+joint r_ankle
+velocity 2
+
+joint l_ankle
+velocity 2

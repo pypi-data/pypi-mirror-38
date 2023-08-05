@@ -1,0 +1,149 @@
+engagedistance 1275
+gravity 0 0 -30.00
+dismemberthreshold 500
+
+env_obj 1
+    shape box
+    pos -4 -8 2.25
+    color 0 0 1
+    rot 0 0 0
+    sides 0.25 0.25 4.25
+    material steel
+    mass 0.1
+    flag 8
+#END 1
+
+env_obj 2
+    shape box
+    pos 6 -8 2.25
+    color 0 0 1
+    rot 0 0 0
+    sides 0.25 0.25 4.25
+    material steel
+    mass 0.1
+    flag 8
+#END 2
+
+env_obj 3
+    shape box
+    pos 1 -8 4.5
+    color 0 0 1
+    rot 0 0 0
+    sides 10.25 0.25 0.25
+    material steel
+    mass 0.1
+    flag 8
+#END 3
+
+env_obj 4
+    shape box
+    pos -4 -9.75 4.5
+    color 0 0 1
+    rot 0 0 0
+    sides 0.25 3.25 0.25
+    material steel
+    mass 0.1
+    flag 8
+#END 4
+
+env_obj 5
+    shape box
+    pos 6 -9.75 4.5
+    color 0 0 1
+    rot 0 0 0
+    sides 0.25 3.25 0.25
+    material steel
+    mass 0.1
+    flag 8
+#END 5
+
+env_obj 6
+    shape box
+    pos 6 -11.25 2.5
+    color 0 0 1
+    rot 0 0 0
+    sides 0.25 0.25 4.25
+    material steel
+    mass 0.1
+    flag 8
+#END 6
+
+env_obj 7
+    shape box
+    pos -4 -11.25 2.5
+    color 0 0 1
+    rot 0 0 0
+    sides 0.25 0.25 4.25
+    material steel
+    mass 0.1
+    flag 8
+#END 7
+
+env_obj 8
+    shape box
+    pos 1 -11.25 0.25
+    color 0 0 1
+    rot 0 0 0
+    sides 10.25 0.25 0.25
+    material steel
+    mass 0.1
+    flag 8
+#END 8
+
+env_obj 9
+    shape box
+    pos -4 -9.75 0.25
+    color 0 0 1
+    rot 0 0 0
+    sides 0.25 3.25 0.25
+    material steel
+    mass 0.1
+    flag 8
+#END 9
+
+env_obj 10
+    shape box
+    pos 6 -9.75 0.25
+    color 0 0 1
+    rot 0 0 0
+    sides 0.25 3.25 0.25
+    material steel
+    mass 0.1
+    flag 8
+#END 10
+
+
+
+env_obj 11
+    shape sphere
+    pos 0.75 6.0 0.5
+    color 0 0.2 0.5
+    rot 0 0 0
+    sides 0.25 1 0.75
+    material steel
+    mass 0.0005
+    flag 1
+    bounce 6
+#END 11
+
+env_obj 12
+    shape box
+    pos 1 -9.75 4.5
+    color 0 0 1
+    rot 0 0 0
+    sides 10.25 3.25 0.25
+    material steel
+    mass 0.1
+    flag 8
+#END 12
+
+env_obj 13
+    shape box
+    pos 1 -11.25 2.50
+    color 0 0 1
+    rot 0 0 0
+    sides 10.25 0.25 4.25
+    material steel
+    mass 0.1
+    flag 8
+#END 13

@@ -1,0 +1,358 @@
+# MOD BY CULAPOU
+######################################
+
+gamerule
+ed 170
+eh 75
+gravity 0 0 -10
+
+env_obj 1
+    shape box
+    pos 1 -0.125 0.375
+    color 0 0.5 1 1
+    rot 0 0 0
+    sides 8 8 0.75
+    material steel
+    mass 0.1
+    flag 24
+#END 1
+
+env_obj 2
+    shape box
+    pos 5.0625 -0.125 0.375
+    color 1.1 1.1 1 1
+    rot 0 0 0
+    sides 0.125 8 0.75
+    material steel
+    mass 0.1
+    flag 24
+#END 2
+
+env_obj 3
+    shape box
+    pos -3.0625 -0.125 0.375
+    color 1.1 1.1 1 1
+    rot 0 0 0
+    sides 0.125 8 0.75
+    material steel
+    mass 0.1
+    flag 24
+#END 3
+
+env_obj 4
+    shape box
+    pos 1 3.9375 0.375
+    color 1.1 1.1 1 1
+    rot 0 0 90
+    sides 0.125 8.25 0.75
+    material steel
+    mass 0.1
+    flag 24
+#END 4
+
+env_obj 5
+    shape box
+    pos 1 -4.1875 0.375
+    color 1.1 1.1 1 1
+    rot 0 0 90
+    sides 0.125 8.25 0.75
+    material steel
+    mass 0.1
+    flag 24
+#END 5
+
+env_obj 6
+    shape box
+    pos -3.625 -0.125 0.375
+    color 0.9 0.3 0.3 1
+    rot 0 0 180
+    sides 1 8.25 0.75
+    material steel
+    mass 0.1
+    flag 24
+#END 6
+
+env_obj 7
+    shape box
+    pos 5.625 -0.125 0.375
+    color 0.9 0.3 0.3 1
+    rot 0 0 180
+    sides 1 8.25 0.75
+    material steel
+    mass 0.1
+    flag 24
+#END 7
+
+env_obj 8
+    shape box
+    pos 1 -4.75 0.375
+    color 0.9 0.3 0.3 1
+    rot 0 0 270
+    sides 1 10.25 0.75
+    material steel
+    mass 0.1
+    flag 24
+#END 8
+
+env_obj 9
+    shape box
+    pos 1 4.5 0.375
+    color 0.9 0.3 0.3 1
+    rot 0 0 270
+    sides 1 10.25 0.75
+    material steel
+    mass 0.1
+    flag 24
+#END 9
+
+env_obj 10
+    shape box
+    pos 1 -0.125 0.379
+    color 1.1 1.1 1 1
+    rot 0 0 0
+    sides 1.125 1.125 0.75
+    material steel
+    mass 0.1
+    flag 24
+#END 10
+
+env_obj 11
+    shape box
+    pos 1 -0.125 0.379
+    color 1.1 1.1 1 1
+    rot 0 0 45
+    sides 1.125 1.125 0.75
+    material steel
+    mass 0.1
+    flag 24
+#END 11
+
+env_obj 12
+    shape box
+    pos 1 -0.125 0.379
+    color 1.1 1.1 1 1
+    rot 0 0 68
+    sides 1.125 1.125 0.75
+    material steel
+    mass 0.1
+    flag 24
+#END 12
+
+env_obj 13
+    shape box
+    pos 1 -0.125 0.379
+    color 1.1 1.1 1 1
+    rot 0 0 113
+    sides 1.125 1.125 0.75
+    material steel
+    mass 0.1
+    flag 24
+#END 13
+
+
+
+
+#Body Modifications#
+###################
+
+
+#########
+player 0
+body l_foot
+density 0.10
+thrust 1 0 0 -.4
+
+body r_foot
+density 0.10
+thrust 1 0 0 -.4
+
+joint l_ankle
+range 1.5 -0.7
+strength 4
+velocity 14
+
+joint r_ankle
+range 1.5 -0.7
+strength 4
+velocity 14
+
+body l_leg
+density 0.15
+thrust 1 0 0 -.3
+
+body r_leg
+density 0.15
+thrust 1 0 0 -.3
+
+joint l_knee
+range 2.6 0.0
+strength 5.5
+velocity 50.0
+
+joint r_knee
+range 2.6 0.0
+strength 5.5
+velocity 50.5
+
+body l_thigh
+density 0.2
+thrust 1 0 0 -.1
+
+body r_thigh
+density 0.2
+thrust 1 0 0 -.1
+
+joint l_hip
+range 1.3 -1.8
+strength 3.0
+velocity 22.0
+
+joint r_hip
+range 1.3 -1.8
+strength 3.0
+velocity 22.0
+
+joint l_glute
+range 1.2 -0.2
+strength 4.5
+velocity 15.0
+
+joint r_glute
+range 1.4 -0.3
+strength 4.5
+velocity 15.0
+
+body groin
+density 0.2
+thrust 1 0 -.1 .5
+
+joint abs
+range 0.8 -0.7
+strength 6.5
+velocity 6.0
+
+body stomach
+density 0.2
+thrust 1 0 0 -1
+
+joint lumbar
+range 0.5 -0.5
+strength 4.0
+velocity 5.0
+
+body chest
+density 0.25
+thrust 1 0 -.05 .1
+
+joint chest
+range 1.3 -1.3
+strength 4.5
+velocity 25.0
+
+body breast
+thrust 1 0 0 .5
+
+body head
+thrust 1 0 0 .5
+
+
+#########
+#########
+player 1
+
+body l_foot
+density 0.10
+thrust 1 0 0 -.4
+
+body r_foot
+density 0.10
+thrust 1 0 0 -.4
+
+joint l_ankle
+range 1.5 -0.7
+strength 4
+velocity 14
+
+joint r_ankle
+range 1.5 -0.7
+strength 4
+velocity 14
+
+body l_leg
+density 0.15
+thrust 1 0 0 -.3
+
+body r_leg
+density 0.15
+thrust 1 0 0 -.3
+
+joint l_knee
+range 2.6 0.0
+strength 5.5
+velocity 50.0
+
+joint r_knee
+range 2.6 0.0
+strength 5.5
+velocity 50.5
+
+body l_thigh
+density 0.2
+thrust 1 0 0 -.1
+
+body r_thigh
+density 0.2
+thrust 1 0 0 -.1
+
+joint l_hip
+range 1.3 -1.8
+strength 3.0
+velocity 22.0
+
+joint r_hip
+range 1.3 -1.8
+strength 3.0
+velocity 22.0
+
+joint l_glute
+range 1.2 -0.2
+strength 4.5
+velocity 15.0
+
+joint r_glute
+range 1.4 -0.3
+strength 4.5
+velocity 15.0
+
+body groin
+density 0.2
+thrust 1 0 .1 .5
+
+joint abs
+range 0.8 -0.7
+strength 6.5
+velocity 6.0
+
+body stomach
+density 0.2
+thrust 1 0 0 -1
+
+joint lumbar
+range 0.5 -0.5
+strength 4.0
+velocity 5.0
+
+body chest
+density 0.25
+thrust 1 0 .05 .1
+
+joint chest
+range 1.3 -1.3
+strength 4.5
+velocity 25.0
+
+body breast
+thrust 1 0 0 .5
+
+body head
+thrust 1 0 0 .5

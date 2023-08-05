@@ -1,0 +1,324 @@
+# Mod by MrPoptart =D
+
+gamerule
+	engageheight 1000
+
+env_obj 1
+    shape box
+    pos 0.5 -0.0625 14.9375
+    color 1 1 1 0.5
+    rot 0 0 0
+    sides 5 5 0.0625
+    material steel
+    mass 0.1
+    flag 8
+
+env_obj 2
+    shape box
+    pos 0.5 -2.5625 12.4375
+    color 1 1 1 0.5
+    rot 0 0 0
+    sides 5 0.0625 5
+    material steel
+    mass 0.1
+    flag 8
+
+env_obj 3
+    shape box
+    pos 0.5 2.4375 12.4375
+    color 1 1 1 0.5
+    rot 0 0 0
+    sides 5 0.0625 5
+    material steel
+    mass 0.1
+    flag 8
+
+env_obj 4
+    shape box
+    pos 0.5 -0.0625 9.9375
+    color 1 1 1 0.5
+    rot 0 0 0
+    sides 5 5 0.0625
+    material steel
+    mass 0.1
+    flag 8
+
+env_obj 5
+    shape box
+    pos -2 -0.0625 12.4375
+    color 1 1 1 0.5
+    rot 0 0 0
+    sides 0.0625 5 5
+    material steel
+    mass 0.1
+    flag 8
+
+env_obj 6
+    shape box
+    pos 3 -0.0625 12.4375
+    color 1 1 1 0.5
+    rot 0 0 0
+    sides 0.0625 5 5
+    material steel
+    mass 0.1
+    flag 8
+
+env_obj 7
+    shape cylinder
+    pos 2 -0.0625 12.5
+    color 0 0 0 1
+    rot 0 -90 0
+    sides 0.0625 2.25 1
+    material steel
+    mass 0.1
+    flag 8
+
+env_obj 8
+    shape cylinder
+    pos 0.5 -0.0625 14
+    color 0 0 0 1
+    rot 0 0 0
+    sides 0.0625 2 1
+    material steel
+    mass 0.1
+    flag 8
+
+env_obj 9
+    shape cylinder
+    pos -1 -0.0625 12.5
+    color 0 0 0 1
+    rot 0 -90 0
+    sides 0.0625 2.25 1
+    material steel
+    mass 0.1
+    flag 8
+
+env_obj 10
+    shape cylinder
+    pos 0.5 1.4375 12.5
+    color 0 0 0 1
+    rot 90 0 0
+    sides 0.0625 2.25 1
+    material steel
+    mass 0.1
+    flag 8
+
+env_obj 11
+    shape cylinder
+    pos 0.5 -1.5625 12.5
+    color 0 0 0 1
+    rot 90 0 0
+    sides 0.0625 2.25 1
+    material steel
+    mass 0.1
+    flag 8
+
+gravity 0 0 -20
+
+friction 5
+
+body head
+sides 0.1 0.0 0.0
+pos 0.5 0.425 1.325
+
+body breast
+sides 0.1 0.05 0.15
+pos 0.5 0.45 1.1
+
+body chest
+sides 0.25 0.075 0.1
+pos 0.5 0.45 .975
+
+body stomach
+sides 0.175 0.075 0.1
+pos 0.5 0.475 0.875
+
+body groin
+sides 0.1 0.075 0.1
+pos 0.5 0.5 0.775
+
+body r_pecs
+sides 0.1 0.075 0.1
+pos 0.375 0.45 1.075
+
+body r_biceps
+sides 0.2 0.1 0.1
+pos 0.225 0.45 1.15
+
+body r_triceps
+sides 0.2 0.05 0.05
+pos 0.025 0.45 1.15
+
+body r_hand
+sides 0.11 0.11 0.11
+alt_sides 0.15 0.055 0.08
+pos -0.175 0.425 1.15
+
+body l_pecs
+sides 0.1 0.075 0.1
+pos 0.625 0.45 1.075
+
+body l_biceps
+sides 0.2 0.1 0.1
+pos 0.775 0.45 1.15
+
+body l_triceps
+sides 0.2 0.05 0.05
+pos 0.975 0.45 1.15
+
+body l_hand
+sides 0.11 0.11 0.11
+alt_sides 0.15 0.055 0.08
+pos 1.175 0.425 1.15
+
+body r_butt
+sides 0.05 0.05 0.05
+pos 0.4 0.5 0.725
+
+body r_thigh
+sides 0.06 0.15 0.0
+pos 0.4 0.5 0.55
+
+body r_leg
+sides 0.065 0.15 0.0
+pos 0.4 0.5 0.25
+
+body r_foot
+sides 0.1 0.25 0.04
+pos 0.4 0.45 0.05
+
+body l_butt
+sides 0.05 0.05 0.05
+pos 0.6 0.5 0.725
+
+body l_thigh
+sides 0.06 0.15 0.0
+pos 0.6 0.5 0.55
+
+body l_leg
+sides 0.065 0.15 0.1
+pos 0.6 0.5 0.25
+
+body l_foot
+sides 0.1 0.25 0.04
+pos 0.6 0.45 0.05
+
+joint neck
+radius 0.0550
+pos 0.5 0.45 1.25
+strength 2.0
+velocity 100.0
+
+joint chest
+radius 0.09
+pos 0.5 0.45 1.025
+strength 8.0
+velocity 40.0
+
+joint lumbar
+radius 0.08
+pos 0.5 0.475 0.925
+strength 6.0
+velocity 10.0
+
+joint abs
+radius 0.07
+pos 0.5 0.5 0.825
+strength 12.0
+velocity 10.0
+
+joint r_pecs
+radius 0.09
+pos 0.425 0.425 1.1
+strength 6.0
+velocity 30.0
+
+joint r_shoulder
+radius 0.09
+pos 0.325 0.45 1.15
+strength 8.0
+velocity 40.0
+
+joint r_elbow
+radius 0.08
+pos 0.125 0.45 1.15
+strength 4.0
+velocity 80.0
+
+joint l_axilla
+radius 0.09
+pos 0.575 0.425 1.1
+strength 6.0
+velocity 30.0
+
+joint l_shoulder
+radius 0.09
+pos 0.675 0.45 1.15
+strength 8.0
+velocity 40.0
+
+joint l_elbow
+radius 0.08
+pos 0.875 0.45 1.15
+strength 4.0
+velocity 80.0
+
+joint r_wrist
+radius 0.055
+pos -0.1 0.45 1.15
+strength 4.0
+velocity 120.0
+
+joint l_wrist
+radius 0.055
+pos 1.1 0.45 1.15
+strength 4.0
+velocity 120.0
+
+joint r_glute
+radius 0.08
+pos 0.45 0.55 0.755
+strength 8.0
+velocity 20.0
+
+joint l_glute
+radius 0.08
+pos 0.55 0.55 0.755
+strength 8.0
+velocity 20.0
+
+joint r_hip
+radius 0.08
+pos 0.395 0.5 0.7
+strength 4.0
+velocity 24.0
+
+joint l_hip
+radius 0.08
+pos 0.605 0.5 0.7
+strength 4.0
+velocity 24.0
+
+joint r_knee
+radius 0.07
+pos 0.4 0.5 0.4
+strength 8.0
+velocity 80.0
+
+joint l_knee
+radius 0.07
+pos 0.6 0.5 0.4
+strength 8.0
+velocity 80.0
+
+joint r_ankle
+radius 0.055
+pos 0.4 0.525 0.125
+strength 2.0
+velocity 16.0
+
+joint l_ankle
+radius 0.055
+pos 0.6 0.525 0.125
+strength 2.0
+velocity 16.0

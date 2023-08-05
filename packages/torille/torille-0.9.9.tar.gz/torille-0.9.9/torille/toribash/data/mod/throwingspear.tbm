@@ -1,0 +1,30 @@
+#!/usr/bin/toribash
+gamerule
+
+ed 1000
+
+env_obj 1
+    shape box
+    pos -0.5 4.75 2.25
+    color 0 0 1 1
+    rot 0 0 0
+    sides 0.1 0.1 2.75
+    material steel
+    mass 0.0001
+    flag 0
+#END 1
+
+env_obj 2
+    shape box
+    pos -0.5 4.75 0.5
+    color 1.1 1.1 -0.1 1
+    rot 0 0 0
+    sides 0.1 0.1 0.75
+    material steel
+    mass 0.0001
+    flag 6
+thrust 1 0 -0.01 0
+#END 2
+
+env_obj_joint 1 1 2
+pos -.5 4.75 1

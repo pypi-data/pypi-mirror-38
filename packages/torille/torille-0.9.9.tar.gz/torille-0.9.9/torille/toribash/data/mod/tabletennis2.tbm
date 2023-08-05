@@ -1,0 +1,137 @@
+# Environment exported by WorldBuilder
+######################################
+
+gamerule 
+ed 500
+tf 10
+mf 500
+dt 500
+gravity 0 0 -30
+sumo 1
+
+body r_foot
+    density 20
+
+body l_foot
+    
+density 20
+
+env_obj 1
+    shape box
+    pos 1 -0.0625 1.5625
+    color 0.4 0.7 -0.1 1.1
+    rot 0 0 0
+    sides 3.75 4.5625 0.125
+    material steel
+    mass 0.1
+    flag 8
+#END 1
+
+env_obj 2
+    shape box
+    pos 1 -0.0625 1.75
+    color -0.1 -0.1 -0.1 1.1
+    rot 0 0 0
+    sides 3.75 0.0625 0.25
+    material steel
+    mass 0.1
+    flag 8
+#END 2
+
+env_obj 3
+    shape box
+    pos -1.0625 -0.0625 2.4375
+    color -0.1 -0.1 -0.1 0.1
+    rot 0 0 0
+    sides 0.0625 4.5625 1.875
+    material steel
+    mass 0.1
+    density 100
+    flag 8
+#END 3
+
+env_obj 4
+    shape box
+    pos 3 -0.0625 2.4375
+    color -0.1 -0.1 -0.1 0.1
+    rot 0 0 0
+    sides 0.0625 4.5625 1.875
+    material steel
+    mass 0.1
+    density 100
+    flag 8
+#END 4
+
+env_obj 5
+    shape box
+    pos -0.5625 2.375 2.25
+    color 1.1 -0.1 -0.1 1.1
+    rot 0 0 0
+    sides 0.1875 0.0625 0.0625
+    material steel
+    mass 0.0001
+    density 100
+    flag 0
+#END 5
+
+env_obj 6
+    shape box
+    pos 2.5625 -2.5625 2.25
+    color -0.1 -0.1 0.5 1.1
+    rot 0 0 0
+    sides 0.1875 0.0625 0.0625
+    material steel
+    mass 0.0001
+    density 100
+    flag 0
+#END 6
+
+env_obj 7
+    shape box
+    pos 2.75 -2.5625 2.25
+    color -0.1 -0.1 0.5 1.1
+    rot 0 0 0
+    sides 0.25 0.15 0.25
+    material steel
+    mass 0.0001
+    density 200
+    flag 0
+#END 7
+
+env_obj 8
+    shape box
+    pos -0.75 2.375 2.25
+    color 0.8 -0.1 -0.1 1.1
+    rot 0 0 0
+    sides 0.25 0.15 0.25
+    material steel
+    mass 0.0001
+    density 200
+    flag 0
+#END 8
+
+env_obj 9
+    shape sphere
+    pos -0.75 2.0625 2.25
+    color 1.1 1.1 -0.1 1.1
+    rot 0 0 0
+    sides 0.0625 0.0625 0.50
+    material steel
+    mass 0.0001
+    bounce 1
+    friction 0
+    density 200
+    flag 6
+#END 9
+
+env_obj_joint 1 5 8
+    pos -0.67 2.375 2.25
+    axis 0 0 0
+    range 0 0
+    visible 0
+
+env_obj_joint 2 6 7
+    pos 2.67 -2.5625 2.25
+    axis 0 0 0
+    range 0 0
+    visible 0

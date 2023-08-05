@@ -1,0 +1,161 @@
+# RicH by MoD
+
+gamerule
+engagedistance 1000
+engagerotation 180
+dismemberthreshold 125
+
+env_obj 1
+    shape box
+    pos 1 -6.0625 0.6875
+    color 0.6 0.6 -0.1 1
+    rot 0 0 0
+    sides 1.125 1.0625 1.375
+    material steel
+    mass 0.1
+    flag 24
+#END 1
+
+env_obj 2
+    shape box
+    pos 1 -5.75 1.375
+    color 0.9 0.9 0.8 1
+    rot 0 0 0
+    sides 1 0.3125 0.0625
+    material steel
+    mass 0.1
+    flag 24
+#END 2
+
+env_obj 3
+    shape box
+    pos 0.1875 -5.875 0.4375
+    color 0.9 0.9 0.8 1
+    rot 0 0 0
+    sides 0.375 0.375 0.75
+    material steel
+    mass 0.1
+    flag 30
+#END 3
+
+env_obj 4
+    shape box
+    pos 1 -6.5 1.75
+    color 0.9 0.9 0.8 1
+    rot 0 0 0
+    sides 1.0625 0.1875 0.75
+    material steel
+    mass 0.1
+    flag 30
+#END 4
+
+env_obj 5
+    shape box
+    pos 1.5 -6.25 1.75
+    color 0.9 0.9 0.8 1
+    rot 0 0 0
+    sides 0.0625 0.6875 0.75
+    material steel
+    mass 0.1
+    flag 30
+#END 5
+
+env_obj 6
+    shape box
+    pos 0.5 -6.1875 1.75
+    color 0.9 0.9 0.8 1
+    rot 0 0 0
+    sides 0.0625 0.5625 0.75
+    material steel
+    mass 0.1
+    flag 30
+#END 6
+
+env_obj 7
+    shape box
+    pos 1 -6.25 2.125
+    color 0.9 0.9 0.8 1
+    rot 0 0 0
+    sides 1.0625 0.6875 0.0625
+    material steel
+    mass 0.1
+    flag 30
+#END 7
+
+env_obj 8
+    shape box
+    pos 1 -5.9375 1.75
+    color -0.1 -0.1 1 0.8
+    rot 0 0 0
+    sides 1 0.0625 0.8125
+    material steel
+    mass 0.1
+    flag 30
+#END 8
+
+env_obj 9
+    shape box
+    pos 0.3125 -5.8125 1.1875
+    color 0.6 0.6 -0.1 1
+    rot 0 0 0
+    sides 0.5 0.4375 0.0625
+    material steel
+    mass 0.1
+    flag 30
+#END 9
+
+env_obj 10
+    shape cylinder
+    pos 0.3125 -5.75 1.25
+    color 0.9 0.9 0.8 1
+    rot -90 0 0
+    sides 0.0625 0.0625 0
+    material steel
+    mass 0.1
+    flag 30
+#END 10
+
+env_obj 11
+    shape sphere
+    pos 0.1875 -5.6875 0.4375
+    color 1.1 0 -0.1 1
+    rot 0 0 0
+    sides 0.0625 0 1
+    material steel
+    mass 0.1
+    flag 30
+#END 11
+
+player 0
+
+body stomach
+force 0 15 1
+
+body breast
+force 0 15 1
+
+body chest
+force 0 15 1
+
+body groin
+force 0 15 1
+
+body r_pecs
+force 0 25 1
+
+body l_pecs
+force 0 25 1
+
+body r_thigh
+force 0 25 1
+
+body l_thigh
+force 0 25 1
+
+body l_leg
+force 0 35 1
+
+body r_leg
+force 0 35 1
+
+

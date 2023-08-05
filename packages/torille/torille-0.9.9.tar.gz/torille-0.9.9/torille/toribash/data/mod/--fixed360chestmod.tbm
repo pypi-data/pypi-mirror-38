@@ -1,0 +1,55 @@
+#!/usr/bin/toribash
+
+gamerule
+engagedistance 80
+dismemberment 1
+fracture 0
+disqualification 1
+dqtimeout 0
+dqflag 0
+dismemberthreshold 100
+dojotype 0
+engageheight 0
+engagerotation 0
+engagespace 0
+gravity 0.00 0.00 -9.82
+
+body r_hand
+density 1
+body l_hand
+density 1
+joint chest
+range 10 -10
+velocity 40
+body r_foot
+density 1
+body l_foot
+density 1
+body r_butt
+density 1
+body l_butt
+density 1
+body r_thigh
+density 1
+body l_thigh
+density 1
+body l_leg
+density 1
+body r_leg
+density 1
+joint r_glute
+density 1
+joint l_glute
+density 1
+joint r_hip
+density 1
+joint l_hip
+density 1
+joint r_knee
+density 1
+joint l_knee
+density 1
+joint r_ankle
+density 1
+joint l_ankle
+density 1

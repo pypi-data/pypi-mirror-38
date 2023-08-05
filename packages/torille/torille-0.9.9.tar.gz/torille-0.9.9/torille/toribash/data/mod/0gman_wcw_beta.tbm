@@ -1,0 +1,137 @@
+gamerule
+engagedistance 90
+matchframes 400
+turnframes 15,15,20,20,20,30,30,30,40,40,40,50,50
+dojotype 0
+dojosize 500
+dqflag 1
+dq 1
+dqtimeout 30
+sumo 1
+dismemberment 0
+fracture 1
+fracturethreshold 600
+dismemberthreshold 750
+gravity 0 0 -35
+
+#Arena
+
+env_obj 1
+shape box
+pos 1.75 -3.1 1.12
+color 0.4 0.2 0
+rot 0 0 0
+sides 1.8 1.2 0.05
+material wood
+mass 0.08
+flag 1
+
+env_obj 2
+shape box
+pos -0.05 -3.1 1.12
+color 0.4 0.2 0
+rot 0 0 0
+sides 1.8 1.2 0.05
+material wood
+mass 0.08
+flag 1
+
+env_obj 3
+shape box
+pos 2.3 -3.1 0.55
+color 0.3 0.3 0.3
+rot 0 0 0
+sides 0.15 0.8 1.098
+material steel
+mass 0.05
+flag 1
+
+env_obj 4
+shape box
+pos -0.6 -3.1 0.55
+color 0.3 0.3 0.3
+rot 0 0 0
+sides 0.15 0.8 1.098
+material steel
+mass 0.05
+flag 1
+
+env_obj 5
+shape box
+pos 2.35 -3.1 1.17
+color 0.3 0.3 0.3
+rot 0 0 0
+sides 0.25 1.2 0.05
+material steel
+mass 0.5
+flag 1
+
+env_obj 6
+shape box
+pos -0.65 -3.1 1.17
+color 0.3 0.3 0.3
+rot 0 0 0
+sides 0.25 1.2 0.05
+material steel
+mass 0.5
+flag 1
+
+env_obj 7
+shape box
+pos 1.75 2.9 1.12
+color 0.4 0.2 0
+rot 0 0 0
+sides 1.8 1.2 0.05
+material wood
+mass 0.08
+flag 1
+
+env_obj 8
+shape box
+pos -0.05 2.9 1.12
+color 0.4 0.2 0
+rot 0 0 0
+sides 1.8 1.2 0.05
+material wood
+mass 0.08
+flag 1
+
+env_obj 9
+shape box
+pos 2.3 2.9 0.55
+color 0.3 0.3 0.3
+rot 0 0 0
+sides 0.15 0.8 1.098
+material steel
+mass 0.05
+flag 1
+
+env_obj 10
+shape box
+pos -0.6 2.9 0.55
+color 0.3 0.3 0.3
+rot 0 0 0
+sides 0.15 0.8 1.098
+material steel
+mass 0.05
+flag 1
+
+env_obj 11
+shape box
+pos 2.35 2.9 1.17
+color 0.3 0.3 0.3
+rot 0 0 0
+sides 0.25 1.2 0.05
+material steel
+mass 0.5
+flag 1
+
+env_obj 12
+shape box
+pos -0.65 2.9 1.17
+color 0.3 0.3 0.3
+rot 0 0 0
+sides 0.25 1.2 0.05
+material steel
+mass 0.5
+flag 1

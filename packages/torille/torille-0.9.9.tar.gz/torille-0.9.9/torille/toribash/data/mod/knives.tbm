@@ -1,0 +1,17 @@
+# use knives
+
+body r_hand
+
+   sides 0.500000 0.0300000 0.100000
+   pos -0.300000 0.900000 2.310000
+   material steel
+   color r 0.3 g 0.3 b 0.3
+   shape box
+
+body l_hand
+
+   sides 0.500000 0.030000 0.100000
+   pos 2.300000 0.900000 2.310000
+   material steel
+   color r 0.3 g 0.3 b 0.3
+   shape box

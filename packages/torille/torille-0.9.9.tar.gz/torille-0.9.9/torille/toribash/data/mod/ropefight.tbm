@@ -1,0 +1,255 @@
+engagedistance 150
+engageheight 300
+dojo 1
+
+#rope set 1
+
+env_obj 1
+    shape box
+    pos 0.8125 -0.0625 2.9375
+    color 0.6 -0.1 -0.1 1
+    rot 0 0 0
+    sides 0.125 3 0.125
+    material steel
+    mass 0.1
+    flag 16
+
+env_obj 2
+    shape box
+    pos 1.1875 -0.0625 2.9375
+    color 0.6 -0.1 -0.1 1
+    rot 0 0 0
+    sides 0.125 3 0.125
+    material steel
+    mass 0.1
+    flag 16
+
+env_obj 3
+    shape box
+    pos 1.1875 -3.0625 2.9375
+    color 0.6 -0.1 -0.1 1
+    rot 0 0 0
+    sides 0.125 3 0.125
+    material steel
+    mass 0.1
+    flag 16
+
+env_obj 4
+    shape box
+    pos 0.8125 -3.0625 2.9375
+    color 0.6 -0.1 -0.1 1
+    rot 0 0 0
+    sides 0.125 3 0.125
+    material steel
+    mass 0.1
+    flag 16
+
+env_obj 5
+    shape box
+    pos 0.8125 2.9375 2.9375
+    color 0.6 -0.1 -0.1 1
+    rot 0 0 0
+    sides 0.125 3 0.125
+    material steel
+    mass 0.1
+    flag 16
+
+env_obj 6
+    shape box
+    pos 1.1875 2.9375 2.9375
+    color 0.6 -0.1 -0.1 1
+    rot 0 0 0
+    sides 0.125 3 0.125
+    material steel
+    mass 0.1
+    flag 16
+
+#rope set 2
+
+env_obj 7
+    shape box
+    pos 1.0625 -0.3125 2.6875
+    color 0.6 -0.1 -0.1 1
+    rot 0 0 0
+    sides 3 0.125 0.125
+    material steel
+    mass 0.1
+    flag 16
+
+env_obj 8
+    shape box
+    pos 1.0625 0.1875 2.6875
+    color 0.6 -0.1 -0.1 1
+    rot 0 0 0
+    sides 3 0.125 0.125
+    material steel
+    mass 0.1
+    flag 16
+
+env_obj 9
+    shape box
+    pos 4.0625 0.1875 2.6875
+    color 0.6 -0.1 -0.1 1
+    rot 0 0 0
+    sides 3 0.125 0.125
+    material steel
+    mass 0.1
+    flag 16
+
+env_obj 10
+    shape box
+    pos -1.9375 0.1875 2.6875
+    color 0.6 -0.1 -0.1 1
+    rot 0 0 0
+    sides 3 0.125 0.125
+    material steel
+    mass 0.1
+    flag 16
+
+env_obj 11
+    shape box
+    pos -1.9375 -0.3125 2.6875
+    color 0.6 -0.1 -0.1 1
+    rot 0 0 0
+    sides 3 0.125 0.125
+    material steel
+    mass 0.1
+    flag 16
+
+env_obj 12
+    shape box
+    pos 4.0625 -0.3125 2.6875
+    color 0.6 -0.1 -0.1 1
+    rot 0 0 0
+    sides 3 0.125 0.125
+    material steel
+    mass 0.1
+    flag 16
+
+# rope hubs
+
+#lower hubs
+
+env_obj 13
+    shape box
+    pos 6.125 -0 2.6875
+    color 1 1 1 1
+    rot 0 0 0
+    sides 1 2 1
+    material steel
+    mass 0.1
+    flag 24
+
+env_obj 14
+    shape box
+    pos -3.875 -0 2.6875
+    color 1 1 1 1
+    rot 0 0 0
+    sides 1 2 1
+    material steel
+    mass 0.1
+    flag 24
+
+#upper hubs
+
+env_obj 15
+    shape box
+    pos 1 4.875 2.6875
+    color 1 1 1 1
+    rot 0 0 0
+    sides 2 1 1
+    material steel
+    mass 0.1
+    flag 24
+
+env_obj 16
+    shape box
+    pos 1 -5.125 2.6875
+    color 1 1 1 1
+    rot 0 0 0
+    sides 2 1 1
+    material steel
+    mass 0.1
+    flag 24
+
+# rope joints
+
+env_obj_joint 16 16 3
+    pos 1.1875 -4.625 2.9375
+axis 1 0 0
+range 5 -5
+
+env_obj_joint 3 3 2
+    pos 1.1875 -1.5625 2.9375
+axis 1 0 0
+range 5 -5
+
+env_obj_joint 2 2 6
+    pos 1.1875 1.375 2.9375
+axis 1 0 0
+range 5 -5
+
+env_obj_joint 6 6 15
+    pos 1.1875 4.375 2.9375
+axis 1 0 0
+range 5 -5
+
+env_obj_joint 15 15 5
+    pos 0.8125 4.375 2.9375
+axis 1 0 0
+range 5 -5
+
+env_obj_joint 5 5 1
+    pos 0.8125 1.4375 2.9375
+axis 1 0 0
+range 5 -5
+
+env_obj_joint 1 1 4
+    pos 0.8125 -1.5625 2.9375
+axis 1 0 0
+range 5 -5
+
+env_obj_joint 4 4 16
+    pos 0.8125 -4.5625 2.9375
+axis 1 0 0
+range 5 -5
+
+env_obj_joint 13 13 9
+    pos 5.625 0.1875 2.6875
+axis 1 0 0
+range 5 -5
+
+env_obj_joint 9 9 8
+    pos 2.5625 0.1875 2.6875
+axis 1 0 0
+range 5 -5
+
+env_obj_joint 8 8 10
+    pos -0.4375 0.1875 2.6875
+axis 1 0 0
+range 5 -5
+
+env_obj_joint 10 10 14
+    pos -3.375 0.1875 2.6875
+axis 1 0 0
+range 5 -5
+
+env_obj_joint 14 14 11
+    pos -3.375 0.1875 2.6875
+axis 1 0 0
+range 5 -5
+
+env_obj_joint 11 11 7
+    pos -0.4375 -0.3125 2.6875
+axis 1 0 0
+range 5 -5
+
+env_obj_joint 7 7 12
+    pos 2.5625 -0.3125 2.6875
+axis 1 0 0
+range 5 -5
+
+env_obj_joint 12 12 13
+    pos 5.625 -0.3125 2.6875
+axis 1 0 0
+range 5 -5

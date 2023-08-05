@@ -1,0 +1,99 @@
+# Made by Inst1nkt
+##################
+
+env_obj 1
+    shape box
+    pos 1 0 7
+    color 1.1 0 -0.1 1
+    rot 0 0 0
+    sides 5.5625 5.875 0.5
+    material steel
+    mass 0.1
+    flag 24
+#END 1
+
+env_obj 2
+    shape cylinder
+    pos 1 1.5 4.4375
+    color 0 1.1 -0.1 1
+    rot 0 90 0
+    sides 0.0625 4.9375 1
+    material steel
+    mass 0.1
+    flag 8
+#END 2
+
+env_obj 3
+    shape cylinder
+    pos 1 -1.75 4.4375
+    color 0 1.1 -0.1 1
+    rot 0 90 0
+    sides 0.0625 4.9375 1
+    material steel
+    mass 0.1
+    flag 8
+#END 3
+
+env_obj 4
+    shape box
+    pos 0.9375 0 0.4375
+    color 1.1 0 -0.1 1
+    rot 0 0 0
+    sides 3.8125 2.1875 0.875
+    material steel
+    mass 0.1
+    flag 24
+#END 4
+
+env_obj 5
+    shape box
+    pos -1.1875 1.5 3.5
+    color 1.1 0 -0.1 1
+    rot 0 0 0
+    sides 0.0625 0.125 7
+    material steel
+    mass 0.1
+    flag 24
+#END 5
+
+env_obj 6
+    shape box
+    pos -1.1875 -1.75 3.5
+    color 1.1 0 -0.1 1
+    rot 0 0 0
+    sides 0.0625 0.125 7
+    material steel
+    mass 0.1
+    flag 24
+#END 6
+
+env_obj 7
+    shape box
+    pos 3.1875 -1.75 3.5
+    color 1.1 0 -0.1 1
+    rot 0 0 0
+    sides 0.0625 0.125 7
+    material steel
+    mass 0.1
+    flag 24
+#END 7
+
+env_obj 8
+    shape box
+    pos 3.1875 1.5 3.5
+    color 1.1 0 -0.1 1
+    rot 0 0 0
+    sides 0.0625 0.125 7
+    material steel
+    mass 0.1
+    flag 24
+#END 8
+
+gamerule
+    matchframes 450
+    turnframes 50,20,20,40,40,40,40,40,40,40,40,40
+    engagedistance 450
+    engageheight 200
+    dojotype 1
+    dojosize 1
+

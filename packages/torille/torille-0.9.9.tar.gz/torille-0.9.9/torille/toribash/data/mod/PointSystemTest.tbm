@@ -1,0 +1,52 @@
+#!/usr/bin/toribash
+version 11
+gamerule
+   matchframes 500
+   turnframes 10
+   flags 2
+   dismemberment 1
+   fracture 0
+   disqualification 0
+   dqtimeout 0
+   dqflag 0
+   dismemberthreshold 100
+   fracturethreshold 0
+   pointthreshold 50
+   pointbodies 2 4 4 4 3 1 2 2 1 2 2 0 0 1 1 2 2 2 2 0 0
+   pointjoints 5 4 4 4 4 3 0 4 3 0 2 2 4 4 3 3 0 0 1 1
+   dojotype 0
+   dojosize 0
+   engagedistance 100
+   engageheight 0
+   engagerotation 0
+   engagespace 0
+   engageplayerpos 
+   engageplayerrot 0,0,0,0,0,0
+   damage 0
+   gravity 0.00 0.00 -9.82
+   sumo 0
+   reactiontime 15
+   drawwinner 0
+   maxcontacts 8
+player 0
+   body r_hand
+      pos -0.35 0.85 2.30
+   body l_hand
+      pos 2.35 0.85 2.30
+   joint l_wrist
+      pos 2.20 0.90 2.30
+      dm_threshold 0
+   joint r_glute
+      pos 0.90 1.10 1.51
+      dm_threshold 0
+player 1
+   body r_hand
+      pos -0.35 0.85 2.30
+   body l_hand
+      pos 2.35 0.85 2.30
+   joint l_wrist
+      pos 2.20 0.90 2.30
+      dm_threshold 0
+   joint r_glute
+      pos 0.90 1.10 1.51
+      dm_threshold 0

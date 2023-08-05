@@ -1,0 +1,25 @@
+# Environment exported by WorldBuilder
+######################################
+
+env_obj 1
+    shape box
+    pos -0.5 0.375 3.125
+    color 0 0 1 1
+    rot 0 3 0
+    sides 0.0625 0 1.8125
+    material steel
+    mass 0.001
+    flag 0
+#END 1
+
+env_obj 2
+    shape box
+    pos 2.4375 -0.5625 3.25
+    color 0 0 1 1
+    rot 0 -3 0
+    sides 0.0625 0 1.875
+    material steel
+    mass 0.001
+    flag 0
+#END 2
+

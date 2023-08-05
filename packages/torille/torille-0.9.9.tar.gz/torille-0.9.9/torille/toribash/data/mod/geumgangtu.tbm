@@ -1,0 +1,91 @@
+#Geumgangtu(vajra boxing) Made by Tawks(toxikz)
+########
+gamerule
+gravity 0 0 -25.72
+matchframes 650
+turnframes 35
+disqualification 1
+dismemberment 0
+fracture 1
+dqtimeout 4
+fracturethreshold 250
+dojotype 1
+dojosize 550
+engagedistance 150
+
+
+
+
+
+
+body r_hand 
+shape box 
+sides 0.32 0.30 0.25 
+alt_sides 0.3 0.11 0.16 
+pos -0.35 0.85 2.3 
+rot 0 0 0 
+force 0 0 0 
+color 1 1 1 
+material flesh 
+flag 48
+strength 4
+
+body l_hand 
+shape box 
+sides 0.32 0.30 0.25 
+alt_sides 0.3 0.11 0.16 
+pos 2.35 0.85 2.3 
+rot 0 0 0 
+force 0 0 0 
+color 1 1 1 
+material flesh 
+flag 48
+strength 4
+
+body l_foot 
+shape box 
+sides 0.25 0.45 0.15 
+pos 1.2 0.9 0.1 
+rot 0 0 0 
+force 0 0 0 
+color 1 1 1 
+material flesh
+flag 48 
+
+body r_foot 
+shape box 
+sides 0.25 0.45 0.15 
+pos 0.8 0.9 0.1 
+rot 0 0 0 
+force 0 0 0 
+color 1 1 1 
+material flesh
+flag 48
+
+body l_biceps
+sides 0.45 0.2500000 0.2500000
+pos 1.550000 0.900000 2.300000
+
+body r_biceps
+sides 0.45 0.2500000 0.2500000
+pos 0.450000 0.900000 2.300000
+
+joint r_elbow
+radius 0.2
+strength 6
+
+joint l_elbow
+radius 0.2
+strength 6
+
+body r_triceps
+
+sides 0.35 0.1500000 0.1500000
+pos 0.050000 0.900000 2.300000
+
+body l_triceps
+
+sides 0.35 0.1500000 0.1500000
+pos 1.950000 0.900000 2.300000
+
+

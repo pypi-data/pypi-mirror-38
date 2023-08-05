@@ -1,0 +1,197 @@
+#skiing by ronald, the number one mcdonalds fan
+#engage height 900, engage distance 6200
+friction 0
+gravity 0 0 -20
+
+env_obj 1
+	color 1.2 3.1 2.4
+    shape box
+    pos 1.0 -27.3 6.6
+    color 1.1 1.1 1
+    rot 22 0 0
+    sides 8.0 20.5 0.2
+    material steel
+    mass 0.1
+    flag 24
+
+env_obj 2
+    shape box
+    pos 1.0 25.5 6.6
+    color 1.1 1.1 1
+    rot -22 0 0
+    sides 8.0 20.5 0.2
+    material steel
+    mass 0.1
+    flag 24
+
+env_obj 3
+    shape box
+    pos 1.0 13.5 2.3
+    color 1.1 1.1 1
+    rot -10 0 0
+    sides 8.0 6.5 0.2
+    material steel
+    mass 0.1
+    flag 24
+
+env_obj 4
+    shape box
+    pos 1.0 -15.2 2.3
+    color 1.1 1.1 1
+    rot 10 0 0
+    sides 8.0 6.5 0.2
+    material steel
+    mass 0.1
+    flag 24
+
+env_obj 5
+    shape box
+    pos 1.0 -11.2 1.8
+    color 1.1 1.1 1
+    rot 0 0 0
+    sides 8.0 3.5 0.2
+    material steel
+    mass 0.1
+    flag 24
+
+env_obj 6
+    shape box
+    pos 1.0 8.7 1.75
+    color 1.1 1.1 1
+    rot 0 0 0
+    sides 8.0 3.5 0.2
+    material steel
+    mass 0.1
+    flag 24
+
+env_obj 7
+    shape box
+    pos 1.0 5.0 2.15
+    color 1.1 1.1 1
+    rot 10 0 0
+    sides 8.0 4.5 0.2
+    material steel
+    mass 0.1
+    flag 24
+
+env_obj 8
+    shape box
+    pos 1.0 -7.3 2.15
+    color 1.1 1.1 1
+    rot -10 0 0
+    sides 8.0 4.5 0.2
+    material steel
+    mass 0.1
+    flag 24
+
+
+
+body r_foot
+	rot -8 0 0
+	sides 0.21 2.002 0.01
+	material steel
+	force 0 10.0 -15
+	flag 2
+body l_foot
+	rot -8 0 0
+	sides 0.21 2.002 0.01
+	material steel
+	force 0 10.0 -15
+	flag 2
+body l_hand
+	sides 0.01 0.01 2.3
+	pos 2.2 0.9 1.5
+	force 0 0.0 0
+body r_hand
+	sides 0.01 0.01 2.3
+	pos -0.2 0.9 1.5
+	force 0 0.0 0
+body head
+	force 0 12.0 -2
+body breast
+	force 0 10.0 -5 
+body chest
+	force 0 10.0 -5 
+body stomach
+	force 0 10.0 -5 
+body groin
+	force 0 10.0 -5 
+body r_pecs
+	force 0 12.0 -5 
+body r_biceps
+	force 0 12.0 -5 
+body r_triceps
+	force 0 12.0 -5 
+body l_pecs
+	force 0 12.0 -5 
+body l_biceps
+	force 0 12.0 -5 
+body l_triceps
+	force 0 12.0 -5  
+body r_butt
+	force 0 10.0 0 
+body l_butt
+	force 0 10.0 0 
+body r_thigh
+	force 0 10.0 0 
+body l_thigh
+	force 0 10.0 0 
+body l_leg
+	force 0 10.0 0 
+body r_leg
+	force 0 10.0 0  
+
+
+joint neck
+	force 0 400.0 0
+joint l_wrist
+	force 0 400.0 0
+	
+joint r_wrist
+	force 0 400.0 0
+	
+joint l_elbow
+	force 0 400.0 0
+joint r_elbow
+	force 0 400.0 0
+joint l_shoulder
+	force 0 400.0 0
+joint r_shoulder
+	force 0 40.0 0
+joint l_pecs
+	force 0 400.0 0
+	color 0.01 0.42 0.8
+joint r_pecs
+	force 0 400.0 0
+	color 0.01 0.42 0.8
+joint chest
+	force 0 400.0 0
+joint lumbar
+	force 0 400.0 0
+joint abs
+	force 0 400.0 0
+joint l_glute
+	force 0 400.0 0 
+joint r_glute
+	force 0 400.0 0
+joint l_hip
+	force 0 400.0 0
+joint r_hip
+	force 0 400.0 0
+joint l_knee
+	force 0 400.0 0
+joint r_knee
+	force 0 400.0 0
+joint l_ankle
+	force 0 400.0 0
+	range 2.0 -2.0
+joint r_ankle
+	force 0 400.0 0
+	range 2.0 -2.0
+
+
+
+
+
+
+

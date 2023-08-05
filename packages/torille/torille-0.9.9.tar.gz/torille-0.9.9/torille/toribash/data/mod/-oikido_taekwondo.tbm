@@ -1,0 +1,34 @@
+#!/usr/bin/toribash
+gamerule
+gravity 0.00 0.00 -30.00
+engagedistance 250
+dismemberthreshold 100
+dismember 1
+fracture 0
+fracturethreshold 0
+matchframes 350
+turnframes 10,20,20,30,30,35,35,40,40,40,50
+dojosize 2000
+dojotype 0
+dq 0
+sumo 1
+flags 11
+joint l_knee
+	flag 32
+	velocity 70 
+joint r_knee
+	flag 32
+	velocity 70 
+joint l_hip
+	flag 16
+	velocity 70 
+joint r_hip
+	flag 16
+	velocity 70 
+joint chest
+	velocity 70
+body r_foot
+	force 0 10 00
+body l_foot
+	force 0 10 00
+gravity 0.00 0.00 -13

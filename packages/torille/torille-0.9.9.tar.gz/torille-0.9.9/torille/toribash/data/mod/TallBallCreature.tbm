@@ -1,0 +1,143 @@
+#Mod by MrPoptart =D
+
+body head
+sides 0.35 0.0 0.0
+pos 1.0 0.85 6.75
+body breast
+shape sphere
+sides 0.3 0.3 0.3
+pos 1.0 0.9 6.0
+body chest
+shape sphere
+sides 0.3 0.3 0.3
+pos 1.0 0.9 5.0
+body stomach
+shape sphere
+sides 0.3 0.3 0.3
+pos 1.0 0.95 4.0
+body groin
+shape sphere
+sides 0.3 0.3 0.3
+pos 1.0 1.0 3.2
+body r_pecs
+shape box
+sides 0.3 0.3 0.3
+pos 0.7 0.85 6.25
+body l_pecs
+shape box
+sides 0.3 0.3 0.3
+pos 1.3 0.85 6.25
+body r_biceps
+shape sphere
+sides 0.3 0.3 0.3
+pos 0.0 0.9 6.5
+body l_biceps
+shape sphere
+sides 0.3 0.3 0.3
+pos 2.0 0.9 6.5
+body r_triceps
+shape sphere
+sides 0.3 0.3 0.3
+pos -1.0 0.9 6.5
+body l_triceps
+shape sphere
+sides 0.3 0.3 0.3
+pos 3.0 0.9 6.5
+body r_hand
+shape box
+sides 0.4 0.4 0.4
+pos -2.0 0.85 6.5
+body l_hand
+shape box
+sides 0.4 0.4 0.4
+pos 4.0 0.85 6.5
+body r_butt
+pos 0.6 1.0 3.0
+body l_butt
+pos 1.4 1.0 3.0
+body r_thigh
+shape sphere
+sides 0.3 0.3 0.3
+pos 0.5 1.0 2.0
+body l_thigh
+shape sphere
+sides 0.3 0.3 0.3
+pos 1.5 1.0 2.0
+body r_leg
+shape sphere
+sides 0.3 0.3 0.3
+pos 0.5 1.0 1.0
+body l_leg
+shape sphere
+sides 0.3 0.3 0.3
+pos 1.5 1.0 1.0
+body r_foot
+shape box
+sides 0.4 0.4 0.4
+pos 0.5 1 0.25
+body l_foot
+shape box
+sides 0.4 0.4 0.4
+pos 1.5 1 0.25
+joint neck
+radius 0.3
+pos 1.0 0.9 6.35
+joint chest
+radius 0.3
+pos 1.0 0.9 5.5
+joint lumbar
+radius 0.3
+pos 1.0 0.95 4.5
+joint abs
+radius 0.3
+pos 1.0 1.0 3.5
+joint r_pecs
+radius 0.3
+pos 0.7 0.85 6.25
+joint l_axilla
+radius 0.3
+pos 1.3 0.85 6.25
+joint r_shoulder
+radius 0.3
+pos 0.5 0.9 6.5
+joint l_shoulder
+radius 0.3
+pos 1.5 0.9 6.5
+joint r_elbow
+radius 0.3
+pos -0.5 0.9 6.5
+joint l_elbow
+radius 0.3
+pos 2.5 0.9 6.5
+joint r_wrist
+radius 0.3
+pos -1.5 0.9 6.5
+joint l_wrist
+radius 0.3
+pos 3.5 0.9 6.5
+joint r_glute
+radius 0.3
+pos 0.7 1.1 3.0
+joint l_glute
+radius 0.3
+pos 1.3 1.1 3.0
+joint r_hip
+radius 0.3
+pos 0.5 1.0 2.5
+joint l_hip
+radius 0.3
+pos 1.5 1.0 2.5
+joint r_knee
+radius 0.3
+pos 0.5 1.0 1.5
+joint l_knee
+radius 0.3
+pos 1.5 1.0 1.5
+joint r_ankle
+radius 0.3
+pos 0.5 1.0 0.5
+joint l_ankle
+radius 0.3
+pos 1.5 1.0 0.5
+
+gravity 0 0 -5

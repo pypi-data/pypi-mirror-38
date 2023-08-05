@@ -1,0 +1,6 @@
+# toribash mod test
+body r_hand
+	sides 1.0 .1899999999999 .12999999999
+	pos -0.6 1.0 2.3
+	material steel
+	color 0.2 0.2 0.2

@@ -1,0 +1,161 @@
+#Building Jump Mod by Uncopyrightable
+
+friction 0.00000000001
+
+env_obj 1
+    shape box
+    pos 1 0 5
+    color 0.2 0.2 0.2 1
+    rot 0 0 0
+    sides 3 3 10
+    material steel
+    mass 0.1
+    flag 24
+
+env_obj 2
+    shape box
+    pos 1 15 4
+    color 0.9 0.9 0.8 1
+    rot 0 0 0
+    sides 5 5 8
+    material steel
+    mass 10
+    flag 24
+
+env_obj 3
+    shape box
+    pos 1 15 14
+    color 0.9 0.9 0.8 1
+    rot 0 0 0
+    sides 5 5 5
+    material steel
+    mass 10
+    flag 24
+
+env_obj 4
+    shape box
+    pos 1 17.25 9.75
+    color 0.9 0.9 0.8 1
+    rot 0 0 0
+    sides 5 0.5 3.5
+    material flesh
+    mass 10
+    flag 24
+
+env_obj 5
+    shape box
+    pos 3.25 14.75 9.75
+    color 0.9 0.9 0.8 1
+    rot 0 0 0
+    sides 0.5 4.5 3.5
+    material steel
+    mass 10
+    flag 24
+
+env_obj 6
+    shape box
+    pos -1.25 14.75 9.75
+    color 0.9 0.9 0.8 1
+    rot 0 0 0
+    sides 0.5 4.5 3.5
+    material steel
+    mass 0.1
+    flag 24
+
+env_obj 7
+    shape box
+    pos 0.1 12.75 8.75
+    color -0.1 -0.1 -0.1 0.3
+    rot 0 0 0
+    sides 2 0.25 1.75
+    material flesh
+    mass 0.0001
+    flag 16
+
+env_obj 8
+    shape box
+    pos 2.1 12.75 8.75
+    color -0.1 -0.1 -0.1 0.3
+    rot 0 0 0
+    sides 2 0.25 1.75
+    material flesh
+    mass 0.0001
+    flag 16
+
+env_obj 9
+    shape box
+    pos 2.1 12.75 10.5
+    color -0.1 -0.1 -0.1 0.3
+    rot 0 0 0
+    sides 2 0.25 1.75
+    material flesh
+    mass 0.0001
+    flag 16
+
+env_obj 10
+    shape box
+    pos 0.1 12.75 10.5
+    color -0.1 -0.1 -0.1 0.3
+    rot 0 0 0
+    sides 2 0.25 1.75
+    material flesh
+    mass 0.0001
+    flag 16
+
+env_obj 11
+    shape box
+    pos 1.25 8 0
+    color 1.1 0.4 -0.1 1
+    rot 0 0 0
+    sides 50 80 0.25
+    material steel
+    mass 0.1
+    flag 30
+
+env_obj 12
+    shape cylinder
+    pos 1 9 7
+    color 0.8 0.8 0.8 1
+    rot 90 0 0
+    sides 0.05 7 0.05
+    material steel
+    mass 0.1
+    flag 24
+
+env_obj 13
+    shape box
+    pos 1 6.3 5.95
+    color 1 0 0 1
+    rot 0 0 0
+    sides 0.1 1.5 2.1
+    material steel
+    mass 0.1
+    flag 8	
+
+player 0
+
+body l_hand
+force 0 -50 0
+
+body r_hand
+force 0 -50 0
+
+body l_foot
+force 0 -50 0
+
+body r_foot
+force 0 -50 0
+
+player 1
+
+body l_hand
+force 0 50 0
+
+body r_hand
+force 0 50 0
+
+body l_foot
+force 0 50 0
+
+body r_foot
+force 0 50 0

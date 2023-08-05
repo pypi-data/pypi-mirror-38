@@ -1,0 +1,91 @@
+# Environment exported by WorldBuilder
+######################################
+
+env_obj 1
+    shape box
+    pos 0.75 0 1.75
+    color 1.1 1.1 1 1
+    rot 0 0 0
+    sides 3.5 4.25 0.5
+    material steel
+    mass 0.1
+    flag 16
+#END 1
+
+env_obj 2
+    shape box
+    pos 0.75 0 1
+    color 1.1 -0.1 -0.1 1
+    rot 0 0 0
+    sides 1 1 1
+    material steel
+    mass 0.1
+    flag 8
+#END 2
+
+env_obj 3
+    shape box
+    pos 0.75 6 1.75
+    color 0 0 1 1
+    rot -8 0 0
+    sides 1.25 10.75 0.25
+    material steel
+    mass 0.1
+    flag 0
+#END 3
+
+env_obj 4
+    shape box
+    pos 0.75 -6 1.75
+    color 0 0 1 1
+    rot 8 0 0
+    sides 1.25 10.75 0.25
+    material steel
+    mass 0.1
+    flag 0
+#END 4
+
+env_obj 5
+    shape box
+    pos 0.75 -6 1
+    color 1.1 -0.1 -0.1 1
+    rot 0 0 0
+    sides 1 1 1
+    material steel
+    mass 0.1
+    flag 8
+#END 5
+
+env_obj 6
+    shape box
+    pos 0.75 6.25 1
+    color 1.1 -0.1 -0.1 1
+    rot 0 0 0
+    sides 1 1 1
+    material steel
+    mass 0.1
+    flag 8
+#END 6
+
+env_obj 7
+    shape box
+    pos 0.75 11.5 8.5
+    color 0 1.1 -0.1 1
+    rot 0 0 0
+    sides 4.5 4.5 4.5
+    material steel
+    mass 1
+    flag 0
+#END 7
+
+env_obj 8
+    shape box
+    pos 0.75 -11.75 8.5
+    color 0 1.1 -0.1 1
+    rot 0 0 0
+    sides 4.5 4.5 4.5
+    material steel
+    mass 1
+    flag 0
+#END 8
+

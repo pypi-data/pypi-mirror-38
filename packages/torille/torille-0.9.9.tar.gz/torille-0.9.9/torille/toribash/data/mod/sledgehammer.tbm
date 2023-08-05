@@ -1,0 +1,38 @@
+gamerule
+	engagedistance 200
+
+env_obj 1
+	shape cylinder
+	pos 2.35 0.9 3
+	color 0.7 0.4 0
+	rot 0 0 0
+	sides 0.08 1.5 1.5
+	material wood
+	mass 0.001
+	flag 0
+
+env_obj 2
+	shape box
+	pos 2.35 0.9 3.6
+	color 0.1 0.1 0.1
+	rot 0 0 0
+	sides 0.6 0.3 0.3
+	material steel
+	mass 0.005
+	flag 6
+
+env_obj_joint 1 1 2
+	pos 2.35 0.9 3.6
+	axis 1 0 0
+	range 0 0
+	strength 0
+	velocity 0
+	visible 0
+
+joint l_wrist
+	axis 0 1 0
+	range 0.5 -1.4
+
+joint r_wrist
+	axis 0 1 0
+	range 0.5 -1.4

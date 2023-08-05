@@ -1,0 +1,121 @@
+#MOD Made by Hawkinz, bloody enviroment modding script was confusing me, i like this #better :D Its only my second mod ever so i hope its OK!
+
+env_obj 1                      
+shape box             
+sides 0.22 0.22 2.90     
+pos 1 3.75 1.6    
+color 0 0 0.5            
+rot 0 0 0            
+material steel   
+mass 0.1         
+flag 8  
+
+env_obj 2            
+shape box             
+sides 1.35 0.22 1    
+pos 1 3.4 3.25    
+color 0 0 0.5            
+rot 0 0 0              
+material steel   
+mass 0.1         
+flag 8 
+
+env_obj 3           
+shape box            
+sides 0.22 0.22 0.60    
+pos 1 3.59 3.2    
+color 0 0 0.5            
+rot -40 0 0            
+material steel   
+mass 0.1         
+flag 8 
+
+env_obj 4           
+shape box            
+sides 0.11 0.75 0.11    
+pos 1.42 3.10 3.2    
+color 0 0 0.5            
+rot 0 0 0            
+material steel   
+mass 0.1         
+flag 8  
+
+env_obj 5           
+shape box            
+sides 0.11 0.75 0.11     
+pos 0.53 3.10 3.2   
+color 0 0 0.5            
+rot 0 0 0            
+material steel   
+mass 0.1         
+flag 8
+
+env_obj 6          
+shape box            
+sides 0.11 0.3 0.11     
+pos 0.7 2.57 3.2   
+color 0 0 0.5            
+rot 0 0 -50            
+material steel   
+mass 0.1         
+flag 8
+
+env_obj 7          
+shape box            
+sides 0.11 0.3 0.11    
+pos 1.27 2.57 3.2   
+color 0 0 0.5            
+rot 0 0 50            
+material steel   
+mass 0.1         
+flag 8
+
+env_obj 8          
+shape box            
+sides 0.4 0.1 0.11     
+pos 0.985 2.48 3.2   
+color 0 0 0.5            
+rot 0 0 0            
+material steel   
+mass 0.1         
+flag 8
+
+env_obj 9          
+shape box            
+sides 0.11 0.1 0.11    
+pos 1.4 2.70 3.2   
+color 0 0 0.5            
+rot 0 0 30            
+material steel   
+mass 0.1         
+flag 8
+
+env_obj 10          
+shape box            
+sides 0.11 0.1 0.11    
+pos 0.55 2.71 3.2   
+color 0 0 0.5            
+rot 0 0 -40           
+material steel   
+mass 0.1         
+flag 8
+
+env_obj 11        
+shape box            
+sides 0.11 0.1 0.11    
+pos 0.55 2.70 3.2   
+color 0 0 0.5            
+rot 0 0 -50           
+material steel   
+mass 0.1         
+flag 8
+
+env_obj 12                      
+shape box             
+sides 0.22 0.22 0.22   
+pos 1 3.75 0.12  
+color 0 0 0.5            
+rot 0 0 0            
+material steel   
+mass 0.1         
+flag 8  

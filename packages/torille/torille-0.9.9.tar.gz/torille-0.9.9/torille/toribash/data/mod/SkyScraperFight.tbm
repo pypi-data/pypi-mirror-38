@@ -1,0 +1,113 @@
+# Mod by MrPoptart =D
+# Mod settings:
+# (on top of the sky scraper): engage height: 9950
+# (right under the ceiling) engage height: 9650 (for hanging fight)
+# (right out side the building) engage distance: 2600 (for climbing up the walls)
+# (inside the building) normal settings
+
+env_obj 1
+shape box
+pos 1.0 0.0 0.0
+color 0.75 0.75 0.75
+rot 0 0 0
+sides 25.0 25.0 0.01
+material steel
+mass 0.001
+flag 8
+
+env_obj 2
+shape box
+pos 1.0 12.5 50.0
+color 0.75 0.75 0.75
+rot 0 0 0
+sides 25.0 0.01 100.0
+material steel
+mass 0.001
+flag 8
+
+env_obj 3
+shape box
+pos 1.0 -12.5 50.0
+color 0.75 0.75 0.75
+rot 0 0 0
+sides 25.0 0.01 100.0
+material steel
+mass 0.001
+flag 8
+
+env_obj 4
+shape box
+pos -11.5 0.0 50.0
+color 0.75 0.75 0.75
+rot 0 0 0
+sides 0.01 25.0 100.0
+material steel
+mass 0.001
+flag 8
+
+env_obj 5
+shape box
+pos 13.5 0.0 51.5
+color 0.75 0.75 0.75
+rot 0 0 0
+sides 0.01 25.0 97.0
+material steel
+mass 0.001
+flag 8
+
+env_obj 6
+shape box
+pos 13.5 7.0 1.5
+color 0.5 0.5 0.5
+rot 0 0 0
+sides 0.01 11.0 3.0
+material steel
+mass 0.001
+flag 8
+
+env_obj 7
+shape box
+pos 13.5 -7.0 1.5
+color 0.5 0.5 0.5
+rot 0 0 0
+sides 0.01 11.0 3.0
+material steel
+mass 0.001
+flag 8
+
+env_obj 8
+shape box
+pos 1.0 0.0 99.5
+color 0.75 0.75 0.75
+rot 0 0 0
+sides 25.0 25.0 0.01
+material steel
+mass 0.001
+flag 8
+
+env_obj 9
+shape box
+pos 3.0 3.0 0.55
+color 0.75 0.75 0.75
+rot 0 0 0
+sides 0.5 0.5 1.0
+material steel
+mass 0.01
+
+env_obj 10
+shape box
+pos 3.0 5.0 0.7
+color 0.75 0.75 0.75
+rot 0 0 0
+sides 3.0 3.0 1.25
+material steel
+mass 0.1
+
+env_obj 11
+shape box
+pos 3.0 7.0 0.55
+color 0.75 0.75 0.75
+rot 0 0 0
+sides 0.5 0.5 1.0
+material steel
+mass 0.01

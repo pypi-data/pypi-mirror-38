@@ -1,0 +1,190 @@
+#!/usr/bin/toribash
+######################################
+# Freerun_challenge mod by Pigking45
+# v 2
+######################################
+gamerule
+matchframes 2500
+turnframes 10
+flags 4
+engageplayerpos 1.50,3.00,6.85,-2.00,3.00,6.85
+gravity 0 0 -30
+env_obj 1
+    shape box
+    pos 0 -9 3.25
+    color -0.1 0 1 1
+    rot 0 0 0
+    sides 10 26 7.25
+    material steel
+    mass 0.1
+    flag 24
+#END 1
+
+env_obj 2
+    shape cylinder
+    pos 0 -1.75 7.5
+    color 0 0 1 1
+    rot -88 88 0
+    sides 0.5 9.5 1
+    material steel
+    mass 0.1
+    flag 24
+#END 2
+
+env_obj 3
+    shape box
+    pos 0 -5.25 6.75
+    color 1.1 0 1 1
+    rot 0 0 0
+    sides 10 3 0.5
+    friction yes
+    material steel
+    mass 0.1
+    flag 24
+#END 3
+
+env_obj 4
+    shape box
+    pos 0.25 -5.25 9.5
+    color -0.1 0 1 1
+    rot 0 0 0
+    sides 9.25 1 2.5
+    material steel
+    mass 0.1
+    flag 24
+#END 4
+
+env_obj 5
+    shape box
+    pos 0 -10 7.75
+    color -0.1 0 1 1
+    rot 0 0 0
+    sides 10 0.25 1.75
+    material steel
+    mass 0.1
+    flag 24
+#END 5
+
+env_obj 6
+    shape cylinder
+    pos 0 -12 9.75
+    color -0.1 0 1 1
+    rot 96 92 0
+    sides 1.25 9 1
+    material steel
+    mass 0.1
+    flag 24
+#END 6
+
+env_obj 7
+    shape box
+    pos 0 -13 6.75
+    color 1.1 0 1 1
+    rot 0 0 0
+    sides 10.5 5.25 0.5
+    material steel
+    friction yes
+    mass 0.1
+    flag 24
+#END 7
+
+env_obj 8
+    shape box
+    pos 0 -21.75 7.75
+    color -0.1 0 1 1
+    rot -4 0 0
+    sides 10 0.5 8.25
+    material steel
+    mass 0.1
+    flag 24
+#END 8
+
+env_obj 9
+    shape box
+    pos 4.75 -9 8
+    color -0.1 0 1 1
+    rot 0 0 0
+    sides 0.5 26 8
+    material steel
+    mass 0.1
+    flag 24
+#END 9
+
+env_obj 10
+    shape box
+    pos -12.5 -18.25 2.25
+    color -0.1 0 1 1
+    rot 0 0 0
+    sides 8.75 9 7
+    material steel
+    mass 0.1
+    flag 24
+#END 10
+
+env_obj 11
+    shape box
+    pos -10.75 -13.75 8
+    color -0.1 0 1 1
+    rot -12 0 0
+    sides 12.5 0.75 5.25
+    material steel
+    mass 0.1
+    flag 24
+#END 11
+
+env_obj 12
+    shape box
+    pos -16.75 -25 6
+    color -0.1 -0.1 1 1
+    rot 0 0 0
+    sides 0.5 22 9.25
+    material steel
+    mass 0.1
+    flag 24
+#END 12
+
+env_obj 13
+    shape box
+    pos -11.25 -18.5 6.25
+    color 1.1 0 1 1
+    rot 0 0 0
+    sides 0.5 8.75 1
+    friction yes
+    material steel
+    mass 0.1
+    flag 24
+#END 13
+
+env_obj 14
+    shape box
+    pos -14 -30.75 2.25
+    color -0.1 0 1 1
+    rot 0 0 0
+    sides 6 10.5 5.25
+    material steel
+    mass 0.1
+    flag 24
+#END 14
+
+env_obj 15
+    shape box
+    pos -14 -35.75 5.5
+    color -0.1 1.1 -0.1 1
+    rot 0 0 0
+    sides 6 0.25 7.75
+    material steel
+    mass 0.1
+    flag 24
+#END 15
+
+env_obj 16
+    shape box
+    pos -13.75 -28.5 5.5
+    color -0.1 -0.1 1 1
+    rot 68 0 0
+    sides 5.5 0.25 3.75
+    material steel
+    mass 0.1
+    flag 24
+#END 16
+

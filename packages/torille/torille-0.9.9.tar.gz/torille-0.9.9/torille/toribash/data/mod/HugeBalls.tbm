@@ -1,0 +1,16 @@
+body r_hand
+shape cylinder
+sides 0.22 0.29 0.35
+material steel
+color 0 0 0
+body l_hand
+shape cylinder
+sides 0.22 0.29 0.35
+material steel
+color 0 0 0
+body r_foot
+shape cylinder
+color 1 1 1
+body l_foot
+shape cylinder
+color 1 1 1

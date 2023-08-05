@@ -1,0 +1,93 @@
+# Environment exported by WorldBuilder... Heheh... Pnut got kinda lazy again >.<
+######################################
+gamerule
+engagedistance 2000
+engageheight 25
+
+
+
+env_obj 5
+    shape box
+    thrust 30 0 -150 25
+    pos 2 10 2.3225
+    color 0 0 -0.1 1
+    rot 0 0 0
+    sides 1 0.625 0.0605
+    material steel
+    mass 0.1
+    flag 0
+#END 5
+
+env_obj 6
+    shape box
+    thrust 30 0 -150 25
+    pos 2 10 2.655
+    color 0 0 -0.1 1
+    rot 0 0 0
+    sides 1 0.625 0.0625
+    material steel
+    mass 0.1
+    flag 0
+#END 6
+
+env_obj 7
+    shape box
+    thrust 30 0 -150 25
+    pos 0 10 2.3205
+    color 0 0 -0.1 1
+    rot 0 0 0
+    sides 1 0.625 0.0625
+    material steel
+    mass 0.1
+    flag 0
+#END 7
+
+env_obj 8
+    shape box
+    thrust 30 0 -150 25
+    pos 0 10 2.655
+    color 0 0 -0.1 1
+    rot 0 0 0
+    sides 1 0.625 0.0625
+    material steel
+    mass 0.1
+    flag 0
+#END 8
+
+
+env_obj_joint 2 5 6
+pos 1 9 2.875
+axis 0 0 0
+range 0 0
+strength 0
+velocity 0
+
+env_obj_joint 3 6 7
+pos 1 9 2.875
+axis 0 1 0
+range 0 0
+strength 0
+velocity 0
+
+env_obj_joint 4 7 8
+pos 1 9 2.875
+axis 0 1 0
+range 0 0
+strength 0
+velocity 0
+
+env_obj_joint 5 5 8
+pos 1 9 2.875
+axis 0 1 0
+range 0 0
+strength 0
+velocity 0
+
+env_obj_joint 6 5 7
+pos 1 9 2.875
+axis 0 1 0
+range 0 0
+strength 0
+velocity 0
+
+

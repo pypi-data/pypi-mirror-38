@@ -1,0 +1,53 @@
+###by THE5
+
+gamerule
+	engagedistance 150
+
+env_obj 1
+    shape box
+    pos -0.375 0.625 2.25
+    color -0.1 0 -0.1 1
+    rot 0 0 0
+    sides 0.25 0.25 0.25
+    material steel
+    mass 0.001
+    bounce 20
+    flag 0
+#END 1
+
+env_obj 2
+    shape box
+    pos 2.375 0.625 2.25
+    color -0.1 0 -0.1 1
+    rot 0 0 0
+    sides 0.25 0.25 0.25
+    material steel
+    mass 0.001
+    bounce 20
+    flag 0
+#END 2
+
+env_obj 3
+    shape box
+    pos 2.375 -0.8125 2.25
+    color -0.1 0 -0.1 1
+    rot 0 0 0
+    sides 0.25 0.25 0.25
+    material steel
+    mass 0.001
+    bounce 20
+    flag 0
+#END 3
+
+env_obj 4
+    shape box
+    pos -0.375 -0.8125 2.25
+    color -0.1 0 -0.1 1
+    rot 0 0 0
+    sides 0.25 0.25 0.25
+    material steel
+    mass 0.001
+    bounce 20
+    flag 0
+#END 4
+

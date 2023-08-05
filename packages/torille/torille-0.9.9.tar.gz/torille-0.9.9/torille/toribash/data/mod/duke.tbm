@@ -1,0 +1,275 @@
+# ride the rocket!
+##################
+
+env_obj 1
+    shape box
+    pos 2.5 37.9375 1.4375
+    color 1 1 1 1
+    rot 45 0 0
+    sides 0.8125 8.4375 0.25
+    material steel
+    mass 0.1
+    flag 8
+#END 1
+
+env_obj 2
+    shape cylinder
+    pos 2.5 38.3125 -0.6875
+    color 0 0 0 1
+    rot -45 0 0
+    sides 1.125 2.75 0.25
+    material steel
+    mass 11
+    flag 0
+#END 2
+
+env_obj 3
+    shape box
+    pos 2.5 36.3125 -0.4375
+    color 1 1 1 1
+    rot 45 0 0
+    sides 0.8125 8.4375 0.25
+    material steel
+    mass 0.1
+    flag 8
+#END 3
+
+
+env_obj 4
+    shape box
+    pos -1.75 39.875 2.25
+    color 0.9 1 1 1
+    rot 0 90 0
+    sides 0.1875 0.0625 2.625
+    material steel
+    mass 0.001
+    flag 0
+#END 4
+
+env_obj 5
+    shape box
+    pos 5 -40.5 5
+    color 1 1 1 1
+    rot 0 0 0
+    sides 10 10 10
+    material steel
+    mass 2
+    flag 0
+#END 5
+
+env_obj 6
+    shape box
+    pos -5 -40 5
+    color 1 1 1 1
+    rot 0 0 0
+    sides 10 10 10
+    material steel
+    mass 2
+    flag 0
+#END 6
+
+env_obj 7
+    shape box
+    pos 0 -40.5 15
+    color 0.8 0.8 0.8 1
+    rot 0 0 0
+    sides 20 10 10
+    material steel
+    mass 2
+    flag 0
+#END 7
+
+env_obj 8
+    shape box
+    pos -5 -39.75 23.5
+    color 0.5 0.5 0.5 1
+    rot 0 0 0
+    sides 10 10 7
+    material steel
+    mass 2
+    flag 0
+#END 8
+
+env_obj 9
+    shape box
+    pos 5 -40.75 23.5
+    color 0.5 0.5 0.5 1
+    rot 0 0 0
+    sides 10 10 7
+    material steel
+    mass 2
+    flag 0
+#END 9
+
+env_obj 10
+    shape box
+    pos -2 -40.125 29.25
+    color 0.1 0 0 1
+    rot 0 0 0
+    sides 3.3125 0.0625 0.375
+    material steel
+    mass 0.001
+    flag 0
+#END 10
+
+
+
+player 0
+
+joint r_wrist
+axis -0.5 0 0
+
+body head
+	force 0 30 15
+joint neck
+	force 0 20 100
+body stomach 
+	force 0 20 10
+body breast
+	force 0 20 10
+body chest
+	force 0 20 10
+body groin
+	force 0 20 10
+body r_pecs
+	force 0 20 10
+body l_pecs
+	force 0 20 10
+body r_thigh
+	force 0 20 10
+body l_thigh
+	force 0 20 10
+body l_leg
+	force 0 20 10
+body r_leg
+	force 0 20 10
+
+
+player 1
+
+joint l_wrist
+axis -0.5 0 0
+
+body head
+pos 1.0 0.85 29.65
+
+body breast
+pos 1.0 0.9 29.2
+
+body chest
+pos 1.0 0.9 28.95
+
+body stomach
+pos 1. 0.95 28.75
+
+body groin
+pos 1.0 1.0 28.550
+
+body r_pecs
+pos 0.75 0.9 29.15
+
+body r_biceps
+pos 0.45 0.9 29.3
+
+body r_triceps
+pos 0.05 0.9 29.3
+
+body l_pecs
+pos 1.25 0.9 29.15
+
+body l_biceps
+pos 1.55 0.9 29.3
+
+body l_triceps
+pos 1.95 0.9 29.3
+
+body r_hand
+pos -0.35 0.85 29.3
+
+body l_hand
+pos 2.35 0.85 29.3
+
+body r_butt
+pos 0.8 1.0 28.45
+
+body l_butt
+pos 1.2 1.0 28.45
+
+body r_thigh
+pos 0.8 1.0 28.1
+
+body l_thigh
+pos 1.2 1.0 28.1
+
+body r_leg
+pos 0.8 1.0 27.5
+
+body l_leg
+pos 1.2 1.0 27.5
+
+body r_foot
+pos 0.8 0.9 27.1
+
+body l_foot
+pos 1.2 0.9 27.1
+
+joint neck
+pos 1.0 0.9 29.5
+
+joint chest
+pos 1.0 0.9 29.05
+
+joint lumbar
+pos 1.0 0.95 28.85
+
+joint abs
+pos 1.0 1.0 28.65
+
+joint r_pecs
+pos 0.85 0.85 29.2
+
+joint r_shoulder
+pos 0.65 0.9 29.3
+
+joint r_elbow
+pos 0.25 0.90 29.3
+
+joint l_pecs
+pos 1.15 0.85 29.2
+
+joint l_shoulder
+pos 1.35 0.9 29.3
+
+joint l_elbow
+pos 1.75 0.9 29.3
+
+joint r_wrist
+pos -0.2 0.9 29.3
+
+joint l_wrist
+pos 2.2 0.9 29.3
+
+joint r_glute
+pos 0.9 1.1 28.51
+
+joint l_glute
+pos 1.1 1.1 28.51
+
+joint r_hip      
+pos 0.79 1.0 28.4
+
+joint l_hip
+pos 1.21 1.0 28.4
+
+joint r_knee
+pos 0.8 1.0 27.8
+
+joint l_knee
+pos 1.2 1.0 27.8
+
+joint r_ankle
+pos 0.8 1.05 27.25
+
+joint l_ankle
+pos 1.2 1.05 27.25
+

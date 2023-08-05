@@ -1,0 +1,27 @@
+# Mod by MrPoptart =D
+
+body r_hand
+sides 0.4 0.01 0.1
+pos -0.43 0.9 2.65
+flag 6
+
+body l_hand
+sides 0.4 0.01 0.1
+pos 2.43 0.9 2.65
+flag 6
+
+body r_triceps
+shape cylinder
+sides 0.02 0.5 0.015
+pos -0.35 0.9 2.45
+
+body l_triceps
+shape cylinder
+sides .02 .5 .015
+pos 2.35 .9 2.45
+
+joint r_wrist
+pos -0.35 0.9 2.3
+
+joint l_wrist
+pos 2.35 .9 2.3

@@ -1,0 +1,183 @@
+#Roller Coaster Mod by Uncopyrightable
+
+gamerule
+engageheight 2000
+matchframes 2000
+
+gravity 0 0 -20
+
+env_obj 1
+    shape box
+    pos 3.9375 -0.125 21.375
+    color 1 0 0 1
+    rot 0 0 0
+    sides 3 3 3
+    material steel
+    mass 20
+    flag 0
+    friction 0
+
+env_obj 2
+    shape box
+    pos 0.5625 -0.125 18.75
+    color 0 0 1 1
+    rot 0 10 0
+    sides 10 3 0.5
+    material steel
+    mass 1
+    flag 24
+    friction 0
+	
+env_obj 3
+    shape box
+    pos -8.9 -0.125 16.205
+    color 0.5 0.5 0.5 0
+    rot 0 20 0
+    sides 10 3 0.5
+    material steel
+    mass 1
+    flag 24
+    friction 0
+
+env_obj 4
+    shape box
+    pos -17.9 -0.125 12
+    color 0.5 0.5 0.5 0
+    rot 0 30 0
+    sides 10 3 0.5
+    material steel
+    mass 1
+    flag 24
+    friction 0
+	
+env_obj 5
+    shape box
+    pos -31.1 -0.125 2.35
+    color 0.5 0.5 0.5 1
+    rot 0 30 0
+    sides 3 3 0.5
+    material steel
+    mass 1
+    flag 24	
+    friction 0
+	
+env_obj 6
+    shape box
+    pos -33.7 -0.125 1.2
+    color 0.5 0.5 0.5 1
+    rot 0 15 0
+    sides 3 3 0.5
+    material steel
+    mass 1
+    flag 24
+    friction 0
+	
+env_obj 7
+    shape box
+    pos -40 -1 1.5
+    color 0.5 0.5 0.5 1
+    rot 0 0 30
+    sides 5 0.5 3
+    material steel
+    mass 1
+    flag 24
+    friction 0
+	
+env_obj 8
+    shape box
+    pos -43 5 1.5
+    color 0.5 0.5 0.5 1
+    rot 0 0 15
+    sides 5 0.5 3
+    material steel
+    mass 1
+    flag 24	
+    friction 0
+	
+env_obj 9
+    shape box
+    pos -48 6 1.5
+    color 0.5 0.5 0.5 1
+    rot 0 0 10
+    sides 5 0.5 3
+    material steel
+    mass 1
+    flag 24	
+    friction 0
+	
+env_obj 10
+    shape box
+    pos -49 2 1.5
+    color 0.5 0.5 0.5 1
+    rot 0 0 10
+    sides 5 0.5 3
+    material steel
+    mass 1
+    flag 24	
+    friction 0
+
+env_obj 11
+    shape box
+    pos -54 6.3 1.5
+    color 0.5 0.5 0.5 1
+    rot 0 0 0
+    sides 8 0.5 3
+    material steel
+    mass 1
+    flag 24
+    friction 0
+
+env_obj 12
+    shape box
+    pos -56 2.8 1.5
+    color 0.5 0.5 0.5 1
+    rot 0 0 0
+    sides 4.5 0.5 3
+    material steel
+    mass 1
+    flag 24	
+    friction 0
+
+env_obj 13
+    shape box
+    pos -59 4.55 0.1
+    color 0.5 0.5 0.5 1
+    rot 0 -15 0
+    sides 3 3 0.5
+    material steel
+    mass 1
+    flag 24		
+    friction 0
+	
+env_obj 14
+    shape box
+    pos -61.6 4.55 1.2
+    color 0.5 0.5 0.5 1
+    rot 0 -30 0
+    sides 3 3 0.5
+    material steel
+    mass 1
+    flag 24	
+    friction 0
+	
+env_obj 15
+    shape box
+    pos -81 4.55 2
+    color 0 0 1 1
+    rot 0 0 0
+    sides 17 3.5 0.5
+    material steel
+    mass 1
+    flag 24	
+    friction 100	
+	
+env_obj 16
+    shape box
+    pos 0 0 0.01
+    color 0 1 0 1
+    rot 0 0 0
+    sides 800 800 0.02
+    material steel
+    mass 1
+    flag 24
+    friction 0

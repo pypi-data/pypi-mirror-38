@@ -1,0 +1,15 @@
+# Mod by MrPoptart =D
+
+body r_triceps
+sides 0.85 0.01 0.1
+pos -0.25 1.0 2.3
+color 1 0 0
+material flesh
+flag 6
+
+body l_triceps
+sides 0.85 0.01 0.1
+pos 2.25 1.0 2.3
+color 1 0 0
+material flesh
+flag 6

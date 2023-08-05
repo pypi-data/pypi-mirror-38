@@ -1,0 +1,59 @@
+###judo mat integrated with real judo - chuji & evilperson - integrated by gman80
+
+gamerule
+matchframes 360
+turnframes 20,20,30,30,30,30,40,40,40,40,40
+flags 3
+fracture 1
+dq 1
+dismemberment 0
+fracturethreshold 230
+dqflag 1
+dqtimeout 30
+ed 120
+eh 0
+sumo 1
+dojotype 0
+gravity 0.00 0.00 -35.00
+sumo 1
+dojosize 600
+
+env_obj 1
+	shape box
+	pos 4.75 -.1 0.01
+	color 0.1 0.5 1 0.5
+	rot 0 0 0
+	sides 1.5 6.00 0.002
+	material steel
+	mass 0.0001
+	flag 8
+
+env_obj 2
+	shape box
+	pos -2.75 -.1 0.01
+	color 0.1 0.5 1 0.5
+	rot 0 0 0
+	sides 1.5 6.00 0.002
+	material steel
+	mass 0.0001
+	flag 8
+
+env_obj 3
+	shape box
+	pos 1 3.65 0.01
+	color 0.1 0.5 1 0.5
+	rot 0 0 0
+	sides 9 1.5 0.002
+	material steel
+	mass 0.0001
+	flag 8
+
+env_obj 4
+	shape box
+	pos 1 -3.85 0.01
+	color 0.1 0.5 1 0.5
+	rot 0 0 0
+	sides 9 1.5 0.002
+	material steel
+	mass 0.0001
+	flag 8

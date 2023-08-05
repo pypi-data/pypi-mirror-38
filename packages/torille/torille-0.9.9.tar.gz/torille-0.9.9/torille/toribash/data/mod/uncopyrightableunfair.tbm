@@ -1,0 +1,90 @@
+#Unfair Instagib Mod by Uncopyrightable
+
+
+player 0
+
+body head
+flag 46
+body breast
+flag 46
+body chest
+flag 46
+body stomach
+flag 46
+body groin
+flag 46
+body r_pecs
+flag 46
+body r_biceps
+flag 46
+body r_triceps
+flag 46
+body l_pecs
+flag 46
+body l_biceps
+flag 46
+body l_triceps
+flag 46
+body r_hand
+flag 46
+body l_hand
+flag 46
+body r_butt
+flag 46
+body l_butt
+flag 46
+body r_thigh
+flag 46
+body l_thigh
+flag 46
+body r_leg
+flag 46
+body l_leg
+flag 46
+body r_foot
+flag 46
+body l_foot
+flag 46
+
+player 1
+
+joint neck
+range 0 0
+joint chest
+range 0 0
+joint lumbar
+range 0 0
+joint abs
+range 0 0
+joint r_pecs
+range 0 0
+joint r_shoulder
+range 0 0
+joint r_elbow
+range 0 0
+joint l_pecs
+range 0 0
+joint l_shoulder
+range 0 0
+joint l_elbow
+range 0 0
+joint r_wrist
+range 0 0
+joint l_wrist
+range 0 0
+joint r_glute
+range 0 0
+joint l_glute
+range 0 0
+joint r_hip      
+range 0 0
+joint l_hip
+range 0 0
+joint r_knee
+range 0 0
+joint l_knee
+range 0 0
+joint r_ankle
+range 0 0
+joint l_ankle
+range 0 0

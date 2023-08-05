@@ -1,0 +1,10 @@
+body r_hand
+shape box
+sides 1 0.22 0.22
+material steel
+color 0 0 0
+body l_hand
+shape box
+sides 1 .22 0.22
+material steel
+color 0 0 0

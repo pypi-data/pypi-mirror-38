@@ -1,0 +1,169 @@
+#!/usr/bin/toribash
+
+#Spirit Wrestling Mode Settings.
+
+
+###############################
+#Game Rules
+###############################
+
+gamerule
+
+gravity 0.00 0.00 -32.00
+
+matchframes 432
+
+turnframes 6,6,10,10,15,15,21,21,28,28,36,36,45,45,55,55
+
+dqtimeout 30
+
+engagedistance 80
+
+damage 2
+
+fracture 1
+
+fracturethreshold 150
+
+dismemberment 0
+
+dqflag 1
+
+dojotype 1
+
+dojosize 500
+
+flags 9
+#############################
+#Mode by [Spirit]
+#############################
+#
+.tbm by [NO]Eleeleth
+
+
+
+#edit by snake
+#here you can grab only arms ( from hand to elbow )
+#there is no ankle dq
+#wrist dq is still on
+
+##########################
+
+body r_hand
+flag 1
+
+body l_hand
+flag 1
+
+##########################
+
+body r_foot
+flag 48
+
+body l_foot
+flag 48
+
+###########################
+
+joint r_ankle
+flag 32
+
+joint l_ankle
+flag 32
+
+body head
+flag 16
+
+#######################
+
+joint l_shoulder
+flag 16
+
+joint r_shoulder
+flag 16
+
+#######################
+
+body l_biceps
+flag 16
+
+body r_biceps
+flag 16
+
+#######################
+
+body l_leg
+flag 16
+
+body r_leg
+flag 16
+
+body breast
+flag 16
+
+body chest
+flag 16
+
+body stomach
+flag 16
+
+body groin 
+flag 16
+
+body r_axilla
+flag 16
+
+body l_axilla 
+flag 16
+
+body r_pecs
+flag 16
+
+body l_pecs
+flag 16
+
+body l_butt
+flag 16
+
+body r_butt
+flag 16
+
+body r_thigh 
+flag 16
+
+body l_thigh 
+flag 16
+
+joint chest
+flag 16
+
+joint lumbar
+flag 16
+
+joint r_pecs
+flag 16
+
+joint l_pecs
+flag 16
+
+joint r_knee
+flag 16
+
+joint l_knee
+flag 16
+
+joint abs
+flag 16
+
+joint r_glute
+flag 16
+
+joint l_glute
+flag 16
+
+joint r_hip      
+flag 16
+
+joint l_hip
+flag 16
+

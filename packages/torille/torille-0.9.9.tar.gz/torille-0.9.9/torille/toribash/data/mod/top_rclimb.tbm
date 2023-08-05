@@ -1,0 +1,234 @@
+#!/usr/bin/toribash
+# Environment exported by WorldBuilder
+######################################
+gamerule
+engageplayerpos 0,0,0,-4,0,0
+dismemberment 0
+disqualification 0
+gravity 0 0 -20
+
+body l_hand
+trig_id 1
+trig_mask 2
+
+body r_hand
+trig_id 1
+trig_mask 2
+
+joint l_wrist
+axis 0 1 1
+
+joint r_wrist
+axis 0 1 1
+
+env_obj 1
+    shape box
+    pos 1 -1 6.5
+    color 1 0 0 1
+    rot 0 0 0
+    sides 3.25 1 0.25
+    material steel
+    mass 0.1
+    flag 24
+    friction 0
+    trig_id 2
+    trig_mask 1
+    trig_action 1
+#END 1
+
+env_obj 2
+    shape box
+    pos -3 -1 6.5
+    color 0 0 1 1
+    rot 0 0 0
+    sides 3.25 1 0.25
+    material steel
+    mass 0.1
+    flag 24
+    friction 0
+    trig_id 2
+    trig_mask 1
+    trig_action 2
+#END 2
+
+env_obj 3
+    shape cylinder
+    pos -3 -1 5.625
+    color 0.9 0.7 0 1
+    rot 0 0 0
+    sides 0.0625 1.125 1
+    material steel
+    mass 0.00001
+    flag 0
+    friction 0
+#END 3
+
+env_obj 4
+    shape cylinder
+    pos -3 -1 4.375
+    color 0.9 0.7 0 1
+    rot 0 0 0
+    sides 0.0625 1.125 1
+    material steel
+    mass 0.00001
+    flag 0
+    friction 0
+#END 4
+
+env_obj 5
+    shape cylinder
+    pos -3 -1 3.125
+    color 0.9 0.7 0 1
+    rot 0 0 0
+    sides 0.0625 1.125 1
+    material steel
+    mass 0.00001
+    flag 0
+    friction 0
+#END 5
+
+env_obj 6
+    shape cylinder
+    pos -3 -1 1.875
+    color 0.9 0.7 0 1
+    rot 0 0 0
+    sides 0.0625 1.125 1
+    material steel
+    mass 0.00001
+    flag 0
+    friction 0
+#END 6
+
+env_obj 7
+    shape cylinder
+    pos -3 -1 0.625
+    color 0.9 0.7 0 1
+    rot 0 0 0
+    sides 0.0625 1.125 1
+    material steel
+    mass 0.00001
+    flag 0
+    friction 0
+#END 7
+
+env_obj 8
+    shape cylinder
+    pos 1 -1 5.625
+    color 0.9 0.7 0 1
+    rot 0 0 0
+    sides 0.0625 1.125 1
+    material steel
+    mass 0.00001
+    flag 0
+    friction 0
+#END 8
+
+env_obj 9
+    shape cylinder
+    pos 1 -1 4.375
+    color 0.9 0.7 0 1
+    rot 0 0 0
+    sides 0.0625 1.125 1
+    material steel
+    mass 0.00001
+    flag 0
+    friction 0
+#END 9
+
+env_obj 10
+    shape cylinder
+    pos 1 -1 3.125
+    color 0.9 0.7 0 1
+    rot 0 0 0
+    sides 0.0625 1.125 1
+    material steel
+    mass 0.00001
+    flag 0
+    friction 0
+#END 10
+
+env_obj 11
+    shape cylinder
+    pos 1 -1 1.875
+    color 0.9 0.7 0 1
+    rot 0 0 0
+    sides 0.0625 1.125 1
+    material steel
+    mass 0.00001
+    flag 0
+    friction 0
+#END 11
+
+env_obj 12
+    shape cylinder
+    pos 1 -1 0.625
+    color 0.9 0.7 0 1
+    rot 0 0 0
+    sides 0.0625 1.125 1
+    material steel
+    mass 0.00001
+    flag 0
+    friction 0
+#END 12
+
+env_obj_joint 1 8 1
+pos 1 -1 6.25
+axis 1 1 1
+strength 10
+range 5 -5
+
+env_obj_joint 2 9 8
+pos 1 -1 5
+axis 1 1 1
+strength 5
+range 5 -5
+
+env_obj_joint 3 10 9
+pos 1 -1 3.75
+axis 1 1 1
+strength 5
+range 5 -5
+
+env_obj_joint 4 11 10
+pos 1 -1 2.5
+axis 1 1 1
+strength 5
+range 5 -5
+
+env_obj_joint 5 12 11
+pos 1 -1 1.25
+axis 1 1 1
+strength 5
+range 5 -5
+
+env_obj_joint 6 3 2
+pos -3 -1 6.25
+axis 1 1 1
+strength 10
+range 5 -5
+
+env_obj_joint 7 4 3
+pos -3 -1 5
+axis 1 1 1
+strength 5
+range 5 -5
+
+env_obj_joint 8 5 4
+pos -3 -1 3.75
+axis 1 1 1
+strength 5
+range 5 -5
+
+env_obj_joint 9 6 5
+pos -3 -1 2.5
+axis 1 1 1
+strength 5
+range 5 -5
+
+env_obj_joint 10 7 6
+pos -3 -1 1.25
+axis 1 1 1
+strength 5
+range 5 -5
+
+

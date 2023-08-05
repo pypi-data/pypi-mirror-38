@@ -1,0 +1,102 @@
+# Mod by MrPoptart =D
+
+gravity 0 0 0
+
+env_obj 1
+    shape cylinder
+    pos 0.75 -0.5 8.25
+    color 1 1 1
+    rot -90 20 -80
+    sides 1.75 10.25 1
+    material steel
+    mass 1.0
+
+env_obj 2
+    shape box
+    pos 7 -15.75 8.25
+    color 0.5 0.7 0.7
+    rot -66 44 -112
+    sides 3.5 14 4
+    material steel
+    mass 3.0
+
+env_obj 3
+    shape box
+    pos -9.25 -21.25 16
+    color 0.3 0.7 0.2
+    rot -66 44 -112
+    sides 25.25 18.75 0.5
+    material steel
+    mass 5.0
+
+env_obj 4
+    shape sphere
+    pos -8.5 -0.5 16
+    color 1.0 0.3 0.8
+    rot -66 44 -112
+    sides 7.25 19 0.5
+    material steel
+    mass 4.0
+
+env_obj 5
+    shape sphere
+    pos 7.25 -0.75 4.25
+    color 0.5 0.2 0.7
+    rot -66 44 -112
+    sides 3.75 22.75 4
+    material steel
+    mass 3.0
+
+env_obj 6
+    shape cylinder
+    pos 4 14 15.75
+    color 0 0 0
+    rot -18 28 -104
+    sides 3.75 22.75 4
+    material steel
+    mass 4.0
+
+env_obj 7
+    shape box
+    pos 4.75 -4.75 35.75
+    color 0.8 0.4 0.6
+    rot -18 -4 -168
+    sides 29.75 28.5 2
+    material steel
+    mass 5.0
+
+env_obj 8
+    shape box
+    pos 18.75 -1.5 14.5
+    color 0.8 0.6 0.8
+    rot -234 -112 -168
+    sides 13.5 20.5 7.25
+    material steel
+    mass 5.0
+
+env_obj 9
+    shape cylinder
+    pos 1.75 3.5 14.5
+    color 7 1 9
+    rot -234 -140 -168
+    sides 1 20.5 7.25
+    material steel
+    mass 5.0
+
+env_obj 10
+    shape sphere
+    pos 4.75 -10 14.5
+    color 1 0 0
+    rot -234 -140 -168
+    sides 1 20.5 7.25
+    material steel
+    mass 5.0
+
+env_obj 11
+    shape box
+    pos -12 15.75 15.25
+    color 0 0 1
+    rot -202 -60 -36
+    sides 0.75 19.5 16.75
+    material steel
+    mass 3.0

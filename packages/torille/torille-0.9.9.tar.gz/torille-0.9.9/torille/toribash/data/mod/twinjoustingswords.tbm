@@ -1,0 +1,58 @@
+# TwinJoustingSwords V1 by Arturolord
+body r_hand
+	sides 1.8 0.008 0.008
+	pos -0.6 0.9 2.3
+	color 100 100 100
+	flag 6
+body l_hand
+	sides 1.8 0.008 0.008
+	pos 2.6 0.9 2.3
+	color 100 100 100
+	flag 6
+
+body r_foot
+        flag 6
+
+body l_foot
+        flag 6
+
+body r_triceps
+   sides 0.400000 0.130000 0.130000
+   flag 2
+
+body l_triceps
+   sides 0.400000 0.130000 0.130000
+   flag 2
+
+body r_leg
+   sides 0.160000 0.300000 0.000000
+        flag 2
+
+body l_leg
+   sides 0.160000 0.300000 0.000000
+        flag 2
+################### 
+#
+blood
+	color 0 0 1
+body stomach 
+	force 0 10 1
+body breast
+	force 0 10 1
+body chest
+	force 0 10 1
+body groin
+	force 0 10 1
+body r_pecs
+	force 0 20 1
+body l_pecs
+	force 0 20 1
+body r_thigh
+	force 0 20 1
+body l_thigh
+	force 0 20 1
+body l_leg
+	force 0 30 00
+body r_leg
+	force 0 30 00
+

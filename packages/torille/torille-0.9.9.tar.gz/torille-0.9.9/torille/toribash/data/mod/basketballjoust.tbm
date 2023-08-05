@@ -1,0 +1,188 @@
+# ZOMG! Basketball mod! by Jam0864... =D
+# PLAY AT ABOUT 2000 OR OVER ENGAGE DISTANCE!
+# this version is good for slam dunks and (attempted) lay-ups.
+# Dismemberment threshold has to be high
+gamerule
+	engagedistance 2000
+	dismemberthreshold 1000000
+
+gravity 0 0 -14
+
+# That pole the holds up the hoop
+env_obj 1
+    shape box
+    pos 1 1 2.5
+    color 0 0 0
+    rot 0 0 0
+    sides 0.2 0.2 5
+    material steel
+    mass 0.1
+    flag 8
+	
+# horizontal pole piece
+env_obj 2
+	shape box
+    pos 1 1.5 5
+    color 0 0 0
+    rot 90 0 0
+    sides 0.2 0.2 1.5
+    material steel
+    mass 0.1
+    flag 8
+	
+# backboard
+env_obj 3
+    shape box
+    pos 1 2.2 5
+    color 0.4 0.2 0 
+    rot 0 0 0
+    sides 3 0.2 2
+    material flesh
+    mass 0.1
+    flag 8
+	
+# ring part 2 (side)
+env_obj 5
+    shape box
+    pos 0.35 2.9 4.2
+    color 0.6 0 0.1
+    rot 0 0 180
+    sides 0.05 1.4 0.5
+    material flesh
+    mass 0.1
+    flag 8
+	
+# ring part 1 (front)
+env_obj 6
+    shape box
+    pos 1.0 3.6 4.2
+    color 0.6 0 0.1
+    rot 0 0 90
+    sides 0.05 1.25 0.5
+    material flesh
+    mass 0.1
+    flag 8
+	
+# ring part 2 (side)
+env_obj 7
+    shape box
+    pos 1.65 2.9 4.2
+    color 0.6 0 0.1
+    rot 0 0 180
+    sides 0.05 1.4 0.5
+    material flesh
+    mass 0.1
+    flag 8
+	
+# the ball
+env_obj 8
+    shape sphere
+    pos 1 10 3
+    color 1 0.5 0.15
+    rot 0 0 0
+    sides 0.3 0.3 0.3
+    material flesh
+    mass 0.01
+    flag 1
+	
+#SECOND HOOP DOWN HERE
+
+# That pole the holds up the hoop
+env_obj 9
+    shape box
+    pos 1 -1 2.5
+    color 0 0 0
+    rot 0 180 0
+    sides 0.2 0.2 5
+    material steel
+    mass 0.1
+    flag 8
+	
+# horizontal pole piece
+env_obj 10
+	shape box
+    pos 1 -1.5 5
+    color 0 0 0
+    rot 90 180 0
+    sides 0.2 0.2 1.5
+    material steel
+    mass 0.1
+    flag 8
+	
+# backboard
+env_obj 11
+    shape box
+    pos 1 -2.2 5
+    color 0.4 0.2 0 
+    rot 0 180 0
+    sides 3 0.2 2
+    material flesh
+    mass 0.1
+    flag 8
+	
+# ring part 2 (side)
+env_obj 12
+    shape box
+    pos 0.35 -2.9 4.2
+    color 0.6 0 0.1
+    rot 0 180 180
+    sides 0.05 1.4 0.5
+    material flesh
+    mass 0.1
+    flag 8
+	
+# ring part 1 (front)
+env_obj 13
+    shape box
+    pos 1.0 -3.6 4.2
+    color 0.6 0 0.1
+    rot 0 180 90
+    sides 0.05 1.25 0.5
+    material flesh
+    mass 0.1
+    flag 8
+	
+# ring part 2 (side)
+env_obj 14
+    shape box
+    pos 1.65 -2.9 4.2
+    color 0.6 0 0.1
+    rot 0 180 180
+    sides 0.05 1.4 0.5
+    material flesh
+    mass 0.1
+    flag 8
+	
+# the ball
+env_obj 15
+    shape sphere
+    pos 1 -10 3
+    color 1 0.5 0.15
+    rot 0 180 0
+    sides 0.3 0.3 0.3
+    material flesh
+    mass 0.01
+    flag 1
+	
+# jousting section
+body stomach 
+	force 0 10 1
+body breast
+	force 0 10 1
+body chest
+	force 0 10 1
+body groin
+	force 0 10 1
+body r_pecs
+	force 0 30 1
+body l_pecs
+	force 0 30 1
+body r_thigh
+	force 0 10 1
+body l_thigh
+	force 0 10 1
+body l_leg
+	force 0 30 00
+body r_leg
+	force 0 30 00
+

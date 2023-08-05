@@ -1,0 +1,31 @@
+# Mod by MrPoptart =D
+
+body r_biceps
+shape cylinder
+sides -0.25 1.5 0.0
+rot 90 0 0
+pos 0.45 0.7 2.3
+color 0 0 0
+force 0 -100 0
+
+body r_triceps
+sides 0.1 0.4 0.1
+pos 0.45 1.0 2.5
+force 0 -10 0
+
+body r_hand
+sides 0.1 0.1 0.1
+alt_sides 0.5 0.5 0.5
+pos 0.45 0.3 2.5
+material steel
+color 0 0 0
+flag 6
+force 0 100 0
+
+joint r_elbow
+pos 0.45 1.4 2.5
+
+joint r_wrist
+pos 0.45 0.4 2.5
+
+gravity 0 0 -5

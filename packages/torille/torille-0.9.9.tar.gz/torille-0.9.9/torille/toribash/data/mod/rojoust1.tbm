@@ -1,0 +1,209 @@
+# Version 1: LORD KNIGHT VS. ASSASSIN CROSS (Weapons: Spear & Katars)
+# A mod by DoubleDagR with the help of Jousting.tbm(unknown author?)
+# Special thanks also goes to MrPoptart & NewbLuck
+# Ragnarok Online is trademark of Gravity Interactive
+# Known Bugs: Katars Stick When Pecs are Contracted. Deal with it.. they do more damage (there's 2 of them and they're easier to use imo).
+# Also; Attacks aimed at the hand of the other side of the shield may sometimes follow through. This is, however, logical considering they're jousting lol.
+gamerule
+engagedistance 1000
+engageheight 30
+matchframes 100
+turnframes 10
+dojotype 1
+dojosize 512
+
+player 0
+blood
+	color 0 0 1
+body stomach 
+	force 0 11 1
+body breast
+	force 0 11 1
+body chest
+	force 0 11 1
+body groin
+	force 0 11 1
+body r_pecs
+	force 0 11 1
+body l_pecs
+	force 0 11 1
+body r_thigh
+	force 0 11 1
+body l_thigh
+	force 0 11 1
+body l_leg
+	force 0 11 00
+body r_leg
+	force 0 11 00
+joint r_wrist
+	axis 0 1 0
+	range 0.1 -1.45
+joint l_wrist
+	axis 0 0 1
+	range 0.5 -1.45
+joint r_elbow
+	axis 0 1 0
+joint l_elbow
+	range 1.9 0.05
+joint r_shoulder
+	range 1.2 -2
+
+player 1
+blood
+	color 0 0 1
+body stomach 
+	force 0 11 1
+body breast
+	force 0 11 1
+body chest
+	force 0 11 1
+body groin
+	force 0 11 1
+body r_pecs
+	force 0 11 1
+body l_pecs
+	force 0 11 1
+body r_thigh
+	force 0 11 1
+body l_thigh
+	force 0 11 1
+body l_leg
+	force 0 11 00
+body r_leg
+	force 0 11 00
+
+env_obj 1
+    shape box
+    pos -0.36 4.875 3.3
+    color 0.6 0.4 0.2 1.1
+    rot 0 0 0
+    sides 0.0625 0.0625 1.75
+    material wood
+    mass 0.0001
+    flag 0
+#END 1
+
+env_obj 2
+    shape box
+    pos -0.36 4.875 4.3
+    color 0.4 0.4 0.4 1.1
+    rot 0 0 0
+    sides 0.0625 0.0625 0.25
+    material steel
+    mass 0.001
+    flag 6
+#END 2
+
+env_obj 3
+    shape box
+    pos 2.5 4.8125 2.25
+    color 0.4 0.4 0.4 1.1
+    rot 0 0 0
+    sides 0.0625 0.8125 0.8125
+    material steel
+    mass 0.001
+    flag 0
+#END 3
+
+env_obj 4
+    shape box
+    pos 2.5 4.8125 1.845
+    color 0.4 0.4 0.4 1.1
+    rot 45 0 0
+    sides 0.0625 0.5745 0.5745
+    material steel
+    mass 0.001
+    flag 0
+#END 4
+
+env_obj 5
+    shape box
+    pos 2.5625 -5.125 2.5625
+    color 0.6 0.4 0.2 1.1
+    rot 0 0 0
+    sides 0.5 0.0625 0.1875
+    material wood
+    mass 0.0001
+    flag 0
+#END 5
+
+env_obj 6
+    shape box
+    pos -0.5625 -5.125 2.5625
+    color 0.6 0.4 0.2 1.1
+    rot 0 0 0
+    sides 0.5 0.0625 0.1875
+    material wood
+    mass 0.0001
+    flag 0
+#END 6
+
+env_obj 7
+    shape box
+    pos -0.8125 -5.125 2.5625
+    color 0.4 0.4 0.4 1.1
+    rot 0 0 0
+    sides 0.3 0.0625 0.27
+    material steel
+    mass 0.001
+    flag 6
+#END 7
+
+env_obj 8
+    shape box
+    pos 2.8125 -5.125 2.5625
+    color 0.4 0.4 0.4 1.1
+    rot 0 0 0
+    sides 0.3 0.0625 0.27
+    material steel
+    mass 0.001
+    flag 6
+#END 8
+
+env_obj_joint 1 1 2
+
+	pos -0.36 4.875 4.05
+	axis 0 0 1
+	range 0 0
+	#strength 10
+
+	velocity 0
+
+	visible 0
+	mass 0.0001
+
+env_obj_joint 2 3 4
+
+	pos 2.5 4.8125 1.875
+	axis 1 0 0
+	range 0 0
+	#strength 10
+
+	velocity 0
+
+	visible 0
+	mass 0.0001
+
+env_obj_joint 3 5 8
+
+	pos 2.8125 -5.125 2.5625
+	axis 0 1 0
+	range 0 0
+	#strength 10
+
+	velocity 0
+
+	visible 0
+	mass 0.0001
+
+env_obj_joint 4 6 7
+
+	pos -0.8125 -5.125 2.5625
+	axis 0 1 0
+	range 0 0
+	#strength 10
+
+	velocity 0
+
+	visible 0
+	mass 0.0001

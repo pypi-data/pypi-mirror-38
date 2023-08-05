@@ -1,0 +1,368 @@
+#!/usr/bin/toribash
+gamerule
+engagedistance 800
+engageheight 100
+dismemberment 1
+dismemberthreshold 1500
+disqualification 0
+gravity 0 0 -30
+dojosize 1
+dqtimeout 70
+
+player 0
+
+body r_thigh
+shape box
+sides 0.21 0.6 0.21
+pos 0.8 1.3 0.8
+
+body l_thigh
+shape box
+sides 0.21 0.6 0.21
+pos 1.2 1.3 0.8
+
+body head
+pos 1.0 1.45 2.05
+
+body breast
+pos 1.0 1.5 1.6
+
+body chest
+pos 1.0 1.5 1.35
+
+body stomach
+pos 1. 1.55 1.15
+
+body groin
+pos 1.0 1.6 0.95
+
+body r_pecs
+pos 0.75 1.5 1.55
+
+body r_biceps
+pos 0.45 1.5 1.7
+
+body r_triceps
+pos 0.05 1.5 1.7
+
+body r_hand
+pos -0.35 1.45 1.7
+
+body l_pecs
+pos 1.25 1.5 1.55
+
+body l_biceps
+pos 1.55 1.5 1.7
+
+body l_triceps
+pos 1.95 1.5 1.7
+
+body l_hand
+pos 2.35 1.45 1.7
+
+body r_butt
+pos 0.8 1.6 0.85
+
+body l_butt
+pos 1.2 1.6 0.85
+
+joint r_hip
+pos 0.79 1.6 0.8
+range 2.4 -.4
+
+joint l_hip
+pos 1.21 1.6 0.8
+range 2.4 -.4
+
+joint r_glute
+pos 0.9 1.7 0.91
+
+
+joint l_glute
+pos 1.1 1.7 0.91
+
+
+joint abs
+pos 1.0 1.6 1.05
+
+joint lumbar
+pos 1.0 1.55 1.25
+
+joint chest
+pos 1.0 1.5 1.45
+
+joint r_pecs
+pos 0.85 1.45 1.6
+
+joint r_shoulder
+pos 0.65 1.5 1.7
+
+joint r_elbow
+pos 0.25 1.5 1.7
+
+joint r_wrist
+pos -0.2 1.5 1.7
+
+joint l_pecs
+pos 1.15 1.45 1.6
+
+joint l_shoulder
+pos 1.35 1.5 1.7
+
+joint l_elbow
+pos 1.75 1.5 1.7
+
+joint l_wrist
+pos 2.2 1.5 1.7
+
+joint neck
+pos 1.0 1.5 1.9
+
+joint r_knee
+range 0.8 -1.5
+
+joint l_knee
+range 0.8 -1.5
+
+env_obj 1
+    shape box
+    pos 0.25 4.0625 0.8125
+    color 0 0 1 1
+    rot 0 0 0
+    sides 3 8.25 0.3125
+    material steel
+    mass 0.00001
+    flag 16
+    friction 0
+#END 1
+
+env_obj 2
+    shape box
+    pos 0.25 5.9375 1.125
+    color 0 0 1 1
+    rot 0 0 0
+    sides 3 4.5 0.9375
+    material steel
+    mass 0.00001
+    flag 16
+    friction 0
+#END 2
+
+env_obj 3
+    shape box
+    pos 0.25 6.25 1.9375
+    color 0 0 1 1
+    rot 0 0 0
+    sides 3 3.875 0.6875
+    material steel
+    mass 0.00001
+    flag 16
+    friction 0
+#END 3
+
+env_obj 4
+    shape box
+    pos 0.25 1.375 1.25
+    color 0 0 1 1
+    rot 0 0 0
+    sides 3 2.9375 1.1875
+    material steel
+    mass 0.00001
+    flag 0
+    friction 0
+#END 4
+
+env_obj 5
+    shape box
+    pos 0.25 2.75 2.375
+    color 0 0 1 0.5
+    rot 0 0 0
+    sides 3 0.1875 1.325
+    material steel
+    mass 0.00001
+    flag 16
+    friction 0
+#END 5
+
+env_obj 6
+    shape sphere
+    pos 2.4375 1.0625 0.5625
+    color 0 0 0 1
+    rot 0 0 0
+    sides 0.625 1 1
+    material steel
+    mass 0.1
+    flag 0
+    thrust 1 0 0 -5
+#END 6
+
+env_obj 7
+    shape sphere
+    pos -1.9375 1.0625 0.5625
+    color 0 0 0 1
+    rot 0 0 0
+    sides 0.625 1 1
+    material steel
+    mass 0.1
+    flag 0
+    thrust 1 0 0 -5
+#END 7
+
+env_obj 8
+    shape sphere
+    pos 2.4375 7.0625 0.5625
+    color 0 0 0 1
+    rot 0 0 0
+    sides 0.625 1 1
+    material steel
+    mass 0.1
+    flag 0
+    thrust 1 0 0 -5
+#END 8
+
+env_obj 9
+    shape sphere
+    pos -1.9375 7.0625 0.5625
+    color 0 0 0 1
+    rot 0 0 0
+    sides 0.625 1 1
+    material steel
+    mass 0.1
+    flag 0
+    thrust 1 0 0 -5
+#END 9
+
+env_obj 10
+    shape box
+    pos -1.375 3.625 1.5
+    color 0 0 1 1
+    rot 0 0 0
+    sides 0.1875 1.75 1.5
+    material steel
+    mass 0.00001
+    flag 16
+#END 10
+
+env_obj 11
+    shape box
+    pos 1.875 3.625 1.5
+    color 0 0 1 1
+    rot 0 0 0
+    sides 0.1875 1.75 1.5
+    material steel
+    mass 0.00001
+    flag 16
+#END 11
+
+env_obj 12
+    shape box
+    pos 7.25 -61.75 0
+    color 0.4 0.4 0.4 1
+    rot 0 0 0
+    sides 2.25 151.25 0.25
+    material steel
+    mass 0.1
+    flag 24
+#END 12
+
+env_obj 13
+    shape box
+    pos -7.25 -61.75 0
+    color 0.4 0.4 0.4 1
+    rot 0 0 0
+    sides 2.25 151.25 0.25
+    material steel
+    mass 0.1
+    flag 24
+#END 13
+
+env_obj 14
+    shape box
+    pos -3.25 -80.5 2.25
+    color 0.5 0.4 0 1
+    rot 0 0 0
+    sides 5.75 1 4.5
+    material steel
+    mass 0.1
+    flag 24
+#END 14
+
+env_obj 15
+    shape box
+    pos 3.25 -80.5 2.25
+    color 0.5 0.4 0 1
+    rot 0 0 0
+    sides 5.75 1 4.5
+    material steel
+    mass 1
+    flag 24
+#END 15
+
+env_obj 16
+    shape box
+    pos 0 -75.25 0.25
+    color 1.1 1.1 1.1 1
+    rot -64 0 0
+    sides 5.75 1 4.5
+    material steel
+    mass 1
+    flag 24
+    friction 0
+#END 16
+
+env_obj_joint 1 2 1
+pos 0.25 6 0.75
+axis 0 0 0
+
+env_obj_joint 2 1 4
+pos 0.25 0.75 0.75
+axis 0 0 0
+
+env_obj_joint 3 3 2
+pos 0.25 6 1.25
+axis 0 0 0
+
+env_obj_joint 4 5 4
+pos 0.25 2.75 2.25
+axis 0 0 0
+
+env_obj_joint 5 6 1
+pos 1.75 1.0625 0.5625
+axis 1 0 0
+strength 25
+range 5 -5
+velocity 50
+
+env_obj_joint 6 7 1
+pos -1.25 1.0625 0.5625
+axis 1 0 0
+strength 25
+range 5 -5
+velocity 50
+
+env_obj_joint 7 8 1
+pos 1.75 7.0625 0.5625
+axis 1 0 0
+strength 25
+range 5 -5
+velocity 50
+
+env_obj_joint 8 9 1
+pos -1.25 7.0625 0.5625
+axis 1 0 0
+strength 25
+range 5 -5
+velocity 50
+
+env_obj_joint 9 10 4
+pos -1.25 2.75 1.5
+axis 0 0 1
+strength 0
+range 2 0
+
+env_obj_joint 10 11 4
+pos 1.75 2.75 1.5
+axis 0 0 1
+strength 0
+range 0 -2
+

@@ -1,0 +1,167 @@
+# Environment exported by WorldBuilder
+######################################
+
+friction 0.0
+
+gamerule
+engageplayerpos 6,1,28,-1,1,28
+matchframes 3000
+gravity 0 -5 -40
+
+
+body r_foot
+sides 0.200000 2.000000 0.080000
+friction 0
+density 0.5
+
+
+body l_foot
+sides 0.200000 2.000000 0.080000
+friction 0
+density 0.5
+
+env_obj 1
+    shape box
+    pos 4 -27 -3.25
+    color 1.1 1.1 1 1
+    rot -20 0 0
+    sides 29.25 76.25 38.25
+    material steel
+    mass 2.1
+    flag 24
+    friction 0
+    density 30
+#END 1
+
+env_obj 2
+    shape box
+    pos 3 -14.75 19.25
+    color 1.1 1.1 1 1
+    rot -4 0 0
+    sides 19.25 7 5
+    material steel
+    mass 0.1
+    flag 24
+    friction 0
+#END 2
+
+env_obj 3
+    shape box
+shape box
+    pos 7 -18.8125 21.3125
+    color 0 0 0 1.1
+    rot 0 0 0
+    sides 0.5 4 0.375
+    material steel
+    mass 0.1
+    flag 24
+    friction 0
+#END 3
+
+env_obj 4
+    shape box
+    pos 3.25 -35 12.9375
+    color 1.1 1.1 1 1
+    rot 1 0 0
+    sides 17.375 4.9375 4.375
+    material steel
+    mass 0.1
+    flag 24
+    friction 0
+#END 4
+
+env_obj 5
+    shape box
+    pos 3.25 -35.875 12.9375
+    color 1.1 1.1 1 1
+    rot 10 0 0
+    sides 17.375 4.9375 4.375
+    material steel
+    mass 0.1
+    flag 24
+    friction 0
+#END 5
+
+env_obj 6
+    shape box
+    pos 3.125 -44.125 8.75
+    color 1.1 1.1 1 1
+    rot -35 0 0
+    sides 17.375 6.6875 5.9375
+    material steel
+    mass 0.1
+    flag 24
+    friction 0
+#END 6
+
+env_obj 7
+    shape box
+    pos -.25 -56.4375 5.0
+    color 1.1 1.1 1 1
+    rot 1 0 0
+    sides 6 6.6875 4.9375
+    material steel
+    mass 0.1
+    flag 24
+    friction 0
+#END 7
+
+env_obj 8
+    shape box
+    pos 8.125 -56.4375 5.0
+    color 1.1 1.1 1 1
+    rot 1 0 0
+    sides 6 6.6875 4.9375
+    material steel
+    mass 0.1
+    flag 24
+    friction 0
+#END 8
+
+env_obj 9
+    shape box
+    pos 8.125 -62.125 4.3125
+    color 1.1 1.1 1 1
+    rot -16 0 0
+    sides 6 6.6875 4.9375
+    material steel
+    mass 0.1
+    flag 24
+    friction 0
+#END 9
+
+env_obj 10
+    shape box
+    pos -.25 -62.125 4.3125
+    color 1.1 1.1 1 1
+    rot -16 0 0
+    sides 6 6.6875 4.9375
+    material steel
+    mass 0.1
+    flag 24
+    friction 0
+#END 10
+
+env_obj 11
+    shape box
+    pos -.25 -67.6875 -2.1875
+    color 1.1 1.1 1 1
+    rot -32 0 0
+    sides 6 11 11.4375
+    material steel
+    mass 0.1
+    flag 24
+    friction 0    
+#END 11
+
+env_obj 12
+    shape box
+    pos 8.125 -67.6875 -2.125
+    color 1.1 1.1 1 1
+    rot -32 0 0
+    sides 6 11 11.4375
+    material steel
+    mass 0.1
+    flag 24
+    friction 0
+#END 12

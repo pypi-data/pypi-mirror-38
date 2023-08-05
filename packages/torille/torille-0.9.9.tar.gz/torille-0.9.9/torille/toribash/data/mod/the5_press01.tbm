@@ -1,0 +1,181 @@
+#THE5_Press01
+#by THE5
+
+# Environment exported by WorldBuilder
+######################################
+
+#Crusher
+env_obj 1
+    shape box
+    pos 1.25 -5.75 9
+    color 1.1 0 -0.1 1
+    rot 0 0 0
+    sides 14 8 12
+    material steel
+    mass 100
+    bounce 1
+    flag 0
+#END 1
+
+#Roof
+env_obj 2
+    shape box
+    pos 1.25 -5.75 19
+    color -0.1 -0.1 -0.1 1
+    rot 0 0 0
+    sides 14 8 8
+    material steel
+    mass 0
+    bounce 9.5
+    flag 8
+#END 2
+
+
+#floor
+env_obj 13
+    shape box
+    pos 1.25 -5.75 0.1
+    color -0.1 -0.1 -0.1 1
+    rot 0 0 0
+    sides 14 1 0.4
+    material steel
+    mass 0
+    bounce 13
+    flag 8
+#END 2
+
+
+##floor
+#env_obj 13
+    #shape box
+    #pos 1.25 -5.75 0.1
+    #color -0.1 -0.1 -0.1 1
+    #rot 0 0 0
+    #sides 14 8 0.1
+    #material steel
+    #mass 0
+    #bounce 13
+    #flag 8
+##END 2
+
+
+#pole
+env_obj 3
+    shape box
+    pos -5.25 -1.25 10
+    color -0.1 -0.1 -0.1 1
+    rot 0 0 0
+    sides 1 1 20
+    material steel
+    mass 0
+    flag 8
+#END 3
+
+#pole
+env_obj 4
+    shape box
+    pos -5.25 -10.25 10
+    color -0.1 -0.1 -0.1 1
+    rot 0 0 0
+    sides 1 1 20
+    material steel
+    mass 0
+    flag 8
+#END 4
+
+#pole
+env_obj 5
+    shape box
+    pos 7.75 -10.25 10
+    color -0.1 -0.1 -0.1 1
+    rot 0 0 0
+    sides 1 1 20
+    material steel
+    mass 0
+    flag 8
+#END 5
+
+#pole
+env_obj 6
+    shape box
+    pos 7.75 -1.25 10
+    color -0.1 -0.1 -0.1 1
+    rot 0 0 0
+    sides 1 1 20
+    material steel
+    mass 0
+    flag 8
+#END 6
+
+#pole2
+env_obj 9
+    shape box
+    pos 4 -1.25 10
+    color -0.1 -0.1 -0.1 1
+    rot 0 0 0
+    sides 1 1 20
+    material steel
+    mass 0
+    flag 8
+#END 6
+
+#pole2
+env_obj 10
+    shape box
+    pos -2 -1.25 10
+    color -0.1 -0.1 -0.1 1
+    rot 0 0 0
+    sides 1 1 20
+    material steel
+    mass 0
+    flag 8
+#END 6
+
+#pole22
+env_obj 11
+    shape box
+    pos 4 -10.25 10
+    color -0.1 -0.1 -0.1 1
+    rot 0 0 0
+    sides 1 1 20
+    material steel
+    mass 0
+    flag 8
+#END 6
+
+#pole22
+env_obj 12
+    shape box
+    pos -2 -10.25 10
+    color -0.1 -0.1 -0.1 1
+    rot 0 0 0
+    sides 1 1 20
+    material steel
+    mass 0
+    flag 8
+#END 6
+
+#Wall
+env_obj 7
+    shape box
+    pos 8.75 -5.75 10
+    color -0.1 -0.1 -0.1 1
+    rot 0 0 0
+    sides 1 9 20
+    material steel
+    mass 0
+    flag 8
+#END 7
+
+#Wall
+env_obj 8
+    shape box
+    pos -6.25 -5.75 10
+    color -0.1 -0.1 -0.1 1
+    rot 0 0 0
+    sides 1 9 20
+    material steel
+    mass 0
+    flag 8
+#END 8
+

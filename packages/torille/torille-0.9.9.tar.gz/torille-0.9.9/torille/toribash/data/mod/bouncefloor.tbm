@@ -1,0 +1,18 @@
+#Wow... is this a simple mod or what!?
+
+gamerule
+        engageheight 15
+        dismemberthreshold 500
+
+env_obj 1
+    shape box
+    pos 1.25 0 0.05
+    color 1.1 0 0 1.1
+    rot 0 0 0
+    sides 58.75 68.25 0
+    material steel
+    bounce 40
+    mass 0.1
+    flag 24
+
+

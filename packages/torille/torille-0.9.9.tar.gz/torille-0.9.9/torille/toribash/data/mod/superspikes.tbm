@@ -1,0 +1,151 @@
+env_obj 1
+shape box
+pos -1 0 0.5
+color 0.3 0.3 0.3 1
+sides 0.0625 0.0625 1
+material steel
+mass 500
+bounce 30
+flag 0
+
+env_obj 2
+shape box
+pos 0 0 0.5
+color 0.3 0.3 0.3 1
+sides 0.0625 0.0625 1
+material steel
+mass 500
+bounce 30
+flag 0
+
+env_obj 3
+shape box
+pos 1 0 0.5
+color 0.3 0.3 0.3 1
+sides 0.0625 0.0625 1
+material steel
+mass 500
+bounce 30
+flag 0
+
+env_obj 4
+shape box
+pos 2 0 0.5
+color 0.3 0.3 0.3 1
+sides 0.0625 0.0625 1
+material steel
+mass 500
+bounce 30
+flag 0
+
+env_obj 5
+shape box
+pos 3 0 0.5
+color 0.3 0.3 0.3 1
+sides 0.0625 0.0625 1
+material steel
+mass 500
+bounce 30
+flag 0
+
+env_obj 6
+shape box
+pos 2 -1 0.5
+color 0.3 0.3 0.3 1
+sides 0.0625 0.0625 1
+material steel
+mass 500
+bounce 30
+flag 0
+
+
+env_obj 7
+shape box
+pos -1 -1 0.5
+color 0.3 0.3 0.3 1
+sides 0.0625 0.0625 1
+material steel
+mass 500
+bounce 30
+flag 0
+
+env_obj 8
+shape box
+pos -1 1 0.5
+color 0.3 0.3 0.3 1
+sides 0.0625 0.0625 1
+material steel
+mass 500
+bounce 30
+flag 0
+
+env_obj 9
+shape box
+pos 3 -1 0.5
+color 0.3 0.3 0.3 1
+sides 0.0625 0.0625 1
+material steel
+mass 500
+bounce 30
+flag 0
+
+
+env_obj 10
+shape box
+pos 2 1 0.5
+color 0.3 0.3 0.3 1
+sides 0.0625 0.0625 1
+material steel
+mass 500
+bounce 30
+flag 0
+
+env_obj 11
+shape box
+pos 3 1 0.5
+color 0.3 0.3 0.3 1
+sides 0.0625 0.0625 1
+material steel
+mass 500
+bounce 30
+flag 0
+
+env_obj 12
+shape box
+pos 0 -1 0.5
+color 0.3 0.3 0.3 1
+sides 0.0625 0.0625 1
+material steel
+mass 500
+bounce 30
+flag 0
+
+env_obj 13
+shape box
+pos 0 1 0.5
+color 0.3 0.3 0.3 1
+sides 0.0625 0.0625 1
+material steel
+mass 500
+bounce 30
+flag 0
+
+env_obj 14
+shape box
+pos 1 -1 0.5
+color 0.3 0.3 0.3 1
+sides 0.0625 0.0625 1
+material steel
+mass 500
+bounce 30
+flag 0
+
+env_obj 15
+shape box
+pos 1 1 0.5
+color 0.3 0.3 0.3 1
+sides 0.0625 0.0625 1
+material steel
+mass 500
+bounce 30
+flag 0

@@ -1,0 +1,102 @@
+# Environment exported by WorldBuilder
+######################################
+
+env_obj 1
+    shape sphere
+    pos 0.75 -0.25 1
+    color 1.1 1.1 -0.1 1
+    rot 0 0 0
+    sides 1 1 1
+    material steel
+    mass 0.1
+    flag 0
+#END 1
+
+env_obj 2
+    shape sphere
+    pos 0.75 -0.25 3
+    color 1.1 -0.1 1 1
+    rot 0 0 0
+    sides 1 1 1
+    material steel
+    mass 0.1
+    flag 0
+#END 2
+
+env_obj 3
+    shape sphere
+    pos 0.75 -0.25 5
+    color -0.1 1.1 1 1
+    rot 0 0 0
+    sides 1 1 1
+    material steel
+    mass 0.1
+    flag 0
+#END 3
+
+env_obj 4
+    shape sphere
+    pos 0.75 -0.25 7
+    color -0.1 1.1 -0.1 1
+    rot 0 0 0
+    sides 1 1 1
+    material steel
+    mass 0.1
+    flag 0
+#END 4
+
+env_obj 5
+    shape sphere
+    pos 0.75 -0.25 9
+    color 2.7755575615629e-017 -0.1 1 1
+    rot 0 0 0
+    sides 1 1 1
+    material steel
+    mass 0.1
+    flag 0
+#END 5
+
+env_obj 6
+    shape sphere
+    pos 0.75 -0.25 11
+    color 1.1 0.6 -0.1 1
+    rot 0 0 0
+    sides 1 1 1
+    material steel
+    mass 0.1
+    flag 0
+#END 6
+
+env_obj 7
+    shape sphere
+    pos 0.75 -0.25 13
+    color 0.7 -0.1 0.9 1
+    rot 0 0 0
+    sides 1 1 1
+    material steel
+    mass 0.1
+    flag 0
+#END 7
+
+env_obj 8
+    shape sphere
+    pos 0.75 -0.25 15
+    color -0.1 -0.1 1.3877787807814e-016 1
+    rot 0 0 0
+    sides 1 1 1
+    material steel
+    mass 20
+    flag 0
+#END 8
+
+env_obj 9
+    shape sphere
+    pos 0.75 -0.25 15
+    color -0.1 -0.1 1.3877787807814e-016 1
+    rot 0 0 0
+    sides 1 1 1
+    material steel
+    mass 20
+    flag 0
+#END 9
+

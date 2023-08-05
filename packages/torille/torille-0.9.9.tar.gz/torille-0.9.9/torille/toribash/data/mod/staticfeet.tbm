@@ -1,0 +1,12 @@
+gamerule
+dq 1
+
+body r_foot
+force 0
+thrust 0
+density 100
+
+body l_foot
+force 0
+thrust 0
+density 100

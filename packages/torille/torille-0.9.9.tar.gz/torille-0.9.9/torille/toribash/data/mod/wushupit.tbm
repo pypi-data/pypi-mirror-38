@@ -1,0 +1,54 @@
+# Mod by Jam0864 =D
+# Suggested by ManBreakfast
+# PLAY AT 380 TO ABOUT 450 ENGAGE DISTANCE!
+
+env_obj 1
+shape box
+sides 2 8 3
+pos -1.20 0 1.5
+color 0.5 0.5 1
+material steel
+mass 0.1
+flag 8
+
+env_obj 2
+shape box
+sides 2 8 3
+pos 3.20 0 1.5
+color 0.5 0.5 1
+material steel 
+mass 0.1
+flag 8
+
+env_obj 3
+shape box
+sides 4.4 2.8 3
+color 0.5 0.5 1
+pos 2.00 3 1.5
+material steel 
+mass 0.1
+flag 8
+
+env_obj 4
+shape box
+sides 4.4 2.8 3
+color 0.5 0.5 1
+pos -0 -3 1.5
+material steel 
+mass 0.1
+flag 8
+
+env_obj 5
+    shape box
+    pos 1 0.0 0.25
+    color 0 0 0
+    rot 0 0 0
+    sides 40 40.0 0.5
+    material steel
+    mass 0.1
+    flag 6
+
+
+
+
+

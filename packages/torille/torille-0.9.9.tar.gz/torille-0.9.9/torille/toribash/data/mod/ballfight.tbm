@@ -1,0 +1,22 @@
+# easy to make, but fun mod, fight on top of a giant flying ball!
+# engage height depends on distance as floor isnt flat. I can tell you that distance 100 needs 4900 height.
+# dismemberment on at least 90
+# dq on
+
+gamerule
+	engagedistance 100
+	engageheight 4900
+	disqualification 1
+
+gravity 0 0 -14
+
+env_obj 1
+    shape sphere
+    pos 1 0 24
+    color 0.5 0.5 0.5
+    rot 0 0 0
+    sides 25 25 25
+    material steel
+    mass 10
+    flag 1
+	

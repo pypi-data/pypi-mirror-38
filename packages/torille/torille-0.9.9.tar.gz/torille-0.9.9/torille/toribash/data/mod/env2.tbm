@@ -1,0 +1,189 @@
+# Toribash Environment Objects Mod File
+# =====================================
+#
+
+#BG 0.5 0.8 1
+#Env1 0.82 0.82 0.82
+#Env2 0.68 0.81 0.9
+#Env3 0.52 0.8 0.98
+#Env4 0.65 0.81 0.92
+#Env5 0.61 0.8 0.93
+#Env6 0.5 0.8 1
+#Env7 0.63 0.81 0.93
+#Env8  0.52 0.8 0.98
+#Env9  0.62 0.81 9.3
+#Env10 0.67 0.81 0.91
+#Env11 0.54 0.8 0.98
+#Env12 0.66 0.81 0.91
+#Env13  0.59 0.8 0.95
+#Env14 0.67 0.81 0.9
+#Env15 0.56 0.8 0.96
+
+gamerule
+	engageheight 2000
+
+
+world chroma
+  color 0.5 0.8 1
+
+#gravity 0 0 -10
+
+env_obj 1
+    shape box
+    pos 1 -0.1 10
+    color 0.82 0.82 0.82
+    rot 0 0 0
+    sides 3 3 20
+    material flesh
+    mass 100.0001
+    flag 8
+    
+env_obj 2
+    shape box
+    pos 4 10 5
+    color 0.68 0.81 0.9
+    rot 0 0 0
+    sides 1 1 10
+    material flesh
+    mass 100.0001
+    flag 8
+
+env_obj 3
+    shape box
+    pos 9 15 3
+    color 0.52 0.8 0.98
+    rot 0 0 0
+    sides 6 6 6
+    material flesh
+    mass 100.0001
+    flag 8
+    
+env_obj 4
+    shape box
+    pos 8 5 9
+    color 0.65 0.81 0.92
+    rot 0 0 0
+    sides 5 5 18
+    material flesh
+    mass 100.0001
+    flag 8
+    
+env_obj 5
+    shape box
+    pos 11 -3 3
+    color 0.61 0.8 0.93
+    rot 0 0 0
+    sides 4 4 6
+    material flesh
+    mass 100.0001
+    flag 8
+    
+env_obj 6
+    shape box
+    pos 20 -19 7
+    color 0.5 0.8 1
+    rot 0 0 0
+    sides 3.5 3.5 14
+    material flesh
+    mass 100.0001
+    flag 8
+    
+env_obj 7
+    shape box
+    pos 6 -10 8
+    color 0.63 0.81 0.93
+    rot 0 0 0
+    sides 3.5 3.5 16
+    material flesh
+    mass 100.0001
+    flag 8
+    
+env_obj 8
+    shape box
+    pos 2 -17 8
+    color 0.52 0.8 0.98
+    rot 0 0 0
+    sides 1.5 1.5 16
+    material flesh
+    mass 100.0001
+    flag 8
+    
+env_obj 9
+    shape box
+    pos -3 -11 5
+    color 0.62 0.81 0.93
+    rot 0 0 0
+    sides 5 5 10
+    material flesh
+    mass 100.0001
+    flag 8
+    
+env_obj 10
+    shape box
+    pos -6 -1 6
+    color 0.67 0.81 0.91
+    rot 0 0 0
+    sides 3.5 3.5 12
+    material flesh
+    mass 100.0001
+    flag 8
+    
+env_obj 11
+    shape box
+    pos -15 -9 8
+    color 0.54 0.8 0.98
+    rot 0 0 0
+    sides 2.5 2.5 16
+    material flesh
+    mass 100.0001
+    flag 8
+    
+env_obj 12
+    shape box
+    pos -10 -2 9
+    color 0.66 0.81 0.91
+    rot 0 0 0
+    sides 1.5 1.5 18
+    material flesh
+    mass 100.0001
+    flag 8
+    
+env_obj 13
+    shape box
+    pos -12 3 4
+    color 0.59 0.8 0.95
+    rot 0 0 0
+    sides 7 7 8
+    material flesh
+    mass 100.0001
+    flag 8
+    
+env_obj 14
+    shape box
+    pos -5 6 5
+    color 0.67 0.81 0.9
+    rot 0 0 0
+    sides 4 4 10
+    material flesh
+    mass 100.0001
+    flag 8
+    
+env_obj 15
+    shape box
+    pos -6 14 1.5
+    color 0.56 0.8 0.96
+    rot 0 0 0
+    sides 9 9 3
+    material flesh
+    mass 100.0001
+    flag 8
+    
+env_obj 16
+    shape box
+    pos 1 -0.1 22
+    color 0.9 0.9 0.9
+    rot 0 0 0
+    sides 0.1 0.1 4
+    material flesh
+    mass 0.0001
+    flag 8

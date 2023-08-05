@@ -1,0 +1,158 @@
+#  Mod by xanalex if anybodey like this mod send to xanalex some tc  :)
+######################################
+friction 0.0
+
+gamerule
+engageplayerpos 6,10,39.5,-1,10,39.5
+matchframes 1300
+gravity 0 -5 -40
+
+
+body r_foot
+sides 0.200000 2.000000 0.080000
+friction 0
+density 0.5
+
+
+body l_foot
+sides 0.200000 2.000000 0.080000
+friction 0
+density 0.5
+
+
+env_obj 1
+    shape box
+    pos 4 -27 5
+    color 1.1 1.1 
+    rot -25 0 0
+    sides 25 100 30
+    material steel
+    mass 2.1
+    flag 24
+    friction 0
+    density 30
+#END 1
+
+env_obj 2
+    shape box
+    pos 4 -7 27
+    color 1.1 1.1 
+    rot 0 0 0
+    sides 25 10 10
+    material steel
+    mass 2.1
+    flag 24
+    friction 0
+    density 30
+#END 2
+
+env_obj 3
+    shape cylinder
+    pos 4 -15 35.5
+    color 1.1 1.1 
+    rot 0 90 0
+    sides 0.2 25 0.01
+    material steel
+    mass 2.1
+    flag 24
+    friction 0
+#END 3
+
+env_obj 4
+    shape box
+    pos 4 -17 23
+    color 1.1 1.1 
+    rot 40 0 0
+    sides 25 10 10
+    material steel
+    mass 2.1
+    flag 24
+    friction 0
+    density 30
+#END 4
+
+env_obj 5
+    shape box
+    pos 4 -24 20
+    color 1.1 1.1 
+    rot 0 0 0
+    sides 25 14 10
+    material steel
+    mass 2.1
+    flag 24
+    friction 0
+    density 30
+#END 5
+
+env_obj 6
+    shape box
+    pos 4 -28 17
+    color 1.1 1.1 
+    rot 40 0 0
+    sides 25 16 10
+    material steel
+    mass 2.1
+    flag 24
+    friction 0
+    density 30
+#END 6
+
+env_obj 7
+    shape box
+    pos 4 -18 20.5
+    color 1.1 1.1 
+    rot 70 0 0
+    sides 25 13 10
+    material steel
+    mass 2.1
+    flag 24
+    friction 0
+    density 30
+#END 7
+
+env_obj 8
+    shape box
+    pos 4 -33 14
+    color 1.1 1.1 
+    rot 70 0 0
+    sides 25 19 10
+    material steel
+    mass 2.1
+    flag 24
+    friction 0
+    density 30
+#END 8
+
+env_obj 9
+    shape box
+    pos 4 -55 5
+    color 1.1 1.1 
+    rot -25 0 0
+    sides 25 23 10
+    material steel
+    mass 2.1
+    flag 24
+    friction 0
+    density 30
+#END 9
+
+env_obj 10
+    shape box
+    pos 4 -65 3
+    color 1.1 1.1 
+    rot 0 0 0
+    sides 25 10 10
+    material steel
+    mass 2.1
+    flag 24
+    friction 0
+    density 30
+#END 10
+
+joint l_ankle
+axis 0 1 0
+
+
+joint r_ankle
+axis 0 1 0
+

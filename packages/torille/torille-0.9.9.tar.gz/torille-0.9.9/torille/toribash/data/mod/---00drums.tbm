@@ -1,0 +1,312 @@
+#!/usr/bin/toribash
+# by [Abyss]TheNice
+
+gamerule
+gravity 0.00 0.00 -30
+engageplayerpos 0.00,0.95,0.00,0.00,6.00,0.00
+
+env_obj 1
+    shape box
+    pos 1.0 0.9 0.3
+    color 0 0 0
+    rot 0 0 0
+    sides 0.5 0.6 0.6
+    material steel
+    mass 0.05
+    flag 8
+
+env_obj 2
+    shape cylinder
+    pos 0.2 -0.2 0.8
+    color 0 0 0.40
+    rot 0 0 0
+    sides 0.4 0.2 0.0
+    material steel
+    mass 999.1
+    flag 8
+#END 2
+
+env_obj 3
+    shape cylinder
+    pos 0.8 -0.3 0.8
+    color 0 0 0.40
+    rot 0 0 0
+    sides 0.3 0.2 0.8
+    material steel
+    mass 999.1
+    flag 8
+#END 3
+
+env_obj 4
+    shape cylinder
+    pos 1.3 -0.3 0.8
+    color 0 0 0.40
+    rot 0 0 0
+    sides 0.3 0.2 0.8
+    material steel
+    mass 999.1
+    flag 8
+#END 4
+
+env_obj 5
+    shape cylinder
+    pos 1.8 -0.2 0.8
+    color 0 0 0.40
+    rot 0 0 0
+    sides 0.4 0.2 0.0
+    material steel
+    mass 999.1
+    flag 8
+#END 5
+
+env_obj 6
+    shape cylinder
+    pos 0.8 -0.7 1.1
+    color 0 0 0.40
+    rot 30 0 0
+    sides 0.3 0.2 0.8
+    material steel
+    mass 999.1
+    flag 8
+#END 6
+
+env_obj 7
+    shape cylinder
+    pos 1.3 -0.7 1.1
+    color 0 0 0.40
+    rot 30 0 0
+    sides 0.3 0.2 0.8
+    material steel
+    mass 999.1
+    flag 8
+#END 7
+
+
+env_obj 8
+    shape box
+    pos 0.3 -0.6 0.85
+    color 0 0 0
+    rot 0 0 0
+    sides 0.03 0.03 1.7
+    material steel
+    mass 0.05
+    flag 8
+#END 8
+
+env_obj 9
+    shape box
+    pos 1.9 -0.6 0.85
+    color 0 0 0
+    rot 0 0 0
+    sides 0.03 0.03 1.7
+    material steel
+    mass 0.05
+    flag 8
+#END 9
+
+env_obj 10
+    shape box
+    pos 1.9 -0.6 1.71
+    color 2.55 0.82 0.26
+    rot 0 0 0
+    sides 0.5 0.5 0.03
+    material steel
+    mass 0.05
+    flag 0
+#END 10
+
+env_obj 11
+    shape box
+    pos 0.3 -0.6 1.71
+    color 2.55 0.82 0.26
+    rot 0 0 0
+    sides 0.5 0.5 0.03
+    material steel
+    mass 0.05
+    flag 0
+#END 11
+
+
+env_obj 12
+    shape cylinder
+    pos 1 -0.4 0.5
+    color 0 0 0.40
+    rot 90 0 0
+    sides 0.5 0.1 1
+    material steel
+    mass 0.05
+    flag 8
+#END 12
+
+env_obj 13
+    shape box
+    pos 1 -0.7 0.5
+    color 0 0 0.40
+    rot 0 0 0
+    sides 1 0.5 1
+    material steel
+    mass 0.05
+    flag 8
+#END 13
+
+
+env_obj 14
+    shape box
+    pos 0.8 0 0.05
+    color 0 0 0
+    rot 30 0 0
+    sides 0.2 0.4 0.04 
+    material steel
+    mass 100
+    flag 8
+#END 14
+
+
+
+env_obj 15
+    shape cylinder
+    pos -0.75 0.9 1.7
+    color 0.55 0.38 0.25
+    rot 0 90 0
+    sides 0.03 0.6 1
+    material steel
+    mass 0.001
+    flag 0
+#END 15
+
+
+env_obj 16
+    shape cylinder
+    pos 2.75 0.9 1.7
+    color 0.55 0.38 0.25
+    rot 0 90 0
+    sides 0.03 0.6 1
+    material steel
+    mass 0.001
+    flag 0
+#END 16
+
+env_obj_joint 1 8 11
+	pos 0.3 -0.6 1.7
+	axis 1 1 0
+	range 1.5 -0.5
+	strength 0
+
+env_obj_joint 2 9 10
+        pos 1.9 -0.6 1.7
+	axis 1 1 0
+	range 1.5 -0.5
+	strength 0
+
+body r_thigh
+shape box
+sides 0.21 0.6 0.21
+pos 0.8 1.3 0.8
+
+body l_thigh
+shape box
+sides 0.21 0.6 0.21
+pos 1.2 1.3 0.8
+
+body head
+pos 1.0 1.45 2.05
+
+body breast
+pos 1.0 1.5 1.6
+
+body chest
+pos 1.0 1.5 1.35
+
+body stomach
+pos 1. 1.55 1.15
+
+body groin
+pos 1.0 1.6 0.95
+
+body r_pecs
+pos 0.75 1.5 1.55
+
+body r_biceps
+pos 0.45 1.5 1.7
+
+body r_triceps
+pos 0.05 1.5 1.7
+
+body r_hand
+pos -0.35 1.45 1.7
+
+body l_pecs
+pos 1.25 1.5 1.55
+
+body l_biceps
+pos 1.55 1.5 1.7
+
+body l_triceps
+pos 1.95 1.5 1.7
+
+body l_hand
+pos 2.35 1.45 1.7
+
+body r_butt
+pos 0.8 1.6 0.85
+
+body l_butt
+pos 1.2 1.6 0.85
+
+joint r_hip
+pos 0.79 1.6 0.8
+range 2.4 -.4
+
+joint l_hip
+pos 1.21 1.6 0.8
+range 2.4 -.4
+
+joint r_glute
+pos 0.9 1.7 0.91
+
+joint l_glute
+pos 1.1 1.7 0.91
+
+joint abs
+pos 1.0 1.6 1.05
+
+joint lumbar
+pos 1.0 1.55 1.25
+
+joint chest
+pos 1.0 1.5 1.45
+
+joint r_pecs
+pos 0.85 1.45 1.6
+
+joint r_shoulder
+pos 0.65 1.5 1.7
+
+joint r_elbow
+pos 0.25 1.5 1.7
+
+joint r_wrist
+pos -0.2 1.5 1.7
+
+joint l_pecs
+pos 1.15 1.45 1.6
+
+joint l_shoulder
+pos 1.35 1.5 1.7
+
+joint l_elbow
+pos 1.75 1.5 1.7
+
+joint l_wrist
+pos 2.2 1.5 1.7
+
+joint neck
+pos 1.0 1.5 1.9
+
+joint r_knee
+range 0.8 -1.5
+
+joint l_knee
+range 0.8 -1.5
+
+# made by chuji 2008

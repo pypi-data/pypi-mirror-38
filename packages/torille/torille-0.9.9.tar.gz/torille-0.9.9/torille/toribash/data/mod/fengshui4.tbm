@@ -1,0 +1,72 @@
+#!/usr/bin/toribash
+
+gravity 0 0 -14.23
+
+gamerule
+turnframes 70 
+matchframes 1000
+dismemberment 1
+fracture 1
+disqualification 1
+dismemberthreshold 110
+fracturethreshold 100
+engagedistance 180
+dqtimeout 5
+dqflag 1
+dojosize 750
+dojotype 1
+
+world
+color 1 1 1
+
+friction 0.1
+
+
+ body r_hand
+	friction 0.01
+ body l_hand
+	friction 0.01
+ body r_foot
+	friction 5
+body l_foot
+	friction 5
+
+
+joint r_ankle
+strength 5.0
+flag 32
+
+
+joint l_ankle
+strength 5.0
+flag 32
+
+body r_leg
+flag 32
+
+joint r_knee
+flag 32
+
+joint r_wrist
+flag 32
+
+body l_leg
+flag 32
+
+joint l_knee
+flag 32
+
+joint l_wrist
+flag 32
+
+body r_triceps
+flag 32
+
+joint r_elbow
+flag 32
+
+body l_triceps
+flag 32
+
+joint l_elbow
+flag 32

@@ -1,0 +1,15 @@
+gamerule
+gravity 0 0 -10
+engagedistance 200
+dismemberthreshold 50
+dismemberment 1
+fracture 1
+fracturethreshold 50
+matchframes 1000
+turnframes 50
+dojosize 500
+dojotype 1
+dq 1
+dqtimeout 100
+sumo 1
+flags 11

@@ -1,0 +1,159 @@
+################
+#By Brain112 :D#
+################
+
+gravity -100 0 -10
+
+gamerule
+    engagedistance 200
+    disqualification 1
+    matchframes 500
+    turnframes 100,50,50,50,50,50,50,50
+
+env_obj 1
+    shape cylinder
+    pos -1 1 2.25
+    color 0.5 0.3 -0.1 1
+    rot 0 0 0
+    sides 0.5 4.25 1
+    material steel
+    mass 0.1
+    flag 8
+
+env_obj 2
+    shape sphere
+    pos -1 1 4.75
+    color 0.5 1 -0.1 1
+    rot 0 0 0
+    sides 1.25 4.25 1
+    material steel
+    mass 0.1
+    flag 8
+
+env_obj 3
+    shape box
+    pos 20 -0.25 1.5
+    color 0.9 1 1 1
+    rot 0 0 0
+    sides 5.25 3 1
+    material steel
+    mass 1
+    flag 0
+
+env_obj 4
+    shape box
+    pos 20 -0.25 2.4
+    color -0.1 0.3 1 1
+    rot 0 0 0
+    sides 3.75 3 0.75
+    material steel
+    mass 1
+    flag 0
+
+env_obj 5
+    shape sphere
+    pos 17.125 1.125 0.5625
+    color -0.1 -0.1 -0.1 1
+    rot 0 0 0
+    sides 0.5625 1 1
+    material steel
+    mass 0.1
+    flag 0
+    friction 0
+
+env_obj 6
+    shape sphere
+    pos 23 1.125 0.5625
+    color -0.1 -0.1 -0.1 1
+    rot 0 0 0
+    sides 0.5625 1 1
+    material steel
+    mass 0.5
+    flag 0
+    friction 0
+
+env_obj 7
+    shape sphere
+    pos 23 -1.6875 0.5625
+    color -0.1 -0.1 -0.1 1
+    rot 0 0 0
+    sides 0.5625 1 1
+    material steel
+    mass 0.5
+    flag 0
+    friction 0
+
+env_obj 8
+    shape sphere
+    pos 17.125 -1.6875 0.5625
+    color -0.1 -0.1 -0.1 1
+    rot 0 0 0
+    sides 0.5625 1 1
+    material steel
+    mass 0.1
+    flag 0
+    friction 0
+
+env_obj 9
+    shape cylinder
+    pos -1 -1.1875 2.25
+    color 0.5 0.3 -0.1 1
+    rot 0 0 0
+    sides 0.5 4.25 1
+    material steel
+    mass 0.1
+    flag 8
+
+env_obj 10
+    shape sphere
+    pos -1 -1.1875 4.75
+    color 0.5 1 -0.1 1
+    rot 0 0 0
+    sides 1.25 4.25 1
+    material steel
+    mass 0.1
+    flag 8
+
+env_obj 11
+    shape cylinder
+    pos -1.75 -0.0625 2
+    color 0.5 0.3 -0.1 1
+    rot 0 0 0
+    sides 0.5 3.75 1
+    material steel
+    mass 0.1
+    flag 24
+
+env_obj 12
+    shape sphere
+    pos -1.625 0 4.75
+    color 0.4 1.1 -0.1 1
+    rot 0 0 0
+    sides 1.25 1 1
+    material steel
+    mass 0.1
+    flag 8
+
+env_obj_joint 1 3 4
+	pos 12.25 -0.25 1.375
+	strength 100
+
+env_obj_joint 2 3 5
+	pos 17.125 1.125 0.5625
+        axis 1 1 1
+	strength 100
+
+env_obj_joint 3 3 6
+	pos 23 1.125 0.5625
+        axis 1 1 1
+	strength 100
+
+env_obj_joint 4 3 7
+	pos 23 -1.6875 0.5625
+        axis 1 1 1
+	strength 100
+
+env_obj_joint 5 3 8
+	pos 17.125 -1.6875 0.5625
+        axis 1 1 1
+	strength 100

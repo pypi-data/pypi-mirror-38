@@ -1,0 +1,81 @@
+gamerule
+    matchframes 1000
+
+env_obj 1
+    shape box
+    pos -3.25 6.4375 1.25
+    color 0.8 0.9 1 1
+    rot -35 -10 0
+    sides 7.375 0.5 0.0625
+    material steel
+    mass 0.1
+    flag 8
+    friction 0
+#END 1
+
+env_obj 2
+    shape box
+    pos -3.1875 5.75 1.3125
+    color 0.8 0.9 1 1
+    rot 37 -3 -12
+    sides 7.3125 0.5625 0.0625
+    material steel
+    mass 0.1
+    flag 8
+    friction 0
+#END 2
+
+env_obj 3
+    shape sphere
+    pos -6.1875 5.75 2
+    color 0.8 0.9 1 1
+    rot 37 -3 -12
+    sides 0.3125 0.1875 0.0625
+    material steel
+    mass 0.1
+    flag 0
+    friction 0
+    force 100 0 0
+#END 3
+
+env_obj 4
+    shape sphere
+    pos 0.625 4.9375 0.6875
+    color 0.8 0.9 1 1
+    rot 0 0 0
+    sides 0.125 0.1875 0.0625
+    material steel
+    mass 0.1
+    flag 8
+#END 4
+
+env_obj 5
+    shape box
+    pos 0.625 5.9375 1
+    color 0.8 0.9 1 1
+    rot 0 0 0
+    sides 0.0625 2.875 0.375
+    material steel
+    mass 0.01
+    flag 0
+    friction 0
+#END 5
+
+env_obj 6
+    shape box
+    pos 1.0625 2.5625 1.75
+    color 0.8 0.9 1 1
+    rot 0 0 0
+    sides 2.4375 0.25 3.4375
+    material steel
+    mass 0.1
+    flag 0
+    friction 0
+#END 6
+
+env_obj_joint 1 4 5
+	pos 0.625 4.9375 0.6875
+	axis 0 0 1
+	range 10000 -10000
+	strength 0
+	velocity 0

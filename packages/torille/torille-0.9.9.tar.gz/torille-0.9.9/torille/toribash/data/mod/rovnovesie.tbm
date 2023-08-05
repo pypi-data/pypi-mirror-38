@@ -1,0 +1,39 @@
+# Environment exported by WorldBuilder
+######################################
+gamerule
+   matchframes 1000
+   turnframes 20
+   flags 0
+   dismemberment 1
+   fracture 0
+   disqualification 1
+   dqtimeout 0
+   dqflag 1
+   dismemberthreshold 100
+   fracturethreshold 100
+   dojotype 1
+   dojosize 1
+   engagedistance 500
+   engageheight 470
+   engagerotation 0
+   engagespace 0
+   engageplayerpos 
+   engageplayerrot 0,0,0,0,0,0
+   damage 0
+   gravity 0.00 0.00 -30.00
+   sumo 1
+   rpg 0
+
+
+
+env_obj 1
+    shape box
+    pos 1 0 0
+    color 0 -0.1 -0.1 0.9
+    rot 0 0 0
+    sides 0.5 6.25 9.5
+    material steel
+    mass 0.1
+    flag 24
+#END 1
+

@@ -1,0 +1,24 @@
+gamerule
+  matchframes 2000
+  engageheight 500
+  engagedistance 1200
+  disqualification 1
+  dojosize 1
+
+ 
+#wall
+env_obj 1
+shape box
+pos 1 0 6.8
+color 1 1 1 0.2
+rot 0 0 0
+sides 6 10 0.5
+material steel
+mass 11
+flag 8
+
+body l_hand
+pos 4.35 0.85 2.3
+
+body r_hand
+pos -2.35 0.85 2.3

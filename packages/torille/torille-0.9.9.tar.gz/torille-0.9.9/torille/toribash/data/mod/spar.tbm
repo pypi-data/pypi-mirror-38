@@ -1,0 +1,17 @@
+#!/usr/bin/toribash
+# A mod by: Xcess
+######################################
+gamerule
+engagedistance 1000
+fracturethreshold 0
+dismemberment 0
+fracture 0
+turnframes 10
+matchframes 1000
+sumo 0
+dq 0
+gravity 0 0 -22
+flags 13
+dq 0
+dismemberthreshold 0
+fracture 0

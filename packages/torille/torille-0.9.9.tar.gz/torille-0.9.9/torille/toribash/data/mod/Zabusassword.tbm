@@ -1,0 +1,20 @@
+body l_hand
+sides 0.15 0.01 2
+material steel
+flag 6
+pos 2.2 0.9 2.88
+alt_sides 0.15 0.01 2
+body l_biceps
+pos 1.5 0.9 2.3
+sides 0.4 0.2 0.2
+
+joint l_elbow
+axis 0 1 0
+
+joint l_shoulder
+axis 1 0 0
+
+joint l_wrist
+axis 1 0 0
+
+

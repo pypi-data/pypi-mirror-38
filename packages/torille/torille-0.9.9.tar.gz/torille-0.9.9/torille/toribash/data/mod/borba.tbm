@@ -1,0 +1,14 @@
+gamerule
+engagedistance 50
+dismember 1
+dismemberthreshold 430
+fracture 1
+fracturethreshold 310
+turnframes 10,10,10,10,20,20,20,20,30,30,30,30
+matchframes 350
+dojosize 180
+dojotype 1
+gravity 0 0 -30
+sumo 1
+dq 1
+flags 15

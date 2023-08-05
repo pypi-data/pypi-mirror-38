@@ -1,0 +1,39 @@
+#!/Supershade/bin/toribash ##################################################### #
+gamerule
+engagedistance 100
+matchframes 500
+disqualification 1
+turnframes 10,20,34,40,50,25,50,20
+dojotype 1
+dojosize 1000
+grav 0 0 -2.05
+body head
+sides 0.2 0.4 0.2
+body breast
+sides 0.2 0.15 0.3
+body r_triceps
+sides 0.4 0.3 0.2
+body l_triceps
+sides 0.4 0.3 0.2
+body r_hand
+sides 1.08 0.005 0.005
+flag 12
+body l_hand
+sides 1.08 0.005 0.005
+flag 12
+body r_butt
+sides 0.05 0.15 0.002
+material steel
+body l_butt
+sides 0.05 0.15 0.002
+material steel
+body r_foot
+sides 0.2 0.6 0.086
+body l_foot
+sides 0.2 0.6 0.086
+joint neck
+pos 1.0 0.85 2.65
+joint r_wrist
+radius 0.05
+joint l_wrist
+radius 0.05

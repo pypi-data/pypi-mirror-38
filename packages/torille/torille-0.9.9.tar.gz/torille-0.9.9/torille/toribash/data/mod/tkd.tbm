@@ -1,0 +1,57 @@
+#by hampa
+gamerule
+	dojosize 600
+	turnframes 10,10,20,20,40,40,80,80,160,160
+	matchframes 460
+gravity 0 0 -20
+body head
+	flag 16	
+body breast
+body chest
+body stomach
+body groin
+	flag 16
+body r_pecs
+	flag 16
+body r_biceps
+	flag 16
+body r_triceps
+	flag 16
+body l_pecs
+	flag 16
+body l_biceps
+	flag 16
+body l_triceps
+	flag 16
+body r_hand
+	flag 16
+body l_hand
+	flag 16
+body r_butt
+body l_butt
+body r_thigh
+	flag 48 
+body l_thigh
+	flag 48 
+body l_leg
+	flag 48 
+body r_leg
+	flag 48 
+body r_foot
+	flag 48 
+body l_foot
+	flag 48 
+joint l_knee
+	flag 32
+	velocity 70 
+joint r_knee
+	flag 32
+	velocity 70 
+joint l_hip
+	flag 16
+	velocity 70 
+joint r_hip
+	flag 16
+	velocity 70 
+joint chest
+	velocity 70

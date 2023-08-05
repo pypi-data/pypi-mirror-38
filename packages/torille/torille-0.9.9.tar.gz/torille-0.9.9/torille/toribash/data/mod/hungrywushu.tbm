@@ -1,0 +1,163 @@
+gamerule
+	eh 160
+	ed 250
+	tf 50
+	mf 500
+
+#box
+env_obj 1
+	shape box
+	pos 1 0 1.5
+	color 0.7 0.7 0.7
+	rot 0 0 0
+	sides 4 16 0.2
+	material steel
+	mass 5
+
+env_obj 2
+	shape box
+	pos 2.9 7.9 0.7
+	color 0.7 0.7 0.7
+	rot 0 0 0
+	sides 0.2 0.2 1.4
+	material steel
+	mass 0.5
+
+env_obj 3
+	shape box
+	pos 2.9 -7.9 0.7
+	color 0.7 0.7 0.7
+	rot 0 0 0
+	sides 0.2 0.2 1.4
+	material steel
+	mass 0.5
+
+env_obj 4
+	shape box
+	pos -0.9 7.9 0.7
+	color 0.7 0.7 0.7
+	rot 0 0 0
+	sides 0.2 0.2 1.4
+	material steel
+	mass 0.5
+
+env_obj 5
+	shape box
+	pos -0.9 -7.9 0.7
+	color 0.7 0.7 0.7
+	rot 0 0 0
+	sides 0.2 0.2 1.4
+	material steel
+	mass 0.5
+
+env_obj 6
+	shape box
+	pos 1 0 9.1
+	color 0.7 0.7 0.7
+	rot 0 0 0
+	sides 0.1 0.1 0.1
+	material steel
+	mass 0.01
+	flag 8
+
+env_obj 7
+	shape cylinder
+	pos 1 0 7.05
+	color 0.7 0.7 0.7
+	rot 0 0 0
+	sides 0.02 4 0.02
+	material steel
+	mass 0.001
+
+env_obj 8
+	shape box
+	pos 1 0 5
+	color 0.7 0.7 0.7
+	rot 0 0 0
+	sides 3 3 0.1
+	material steel
+	mass 0.005
+
+env_obj 9
+	shape box
+	pos 2.5 -2 1.65
+	color 1 1 1
+	rot 0 0 0
+	sides 0.6 0.8 0.05
+	material steel
+	mass 0.001
+
+env_obj 10
+	shape cylinder
+	pos 2.5 -2 1.75
+	color 0.4 0.1 0.05
+	rot 90 0 0
+	sides 0.1 0.3 0.2
+	material flesh
+	mass 0.002
+
+env_obj 11
+	shape box
+	pos 2.5 2 1.65
+	color 1 1 1
+	rot 0 0 0
+	sides 0.6 0.8 0.05
+	material steel
+	mass 0.001
+
+env_obj 12
+	shape cylinder
+	pos 2.5 2 1.75
+	color 0.4 0.1 0.05
+	rot 90 0 0
+	sides 0.1 0.3 0.2
+	material flesh
+	mass 0.002
+
+env_obj 13
+	shape box
+	pos -0.5 -2 1.65
+	color 1 1 1
+	rot 0 0 0
+	sides 0.6 0.8 0.05
+	material steel
+	mass 0.001
+
+env_obj 14
+	shape cylinder
+	pos -0.5 -2 1.75
+	color 0.4 0.1 0.05
+	rot 90 0 0
+	sides 0.1 0.3 0.2
+	material flesh
+	mass 0.002
+
+env_obj 15
+	shape box
+	pos -0.5 2 1.65
+	color 1 1 1
+	rot 0 0 0
+	sides 0.6 0.8 0.05
+	material steel
+	mass 0.001
+
+env_obj 16
+	shape cylinder
+	pos -0.5 2 1.75
+	color 0.4 0.1 0.05
+	rot 90 0 0
+	sides 0.1 0.3 0.2
+	material flesh
+	mass 0.002
+
+env_obj_joint 1 6 7
+	pos 1 0 9
+	axis 1 1 1
+	range 5 -5
+	strength 1
+
+env_obj_joint 2 7 8
+	pos 1 0 5
+	axis 1 1 1
+	range 5 -5
+	strength 3

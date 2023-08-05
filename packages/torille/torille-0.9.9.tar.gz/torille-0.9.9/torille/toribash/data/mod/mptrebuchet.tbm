@@ -1,0 +1,113 @@
+# Toribash Environment Objects Mod File
+# =====================================
+#
+
+gamerule
+    engagedistance -290
+    engagerotation 270
+    dismemberthreshold 500
+    dojosize 0
+    engageheight 0
+    matchframes 700
+	turnframes 140,560
+	gravity 0 0 -30
+
+env_obj 1
+    shape box
+    pos 1 -18 6
+    color 0.1 0.3 0.8
+    rot 0 0 0
+    sides 4 .25 12
+    material steel
+    mass 2
+    flag 8
+
+env_obj 2
+    shape box
+    pos 2.25 -14 6
+    color 0.1 0.3 0.8
+    rot 0 0 0
+    sides 1.5 .25 12
+    material steel
+    mass 2
+    flag 8
+
+env_obj 3
+    shape box
+    pos -.25 -14 6
+    color 0.1 0.3 0.8
+    rot 0 0 0
+    sides 1.5 .25 12
+    material steel
+    mass 2
+    flag 8
+
+env_obj 4 #weight box
+    shape box
+    pos 1 -16 12
+    color 0.1 0.3 0.8
+    rot 0 0 0
+    sides 3.5 3.5 3.5
+    material steel
+    mass 200
+    flag 16
+    
+env_obj 5 #fulcrum
+    shape cylinder
+    pos 1 -10 5
+    color 0.1 0.3 0.7
+    rot 0 90 0
+    sides 1 2 1
+    material steel
+    mass 2
+    flag 8
+    
+env_obj 6 #throwing arm
+    shape box
+    pos 1 -10 6
+    color 0.1 0.3 0.7
+    rot 30 0 0
+    sides .9 16 .25
+    material steel
+    mass 2
+    flag 0
+    
+env_obj 7 #release
+    shape cylinder
+    pos 1 -5.85 19
+    color 0.1 0.3 0.7
+    rot 0 90 0
+    sides .125 2 1
+    material steel
+    mass 2
+    flag 14
+    
+env_obj 8 #bullseye
+    shape box
+    pos 1 -80 70
+    color 1 0 0
+    rot 0 0 0
+    sides 8 1 8
+    material steel
+    mass 2
+    flag 28
+    
+env_obj 9 #yellow ring
+    shape box
+    pos 1 -81 70
+    color 1 1 0
+    rot 0 0 0
+    sides 20 1 20
+    material steel
+    mass 2
+    flag 8
+    
+env_obj 10 #blue ring
+    shape box
+    pos 1 -82 70
+    color 0.1 0.3 0.7
+    rot 0 0 0
+    sides 30 1 30
+    material steel
+    mass 2
+    flag 8

@@ -1,0 +1,82 @@
+# Environment exported by WorldBuilder
+######################################
+
+gamerule
+engagedistance 250
+engageheight 6000
+gravity 0 0-12
+dismember 1
+dismemberthreshold 200
+fracture 0
+turnframes 25
+matchframes 2000
+sumo 1
+dq 1
+flags 3
+
+env_obj 1
+    shape box
+    pos 1 0 20
+    color 0.9 1 1 1
+    rot 0 0 0
+    sides 73.5 22.75 1
+    material steel
+    mass 20
+    flag 8
+#END 1
+
+env_obj 2
+    shape box
+    pos 1 0 40.5625
+    color 0.9 1 1 1
+    rot 0 0 0
+    sides 6.5 6.5 38.875
+    material steel
+    mass 20
+    flag 8
+#END 2
+
+env_obj 3
+    shape box
+    pos 39.25 0 10.5
+    color 0.9 1 1 1
+    rot 0 0 0
+    sides 3 80.25 19.75
+    material steel
+    mass 20
+    flag 8
+#END 3
+
+env_obj 4
+    shape box
+    pos -37.25 0 10.5
+    color 0.9 1 1 1
+    rot 0 0 0
+    sides 3 80.5 19.75
+    material steel
+    mass 20
+    flag 8
+#END 4
+
+env_obj 5
+    shape box
+    pos 1 0 49.25
+    color 0.9 1 1 1
+    rot 0 0 0
+    sides 8.5 8.5 0.25
+    material steel
+    mass 20
+    flag 8
+#END 5
+
+env_obj 6
+    shape box
+    pos 1 0 37
+    color 0.9 1 1 1
+    rot 0 0 0
+    sides 13.5 13.5 0.25
+    material steel
+    mass 20
+    flag 8
+#END 6
+

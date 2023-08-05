@@ -1,0 +1,41 @@
+gamerule
+gravity 0 0 -15
+engagedistance 2200
+matchframes 380
+turnframes 80,30,30,30,30,30,30,30,30,30,30
+flags 3
+dismemberment 1
+fracture 0
+disqualification 1
+dismemberthreshold 125
+fracturetreshold 110
+engageheight 60
+engagerotation 180
+dojotype 0
+dojosize 0
+body head
+force 0 16 2
+body stomach
+force 0 14 1
+body breast
+force 0 14 2
+body chest
+force 0 15 1
+body groin
+force 0 13 1
+body r_pecs
+force 0 14 1
+body l_pecs
+force 0 14 1
+body r_thigh
+force 0 13 1
+body l_thigh
+force 0 13 1
+body l_leg
+force 0 12 1
+body r_leg
+force 0 12 1
+body r_foot
+force 0 8 1
+body l_foot
+force 0 8 1

@@ -1,0 +1,99 @@
+#the bowling mod by archlurps, made with
+#worldbuilder.lua
+
+env_obj 1
+    shape sphere
+    pos -0.5 3.5 2.25
+    color 1.1 -0.1 -0.1 0.5
+    rot 0 0 0
+    sides 0.25 9.5 4.25
+    material steel
+    mass 0.02
+    flag 0
+
+env_obj 2
+    shape box
+    pos 0.75 -5.25 0.5
+    color 0 0 1 1
+    rot 0 0 0
+    sides 0.25 0.25 1
+    material steel
+    mass 0.001
+    flag 0
+
+env_obj 3
+    shape box
+    pos 1.25 -5.25 0.5
+    color 0 0 1 1
+    rot 0 0 0
+    sides 0.25 0.25 1
+    material steel
+    mass 0.001
+    flag 0
+
+env_obj 4
+    shape box
+    pos 1 -5.75 0.5
+    color 0 0 1 1
+    rot 0 0 0
+    sides 0.25 0.25 1
+    material steel
+    mass 0.001
+    flag 0
+
+
+env_obj 5
+    shape box
+    pos 0.5 -5.75 0.5
+    color 0 0 1 1
+    rot 0 0 0
+    sides 0.25 0.25 1
+    material steel
+    mass 0.001
+    flag 0
+
+env_obj 6
+    shape box
+    pos 1.5 -5.75 0.5
+    color 0 0 1 1
+    rot 0 0 0
+    sides 0.25 0.25 1
+    material steel
+    mass 0.001
+    flag 0
+
+env_obj 7
+    shape box
+    pos 1 -4.75 0.5
+    color 0 0 1 1
+    rot 0 0 0
+    sides 0.25 0.25 1
+    material steel
+    mass 0.001
+    flag 0
+
+joint r_pecs
+axis 0 1 0
+range 0 -0.5
+strength 5
+velocity 80
+
+joint r_shoulder
+axis 0 0 1
+velocity 80
+
+joint r_wrist
+axis 1 0 0
+velocity 100
+
+joint r_elbow
+velocity 90
+
+body r_hand
+pos -0.32 0.90 2.3
+
+body l_foot
+material steel
+
+body r_foot
+material steel

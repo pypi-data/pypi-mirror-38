@@ -1,0 +1,116 @@
+# Motorcycle mod by Da Jam =D
+# New version with ramps suggested by ManBreakfast
+# PLAY AT 30 ENGAGE HEIGHT AND A BIG DISTANCE!
+gamerule
+engageheight 30
+engagedistance 5000
+
+world
+color 1 1 1
+
+gravity 0 0 -12.0
+
+friction 1000000
+
+body r_foot
+shape cylinder
+sides 0.2 0.40 0.3
+pos 1.0 2.5 0.1
+rot 0 0 0
+force 0 0 0
+color 0 0 0
+material flesh
+flag 6
+
+
+body l_foot
+shape cylinder
+sides 0.2 0.40 0.3
+pos 1.0 -0.7 0.1
+rot 0 0 0
+force 0 0 0
+color 0 0 0
+material flesh
+flag 6
+
+
+joint r_ankle
+axis 1 0 0
+radius 0.35
+pos 1.0 2.5 0.1
+range 5.0 -5.0
+strength 100.0
+velocity 100.0
+material steel
+
+joint l_ankle
+axis 1 0 0
+radius 0.35
+pos 1.0 -0.7 0.1
+range 5.0 -5.0
+strength 100.0
+velocity 100.0
+material steel
+
+body stomach 
+force 0 30 1
+
+body breast	
+force 0 30 1
+
+body chest	
+force 0 30 1
+
+body groin	
+force 0 30 1
+
+body r_pecs	
+force 0 20 1
+
+body l_pecs	
+force 0 20 1
+
+body r_thigh	
+force 0 20 1
+
+body l_thigh	
+force 0 20 1
+
+body l_leg
+force 0 10 00
+
+body r_leg	
+force 0 10 00
+
+env_obj 1
+shape box
+sides 10 8 3
+pos 0 10 0
+color 0.8 0.5 0.6
+rot 20 0 0
+material steel
+mass 0.1
+flag 8
+
+env_obj 2
+shape box
+sides 10 8 3
+pos 0 -10 0
+color 0.8 0.5 0.6
+rot -20 0 0
+material steel
+mass 0.1
+flag 8
+
+env_obj 3
+shape box
+sides 10 14 2
+pos 0 0 1.8
+color 0.8 0.5 0.6
+rot 0 0 0
+material steel
+mass 0.1
+flag 8
+
+
+

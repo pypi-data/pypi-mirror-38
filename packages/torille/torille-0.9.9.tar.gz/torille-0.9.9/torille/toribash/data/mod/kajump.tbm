@@ -1,0 +1,31 @@
+#####################################################
+# KaJump mode, invented by Kamil077, made by Danvari
+
+gamerule
+engagedistance 590
+matchframes 525
+turnframes 50,50,25,50,50,25,25,50
+dojosize 500
+dojotype 1
+gravity 0 0 -15.73
+
+body stomach
+force 0 -1 5
+body breast
+force 0 -1 5
+body chest
+force 0 -1 5
+body groin
+force 0 1 5
+body r_pecs
+force 0 -7 4
+body l_pecs
+force 0 -7 4
+body r_thigh
+force 0 10 17
+body l_thigh
+force 0 10 17
+body l_leg
+force 0 10 20
+body r_leg
+force 0 10 20

@@ -1,0 +1,27 @@
+# Environment exported by WorldBuilder
+######################################
+
+gamerule
+	engageheight 1662
+
+env_obj 1
+    shape box
+    pos 1 0 16.5
+    color 1.1 1.1 1
+    rot 0 0 0
+    sides 1.0625 22.5 0.25
+    material steel
+    mass 0.1
+    flag 0
+
+env_obj 2
+    shape box
+    pos 1 -0.0625 8.1875
+    color 1.1 1.1 1
+    rot 0 0 0
+    sides 0.5 0.5 16.375
+    material steel
+    mass 0.1
+    flag 24
+
+gravity 0 0 -30
