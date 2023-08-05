@@ -1,0 +1,75 @@
+Metadata-Version: 2.1
+Name: aptivate-cli
+Version: 0.0.16
+Summary: Fully automated luxury Aptivate command line interface.
+Home-page: https://git.coop/aptivate/internal-tools/aptivate-cli
+Author: Aptivate Hackers
+Author-email: carers+aptivate-cli@aptivate.org
+License: GPLv3
+Platform: any
+Classifier: Programming Language :: Python :: 3
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Description-Content-Type: text/markdown
+Requires-Dist: click
+Requires-Dist: click-datetime
+Requires-Dist: colorama
+Requires-Dist: cookiecutter
+
+[![pipeline status](https://git.coop/aptivate/internal-tools/aptivate-cli/badges/master/pipeline.svg)](https://git.coop/aptivate/internal-tools/aptivate-cli/commits/master)
+[![coverage report](https://git.coop/aptivate/internal-tools/aptivate-cli/badges/master/coverage.svg)](https://git.coop/aptivate/internal-tools/aptivate-cli/commits/master)
+[![PyPI version](https://badge.fury.io/py/aptivate-cli.svg)](https://badge.fury.io/py/aptivate-cli)
+
+# aptivate-cli
+
+Fully automated luxury Aptivate command line interface.
+
+  * [Cheatsheet reference](docs/cheatsheet.md).
+  * [Command reference](docs/commands.md).
+  * [Migrate project from DYE](docs/migrate.md).
+  * [Environment variables for configuration](docs/env.md)
+  * [Latest changes from CHANGELOG.md](CHANGELOG.md).
+
+## Install It
+
+The tool is compatible with Python 3.5+ onwards.
+
+```bash
+$ python3 -m venv .venv
+$ source .venv/bin/activate
+$ pip install aptivate-cli
+```
+
+## Hack It
+
+You'll have to install [pipenv] and then:
+
+[pipenv]: https://github.com/pypa/pipenv#installation
+
+```bash
+$ git clone git@git.coop:aptivate/aptivate-cli.git && cd aptivate-cli
+$ pipenv sync --dev
+$ pipenv run pip install --editable .
+$ pipenv run apc --help
+```
+
+## Test It
+
+We use [tox] for testing.
+
+[tox]: https://tox.readthedocs.io/en/latest/
+
+```bash
+$ pipenv run pytest
+$ pipenv run tox -e py36
+```
+
+See the [tox.ini](tox.ini) for configuration.
+
+## Release It
+
+```bash
+$ make publish
+```
+
+
