@@ -1,0 +1,16 @@
+Metadata-Version: 1.1
+Name: PyGran
+Version: 1.1
+Summary: A DEM toolbox for rapid quantitative analysis of granular/powder systems
+Home-page: https://github.com/Andrew-AbiMansour/PyGran
+Author: Andrew Abi-Mansour
+Author-email: support@pygran.org
+License: GNU v2
+Description: A DEM toolbox for rapid quantitative analysis of granular/powder systems. See https://andrew-abimansour.github.io/PyGran.
+Keywords: Discrete Element Method,Granular Materials
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Topic :: Utilities
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.6
