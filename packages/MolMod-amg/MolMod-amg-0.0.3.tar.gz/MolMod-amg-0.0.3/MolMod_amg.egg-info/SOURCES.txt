@@ -1,0 +1,12 @@
+MANIFEST.in
+README.md
+setup.py
+MolMod/BasicTools.py
+MolMod/MolMod.py
+MolMod/SSHTools.py
+MolMod/__init__.py
+MolMod_amg.egg-info/PKG-INFO
+MolMod_amg.egg-info/SOURCES.txt
+MolMod_amg.egg-info/dependency_links.txt
+MolMod_amg.egg-info/requires.txt
+MolMod_amg.egg-info/top_level.txt
