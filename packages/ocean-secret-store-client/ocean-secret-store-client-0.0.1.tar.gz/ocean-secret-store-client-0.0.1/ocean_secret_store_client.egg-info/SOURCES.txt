@@ -1,0 +1,16 @@
+CHANGELOG.md
+HISTORY.md
+LICENSE
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+ocean_secret_store_client.egg-info/PKG-INFO
+ocean_secret_store_client.egg-info/SOURCES.txt
+ocean_secret_store_client.egg-info/dependency_links.txt
+ocean_secret_store_client.egg-info/not-zip-safe
+ocean_secret_store_client.egg-info/requires.txt
+ocean_secret_store_client.egg-info/top_level.txt
+secret_store_client/__init__.py
+secret_store_client/client.py
+tests/__init__.py
