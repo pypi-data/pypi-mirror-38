@@ -1,0 +1,11 @@
+futures
+enum34
+
+[avro]
+fastavro
+requests
+avro
+
+[dev]
+pytest
+flake8
