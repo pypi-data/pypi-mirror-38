@@ -1,0 +1,151 @@
+Metadata-Version: 1.1
+Name: genhtml-markdown
+Version: 1.0.9
+Summary: bring python to markdown to generate HTML inline
+Home-page: https://github.com/aluriak/genhtml-markdown
+Author: Lucas Bourneuf
+Author-email: lucas.bourneuf@laposte.net
+License: GPL
+Description: # genhtml-markdown
+        [Python-Markdown](http://pythonhosted.org/Markdown/) plugin allowing to build HTML from inline python source.
+        
+        Direct applications includes [charts and other plots](https://plot.ly/python/) in markdown documents, and tooling for [blogging](https://blog.getpelican.com/).
+        
+            pip install genhtml-markdown
+        
+        See the [compiled examples and their sources](examples/) for an introductory tour, the [Makefile](Makefile) for the process, or look at next section:
+        
+        
+        ## Basic example with plotly
+        Let's take an [offline scatter plot example](https://plot.ly/python/getting-started/#initialization-for-offline-plotting), modified to print the generated HTML :
+        
+        ```python
+        import plotly.offline
+        import plotly.graph_objs as go
+        
+        data = go.Scatter(x=[1, 2, 3, 4], y=[4, 3, 2, 1])
+        layout = go.Layout(title="hello world")
+        
+        figure = go.Figure(data=[data], layout=layout)
+        print(offline.plot(figure, output_type='div'))
+        ```
+        
+        You could want to include it in your article. With genhtml-markdown extension, it's easy:
+        
+            ```genhtml
+            import plotly.offline
+            import plotly.graph_objs as go
+        
+            data = go.Scatter(x=[1, 2, 3, 4], y=[4, 3, 2, 1])
+            layout = go.Layout(title="hello world")
+        
+            figure = go.Figure(data=[data], layout=layout)
+            print(offline.plot(figure, output_type='div'))
+            ```
+        
+        You think it's verbose ? I do too. That's the reason we have *headers* and *footers*, patches of python that will be put respectively *before* and *after* our specific code. By default, the header is full of imports, including the plotly ones. And the two last lines are provided by the *plot* footer. So, here is our final code:
+        
+            ```genhtml footer=plot
+            data = go.Scatter(x=[1, 2, 3, 4], y=[4, 3, 2, 1])
+            layout = go.Layout(title="hello world")
+            ```
+        
+        Imports and offline plotting boilerplate code will be added by headers/footers, the total code will be ran, and finally the output will be included in place as an interactive plot/chart.
+        
+        
+        ## Features
+        
+        ### Ready-to-use headers and footers
+        You can see the full list of [headers](headers/) and [footers](footers/) in their respective directories. You can also pass `headers_dir` and `footers_dir` [parameters for the extensions](https://python-markdown.github.io/cli/#using-extensions) in order to provide your own !
+        
+        For instance, with the parameter `-c config.json` added to `python -m markdown` call, you can feed markdown with the following parameters:
+        
+        ```json
+        {
+        	"genhtml": {
+        		"headers_dir": "alt-headers"
+        	}
+        }
+        ```
+        
+        Indicating that genhtml will also look in the `alt-headers/` directory for headers.
+        Options can also be set when calling [markdown module programatically](https://python-markdown.github.io/extensions/api/#configsettings) with something like `markdown.Markdown(extensions=[GenHTMLMarkdownExtension(headers_dir='~/my-headers-dir'])`.
+        
+        Finally, note that the [default header](headers/default.py) provides a lot of imports.
+        
+        ### Generate and show raw images
+        As shown in [images example](examples/images.mkd),
+        it is quite easy to build and show an image inline :
+        
+            ```genhtml format=png footer=png-image
+            from PIL import Image
+            image = Image.new('RGB', (60, 30), color='green')
+            ```
+        
+        The `format=png` options tells that the printed data is (base64-encoded) raw png data,
+        and the [*png-image* footer](genhtml/footers/png-image.py) reads something like:
+        
+        ```python
+        import io
+        import base64
+        with io.BytesIO() as output:
+            image.save(output, format='png')
+            print(base64.b64encode(output.getvalue()).decode(), end='')
+        ```
+        
+        Other formats are `jpg` and `svg`, allowing you to [bring gizeh to your markdown](https://github.com/Zulko/gizeh).
+        
+        
+        ### Graphs
+        Using the previous feature, it becomes possible to draw graphs from their networkx definition, as shown in [the related example](examples/networkx_and_dot.mkd).
+        
+        Using the *dot-png* footer, you can just build your graph and print it in no time:
+        
+            ```genhtml format=png footer=dot-png
+            graph = nx.fast_gnp_random_graph(10, 0.5)
+            # draw the first one in beige
+            graph.nodes[1]['style'] = 'filled'
+            graph.nodes[1]['fillcolor'] = 'beige'
+            ```
+        
+        ### Show sources, and other code manipulations
+        See the related [example](examples/arbitrary-python.mkd).
+        
+        ### Nested code generation
+        Is fully supported. See [pyception example](examples/pyception.mkd).
+        
+        
+        ### Use static data
+        You have in the code access to active directory.
+        For instance, if using [pelican](https://blog.getpelican.com/), you can read all your blog articles in few lines:
+        
+            ```genhtml
+            import glob
+            print('Follows a list of published articles:')
+            for article in glob.glob('content/articles/*.mkd'):
+                if any(line.strip() == 'status: published' for line in open(article)):
+                    print(f'- {article}')
+            ```
+        
+        Following this logic, if you are using recurrent CSV data, you could put it in a dedicated directory,
+        and access it easily from all your integrated python code.
+        
+        ### Global environment
+        An environment is shared among codes in the same document.
+        As shown in [related example](examples/env-management.mkd), you can access it with the flag `global-env=true`.
+        
+        ## Other features
+        - headers/footers for [biseau](https://gitlab.inria.fr/lbourneu/biseau), allowing [ASP](https://lucas.bourneuf.net/blog/asp-tuto.html) in markdown to draw graphs.
+        
+        ## Incoming features
+        - access to all markdown article from python (allowing to access the article itself)
+        
+Keywords: Markdown,plot,include,plugin,extension
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
