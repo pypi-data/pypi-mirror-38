@@ -1,0 +1,5 @@
+inlcude bxmsdk/energyplus/simEngine/energyplus.exe
+inlcude bxmsdk/energyplus/simEngine/energyplusapi.dll
+inlcude bxmsdk/energyplus/simEngine/ep8.7.idd
+inlcude bxmsdk/energyplus/simEngine/ep8.8.idd
+inlcude bxmsdk/energyplus/simEngine/Epl-run.bat
