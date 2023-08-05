@@ -1,0 +1,77 @@
+Metadata-Version: 1.1
+Name: amanita
+Version: 0.0.1
+Summary: Create python customizable projects
+Home-page: https://github.com/constrict0r/amanita
+Author: constrict0r
+Author-email: constrict0r@protonmail.com
+License: MIT
+Description: ===============================
+        amanita
+        ===============================
+        
+        .. image:: https://img.shields.io/pypi/v/amanita.svg
+            :target: https://pypi.python.org/pypi/amanita
+            :alt: Latest PyPI version
+        
+        Create python customizable projects.
+        
+        Usage
+        =====
+        
+        Ingredients
+        ===========
+        
+          .. image:: resources/img/python.png
+             :target: https://www.python.org
+        
+          .. image:: resources/img/reestructuredtext.png
+             :target: http://docutils.sourceforge.net/rst.html
+        
+          .. image:: resources/img/debian.png
+             :target: https://www.debian.org
+        
+          .. image:: resources/img/cookiecutter.png
+             :target: https://github.com/audreyr/cookiecutter
+        
+          .. image:: resources/img/amanita.png
+             :target: https://es.wikipedia.org/wiki/Amanita_muscaria
+        
+        Installation
+        ============
+        
+        .. code-block:: sh
+        
+           pip install amanita
+        
+        ------------
+        Requirements
+        ------------
+        
+        Compatibility
+        =============
+        
+        License
+        =======
+        
+        MIT. See the `LICENSE <LICENSE>`_ file for more details.
+        
+        Authors
+        =======
+        
+        `amanita` was written by `constrict0r <constrict0r@protonmail.com>`_.
+        
+        Enjoy!!
+        
+          .. image:: resources/img/enjoy.png
+        
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
