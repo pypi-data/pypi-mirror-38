@@ -1,0 +1,19 @@
+process:
+    type: srun
+    commands:
+        srun: srun-ut
+    srun:
+        mpi: pmi2
+        exclusive: true
+        ntasks: 42
+benchmarks:
+    '*':
+        bench-name:
+            type: fake
+            srun:
+                exclusive:
+                nodes: [1, 2, 8, 16, 32]
+                ntasks-per-node: [1, 8, 16, 36, 72]
+            attributes:
+                input:
+                - "{process_count}"

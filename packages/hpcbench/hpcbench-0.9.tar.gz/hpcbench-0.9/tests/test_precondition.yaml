@@ -1,0 +1,29 @@
+output_dir: hpcbench-%Y%m%d-%H%M%S
+network:
+  nodes:
+    - localhost
+benchmarks:
+  '*':
+    test01:
+      type: fake
+      attributes:
+        expected_name: test01
+    test02:
+      type: fake
+      attributes:
+        expected_name: test02
+    test03:
+      type: fake
+      attributes:
+        expected_name: test03
+    test04:
+      type: fake
+      attributes:
+        expected_name: test04
+
+precondition:
+  test01: ENABLE_TEST01
+  test02: ENABLE_TEST02
+  test04:
+    - ENABLE_TEST01
+    - ENABLE_TEST02
