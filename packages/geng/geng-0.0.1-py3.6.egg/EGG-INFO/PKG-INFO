@@ -1,0 +1,22 @@
+Metadata-Version: 1.2
+Name: geng
+Version: 0.0.1
+Summary: 😆让天上没有查不到的梗~~
+Home-page: https://github.com/guerbai/awesome-geng
+Author: guerbai
+Author-email: guerbai8@gmail.com
+License: MIT
+Description-Content-Type: text/markdown
+Description: 
+        # awesome-geng
+        😆让天上没有查不到的梗~~
+        
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: Chinese (Simplified)
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.6.0
