@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: Discord-Webhooks
+Version: 1.0.0
+Summary: Easy to use package for Python which allows for sending of webhooks to a Discord server.
+Home-page: https://github.com/JamesIves/discord-webhooks
+Author: James Ives
+Author-email: iam@jamesiv.es
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: requests (==2.20.0)
+
+Easy to use package for Python which allows for sending of webhooks to a Discord server.
+
+
