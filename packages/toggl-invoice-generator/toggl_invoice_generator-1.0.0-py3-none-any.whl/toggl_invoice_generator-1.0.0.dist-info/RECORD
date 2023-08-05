@@ -1,0 +1,16 @@
+toggl_api_bill_generator/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+toggl_api_bill_generator/main_constants.py,sha256=DDRApNsmgL46Ph1ow0QTQnimpMpAhnyUNjBFlXWOE3k,9071
+toggl_api_bill_generator/toggl_constants.py,sha256=BLtSB9yG6TBGiLEw8iQuIdlJWSTn42kA895t82XEEb4,1051
+toggl_invoice_generator/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+toggl_invoice_generator/main.py,sha256=qs5jTfPMCy1iMGDjkTCs0XRqcVDHJxLLnFevfRPdKbE,7383
+toggl_invoice_generator/toggl-invoice-generator,sha256=mb_4n0gBBcatlrjiI7UVP_cYEzn2-u82SwJSrGrIH5k,109
+toggl_invoice_generator/toggl_constants.py,sha256=BLtSB9yG6TBGiLEw8iQuIdlJWSTn42kA895t82XEEb4,1051
+toggl_invoice_generator/templates/invoice.html,sha256=VNm7YqBSXb9Y3W013wwPrfa0-FWlgi5yQA2xR9hhWts,4666
+toggl_invoice_generator-1.0.0.data/scripts/toggl-bill-gen,sha256=ooVIrHQuLDOATw9IOa56kdz4cEoSsOgao_45F2mGZVw,6986
+toggl_invoice_generator-1.0.0.data/scripts/toggl-gen,sha256=cF4_WwigSDF5gFVzWp-rrL86hC0uCeAObUvreTqR1q8,6554
+toggl_invoice_generator-1.0.0.data/scripts/toggl-invoice-generator,sha256=nC3MKyLH02LNZ4bO3IVIEX5yYGX9cY2jUHKGruViLWE,121
+toggl_invoice_generator-1.0.0.dist-info/LICENSE,sha256=THBRP9mWIK_HO0qU5GOI366iTvP-7dHVB4D3kUwI74Y,1070
+toggl_invoice_generator-1.0.0.dist-info/METADATA,sha256=RCBrVupWcLmW4gxNFQl9OOMgRaJbYuM-7HzpNjB063E,3809
+toggl_invoice_generator-1.0.0.dist-info/WHEEL,sha256=MYFsq5fFBwF_oyJgrOoFmYYB1K6Sw7MxY-0897ZLbdM,92
+toggl_invoice_generator-1.0.0.dist-info/top_level.txt,sha256=pkqxhWhYpTdotPygVeKh-V5UsggZvkd3lqb-Gn79-lU,24
+toggl_invoice_generator-1.0.0.dist-info/RECORD,,

@@ -1,0 +1,82 @@
+Metadata-Version: 2.1
+Name: toggl-invoice-generator
+Version: 1.0.0
+Summary: A script that will generate a PDF from Toggl.com API. Easy to automate from CRON or use from
+Requires-Dist: aiofiles (==0.4.0)
+Requires-Dist: aiohttp (==3.4.4)
+Requires-Dist: uvloop (==0.11.2)
+Requires-Dist: Jinja2 (==2.10)
+Requires-Dist: pyppeteer (==0.0.25)
+
+the Command Line Interface. Following Flask App Factory Pattern and 12 Factor App best practices. All configuration
+can be accomplished through Environment Varibles.
+Home-page: https://github.com/jbcurtin/toggl.com-bill-generator
+Author: Joseph B. Curtin <codes@jbcurtin.io>
+Author-email: codes@jbcurtin.io
+License: MIT License
+
+Copyright (c) 2018 Joseph Curtin
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+Description: # Invoice Generator using Toggl.com API
+        
+        A script that will generate a PDF from Toggl.com API. Easy to automate from CRON or use from
+        26 the Command Line Interface. Following Flask App Factory Pattern and 12 Factor App best practices. All configuration
+        can be accomplished through Environment Variables.
+        
+        Having a script to automate generation of bills helps reduce time and imporve
+        efficiency in communication. Using this tool, you'll be able to send bills once
+        a month without much thought as long as you continue to enter your hours
+        diligently throughout the month.
+        
+        ## Quickstart
+        
+        ```
+        pip install toggl-api-bill-generator
+        toggl-bill-gen -g
+        source dev.sh
+        toggl-bill-gen -o month
+        ```
+        
+        ## Functionality Breakdown
+        
+        | Logical Type | ENVVar Names|
+        | --- | --- |
+        | Service Provider| SERVICE_PROVIDER, SERVICE_PROVIDER_EMAIL, SERVICE_PROVIDER_PHONE, SERVICE_PROVIDER_ADDRESS, SERVICE_PROVIDER_ADDRESS_TWO, SERVICE_PROVIDER_CITY, SERVICE_PROVIDER_STATE, SERVICE_PROVIDER_POSTAL|
+        | Recipient| RECIPIENT, RECIPIENT_EMAIL, RECIPIENT_PHONE, RECIPIENT_ADDRESS, RECIPIENT_ADDRESS_TWO, RECIPIENT_CITY, RECIPIENT_STATE, RECIPIENT_POSTAL|
+        | Misc| FULFILLMENT_DELAY, INVOICE_NUMBER |
+        
+Platform: any
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Environment :: Console
+Classifier: Environment :: Other Environment
+Classifier: Framework :: AsyncIO
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Microsoft
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Utilities
+Requires-Python: >=3.5
