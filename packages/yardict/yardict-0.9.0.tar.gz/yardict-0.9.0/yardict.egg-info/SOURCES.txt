@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+rdict/__init__.py
+rdict/meldict.py
+rdict/rangedict.py
+yardict.egg-info/PKG-INFO
+yardict.egg-info/SOURCES.txt
+yardict.egg-info/dependency_links.txt
+yardict.egg-info/requires.txt
+yardict.egg-info/top_level.txt
