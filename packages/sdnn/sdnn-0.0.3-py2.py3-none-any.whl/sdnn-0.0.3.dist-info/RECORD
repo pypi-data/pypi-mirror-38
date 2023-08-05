@@ -1,0 +1,16 @@
+sdnn/__init__.py,sha256=ghtuStcb0wduIphdc490ZFT3BlMG5s25n2iwbrpQesg,105
+sdnn/__version__.py,sha256=gACZc_Wul4QWG4RV0TpBmex_MGfqC40WtSus7P9kvis,62
+sdnn/activation.py,sha256=wKkTk_uijVtHFyaMZJIy9m5kI6TM2_JURVw5WOOh2fQ,1017
+sdnn/data_generator.py,sha256=ZXJYaL7w1QnNNN1pUaKJFsEIpzwsYjFxvTprdBFPKEk,1002
+sdnn/layers.py,sha256=OzAQCUt-nD1dY1euD84qVnpWk-FfAtyPLi-onrGZE2Q,3950
+sdnn/logger.py,sha256=mo4g7LepnvQt-fvVgMJeXzyE6zvdqJJJPG6o3U0n1yI,947
+sdnn/model.py,sha256=JnyxrBqqRIdpvR8GevNODDRt2VrRXoxYpeKYAxvD3qc,5240
+sdnn/perceptron.py,sha256=_n3NRPY_Ql1nVBPaUTC6b9vadOzit_cDVK-2BISedKo,2689
+sdnn/ready.py,sha256=cj7WHg8mjlclTrGQE4HIsPgT1_2LqvX_K-nFt5lEbEc,2347
+sdnn/schemas.py,sha256=0c3kpvCS23jY6yErLWo5YNCkf-FVo-we7TVxnk0gE4k,119
+sdnn/utils.py,sha256=Jg7ET-52N7sz3UAei1tbcn65se5VSSDNqCuHH2-aaWA,3678
+sdnn-0.0.3.dist-info/LICENSE,sha256=kI0KW_f9IONRQzt3pi1s4C6vayKPQDpRRRmx5zxEwJE,1072
+sdnn-0.0.3.dist-info/METADATA,sha256=0XO-IfqBUiTU0QloPO5MOjkj9oOed3fJDl7mVaa1H9w,598
+sdnn-0.0.3.dist-info/WHEEL,sha256=CihQvCnsGZQBGAHLEUMf0IdA4fRduS_NBUTMgCTtvPM,110
+sdnn-0.0.3.dist-info/top_level.txt,sha256=6RTrueHEm9ePxDqCgKf_7CPZ5MVob2sIOR8R3-UMEjM,5
+sdnn-0.0.3.dist-info/RECORD,,
