@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+spookify/__init__.py
+spookify/__main__.py
+spookify.egg-info/PKG-INFO
+spookify.egg-info/SOURCES.txt
+spookify.egg-info/dependency_links.txt
+spookify.egg-info/not-zip-safe
+spookify.egg-info/requires.txt
+spookify.egg-info/top_level.txt
+spookify/wordlists/festive.json
+spookify/wordlists/spooky.json
