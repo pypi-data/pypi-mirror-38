@@ -1,0 +1,11 @@
+Cython
+base58>=1.0.0
+gevent
+mnemonic>=0.18
+pbkdf2>=1.3
+recordclass>=0.5
+python-rocksdb>=0.6.9
+dnspython>=1.15.0
+PyYAML>=3.13
+appdirs>=1.4.3
+orderedset>=2.0.1
