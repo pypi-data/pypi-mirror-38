@@ -1,0 +1,13 @@
+MANIFEST.in
+README.md
+setup.py
+jackknife/__init__.py
+jackknife/jk_loop.py
+jackknife/jk_print.py
+jackknife/jk_stats.py
+jackknife.egg-info/PKG-INFO
+jackknife.egg-info/SOURCES.txt
+jackknife.egg-info/dependency_links.txt
+jackknife.egg-info/not-zip-safe
+jackknife.egg-info/requires.txt
+jackknife.egg-info/top_level.txt
