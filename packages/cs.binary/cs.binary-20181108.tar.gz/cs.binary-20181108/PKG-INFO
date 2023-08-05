@@ -1,0 +1,275 @@
+Metadata-Version: 2.1
+Name: cs.binary
+Version: 20181108
+Summary: Facilities associated with binary data parsing and transcription.
+Home-page: https://bitbucket.org/cameron_simpson/css/commits/all
+Author: Cameron Simpson
+Author-email: cs@cskk.id.au
+License: UNKNOWN
+Description: Facilities associated with binary data parsing and transcription.
+        
+        Note: this module requires Python 3 and recommends Python 3.6+
+        because it uses abc.ABC, because a Python 2 bytes object is too
+        weak (just a str) as also is my cs.py3.bytes hack class and
+        because the keyword based Packet initiialisation benefits from
+        keyword argument ordering.
+        
+        In the description below I use the word "chunk" to mean a piece
+        of binary data obeying the buffer protocol, almost always a
+        `bytes` instance or a `memoryview`, but in principle also things
+        like `bytearray`.
+        
+        The classes in this module support easy parsing of binary data
+        structures.
+        
+        The functions and classes in this module include:
+        * `PacketField`: an abstract class for a binary field, with a
+          factory method to parse it, a transcription method to transcribe
+          it back out in binary form and usually a `.value` attribute
+          holding the parsed value.
+        * several presupplied subclasses for common basic types such
+          as `UInt32BE` (an unsigned 32 bit big endian integer).
+        * `struct_field`: a factory for making PacketField classes for
+          `struct` formats with a single value field.
+        * `multi_struct_field` and `structtuple`: factories for making
+          `PacketField`s from `struct` formats with multiple value
+          fields;
+          `structtuple` makes `PacketFields` which are also `namedtuple`s,
+          supporting trivial access to the parsed values.
+        * `Packet`: a `PacketField` subclass for parsing multiple
+          `PacketFields` into a larger structure with ordered named
+          fields.
+        
+        You don't need to make fields only from binary data; because
+        `PacketField.__init__` takes a post parse value, you can also
+        construct `PacketField`s from scratch with their values and
+        transcribe the resulting binary form.
+        
+        Each `PacketField` subclass has the following methods:
+        * `transcribe`: easily return the binary transcription of this field,
+          either directly as a chunk (or for convenience, also None or
+          an ASCII str) or by yielding successive binary data.
+        * `from_buffer`: a factory to parse this field from a
+          `cs.buffer.CornuCopyBuffer`.
+        * `from_bytes`: a factory to parse this field from a chunk with
+          an optional starting offset; this is a convenience wrapper for
+          `from_buffer`.
+        
+        That may sound a little arcane, but we also supply:
+        * `flatten`: a recursive function to take the return from any
+          `transcribe` method and yield chunks, so copying a packet to
+          a file or elsewhere can always be done by iterating over
+          `flatten(field.transcribe())` or via the convenience
+          `field.transcribe_flat()` method which calls `flatten` itself.
+        * a `CornuCopyBuffer` is an easy to use wrapper for parsing any
+          iterable of chunks, which may come from almost any source.
+          It has a bunch of convenient factories including:
+          `from_bytes`, make a buffer from a chunk;
+          `from_fd`, make a buffer from a file descriptor;
+          `from_file`, make a buffer from a file-like object;
+          `from_mmap`, make a buffer from a file descriptor using a
+          memory map (the `mmap` module) of the file, so that chunks
+          can use the file itself as backing store instead of allocating
+          and copying memory.
+          See the `cs.buffer` module for further detail.
+        
+        Cameron Simpson <cs@cskk.id.au> 22jul2018
+        
+        ## Class `BSData`
+        
+        MRO: `PacketField`, `abc.ABC`  
+        A run length encoded data chunk, with the length encoded as a BSUInt.
+        
+        ## Class `BSString`
+        
+        MRO: `PacketField`, `abc.ABC`  
+        A run length encoded string, with the length encoded as a BSUInt.
+        
+        ## Class `BSUInt`
+        
+        MRO: `PacketField`, `abc.ABC`  
+        A binary serialsed unsigned int.
+        
+        This uses a big endian byte encoding where continuation octets
+        have their high bit set. The bits contributing to the value
+        are in the low order 7 bits.
+        
+        ## Class `BytesesField`
+        
+        MRO: `PacketField`, `abc.ABC`  
+        A field containing a list of bytes chunks.
+        
+        The following attributes are defined:
+        * `value`: the gathered data as a list of bytes instances,
+          or None if the field was gathered with `discard_data` true.
+        * `offset`: the starting offset of the data.
+        * `end_offset`: the ending offset of the data.
+        
+        The `offset` and `end_offset` values are recorded during the
+        parse, and may become irrelevant if the field's contents are
+        changed.
+        
+        ## Class `BytesField`
+        
+        MRO: `PacketField`, `abc.ABC`  
+        A field of bytes.
+        
+        ## Class `BytesRunField`
+        
+        MRO: `PacketField`, `abc.ABC`  
+        A field containing a continuous run of a single bytes value.
+        
+        The following attributes are defined:
+        * `length`: the length of the run
+        * `bytes_value`: the repeated bytes value
+        
+        The property `value` is computed on the fly on every reference
+        and returns a value obeying the buffer protocol: a bytes or
+        memoryview object.
+        
+        ## Class `EmptyPacketField`
+        
+        MRO: `PacketField`, `abc.ABC`  
+        An empty data field, used as a placeholder for optional
+        fields when they are not present.
+        
+        The singleton `EmptyField` is a predefined instance.
+        
+        ## Function `fixed_bytes_field(length, class_name=None)`
+        
+        Factory for BytesField subclasses built from fixed length byte strings.
+        
+        ## Function `flatten(chunks)`
+        
+        Flatten `chunks` into an iterable of bytes instances.
+        
+        This exists to allow subclass methods to easily return ASCII
+        strings or bytes or iterables or even None, in turn allowing
+        them to simply return their superclass' chunks iterators
+        directly instead of having to unpack them.
+        
+        ## Class `Int16BE`
+        
+        MRO: `PacketField`, `abc.ABC`  
+        A PacketField which parses and transcribes the struct format `'>h'`.
+        
+        ## Class `Int16LE`
+        
+        MRO: `PacketField`, `abc.ABC`  
+        A PacketField which parses and transcribes the struct format `'<h'`.
+        
+        ## Class `Int32BE`
+        
+        MRO: `PacketField`, `abc.ABC`  
+        A PacketField which parses and transcribes the struct format `'>l'`.
+        
+        ## Class `Int32LE`
+        
+        MRO: `PacketField`, `abc.ABC`  
+        A PacketField which parses and transcribes the struct format `'<l'`.
+        
+        ## Class `ListField`
+        
+        MRO: `PacketField`, `abc.ABC`  
+        A field which is a list of other fields.
+        
+        ## Function `multi_struct_field(struct_format, subvalue_names=None, class_name=None)`
+        
+        Factory for PacketField subclasses build around complex struct formats.
+        
+        Parameters:
+        * `struct_format`: the struct format string
+        * `subvalue_names`: an optional namedtuple field name list;
+          if supplied then the field value will be a namedtuple with
+          these names
+        * `class_name`: option name for the generated class
+        
+        ## Class `Packet`
+        
+        MRO: `PacketField`, `abc.ABC`  
+        Base class for compound objects derived from binary data.
+        
+        ## Class `PacketField`
+        
+        MRO: `abc.ABC`  
+        A record for an individual packet field.
+        
+        ## Function `struct_field(struct_format, class_name)`
+        
+        Factory for PacketField subclasses built around a single struct format.
+        
+        Parameters:
+        * `struct_format`: the struct format string, specifying a
+          single struct field
+        * `class_name`: the class name for the generated class
+        
+        Example:
+        
+            >>> UInt16BE = struct_field('>H', class_name='UInt16BE')
+            >>> UInt16BE.__name__
+            'UInt16BE'
+            >>> UInt16BE.format
+            '>H'
+            >>> UInt16BE.struct   #doctest: +ELLIPSIS
+            <Struct object at ...>
+            >>> field, offset = UInt16BE.from_bytes(bytes((2,3,4)))
+            >>> field
+            UInt16BE(515)
+            >>> offset
+            2
+            >>> field.value
+            515
+        
+        ## Function `structtuple(class_name, struct_format, subvalue_names)`
+        
+        Convenience wrapper for multi_struct_field.
+        
+        ## Class `UInt16BE`
+        
+        MRO: `PacketField`, `abc.ABC`  
+        A PacketField which parses and transcribes the struct format `'>H'`.
+        
+        ## Class `UInt16LE`
+        
+        MRO: `PacketField`, `abc.ABC`  
+        A PacketField which parses and transcribes the struct format `'<H'`.
+        
+        ## Class `UInt32BE`
+        
+        MRO: `PacketField`, `abc.ABC`  
+        A PacketField which parses and transcribes the struct format `'>L'`.
+        
+        ## Class `UInt32LE`
+        
+        MRO: `PacketField`, `abc.ABC`  
+        A PacketField which parses and transcribes the struct format `'<L'`.
+        
+        ## Class `UInt64BE`
+        
+        MRO: `PacketField`, `abc.ABC`  
+        A PacketField which parses and transcribes the struct format `'>Q'`.
+        
+        ## Class `UInt64LE`
+        
+        MRO: `PacketField`, `abc.ABC`  
+        A PacketField which parses and transcribes the struct format `'<Q'`.
+        
+        ## Class `UInt8`
+        
+        MRO: `PacketField`, `abc.ABC`  
+        A PacketField which parses and transcribes the struct format `'B'`.
+        
+        ## Class `UTF8NULField`
+        
+        MRO: `PacketField`, `abc.ABC`  
+        A NUL terminated UTF-8 string.
+Keywords: python3
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Programming Language :: Python :: 3
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Description-Content-Type: text/markdown
