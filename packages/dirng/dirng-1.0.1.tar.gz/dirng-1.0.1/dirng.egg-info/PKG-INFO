@@ -1,0 +1,15 @@
+Metadata-Version: 1.1
+Name: dirng
+Version: 1.0.1
+Summary: Designing quantum-secure randomness expansion protocols
+Home-page: https://github.com/peterjbrown519/dirng
+Author: Peter J. Brown
+Author-email: pjb519@york.ac.uk
+License: GNU
+Description: For details see the github repo github.com/peterjbrown519/dirng.
+        v1.0.1: Bug fix for Windows users.
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering :: Physics
