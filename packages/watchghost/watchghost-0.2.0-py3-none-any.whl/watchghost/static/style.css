@@ -1,0 +1,46 @@
+body {
+  margin: 2em;
+}
+
+a {
+  color: inherit;
+}
+
+h1 {
+  width: 100%;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+article {
+  flex-grow: 1;
+  min-width: 12em;
+  margin: 2em;
+}
+
+/* Statuses */
+
+.status-unknown {
+  color: blue;
+}
+
+.status-info {
+  color: green;
+}
+
+.status-warning {
+  color: orange;
+}
+
+.status-error {
+  color: red;
+}
+
+.status-critical {
+  background: red;
+  color: white;
+}
