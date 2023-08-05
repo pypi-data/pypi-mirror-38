@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: backend.ai-accelerator-cuda
+Version: 0.9.1
+Summary: Backend.AI Accelerator Plugin for CUDA
+Home-page: https://backend.ai
+Author: Lablup Inc.
+Author-email: joongi@lablup.com
+License: LGPLv3
+Project-URL: Documentation, https://docs.backend.ai
+Description: Backend.AI Accelerator Plugin for CUDA
+        ======================================
+        
+        Just install this along with Backend.AI agents, using the same virtual environment.
+        This will allow the agents to detect CUDA devices on their hosts and make them
+        available to Backend.AI kernel sessions.
+        
+        ```console
+        $ pip install backend.ai-accelerator-cuda
+        ```
+        
+        **NOTICE:** The accelerator plugin API is currently under development and may change
+        with the Backend.AI agents without prior notices.  This means this plugin may stop
+        working suddenly and it is your responsibility to keep it up to date.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Environment :: No Input/Output (Daemon)
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Software Development
+Requires-Python: >=3.6,<3.7
+Description-Content-Type: text/markdown
+Provides-Extra: test
+Provides-Extra: build
+Provides-Extra: ci
+Provides-Extra: dev
