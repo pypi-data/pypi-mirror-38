@@ -1,0 +1,5 @@
+pendulum
+earthengine-api
+marshmallow>=3.0.0b12
+marshmallow-oneofschema>=2.0.0b1
+py-stac
