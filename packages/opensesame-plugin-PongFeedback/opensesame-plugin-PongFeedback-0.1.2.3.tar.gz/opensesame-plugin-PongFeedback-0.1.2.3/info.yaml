@@ -1,0 +1,82 @@
+description: pong feedback plug-in.
+version: 0.1
+author: "M.M.Span"
+url: "http://osdoc.cogsci.nl/"
+category: "Visual stimuli"
+date: "2018"
+controls:
+- 
+    type: "checkbox"
+    var: "have_feedback"
+    label: "Use Feedback"
+    tooltip: "Indicates whether you want to use Feedback in this trial"
+-
+    type: "line_edit"
+    var: "_fromFeedback"
+    label: "Feedback coming from"
+    min_val: 0
+    max_val: 11
+    prefix: ""
+    suffix: ""
+    tooltip: ""
+-
+    type: "line_edit"
+    var: "_toFeedback"
+    label: "Feedback going to"
+    min_val: 0
+    max_val: 11
+    prefix: ""
+    suffix: ""
+    tooltip: ""
+-
+    type: "color_edit"
+    var: "_backcolor"
+    label: "Background Color"
+    name: "bgcolor_widget"
+    tooltip: "what color does the background have"
+-
+    type: "color_edit"
+    var: "_Feedbackcolor"
+    label: "Feedback Color"
+    name: "fbcolor_widget"
+    tooltip: "what color does the feedback have"
+-
+    type: "line_edit"
+    var: "_FeedbackDelay"
+    label: "Delay of the feedback"
+    min_val: 1
+    max_val: 10000
+    name: "fbdelay_widget"
+    prefix: ""
+    suffix: "%"
+    tooltip: "Delay"
+-
+    type: "line_edit"
+    var: "_FeedbackcolorDuration"
+    label: "Duration of the feedback"
+    min_val: 1
+    max_val: 10000
+    name: "fbcoldur_widget"
+    prefix: ""
+    suffix: "%"
+    tooltip: "Duration"
+-
+    type: "line_edit"
+    var: "_FromFeedbackDuration"
+    label: "Duration of the number /'from/' feedback"
+    min_val: 1
+    max_val: 10000
+    name: "ffbdur_widget"
+    prefix: ""
+    suffix: "%"
+    tooltip: "from Duration"
+-
+    type: "line_edit"
+    var: "_ToFeedbackDuration"
+    label: "Duration of the number /'to/' feedback"
+    min_val: 1
+    max_val: 10000
+    name: "tfbdur_widget"
+    prefix: ""
+    suffix: "%"
+    tooltip: "to Duration"
