@@ -1,0 +1,4 @@
+pytest
+pytest-polarion-collect
+dump2polarion>=0.27
+six

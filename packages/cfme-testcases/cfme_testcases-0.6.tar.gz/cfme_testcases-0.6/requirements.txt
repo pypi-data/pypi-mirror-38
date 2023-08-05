@@ -1,0 +1,5 @@
+dump2polarion
+pre-commit
+pytest
+pytest-polarion-collect
+six
