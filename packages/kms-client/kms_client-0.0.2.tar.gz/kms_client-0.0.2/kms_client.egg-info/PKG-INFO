@@ -1,0 +1,13 @@
+Metadata-Version: 1.1
+Name: kms-client
+Version: 0.0.2
+Summary: A python implementation to get keys from KMS
+Home-page: https://github.com/balassit/kms_client
+Author: Blake Lassiter
+Author-email: blakelass@gmail.com
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
