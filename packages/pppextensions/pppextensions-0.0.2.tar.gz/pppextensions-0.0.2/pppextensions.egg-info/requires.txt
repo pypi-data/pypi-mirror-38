@@ -1,0 +1,7 @@
+ipython>=1.0
+requests
+Gitpython
+nbdime
+
+[dev]
+pycodestyle
