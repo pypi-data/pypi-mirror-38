@@ -1,0 +1,3 @@
+[console_scripts]
+eetv = eetv.cli:main
+
