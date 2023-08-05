@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: click-skeleton
+Version: 0.1.1
+Summary: Click app skeleton
+Home-page: UNKNOWN
+License: UNKNOWN
+Author: Adrien Pensart
+Requires-Python: >=3.7,<3.8
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: attrdict (>=2.0,<3.0)
+Requires-Dist: click (>=7.0,<8.0)
+Requires-Dist: coloredlogs (>=10.0,<11.0)
+Requires-Dist: uvloop (>=0.11.3,<0.12.0)
