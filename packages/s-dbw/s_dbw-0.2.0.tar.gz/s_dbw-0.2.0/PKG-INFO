@@ -1,0 +1,66 @@
+Metadata-Version: 2.1
+Name: s_dbw
+Version: 0.2.0
+Summary: Compute the S_Dbw validity index
+Home-page: https://github.com/alashkov83/S_Dbw
+Author: Alexander Lashkov, Sergey Rubinsky, Polina Eistrikh-Heller
+Author-email: alashkov83@gmail.com
+Maintainer: Alexander Lashkov
+License: MIT License
+Description: # S_Dbw
+        Compute the S_Dbw validity index  
+        S_Dbw validity index is defined by equation:  
+        ```S_Dbw = scatt + dens```  
+        where scatt - means average scattering for clusters and dens - inter-cluster density.  
+        Lower value -> better clustering.  
+        
+        Parameters
+        ----------
+        X : array-like, shape (``n_samples``, ``n_features``)  
+            List of ``n_features``-dimensional data points. Each row corresponds
+            to a single data point.  
+        labels : array-like, shape (``n_samples``,)  
+            Predicted labels for each sample (-1 - for noise).  
+        centers_id : array-like, shape (``n_samples``,)  
+            The center_id of each cluster's center. If None - cluster's center calculate automatically.  
+        alg_noise : str,  
+            Algorithm for recording noise points.  
+            'comb' - combining all noise points into one cluster (default)  
+            'sep' - definition of each noise point as a separate cluster  
+            'bind' -  binding of each noise point to the cluster nearest from it  
+            'filter' - filtering noise points
+        metric : str,  
+            The distance metric, can be ‘braycurtis’, ‘canberra’, ‘chebyshev’, ‘cityblock’, ‘correlation’,
+            ‘cosine’, ‘dice’, ‘euclidean’, ‘hamming’, ‘jaccard’, ‘kulsinski’, ‘mahalanobis’, ‘matching’, ‘minkowski’,
+            ‘rogerstanimoto’, ‘russellrao’, ‘seuclidean’, ‘sokalmichener’, ‘sokalsneath’, ‘sqeuclidean’, ‘wminkowski’,
+            ‘yule’. Default is ‘euclidean’.  
+        
+        Returns
+        -------
+        score : float  
+            The resulting S_DBw score.  
+        
+        References:
+        -----------
+        [1] Clustering Validity Assessment: Finding the optimal partitioning of a data set  
+            <https://pdfs.semanticscholar.org/dc44/df745fbf5794066557e52074d127b31248b2.pdf>  
+        [2] Understanding of Internal Clustering Validation Measures  
+            <http://datamining.rutgers.edu/publication/internalmeasures.pdf>
+        
+Keywords: clustering,cluster analysis,cluster validation
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development
+Classifier: Topic :: Scientific/Engineering
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Requires-Python: >=2.7
+Description-Content-Type: text/markdown
