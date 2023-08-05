@@ -1,0 +1,581 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-11-02 18:07+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../gtimelog.desktop.in.h:1 ../main.py:346 ../main.py:1287
+#: ../about.ui.h:1 ../gtimelog.ui.h:10
+msgid "Time Log"
+msgstr ""
+
+#: ../../../gtimelog.desktop.in.h:2
+msgid "Track and time daily activities"
+msgstr ""
+
+#: ../main.py:126
+#, python-brace-format
+msgid "{0} h {1} min"
+msgstr ""
+
+#: ../main.py:268
+#, python-format
+msgid ""
+"Authentication is required for \"%s\"\n"
+"You need a username and a password to access %s"
+msgstr ""
+
+#: ../main.py:349
+msgid "Show version number and exit"
+msgstr ""
+
+#: ../main.py:350
+msgid "Show debug information on the console"
+msgstr ""
+
+#: ../main.py:356
+msgid ""
+"\n"
+"WARNING: GSettings schema for org.gtimelog is missing!  If you're running "
+"from a source checkout, be sure to run 'make'."
+msgstr ""
+
+#: ../main.py:364
+#, python-brace-format
+msgid "Could not create {directory}: {error}"
+msgstr ""
+
+#: ../main.py:366
+#, python-brace-format
+msgid "Created {directory}"
+msgstr ""
+
+#: ../main.py:370
+msgid "GTimeLog version: {}"
+msgstr ""
+
+#: ../main.py:371
+msgid "Python version: {}"
+msgstr ""
+
+#: ../main.py:372
+msgid "GTK+ version: {}.{}.{}"
+msgstr ""
+
+#: ../main.py:373
+msgid "PyGI version: {}"
+msgstr ""
+
+#: ../main.py:374
+msgid "Data directory: {}"
+msgstr ""
+
+#: ../main.py:375
+msgid "Legacy config directory: {}"
+msgstr ""
+
+#: ../main.py:379
+msgid "Settings will be migrated to GSettings (org.gtimelog) on first launch"
+msgstr ""
+
+#: ../main.py:381
+msgid "Settings already migrated to GSettings (org.gtimelog)"
+msgstr ""
+
+#: ../main.py:888
+#, python-brace-format
+msgid "Settings from {filename} migrated to GSettings (org.gtimelog)"
+msgstr ""
+
+#: ../main.py:936
+msgid "Report already sent"
+msgstr ""
+
+#: ../main.py:942
+msgid "Report already sent (to {})"
+msgstr ""
+
+#: ../main.py:969
+msgid "Downloading tasks..."
+msgstr ""
+
+#: ../main.py:985
+msgid "Download failed."
+msgstr ""
+
+#: ../main.py:1133
+msgid "{0:%A, %Y-%m-%d} (week {1:0>2})"
+msgstr ""
+
+#: ../main.py:1139
+msgid "{0}, week {1} ({2:%B %-d}-{3:%-d})"
+msgstr ""
+
+#: ../main.py:1142
+msgid "{0:%B %Y}"
+msgstr ""
+
+#: ../main.py:1213
+msgid "Report"
+msgstr ""
+
+#: ../main.py:1236
+msgid "Couldn't send email to {}."
+msgstr ""
+
+#: ../main.py:1257
+#, python-format
+msgid "Couldn't execute %s: %s"
+msgstr ""
+
+#: ../main.py:1261
+#, python-format
+msgid "Couldn't send email: %s returned code %d"
+msgstr ""
+
+#: ../main.py:1271
+msgid "Couldn't append to {}: {}"
+msgstr ""
+
+#: ../main.py:1354
+msgid "%H:%M"
+msgstr ""
+
+#: ../main.py:1602
+msgid "{0:%A, %Y-%m-%d}\n"
+msgstr ""
+
+#: ../main.py:1635
+#, python-brace-format
+msgid "Total for {0}: {1} ({2} per day)"
+msgstr ""
+
+#: ../main.py:1642
+#, python-brace-format
+msgid "Total for {0}: {1} ({2} this week)"
+msgstr ""
+
+#: ../main.py:1676
+msgid "({0:%H:%M}-{1:%H:%M})"
+msgstr ""
+
+#: ../main.py:1742
+#, python-brace-format
+msgid "Total work done: {0} ({1} this week, {2} per day)"
+msgstr ""
+
+#: ../main.py:1743
+#, python-brace-format
+msgid "Total work done: {0} ({1} this week)"
+msgstr ""
+
+#: ../main.py:1745
+#, python-brace-format
+msgid "Total work done this week: {0} ({1} per day)"
+msgstr ""
+
+#: ../main.py:1746
+#, python-brace-format
+msgid "Total work done this week: {0}"
+msgstr ""
+
+#: ../main.py:1748
+#, python-brace-format
+msgid "Total work done this month: {0} ({1} per day)"
+msgstr ""
+
+#: ../main.py:1749
+#, python-brace-format
+msgid "Total work done this month: {0}"
+msgstr ""
+
+#: ../main.py:1768
+#, python-brace-format
+msgid "Total slacking: {0} ({1} this week, {2} per day)"
+msgstr ""
+
+#: ../main.py:1769
+#, python-brace-format
+msgid "Total slacking: {0} ({1} this week)"
+msgstr ""
+
+#: ../main.py:1771
+#, python-brace-format
+msgid "Total slacking this week: {0} ({1} per day)"
+msgstr ""
+
+#: ../main.py:1772
+#, python-brace-format
+msgid "Total slacking this week: {0}"
+msgstr ""
+
+#: ../main.py:1774
+#, python-brace-format
+msgid "Total slacking this month: {0} ({1} per day)"
+msgstr ""
+
+#: ../main.py:1775
+#, python-brace-format
+msgid "Total slacking this month: {0}"
+msgstr ""
+
+#: ../main.py:1799
+msgid "Time left at work: {0} (should've finished at {1:%H:%M})"
+msgstr ""
+
+#: ../main.py:1802
+msgid "Time left at work: {0} (till {1:%H:%M})"
+msgstr ""
+
+#: ../main.py:1816
+#, python-brace-format
+msgid "At office today: {0} ({1} overtime)"
+msgstr ""
+
+#: ../main.py:1822
+#, python-brace-format
+msgid "At office today: {0} ({1} left)"
+msgstr ""
+
+#: ../main.py:1983
+msgid "Tasks"
+msgstr ""
+
+#: ../main.py:1998
+msgid "Other"
+msgstr ""
+
+#: ../main.py:2020 ../menus.ui.h:1
+msgid "Preferences"
+msgstr ""
+
+#: ../main.py:2024
+msgid "Close"
+msgstr ""
+
+#. pragma: nocover
+#. https://github.com/gtimelog/gtimelog/issues/95#issuecomment-252299266
+#: ../main.py:2100
+msgid "Unable to configure translations: no locale.bindtextdomain()"
+msgstr ""
+
+#: ../about.ui.h:2
+msgid "Copyright © 2004–2018 Marius Gedminas and contributors."
+msgstr ""
+
+#: ../about.ui.h:3
+msgid "A time tracking application"
+msgstr ""
+
+#: ../gtimelog.ui.h:1
+msgid "Add"
+msgstr ""
+
+#: ../gtimelog.ui.h:2
+msgid "Daily"
+msgstr ""
+
+#: ../gtimelog.ui.h:3
+msgid "Weekly"
+msgstr ""
+
+#: ../gtimelog.ui.h:4
+msgid "Monthly"
+msgstr ""
+
+#: ../gtimelog.ui.h:5
+msgid "Sender"
+msgstr ""
+
+#: ../gtimelog.ui.h:6 ../preferences.ui.h:13
+msgid "Your Name <youremail@example.com>"
+msgstr ""
+
+#: ../gtimelog.ui.h:7
+msgid "Recipient"
+msgstr ""
+
+#: ../gtimelog.ui.h:8 ../preferences.ui.h:12
+msgid "email@example.com"
+msgstr ""
+
+#: ../gtimelog.ui.h:9
+msgid "Subject"
+msgstr ""
+
+#: ../gtimelog.ui.h:11
+msgid "Cancel"
+msgstr ""
+
+#: ../gtimelog.ui.h:12
+msgid "Send"
+msgstr ""
+
+#: ../preferences.ui.h:1
+msgid "Data entry"
+msgstr ""
+
+#: ../preferences.ui.h:2
+msgid "Virtual midnight"
+msgstr ""
+
+#: ../preferences.ui.h:3
+msgid "Goals"
+msgstr ""
+
+#: ../preferences.ui.h:4
+msgid "Work hours"
+msgstr ""
+
+#: ../preferences.ui.h:5
+msgid "Office hours"
+msgstr ""
+
+#: ../preferences.ui.h:6
+msgid "per day"
+msgstr ""
+
+#: ../preferences.ui.h:7
+msgid "(including lunch break)"
+msgstr ""
+
+#: ../preferences.ui.h:8
+msgid "Reports by email"
+msgstr ""
+
+#: ../preferences.ui.h:9
+msgid "Name"
+msgstr ""
+
+#: ../preferences.ui.h:10
+msgid "From"
+msgstr ""
+
+#: ../preferences.ui.h:11
+msgid "To"
+msgstr ""
+
+#: ../preferences.ui.h:14
+msgid "Nickname used in the Subject line"
+msgstr ""
+
+#: ../menus.ui.h:2
+msgid "Keyboard Shortcuts"
+msgstr ""
+
+#: ../menus.ui.h:3
+msgid "About"
+msgstr ""
+
+#: ../menus.ui.h:4
+msgid "Quit"
+msgstr ""
+
+#: ../menus.ui.h:5
+msgid "Edit log"
+msgstr ""
+
+#: ../menus.ui.h:6
+msgid "Edit tasks"
+msgstr ""
+
+#: ../menus.ui.h:7
+msgid "Refresh tasks"
+msgstr ""
+
+#: ../menus.ui.h:8
+msgid "Report..."
+msgstr ""
+
+#: ../menus.ui.h:9
+msgid "About Time Log"
+msgstr ""
+
+#: ../menus.ui.h:10
+msgid "Detail level"
+msgstr ""
+
+#: ../menus.ui.h:11
+msgid "Chronological"
+msgstr ""
+
+#: ../menus.ui.h:12
+msgid "Grouped"
+msgstr ""
+
+#: ../menus.ui.h:13
+msgid "Summary"
+msgstr ""
+
+#: ../menus.ui.h:14
+msgid "Time range"
+msgstr ""
+
+#: ../menus.ui.h:15
+msgid "Day"
+msgstr ""
+
+#: ../menus.ui.h:16
+msgid "Week"
+msgstr ""
+
+#: ../menus.ui.h:17
+msgid "Month"
+msgstr ""
+
+#: ../menus.ui.h:18
+msgid "Filter"
+msgstr ""
+
+#: ../shortcuts.ui.h:1
+msgctxt "shortcuts window"
+msgid "Entry"
+msgstr ""
+
+#: ../shortcuts.ui.h:2
+msgctxt "shortcut window"
+msgid "Detail level"
+msgstr ""
+
+#: ../shortcuts.ui.h:3
+msgctxt "shortcut window"
+msgid "Full chronological list"
+msgstr ""
+
+#: ../shortcuts.ui.h:4
+msgctxt "shortcut window"
+msgid "Group by description"
+msgstr ""
+
+#: ../shortcuts.ui.h:5
+msgctxt "shortcut window"
+msgid "Group by category"
+msgstr ""
+
+#: ../shortcuts.ui.h:6
+msgctxt "shortcut window"
+msgid "Time range"
+msgstr ""
+
+#: ../shortcuts.ui.h:7
+msgctxt "shortcut window"
+msgid "Day view"
+msgstr ""
+
+#: ../shortcuts.ui.h:8
+msgctxt "shortcut window"
+msgid "Week view"
+msgstr ""
+
+#: ../shortcuts.ui.h:9
+msgctxt "shortcut window"
+msgid "Month view"
+msgstr ""
+
+#: ../shortcuts.ui.h:10
+msgctxt "shortcut window"
+msgid "Time navigation"
+msgstr ""
+
+#: ../shortcuts.ui.h:11
+msgctxt "shortcut window"
+msgid "Go back in time"
+msgstr ""
+
+#: ../shortcuts.ui.h:12
+msgctxt "shortcut window"
+msgid "Go forward in time"
+msgstr ""
+
+#: ../shortcuts.ui.h:13
+msgctxt "shortcut window"
+msgid "Go back to today"
+msgstr ""
+
+#: ../shortcuts.ui.h:14
+msgctxt "shortcut window"
+msgid "General"
+msgstr ""
+
+#: ../shortcuts.ui.h:15
+msgctxt "shortcut window"
+msgid "Menu"
+msgstr ""
+
+#: ../shortcuts.ui.h:16
+msgctxt "shortcut window"
+msgid "Keyboard shortcuts"
+msgstr ""
+
+#: ../shortcuts.ui.h:17
+msgctxt "shortcut window"
+msgid "Toggle search bar"
+msgstr ""
+
+#: ../shortcuts.ui.h:18
+msgctxt "shortcut window"
+msgid "Edit task log"
+msgstr ""
+
+#: ../shortcuts.ui.h:19
+msgctxt "shortcut window"
+msgid "Preferences"
+msgstr ""
+
+#: ../shortcuts.ui.h:20
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr ""
+
+#: ../shortcuts.ui.h:21
+msgctxt "shortcut window"
+msgid "Task pane"
+msgstr ""
+
+#: ../shortcuts.ui.h:22
+msgctxt "shortcut window"
+msgid "Toggle task pane"
+msgstr ""
+
+#: ../shortcuts.ui.h:23
+msgctxt "shortcut window"
+msgid "Edit task list"
+msgstr ""
+
+#: ../shortcuts.ui.h:24
+msgctxt "shortcuts window"
+msgid "Reports"
+msgstr ""
+
+#: ../shortcuts.ui.h:25
+msgctxt "shortcut window"
+msgid "Reporting"
+msgstr ""
+
+#: ../shortcuts.ui.h:26
+msgctxt "shortcut window"
+msgid "Switch to report mode"
+msgstr ""
+
+#: ../shortcuts.ui.h:27
+msgctxt "shortcut window"
+msgid "Send report via email"
+msgstr ""
+
+#: ../shortcuts.ui.h:28
+msgctxt "shortcut window"
+msgid "Return to task entry mode"
+msgstr ""
