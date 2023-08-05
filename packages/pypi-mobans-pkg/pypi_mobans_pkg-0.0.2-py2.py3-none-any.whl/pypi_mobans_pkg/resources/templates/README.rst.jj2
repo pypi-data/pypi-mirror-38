@@ -1,0 +1,24 @@
+================================================================================
+{{name}}{% if full_name %} - {{full_name}}
+{%else%}
+
+{%endif%}
+================================================================================
+
+{% include 'badges.rst.jj2' %}
+
+{%block documentation_link%}
+.. image:: https://readthedocs.org/projects/{{name|lower}}/badge/?version=latest
+   :target: http://{{name|lower}}.readthedocs.org/en/latest/
+{%endblock%}
+
+{% block features %}
+{% endblock %}
+
+Installation
+================================================================================
+
+{% include "installation.rst.jj2" %}
+
+{%block bottom_block%}
+{%endblock%}

@@ -1,0 +1,70 @@
+Metadata-Version: 2.1
+Name: pypi-mobans-pkg
+Version: 0.0.2
+Summary: Scaffolding mobans for your Python project.
+Home-page: https://github.com/moremoban/pypi-mobans-pkg
+Author: C.W.
+Author-email: wangc_2011@hotmail.com
+License: public license
+Download-URL: https://github.com/moremoban/pypi-mobans-pkg/archive/0.0.2.tar.gz
+Keywords: python
+Platform: UNKNOWN
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Programming Language :: Python
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Requires-Dist: lml
+
+================================================================================
+pypi-mobans-pkg
+================================================================================
+
+.. image:: https://api.travis-ci.org/moremoban/pypi-mobans-pkg.svg
+   :target: http://travis-ci.org/moremoban/pypi-mobans-pkg
+
+.. image:: https://codecov.io/github/moremoban/pypi-mobans-pkg/coverage.png
+   :target: https://codecov.io/github/moremoban/pypi-mobans-pkg
+
+.. image:: https://img.shields.io/gitter/room/gitterHQ/gitter.svg
+   :target: https://gitter.im/chfw_moban/Lobby
+
+
+The project packages `pypi-mobans <https://github.com/moremoban/pypi>`_, `gitignore <https://github.com/github/gitignore>`_ and distributes it via pypi.
+
+Installation
+================================================================================
+
+
+You can install pypi-mobans-pkg via pip:
+
+.. code-block:: bash
+
+    $ pip install pypi-mobans-pkg
+
+
+or clone it and install it:
+
+.. code-block:: bash
+
+    $ git clone https://github.com/moremoban/pypi-mobans-pkg.git
+    $ cd pypi-mobans-pkg
+
+Change log
+================================================================================
+
+0.0.2 - 08-11-2018
+--------------------------------------------------------------------------------
+
+First release
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+#. use pypi as pacakge distribution source
+#. versioning is applied
+
+
+
