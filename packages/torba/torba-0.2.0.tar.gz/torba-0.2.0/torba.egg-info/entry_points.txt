@@ -1,0 +1,9 @@
+[console_scripts]
+orchstr8 = torba.orchstr8.cli:main [server]
+torba-client = torba.client.cli:main
+torba-server = torba.server.cli:main [server]
+
+[gui_scripts]
+torba = torba.ui:main [ui]
+torba-workbench = torba.workbench:main [ui]
+
