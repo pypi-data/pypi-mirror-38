@@ -1,0 +1,10 @@
+tox<4,>=3.5
+py>=1.4.27
+eventlet>=0.15.0
+
+[dev]
+pytest>=3.8
+
+[lint]
+black
+flake8
