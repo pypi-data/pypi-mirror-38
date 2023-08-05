@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: consul-dns-srv
+Version: 0.0.2
+Summary: Consul DNS SRV Helper
+Home-page: https://github.com/hampsterx/consul-dns-srv
+Author: Tim van der Hulst
+Author-email: tim.vdh@gmail.com
+License: Apache2
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 2
+Description-Content-Type: text/markdown
+Requires-Dist: srvlookup (==2.0.0)
+
+# Consul DNS SRV
+
+## Install
+
+```
+pip install consul-dns-srv
+
+```
+
+Environment Variables
+
+
+```
+NAMESERVER
+```
+
+or
+
+```
+NAMESERVER_HOST
+NAMESERVER_PORT
+```
+
+## Usage
+
+```
+from consul_dns_srv import DNS
+
+host = DNS.service_lookup("myservice")
+
+```
+
