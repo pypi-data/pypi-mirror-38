@@ -1,0 +1,16 @@
+concurrent-utils<0.3,>=0.2
+hedgehog-protocol<0.8,>=0.7.1
+hedgehog-utils[protobuf,zmq]<0.7,>=0.6
+hedgehog-platform<0.3,>=0.2
+
+[dev]
+pytest
+pytest-runner
+pytest-asyncio
+pytest-cov
+pytest-timeout
+mypy
+
+[raspberry]
+RPi.GPIO
+pyserial-asyncio
