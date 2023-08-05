@@ -1,0 +1,3 @@
+[console_scripts]
+autoplay = autoplay.cli:main
+

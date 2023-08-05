@@ -1,0 +1,12 @@
+MANIFEST.in
+README.rst
+setup.py
+autoplay/autoplay.yml
+autoplay/backend.py
+autoplay/cli.py
+autoplay.egg-info/PKG-INFO
+autoplay.egg-info/SOURCES.txt
+autoplay.egg-info/dependency_links.txt
+autoplay.egg-info/entry_points.txt
+autoplay.egg-info/requires.txt
+autoplay.egg-info/top_level.txt
