@@ -1,0 +1,60 @@
+Metadata-Version: 2.1
+Name: sentry-asgi
+Version: 0.1.2
+Summary: Sentry integration for ASGI frameworks.
+Home-page: https://github.com/encode/sentry-asgi
+Author: Tom Christie
+Author-email: tom@tomchristie.com
+License: BSD
+Description: # sentry-asgi
+        
+        <a href="https://travis-ci.org/encode/sentry-asgi">
+            <img src="https://travis-ci.org/encode/sentry-asgi.svg?branch=master" alt="Build Status">
+        </a>
+        <a href="https://codecov.io/gh/encode/sentry-asgi">
+            <img src="https://codecov.io/gh/encode/sentry-asgi/branch/master/graph/badge.svg" alt="Coverage">
+        </a>
+        <a href="https://pypi.org/project/sentry-asgi/">
+            <img src="https://badge.fury.io/py/sentry-asgi.svg" alt="Package version">
+        </a>
+        
+        Sentry integration for ASGI frameworks.
+        
+        Installation:
+        
+        ```shell
+        pip install sentry-asgi
+        ```
+        
+        Usage:
+        
+        ```python
+        from sentry_asgi import SentryMiddleware
+        import sentry_sdk
+        
+        
+        sentry_sdk.init(dsn=...)
+        
+        app = ...
+        app = SentryMiddleware(app)
+        ```
+        
+        ## Notes
+        
+        The SentryMiddleware will capture and log application exceptions just fine.
+        
+        Explicitly logging events using the SDK from within views [does not currently appear to work correctly](https://github.com/getsentry/sentry-python/issues/162#issuecomment-436257011).
+        
+        It is recommended that frameworks populate an "endpoint" key in the ASGI scope, to indicate which view function or class should be logged by the middleware.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
