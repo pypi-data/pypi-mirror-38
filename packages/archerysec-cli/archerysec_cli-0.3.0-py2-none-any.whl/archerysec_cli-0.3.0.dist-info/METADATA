@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: archerysec-cli
+Version: 0.3.0
+Summary: A commandline tool that wraps the Archerysec REST API for controlling Archery and executing quick, targeted scans.
+Home-page: https://github.com/archerysec/archerysec-cli.git
+Author: Anand Tiwari
+Author-email: 
+License: 
+Platform: UNKNOWN
+Classifier: Topic :: Security
+Classifier: Topic :: Software Development :: Quality Assurance
+Classifier: Topic :: Software Development :: Testing
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Requires-Dist: certifi (==2018.10.15)
+Requires-Dist: chardet (==3.0.4)
+Requires-Dist: Click (==7.0)
+Requires-Dist: idna (==2.7)
+Requires-Dist: pyArchery
+Requires-Dist: requests (==2.20.0)
+Requires-Dist: urllib3 (==1.24)
+Provides-Extra: dev
+Requires-Dist: coverage (==3.7.1); extra == 'dev'
+Requires-Dist: ddt (==1.0.1); extra == 'dev'
+Requires-Dist: mock (==2.0.0); extra == 'dev'
+Requires-Dist: pep8 (==1.6.2); extra == 'dev'
+Requires-Dist: pylint (==1.5.5); extra == 'dev'
+Requires-Dist: pytest (==3.0.7); extra == 'dev'
+Requires-Dist: responses (==0.5.1); extra == 'dev'
+
+UNKNOWN
+
+
