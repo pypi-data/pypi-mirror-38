@@ -1,0 +1,21 @@
+Metadata-Version: 1.1
+Name: myjd_api
+Version: 0.0.1
+Summary: A simple json interface for the MyJDownloader API
+Home-page: https://github.com/rix1337/myjd_api
+Author: rix1337
+Author-email: UNKNOWN
+License: UNKNOWN
+Description: #  MyJD
+        
+        This is a standalone version of [RSScrawler](https://github.com/rix1337/RSScrawler)'s MyJDownloader API for use with projects like [Organizr](https://github.com/causefx/Organizr).
+        
+        ## Credits
+        
+        * [mmarquezs](https://github.com/mmarquezs/)
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
