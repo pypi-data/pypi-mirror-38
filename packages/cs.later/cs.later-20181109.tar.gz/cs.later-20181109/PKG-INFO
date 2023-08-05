@@ -1,0 +1,133 @@
+Metadata-Version: 2.1
+Name: cs.later
+Version: 20181109
+Summary: Queue functions for execution later in priority and time order.
+Home-page: https://bitbucket.org/cameron_simpson/css/commits/all
+Author: Cameron Simpson
+Author-email: cs@cskk.id.au
+License: UNKNOWN
+Description: Queue functions for execution later in priority and time order.
+        
+        I use Later objects for convenient queuing of functions whose
+        execution occurs later in a priority order with capacity constraints.
+        
+        Why not futures?
+        I already had this before futures came out,
+        I prefer its naming scheme and interface,
+        and futures did not seem to support prioritising execution.
+        
+        Use is simple enough: create a Later instance and typically queue
+        functions with the .defer() method::
+        
+            L = Later(4)      # a Later with a parallelism of 4
+            ...
+            LF = L.defer(func, *args, **kwargs)
+            ...
+            x = LF()          # collect result
+        
+        The .defer method and its siblings return a LateFunction,
+        which is a subclass of cs.result.Result.
+        As such it is a callable, so to collect the result you just call the LateFunction.
+        
+        ## Function `capacity(func)`
+        
+        Decorator for functions which wish to manage concurrent requests.
+        The caller must provide a `capacity` keyword arguments which
+        is either a Later instance or an int; if an int a Later with
+        that capacity will be made.
+        The Later will be passed into the inner function as the
+        `capacity` keyword argument.
+        
+        ## Function `defer(func, *a, **kw)`
+        
+        Queue a function using the current default Later.
+        Return the LateFunction.
+        
+        ## Class `LateFunction`
+        
+        MRO: `cs.result._PendingFunction`, `cs.result.Result`  
+        State information about a pending function.
+        A LateFunction is callable, so a synchronous call can be done like this:
+        
+          def func():
+            return 3
+          L = Later(4)
+          LF = L.defer()
+          x = LF()
+          print(x)        # prints 3
+        
+        Used this way, if the called function raises an exception it is visible:
+        
+          LF = L.defer()
+          try:
+            x = LF()
+          except SomeException as e:
+            # handle the exception ...
+        
+        To avoid handling exceptions with try/except the .wait()
+        method should be used:
+        
+          LF = L.defer()
+          x, exc_info = LF.wait()
+          if exc_info:
+            # handle exception
+            exc_type, exc_value, exc_traceback = exc_info
+            ...
+          else:
+            # use `x`, the function result
+        
+        TODO: .cancel()
+              timeout for wait()
+        
+        ## Class `LatePool`
+        
+        A context manager after the style of subprocess.Pool but with deferred completion.
+        Example usage:
+        
+          L = Later(4)    # a 4 thread Later
+          with LatePool(L) as LP:
+            # several calls to LatePool.defer, perhaps looped
+            LP.defer(func, *args, **kwargs)
+            LP.defer(func, *args, **kwargs)
+          # now we can LP.join() to block for all LateFunctions
+          #
+          # or iterate over LP to collect LateFunctions as they complete
+          for LF in LP:
+            result = LF()
+            print(result)
+        
+        ## Class `Later`
+        
+        A management class to queue function calls for later execution.
+        
+        Methods are provided for submitting functions to run ASAP or
+        after a delay or after other pending functions. These methods
+        return LateFunctions, a subclass of cs.result.Result.
+        
+        A Later instance' closes method closes the Later for further
+        submission.
+        Shutdown does not imply that all submitted functions have
+        completed or even been dispatched.
+        Callers may wait for completion and optionally cancel functions.
+        
+        ## Function `retry(retry_interval, func, *a, **kw)`
+        
+        Call the callable `func` with the supplied arguments.
+        If it raises RetryError, sleep(`retry_interval`) and call
+        again until it does not raise RetryError.
+        
+        ## Class `RetryError`
+        
+        MRO: `builtins.Exception`, `builtins.BaseException`  
+        Exception raised by functions which should be resubmitted to the queue.
+Keywords: python2,python3
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Description-Content-Type: text/markdown
