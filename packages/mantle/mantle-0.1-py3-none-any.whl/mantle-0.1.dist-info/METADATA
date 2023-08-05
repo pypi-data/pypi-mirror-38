@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: mantle
+Version: 0.1
+Summary: Library of hardware primitives for programming FPGAs
+Home-page: https://github.com/phanrahan/mantle
+Maintainer: Leonard Truong
+Maintainer-email: lenny@cs.stanford.edu
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Requires-Dist: six
+Requires-Dist: fault (<=0.28,>=0.20)
+
+UNKNOWN
+
+
