@@ -1,0 +1,3227 @@
+swagger: '2.0'
+info:
+  version: 0.2.0
+  title: Scabbard - Python Client for Sabre Dev Studio REST APIs
+  description: "[Scabbard](https://github.com/bundgus/scabbard)
+  [Sabre Dev Studio](https://developer.sabre.com/io-docs)"
+  license:
+    name: Sabre License
+    url: https://developer.sabre.com/Terms_of_Use
+host: api.test.sabre.com
+basePath: "/"
+securityDefinitions:
+  Authorization:
+    type: apiKey
+    description: ''
+    name: Authorization
+    in: header
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+
+paths:
+# Air Search
+  # InstaFlights Search
+  "/v1/shop/flights":
+    get:
+      summary: InstaFlights Search
+      description: "Finds one-way or roundtrip flight itineraries (with fares) on future dates of travel
+      for a given origin/destination."
+      tags:
+      - Air_Search
+      operationId: V1ShopFlightsGet
+      produces:
+      - application/json
+      parameters:
+      - name: origin
+        in: query
+        required: true
+        type: string
+        description: "3-letter IATA code of the departure airport"
+      - name: destination
+        in: query
+        required: true
+        type: string
+        description: "3-letter IATA airport code or city code of the arrival airport"
+      - name: departuredate
+        in: query
+        required: true
+        type: string
+        description: "Format: YYYY-MM-DD"
+      - name: returndate
+        in: query
+        required: false
+        type: string
+        description: "Format: YYYY-MM-DD"
+      - name: includedcarriers
+        in: query
+        required: false
+        type: string
+        description: "List of IATA airline codes. Format: XX,YY,ZZ"
+      - name: excludedcarriers
+        in: query
+        required: false
+        type: string
+        description: "List of IATA airline codes. Format: XX,YY,ZZ"
+      - name: outboundflightstops
+        in: query
+        required: false
+        type: number
+        description: "Max number of flight connections. Values 0-99"
+      - name: includedconnectpoints
+        in: query
+        required: false
+        type: string
+        description: "List of 3 letter IATA airport codes. Format: XXX,YYY,ZZZ.
+        Max 3 airport codes allowed."
+      - name: excludedconnectpoints
+        in: query
+        required: false
+        type: string
+        description: "List of 3 letter IATA airport codes. Format: XXX,YYY,ZZZ.
+        Max 3 airport codes allowed."
+      - name: inboundflightstops
+        in: query
+        required: false
+        type: integer
+        description: "Max number of flight connections. Values 0-99"
+      - name: outboundstopduration
+        in: query
+        required: false
+        type: integer
+        description: "The sum of the total waiting time for all connections on an
+        outbound itinerary. Values 0-9999"
+      - name: inboundstopduration
+        in: query
+        required: false
+        type: integer
+        description: "The sum of the total waiting time for all connections on an
+        inbound itinerary. Values 0-9999"
+      - name: outbounddeparturewindow
+        in: query
+        required: false
+        type: string
+        description: "Time range during which a first outbound flight segment can
+        depart on the departure date. Format: HHMMHHMM"
+      - name: inbounddeparturewindow
+        in: query
+        required: false
+        type: string
+        description: "Time range during which a first inbound flight segment can
+        depart on the departure date. Format: HHMMHHMM"
+      - name: outboundarrivalwindow
+        in: query
+        required: false
+        type: string
+        description: "Time range during which a last outbound flight segment can
+        arrive, after the departure date. Format: HHMMHHMM"
+      - name: inboundarrivalwindow
+        in: query
+        required: false
+        type: string
+        description: "Time range during which a last inbound flight segment can
+        arrive on the return date. Format: HHMMHHMM"
+      - name: onlineitinerariesonly
+        in: query
+        required: false
+        type: string
+        enum:
+        - N
+        - Y
+        description: "An indicator to base the response on online or interline itineraries."
+      - name: minfare
+        in: query
+        required: false
+        type: string
+        description: "Minimum overall lead fare."
+      - name: maxfare
+        in: query
+        required: false
+        type: string
+        description: "Maximum overall lead fare."
+      - name: limit
+        in: query
+        required: false
+        type: number
+        description: "Limit the number of itineraries returned."
+      - name: offset
+        in: query
+        required: false
+        type: number
+        description: "Retrieves the itineraries that start with
+        the number in offset through the quantity in limit, inclusive."
+      - name: eticketsonly
+        in: query
+        required: false
+        type: string
+        enum:
+        - N
+        - Y
+        description: "An indicator to only retrieve itineraries that are e-ticket eligible."
+      - name: sortby
+        in: query
+        required: false
+        type: string
+        enum:
+        - departuretime
+        - totalfare
+        - elapsedtime
+        description: "Primary sort object in the response."
+      - name: order
+        in: query
+        required: false
+        type: string
+        enum:
+        - asc
+        - dsc
+        description: "Sorting order for the primary sortby."
+      - name: sortby2
+        in: query
+        required: false
+        type: string
+        enum:
+        - departuretime
+        - totalfare
+        - elapsedtime
+        description: "Secondary sort object in the response."
+      - name: order2
+        in: query
+        required: false
+        type: string
+        enum:
+        - asc
+        - dsc
+        description: "Sorting order for sortby2."
+      - name: pointofsalecountry
+        in: query
+        required: false
+        type: string
+        description: "2-letter country code of the point of sale"
+      - name: passengercount
+        in: query
+        required: false
+        type: number
+        description: "Valid values: 1 to 10, inclusive"
+      - name: view
+        in: query
+        required: false
+        type: string
+        description: "A Sabre response view definition"
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            "$ref": "#/definitions/InstaFlightsSearch"
+          examples: {}
+        '400':
+          description: Invalid status value
+          schema: {}
+        '401':
+          description: You do not have necessary permissions for the resource
+          schema: {}
+      security:
+      - Authorization: []
+
+  # Lead Price Calendar
+  # Destination Finder
+
+  "/v2/shop/flights/fares":
+    get:
+      summary: Lead Price Calendar and Destination Finder
+      description: "Heads up – this API is powered by the Travel Insight Engine.
+      For the full list of city pairs available in the test environment and in
+      production view the City Pairs Supplemental API.
+      Lead Price Calendar:
+      Finds the lowest nonstop fare and the lowest overall fare on future dates of
+      travel.
+      Destination Finder:
+      Finds the lowest nonstop fare and the lowest overall fare to many airports.
+      (1) Use departuredate and returndate for a single set of roundtrip travel dates,
+      (2) Use one or more values in lengthofstay, without any dates, and
+      (3) Use one or more values in lengthofstay with a range of departure dates in
+      earliestdeparturedate and latestdeparturedate. Origin is always required."
+      tags:
+      - Air_Search
+      operationId: V2ShopFlightsFaresGet
+      produces:
+      - application/json
+      parameters:
+      - name: origin
+        in: query
+        required: true
+        type: string
+        description: 3-letter IATA code of the departure airport
+      - name: destination
+        in: query
+        required: false
+        type: string
+        description: 3-letter IATA code of the arrival airport
+      - name: lengthofstay
+        in: query
+        required: false
+        type: number
+        description: "Duration of trip (days). Values 0-16. Format : X,Y,Z. Max 5 values allowed."
+      - name: departuredate
+        in: query
+        required: false
+        type: string
+        description: "Format: YYYY-MM-DD"
+      - name: returndate
+        in: query
+        required: false
+        type: string
+        description: "Format: YYYY-MM-DD"
+      - name: earliestdeparturedate
+        in: query
+        required: false
+        type: string
+        description: "Format: YYYY-MM-DD. The earliest date of departure in the range.
+        The date can be a maximum of 90 days in the future, including the day of the request."
+      - name: latestdeparturedate
+        in: query
+        required: false
+        type: string
+        description: "Format: YYYY-MM-DD. The latest date of departure in the range.
+        The date can be a maximum of 90 days in the future, including the day of the request."
+      - name: location
+        in: query
+        required: false
+        type: string
+        description: "2 letter ISO country code"
+      - name: theme
+        in: query
+        required: false
+        type: string
+        enum:
+          - "BEACH"
+          - "CARIBBEAN"
+          - "DISNEY"
+          - "GAMBLING"
+          - "HISTORIC"
+          - "MOUNTAINS"
+          - "NATIONAL-PARKS"
+          - "OUTDOORS"
+          - "ROMANTIC"
+          - "SHOPPING"
+          - "SKIING"
+          - "THEME-PARK"
+        description: "A travel theme to filter a list of destinations"
+      - name: minfare
+        in: query
+        required: false
+        type: string
+        description: "Minimum overall lead fare"
+      - name: maxfare
+        in: query
+        required: false
+        type: string
+        description: "Maximum overall lead fare"
+      - name: pricepermile
+        in: query
+        required: false
+        type: number
+        description: "Maximum price per mile. Retrieves only lead fares with a price per mile less than or equal to
+        this number."
+      - name: region
+        in: query
+        required: false
+        type: string
+        enum:
+        - Africa
+        - Asia Pacific
+        - Europe
+        - Latin America
+        - Middle East
+        - North America
+        description: "Retrieves destination airport codes that are associated with the specified region"
+      - name: topdestinations
+        in: query
+        required: false
+        type: number
+        description: "Limit results to a specific number of most frequently booked destinations.
+        Valid values: 1 to 50, inclusive"
+      - name: pointofsalecountry
+        in: query
+        required: false
+        type: string
+        description: "2-letter country code of the point of sale"
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            "$ref": "#/definitions/LeadPriceCalendar"
+          examples: {}
+        '400':
+          description: Invalid status value
+          schema: {}
+        '401':
+          description: You do not have necessary permissions for the resource
+          schema: {}
+      security:
+      - Authorization: []
+
+  # Bargain Finder Max
+  "/v3.4.0/shop/flights":
+    post:
+      summary: Bargain Finder Max
+      description: "Finds the lowest available priced itineraries based upon a travel date."
+      tags:
+      - Air_Search
+      operationId: V3_4_0ShopFlightsPost
+      produces:
+      - application/json
+      parameters:
+        - name: mode
+          in: query
+          required: true
+          description: ""
+          type: string
+          enum:
+            - "live"
+        - name: limit
+          in: query
+          required: false
+          description: "The number of itineraries to retrieve per request"
+          type: string
+        - name: offset
+          in: query
+          required: false
+          description: "The starting position in the list of all itineraries
+          that meet the query criteria"
+          type: number
+        - name: view
+          in: query
+          required: false
+          description: "A Sabre response view definition"
+          type: string
+        - name: bargainfindermaxrequest
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              EnhancedSeatMapRQ:
+                type: object
+                # todo: define schema
+      responses:
+        '200':
+          description: successful operation
+          # todo: define schema
+          schema: {}
+        '400':
+          description: Invalid status value
+          schema: {}
+        '401':
+          description: You do not have necessary permissions for the resource
+          schema: {}
+      security:
+      - Authorization: []
+
+  # Bargain Finder Max 4.3.0
+  "/v4.3.0/shop/flights":
+    post:
+      summary: Bargain Finder Max
+      description: "Finds the lowest available priced itineraries based upon a travel date."
+      tags:
+      - Air_Search
+      operationId: V4_3_0ShopFlightsPost
+      produces:
+      - application/json
+      parameters:
+        - name: mode
+          in: query
+          required: true
+          description: ""
+          type: string
+          enum:
+            - "live"
+        - name: limit
+          in: query
+          required: false
+          description: "The number of itineraries to retrieve per request"
+          type: string
+        - name: offset
+          in: query
+          required: false
+          description: "The starting position in the list of all itineraries
+          that meet the query criteria"
+          type: number
+        - name: view
+          in: query
+          required: false
+          description: "A Sabre response view definition"
+          type: string
+        - name: bargainfindermaxrequest
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              EnhancedSeatMapRQ:
+                type: object
+                # todo: define schema
+      responses:
+        '200':
+          description: successful operation
+          # todo: define schema
+          schema: {}
+        '400':
+          description: Invalid status value
+          schema: {}
+        '401':
+          description: You do not have necessary permissions for the resource
+          schema: {}
+        '429':
+          description: Too Many Requests
+          schema: {}
+      security:
+      - Authorization: []
+
+  # Bargain Finder Max Alternate Airport Shop
+  "/v3.4.0/shop/altairports/flights":
+    post:
+      summary: Bargain Finder Max Alternate Airport Shop
+      description: "Find lead fares for up to 20 airports per origin and/or destination.
+      Response includes itinerary details and fare breakdown associated with each lead fare."
+      tags:
+      - Air_Search
+      operationId: V3_4_0ShopAltairportsFlightsPost
+      produces:
+      - application/json
+      parameters:
+        - name: mode
+          in: query
+          required: true
+          description: ""
+          type: string
+          enum:
+            - "live"
+        - name: limit
+          in: query
+          required: false
+          description: "The number of itineraries to retrieve per request"
+          type: string
+        - name: offset
+          in: query
+          required: false
+          description: "The starting position in the list of all itineraries
+          that meet the query criteria"
+          type: number
+        - name: view
+          in: query
+          required: false
+          description: "A Sabre response view definition"
+          type: string
+        - name: bargainfindermaxalternateairportrequest
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              EnhancedSeatMapRQ:
+                type: object
+                # todo: define schema
+      responses:
+        '200':
+          description: successful operation
+          # todo: define schema
+          schema: {}
+        '400':
+          description: Invalid status value
+          schema: {}
+        '401':
+          description: You do not have necessary permissions for the resource
+          schema: {}
+      security:
+      - Authorization: []
+
+  # Bargain Finder Max Alternate Date
+  "/v3.4.0/shop/altdates/flights":
+    post:
+      summary: Bargain Finder Max Alternate Airport Shop
+      description: "Finds the lowest available itineraries based upon
+      +/-1 or +/-3 alternate dates."
+      tags:
+      - Air_Search
+      operationId: V3_4_0ShopAltdatesFlightsPost
+      produces:
+      - application/json
+      parameters:
+        - name: mode
+          in: query
+          required: true
+          description: ""
+          type: string
+          enum:
+            - "live"
+        - name: limit
+          in: query
+          required: false
+          description: "The number of itineraries to retrieve per request"
+          type: string
+        - name: offset
+          in: query
+          required: false
+          description: "The starting position in the list of all itineraries
+          that meet the query criteria"
+          type: number
+        - name: view
+          in: query
+          required: false
+          description: "A Sabre response view definition"
+          type: string
+        - name: bargainfindermaxalternatedaterequest
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              EnhancedSeatMapRQ:
+                type: object
+                # todo: define schema
+      responses:
+        '200':
+          description: successful operation
+          # todo: define schema
+          schema: {}
+        '400':
+          description: Invalid status value
+          schema: {}
+        '401':
+          description: You do not have necessary permissions for the resource
+          schema: {}
+      security:
+      - Authorization: []
+
+  # Advanced Calendar
+  # todo: Advanced Calendar - "This response version is deprecated and will be decommissioned once a newer version is released."
+
+  # Seat Map (beta)
+  "/v4.0.0/book/flights/seatmaps":
+    post:
+      summary: Seat Map (beta)
+      description: "Returns seat map data and the exact prices for each paid seat."
+      tags:
+      - Air_Search
+      operationId: V4_0_0BookFlightsSeatmapsPost
+      produces:
+      - application/json; charset=utf-8
+      parameters:
+        - name: mode
+          in: query
+          required: true
+          description: ""
+          type: string
+          enum:
+            - "seatmaps"
+        - name: seatmaprequest
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              EnhancedSeatMapRQ:
+                type: object
+                properties:
+                  SeatMapQueryEnhanced:
+                    type: object
+                    properties:
+                      RequestType:
+                        type: string
+                      Flight:
+                        type: object
+                        properties:
+                          destination:
+                            type: string
+                          origin:
+                            type: string
+                          DepartureDate:
+                            type: object
+                            properties:
+                              content:
+                                type: string
+                          ArrivalDate:
+                            type: object
+                            properties:
+                              content:
+                                type: string
+                          Operating:
+                            type: object
+                            properties:
+                              carrier:
+                                type: string
+                              content:
+                                type: string
+                          Marketing:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                carrier:
+                                  type: string
+                                content:
+                                  type: string
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            "$ref": "#/definitions/SeatMap"
+        '400':
+          description: Invalid status value
+          schema: {}
+        '401':
+          description: You do not have necessary permissions for the resource
+          schema: {}
+      security:
+      - Authorization: []
+
+  # Flights To
+  "/v1/shop/flights/cheapest/fares/{destination}":
+    get:
+      summary: Flights To
+      description: "Finds the 20 lowest published fares available for a given destination.
+      Destination is always required."
+      tags:
+      - Air_Search
+      operationId: V1ShopFlightsCheapestFaresDestinationGet
+      produces:
+      - application/json
+      parameters:
+        - in: path
+          name: destination
+          description: 3-letter IATA airport code or city code of the arrival airport
+          type: string
+          required: true
+        - in: query
+          name: pointofsalecountry
+          required: false
+          description: "2-letter country code of the point of sale"
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            "$ref": "#/definitions/FlightsTo"
+          examples: {}
+        '400':
+          description: Invalid status value
+          schema: {}
+        '401':
+          description: You do not have necessary permissions for the resource
+          schema: {}
+      security:
+      - Authorization: []
+
+# Air Intelligence
+  # Low Fare Forecast
+  "/v1/forecast/flights/fares":
+    get:
+      summary: Low Fare Forecast
+      description: "Heads up – this API is powered by the Travel Insight Engine.
+      For the full list of city pairs available in the test environment and in
+      production view the City Pairs Supplemental API.
+      Forecasts the price range into which the lowest published fare is predicted to
+      fall within the next 7 days, and returns a recommendation to buy or wait."
+      tags:
+      - Air_Intelligence
+      operationId: V1ForecastFlightsFaresGet
+      produces:
+      - application/json
+      parameters:
+      - name: origin
+        in: query
+        required: true
+        type: string
+        description: 3-letter IATA code of the departure airport
+      - name: destination
+        in: query
+        required: true
+        type: string
+        description: 3-letter IATA code of the arrival airport
+      - name: departuredate
+        in: query
+        required: true
+        type: string
+        description: "Format: YYYY-MM-DD. Valid dates are a maximum of 60 future dates."
+      - name: returndate
+        in: query
+        required: true
+        type: string
+        description: "Format: YYYY-MM-DD. Valid dates are a maximum of 60 future dates."
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            "$ref": "#/definitions/LowFareForecast"
+          examples: {}
+        '400':
+          description: Invalid status value
+          schema: {}
+        '401':
+          description: You do not have necessary permissions for the resource
+          schema: {}
+      security:
+      - Authorization: []
+
+  # Fare Range
+  "/v1/historical/flights/fares":
+    get:
+      summary: Fare Range
+      description: "Heads up – this API is powered by the Travel Insight Engine.
+      For the full list of city pairs available in the test environment and in
+      production view the City Pairs Supplemental API.
+      Returns median, highest, and lowest published fares that were ticketed during
+      the previous 4 weeks."
+      tags:
+      - Air_Intelligence
+      operationId: V1HistoricalFlightsFaresGet
+      produces:
+      - application/json
+      parameters:
+      - name: origin
+        in: query
+        required: true
+        type: string
+        description: "3-letter IATA code of the departure airport"
+      - name: destination
+        in: query
+        required: true
+        type: string
+        description: "3-letter IATA code of the arrival airport"
+      - name: earliestdeparturedate
+        in: query
+        required: true
+        type: string
+        description: "Format: YYYY-MM-DD. The earliest date of departure in the range.
+        The date can be a maximum of 90 days in the future, including the day of the request."
+      - name: latestdeparturedate
+        in: query
+        required: true
+        type: string
+        description: "Format: YYYY-MM-DD. The latest date of departure in the range.
+        The date can be a maximum of 90 days in the future, including the day of the request."
+      - name: lengthofstay
+        in: query
+        required: true
+        type: number
+        description: "Valid values: 0 to 16, inclusive"
+      - name: excludelcc
+        in: query
+        required: false
+        type: string
+        enum:
+          - "Y"
+          - "N"
+      responses:
+        '200':
+          description: successful operation
+          schema: {}
+            # todo: define schema
+          examples: {}
+        '400':
+          description: Invalid status value
+          schema: {}
+        '401':
+          description: You do not have necessary permissions for the resource
+          schema: {}
+      security:
+      - Authorization: []
+
+  # Travel Seasonality
+  "/v1/historical/flights/{destination}/seasonality":
+    get:
+      summary: Travel Seasonality
+      description: "Heads up – this API is powered by the Travel Insight Engine.
+      For the full list of city pairs available in the test environment and in
+      production view the City Pairs Supplemental API.
+      Returns a traffic volume rating to a destination airport for each of the next 52 weeks."
+      tags:
+      - Air_Intelligence
+      operationId: V1HistoricalFlightsDestinationSeasonalityGet
+      produces:
+      - application/json
+      parameters:
+      - name: destination
+        in: path
+        required: true
+        type: string
+        description: 3-letter IATA airport
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            "$ref": "#/definitions/TravelSeasonality"
+          examples: {}
+        '400':
+          description: Invalid status value
+          schema: {}
+        '401':
+          description: You do not have necessary permissions for the resource
+          schema: {}
+      security:
+      - Authorization: []
+
+  # Top Destinations
+  # "No results were found"
+  # todo: Top Destinations (404 in Dev Studio io-docs interface, may not be working in test environment)
+
+  # Low Fare History
+  "/v1/historical/shop/flights/fares":
+    get:
+      summary: Low Fare History
+      description: "Returns each day of the past two weeks' lowest
+      published fares for a given city/date pair."
+      tags:
+      - Air_Intelligence
+      operationId: V1HistoricalShopFlightsFaresGet
+      produces:
+      - application/json
+      parameters:
+      - name: origin
+        in: query
+        required: true
+        type: string
+        description: "3-letter IATA code of the departure airport"
+      - name: destination
+        in: query
+        required: true
+        type: string
+        description: "3-letter IATA code of the arrival airport"
+      - name: departuredate
+        in: query
+        required: true
+        type: string
+        description: "Format: YYYY-MM-DD."
+      - name: returndate
+        in: query
+        required: true
+        type: string
+        description: "Format: YYYY-MM-DD."
+      - name: pointofsalecountry
+        in: query
+        required: false
+        type: string
+        description: "2-letter country code of the point of sale"
+      responses:
+        '200':
+          description: successful operation
+          schema: {}
+            # todo: define schema
+          examples: {}
+        '400':
+          description: Invalid status value
+          schema: {}
+        '401':
+          description: You do not have necessary permissions for the resource
+          schema: {}
+      security:
+      - Authorization: []
+
+# Air Utility
+  # Point of Sale Country Code Lookup
+  "/v1/lists/supported/pointofsalecountries":
+    get:
+      summary: Point of Sale Country Code Lookup
+      description: Returns a list of supported point of sale country codes and associated country names.
+      tags:
+      - Air_Utility
+      operationId: V1ListsSupportedPointofsalecountriesGet
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            "$ref": "#/definitions/Pointofsalecountries"
+          examples: {}
+        '400':
+          description: Invalid status value
+          schema: {}
+        '401':
+          description: You do not have necessary permissions for the resource
+          schema: {}
+      security:
+      - Authorization: []
+
+  # Travel Seasonality Airports Lookup
+  "/v1/lists/supported/historical/seasonality/airports":
+    get:
+      summary: Travel Seasonality Airports Lookup
+      description: "Heads up – this API is powered by the Travel Insight Engine.
+      For the full list of city pairs available in the test environment and in
+      production view the Travel Seasonality Airports Lookup Supplemental API.
+      Retrieves destinations supported by Travel Seasonality API.
+      Destinations are airport codes or city codes."
+      tags:
+      - Air_Utility
+      operationId: V1ListsSupportedHistoricalSeasonalityAirportsGet
+      produces:
+      - application/json
+      parameters:
+      - name: country
+        in: query
+        required: false
+        type: string
+        description: 2-letter ISO country code
+      - name: region
+        in: query
+        required: false
+        type: string
+        enum:
+            - Africa
+            - Asia Pacific
+            - Europe
+            - Latin America
+            - Middle East
+            - North America
+        description: Region
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            "$ref": "#/definitions/TravelSeasonalityDestinations"
+          examples: {}
+        '400':
+          description: Invalid status value
+          schema: {}
+        '401':
+          description: You do not have necessary permissions for the resource
+          schema: {}
+      security:
+      - Authorization: []
+
+  # Countries Lookup
+  "/v1/lists/supported/countries":
+    get:
+      summary: Countries Lookup
+      description: Retrieves a list of origin and destination country codes that can
+        be used to filter applicable REST Air Shopping APIs.
+      tags:
+      - Air_Utility
+      operationId: V1ListsSupportedCountriesGet
+      produces:
+      - application/json
+      parameters:
+      - name: pointofsalecountry
+        in: query
+        required: false
+        type: string
+        description: 2-letter country code of the point of sale
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            "$ref": "#/definitions/Countries"
+          examples: {}
+        '400':
+          description: Invalid status value
+          schema: {}
+        '401':
+          description: You do not have necessary permissions for the resource
+          schema: {}
+      security:
+      - Authorization: []
+
+  # City Pairs Lookup
+  "/v1/lists/supported/shop/flights/origins-destinations":
+    get:
+      summary: City Pairs Lookup
+      description: "Retrieves city pairs supported by REST Air Shopping APIs. City pairs are combinations of origin and destination airport codes."
+      tags:
+      - Air_Utility
+      operationId: V1ListsSupportedShopFlightsOriginsdestinationsGet
+      produces:
+      - application/json
+      parameters:
+      - name: origincountry
+        in: query
+        required: false
+        type: string
+        description: 2-letter ISO country code
+      - name: destinationcountry
+        in: query
+        required: false
+        type: string
+        description: 2-letter ISO country code
+      - name: originregion
+        in: query
+        required: false
+        type: string
+        enum:
+            - Africa
+            - Asia Pacific
+            - Europe
+            - Latin America
+            - Middle East
+            - North America
+        description: Region
+      - name: destinationregion
+        in: query
+        required: false
+        type: string
+        enum:
+            - Africa
+            - Asia Pacific
+            - Europe
+            - Latin America
+            - Middle East
+            - North America
+        description: Region
+      - name: pointofsalecountry
+        in: query
+        required: false
+        type: string
+        description: 2-letter country code of the point of sale
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            "$ref": "#/definitions/CityPairOriginsdestinations"
+          examples: {}
+        '400':
+          description: Invalid status value
+          schema: {}
+        '401':
+          description: You do not have necessary permissions for the resource
+          schema: {}
+      security:
+      - Authorization: []
+
+  # Low Fare Forecast City Pairs Lookup
+  "/v1/lists/supported/forecast/flights/origins-destinations":
+    get:
+      summary: Low Fare Forecast City Pairs Lookup
+      description: "Heads up – this API is powered by the Travel Insight Engine.
+      For the full list of city pairs available in the
+      test environment and in production view the City Pairs Supplemental API. .
+      Retrieves city pairs supported by Low Fare Forecast API.
+      City pairs are combinations of origin and destination airport codes."
+      tags:
+      - Air_Utility
+      operationId: V1ListsSupportedForecastFlightsOriginsdestinationsGet
+      produces:
+      - application/json
+      parameters:
+      - name: origincountry
+        in: query
+        required: false
+        type: string
+        description: 2-letter ISO country code
+      - name: destinationcountry
+        in: query
+        required: false
+        type: string
+        description: 2-letter ISO country code
+      - name: originregion
+        in: query
+        required: false
+        type: string
+        enum:
+            - Africa
+            - Asia Pacific
+            - Europe
+            - Latin America
+            - Middle East
+            - North America
+        description: Region
+      - name: destinationregion
+        in: query
+        required: false
+        type: string
+        enum:
+            - Africa
+            - Asia Pacific
+            - Europe
+            - Latin America
+            - Middle East
+            - North America
+        description: Region
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            "$ref": "#/definitions/CityPairOriginsdestinations"
+          examples: {}
+        '400':
+          description: Invalid status value
+          schema: {}
+        '401':
+          description: You do not have necessary permissions for the resource
+          schema: {}
+      security:
+      - Authorization: []
+
+  # Fare Range City Pairs Lookup
+  "/v1/lists/supported/historical/flights/origins-destinations":
+    get:
+      summary: Fare Range City Pairs Lookup
+      description: "Heads up – this API is powered by the Travel Insight Engine.
+      For the full list of city pairs available in the test environment and in
+      production view the City Pairs Supplemental API.
+      Retrieves city pairs supported by Fare Range API.
+      City pairs are combinations of origin and destination airport codes."
+      tags:
+      - Air_Utility
+      operationId: V1ListsSupportedHistoricalFlightsOriginsDestinationsGet
+      produces:
+      - application/json
+      parameters:
+      - name: origincountry
+        in: query
+        required: false
+        type: string
+        description: 2-letter ISO country code
+      - name: destinationcountry
+        in: query
+        required: false
+        type: string
+        description: 2-letter ISO country code
+      - name: originregion
+        in: query
+        required: false
+        type: string
+        enum:
+            - Africa
+            - Asia Pacific
+            - Europe
+            - Latin America
+            - Middle East
+            - North America
+        description: Region
+      - name: destinationregion
+        in: query
+        required: false
+        type: string
+        enum:
+            - Africa
+            - Asia Pacific
+            - Europe
+            - Latin America
+            - Middle East
+            - North America
+        description: Region
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            "$ref": "#/definitions/CityPairOriginsdestinations"
+          examples: {}
+        '400':
+          description: Invalid status value
+          schema: {}
+        '401':
+          description: You do not have necessary permissions for the resource
+          schema: {}
+      security:
+      - Authorization: []
+
+  # Travel Theme Lookup
+  "/v1/lists/supported/shop/themes":
+    get:
+      summary: Travel Theme Lookup
+      description: "Retrieves a list of themes that can be used in a Destination Air
+      Shopping request to limit the results to only destinations associated with the
+      theme."
+      tags:
+      - Air_Utility
+      operationId: V1ListsSupportedShopThemesGet
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            "$ref": "#/definitions/TravelThemes"
+          examples: {}
+        '400':
+          description: Invalid status value
+          schema: {}
+        '401':
+          description: You do not have necessary permissions for the resource
+          schema: {}
+      security:
+      - Authorization: []
+
+  # Theme Airport Lookup
+  "/v1/lists/supported/shop/themes/{theme}":
+    get:
+      summary: Theme Airport Lookup
+      description: "Retrieves a list of airport and city codes that are associated
+      with the theme in the request. (Use Travel Theme Lookup to retrieve a list of
+      themes that can be used in the request.)"
+      tags:
+      - Air_Utility
+      operationId: V1ListsSupportedShopThemesThemeGet
+      produces:
+      - application/json
+      parameters:
+        - in: path
+          name: theme
+          description: 3-letter multi-airport city code
+          type: string
+          required: true
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            "$ref": "#/definitions/ThemeAirport"
+          examples: {}
+        '400':
+          description: Invalid status value
+          schema: {}
+        '401':
+          description: You do not have necessary permissions for the resource
+          schema: {}
+      security:
+      - Authorization: []
+
+  # Multi-Airport City Lookup
+  "/v1/lists/supported/cities":
+    get:
+      summary: Multi-Airport City Lookup
+      description: "Retrieves a list of city codes that are served by more than
+      one airport."
+      tags:
+      - Air_Utility
+      operationId: V1ListsSupportedCitiesGet
+      produces:
+      - application/json
+      parameters:
+      - name: country
+        in: query
+        required: true
+        type: string
+        description: 2-letter IATA country code
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            "$ref": "#/definitions/MultiAirportCities"
+          examples: {}
+        '400':
+          description: Invalid status value
+          schema: {}
+        '401':
+          description: You do not have necessary permissions for the resource
+          schema: {}
+      security:
+      - Authorization: []
+
+  # Airports at Cities Lookup
+  "/v1/lists/supported/cities/{city}/airports":
+    get:
+      summary: Airports at Cities Lookup
+      description: "Retrieves a list of airport codes that serve the city in the request.
+      (Use Multi-Airport City Lookup to retrieve a list of city codes that can be used in
+      the request.)"
+      tags:
+      - Air_Utility
+      operationId: V1ListsSupportedCitiesCityAirportsGet
+      produces:
+      - application/json
+      parameters:
+        - in: path
+          name: city
+          type: string
+          required: true
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            "$ref": "#/definitions/AirportsAtCity"
+          examples: {}
+        '400':
+          description: Invalid status value
+          schema: {}
+        '401':
+          description: You do not have necessary permissions for the resource
+          schema: {}
+      security:
+      - Authorization: []
+
+# Ground Transportation Search
+  "/v2.4.0/shop/cars":
+    post:
+      summary: Ground Transportation Search
+      description: "Finds car rates and total pricing available at a single location."
+      tags:
+      - Ground_Transportation_Search
+      operationId: V2_4_0ShopCarsPost
+      produces:
+      - application/json
+      parameters:
+        - name: caravailabilityrequest
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              OTA_VehAvailRateRQ:
+                type: object
+                properties:
+                  VehAvailRQCore:
+                    type: object
+                    properties:
+                      QueryType:
+                        type: string
+                      VehRentalCore:
+                        type: object
+                        properties:
+                          PickUpDateTime:
+                            type: string
+                          ReturnDateTime:
+                            type: string
+                          PickUpLocation:
+                            type: object
+                            properties:
+                              LocationCode:
+                                type: string
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            "$ref": "#/definitions/CarAvailability"
+        '400':
+          description: Invalid status value
+          schema: {}
+        '401':
+          description: You do not have necessary permissions for the resource
+          schema: {}
+      security:
+      - Authorization: []
+
+# Utility
+  # Airline Alliance Lookup
+  "/v1/lists/utilities/airlines/alliances":
+    get:
+      summary: Airline Alliance Lookup
+      description: Retrieves a list of airline alliances and members.
+      tags:
+      - Utility
+      operationId: V1ListsUtilitiesAirlinesAlliancesGet
+      produces:
+      - application/json
+      parameters:
+      - name: alliancecode
+        in: query
+        required: false
+        type: string
+        description: "Comma separated list of 2-character airline alliance group codes.
+        Valid values: *A (Star Alliance), *O (oneworld), *S (SkyTeam). Retrieves a
+        list of airline alliances and members"
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            "$ref": "#/definitions/AirlineAlliances"
+          examples: {}
+        '400':
+          description: Invalid status value
+          schema: {}
+        '401':
+          description: You do not have necessary permissions for the resource
+          schema: {}
+      security:
+      - Authorization: []
+
+  # Aircraft Equipment Lookup
+  "/v1/lists/utilities/aircraft/equipment":
+    get:
+      summary: Aircraft Equipment Lookup
+      description: "Retrieves a list of IATA aircraft equipment type codes and their
+      corresponding aircraft names."
+      tags:
+      - Utility
+      operationId: V1ListsUtilitiesAircraftEquipmentGet
+      produces:
+      - application/json
+      parameters:
+      - name: aircraftcode
+        in: query
+        required: false
+        type: string
+        description: "List of alphanumeric 3-character IATA aircraft equipment type code(s).
+        Format: XXX,YYY,ZZZ"
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            "$ref": "#/definitions/AircraftEquipment"
+          examples: {}
+        '400':
+          description: Invalid status value
+          schema: {}
+        '401':
+          description: You do not have necessary permissions for the resource
+          schema: {}
+      security:
+      - Authorization: []
+
+  # Airline Lookup
+  "/v1/lists/utilities/airlines":
+    get:
+      summary: Airline Lookup
+      description: "Retrieves a list of IATA airline codes their corresponding airline names."
+      tags:
+      - Utility
+      operationId: V1ListsUtilitiesAirlinesGet
+      produces:
+      - application/json
+      parameters:
+      - name: airlinecode
+        in: query
+        required: false
+        type: string
+        description: "List of alphanumeric 2-character IATA airline code(s). Format: XX,YY,ZZ"
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            "$ref": "#/definitions/AirlineLookup"
+          examples: {}
+        '400':
+          description: Invalid status value
+          schema: {}
+        '401':
+          description: You do not have necessary permissions for the resource
+          schema: {}
+      security:
+      - Authorization: []
+
+  # Geo Autocomplete (beta)
+  "/v1/lists/utilities/geoservices/autocomplete":
+    get:
+      summary: Geo Autocomplete
+      description: "Returns a list of location predictions for text-based geographic
+      search queries."
+      tags:
+      - Utility
+      operationId: V1ListsUtilitiesGeoservicesAutocompleteGet
+      produces:
+      - application/json
+      parameters:
+      - name: query
+        in: query
+        required: true
+        type: string
+        description: "The full word or substring to be autocompleted"
+      - name: category
+        in: query
+        required: false
+        type: string
+        enum:
+        - "AIR"
+        - "CITY"
+        - "RAIL"
+        description: "Retrieves places that are associated with this specified category.
+        Valid values: AIR, CITY, RAIL"
+      - name: limit
+        in: query
+        required: false
+        type: number
+        description: "The number of search results to return per category.
+        Default value: 5. Valid values: 1 to 30."
+      responses:
+        '200':
+          description: successful operation
+          schema: {}
+            # todo: define schema
+          examples: {}
+        '400':
+          description: Invalid status value
+          schema: {}
+        '401':
+          description: You do not have necessary permissions for the resource
+          schema: {}
+      security:
+      - Authorization: []
+
+  # Geo Code
+  "/v1/lists/utilities/geocode/locations":
+    post:
+      summary: Geo Code
+      description: "Returns the geographic information of a given location."
+      tags:
+      - Utility
+      operationId: V1ListsUtilitiesGeocodeLocationsPost
+      produces:
+      - application/json
+      parameters:
+        - name: geocoderequest
+          in: body
+          required: true
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                GeoCodeRQ:
+                  type: object
+                  properties:
+                    PlaceById:
+                      type: object
+                      properties:
+                        Id:
+                          type: string
+                        BrowseCategory:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            "$ref": "#/definitions/GeoCode"
+        '400':
+          description: Invalid status value
+          schema: {}
+        '401':
+          description: You do not have necessary permissions for the resource
+          schema: {}
+      security:
+      - Authorization: []
+
+  # Response View Lookup
+  "/v1/lists/utilities/views":
+    get:
+      summary: Response View Lookup
+      description: "Retrieves a list of Sabre response views."
+      tags:
+      - Utility
+      operationId: V1ListsUtilitiesViewsGet
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: successful operation
+          schema: {}
+            # todo: define schema
+        '400':
+          description: Invalid status value
+          schema: {}
+        '401':
+          description: You do not have necessary permissions for the resource
+          schema: {}
+      security:
+      - Authorization: []
+
+  # Response View Details Lookup
+  "/v1/lists/utilities/views/{view}":
+    get:
+      summary: Response View Details Lookup
+      description: "Retrieves the response paths that are associated with the view in the request.
+      (Use Response View Lookup to retrieve a list of views that can be used in the request.)"
+      tags:
+      - Utility
+      operationId: V1ListsUtilitiesViewsViewGet
+      parameters:
+        - in: path
+          name: view
+          type: string
+          required: true
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: successful operation
+          schema: {}
+            # todo: define schema
+        '400':
+          description: Invalid status value
+          schema: {}
+        '401':
+          description: You do not have necessary permissions for the resource
+          schema: {}
+      security:
+      - Authorization: []
+
+# Hotel
+  # Get Hotel Chain Info
+  "/v1.0.0/shop/hotels/chain":
+    post:
+      summary: Get Hotel Chain Info
+      description: ""
+      tags:
+      - Hotel
+      operationId: V1_0_0ShopHotelsChainPost
+      produces:
+      - application/json
+      parameters:
+        - name: mode
+          in: query
+          required: true
+          description: ""
+          type: string
+          enum:
+            - "chain"
+        - name: gethotelchaininforequest
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              GetHotelChainInfoRQ:
+                type: object
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            "$ref": "#/definitions/HotelChainInfo"
+        '400':
+          description: Invalid status value
+          schema: {}
+        '401':
+          description: You do not have necessary permissions for the resource
+          schema: {}
+      security:
+      - Authorization: []
+
+  # Get Hotel Content
+  "/v1.0.0/shop/hotels/content":
+    post:
+      summary: Get Hotel Content
+      description: ""
+      tags:
+      - Hotel
+      operationId: V1_0_0ShopHotelsContentPost
+      produces:
+      - application/json
+      parameters:
+        - name: mode
+          in: query
+          required: true
+          description: ""
+          type: string
+          enum:
+            - "content"
+        - name: gethotelcontentrequest
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              GetHotelContentRQ:
+                type: object
+      responses:
+        '200':
+          description: successful operation
+          schema: {}
+          # todo: define schema
+        '400':
+          description: Invalid status value
+          schema: {}
+        '401':
+          description: You do not have necessary permissions for the resource
+          schema: {}
+      security:
+      - Authorization: []
+
+  # Get Hotel Content Change
+  "/v1.0.0/shop/hotels/content/change":
+    post:
+      summary: Get Hotel Content Change
+      description: ""
+      tags:
+      - Hotel
+      operationId: V1_0_0ShopHotelsContentChangePost
+      produces:
+      - application/json
+      parameters:
+        - name: mode
+          in: query
+          required: true
+          description: ""
+          type: string
+          enum:
+            - "change"
+        - name: gethotelcontentchangerequest
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              GetHotelContentChangeRQ:
+                type: object
+      responses:
+        '200':
+          description: successful operation
+          schema: {}
+          # todo: define schema
+        '400':
+          description: Invalid status value
+          schema: {}
+        '401':
+          description: You do not have necessary permissions for the resource
+          schema: {}
+      security:
+      - Authorization: []
+
+  # Get Hotel Descriptive Info
+  "/v1.0.0/shop/hotels/description":
+    post:
+      summary: Get Hotel Descriptive Info
+      description: ""
+      tags:
+      - Hotel
+      operationId: V1_0_0ShopHotelsDescriptionPost
+      produces:
+      - application/json
+      parameters:
+        - name: mode
+          in: query
+          required: true
+          description: ""
+          type: string
+          enum:
+            - "description"
+        - name: gethoteldescriptionrequest
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              GetHotelDescriptiveInfoRQ:
+                type: object
+      responses:
+        '200':
+          description: successful operation
+          schema: {}
+          # todo: define schema
+        '400':
+          description: Invalid status value
+          schema: {}
+        '401':
+          description: You do not have necessary permissions for the resource
+          schema: {}
+      security:
+      - Authorization: []
+
+  # Get Hotel Image
+  "/v1.0.0/shop/hotels/image":
+    post:
+      summary: Get Hotel Image
+      description: ""
+      tags:
+      - Hotel
+      operationId: V1_0_0ShopHotelsImagePost
+      produces:
+      - application/json
+      parameters:
+        - name: mode
+          in: query
+          required: true
+          description: ""
+          type: string
+          enum:
+            - "image"
+        - name: gethotelimagerequest
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              GetHotelImageRQ:
+                type: object
+      responses:
+        '200':
+          description: successful operation
+          schema: {}
+          # todo: define schema
+        '400':
+          description: Invalid status value
+          schema: {}
+        '401':
+          description: You do not have necessary permissions for the resource
+          schema: {}
+      security:
+      - Authorization: []
+
+  # Get Hotel List
+  "/v1.0.0/shop/hotels/list":
+    post:
+      summary: Get Hotel List
+      description: ""
+      tags:
+      - Hotel
+      operationId: V1_0_0ShopHotelsListPost
+      produces:
+      - application/json
+      parameters:
+        - name: mode
+          in: query
+          required: true
+          description: ""
+          type: string
+          enum:
+            - "list"
+        - name: gethotelslistrequest
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              GetHotelListRQ:
+                type: object
+      responses:
+        '200':
+          description: successful operation
+          schema: {}
+          # todo: define schema
+        '400':
+          description: Invalid status value
+          schema: {}
+        '401':
+          description: You do not have necessary permissions for the resource
+          schema: {}
+      security:
+      - Authorization: []
+
+  # Get Hotel Media
+  "/v1.0.0/shop/hotels/media":
+    post:
+      summary: Get Hotel Media
+      description: ""
+      tags:
+      - Hotel
+      operationId: V1_0_0ShopHotelsMediaPost
+      produces:
+      - application/json
+      parameters:
+        - name: gethotelsmediarequest
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              GetHotelMediaRQ:
+                type: object
+      responses:
+        '200':
+          description: successful operation
+          schema: {}
+          # todo: define schema
+        '400':
+          description: Invalid status value
+          schema: {}
+        '401':
+          description: You do not have necessary permissions for the resource
+          schema: {}
+      security:
+      - Authorization: []
+
+# MDM
+
+  # Get Master Geography_Air Service Location
+
+  "/v1/mdm/MasterGeography/ECAirSvcLocation":
+    get:
+      summary: Get Master Geography_Air Service Location
+      description: ""
+      tags:
+      - MDM
+      operationId: V1_mdmMasterGeographyECAirSvcLocationGet
+      produces:
+      - application/json
+      parameters:
+      - name: page
+        in: query
+        required: false
+        type: integer
+        description: "Page number of the desired page to be returned"
+      - name: size
+        in: query
+        required: false
+        type: integer
+        description: "Parameter used to specify number of items (records) to be returned per page"
+      - name: embedded
+        in: query
+        required: false
+        type: boolean
+        description: "True: External objects referenced by a record are embedded within the response. All reference data is returned.  False: Only the id (identifier field) of external objects are returned within the response,and a “Ref” suffix is appended to the object name (e.g. “SourceRef”)"
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            "$ref": "#/definitions/ECAirSvcLocation"
+          examples: {}
+        '400':
+          description: Invalid status value
+          schema: {}
+        '401':
+          description: You do not have necessary permissions for the resource
+          schema: {}
+        '403':
+          description: You do not have necessary permissions for the resource
+          schema: {}
+      security:
+      - Authorization: []
+
+definitions:
+# Air Search
+  # InstaFlights Search
+  InstaFlightsSearch:
+    title: InstaFlightsSearch
+    type: object
+    properties:
+      PricedItineraries:
+        type: array
+        items:
+          type: object
+          properties:
+            AirItinerary:
+              type: object
+              properties:
+                OriginDestinationOptions:
+                  type: object
+                  properties:
+                    OriginDestinationOption:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          FlightSegment:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                DepartureAirport:
+                                  type: object
+                                  properties:
+                                    LocationCode:
+                                      type: string
+                                ArrivalAirport:
+                                  type: object
+                                  properties:
+                                    LocationCode:
+                                      type: string
+                                MarketingAirline:
+                                  type: object
+                                  properties:
+                                    Code:
+                                      type: string
+                                ArrivalTimeZone:
+                                  type: object
+                                  properties:
+                                    GMTOffset:
+                                      type: number
+                                TPA_Extensions:
+                                  type: object
+                                  properties:
+                                    eTicket:
+                                      type: object
+                                      properties:
+                                        Ind:
+                                          type: boolean
+                                StopQuantity:
+                                  type: number
+                                ElapsedTime:
+                                  type: number
+                                ResBookDesigCode:
+                                  type: string
+                                MarriagGrp:
+                                  type: number
+                                Equipment:
+                                  type: object
+                                  # this value is inconsistently represented as a string or a number
+                                  #properties:
+                                  #  AirEquipType:
+                                  #    type: number
+                                DepartureDateTime:
+                                  type: string
+                                ArrivalDateTime:
+                                  type: string
+                                FlightNumber:
+                                  type: number
+                                OntimePerformance:
+                                  type: object
+                                  properties:
+                                    Level:
+                                      type: number
+                                OperatingAirline:
+                                  type: object
+                                  properties:
+                                    FlightNumber:
+                                      type: number
+                                    Code:
+                                      type: string
+                                DepartureTimeZone:
+                                  type: object
+                                  properties:
+                                    GMTOffset:
+                                      type: number
+                          ElapsedTime:
+                            type: number
+                DirectionInd:
+                  type: string
+            TPA_Extensions:
+              type: object
+              properties:
+                ValidatingCarrier:
+                  type: object
+                  properties:
+                    Code:
+                      type: string
+            SequenceNumber:
+              type: number
+            AirItineraryPricingInfo:
+              type: object
+              properties:
+                PTC_FareBreakdowns:
+                  type: object
+                  properties:
+                    PTC_FareBreakdown:
+                      type: object
+                      properties:
+                        FareBasisCodes:
+                          type: object
+                          properties:
+                            FareBasisCode:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  BookingCode:
+                                    type: string
+                                  DepartureAirportCode:
+                                    type: string
+                                  AvailabilityBreak:
+                                    type: boolean
+                                  ArrivalAirportCode:
+                                    type: string
+                                  Content:
+                                    type: string
+                        PassengerTypeQuantity:
+                          type: object
+                          properties:
+                            Quantity:
+                              type: number
+                            Code:
+                              type: string
+                        PassengerFare:
+                          type: object
+                          properties:
+                            FareConstruction:
+                              type: object
+                              properties:
+                                CurrencyCode:
+                                  type: string
+                                DecimalPlaces:
+                                  type: number
+                                # inconsistent type varies from number to string
+                                #Amount:
+                                #  type: string
+                            TotalFare:
+                              type: object
+                              properties:
+                                CurrencyCode:
+                                  type: string
+                                # inconsistent type varies from number to string
+                                #Amount:
+                                #  type: string
+                            Taxes:
+                              type: object
+                              properties:
+                                TotalTax:
+                                  type: object
+                                  properties:
+                                    CurrencyCode:
+                                      type: string
+                                    DecimalPlaces:
+                                      type: number
+                                    # inconsistent type varies from number to string
+                                    #Amount:
+                                      # type: string
+                                Tax:
+                                  type: array
+                                  items:
+                                    type: object
+                                    properties:
+                                      CurrencyCode:
+                                        type: string
+                                      DecimalPlaces:
+                                        type: number
+                                      TaxCode:
+                                        type: string
+                                      # inconsistent type varies from number to string
+                                      #Amount:
+                                      #  type: string
+                            BaseFare:
+                              type: object
+                              properties:
+                                CurrencyCode:
+                                  type: string
+                                # inconsistent type varies from number to string
+                                #Amount:
+                                #  type: number
+                            EquivFare:
+                              type: object
+                              properties:
+                                CurrencyCode:
+                                  type: string
+                                DecimalPlaces:
+                                  type: number
+                                # inconsistent type varies from number to string
+                                #Amount:
+                                #  type: number
+                        Endorsements:
+                          type: object
+                          properties:
+                            NonRefundableIndicator:
+                              type: boolean
+                FareInfos:
+                  type: object
+                  properties:
+                    FareInfo:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          TPA_Extensions:
+                            type: object
+                            properties:
+                              Cabin:
+                                type: object
+                                properties:
+                                  Cabin:
+                                    type: string
+                              SeatsRemaining:
+                                type: object
+                                properties:
+                                  BelowMin:
+                                    type: boolean
+                                  Number:
+                                    type: number
+                              FareReference:
+                                type: string
+                TPA_Extensions:
+                  type: object
+                  properties:
+                    DivideInParty:
+                      type: object
+                      properties:
+                        Indicator:
+                          type: boolean
+                ItinTotalFare:
+                  type: object
+                  properties:
+                    FareConstruction:
+                      type: object
+                      properties:
+                        CurrencyCode:
+                          type: string
+                        DecimalPlaces:
+                          type: number
+                        # inconsistent type varies from number to string
+                        #Amount:
+                        #  type: number
+                    TotalFare:
+                      type: object
+                      properties:
+                        CurrencyCode:
+                          type: string
+                        DecimalPlaces:
+                          type: number
+                        # inconsistent type varies from number to string
+                        #Amount:
+                        #  type: string
+                    Taxes:
+                      type: object
+                      properties:
+                        Tax:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              CurrencyCode:
+                                type: string
+                              DecimalPlaces:
+                                type: number
+                              TaxCode:
+                                type: string
+                              # inconsistent type varies from number to string
+                              #Amount:
+                              #  type: string
+                    BaseFare:
+                      type: object
+                      properties:
+                        CurrencyCode:
+                          type: string
+                        DecimalPlaces:
+                          type: number
+                        # inconsistent type varies from number to string
+                        #Amount:
+                        #  type: number
+                    EquivFare:
+                      type: object
+                      properties:
+                        CurrencyCode:
+                          type: string
+                        DecimalPlaces:
+                          type: number
+                        # inconsistent type varies from number to string
+                        #Amount:
+                        #  type: number
+            TicketingInfo:
+              type: object
+              properties:
+                TicketType:
+                  type: string
+      ReturnDateTime:
+        type: string
+      DepartureDateTime:
+        type: string
+      DestinationLocation:
+        type: string
+      OriginLocation:
+        type: string
+      Links:
+        type: array
+        items:
+          "$ref": "#/definitions/Link"
+
+  # Lead Price Calendar
+  LeadPriceCalendar:
+    title: LeadPriceCalendar
+    type: object
+    properties:
+      OriginLocation:
+        type: string
+      DestinationLocation:
+        type: string
+      FareInfo:
+        type: array
+        items:
+          "$ref": "#/definitions/FareInfo"
+      Links:
+        type: array
+        items:
+          "$ref": "#/definitions/Link"
+
+  # Seat Map (beta)
+  SeatMap:
+    title: SeatMap
+    type: object
+    properties:
+      EnhancedSeatMapRS:
+        type: object
+        properties:
+          ApplicationResults:
+            type: object
+            properties:
+              status:
+                type: string
+              Success:
+                type: array
+                items:
+                  type: object
+          SeatMap:
+            type: array
+            items:
+              type: object
+              properties:
+                changeOfGuageInd:
+                  type: boolean
+                Equipment:
+                  type: string
+                Flight:
+                  type: object
+                  properties:
+                    destination:
+                      type: string
+                    origin:
+                      type: string
+                    DepartureDate:
+                      type: object
+                      properties:
+                        localTime:
+                          type: string
+                        content:
+                          type: string
+                    Marketing:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          carrier:
+                            type: string
+                          content:
+                            type: string
+                Cabin:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      firstRow:
+                        type: number
+                      lastRow:
+                        type: number
+                      CabinClass:
+                        type: object
+                        properties:
+                          CabinType:
+                            type: string
+                          RBD:
+                            type: string
+                      Row:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            RowNumber:
+                              type: number
+                            RowFacility:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  Characteristics:
+                                    type: object
+                                    properties:
+                                      content:
+                                        type: string
+                                  Location:
+                                    type: string
+                            Seat:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  occupiedInd:
+                                    type: boolean
+                                  inoperativeInd:
+                                    type: boolean
+                                  premiumInd:
+                                    type: boolean
+                                  chargableInd:
+                                    type: boolean
+                                  exitRowInd:
+                                    type: boolean
+                                  restrictedReclineInd:
+                                    type: boolean
+                                  noInfantInd:
+                                    type: boolean
+                                  Number:
+                                    type: string
+                                  Occupation:
+                                    type: array
+                                    items:
+                                      type: object
+                                      properties:
+                                        Detail:
+                                          type: object
+                                          properties:
+                                            content:
+                                              type: string
+                                  Limitations:
+                                    type: array
+                                    items:
+                                      type: object
+                                      properties:
+                                        Detail:
+                                          type: object
+                                          properties:
+                                            content:
+                                              type: string
+                                  Bilateral:
+                                    type: object
+                                    properties:
+                                      Characteristic:
+                                        type: array
+                                        items:
+                                          type: string
+                      Column:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            Column:
+                              type: string
+                            Characteristics:
+                              type: array
+                              items:
+                                type: string
+                PriceList:
+                  type: object
+                  properties:
+                    PriceTypeDetail:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                          Code:
+                            type: string
+                          Description:
+                            type: string
+                          SecondaryCode:
+                            type: object
+                            properties:
+                              content:
+                                type: string
+                TaxTable:
+                  type: array
+                  items:
+                    type: object
+      Links:
+        type: array
+        items:
+          "$ref": "#/definitions/Link"
+
+  # Flights To
+  FlightsTo:
+    title: FlightsTo
+    type: object
+    properties:
+      DestinationLocation:
+        type: string
+      FareInfo:
+        type: array
+        items:
+          type: object
+          properties:
+            CurrencyCode:
+              type: string
+            LowestFare:
+              type: object
+              properties:
+                AirlineCodes:
+                  type: array
+                  items:
+                    type: string
+                Fare:
+                  type: number
+                OriginLocation:
+                  type: string
+                DepartureDateTime:
+                  type: string
+                ReturnDateTime:
+                  type: string
+                Links:
+                  type: array
+                  items:
+                    "$ref": "#/definitions/Link"
+      Links:
+        type: array
+        items:
+          "$ref": "#/definitions/Link"
+
+# Air Intelligence
+  # Low Fare Forecast
+  LowFareForecast:
+    title: LowFareForecast
+    type: object
+    properties:
+      OriginLocation:
+        type: string
+      DestinationLocation:
+        type: string
+      DepartureDateTime:
+        type: string
+      ReturnDateTime:
+        type: string
+      Forecast:
+        type: object
+        properties:
+          HighestPredictedFare:
+            type: number
+          CurrencyCode:
+            type: string
+          LowestPredictedFare:
+            type: number
+      Recommendation:
+        type: string
+      LowestFare:
+        type: number
+      CurrencyCode:
+        type: string
+      Links:
+        type: array
+        items:
+          "$ref": "#/definitions/Link"
+
+  # TravelSeasonality
+  TravelSeasonality:
+    title: TravelSeasonality
+    type: object
+    properties:
+      DestinationLocation:
+        type: string
+      Seasonality:
+        type: array
+        items:
+          type: object
+          properties:
+            WeekEndDate:
+              type: string
+            YearWeekNumber:
+              type: number
+            NumberOfObservations:
+              type: string
+            WeekStartDate:
+              type: string
+            SeasonalityIndicator:
+              type: string
+      Links:
+        type: array
+        items:
+          "$ref": "#/definitions/Link"
+
+# Air Utility
+  # Point of Sale Country Code Lookup
+  Pointofsalecountries:
+    title: Pointofsalecountries
+    type: object
+    properties:
+      Countries:
+        description: ''
+        type: array
+        items:
+          "$ref": "#/definitions/Country"
+      Links:
+        description: ''
+        type: array
+        items:
+          "$ref": "#/definitions/Link"
+
+  # Travel Seasonality Airports Lookup
+  TravelSeasonalityDestinations:
+    title: TravelSeasonalityDestinations
+    type: object
+    properties:
+      DestinationLocations:
+        type: array
+        items:
+          "$ref": "#/definitions/DestinationLocation"
+      Links:
+        type: array
+        items:
+          "$ref": "#/definitions/Link"
+
+  # Countries Lookup
+  Countries:
+    title: Countries
+    type: object
+    properties:
+      PointOfSale:
+        description: ''
+        type: string
+      OriginCountries:
+        description: ''
+        type: array
+        items:
+          "$ref": "#/definitions/OriginCountry"
+      DestinationCountries:
+        description: ''
+        type: array
+        items:
+          "$ref": "#/definitions/DestinationCountry"
+      Links:
+        description: ''
+        type: array
+        items:
+          "$ref": "#/definitions/Link"
+
+  # City Pairs Lookup
+  # Low Fare Forecast City Pairs Lookup
+  # Fare Range City Pairs Lookup
+  CityPairOriginsdestinations:
+    title: CityPairOriginsdestinations
+    type: object
+    properties:
+      OriginDestinationLocations:
+        type: array
+        items:
+          "$ref": "#/definitions/CityPairs"
+      Links:
+        type: array
+        items:
+          "$ref": "#/definitions/Link"
+
+  # Travel Theme Lookup
+  TravelThemes:
+    title: TravelThemes
+    type: object
+    properties:
+      Themes:
+        type: array
+        items:
+          type: object
+          properties:
+            Theme:
+              type: string
+            Links:
+              type: array
+              items:
+                "$ref": "#/definitions/Link"
+      Links:
+        type: array
+        items:
+          "$ref": "#/definitions/Link"
+
+  # Theme Airport Lookup
+  ThemeAirport:
+    title: ThemeAirport
+    type: object
+    properties:
+      Destinations:
+        type: array
+        items:
+          type: object
+          properties:
+            Destination:
+              type: string
+            "Type":
+              type: string
+            Links:
+              type: array
+              items:
+                "$ref": "#/definitions/Link"
+      Links:
+        type: array
+        items:
+          "$ref": "#/definitions/Link"
+
+  # Multi-Airport City Lookup
+  MultiAirportCities:
+    title: MultiAirportCities
+    type: object
+    properties:
+      Cities:
+        type: array
+        items:
+          type: object
+          properties:
+            code:
+              type: string
+            name:
+              type: string
+            countryCode:
+              type: string
+            countryName:
+              type: string
+            regionName:
+              type: string
+            Links:
+              type: array
+              items:
+                "$ref": "#/definitions/Link"
+      Links:
+        type: array
+        items:
+          "$ref": "#/definitions/Link"
+
+  # Airports at Cities Lookup
+  AirportsAtCity:
+    title: AirportsAtCity
+    type: object
+    properties:
+      Airports:
+        type: array
+        items:
+          type: object
+          properties:
+            code:
+              type: string
+            name:
+              type: string
+      "Rail Stations":
+        type: array
+        items:
+          type: object
+          properties:
+            code:
+              type: string
+            name:
+              type: string
+      Others:
+        type: array
+        items:
+          type: object
+          properties:
+            code:
+              type: string
+            name:
+              type: string
+      Links:
+        type: array
+        items:
+          "$ref": "#/definitions/Link"
+
+# Ground Transportation Search
+  #Car Availability (beta)
+  CarAvailability:
+    title: CarAvailability
+    type: object
+    properties:
+      OTA_VehAvailRateRS:
+        type: object
+        properties:
+          Version:
+            type: string
+          ApplicationResults:
+            type: object
+            properties:
+              Success:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    timeStamp:
+                      type: string
+          VehAvailRSCore:
+            type: object
+            properties:
+              HeaderInfo:
+                type: object
+                properties:
+                  Text:
+                    type: array
+                    items:
+                      type: string
+              VehRentalCore:
+                type: object
+                properties:
+                  NumDays:
+                    type: string
+                  NumHours:
+                    type: string
+                  PickUpDateTime:
+                    type: string
+                  ReturnDateTime:
+                    type: string
+                  DropOffLocationDetails:
+                    type: object
+                    properties:
+                      LocationCode:
+                        type: string
+                  LocationDetails:
+                    type: object
+                    properties:
+                      LocationCode:
+                        type: string
+                      LocationName:
+                        type: string
+              VehVendorAvails:
+                type: object
+                properties:
+                  VehVendorAvail:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        RPH:
+                          type: string
+                        VehAvailCore:
+                          type: object
+                          properties:
+                            RentalRate:
+                              type: object
+                              properties:
+                                AvailabilityStatus:
+                                  type: string
+                                RateCode:
+                                  type: string
+                                STM_RatePlan:
+                                  type: string
+                                Vehicle:
+                                  type: object
+                                  properties:
+                                    VehType:
+                                      type: array
+                                      items:
+                                        type: string
+                            VehicleCharges:
+                              type: object
+                              properties:
+                                VehicleCharge:
+                                  type: object
+                                  properties:
+                                    Amount:
+                                      type: string
+                                    CurrencyCode:
+                                      type: string
+                                    GuaranteeInd:
+                                      type: string
+                                    AdditionalDayHour:
+                                      type: object
+                                      properties:
+                                        Day:
+                                          type: object
+                                          properties:
+                                            CurrencyCode:
+                                              type: string
+                                            MileageAllowance:
+                                              type: string
+                                            Rate:
+                                              type: string
+                                        Hour:
+                                          type: object
+                                          properties:
+                                            CurrencyCode:
+                                              type: string
+                                            MileageAllowance:
+                                              type: string
+                                            Rate:
+                                              type: string
+                                    Mileage:
+                                      type: object
+                                      properties:
+                                        Allowance:
+                                          type: string
+                                        CurrencyCode:
+                                          type: string
+                                        ExtraMileageCharge:
+                                          type: string
+                                    SpecialEquipTotalCharge:
+                                      type: object
+                                      properties:
+                                        CurrencyCode:
+                                          type: string
+                                        TotalCharge:
+                                          type: object
+                                          properties:
+                                            Amount:
+                                              type: string
+                                            CurrencyCode:
+                                              type: string
+                                            RateAssured:
+                                              type: string
+                        Vendor:
+                          type: object
+                          properties:
+                            Code:
+                              type: string
+                            CompanyShortName:
+                              type: string
+                            CounterLocation:
+                              type: string
+                            ParticipationLevel:
+                              type: string
+      Links:
+        type: array
+        items:
+          "$ref": "#/definitions/Link"
+
+# Utility
+  #Airline Alliance Lookup
+  AirlineAlliances:
+    title: AirlineAlliances
+    type: object
+    properties:
+      AllianceInfo:
+        type: array
+        items:
+          "$ref": "#/definitions/AirlineAlliance"
+      Links:
+        description: ''
+        type: array
+        items:
+          "$ref": "#/definitions/Link"
+
+  # Aircraft Equipment Lookup
+  AircraftEquipment:
+    title: AircraftEquipment
+    type: object
+    properties:
+      AircraftInfo:
+        type: array
+        items:
+          type: object
+          properties:
+            AircraftCode:
+              type: string
+            AircraftName:
+              type: string
+      Links:
+        description: ''
+        type: array
+        items:
+          "$ref": "#/definitions/Link"
+
+  # Airline Lookup
+  AirlineLookup:
+    title: AirlineLookup
+    type: object
+    properties:
+      AirlineInfo:
+        type: array
+        items:
+          type: object
+          properties:
+            AirlineCode:
+              type: string
+            AirlineName:
+              type: string
+            AlternativeBusinessName:
+              type: string
+      Links:
+        description: ''
+        type: array
+        items:
+          "$ref": "#/definitions/Link"
+
+  # Geo Code
+  GeoCode:
+    title: GeoCode
+    type: object
+    properties:
+      Results:
+        type: array
+        items:
+          type: object
+          properties:
+            GeoCodeRS:
+              type: object
+              properties:
+                status:
+                  type: string
+                Place:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      confidenceFactor:
+                        type: string
+                      latitude:
+                        type: number
+                      longitude:
+                        type: number
+                      Name:
+                        type: string
+                      category:
+                        type: string
+                      Id:
+                        type: string
+                      City:
+                        type: string
+                      State:
+                        type: string
+                      Country:
+                        type: string
+      Links:
+        description: ''
+        type: array
+        items:
+          "$ref": "#/definitions/Link"
+
+# Hotel
+  # Get Hotel Chain Info
+  HotelChainInfo:
+    title: HotelChainInfo
+    type: object
+    properties:
+      GetHotelChainInfoRS:
+        type: object
+        properties:
+          ApplicationResults:
+            type: object
+            properties:
+              Success:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    timeStamp:
+                      type: string
+          Marketers:
+            type: object
+            properties:
+              Code:
+                type: string
+              Name:
+                type: string
+              Chains:
+                type: object
+                properties:
+                  Chain:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        Code:
+                          type: string
+                        Name:
+                          type: string
+      Links:
+        description: ''
+        type: array
+        items:
+          "$ref": "#/definitions/Link"
+
+# Common
+  Link:
+    title: Link
+    type: object
+    properties:
+      rel:
+        description: ''
+        type: string
+      href:
+        description: ''
+        type: string
+  Country:
+    title: Country
+    type: object
+    properties:
+      CountryCode:
+        description: ''
+        type: string
+      CountryName:
+        description: ''
+        type: string
+      Links:
+        description: ''
+        type: array
+        items:
+          "$ref": "#/definitions/Link"
+  OriginCountry:
+    title: OriginCountry
+    type: object
+    properties:
+      CountryCode:
+        description: ''
+        type: string
+      CountryName:
+        description: ''
+        type: string
+  DestinationCountry:
+    title: DestinationCountry
+    type: object
+    properties:
+      CountryCode:
+        description: ''
+        type: string
+      CountryName:
+        description: ''
+        type: string
+  DestinationLocation:
+    title: DestinationLocation
+    type: object
+    properties:
+      AirportCode:
+        type: string
+      AirportName:
+        type: string
+      CityName:
+        type: string
+      CountryCode:
+        type: string
+      CountryName:
+        type: string
+      RegionName:
+        type: string
+  CityPairs:
+    title: CityPairs
+    type: object
+    properties:
+      OriginDestinationLocations:
+        type: string
+      OriginLocation:
+        type: object
+        properties:
+          AirportCode:
+            type: string
+          AirportName:
+            type: string
+          CityName:
+            type: string
+          CountryCode:
+            type: string
+          CountryName:
+            type: string
+          RegionName:
+            type: string
+      DestinationLocation:
+        type: object
+        properties:
+          AirportCode:
+            type: string
+          AirportName:
+            type: string
+          CityName:
+            type: string
+          CountryCode:
+            type: string
+          CountryName:
+            type: string
+          RegionName:
+            type: string
+  AirlineAlliance:
+    title: AirlineAlliance
+    type: object
+    properties:
+      AllianceCode:
+        type: string
+      AllianceName:
+        type: string
+      AirlineInfo:
+        type: array
+        items:
+          type: object
+          properties:
+            AirlineCode:
+              type: string
+            Links:
+              type: array
+              items:
+                "$ref": "#/definitions/Link"
+  FareInfo:
+    title: FareInfo
+    type: object
+    properties:
+      # inconsistent.  sometimes this is an object sometimes just a string with 'N/A'
+      # should this value just be omitted instead of changing the return schema?
+      # oneOf to be supported in OpenAPI 3.0
+      #LowestFare:
+      #  type: object
+      #  properties:
+      #    AirlineCodes:
+      #      type: array
+      #      items:
+      #        type: string
+      #    Fare:
+      #      type: number
+
+      # inconsistent.  sometimes this is an object sometimes just a string with 'N/A'
+      # should this value just be omitted instead of changing the return schema?
+      # oneOf to be supported in OpenAPI 3.0
+      #LowestNonStopFare:
+      #  type: object
+      #  properties:
+      #    AirlineCodes:
+      #      type: array
+      #      items:
+      #        type: string
+      #    Fare:
+      #      type: number
+
+      CurrencyCode:
+        type: string
+      DepartureDateTime:
+        type: string
+      ReturnDateTime:
+        type: string
+      Links:
+        type: array
+        items:
+          "$ref": "#/definitions/Link"
+  ECAirSvcLocation:
+    title: ECAirSvcLocation
+    type: object
+    properties:
+      Pagination:
+        type: object
+        properties:
+          firstPage:
+            type: string
+          previousPage:
+            type: string
+          nextPage:
+            type: string
+          lastPage:
+            type: string
