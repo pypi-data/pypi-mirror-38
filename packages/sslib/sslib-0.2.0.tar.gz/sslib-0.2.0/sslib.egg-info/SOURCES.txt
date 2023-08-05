@@ -1,0 +1,14 @@
+.gitignore
+LICENSE
+README.md
+setup.cfg
+setup.py
+sslib/__init__.py
+sslib/randomness.py
+sslib/util.py
+sslib.egg-info/PKG-INFO
+sslib.egg-info/SOURCES.txt
+sslib.egg-info/dependency_links.txt
+sslib.egg-info/top_level.txt
+sslib/shamir/__init__.py
+sslib/shamir/shamir.py
