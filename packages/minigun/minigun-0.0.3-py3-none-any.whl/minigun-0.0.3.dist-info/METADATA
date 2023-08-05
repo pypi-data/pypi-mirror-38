@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: minigun
+Version: 0.0.3
+Summary: Web scraping API to outsource tons of GET & xpath to cloud computing
+Home-page: https://github.com/umihico/minigun-requests
+Author: umihico
+Author-email: umihico_dummy@users.noreply.github.com
+License: MIT
+Keywords: umihico minigun web scraping requests lxml proxy threading multiprocessing aws cloud lambda
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.6
+Requires-Dist: umihico
+Requires-Dist: lxml
+
+UNKNOWN
+
+
