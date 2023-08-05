@@ -1,0 +1,73 @@
+---
+swagger: "2.0"
+info:
+  description: "BearerTokenIssuer web service api"
+  version: "1.0.0"
+  title: "Bearer Token Issuer"
+  termsOfService: ""
+  contact:
+    email: libre@mohsen.1.banan.byname.net  
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "localhost:8080"
+basePath: "/access/v1.0"
+tags:
+- name: "bearerTokenIssuer"
+  description: "Based on presented credentials and request, issues a bearerToken"
+  externalDocs:
+    description: "Find out more"
+    url: 'http://swagger.io'
+schemes:
+- "https"
+- "http"
+paths:
+  /token:
+    post:
+      tags:
+      - "token"
+      summary: "Obatin a token"
+      description: "Given credentials get a bearer token"
+      operationId: "obtain"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: userName
+        in: query
+        description: "Name Of User"
+        required: true
+        type: string
+      - name: role
+        in: query
+        description: "Role Of User"
+        required: true
+        type: string
+      - name: acGroups
+        in: query
+        description: "Access Control Groups"
+        required: true
+        type: string
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: '#/definitions/BearerToken'
+        400:
+          description: "Invalid tag value"
+        405:
+          description: "Invalid input"
+definitions:
+  BearerToken:
+    type: "object"
+    properties:
+      data:
+        type: "object"
+        properties:
+         expiredAt:
+          type: "string"
+         id:
+          type: "string"
+         issuedAt:
+          type: "string"
