@@ -1,0 +1,11 @@
+abac/__init__.py,sha256=DsAHdxLC16H2VjdFOU5tBx2xT9VnNQ-XbTS24fRCa_w,22
+abac/db/__init__.py,sha256=3t0BXn_SKch0WTHv022CSOJXTfb5Iq12DQYOiqtoE9E,2809
+abac/db/gremlin.py,sha256=PK5eW5lb0qD80ooEuAnjYXyC5a7vxTIXWo1nmxJMcl8,1510
+abac/db/umongo.py.deprecated,sha256=MC5q4A9W6GgB10J6-HBzoQJ4Rps6i6V1PDTTKJj-6ow,1070
+abac/exceptions.py,sha256=ajwlMyvZV0dyp3tCqWFGGw1HKR4Ctj3pihCDEy7rXnE,250
+abac/web/__init__.py,sha256=x0qHK7RSR77aoEHEKp-eeTWA_M4n7cn1oWStk-kFCZI,228
+abac/web/aiohttp.py,sha256=gvy6dVfb_B2tfoXvLBRA73El6EvnIOF5wfWl7nF2aTM,2287
+pyabac-0.0.2.dist-info/LICENSE.rst,sha256=GaHrlrRkq4RPOUJJpoZjhd_tPuMEZgqUVU2zecMuQrg,7768
+pyabac-0.0.2.dist-info/WHEEL,sha256=nUJZ9FU6ZQ5i_nlTBZCeKN6zfO7pJPSWoexeWptZN-E,84
+pyabac-0.0.2.dist-info/METADATA,sha256=Xoj6ymL7VO7xrfZbYF-n4m5ngXLGoxWrxXnTuLhq1zQ,799
+pyabac-0.0.2.dist-info/RECORD,,
