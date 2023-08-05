@@ -1,0 +1,13 @@
+README.md
+setup.py
+localizator/__init__.py
+localizator/dict_localization.py
+localizator/localization.py
+localizator/localization_describer.py
+localizator/localization_description.py
+localizator/localizations_provider.py
+localizator/localizator.py
+localizator.egg-info/PKG-INFO
+localizator.egg-info/SOURCES.txt
+localizator.egg-info/dependency_links.txt
+localizator.egg-info/top_level.txt
