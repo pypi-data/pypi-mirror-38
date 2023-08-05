@@ -1,0 +1,12 @@
+{% extends 'agadmator/base.html' %}
+
+{% block content %}
+  <h2>{{ series.title }}</h2>
+  <hr>
+  <div class="row">
+    {% for video in series.videos.all %}
+      {% include 'agadmator/_video_card.html' with video=video %}
+    {% endfor %}
+  </div>
+
+{% endblock content %}
