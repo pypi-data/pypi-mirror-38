@@ -1,0 +1,30 @@
+Metadata-Version: 2.0
+Name: panager
+Version: 0.1.0
+Summary: Patch manager for easy tracking with integration in jira
+Home-page: https://github.com/ronen-y/patchme
+Author: yakobu
+Author-email: ronenya4321@gmail.com
+License: MIT
+Keywords: patch
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Operating System :: POSIX
+Classifier: Topic :: Software Development :: Pre-processors
+Provides-Extra: dev
+Provides-Extra: dev
+Requires-Dist: flake8; extra == 'dev'
+Requires-Dist: mock; extra == 'dev'
+Requires-Dist: pytest; extra == 'dev'
+Requires-Dist: pytest-cov; extra == 'dev'
+
+# patchme
+Patch manager for easy tracking with integration in jira
+
+
