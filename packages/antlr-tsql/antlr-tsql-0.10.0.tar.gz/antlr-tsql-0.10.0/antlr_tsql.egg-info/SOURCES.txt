@@ -1,0 +1,11 @@
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+antlr_tsql/__init__.py
+antlr_tsql/ast.py
+antlr_tsql.egg-info/PKG-INFO
+antlr_tsql.egg-info/SOURCES.txt
+antlr_tsql.egg-info/dependency_links.txt
+antlr_tsql.egg-info/requires.txt
+antlr_tsql.egg-info/top_level.txt
