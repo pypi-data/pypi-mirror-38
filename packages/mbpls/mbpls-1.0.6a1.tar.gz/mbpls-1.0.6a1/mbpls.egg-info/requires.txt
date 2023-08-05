@@ -1,0 +1,16 @@
+numpy>=1.13.3
+scipy>=1.0.0
+scikit-learn>=0.20.0
+
+[docs]
+sphinx>=1.6
+sphinx_rtd_theme
+nbsphinx
+nbsphinx_link
+
+[extras]
+matplotlib
+pandas
+
+[tests]
+pytest
