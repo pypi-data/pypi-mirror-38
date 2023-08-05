@@ -1,0 +1,51 @@
+# T-Rex: Terminal Redis Explorer
+
+## Getting Started
+
+### Installation:
+
+```bash
+pip install t_rex
+```
+
+### Running
+
+```
+t_rex
+```
+
+`C-d` will quit.
+`Shift` key will change focus to the different windows.
+
+
+### Development:
+
+Make sure you're in a virtualenv that uses Python 3.7. 
+
+Install the contents of the repo using pip in editable mode.
+
+```bash
+pip install -e .
+```
+
+Install the development dependencies:
+
+```bash
+pip install -r requirements_dev.txt
+```
+
+Install the pre-commit hook:
+
+```bash
+pre-commit install
+```
+
+This will make sure the Python code formatter `black` is run before you commit your file changes.
+
+Run your test using `pytest`. 
+
+```bash
+pytest
+```
+
+
