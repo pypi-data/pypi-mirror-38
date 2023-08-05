@@ -1,0 +1,26 @@
+Metadata-Version: 2.0
+Name: xdev
+Version: 0.0.1
+Summary: A "utility belt" of commonly needed utility and helper functions
+Home-page: https://github.com/Erotemic/xdev
+Author: Jon Crall
+Author-email: erotemic@gmail.com
+License: Apache 2
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Utilities
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Provides-Extra: all
+Requires-Dist: pytest
+Requires-Dist: coverage
+Requires-Dist: xdoctest
+Requires-Dist: pytest-cov
+Provides-Extra: all
+
+UNKNOWN
+
+
