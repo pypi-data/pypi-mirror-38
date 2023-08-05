@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+betaincder/__init__.py
+betaincder/tests.py
+betaincder.egg-info/PKG-INFO
+betaincder.egg-info/SOURCES.txt
+betaincder.egg-info/dependency_links.txt
+betaincder.egg-info/top_level.txt
+betaincder/c/__init__.py
+betaincder/c/beta.c
+betaincder/c/betaincder.c
+betaincder/c/betaincder.h
+betaincder/c/betaincder.pxd
+betaincder/c/betaincder.pyx
+betaincder/c/digamma.c
