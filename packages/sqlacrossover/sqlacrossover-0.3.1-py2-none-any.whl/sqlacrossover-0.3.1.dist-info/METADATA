@@ -1,0 +1,73 @@
+Metadata-Version: 2.1
+Name: sqlacrossover
+Version: 0.3.1
+Summary: SQLAlchemy-based cross-database migration tool
+Home-page: https://pypi.org/project/sqlacrossover/
+Author: Andrew Grigorev
+Author-email: andrew@ei-grad.ru
+License: Apache-2
+Project-URL: Bug Tracker, https://github.com/ei-grad/sqlacrossover/issues
+Project-URL: Documentation, https://github.com/ei-grad/sqlacrossover
+Project-URL: Source Code, https://github.com/ei-grad/sqlacrossover
+Keywords: sqlalchemy
+Provides-Extra: mysql
+Requires-Dist: pymysql; extra == 'mysql'
+Provides-Extra: postgresql
+Requires-Dist: psycopg2; extra == 'postgresql'
+
+sqlacrossover
+=============
+
+Cross-database migration tool based on SQLAlchemy
+
+Features:
+
+* Copy data and schema between SQLAlchemy-supported databases
+* Table ordering - taking the foreign keys dependencies in consideration
+* Data processing in batches
+* Wrap the process in transaction to get consistent results
+* Dump schema and data to SQL file
+
+Installation
+------------
+
+.. code-block:: bash
+
+    pip install sqlacrossover[MySQL,PostgreSQL]
+
+Example
+-------
+
+.. code-block:: bash
+
+    sqlacrossover 'mysql+pymysql:///sourcedatabase?charset=utf8' postgresql:///targetdatabase
+
+TODO
+----
+
+* Write documentation
+
+* Implement options:
+
+  * ``--no-data``
+  * ``--tables``
+  * ``--exclude-tables``
+  * ``--truncate-non-empty``
+  * ``--skip-non-empty``
+
+* Implement efficient driver-depenedent insert methods
+
+  * PostgreSQL ``COPY FROM`` / ``COPY TO``
+  * MySQL ``LOAD DATA LOCAL INFILE``
+
+* Write tests, configure travis.ci
+
+Contibuting
+-----------
+
+Pull requests implementing new features, adding tests, docs and fixing bugs are welcome.
+
+Feel free to open an issue with any feedback or ideas, also.
+
+
+
