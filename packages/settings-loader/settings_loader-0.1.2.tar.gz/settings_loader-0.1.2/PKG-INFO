@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: settings_loader
+Version: 0.1.2
+Summary: A small configuration_loader loader package
+Home-page: https://github.com/Tiendeo/settings_loader
+Author: Tiendeo
+Author-email: info.it@gmail.com
+License: UNKNOWN
+Description: # Configuration loader
+        
+        This is a small configuration loader package.
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
