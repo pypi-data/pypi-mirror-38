@@ -1,0 +1,3 @@
+[gui_scripts]
+treetime = treetime.__main__:main
+
