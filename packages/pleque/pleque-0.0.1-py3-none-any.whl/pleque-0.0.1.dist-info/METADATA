@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: pleque
+Version: 0.0.1
+Summary: Python module for easy work with a tokamak plasma equilibrium.
+Home-page: https://pleque.readthedocs.io
+Author: Lukas Kripner
+Author-email: kripner@ipp.cas.cz
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: shapely
+Requires-Dist: scikit-image
+Requires-Dist: xarray
+Requires-Dist: pandas
+
+UNKNOWN
+
+
