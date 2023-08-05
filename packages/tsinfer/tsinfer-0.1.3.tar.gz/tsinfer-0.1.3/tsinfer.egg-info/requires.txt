@@ -1,0 +1,10 @@
+numpy
+six
+tqdm
+humanize
+daiquiri
+msprime>=0.6.1
+zarr>=2.2
+lmdb
+sortedcontainers
+attrs
