@@ -1,0 +1,11 @@
+MANIFEST.in
+README.md
+setup.py
+grabicon/__init__.py
+grabicon/core.py
+grabicon.egg-info/PKG-INFO
+grabicon.egg-info/SOURCES.txt
+grabicon.egg-info/dependency_links.txt
+grabicon.egg-info/not-zip-safe
+grabicon.egg-info/requires.txt
+grabicon.egg-info/top_level.txt
