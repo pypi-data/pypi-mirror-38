@@ -1,0 +1,74 @@
+Metadata-Version: 2.0
+Name: Products.ExternalMethod
+Version: 4.1
+Summary: This package provides support for external Python methods within a Zope environment.
+Home-page: https://github.com/zopefoundation/Products.ExternalMethod
+Author: Zope Foundation and Contributors
+Author-email: zope-dev@zope.org
+License: ZPL 2.1
+Platform: UNKNOWN
+Classifier: Development Status :: 6 - Mature
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Zope :: 4
+Classifier: License :: OSI Approved :: Zope Public License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Requires-Dist: AccessControl
+Requires-Dist: Acquisition
+Requires-Dist: ExtensionClass (>=4.1a1)
+Requires-Dist: Persistence
+Requires-Dist: ZODB
+Requires-Dist: Zope (>=4.0b6)
+Requires-Dist: setuptools
+
+Overview
+========
+
+The External Method package provides support for external Python methods,
+exposing them as callable objects within a Zope environment.
+
+Changelog
+=========
+
+4.1 (2018-11-06)
+----------------
+
+- Update to Bootstrap ZMI requiring `Zope >= 4.0b6`.
+
+- Add support for Python 3.7.
+
+- Drop support for Python 3.4.
+
+4.0 (2017-10-18)
+----------------
+
+- Add support for Python 3.4, 3.5 and 3.6.
+
+- Add compatibility with Zope 4.
+
+3.0 (2016-07-18)
+----------------
+
+- Remove HelpSys support.
+
+- Remove ZODB3 as direct dependency. Now we are able to use ZODB 4.0
+  and it is a dependency of Zope2 anyways
+
+2.13.1 (2014-11-02)
+-------------------
+
+- Handle both `func_code` / `__code__` and `func_defaults` / `__defaults__`.
+
+2.13.0 (2010-07-10)
+-------------------
+
+- Released as separate package.
+
+
