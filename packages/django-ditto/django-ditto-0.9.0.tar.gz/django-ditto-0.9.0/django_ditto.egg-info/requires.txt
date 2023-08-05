@@ -1,0 +1,8 @@
+django-imagekit<4.1,>=4.0
+django-sortedm2m<1.6,>=1.5.0
+django-taggit<0.30,>=0.22.2
+flickrapi<2.4,>=2.3
+pillow<4.4,>=4.3.0
+pytz
+twitter-text-python
+twython<3.8,>=3.7.0
