@@ -1,0 +1,14 @@
+azure/__init__.py,sha256=ACgdTCPVpFSrDhMom8E5xDMBxH_nvndKbECs5Ph9zmU,408
+azure/cli/__init__.py,sha256=ACgdTCPVpFSrDhMom8E5xDMBxH_nvndKbECs5Ph9zmU,408
+azure/cli/command_modules/__init__.py,sha256=ACgdTCPVpFSrDhMom8E5xDMBxH_nvndKbECs5Ph9zmU,408
+azure/cli/command_modules/advisor/__init__.py,sha256=GlUdyw14nugD9RFDl8R3NY4bjf_bdrlmM8lKhHQmFtw,1308
+azure/cli/command_modules/advisor/_client_factory.py,sha256=geGHbMyDXS8jn7hJYgxec8SWxjgq1YakSTaydkY8Nf4,960
+azure/cli/command_modules/advisor/_help.py,sha256=-NAjClJO-PG9Z58doS3Nud5h3_c7hEEuq_Hx-07CeMU,1822
+azure/cli/command_modules/advisor/_params.py,sha256=Uv18q-0h2c7h8506UyUfMhzHXloK8yBqSeI60v63BM8,3244
+azure/cli/command_modules/advisor/_validators.py,sha256=PU5F-sGUiAGOfiA0FXckQBU9E7GWfxs6gJwBYCxkFOM,1109
+azure/cli/command_modules/advisor/commands.py,sha256=y0VQEaEUVSdyTYHwDOSuy1GbtYPgEPCRfSfK01VxONo,1838
+azure/cli/command_modules/advisor/custom.py,sha256=5gWsDCL3-4fvICQuhOiXBsy8aCbubPH5uGqGTHJbl8I,5908
+azure_cli_advisor-2.0.0.dist-info/METADATA,sha256=--HrF-XR6VGf-xy0ybBAHJJIqZkkJ0RB-VqrquD-fX8,1826
+azure_cli_advisor-2.0.0.dist-info/WHEEL,sha256=CihQvCnsGZQBGAHLEUMf0IdA4fRduS_NBUTMgCTtvPM,110
+azure_cli_advisor-2.0.0.dist-info/top_level.txt,sha256=S7DhWV9m80TBzAhOFjxDUiNbKszzoThbnrSz5MpbHSQ,6
+azure_cli_advisor-2.0.0.dist-info/RECORD,,
