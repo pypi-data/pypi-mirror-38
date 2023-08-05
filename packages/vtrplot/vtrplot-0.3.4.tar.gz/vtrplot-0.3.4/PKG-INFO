@@ -1,0 +1,16 @@
+Metadata-Version: 1.1
+Name: vtrplot
+Version: 0.3.4
+Summary: Python utilities for Fullwave3D VTR model files
+Home-page: http://not-yet
+Author: Tim Lin (S-Cube)
+Author-email: tlin@s-cube.com
+License: 3-clause BSD
+Description: VTR Plotting tool
+Keywords: fullwave3d vtr
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Topic :: Utilities
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: BSD License

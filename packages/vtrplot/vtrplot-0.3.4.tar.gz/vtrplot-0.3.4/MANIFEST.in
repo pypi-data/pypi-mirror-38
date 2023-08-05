@@ -1,0 +1,4 @@
+include README.md
+include LICENSE
+include ./tests/test_files/test.vtr
+recursive-include . *.py
