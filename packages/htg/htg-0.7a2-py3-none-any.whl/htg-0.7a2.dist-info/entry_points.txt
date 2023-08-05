@@ -1,0 +1,3 @@
+[console_scripts]
+htg = htg.__main__:main
+
