@@ -1,0 +1,15 @@
+README.md
+setup.py
+quantum_edward/Fitter.py
+quantum_edward/Model.py
+quantum_edward/NbTrolsModel.py
+quantum_edward/NoNbTrolsModel.py
+quantum_edward/Plotter.py
+quantum_edward/TimeStep.py
+quantum_edward/__init__.py
+quantum_edward/utilities.py
+quantum_edward.egg-info/PKG-INFO
+quantum_edward.egg-info/SOURCES.txt
+quantum_edward.egg-info/dependency_links.txt
+quantum_edward.egg-info/requires.txt
+quantum_edward.egg-info/top_level.txt
