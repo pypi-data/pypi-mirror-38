@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: snaplogic
+Version: 0.0.2
+Summary: This package contains modules to be used with SnapLogic.
+Home-page: https://www.snaplogic.com
+Author: Jump Thanawut
+Author-email: jumpthanawut@snaplogic.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: Other/Proprietary License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: clipboard (==0.0.4)
+Requires-Dist: jsonpickle (==1.0)
+Requires-Dist: numpy (==1.15.3)
+Requires-Dist: pycrypto (==2.6.1)
+Requires-Dist: python-dateutil (==2.7.5)
+Requires-Dist: pytz (==2018.7)
+Requires-Dist: pandas (==0.23.4)
+Requires-Dist: requests (==2.20.0)
+Requires-Dist: jupyter (==1.0.0)
+
+This is a package containing modules to be used together with SnapLogic platform.
+
+
