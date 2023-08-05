@@ -1,0 +1,8 @@
+setuptools
+
+[test]
+pytest
+xlrd
+
+[xls]
+xlwt
