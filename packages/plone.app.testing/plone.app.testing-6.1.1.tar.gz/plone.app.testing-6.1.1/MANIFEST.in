@@ -1,0 +1,7 @@
+exclude .editorconfig
+include *.cfg *.rst
+
+recursive-include docs *
+recursive-include src *
+
+global-exclude *pyc
