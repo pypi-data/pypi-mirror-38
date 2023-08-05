@@ -1,0 +1,30 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+click = "*"
+"gitdb2" = "*"
+itsdangerous = "*"
+libsass = "*"
+money = "*"
+python-dateutil = "*"
+pytz = "*"
+requests = "*"
+six = "*"
+"smmap2" = "*"
+Flask = "*"
+GitPython = "*"
+"Jinja2" = "*"
+MarkupSafe = "*"
+Unidecode = "*"
+Werkzeug = "*"
+
+[dev-packages]
+twine = "*"
+pylint = "*"
+"autopep8" = "*"
+
+[requires]
+python_version = "3.7.0"
