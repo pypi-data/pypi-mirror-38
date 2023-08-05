@@ -1,0 +1,12 @@
+Metadata-Version: 1.2
+Name: rtsf-http
+Version: 2.1
+Summary: only for http(s) test, base on rtsf
+Home-page: https://github.com/RockFeng0/rtsf-http
+Author: 罗科峰
+Author-email: lkf20031988@163.com
+License: MIT
+Description: UNKNOWN
+Keywords: test http api https
+Platform: UNKNOWN
+Requires-Python: >=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, <4
