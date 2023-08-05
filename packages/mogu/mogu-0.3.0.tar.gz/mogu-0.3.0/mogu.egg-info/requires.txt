@@ -1,0 +1,7 @@
+Cython
+numpy
+scipy
+numba
+networkx>=2.0
+graphflow>=0.1.1
+mogutda>=0.1.1
