@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+django_tools_seo.egg-info/PKG-INFO
+django_tools_seo.egg-info/SOURCES.txt
+django_tools_seo.egg-info/dependency_links.txt
+django_tools_seo.egg-info/top_level.txt
+djtools/__init__.py
+djtools/seo/__init__.py
+djtools/seo/apps.py
+djtools/seo/context_processors.py
+djtools/seo/mixins.py
+djtools/seo/templates/djtools/seo/google_analytics.html
