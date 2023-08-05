@@ -1,0 +1,85 @@
+#!/usr/bin/env python
+
+import chronologicon, chronologicon.output, chronologicon.maintenance, sys
+py3 = sys.version_info[0] > 2
+
+# Logging and entry
+START_COMMANDS = ['start', 'begin', 's', '-s']
+STOP_COMMANDS = ['stop', 'end', 'x', '-x']
+ABORT_COMMANDS = ['abort', 'cancel']
+STATUS_COMMANDS = ['status']
+
+# Stats and graphs
+STATS_COMMANDS = ['stats', 'graphs', 'v', '-v']
+
+# Maintenance
+BACKUP_COMMANDS = ['backup', 'b', '-b']
+LIST_COMMANDS = ['list']
+EDIT_COMMANDS = ['edit']
+DIRECTORY_COMMANDS = ['directory', 'd', '-d']
+
+# Help
+HELP_COMMANDS = ['help', 'h', '--help', '-h']
+
+# --------------------------------------------------
+
+if len(sys.argv) > 1:
+	mainCommand = sys.argv[1] #sys.argv[0] is the name of the script
+	options = sys.argv[2:]
+
+	# Logging and entry
+	if mainCommand in START_COMMANDS:
+		chronologicon.StartLog(options)
+
+	elif mainCommand in STOP_COMMANDS:
+		chronologicon.StopLog()
+
+	elif mainCommand in ABORT_COMMANDS:
+		if py3:
+			response = input("Cancel the log in progress? (y/n): ")
+		else:
+			response = raw_input("Cancel the log in progress? (y/n): ")
+
+		if response == 'y':
+			chronologicon.CancelLog()
+		else:
+			print("Log not cancelled.")
+
+	elif mainCommand in STATUS_COMMANDS:
+		chronologicon.Status()
+
+	# Stats and graphs
+	elif mainCommand in STATS_COMMANDS:
+		chronologicon.output.ViewStats(options)
+
+	# Maintenance
+	elif mainCommand in BACKUP_COMMANDS:
+		chronologicon.Backup()
+
+	elif mainCommand in LIST_COMMANDS:
+		if 'verbose' in options:
+			chronologicon.maintenance.List(True)
+		else:
+			chronologicon.maintenance.List()
+
+	elif mainCommand in DIRECTORY_COMMANDS:
+		# Change directory to the one provided, or if none is provided, ask for one
+		if len(options) > 0:
+			chronologicon.ChangeSaveDir(options[0])
+		else:
+			if py3:
+				response = input("New save directory: ")
+			else:
+				response = raw_input("New save directory: ")
+
+			chronologicon.ChangeSaveDir(response)
+
+	# Help
+	elif mainCommand in HELP_COMMANDS:
+		print("A list of commands can be found at https://github.com/rutherfordcraze/chronologicon.\nThis help section will be amended shortly.")
+
+	else:
+		print("Command not recognised.")
+
+else:
+	print("Not enough arguments.")
