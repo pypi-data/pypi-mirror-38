@@ -1,0 +1,39 @@
+#!/usr/bin/env python
+
+from lex_bot_deploy import lex_bot_deploy
+import argparse
+import boto3
+import sys
+import logging
+
+logging.basicConfig(stream=sys.stdout)
+logger = logging.getLogger(__name__)
+
+account_id = boto3.client('sts').get_caller_identity().get('Account')
+
+parser = argparse.ArgumentParser()
+parser.add_argument('-a', '--alias', required=False,
+                    help='lex alias to deploy to, e.g. test or dev or qa', default='$LATEST')
+parser.add_argument('-r', '--region', required=False, help='AWS region to deploy to')
+parser.add_argument('-f', '--function-name', required=False, help='Lambda function ARN. Will replace existing Lambda endpoints from schema file')
+parser.add_argument('-s', '--schema-file', required=True, help='schema file path')
+parser.add_argument('-v', '--verbose', required=False, help='verbose logging (>=DEBUG)', action='store_true')
+parser.add_argument('-q', '--quiet', required=False, help='quiet (>=WARNING)', action='store_true')
+
+args = parser.parse_args()
+
+schema_file = args.schema_file
+
+region = args.region
+function_name = args.function_name
+function_alias = args.alias
+log_level = 'INFO'
+if args.verbose:
+    log_level = 'DEBUG'
+elif args.quiet:
+    log_level = 'WARNING'
+
+logger.setLevel(log_level)
+
+lex_bot_deploy.lex_deploy(lex_schema_file=schema_file, lex_alias=function_alias, lambda_endpoint='arn:aws:lambda:{}:{}:function:{}-{}:{}'.format(region, account_id, function_name, function_alias, function_alias), region=region, log_level=log_level)
+
