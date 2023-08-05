@@ -1,0 +1,65 @@
+#!python
+import json
+from   os import makedirs
+from   os.path import exists, expanduser, join
+
+import click
+import requests
+
+from   ihan import feed_file
+
+
+@click.command()
+@click.argument('filename')
+@click.option('--from-beginning', default=False, type=bool)
+@click.option('--batch-size', default=10, type=int)
+@click.option('--endpoint', default='https://feed.ihan.ee/feed', type=str)
+@click.option('--sleep-interval', default=10, type=int)
+def live(filename, from_beginning, batch_size, endpoint, sleep_interval):
+    feed_file(filename, from_beginning, batch_size, endpoint, sleep_interval,
+              False)
+
+
+@click.command()
+@click.argument('filename')
+@click.option('--batch-size', default=100000, type=int)
+@click.option('--endpoint', default='https://feed.ihan.ee/feed', type=str)
+def backfill(filename, batch_size, endpoint):
+    from_beginning = True
+    sleep_interval = 0
+    feed_file(filename, from_beginning, batch_size, endpoint, sleep_interval,
+              True)
+
+
+@click.command()
+@click.option('--endpoint', default='https://feed.ihan.ee/login', type=str)
+def login(endpoint):
+    email = click.prompt('Email Address', type=str)
+    password = click.prompt('Password', type=str)
+
+    r = requests.post(endpoint, json={"email": email, "password": password})
+    assert r.status_code == 200, r.status_code
+    assert len(r.json()['api_key']) > 10 and len(r.json()['api_secret']) > 10
+
+    config_path = join(expanduser("~"), ".ihan")
+    if not exists(config_path):
+        makedirs(config_path)
+
+    config_file = join(expanduser("~"), ".ihan/config")
+    with open(config_file, 'w') as f:
+        f.write(json.dumps(r.json(), indent=True))
+    print("Configuration written to %s" % config_file)
+
+
+@click.group()
+def cli():
+    pass
+
+
+cli.add_command(live)
+cli.add_command(backfill)
+cli.add_command(login)
+
+
+if __name__ == '__main__':
+    cli()
