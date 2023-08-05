@@ -1,0 +1,305 @@
+# Licensed under the Apache License, Version 2.0 (the "License"); you may
+# not use this file except in compliance with the License. You may obtain
+# a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+# License for the specific language governing permissions and limitations
+# under the License.
+
+
+from dlrn.db import Commit
+from dlrn.drivers.pkginfo import PkgInfoDriver
+from dlrn.repositories import getdistrobranch
+from dlrn.repositories import getsourcebranch
+from dlrn.repositories import refreshrepo
+
+import csv
+import logging
+import os
+import re
+import sh
+import shutil
+
+from distroinfo import info
+from distroinfo import query
+from six.moves.urllib.request import urlopen
+
+
+logging.basicConfig(level=logging.ERROR)
+logger = logging.getLogger("dlrn-downstream-driver")
+logger.setLevel(logging.INFO)
+
+
+def fail_req_attr_missing(attr_name, package):
+    raise Exception(
+        "Missing required attribute '%s' "
+        "for package: %s (project: %s)" % (
+            attr_name, package['project'], package['name']))
+
+
+def fail_req_config_missing(opt_name):
+    raise Exception(
+        "Missing required config option '%s' "
+        "for dlrn.drivers.downstream driver." % opt_name)
+
+
+class DownstreamInfoDriver(PkgInfoDriver):
+    DRIVER_CONFIG = {
+        'downstream_driver': {
+            'rdoinfo_repo': {'name': 'repo'},
+            'info_files': {'type': 'list'},
+            'versions_url': {},
+            'downstream_distro_branch': {},
+            'downstream_prefix': {},
+            'downstream_prefix_filter': {},
+            'use_upstream_spec': {'type': 'boolean'},
+            'downstream_spec_replace_list': {'type': 'list'},
+        }
+    }
+
+    def __init__(self, *args, **kwargs):
+        super(DownstreamInfoDriver, self).__init__(*args, **kwargs)
+
+    def getpackages(self, **kwargs):
+        """Valid parameters:
+
+        :param local_info_repo: local rdoinfo repo to use instead of fetching
+                                the default one using distroinfo.
+        :param tags: release tags to use (mitaka, newton, etc).
+        """
+        local_info_repo = kwargs.get('local_info_repo')
+        tags = kwargs.get('tags')
+
+        info_files = self.config_options.info_files
+        if not info_files:
+            fail_req_config_missing('info_file')
+
+        inforepo = None
+        if local_info_repo:
+            inforepo = info.DistroInfo(
+                info_files=info_files,
+                local_info=local_info_repo)
+        elif self.config_options.rdoinfo_repo:
+            inforepo = info.DistroInfo(
+                info_files=info_files,
+                remote_git_info=self.config_options.rdoinfo_repo)
+        else:
+            fail_req_config_missing('repo')
+        pkginfo = inforepo.get_info(apply_tag=tags)
+
+        self.packages = pkginfo["packages"]
+        if tags:
+            # FIXME allow list of tags?
+            self.packages = query.filter_pkgs(self.packages, {'tags': tags})
+        if self.config_options.downstream_prefix_filter:
+            # filter out packages missing parameters with
+            # downstream_prefix prefix
+            downstream_prefix = self.config_options.downstream_prefix or ''
+            self.packages = query.filter_pkgs(
+                self.packages,
+                {downstream_prefix + 'distgit': '.+'})
+        return self.packages
+
+    def _getversions(self):
+        """Fetch 'versions.csv'
+
+        from versions_url config option and return the contained data as
+        a dict with package name as a key.
+        """
+        versions_url = self.config_options.versions_url
+        if not versions_url:
+            fail_req_config_missing('versions_url')
+
+        # return versions.csv as a dict with package name as a key
+        vers = {}
+        r = urlopen(versions_url)
+        content = [x.decode('utf-8') for x in r.readlines()]
+        # first line is headers
+        for row in csv.reader(content[1:]):
+            vers[row[0]] = row[1:]
+        return vers
+
+    def _transform_spec(self, directory):
+        """Transform based on rules, basically a crude sed implementation
+
+        :param directory: directory to search the spec on
+        """
+        for f in os.listdir(directory):
+            if f.endswith('.spec'):
+                specpath = os.path.join(directory, f)
+                with open(specpath, "r") as fp:
+                    contents = fp.readlines()
+                with open(specpath, "w") as fp:
+                    for line in contents:
+                        for rule in self.config_options.\
+                            downstream_spec_replace_list:
+                            src = rule.split('/')[0]
+                            dst = rule.split('/')[1]
+                            line = re.sub(src, dst, line)
+                        fp.write(line)
+
+    def getinfo(self, **kwargs):
+        project = kwargs.get('project')
+        package = kwargs.get('package')
+        local = kwargs.get('local')
+        dev_mode = kwargs.get('dev_mode')
+
+        ds_prefix = self.config_options.downstream_prefix or ''
+        datadir = self.config_options.datadir
+        repo = package['upstream']
+        distgit_attr = ds_prefix + 'distgit'
+        distro = package.get(distgit_attr)
+        if not distro:
+            fail_req_attr_missing(distgit_attr, package)
+        distro_dir = self._distgit_clone_dir(package['name'])
+        distro_dir_full = self.distgit_dir(package['name'])
+        distro_branch = self.config_options.downstream_distro_branch
+        if not distro_branch:
+            fail_req_config_missing('downstream_distro_branch')
+        source_branch = getsourcebranch(package)
+        versions = self._getversions()
+
+        ups_distro = package['master-distgit']
+        ups_distro_dir = self._upstream_distgit_clone_dir(package['name'])
+        ups_distro_dir_full = self.upstream_distgit_dir(package['name'])
+        ups_distro_branch = getdistrobranch(package)
+
+        # only process packages present in versions.csv
+        if package['name'] not in versions:
+            logger.warning('Package %s not present in %s - skipping.' % (
+                package['name'], self.config_options.versions_url))
+            return []
+        version = versions[package['name']]
+
+        dt_distro = 0  # In this driver we do not care about dt_distro
+
+        if dev_mode is False:
+            try:
+                distro_branch, extended_hash, dt_extended = refreshrepo(
+                    distro, distro_dir, distro_branch, local=local,
+                    full_path=distro_dir_full)
+                # extract distro_hash from versions.csv
+                distro_hash = version[3]
+                # Also download upstream distgit
+                _, _, _ = refreshrepo(
+                    ups_distro, ups_distro_dir, distro_hash,
+                    local=local, full_path=ups_distro_dir_full)
+
+            except Exception:
+                # The error was already logged by refreshrepo, and we want
+                # to avoid halting the whole run because this distgit repo
+                # failed, so return an empty list
+                return []
+        else:
+            distro_hash = "dev"
+            extended_hash = "dev"
+            dt_extended = 0
+            if not os.path.isdir(distro_dir):
+                # We should fail in this case, since we are running
+                # in dev mode, so no try/except
+                refreshrepo(distro, distro_dir, distro_branch, local=local,
+                            full_path=distro_dir_full)
+            if not os.path.isdir(ups_distro_dir):
+                refreshrepo(ups_distro, ups_distro_dir, ups_distro_branch,
+                            local=local, full_path=ups_distro_dir_full)
+
+        # In this case, we will copy the upstream distgit into downstream
+        # distgit, then transform spec
+        if self.config_options.use_upstream_spec:
+            # Copy upstream distgit to downstream distgit
+            for f in os.listdir(ups_distro_dir_full):
+                # skip hidden files
+                if not f.startswith('.'):
+                    shutil.copy(os.path.join(ups_distro_dir_full, f),
+                                distro_dir_full)
+
+            if len(self.config_options.downstream_spec_replace_list) > 0:
+                self._transform_spec(distro_dir_full)
+
+        # repo is usually a string, but if it contains more then one entry we
+        # git clone into a project subdirectory
+        repos = [repo]
+        if isinstance(repo, list):
+            repos = repo
+        project_toprocess = []
+        for repo in repos:
+            repo_dir = os.path.join(datadir, project)
+            if len(repos) > 1:
+                repo_dir = os.path.join(repo_dir, os.path.split(repo)[1])
+            try:
+                source_branch, _, _ = refreshrepo(repo, repo_dir,
+                                                  source_branch,
+                                                  local=local)
+            except Exception:
+                # The error was already logged by refreshrepo, and the only
+                # side-effect is that we are not adding this commit to the
+                # list of commits to be processed, so we can ignore it and
+                # move on to the next repo
+                continue
+            dt = version[5]
+            commit_hash = version[1]
+            commit = Commit(dt_commit=float(dt), project_name=project,
+                            commit_hash=commit_hash, repo_dir=repo_dir,
+                            distro_hash=distro_hash, dt_distro=dt_distro,
+                            extended_hash=extended_hash,
+                            dt_extended=dt_extended,
+                            distgit_dir=self.distgit_dir(package['name']),
+                            commit_branch=source_branch)
+            project_toprocess.append(commit)
+
+        return project_toprocess
+
+    def preprocess(self, **kwargs):
+        # Pre-processing is only required if we have a jinja2 spec template
+        package_name = kwargs.get('package_name')
+        distgit_dir = self.distgit_dir(package_name)
+        # Now, try to check if we need to run a pre-processing job
+        preprocess_needed = False
+        for f in os.listdir(distgit_dir):
+            if f.endswith('.spec.j2'):
+                # We have a template here, so we have to preprocess
+                preprocess_needed = True
+                break
+        if preprocess_needed:
+            logger.info('Pre-processing template at %s' % distgit_dir)
+            renderspec = sh.renderspec.bake(_cwd=distgit_dir,
+                                            _tty_out=False, _timeout=3600)
+            renderspec('--spec-style', 'fedora', '--epoch',
+                       '../../epoch/fedora.yaml')
+        return
+
+    def distgit_dir(self, package_name):
+        datadir = self.config_options.datadir
+        # Find extra directory inside it, if needed
+        extra_dir = '/'
+        for package in self.packages:
+            if package['name'] == package_name:
+                if 'distgit-path' in package:
+                    extra_dir = package['distgit-path']
+                    break
+        return os.path.join(datadir, package_name + "_distro",
+                            extra_dir.lstrip('/'))
+
+    def _distgit_clone_dir(self, package_name):
+        datadir = self.config_options.datadir
+        return os.path.join(datadir, package_name + "_distro")
+
+    def upstream_distgit_dir(self, package_name):
+        datadir = self.config_options.datadir
+        # Find extra directory inside it, if needed
+        extra_dir = '/'
+        for package in self.packages:
+            if package['name'] == package_name:
+                if 'distgit-path' in package:
+                    extra_dir = package['distgit-path']
+                    break
+        return os.path.join(datadir, package_name + "_distro_upstream",
+                            extra_dir.lstrip('/'))
+
+    def _upstream_distgit_clone_dir(self, package_name):
+        datadir = self.config_options.datadir
+        return os.path.join(datadir, package_name + "_distro_upstream")
