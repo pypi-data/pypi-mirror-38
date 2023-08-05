@@ -1,0 +1,14 @@
+README.md
+setup.py
+py_obfuscate/__init__.py
+py_obfuscate/insertstatement.py
+py_obfuscate/mysql.py
+py_obfuscate/py_obfuscator.py
+py_obfuscate/test_mysql.py
+py_obfuscate/test_py_obfuscator.py
+py_obfuscate/test_py_obfuscator_insert.py
+py_obfuscate.egg-info/PKG-INFO
+py_obfuscate.egg-info/SOURCES.txt
+py_obfuscate.egg-info/dependency_links.txt
+py_obfuscate.egg-info/requires.txt
+py_obfuscate.egg-info/top_level.txt
