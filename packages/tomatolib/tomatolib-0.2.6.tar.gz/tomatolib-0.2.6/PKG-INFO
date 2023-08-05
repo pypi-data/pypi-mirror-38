@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: tomatolib
+Version: 0.2.6
+Summary: A quick and lightweight server framework.
+Home-page: https://github.com/tangmi001/tomatolib
+Author: tangmi
+Author-email: tangmi360@gmail.com
+Maintainer: tangmi <tangmi360@gmail.com>, stevenhu <love.as.string@gmail.com>
+Maintainer-email: tomatolibs@gmail.com
+License: GNU General Public License v3
+Description: [![Build Status](https://travis-ci.org/tangmi001/tomatolib.svg?branch=master)](https://travis-ci.org/tangmi001/tomatolib)
+        [![License](https://img.shields.io/badge/License-GPL%20v3-blue.svg?style=flat)](https://github.com/tangmi001/tomatolib/blob/master/LICENSE)
+        # tomato
+        For integrate aiohttp, mongodb, redis, mysql, etc.
+        
+        # experience
+        Continuous practical experience, integrating outstanding ideas and frameworks
+        
+Keywords: tomatolib,tomato
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Framework :: AsyncIO
+Requires-Python: >=3.5.3
+Description-Content-Type: text/markdown
