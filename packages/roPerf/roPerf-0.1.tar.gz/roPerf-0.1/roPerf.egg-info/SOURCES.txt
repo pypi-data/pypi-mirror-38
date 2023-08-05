@@ -1,0 +1,11 @@
+MANIFEST.in
+README.rst
+TITLE.txt
+lh-agpl3-LICENSE.txt
+setup.py
+roPerf/__init__.py
+roPerf.egg-info/PKG-INFO
+roPerf.egg-info/SOURCES.txt
+roPerf.egg-info/dependency_links.txt
+roPerf.egg-info/not-zip-safe
+roPerf.egg-info/top_level.txt
