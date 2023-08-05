@@ -1,0 +1,12 @@
+README.md
+setup.cfg
+setup.py
+bigQueryExporter/BigQueryExporter.py
+bigQueryExporter/BigQueryExporterEnhanced.py
+bigQueryExporter/___test.py
+bigQueryExporter/__init__.py
+bigQueryExporterEnhanced.egg-info/PKG-INFO
+bigQueryExporterEnhanced.egg-info/SOURCES.txt
+bigQueryExporterEnhanced.egg-info/dependency_links.txt
+bigQueryExporterEnhanced.egg-info/requires.txt
+bigQueryExporterEnhanced.egg-info/top_level.txt
