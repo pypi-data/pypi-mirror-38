@@ -1,0 +1,23 @@
+Metadata-Version: 1.1
+Name: zerobugz
+Version: 0.0.6
+Summary: A simple parameterized annotation helper for the 0bugz synthetic data generation API
+Home-page: http://pypi.python.org/pypi/zerobugz/
+Author: Manjunath Somashekar
+Author-email: ujnamss@gmail.com
+License: UNKNOWN
+Description: Obugz python integration via parameterized annotation
+        -----------------------------------------------------
+        
+        This version requires Python 3 or later; a Python 2 version is available separately.
+        
+Keywords: synthetic,data,generation
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Environment :: Other Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Library or Lesser General Public License (LGPL)
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
