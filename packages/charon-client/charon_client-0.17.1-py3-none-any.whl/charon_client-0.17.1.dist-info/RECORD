@@ -1,0 +1,14 @@
+charonrpc/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+charonrpc/auth_pb2.py,sha256=m-3y6deIk6Lqp-c_oRdq0A4xTkTP5NrYFVMT7dKwgek,16333
+charonrpc/auth_pb2_grpc.py,sha256=8OI_hgvVoRnUc8thyrCkIebO7sym6onfgw52BLor-1g,5484
+charonrpc/group_pb2.py,sha256=W9J2zM06OGIHl_wjTuCd-0sFRS9AT1-mX45w2DBHki0,28241
+charonrpc/group_pb2_grpc.py,sha256=tsMg29o1R0fc4XjlI9MUwJEBjYSKn_gMCdmSqf7EkWk,6169
+charonrpc/permission_pb2.py,sha256=sIbhoH4WSQWH3tUufrFg57KCJN0x3jq6sa4RvFBJhKs,16890
+charonrpc/permission_pb2_grpc.py,sha256=Aggn_julWGcnW4qvwnUyziQiadzOR-5Ia-ZNwdhCmig,3079
+charonrpc/user_pb2.py,sha256=A3iexz6B74U8fOV-YmTLq_VPc1TMEAGsz2loBStq5A8,47826
+charonrpc/user_pb2_grpc.py,sha256=a2KOwtk3tVO-ZIaCLgUug5914Tid8OOA0KNvsn9DITg,7653
+charon_client-0.17.1.dist-info/LICENSE,sha256=kylwrg-p3IrxfAlhd97kuRKy4qIBQ5nZwxAd8HSzGFo,11358
+charon_client-0.17.1.dist-info/METADATA,sha256=QgYhtCcwrpW_Knt-kdOBitN5nUQ97zTi3g60STiAWnU,512
+charon_client-0.17.1.dist-info/WHEEL,sha256=MYFsq5fFBwF_oyJgrOoFmYYB1K6Sw7MxY-0897ZLbdM,92
+charon_client-0.17.1.dist-info/top_level.txt,sha256=hjmk-sywXbuv6BfHb20lLoLNo7A6lTvbPE04awewE0s,10
+charon_client-0.17.1.dist-info/RECORD,,
