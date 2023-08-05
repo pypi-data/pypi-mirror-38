@@ -1,0 +1,4 @@
+
+        [console_scripts]
+        cp2stdout=cp2stdout.app:main
+    
