@@ -1,0 +1,5 @@
+[console_scripts]
+align_dataset = facenet_sandberg.scripts.align_dataset:cli
+generate_pairs = facenet_sandberg.scripts.generate_pairs:cli
+validate = facenet_sandberg.scripts.validation.validate:cli
+
