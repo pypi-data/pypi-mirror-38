@@ -1,0 +1,11 @@
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+flask_serverless/__init__.py
+flask_serverless.egg-info/PKG-INFO
+flask_serverless.egg-info/SOURCES.txt
+flask_serverless.egg-info/dependency_links.txt
+flask_serverless.egg-info/not-zip-safe
+flask_serverless.egg-info/requires.txt
+flask_serverless.egg-info/top_level.txt
