@@ -1,0 +1,68 @@
+Metadata-Version: 2.1
+Name: pandas-ext
+Version: 0.4.3
+Summary: Python Pandas extensions for pandas dataframes
+Home-page: https://github.com/newsela/pandas_ext
+Author: Rich Fernandez, Sean Massot, Brian Tenazas, Luke Orland
+Author-email: devs@newsela.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 2.7
+Requires-Dist: boto3 (==1.9.37)
+Requires-Dist: botocore (==1.12.37)
+Requires-Dist: certifi (==2018.10.15)
+Requires-Dist: chardet (==3.0.4)
+Requires-Dist: docutils (==0.14)
+Requires-Dist: idna (==2.7)
+Requires-Dist: jinja2 (==2.10)
+Requires-Dist: jmespath (==0.9.3)
+Requires-Dist: markupsafe (==1.1.0)
+Requires-Dist: numpy (==1.15.4)
+Requires-Dist: pandas (==0.23.4)
+Requires-Dist: pyarrow (==0.11.1)
+Requires-Dist: pypandoc (==1.4)
+Requires-Dist: python-dateutil (==2.6.1)
+Requires-Dist: pytz (==2018.7)
+Requires-Dist: requests (==2.20.0)
+Requires-Dist: s3fs (==0.1.6)
+Requires-Dist: s3transfer (==0.1.13)
+Requires-Dist: six (==1.11.0)
+Requires-Dist: urllib3 (==1.24.1)
+Requires-Dist: wheel (==0.32.2)
+
+pandas\_ext
+===========
+
+Python Pandas extensions for pandas dataframes
+
+Usage
+=====
+
+::
+
+    import pandas_ext as px
+
+    px.read_csv
+    px.to_csv
+
+    px.read_gdrive
+    px.to_gdrive
+
+    px.read_parquet
+    px.to_parquet
+
+    px.to_spectrum
+
+    px.read_sfdc
+    px.sfdc_metadata
+    px.patch_sfdc
+    px.async_patch_sfdc
+
+    px.read_sql
+    px.list_backends
+
+    px.to_xml
+
+
