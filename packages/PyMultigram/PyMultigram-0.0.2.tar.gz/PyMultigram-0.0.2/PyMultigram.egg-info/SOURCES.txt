@@ -1,0 +1,10 @@
+setup.py
+PyMultigram.egg-info/PKG-INFO
+PyMultigram.egg-info/SOURCES.txt
+PyMultigram.egg-info/dependency_links.txt
+PyMultigram.egg-info/requires.txt
+PyMultigram.egg-info/top_level.txt
+pymultigram/__init__.py
+pymultigram/multigram.py
+tests/__init__.py
+tests/test_pymultigram.py
