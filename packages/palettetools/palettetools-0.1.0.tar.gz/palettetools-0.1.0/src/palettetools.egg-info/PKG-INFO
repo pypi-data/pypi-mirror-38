@@ -1,0 +1,67 @@
+Metadata-Version: 1.1
+Name: palettetools
+Version: 0.1.0
+Summary: Color palette tools for processing imgix-served images.
+Home-page: https://github.com/sherwinski/palette-tools
+Author: sherwinski
+Author-email: sherwinhb@gmail.com
+License: BSD 2-Clause License
+Description: ========
+        Overview
+        ========
+        
+        
+        
+        A Python library for extracting and analyzing color palettes from images.
+        All images must be served through Imgix, more information can be found at http://www.imgix.com.
+        
+        * Free software: BSD 2-Clause License
+        
+        Installation
+        ============
+        
+        ::
+        
+            pip install palettetools
+        
+        Documentation
+        =============
+        
+        
+        To use the project:
+        
+        .. code-block:: python
+        
+            import palettetools as pt
+            url = "https://assets.imgix.net/examples/bluehat.jpg"
+        
+            print pt.extract_colors_css(url)
+            print pt.extract_colors_json(url)
+            print pt.overlaid_text_color(url)
+        
+        Testing
+        ===========
+        
+        To run the all tests run::
+        
+            tox
+        
+        
+        Changelog
+        =========
+        
+        0.1.0 (2018-11-08)
+        ------------------
+        
+        * First release on PyPI.
+        
+Keywords: image,processing,color,palette,tools,imgix
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Utilities
