@@ -1,0 +1,22 @@
+Metadata-Version: 2.0
+Name: mailmitt
+Version: 0.0.1
+Summary: async re-implementation of maildump for python3
+Home-page: UNKNOWN
+Author: Trevor Morgan
+Author-email: UNKNOWN
+License: UNKNOWN
+Description-Content-Type: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Requires-Python: >=3.5
+Requires-Dist: aiohttp
+Requires-Dist: aiosmtpd
+Requires-Dist: bottle
+
+# mailmitt
+Simple SMTP server for testing mailing code.
+
+
