@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: gpkg.tfserve
+Version: 0.5.1.dev1
+Summary: TFServe support (Guild AI)
+Home-page: https://github.com/guildai/packages/tree/master/gpkg/tfserve
+Author: Guild AI
+Author-email: packages@guild.ai
+License: Apache 2.0
+Keywords: gpkg
+Platform: UNKNOWN
+Requires-Dist: tfserve (>=0.2.1)
+
+gpkg.tfserve
+############
+
+*TFServe support (Guild AI)*
+
+TFServe is a light weight Python server that can be used to serve models over
+HTTP.
+
+

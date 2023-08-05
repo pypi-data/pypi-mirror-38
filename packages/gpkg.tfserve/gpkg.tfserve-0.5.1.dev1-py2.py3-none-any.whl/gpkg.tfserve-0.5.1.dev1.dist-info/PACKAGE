@@ -1,0 +1,11 @@
+author: Guild AI
+author-email: packages@guild.ai
+description: 'TFServe support (Guild AI)
+
+  TFServe is a light weight Python server that can be used to serve models over HTTP.'
+license: Apache 2.0
+package: gpkg.tfserve
+requires:
+- tfserve>=0.2.1
+url: https://github.com/guildai/packages/tree/master/gpkg/tfserve
+version: 0.5.1.dev1
