@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: retriever
+Version: 2.2.0
+Summary: Data Retriever
+Home-page: https://github.com/weecology/retriever
+Author: Ben Morris, Shivam Negi, Akash Goel, Andrew Zhang, Henry Senyondo, Ethan White
+Author-email: ethan@weecology.org
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: xlrd
+Requires-Dist: future
+Requires-Dist: argcomplete
+Requires-Dist: tqdm
+Requires-Dist: requests
+Requires-Dist: pandas
+
+The Data Retriever is a package manager for data. It downloads, cleans, and stores publicly available data, so that analysts spend less time cleaning and managing data, and more time analyzing it.
+
+
