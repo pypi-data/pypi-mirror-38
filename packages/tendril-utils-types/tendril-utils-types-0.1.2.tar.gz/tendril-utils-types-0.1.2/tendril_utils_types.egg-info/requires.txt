@@ -1,0 +1,5 @@
+tendril-utils-core>=0.1.4
+tendril-utils-www>=0.1.2
+six
+cachecontrol[filecache]
+arrow
