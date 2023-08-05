@@ -1,0 +1,10 @@
+setuptools
+AccessControl
+Acquisition
+six
+tempstorage
+ZODB
+Zope>=4.0b5
+
+[test]
+Products.Sessions>=4.1
