@@ -1,0 +1,17 @@
+README.md
+setup.py
+persim/__init__.py
+persim/_version.py
+persim/bottleneck.py
+persim/heat.py
+persim/images.py
+persim/plot.py
+persim/sliced_wasserstein.py
+persim.egg-info/PKG-INFO
+persim.egg-info/SOURCES.txt
+persim.egg-info/dependency_links.txt
+persim.egg-info/requires.txt
+persim.egg-info/top_level.txt
+test/test_distances.py
+test/test_persim.py
+test/test_plots.py
