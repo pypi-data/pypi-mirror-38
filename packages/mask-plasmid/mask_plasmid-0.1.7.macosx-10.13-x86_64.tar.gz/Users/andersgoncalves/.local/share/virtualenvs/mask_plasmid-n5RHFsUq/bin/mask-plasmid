@@ -1,0 +1,10 @@
+#!/Users/andersgoncalves/.local/share/virtualenvs/mask_plasmid-n5RHFsUq/bin/python
+# PBR Generated from 'console_scripts'
+
+import sys
+
+from mask_plasmid.run_mask_plasmid import run_mask
+
+
+if __name__ == "__main__":
+    sys.exit(run_mask())
