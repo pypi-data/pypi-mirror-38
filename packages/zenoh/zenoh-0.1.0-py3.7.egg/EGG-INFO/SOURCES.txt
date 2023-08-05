@@ -1,0 +1,12 @@
+README.md
+setup.py
+zenoh/__init__.py
+zenoh/codec.py
+zenoh/converter.py
+zenoh/iobuf.py
+zenoh/message.py
+zenoh/zenoh_api.py
+zenoh.egg-info/PKG-INFO
+zenoh.egg-info/SOURCES.txt
+zenoh.egg-info/dependency_links.txt
+zenoh.egg-info/top_level.txt
