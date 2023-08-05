@@ -1,0 +1,4 @@
+include LICENSE.txt
+recursive-include config *.txt
+recursive-include rdap *.py
+include config/VERSION
