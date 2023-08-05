@@ -1,0 +1,6 @@
+(function($) {
+    var jmpress_init = function() {
+        $('#jmpress').jmpress();
+    }
+    $(jmpress_init);
+})(jQuery);
