@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: sqlalchemy-easy-profile
+Version: 0.3.10
+Summary: An easy profiler for SQLAlchemy queries
+Home-page: https://github.com/kandziu/sqlalchemy-easy-profile
+Author: Dmitri Vasilishin
+Author-email: vasilishin.d.o@gmail.com
+License: UNKNOWN
+Description: Under development
+Keywords: sqlalchemy,easy,profile,profiler,profiling
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Provides-Extra: dev
