@@ -1,0 +1,13 @@
+README.rst
+setup.py
+BiobankRead2/BiobankRead2.py
+BiobankRead2/__init__.py
+BiobankRead2.egg-info/PKG-INFO
+BiobankRead2.egg-info/SOURCES.txt
+BiobankRead2.egg-info/dependency_links.txt
+BiobankRead2.egg-info/requires.txt
+BiobankRead2.egg-info/top_level.txt
+Scripts/extract_HES.py
+Scripts/extract_SR.py
+Scripts/extract_death.py
+Scripts/extract_variables.py
