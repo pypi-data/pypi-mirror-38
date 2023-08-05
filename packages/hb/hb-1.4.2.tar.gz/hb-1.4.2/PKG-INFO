@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: hb
+Version: 1.4.2
+Summary: A simple command-line utility for calculating checksums.
+Home-page: https://github.com/chingc/Hash-Brown
+Author: Ching Chow
+Author-email: ching.chow.sc@gmail.com
+Keywords: checksum,digest,hash,md5,sha1
+Requires-Python: >=3.6,<4.0
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX :: BSD
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Security
+Classifier: Topic :: System :: Archiving
+Classifier: Topic :: Utilities
+Requires-Dist: click (>=7.0,<8.0)
+Requires-Dist: colorama (>=0.4.0,<0.5.0)
+Project-URL: Documentation, https://github.com/chingc/Hash-Brown
+Project-URL: Repository, https://github.com/chingc/Hash-Brown
