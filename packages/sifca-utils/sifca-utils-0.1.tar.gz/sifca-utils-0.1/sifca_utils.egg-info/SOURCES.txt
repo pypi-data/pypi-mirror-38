@@ -1,0 +1,11 @@
+.gitignore
+README.md
+setup.cfg
+setup.py
+python/__init__.py
+python/histo_utils.py
+python/plotting.py
+sifca_utils.egg-info/PKG-INFO
+sifca_utils.egg-info/SOURCES.txt
+sifca_utils.egg-info/dependency_links.txt
+sifca_utils.egg-info/top_level.txt
