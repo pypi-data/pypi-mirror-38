@@ -1,0 +1,45 @@
+---
+- job:
+    name: logreduce-tests
+    parent: base
+    description: The logreduce regression tests suite
+    run: playbooks/logreduce-tests.yaml
+    required-projects:
+      - logreduce
+      - logreduce-tests
+    nodeset:
+      nodes:
+        - name: container
+          label: runc-fedora
+
+- project:
+    name: logreduce
+    check:
+      jobs:
+        - logreduce-tests
+        - tox-pep8:
+            nodeset:
+              nodes:
+                - name: testrunner
+                  label: runc-fedora
+        - tox-py35:
+            nodeset:
+              nodes:
+                - name: testrunner
+                  label: runc-fedora
+    gate:
+      jobs:
+        - logreduce-tests
+        - tox-pep8:
+            nodeset:
+              nodes:
+                - name: testrunner
+                  label: runc-fedora
+        - tox-py35:
+            nodeset:
+              nodes:
+                - name: testrunner
+                  label: runc-fedora
+    release:
+      jobs:
+        - upload-pypi
