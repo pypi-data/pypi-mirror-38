@@ -1,0 +1,10 @@
+setup.py
+rigger_singleton/__init__.py
+rigger_singleton/singleton.py
+rigger_singleton.egg-info/PKG-INFO
+rigger_singleton.egg-info/SOURCES.txt
+rigger_singleton.egg-info/dependency_links.txt
+rigger_singleton.egg-info/top_level.txt
+tests/__init__.py
+tests/example.py
+tests/test.py
