@@ -1,0 +1,3 @@
+[console_scripts]
+presign = presign.__main__:main
+
