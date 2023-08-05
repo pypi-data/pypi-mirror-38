@@ -1,0 +1,14 @@
+README.rst
+setup.cfg
+setup.py
+tinyprompt/__init__.py
+tinyprompt/colors.py
+tinyprompt/skippable_prompt.py
+tinyprompt.egg-info/PKG-INFO
+tinyprompt.egg-info/SOURCES.txt
+tinyprompt.egg-info/dependency_links.txt
+tinyprompt.egg-info/requires.txt
+tinyprompt.egg-info/top_level.txt
+tinyprompt/test/__init__.py
+tinyprompt/test/test_colors.py
+tinyprompt/test/test_skippable.py
