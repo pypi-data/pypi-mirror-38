@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="c{{ mpttcomment.id }}">
+  {{ mpttcomment.submit_date }} - {{ mpttcomment.name }}
+</div>
+<p>{{ mpttcomment.comment_html|safe }}</p>
+<br>
+{% include 'comments/form.html' with form=form %}
+</body>
+</html>
