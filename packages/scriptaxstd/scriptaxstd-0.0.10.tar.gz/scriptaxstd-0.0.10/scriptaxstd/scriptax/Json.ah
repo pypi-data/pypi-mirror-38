@@ -1,0 +1,9 @@
+
+
+
+script toJson(obj)
+{
+  cmd = "std json to --obj \"" + obj + "\"";
+  r = ct(cmd);
+  return r.response.result;
+}
