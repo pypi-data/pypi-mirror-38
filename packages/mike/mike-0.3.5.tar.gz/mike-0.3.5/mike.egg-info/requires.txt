@@ -1,0 +1,19 @@
+mkdocs>=0.17.0
+jinja2
+packaging
+ruamel.yaml
+six
+
+[:python_version < "3.4"]
+enum34
+
+[dev]
+coverage
+flake8>=3.0
+mock
+pypandoc
+
+[test]
+coverage
+flake8>=3.0
+mock
