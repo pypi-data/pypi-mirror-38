@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+neuro_tagger/__init__.py
+neuro_tagger/dataset_loading.py
+neuro_tagger/neuro_tagger.py
+neuro_tagger.egg-info/PKG-INFO
+neuro_tagger.egg-info/SOURCES.txt
+neuro_tagger.egg-info/dependency_links.txt
+neuro_tagger.egg-info/requires.txt
+neuro_tagger.egg-info/top_level.txt
