@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: img-edit-learn
+Version: 0.7
+Summary: Machine Learning for Personalized Image Editing.
+Home-page: https://github.com/aagnone3/img-edit-learn
+Author: Anthony Agnone
+Author-email: anthonyagnone@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering
+Requires-Dist: keras
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: tqdm
+Requires-Dist: python-xmp-toolkit
+Requires-Dist: tensorflow
+Requires-Dist: scikit-learn (>=0.16.1)
+Requires-Dist: matplotlib
+
+Machine Learning for Personalized Image Editing.
+
+
