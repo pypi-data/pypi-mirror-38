@@ -1,0 +1,52 @@
+Metadata-Version: 2.1
+Name: splashclient
+Version: 0.0.1
+Summary: splash简单客户端
+Home-page: https://github.com/yubang/splashclient
+Author: yubang
+Author-email: yubang93@gmail.com
+License: UNKNOWN
+Description: # splashclient
+        *简单的splash客户端*
+        
+        ### 安装
+        
+        ```
+        pip install splashclient
+        ```
+        
+        ### 快速入门
+        
+        * 初始化客户端，配置代理可以传递{"protocol": "http", "ip": "IP地址", "port": 端口}到参数default_proxy
+        
+        ```
+        splash_url = "你的splash服务端地址，例如：http://IP:8050"
+        client = SplashClient(splash_url, default_proxy=None, default_wait=0.1, default_time=30, default_header={
+            "User-Agent": "abc"
+        })
+        ```
+        
+        * 获取一个渲染后的网页html
+        
+        ```
+        html = client.render("http://blog.yubangweb.com")
+        print(html)
+        ```
+        
+        * 获取页面截图
+        ```
+        client.png("http://blog.yubangweb.com")
+        with open("1.png", "wb") as fp:
+            fp.write(data)
+        ```
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Description-Content-Type: text/markdown
