@@ -1,0 +1,15 @@
+tensorflow>=1.7
+tensorlayer==1.7
+numpy>=1
+mtcnn==0.0.8
+pathos
+six>=1
+scipy>=1
+opencv_python>=3.2
+matplotlib>=2
+Pillow>=5
+docker_py>=1
+progressbar2>=3
+scikit_learn
+typing>=3
+dask
