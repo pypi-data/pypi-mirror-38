@@ -1,0 +1,12 @@
+Metadata-Version: 1.2
+Name: momi
+Version: 2.1.15
+Summary: MOran Model for Inference
+Home-page: https://github.com/jackkamm/momi2
+Author: Jack Kamm, Jonathan Terhorst, Richard Durbin, Yun S. Song
+Author-email: jkamm@stat.berkeley.edu, terhorst@stat.berkeley.edu, yss@eecs.berkeley.edu
+License: UNKNOWN
+Description: UNKNOWN
+Keywords: population genetics,statistics,site frequency spectrum,coalescent
+Platform: UNKNOWN
+Requires-Python: >=3.5
