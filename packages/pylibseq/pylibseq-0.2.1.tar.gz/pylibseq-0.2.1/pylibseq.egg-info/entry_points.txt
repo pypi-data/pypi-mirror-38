@@ -1,0 +1,3 @@
+[console_scripts]
+pymsstats = libsequence.msstats_cli:msstats_main
+
