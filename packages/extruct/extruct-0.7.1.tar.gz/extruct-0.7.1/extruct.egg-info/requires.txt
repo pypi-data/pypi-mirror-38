@@ -1,0 +1,14 @@
+lxml
+rdflib
+rdflib-jsonld
+mf2py
+w3lib
+six
+
+[cli]
+requests
+
+[service]
+bottle
+gevent
+requests
