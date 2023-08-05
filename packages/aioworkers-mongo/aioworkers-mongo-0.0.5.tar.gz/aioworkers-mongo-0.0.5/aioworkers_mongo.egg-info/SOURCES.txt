@@ -1,0 +1,13 @@
+HISTORY.rst
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+aioworkers_mongo/__init__.py
+aioworkers_mongo/base.py
+aioworkers_mongo/version.py
+aioworkers_mongo.egg-info/PKG-INFO
+aioworkers_mongo.egg-info/SOURCES.txt
+aioworkers_mongo.egg-info/dependency_links.txt
+aioworkers_mongo.egg-info/requires.txt
+aioworkers_mongo.egg-info/top_level.txt
