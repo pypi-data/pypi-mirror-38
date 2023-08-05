@@ -1,0 +1,33 @@
+Metadata-Version: 1.1
+Name: tproc
+Version: 1.0a2
+Summary: A small yet powerful text processor
+Home-page: https://github.com/kosarev/tproc
+Author: Ivan Kosarev
+Author-email: ivan@kosarev.info
+License: MIT
+Description: UNKNOWN
+Keywords: text macro processing
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Documentation
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Localization
+Classifier: Topic :: Software Development :: Pre-processors
+Classifier: Topic :: Software Development :: User Interfaces
+Classifier: Topic :: Text Editors
+Classifier: Topic :: Text Editors :: Text Processing
+Classifier: Topic :: Text Editors :: Word Processors
+Classifier: Topic :: Text Processing
+Classifier: Topic :: Text Processing :: General
+Classifier: Topic :: Text Processing :: Markup
+Classifier: Topic :: Utilities
