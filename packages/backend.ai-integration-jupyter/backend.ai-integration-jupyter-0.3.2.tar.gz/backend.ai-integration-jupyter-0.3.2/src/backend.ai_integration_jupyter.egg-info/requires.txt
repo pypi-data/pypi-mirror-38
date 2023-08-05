@@ -1,0 +1,13 @@
+backend.ai-client<1.5.0,>=1.4.0
+metakernel~=0.20.14
+
+[build]
+wheel>=0.31.0
+twine>=0.11.0
+
+[dev]
+pytest
+flake8
+
+[test]
+pytest

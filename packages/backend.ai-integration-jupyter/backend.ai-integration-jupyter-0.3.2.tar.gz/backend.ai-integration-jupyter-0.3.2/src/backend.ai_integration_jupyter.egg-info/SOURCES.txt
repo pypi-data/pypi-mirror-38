@@ -1,0 +1,11 @@
+README.md
+setup.py
+src/ai/backend/integration/jupyter/__init__.py
+src/ai/backend/integration/jupyter/__main__.py
+src/ai/backend/integration/jupyter/install.py
+src/ai/backend/integration/jupyter/kernel.py
+src/backend.ai_integration_jupyter.egg-info/PKG-INFO
+src/backend.ai_integration_jupyter.egg-info/SOURCES.txt
+src/backend.ai_integration_jupyter.egg-info/dependency_links.txt
+src/backend.ai_integration_jupyter.egg-info/requires.txt
+src/backend.ai_integration_jupyter.egg-info/top_level.txt
