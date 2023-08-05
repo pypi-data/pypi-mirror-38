@@ -1,0 +1,18 @@
+Metadata-Version: 1.0
+Name: XXDScorecard
+Version: 1.0
+Summary: scorecard developing utilities.
+Home-page: https://github.com/xxd626
+Author: 徐小东(xxd626@outlook.com) and 郁晴(873237045@qq.com)
+Author-email: xxd626@outlook.com
+License: BSD
+Description: 
+        
+        用于数值型和字符型变量的分箱类。
+        支持手动分箱，等频分箱，单调分箱，IV、WOE计算及转换。
+        
+        @author: 徐小东(xxd626@outlook.com) and 郁晴(873237045@qq.com)
+        @date: new_version on 2018/11/3
+        
+Keywords: woe,iv,binning,scorecard
+Platform: UNKNOWN
