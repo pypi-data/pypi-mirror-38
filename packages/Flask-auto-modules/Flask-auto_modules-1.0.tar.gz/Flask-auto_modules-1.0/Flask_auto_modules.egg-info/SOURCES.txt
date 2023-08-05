@@ -1,0 +1,12 @@
+README.md
+setup.py
+Flask_auto_modules.egg-info/PKG-INFO
+Flask_auto_modules.egg-info/SOURCES.txt
+Flask_auto_modules.egg-info/dependency_links.txt
+Flask_auto_modules.egg-info/entry_points.txt
+Flask_auto_modules.egg-info/not-zip-safe
+Flask_auto_modules.egg-info/requires.txt
+Flask_auto_modules.egg-info/top_level.txt
+src/__init__.py
+src/auto_modules.py
+src/command.py
