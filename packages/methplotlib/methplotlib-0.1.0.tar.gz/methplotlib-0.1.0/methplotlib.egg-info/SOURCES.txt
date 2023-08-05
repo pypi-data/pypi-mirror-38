@@ -1,0 +1,13 @@
+MANIFEST.in
+README.md
+README.rst
+setup.py
+methplotlib/__init__.py
+methplotlib/methplotlib.py
+methplotlib/version.py
+methplotlib.egg-info/PKG-INFO
+methplotlib.egg-info/SOURCES.txt
+methplotlib.egg-info/dependency_links.txt
+methplotlib.egg-info/entry_points.txt
+methplotlib.egg-info/requires.txt
+methplotlib.egg-info/top_level.txt
