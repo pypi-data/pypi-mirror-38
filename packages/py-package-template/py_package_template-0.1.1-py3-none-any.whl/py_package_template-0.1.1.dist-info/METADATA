@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: py-package-template
+Version: 0.1.1
+Summary: py-package-template - Python Package Template Project.
+Home-page: https://github.com/AlexIoannides/py-package-template
+Author: Alex Ioannides
+Author-email: alex.ioannides@yahoo.co.uk
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: numpy
+Requires-Dist: requests
+
+UNKNOWN
+
+
