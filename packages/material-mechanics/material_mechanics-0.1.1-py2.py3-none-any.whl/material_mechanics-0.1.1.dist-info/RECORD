@@ -1,0 +1,16 @@
+material_mechanics/__init__.py,sha256=ouB1NsB52Pdo6GyUdSaDHgF_uiT7ghPF-tTWJ4BV520,476
+material_mechanics/materials/__init__.py,sha256=jt5Yjvp58V-_Na0Aw-91DNQ5y5Xdey4bXFbV9B2bl3g,168
+material_mechanics/materials/composites.py,sha256=1wcCOMaa_BITeVPvobA5jPwTyuPFLjfC19vxYlYDvp8,29806
+material_mechanics/materials/elastic_materials.py,sha256=Fn0XBDahnRCp9UNEOWYpMYY2gzMIRjX6muimX3D6IOI,11413
+material_mechanics/materials/material_factories.py,sha256=GNx2ylIvRX3AWXkEBqaUsppaIdmlxCt0F-KoIPM0Jho,18359
+material_mechanics/materials/material_law.py,sha256=0rsQvHtkuUZVlTG595wyqDamy5ctZZgzduSuJJSQOOM,3735
+material_mechanics/strength/__init__.py,sha256=vhLViBXHL4_bgSrFaIyXngtJHs1of_pDXFUY3wXy61c,35
+material_mechanics/strength/puck.py,sha256=BhonRkY2xG9pmp0kyxn6tDZcl3GRChBYKdakK2XPlEI,16641
+material_mechanics/tools/__init__.py,sha256=xj6d0EGBslRMqwegomzD_egs_JIiUAgqULcq3ZW7t1I,25
+material_mechanics/tools/functions.py,sha256=AI9jCjU_f_mUNv-6gVXZyZGJlRAjwq8Vdi6VqKYdmBQ,4372
+material_mechanics-0.1.1.dist-info/AUTHORS.rst,sha256=IQI5rP3lATigWa52qtr1bL-_ICYrsI1_Mpon4fE-at8,257
+material_mechanics-0.1.1.dist-info/LICENSE,sha256=DmLyRAPkdo8yosZuLG74b8oTsQCZ3-oJ9droYRUC4gs,1100
+material_mechanics-0.1.1.dist-info/METADATA,sha256=Cd7TkkfVwoMZgNk9458dV1Cdt2hxREQTqeTcB26nGyI,2696
+material_mechanics-0.1.1.dist-info/WHEEL,sha256=GP9ACJkAJDyZNf-YPXDAJ8MdtRSNk4H2JK7vR-x05CE,116
+material_mechanics-0.1.1.dist-info/top_level.txt,sha256=LtzXUC7fJu37O9F7AL7897SspWrajgtI4390f_Gp2zU,19
+material_mechanics-0.1.1.dist-info/RECORD,,
