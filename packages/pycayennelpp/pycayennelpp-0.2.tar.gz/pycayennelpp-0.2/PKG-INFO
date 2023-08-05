@@ -1,0 +1,23 @@
+Metadata-Version: 1.2
+Name: pycayennelpp
+Version: 0.2
+Summary: Encoder and Decoder for CayenneLLP
+Home-page: http://github.com/smlng/pycayennelpp
+Author: smlng
+Author-email: s@mlng.net
+License: MIT
+Description: PyCayenneLPP
+        ============
+        
+        A Cayenne Low Power Payload (CayenneLPP) decoder and encoder for Python.
+        
+        Usage
+        -----
+        
+Keywords: cayenne lpp iot lora lorawan ttn
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.1
