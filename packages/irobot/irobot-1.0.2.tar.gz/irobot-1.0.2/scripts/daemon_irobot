@@ -1,0 +1,4 @@
+#!/usr/local/bin/python3
+# EASY-INSTALL-SCRIPT: 'irobot==1.0.1','irobot'
+__requires__ = 'irobot==1.0.1'
+__import__('pkg_resources').run_script('irobot==1.0.1', 'irobot')
