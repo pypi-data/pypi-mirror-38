@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: cs.filestate
+Version: 20181107
+Summary: Trivial FileState class used to watch for file changes.
+Home-page: https://bitbucket.org/cameron_simpson/css/commits/all
+Author: Cameron Simpson
+Author-email: cs@cskk.id.au
+License: UNKNOWN
+Description: Facility to track file state.
+        
+        This is used to watch for size or modification time changes,
+        or to notice when a file path no longer points at the same file.
+        
+        ## Function `FileState(path, do_lstat=False, missing_ok=False)`
+        
+        Return a signature object for a file state derived from os.stat
+        (or os.lstat if `do_lstat` is true).
+        `path` may also be an int, in which case os.fstat is used.
+        This returns an object with mtime, size, dev and ino attributes
+        and can be compared for equality with other signatures.
+        `missing_ok`: return None if the target file is missing,
+          otherwise raise. Default False.
+Keywords: python2,python3
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Description-Content-Type: text/markdown
