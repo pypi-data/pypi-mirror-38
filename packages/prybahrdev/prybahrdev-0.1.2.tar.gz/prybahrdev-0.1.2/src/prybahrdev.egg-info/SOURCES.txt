@@ -1,0 +1,12 @@
+.gitignore
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+src/prybahrdev/__init__.py
+src/prybahrdev.egg-info/PKG-INFO
+src/prybahrdev.egg-info/SOURCES.txt
+src/prybahrdev.egg-info/dependency_links.txt
+src/prybahrdev.egg-info/top_level.txt
+tests/conftest.py
+tests/test_a.py
