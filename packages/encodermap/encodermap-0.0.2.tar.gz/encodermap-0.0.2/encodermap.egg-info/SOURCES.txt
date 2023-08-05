@@ -1,0 +1,13 @@
+README.md
+setup.py
+encodermap/__init__.py
+encodermap/autoencoder.py
+encodermap/dihedral_backmapping.py
+encodermap/misc.py
+encodermap/parameters.py
+encodermap/plot.py
+encodermap.egg-info/PKG-INFO
+encodermap.egg-info/SOURCES.txt
+encodermap.egg-info/dependency_links.txt
+encodermap.egg-info/requires.txt
+encodermap.egg-info/top_level.txt
