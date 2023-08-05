@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: mr_clean
+Version: 0.0.7
+Summary: A small package for cleaning data.
+Home-page: https://github.com/a1liu/mr_clean
+Author: A1Liu
+Author-email: albertymliu@gmail.com
+License: UNKNOWN
+Description: # Mr Clean
+        
+        This is a small package for cleaning data. Feel free to use it to clean other, non data-related things though.
+        
+        ## How to download
+        The source code is currently hosted on GitHub at:
+        https://github.com/A1Liu/mr_clean
+        
+        You can also download the latest release from the [Python
+        package index](https://pypi.org/project/mr-clean/).
+        
+        ```sh
+        # could be pip3 instead of pip
+        pip install mr_clean
+        ```
+        
+        ## Dependencies
+        - [NumPy](https://www.numpy.org): 1.9.0 or higher
+        - [pandas](https://pandas.pydata.org/): 0.23.3 or higher
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
