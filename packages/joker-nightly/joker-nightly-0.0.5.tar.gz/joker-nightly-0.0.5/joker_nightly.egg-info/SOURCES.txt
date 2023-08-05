@@ -1,0 +1,16 @@
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+joker/__init__.py
+joker/nightly/__init__.py
+joker/nightly/compat.py
+joker/nightly/protocol.py
+joker/nightly/schedule.py
+joker_nightly.egg-info/PKG-INFO
+joker_nightly.egg-info/SOURCES.txt
+joker_nightly.egg-info/dependency_links.txt
+joker_nightly.egg-info/namespace_packages.txt
+joker_nightly.egg-info/not-zip-safe
+joker_nightly.egg-info/requires.txt
+joker_nightly.egg-info/top_level.txt
