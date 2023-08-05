@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: awsgen
+Version: 0.0.8
+Summary: Manage AWS Security Token Service (STS)
+Home-page: https://github.com/mvallim/aws-gen-cli
+Author: Marcos Vallim
+Author-email: tischer@gmail.com
+License: BSD
+Platform: Any
+Requires-Dist: boto3 (>=1.9.35)
+Requires-Dist: botocore (>=1.12.16)
+Requires-Dist: requests
+Requires-Dist: configparser
+
+UNKNOWN
+
+
