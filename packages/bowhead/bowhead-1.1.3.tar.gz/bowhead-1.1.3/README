@@ -1,0 +1,19 @@
+Concerted Cell Velocity in Wound Healing
+========================================
+
+Link to the paper: https://doi.org/10.1371/journal.pcbi.1005900
+
+Bowhead is a Python package for determining cell velocity from
+the wound healing assay. It combines image detection and
+velocity determination into one workflow in order to analyze
+time series imaging data. 
+
+    http://bowhead.lindinglab.science
+
+Installation
+------------
+
+    `pip3 install bowhead`
+
+
+

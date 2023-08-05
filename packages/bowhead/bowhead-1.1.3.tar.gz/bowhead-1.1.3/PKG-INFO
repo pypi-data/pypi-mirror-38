@@ -1,0 +1,15 @@
+Metadata-Version: 1.1
+Name: bowhead
+Version: 1.1.3
+Summary: A wound assay detection and analysis package.
+Home-page: https://gitlab.com/engel/bowhead
+Author: Mathias Engel
+Author-email: engel@lindinglab.org
+License: GNU General Public License Version 3
+Download-URL: https://gitlab.com/engel/bowhead/repository/archive.tar.gz?ref=1.1.3
+Description: 
+        Bowhead is a Python package for determining cell velocity from the wound healing assay. It combines image detection and velocity determination into one workflow in order to analyze time series imaging data. https://bowhead.lindinglab.org/ 
+Keywords: wound,detection,velocity,healing,area,cells
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
