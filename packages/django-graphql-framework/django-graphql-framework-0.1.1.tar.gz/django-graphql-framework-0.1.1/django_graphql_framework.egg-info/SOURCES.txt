@@ -1,0 +1,15 @@
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+django_graphql_framework.egg-info/PKG-INFO
+django_graphql_framework.egg-info/SOURCES.txt
+django_graphql_framework.egg-info/dependency_links.txt
+django_graphql_framework.egg-info/requires.txt
+django_graphql_framework.egg-info/top_level.txt
+graphql_framework/__init__.py
+graphql_framework/admin.py
+graphql_framework/apps.py
+graphql_framework/models.py
+graphql_framework/tests.py
+graphql_framework/views.py
