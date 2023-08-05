@@ -1,0 +1,133 @@
+
+sig(debug=false);
+
+script makeCmd(driver, method, endp, dataPost=null, dataHeader=null, dataQuery=null, dataPath=null, apiDriver=null)
+{
+  cmd = driver + " " + method;
+  cmd += " --url " + endp;
+  if(dataPost)
+  {
+    cmd += " --dataPost \"" + dataPost + "\"";
+  }
+
+  if(dataHeader)
+  {
+    cmd += " --dataHeader \"" + dataHeader + "\"";
+  }
+
+  if(dataQuery)
+  {
+    cmd += " --dataQuery \"" + dataQuery + "\"";
+  }
+
+  if(dataPath)
+  {
+    cmd += " --dataPath \"" + dataPath + "\"";
+  }
+
+  if(apiDriver)
+  {
+    cmd += " --apiDriver " + apiDriver;
+  }
+
+  if(parent.debug)
+    log("Restapi.ah@makeCmd has created command: > '" + cmd + "' <");
+
+  return cmd;
+}
+
+script jget(endp, dataPost=null, dataHeader=null, dataQuery=null, dataPath = null)
+{
+  r = ct(makeCmd(driver="std", method="restapi jget", endp=endp, dataPost=dataPost, dataHeader=dataHeader, dataQuery=dataQuery, dataPath=dataPath));
+  return r.response.result;
+}
+
+script jpost(endp, dataPost=null, dataHeader=null, dataQuery=null, dataPath = null)
+{
+  r = ct(makeCmd(driver="std", method="restapi jpost", endp=endp, dataPost=dataPost, dataHeader=dataHeader, dataQuery=dataQuery, dataPath=dataPath));
+  return r.response.result;
+}
+
+script jput(endp, dataPost=null, dataHeader=null, dataQuery=null, dataPath = null)
+{
+  r = ct(makeCmd(driver="std", method="restapi jput", endp=endp, dataPost=dataPost, dataHeader=dataHeader, dataQuery=dataQuery, dataPath=dataPath));
+  return r.response.result;
+}
+
+script jpatch(endp, dataPost=null, dataHeader=null, dataQuery=null, dataPath = null)
+{
+  r = ct(makeCmd(driver="std", method="restapi jpatch", endp=endp, dataPost=dataPost, dataHeader=dataHeader, dataQuery=dataQuery, dataPath=dataPath));
+  return r.response.result;
+}
+
+script jdelete(endp, dataPost=null, dataHeader=null, dataQuery=null, dataPath = null)
+{
+  r = ct(makeCmd(driver="std", method="restapi jdelete", endp=endp, dataPost=dataPost, dataHeader=dataHeader, dataQuery=dataQuery, dataPath=dataPath));
+  return r.response.result;
+}
+
+
+
+
+script xget(endp, dataPost=null, dataHeader=null, dataQuery=null, dataPath = null)
+{
+  r = ct(makeCmd(driver="std", method="restapi xget", endp=endp, dataPost=dataPost, dataHeader=dataHeader, dataQuery=dataQuery, dataPath=dataPath));
+  return r.response.result;
+}
+
+script xpost(endp, dataPost=null, dataHeader=null, dataQuery=null, dataPath = null)
+{
+  r = ct(makeCmd(driver="std", method="restapi xpost", endp=endp, dataPost=dataPost, dataHeader=dataHeader, dataQuery=dataQuery, dataPath=dataPath));
+  return r.response.result;
+}
+
+script xput(endp, dataPost=null, dataHeader=null, dataQuery=null, dataPath = null)
+{
+  r = ct(makeCmd(driver="std", method="restapi xput", endp=endp, dataPost=dataPost, dataHeader=dataHeader, dataQuery=dataQuery, dataPath=dataPath));
+  return r.response.result;
+}
+
+script xpatch(endp, dataPost=null, dataHeader=null, dataQuery=null, dataPath = null)
+{
+  r = ct(makeCmd(driver="std", method="restapi xpatch", endp=endp, dataPost=dataPost, dataHeader=dataHeader, dataQuery=dataQuery, dataPath=dataPath));
+  return r.response.result;
+}
+
+script xdelete(endp, dataPost=null, dataHeader=null, dataQuery=null, dataPath = null)
+{
+  r = ct(makeCmd(driver="std", method="restapi xdelete", endp=endp, dataPost=dataPost, dataHeader=dataHeader, dataQuery=dataQuery, dataPath=dataPath));
+  return r.response.result;
+}
+
+
+
+
+script dget(driver, endp, dataPost=null, dataHeader=null, dataQuery=null, dataPath = null)
+{
+  r = ct(makeCmd(driver="std", method="restapi dget", endp=endp, dataPost=dataPost, dataHeader=dataHeader, dataQuery=dataQuery, dataPath=dataPath, apiDriver=driver));
+  return r.response.result;
+}
+
+script dpost(driver, endp, dataPost=null, dataHeader=null, dataQuery=null, dataPath = null)
+{
+  r = ct(makeCmd(driver="std", method="restapi dpost", endp=endp, dataPost=dataPost, dataHeader=dataHeader, dataQuery=dataQuery, dataPath=dataPath, apiDriver=driver));
+  return r.response.result;
+}
+
+script dput(driver, endp, dataPost=null, dataHeader=null, dataQuery=null, dataPath = null)
+{
+  r = ct(makeCmd(driver="std", method="restapi dput", endp=endp, dataPost=dataPost, dataHeader=dataHeader, dataQuery=dataQuery, dataPath=dataPath, apiDriver=driver));
+  return r.response.result;
+}
+
+script dpatch(driver, endp, dataPost=null, dataHeader=null, dataQuery=null, dataPath = null)
+{
+  r = ct(makeCmd(driver="std", method="restapi dpatch", endp=endp, dataPost=dataPost, dataHeader=dataHeader, dataQuery=dataQuery, dataPath=dataPath, apiDriver=driver));
+  return r.response.result;
+}
+
+script ddelete(driver, endp, dataPost=null, dataHeader=null, dataQuery=null, dataPath = null)
+{
+  r = ct(makeCmd(driver="std", method="restapi ddelete", endp=endp, dataPost=dataPost, dataHeader=dataHeader, dataQuery=dataQuery, dataPath=dataPath, apiDriver=driver));
+  return r.response.result;
+}
