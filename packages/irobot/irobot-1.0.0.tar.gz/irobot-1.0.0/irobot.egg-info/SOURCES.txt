@@ -1,0 +1,16 @@
+setup.py
+etc/irobot.conf
+etc/logger.conf
+irobot/__init__.py
+irobot/app.py
+irobot.egg-info/PKG-INFO
+irobot.egg-info/SOURCES.txt
+irobot.egg-info/dependency_links.txt
+irobot.egg-info/entry_points.txt
+irobot.egg-info/not-zip-safe
+irobot.egg-info/requires.txt
+irobot.egg-info/top_level.txt
+irobot/utils/__init__.py
+irobot/utils/config_util.py
+irobot/utils/excel.py
+scripts/irobot

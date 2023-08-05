@@ -1,0 +1,3 @@
+[console_scripts]
+irobot_start = irobot.app:serve_forever
+

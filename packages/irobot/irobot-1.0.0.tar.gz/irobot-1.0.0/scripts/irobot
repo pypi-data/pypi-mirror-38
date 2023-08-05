@@ -1,0 +1,72 @@
+#! /usr/bin/python3
+# -*- coding: utf-8 -*-
+#
+# Copyright © 2018 lafite <2273337844@qq.com>
+# Distributed under terms of the MIT license.
+
+"""
+Run the process in a daemon way
+User this script to start or stop the process
+"""
+import os
+import sys
+import daemonize
+
+BASE_PATH = "/tmp/irobot/"
+
+ERROR_MESSAGE = """
+Illegal command.
+Use '{0} help' for more infotmation
+\n
+"""
+
+HELP = """
+Description:
+    The project 'irobot' is ...
+Usage examples:
+    {0} start
+    {0} stop
+    {0} restart
+    {0} status
+    {0} help
+Commands:
+    start       # start the service when it's not started
+    stop        # stop the service if it's started
+    status      # show if the service is running
+    restart     # stop the service and then start it
+    help        # get more information
+\n
+"""
+
+pidfile = os.path.join(BASE_PATH, ".pid")
+stdout = os.path.join(BASE_PATH, "start.out")
+stderr = os.path.join(BASE_PATH, "start.err")
+
+def serve():
+    from irobot import app
+    app.serve_forever()
+
+def main():
+    comm = os.path.basename(sys.argv[0])
+    if len(sys.argv) != 2:
+        sys.stderr.write(ERROR_MESSAGE.format(comm))
+        exit(1)
+    if not os.path.isdir(BASE_PATH):
+        os.makedirs(BASE_PATH)
+        os.chmod(BASE_PATH, mode=0o777)
+    action = sys.argv[1]
+    if action == "start":
+        daemonize.start(serve, pidfile, stdout=stdout, stderr=stderr)
+    elif action == "stop":
+        daemonize.stop(pidfile)
+    elif action == "status":
+        daemonize.status(pidfile)
+    elif action == "restart":
+        daemonize.restart(serve, pidfile, stdout=stdout, stderr=stderr)
+    elif action == "help":
+        sys.stderr.write(HELP.format(comm))
+    else:
+        sys.stderr.write(ERROR_MESSAGE.format(comm))
+
+if __name__ == "__main__":
+    main()
