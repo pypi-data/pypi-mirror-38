@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: chinatime
+Version: 1.0.1
+Summary: ...
+Home-page: https://github.com/playscforever/Time_NLP
+Author: playSCforever
+Author-email: playSCforever@gmail.com
+License: MIT Licence
+Keywords: time,nlp,china
+Platform: any
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: regex (>=2017)
+Requires-Dist: arrow (>=0.10)
+
+...
+
+
