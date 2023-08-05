@@ -1,0 +1,230 @@
+#
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+#, fuzzy
+msgctxt "field:terms_and_conditions,company:"
+msgid "Company"
+msgstr "Société"
+
+#, fuzzy
+msgctxt "field:terms_and_conditions,create_date:"
+msgid "Create Date"
+msgstr "Date de création"
+
+#, fuzzy
+msgctxt "field:terms_and_conditions,create_uid:"
+msgid "Create User"
+msgstr "Créé par"
+
+#, fuzzy
+msgctxt "field:terms_and_conditions,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:terms_and_conditions,lines:"
+msgid "Lines of Terms & Conditions"
+msgstr "Lignes de conditions générales"
+
+#, fuzzy
+msgctxt "field:terms_and_conditions,name:"
+msgid "Name"
+msgstr "Nom"
+
+#, fuzzy
+msgctxt "field:terms_and_conditions,rec_name:"
+msgid "Record Name"
+msgstr "Nom de l'enregistrement"
+
+#, fuzzy
+msgctxt "field:terms_and_conditions,write_date:"
+msgid "Write Date"
+msgstr "Date de modification"
+
+#, fuzzy
+msgctxt "field:terms_and_conditions,write_uid:"
+msgid "Write User"
+msgstr "Modifié par"
+
+#, fuzzy
+msgctxt "field:terms_and_conditions.article,content:"
+msgid "Content"
+msgstr "Contenu"
+
+#, fuzzy
+msgctxt "field:terms_and_conditions.article,create_date:"
+msgid "Create Date"
+msgstr "Date de création"
+
+#, fuzzy
+msgctxt "field:terms_and_conditions.article,create_uid:"
+msgid "Create User"
+msgstr "Créé par"
+
+#, fuzzy
+msgctxt "field:terms_and_conditions.article,id:"
+msgid "ID"
+msgstr "ID"
+
+#, fuzzy
+msgctxt "field:terms_and_conditions.article,name:"
+msgid "Name"
+msgstr "Nom"
+
+#, fuzzy
+msgctxt "field:terms_and_conditions.article,rec_name:"
+msgid "Record Name"
+msgstr "Nom de l'enregistrement"
+
+#, fuzzy
+msgctxt "field:terms_and_conditions.article,title:"
+msgid "Title"
+msgstr "Titre"
+
+#, fuzzy
+msgctxt "field:terms_and_conditions.article,write_date:"
+msgid "Write Date"
+msgstr "Date de modification"
+
+#, fuzzy
+msgctxt "field:terms_and_conditions.article,write_uid:"
+msgid "Write User"
+msgstr "Modifié par"
+
+msgctxt "field:terms_and_conditions.line,article:"
+msgid "Article"
+msgstr "Article"
+
+#, fuzzy
+msgctxt "field:terms_and_conditions.line,create_date:"
+msgid "Create Date"
+msgstr "Date de création"
+
+#, fuzzy
+msgctxt "field:terms_and_conditions.line,create_uid:"
+msgid "Create User"
+msgstr "Créé par"
+
+#, fuzzy
+msgctxt "field:terms_and_conditions.line,id:"
+msgid "ID"
+msgstr "ID"
+
+#, fuzzy
+msgctxt "field:terms_and_conditions.line,level:"
+msgid "Level"
+msgstr "Niveau"
+
+#, fuzzy
+msgctxt "field:terms_and_conditions.line,rec_name:"
+msgid "Record Name"
+msgstr "Nom de l'enregistrement"
+
+#, fuzzy
+msgctxt "field:terms_and_conditions.line,sequence:"
+msgid "Sequence"
+msgstr "Séquence"
+
+#, fuzzy
+msgctxt "field:terms_and_conditions.line,tandc:"
+msgid "Terms & Conditions"
+msgstr "Condition générale"
+
+#, fuzzy
+msgctxt "field:terms_and_conditions.line,write_date:"
+msgid "Write Date"
+msgstr "Date de modification"
+
+#, fuzzy
+msgctxt "field:terms_and_conditions.line,write_uid:"
+msgid "Write User"
+msgstr "Modifié par"
+
+msgctxt "help:terms_and_conditions,company:"
+msgid "Make the terms and conditions belong to the company."
+msgstr "Faire appartenir les conditions générales à la société."
+
+msgctxt "help:terms_and_conditions,name:"
+msgid "The name of this T&C definition."
+msgstr "Nom de cette définition de conditions générales."
+
+msgctxt "help:terms_and_conditions.article,content:"
+msgid "Content of the article."
+msgstr "Texte de l'article"
+
+msgctxt "help:terms_and_conditions.article,name:"
+msgid "The name of this article."
+msgstr "Nom de cet article"
+
+msgctxt "help:terms_and_conditions.article,title:"
+msgid "The title of this article."
+msgstr "Titre de l'article"
+
+msgctxt "help:terms_and_conditions.line,level:"
+msgid ""
+"Level in the hierarchy of articles. Essentially used to hierarchy articles "
+"when printing ('1' is the highest level, '6' is the lowest)."
+msgstr ""
+"Niveau dans la hiérarchie des articles. Essentiellement utilisé pour "
+"hiérarchiser les articles lors de l'impression ('1' est le niveau le plus "
+"élevé, '6' est le plus bas)."
+
+#, fuzzy
+msgctxt "model:ir.action,name:act_terms_and_conditions_article_form"
+msgid "Article (T&C)"
+msgstr "Article (CG)"
+
+#, fuzzy
+msgctxt "model:ir.action,name:act_terms_and_conditions_form"
+msgid "Terms & Conditions"
+msgstr "Condition générale"
+
+msgctxt "model:ir.ui.menu,name:menu_terms_and_conditions_article_form"
+msgid "Article (T&C)"
+msgstr "Article (CG)"
+
+#, fuzzy
+msgctxt "model:ir.ui.menu,name:menu_terms_and_conditions_form"
+msgid "Terms & Conditions"
+msgstr "Condition générale"
+
+msgctxt "model:res.group,name:group_terms_and_conditions_admin"
+msgid "Terms & Conditions Administration"
+msgstr "Administration des conditions générales"
+
+#, fuzzy
+msgctxt "model:terms_and_conditions,name:"
+msgid "Terms & Conditions"
+msgstr "Condition générale"
+
+msgctxt "model:terms_and_conditions.article,name:"
+msgid "Articles of Terms & Conditions"
+msgstr "Article de conditions générales"
+
+msgctxt "model:terms_and_conditions.line,name:"
+msgid "Relation between Terms & Conditions definition and article"
+msgstr "Relation entre la définition des conditions générales et l'article."
+
+msgctxt "selection:terms_and_conditions.line,level:"
+msgid "1"
+msgstr "1"
+
+msgctxt "selection:terms_and_conditions.line,level:"
+msgid "2"
+msgstr "2"
+
+msgctxt "selection:terms_and_conditions.line,level:"
+msgid "3"
+msgstr "Administration des conditions générales"
+
+msgctxt "selection:terms_and_conditions.line,level:"
+msgid "4"
+msgstr "4"
+
+msgctxt "selection:terms_and_conditions.line,level:"
+msgid "5"
+msgstr "5"
+
+msgctxt "selection:terms_and_conditions.line,level:"
+msgid "6"
+msgstr "6"

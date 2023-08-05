@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!-- This file is part of Adiczion's Tryton Module.
+The COPYRIGHT and LICENSE files at the top level of this repository contains
+the full copyright notices and license terms. -->
+<form>
+  <label name="tandc"/>
+  <field name="tandc" colspan="3"/>
+  <label name="article"/>
+  <field name="article" xexpand="1"/>
+  <label name="level"/>
+  <field name="level"/>
+</form>

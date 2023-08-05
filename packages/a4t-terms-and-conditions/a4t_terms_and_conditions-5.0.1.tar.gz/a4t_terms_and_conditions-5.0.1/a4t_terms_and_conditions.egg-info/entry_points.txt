@@ -1,0 +1,4 @@
+
+    [trytond.modules]
+    terms_and_conditions = trytond.modules.terms_and_conditions
+    
