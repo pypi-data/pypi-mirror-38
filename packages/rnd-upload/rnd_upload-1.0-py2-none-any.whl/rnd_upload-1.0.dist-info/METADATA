@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: rnd-upload
+Version: 1.0
+Summary: Livenviro LEQ rnd file upload
+Home-page: https://bitbucket.org/xorsys/rnd_upload
+Author: Mihai
+Author-email: mihai@xors.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: terminaltables
+Requires-Dist: sqlalchemy
+Requires-Dist: pytz
+Requires-Dist: mysqlclient
+Requires-Dist: requests
+
+UNKNOWN
+
+
