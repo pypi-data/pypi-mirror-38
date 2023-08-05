@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: hitchbuildvagrant
+Version: 0.2.0
+Summary: Tool to build vagrant boxes for testing.
+Home-page: https://github.com/hitchdev/hitchbuildvagrant
+Author: Colm O'Connor
+Author-email: colm.oconnor.github@gmail.com
+License: LGPL
+Description: # HitchBuildVagrant
+        
+        A small, self contained python library for building virtual machines using vagrant to
+        test code on.
+        
+Keywords: virtualbox vagrant testing
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Text Processing :: Markup
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.1
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Description-Content-Type: text/markdown
