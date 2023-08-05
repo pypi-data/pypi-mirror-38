@@ -1,0 +1,14 @@
+README.md
+setup.py
+hmm_kit/HMMModel.py
+hmm_kit/__init__.py
+hmm_kit/_hmmc.c
+hmm_kit/bwiter.py
+hmm_kit/multivariatenormal.py
+hmm_kit/viterbi.py
+hmm_kit.egg-info/PKG-INFO
+hmm_kit.egg-info/SOURCES.txt
+hmm_kit.egg-info/dependency_links.txt
+hmm_kit.egg-info/requires.txt
+hmm_kit.egg-info/top_level.txt
+scripts/simple_hmm.py
