@@ -1,0 +1,35 @@
+Metadata-Version: 1.1
+Name: keras-transformer
+Version: 0.3.0
+Summary: Transformer implemented in Keras
+Home-page: https://github.com/CyberZHG/keras-transformer
+Author: CyberZHG
+Author-email: CyberZHG@gmail.com
+License: MIT
+Description: 
+        Keras Transformer
+        =================
+        
+        
+        .. image:: https://travis-ci.org/CyberZHG/keras-transformer.svg
+           :target: https://travis-ci.org/CyberZHG/keras-transformer
+           :alt: Travis
+        
+        
+        .. image:: https://coveralls.io/repos/github/CyberZHG/keras-transformer/badge.svg?branch=master
+           :target: https://coveralls.io/github/CyberZHG/keras-transformer
+           :alt: Coverage
+        
+        
+        Install
+        -------
+        
+        .. code-block:: bash
+        
+           pip install keras-transformer
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.6
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
