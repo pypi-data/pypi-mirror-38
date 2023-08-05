@@ -1,0 +1,50 @@
+Metadata-Version: 2.1
+Name: sqlalchemy-lazy-way
+Version: 0.0.1
+Summary: sqlalchemy-lazy-way 
+Home-page: https://github.com/twocucao/sqlalchemy-lazy-way
+License: MIT
+Keywords: sqlalchemy-lazy-way
+Author: twocucao
+Author-email: twocucao@gmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: sqlalchemy (>=1.2,<2.0)
+Project-URL: Repository, https://github.com/twocucao/sqlalchemy-lazy-way
+Description-Content-Type: text/markdown
+
+# sqlalchemy-lazy-way
+
+![pyversions](https://img.shields.io/badge/python%20-3.7%2B-blue.svg)
+![celery](https://img.shields.io/badge/celery-4.2.0-4BC51D.svg)
+![pypi](https://img.shields.io/pypi/v/nine.svg)
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-ff69b4.svg)](https://github.com/twocucao/YaDjangoWeb/issues)
+
+## 目的
+
+使用 sqlalchemy 之后，很多查询写起来特别啰嗦。为了在提高效率的基础上能挽留点头发 , 于是开了这个项目。
+
+1. Django Like Query
+2. Common Utils
+
+## Get Started
+
+```bash
+brew install python3
+```
+
+## 技术栈
+
+ - Python 3.7.0
+
+## 许可
+
+mit
+
+## Credits
+
+- smart_query ported from https://github.com/mitsuhiko/sqlalchemy-django-query/blob/master/tests.py
+
+
