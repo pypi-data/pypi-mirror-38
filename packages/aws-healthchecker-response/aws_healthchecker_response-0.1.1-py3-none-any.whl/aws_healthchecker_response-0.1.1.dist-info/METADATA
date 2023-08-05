@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: aws-healthchecker-response
+Version: 0.1.1
+Summary: Django Middleware to return a 200 response to the AWS ELB HealthChecker without doing Host header checks
+Home-page: UNKNOWN
+License: MIT
+Author: Matt Magin
+Author-email: matt.magin@cmv.com.au
+Requires-Python: >=3.4,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: django (>=1.10)
