@@ -1,0 +1,75 @@
+2018.08.13 13:36:08 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.13 13:36:08 [ HttpController ] (DEBUG) [post] post = <http.client.HTTPResponse object at 0x02B4FF90>
+2018.08.13 13:36:08 [ HttpController ] (DEBUG) response is :<http.client.HTTPResponse object at 0x02B4FF90>
+2018.08.14 15:21:37 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:21:37 [ HttpController ] (DEBUG) [post] post = <http.client.HTTPResponse object at 0x02B8D0F0>
+2018.08.14 15:21:37 [ HttpController ] (DEBUG) response is :<http.client.HTTPResponse object at 0x02B8D0F0>
+2018.08.14 15:21:45 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:21:45 [ HttpController ] (ERROR) [post] HTTP Error 400: Bad Request
+2018.08.14 15:22:39 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:22:39 [ HttpController ] (ERROR) [post] HTTP Error 400: Bad Request
+2018.08.14 15:22:41 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:22:41 [ HttpController ] (ERROR) [post] HTTP Error 400: Bad Request
+2018.08.14 15:30:10 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:30:10 [ HttpController ] (ERROR) [post] HTTP Error 400: Bad Request
+2018.08.14 15:30:41 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:30:41 [ HttpController ] (ERROR) [post] HTTP Error 400: Bad Request
+2018.08.14 15:30:53 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:30:53 [ HttpController ] (ERROR) [post] HTTP Error 400: Bad Request
+2018.08.14 15:33:20 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:33:20 [ HttpController ] (ERROR) [post] HTTP Error 400: Bad Request
+2018.08.14 15:33:32 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:33:32 [ HttpController ] (ERROR) [post] HTTP Error 400: Bad Request
+2018.08.14 15:41:49 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:41:49 [ HttpController ] (ERROR) [post] HTTP Error 400: Bad Request
+2018.08.14 15:42:00 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:42:00 [ HttpController ] (ERROR) [post] HTTP Error 400: Bad Request
+2018.08.14 15:42:14 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:42:14 [ HttpController ] (ERROR) [post] HTTP Error 400: Bad Request
+2018.08.14 15:42:58 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:42:58 [ HttpController ] (ERROR) [post] HTTP Error 400: Bad Request
+2018.08.14 15:44:23 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:44:23 [ HttpController ] (ERROR) [post] HTTP Error 400: Bad Request
+2018.08.14 15:44:48 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:44:57 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:44:57 [ HttpController ] (ERROR) [post] httperror HTTP Error 400: Bad Request
+2018.08.14 15:45:12 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:45:12 [ HttpController ] (ERROR) [post] httperror HTTP Error 400: Bad Request
+2018.08.14 15:45:45 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:45:45 [ HttpController ] (ERROR) [post] httperror HTTP Error 400: Bad Request
+2018.08.14 15:46:04 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:46:04 [ HttpController ] (ERROR) [post] httperror HTTP Error 400: Bad Request
+2018.08.14 15:46:10 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:46:10 [ HttpController ] (ERROR) [post] httperror HTTP Error 400: Bad Request
+2018.08.14 15:46:43 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:46:43 [ HttpController ] (ERROR) [post] httperror HTTP Error 400: Bad Request
+2018.08.14 15:46:59 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:46:59 [ HttpController ] (ERROR) [post] httperror HTTP Error 400: Bad Request
+2018.08.14 15:47:09 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:47:09 [ HttpController ] (ERROR) [post] httperror HTTP Error 400: Bad Request
+2018.08.14 15:47:15 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:47:15 [ HttpController ] (ERROR) [post] httperror HTTP Error 400: Bad Request
+2018.08.14 15:47:30 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:47:30 [ HttpController ] (ERROR) [post] httperror HTTP Error 400: Bad Request
+2018.08.14 15:48:10 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:48:10 [ HttpController ] (ERROR) [post] httperror HTTP Error 400: Bad Request
+2018.08.14 15:48:16 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:48:16 [ HttpController ] (ERROR) [post] httperror HTTP Error 400: Bad Request
+2018.08.14 15:50:22 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:50:22 [ HttpController ] (ERROR) [post] HTTP Error 400: Bad Request
+2018.08.14 15:50:41 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:50:41 [ HttpController ] (ERROR) [post] HTTP Error 400: Bad Request
+2018.08.14 15:50:56 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:50:56 [ HttpController ] (ERROR) [post] HTTP Error 400: Bad Request
+2018.08.14 15:51:08 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:51:08 [ HttpController ] (ERROR) [post] HTTP Error 400: Bad Request
+2018.08.14 15:51:13 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:51:13 [ HttpController ] (ERROR) [post] HTTP Error 400: Bad Request
+2018.08.14 15:51:21 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:51:21 [ HttpController ] (ERROR) [post] HTTP Error 400: Bad Request
+2018.08.14 15:51:34 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:51:34 [ HttpController ] (ERROR) [post] HTTP Error 400: Bad Request
+2018.08.14 15:51:46 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:51:46 [ HttpController ] (ERROR) [post] HTTP Error 400: Bad Request
+2018.08.14 15:51:52 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:51:52 [ HttpController ] (ERROR) [post] HTTP Error 400: Bad Request
