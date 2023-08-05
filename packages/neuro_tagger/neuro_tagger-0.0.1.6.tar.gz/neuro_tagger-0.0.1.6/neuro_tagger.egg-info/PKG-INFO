@@ -1,0 +1,23 @@
+Metadata-Version: 1.1
+Name: neuro-tagger
+Version: 0.0.1.6
+Summary: Text tagger, based on the ELMo embeddings and recurrent neural network, with the simple sklearn-like interface
+Home-page: https://github.com/bond005/neuro_tagger
+Author: Ivan Bondarenko
+Author-email: bond005@yandex.ru
+License: Apache License Version 2.0
+Description: Text tagger, based on the ELMo embeddings and recurrent neural network, with the simple sklearn-like interface
+Keywords: elmo,ner,lstm,crf,nlp,keras,tensorflow,scikit-learn
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Text Processing
+Classifier: Topic :: Text Processing :: Linguistic
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
