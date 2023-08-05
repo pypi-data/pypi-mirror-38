@@ -1,0 +1,14 @@
+argh
+click
+pathtools
+pillow
+reportlab
+wand
+watchdog
+
+[dev]
+flake8
+pytest
+sphinx
+sphinx-rtd-theme
+sphinx-autobuild
