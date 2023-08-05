@@ -1,0 +1,89 @@
+Metadata-Version: 2.1
+Name: pytest-breed-adapter
+Version: 1.2.0
+Summary: A simple plugin to connect with breed-server
+Home-page: https://github.com/megachweng/pytest-breed-adapter
+Author: megachweng
+Author-email: megachweng@gmail.com
+Maintainer: megachweng
+Maintainer-email: megachweng@gmail.com
+License: BSD-3
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Framework :: Pytest
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Testing
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: BSD License
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+Requires-Dist: pytest (>=3.5.0)
+Requires-Dist: pytest-metadata
+
+# pytest-breed-adapter
+
+A simple plugin generate json report and sent to breed server for report visualization
+
+----
+
+This `pytest`_ plugin was generated with `Cookiecutter`_ along with `@hackebrot`_'s `cookiecutter-pytest-plugin`_ template.
+
+Installation
+------------
+You can install "pytest-breed-adapter" via `pip`_ from `PyPI`_::
+
+    $ pip install pytest-breed-adapter
+
+
+Usage
+-----
+For full functionality you need build `breed-server` which is close-source project
+But you can build your own server for further usage, plugin will send json report to
+breed server address + `/report/parse`
+
+```
+[pytest]
+addopts              = --breed
+title                = what evever title you want /{or leave it empty}
+json_report_file     = auto/ none/ arbitary.json
+json_report_indent   = 4/ none
+metadata             = true/ false
+CI_server            = 192.168.1.199
+breed_server         = http://192.168.1.199:62180
+```
+
+```
+test_demo():
+    """
+    @ Node id
+    @! key0: value0
+    @! key1: value1
+    @! key2: value2
+    @! key3: value3
+    """
+    assert 1
+```
+first line of docstring startswith @`space` will be parsed to test nodeid
+reset line with `@!` prefix will be treated as metadata key-value
+
+Contributing
+------------
+Contributions are very welcome
+
+License
+-------
+
+Distributed under the terms of the `BSD-3`_ license, "pytest-breed-adapter" is free and open source software
+
+
+Issues
+------
+
+If you encounter any problems, please `file an issue`_ along with a detailed description.
+
+
