@@ -1,0 +1,3 @@
+[console_scripts]
+sqlfluff = sqlfluff.cli:cli
+
