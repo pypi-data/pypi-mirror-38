@@ -1,0 +1,36 @@
+Metadata-Version: 1.1
+Name: gfutilities
+Version: 0.5.18
+Summary: Glowforge Utilities
+Home-page: https://github.com/ScottW514/Glowforge-Utilities
+Author: Scott Wiederhold
+Author-email: s.e.wiederhold@gmail.com
+License: MIT
+Description: A small collection of utilties to aid in firmware development for the Glowforge laser cutter.
+        
+        **Example Usages**:  
+        Generating Images from Stepper Files - https://community.openglow.org/t/generating-images-from-stepper-files/69
+        Glowforge Emulator - https://community.openglow.org/t/glowforge-emulator-initialization-and-connection-to-the-service/96
+        
+        This project is not affiliated nor endorsed by Glowforge, Inc.  
+        
+        As Glowforge's own software is in continuous BETA, so will this software.
+        It is recommended not to rely on this code for production as Glowforge does
+        not publish their protocols nor do they provide any change notices.
+        
+        As a result, this code may break without warning.
+        
+        USE AT YOUR OWN RISK!
+        
+Keywords: Glowforge OpenGlow
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Topic :: Software Development :: Embedded Systems
