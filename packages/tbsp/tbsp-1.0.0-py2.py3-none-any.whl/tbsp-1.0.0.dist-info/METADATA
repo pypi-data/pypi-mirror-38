@@ -1,0 +1,23 @@
+Metadata-Version: 2.0
+Name: tbsp
+Version: 1.0.0
+Summary: SNP-based trajectory inference
+Home-page: https://github.com/phoenixding/tbsp
+Author: Jun Ding
+Author-email: jund@andrew.cmu.edu
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: scipy
+Requires-Dist: numpy
+Requires-Dist: scikit-learn
+Requires-Dist: matplotlib (<3.0,>=2.2.3)
+Requires-Dist: networkx (>=2.2)
+Requires-Dist: Biopython (>=1.72)
+Requires-Dist: pyBigWig
+
+UNKNOWN
+
+
