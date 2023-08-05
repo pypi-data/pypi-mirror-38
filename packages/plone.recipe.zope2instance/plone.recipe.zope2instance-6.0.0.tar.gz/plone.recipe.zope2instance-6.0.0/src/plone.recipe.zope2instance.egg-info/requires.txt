@@ -1,0 +1,10 @@
+zc.buildout
+setuptools
+six
+zc.recipe.egg
+Zope>=4.0b1
+ZODB>=5.1.1
+ZEO
+
+[test]
+zope.testrunner
