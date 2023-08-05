@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: truthtable
+Version: 0.0.1
+Summary: Small program to build truth tables from expressions
+Home-page: https://github.com/Iheiko/truthtable/
+Author: Viktor Prymak
+Author-email: sammorow@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Education
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: prettytable
+
+# Truthtable
+```
+Usage:
+./truthtable.py [-hbn] [--help] [--bool|--numeric]
+  -h | --help     Print this message
+  -b | --bool     Use boolean values to fill the table
+  -n | --numeric  Use numeric values to fill the table(defualt)
+  -d | --debug    For printing intermediate representation of expression
+
+Expression syntax:
+  Variable name:
+    [a-zA-Z]+
+  Operations:
+    &&  - conjunction
+    ||  - disjunction
+    ->  - implication
+    <-  - converse implication
+    <=> - biconditional
+    ^   - exclusive disjunction
+    ~   - negation
+Examples:
+    A && B ^ ~(~A || (A<=>C))
+    A && B <=> ~(~A -> ~(~B <=> A))
+    BC -> A -> C <=> ~(A || (BC && C))
+```
+
+
