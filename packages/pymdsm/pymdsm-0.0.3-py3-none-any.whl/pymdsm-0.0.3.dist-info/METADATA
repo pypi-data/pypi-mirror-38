@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: pymdsm
+Version: 0.0.3
+Summary: A python markdown extension that converts ..content.. to <small>content</small>
+Home-page: https://github.com/jamesthomasonjr/pymdsm
+Author: James Thomason, Jr
+Author-email: james@jamesthomasonjr.com
+License: MIT
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: markdown (>=2.5)
+
+# pymdsm
+
+## Python Markdown Small Extension
+
+Pymdsm converts `..text..` into `<small>text</small>`
+
+
