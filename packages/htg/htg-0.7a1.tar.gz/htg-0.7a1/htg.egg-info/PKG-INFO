@@ -1,0 +1,34 @@
+Metadata-Version: 1.1
+Name: htg
+Version: 0.7a1
+Summary: Happy Tree Gallery is a command line utility generating static photo galleries.
+Home-page: https://gitlab.com/rmnl/htg
+Author: R Meurders
+Author-email: pypi+htg@rmnl.net
+License: MIT
+Description: # Happy Tree Gallery
+        
+        This is a small utility for generating static photo galleries.
+        
+        **BEWARE THIS IS STILL VERY MUCH A WORK IN PROGRESS**
+        
+        And that's why there's no documentation yet. Please check back later.
+        
+        
+        ## Dependencies
+        
+        ### jpegtran
+        
+        Installing jpegtran is easy:
+        
+        ```bash
+        brew install jpeg
+        ```
+        
+Keywords: development command line tool photos pictures management galleries json
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Utilities
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.7
