@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: rnd-upload
+Version: 2.0
+Summary: Livenviro LEQ rnd file upload
+Home-page: https://bitbucket.org/xorsys/rnd_upload
+Author: Mihai
+Author-email: mihai@xors.com
+License: LICENSE
+Platform: UNKNOWN
+Requires-Dist: terminaltables
+Requires-Dist: pytz
+Requires-Dist: requests
+
+UNKNOWN
+
+
