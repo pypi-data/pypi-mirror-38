@@ -1,0 +1,10 @@
+requests
+Click
+Pyro4
+PyYAML
+tabulate
+
+[dev]
+pylint
+pytest
+pytest-cov

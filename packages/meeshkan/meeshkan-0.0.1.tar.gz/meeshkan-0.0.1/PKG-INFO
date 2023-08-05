@@ -1,0 +1,69 @@
+Metadata-Version: 2.1
+Name: meeshkan
+Version: 0.0.1
+Summary: The Meeshkan Client for interactive machine learning
+Home-page: https://www.meeshkan.io/
+Author: Meeshkan Dev Team
+Author-email: dev@meeshkan.com
+License: Apache 2.0
+Description: 
+        # Meeshkan client
+        
+        Client code for running ML jobs.
+        
+        ## Command-line interface
+        ```bash
+        meeshkan [help]
+        ```
+        
+        ## OAuth
+        Create a file `.meeshkan/credentials` with the following format:
+        ```ini
+        [auth]
+        client_id=...
+        client_secret=...
+        ```
+        
+        ## Development
+        
+        ### Installation
+        For users:
+        ```{bash}
+        python setup.py install
+        ```
+        
+        For developers:
+        ```{bash}
+        pip install -e .[dev]
+        ```
+        
+        ### Running tests
+        ```{bash}
+        pytest
+        ```
+        
+        OR
+        
+        ```{bash}
+        python setup.py test
+        ```
+        
+        ### Running lint
+        ```bash
+        pylint -f msvs client
+        ```
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Requires-Python: >=3.5.0
+Description-Content-Type: text/markdown
+Provides-Extra: dev
