@@ -1,0 +1,3 @@
+[console_scripts]
+mailmitt = mailmitt.__main__:main
+
