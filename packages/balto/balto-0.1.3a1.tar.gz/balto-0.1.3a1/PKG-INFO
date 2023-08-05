@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: balto
+Version: 0.1.3a1
+Summary: BAlto is a Language independent Test Orchestrator
+Home-page: https://lothiraldan.github.io/balto/
+Author: Boris Feld
+Author-email: lothiraldan@gmail.com
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: aiodocker (>=0.14.0,<0.15.0)
+Requires-Dist: aiohttp (>=3.4,<4.0)
+Requires-Dist: aiohttp_json_rpc (>=0.11.2,<0.12.0)
+Requires-Dist: click (>=7.0,<8.0)
+Requires-Dist: dataclasses (>=0.6.0,<0.7.0); python_version >= "3.6" and python_version < "3.7"
+Requires-Dist: docker (>=3.5,<4.0)
+Requires-Dist: npyscreen (>=4.10,<5.0)
+Requires-Dist: prompt_toolkit (>=2.0,<3.0)
+Requires-Dist: tomlkit (>=0.4.6,<0.5.0)
+Requires-Dist: urwid (>=2.0,<3.0)
+Project-URL: Repository, https://github.com/Lothiraldan/balto
