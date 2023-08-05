@@ -1,0 +1,15 @@
+hg_confman-1.0.1-py3.6-nspkg.pth,sha256=61023dEBfHLmXe3l91YVWj85CZC98Pw5Gtw_lqBjXQk,549
+hg_confman-1.0.1.dist-info/METADATA,sha256=5LvBHwJJStQ1_mlDf63bw9tPu2u9Y9qhQe6KXyJZK7c,255
+hg_confman-1.0.1.dist-info/RECORD,,
+hg_confman-1.0.1.dist-info/WHEEL,sha256=NzFAKnL7g-U64xnS1s5e3mJnxKpOTeOtlXdFwS9yNXI,92
+hg_confman-1.0.1.dist-info/namespace_packages.txt,sha256=QOsI6Pm4T7KhZd_Rm5fsAIgac0uPDyuZEE1JYVG7XNw,9
+hg_confman-1.0.1.dist-info/top_level.txt,sha256=QOsI6Pm4T7KhZd_Rm5fsAIgac0uPDyuZEE1JYVG7XNw,9
+hgext3rd/confman/__init__.py,sha256=4IaxWAsSIB1C9Gk92RbizjZnm9Ct0K-Af1Ce3BGEePM,1147
+hgext3rd/confman/commands.py,sha256=3K1bFTdpSR4COXV4QOXE_ylUojwV7JEiGYPOBhrcz04,19824
+hgext3rd/confman/configuration.py,sha256=zyiMwHmifpjS5tYYs7bXQqJGu1Jr4_vt-rqqVsrz-O8,12786
+hgext3rd/confman/gr.py,sha256=T5SeH6frO9N8HRk-6x3DSSE-3YH9HAiXJo-QJRimnHI,2314
+hgext3rd/confman/hgcompat.py,sha256=UG3NwhziW1MOGo3YOJwPskvs_s6OzkXYwYt8eyyYmVM,1033
+hgext3rd/confman/managed.py,sha256=eOb6u8AlKcj6akJJ87zYz4XxPWsbSww7gHIlfHUpJ8E,21273
+hgext3rd/confman/meta.py,sha256=Cy4xr6WSfCgyNACeYLYu1wwsrcC0roGL52BvvyoX-20,1046
+hgext3rd/confman/opts.py,sha256=oxKoK4s1jQRtiMPi0sHfM5L8YOd2aVfbi_JxpV2BTX8,512
+hgext3rd/confman/utils.py,sha256=5clwk3DsvVm-qsaC4Ol5rCrmdR4Kgl8zwzxciIFPVcE,14240
