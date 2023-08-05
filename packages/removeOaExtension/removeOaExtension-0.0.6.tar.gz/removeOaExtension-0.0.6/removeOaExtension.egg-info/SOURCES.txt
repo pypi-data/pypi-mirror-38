@@ -1,0 +1,11 @@
+README.md
+setup.py
+implementation/__init__.py
+implementation/extensionRemover.py
+implementation/main.py
+removeOaExtension.egg-info/PKG-INFO
+removeOaExtension.egg-info/SOURCES.txt
+removeOaExtension.egg-info/dependency_links.txt
+removeOaExtension.egg-info/entry_points.txt
+removeOaExtension.egg-info/requires.txt
+removeOaExtension.egg-info/top_level.txt

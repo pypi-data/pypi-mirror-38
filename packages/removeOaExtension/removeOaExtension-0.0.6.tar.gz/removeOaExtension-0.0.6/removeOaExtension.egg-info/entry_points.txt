@@ -1,0 +1,3 @@
+[console_scripts]
+removeOaExtension = implementation.main:main
+
