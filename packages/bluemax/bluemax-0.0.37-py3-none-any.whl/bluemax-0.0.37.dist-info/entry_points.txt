@@ -1,0 +1,3 @@
+[console_scripts]
+runmax = bluemax.scripts.runmax:cli
+
