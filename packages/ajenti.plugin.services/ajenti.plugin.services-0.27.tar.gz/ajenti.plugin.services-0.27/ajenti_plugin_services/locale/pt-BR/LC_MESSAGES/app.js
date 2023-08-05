@@ -1,0 +1,1 @@
+{"": "", "Manage system services": "Gerenciar servi\u00e7os do sistema", "Service": "Servi\u00e7o", "Filter services": "Servi\u00e7os de filtro", "Manager": "Gerenciador", "Services": "Servi\u00e7os"}

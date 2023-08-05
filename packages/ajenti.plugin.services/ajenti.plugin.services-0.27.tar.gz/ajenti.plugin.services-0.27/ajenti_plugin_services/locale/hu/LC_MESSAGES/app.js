@@ -1,0 +1,1 @@
+{"": "", "Manage system services": "Rendszerszolg\u00e1ltat\u00e1sok kezel\u00e9se", "Service": "Szolg\u00e1ltat\u00e1s", "Filter services": "Sz\u0171r\u0151 szolg\u00e1ltat\u00e1sok", "Manager": "Kezel\u00e9s", "Services": "Szolg\u00e1ltat\u00e1sok"}

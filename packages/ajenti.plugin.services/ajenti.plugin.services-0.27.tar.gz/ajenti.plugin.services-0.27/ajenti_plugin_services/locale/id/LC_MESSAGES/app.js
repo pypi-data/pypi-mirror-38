@@ -1,0 +1,1 @@
+{"": "", "Manage system services": "Mengelola layanan sistem", "Service": "Layanan", "Filter services": "Layanan filter", "Manager": "Manajer", "Services": "Layanan"}
