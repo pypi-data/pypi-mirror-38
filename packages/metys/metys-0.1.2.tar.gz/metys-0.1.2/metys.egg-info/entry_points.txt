@@ -1,0 +1,3 @@
+[console_scripts]
+metys = metys.__main__:main
+
