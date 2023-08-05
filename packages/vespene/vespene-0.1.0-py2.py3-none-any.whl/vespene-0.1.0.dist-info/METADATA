@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: vespene
+Version: 0.1.0
+Summary: Vespene client
+Home-page: https://github.com/vespene-hub/vespene/
+Author: Hervé Beraud
+Author-email: herveberaud.pro@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Information Technology
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Requires: pbd
+Description-Content-Type: text/markdown
+Provides-Extra: devel
+Requires-Dist: fixtures; extra == 'devel'
+Requires-Dist: pbr; extra == 'devel'
+Requires-Dist: tox; extra == 'devel'
+Requires-Dist: bandit; extra == 'devel'
+
+# vespene
+
+
+
