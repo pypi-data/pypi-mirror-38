@@ -1,0 +1,44 @@
+Declare,metatab-latest
+Title,Simple Transforms Package
+Description,A package with a simple datafile with a transform
+Identifier,8c0f63e4-14cf-42f4-8bbe-cacc9c6b80e8
+Name,example.com-transforms-1
+Dataset,transforms
+Origin,example.com
+Time,
+Space,
+Grain,
+Version,1
+Created,2017-09-12T17:54:15
+Modified,2018-10-21T23:25:48
+Issued,2018-10-21T23:25:48
+Giturl,https://github.com/Metatab/metapack.git
+
+Section,Contacts,Email,Organization,Url,,
+
+Section,Documentation,Title,Description,,,
+Note,,,,,,
+
+Section,Resources,Name,schema,Description
+Datafile,data/renter_cost.csv,renter_cost,,"Portion of income spent on rent, extracted from the ACS"
+Datafile,data/row_generator.csv,row_generator,,
+
+Section,Schema,DataType,Description,
+Table,renter_cost,,,
+Table.Column,id,integer,,
+Table.Column,gvid,string,,
+Table.Column,renter_cost_gt_30,integer,,
+Table.Column,renter_cost_gt_30_cv,number,,
+Table,row_generator,,,
+Table.Column,int,integer,,
+Table.Column,float,number,,
+Table.Column,prop,proportion,,
+Table.Column,ratio,ratio,,
+Table.Column,str,string,,
+Table.Column,acs_tract,geoid/acs,,
+Table.Column,census_tract,geoid/acs,,
+Table.Column,tiger_tract,geoid/acs,,
+Table.Column,date,date,,
+Table.Column,time,time,,
+Table.Column,datetime,datetime,,
+Table.Column,percent,number,,
