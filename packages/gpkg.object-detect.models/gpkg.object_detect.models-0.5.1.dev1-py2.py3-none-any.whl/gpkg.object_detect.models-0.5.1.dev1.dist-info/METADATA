@@ -1,0 +1,483 @@
+Metadata-Version: 2.1
+Name: gpkg.object-detect.models
+Version: 0.5.1.dev1
+Summary: Object detection models
+Home-page: https://github.com/guildai/packages/tree/master/object-detect/models
+Author: Guild AI
+Author-email: packages@guild.ai
+License: Apache 2.0
+Keywords: gpkg
+Platform: UNKNOWN
+Requires-Dist: gpkg.object-detect
+
+gpkg.object-detect.models
+#########################
+
+*Object detection models*
+
+Models
+######
+
+faster-rcnn-resnet-101
+======================
+
+*Faster RCNN with ResNet 101*
+
+Operations
+^^^^^^^^^^
+
+detect
+------
+
+*Detect images using a trained detector*
+
+Flags
+`````
+
+**images**
+  *Directory containing images to detect (required)*
+
+evaluate
+--------
+
+*Evaluate a trained detector*
+
+Flags
+`````
+
+**eval-examples**
+  *Number of examples to evaluate (all available)*
+
+export-and-freeze
+-----------------
+
+*Export a detection graph with checkpoint weights*
+
+Flags
+`````
+
+**step**
+  *Checkpoint step to use for the frozen graph (latest checkpoint)*
+
+train
+-----
+
+*Train detector from scratch*
+
+Flags
+`````
+
+**batch-size**
+  *Number of examples in each training batch*
+
+**clones**
+  *Number of model clones. (1)
+
+  This flag has no effect unless `legacy` is `yes`.
+
+  Set this value to the number of available GPUs for multi-GPU training.
+
+  *
+
+**eval-examples**
+  *Number of examples to evaluate after training (all available)
+
+  This flag has no effect if `legacy` is `yes` (legacy train does not
+  perform evaluation).
+
+  *
+
+**legacy**
+  *Use legacy training for object detection (no)
+
+  Multi GPU support is only available with legacy training.
+
+  Unlike default training, legacy training does not perform an evaluation
+  after training.
+
+  Choices:
+    yes  Use legacy training (select for multi GPU support)
+    no   Use default training (doesn\'t support multiple GPUs)
+
+  *
+
+**train-steps**
+  *Number of steps to train (train indefinitely)*
+
+transfer-learn
+--------------
+
+*Train detector using transfer learning*
+
+Flags
+`````
+
+**batch-size**
+  *Number of examples in each training batch*
+
+**clones**
+  *Number of model clones. (1)
+
+  This flag has no effect unless `legacy` is `yes`.
+
+  Set this value to the number of available GPUs for multi-GPU training.
+
+  *
+
+**eval-examples**
+  *Number of examples to evaluate after training (all available)
+
+  This flag has no effect if `legacy` is `yes` (legacy train does not
+  perform evaluation).
+
+  *
+
+**legacy**
+  *Use legacy training for object detection (no)
+
+  Multi GPU support is only available with legacy training.
+
+  Unlike default training, legacy training does not perform an evaluation
+  after training.
+
+  Choices:
+    yes  Use legacy training (select for multi GPU support)
+    no   Use default training (doesn\'t support multiple GPUs)
+
+  *
+
+**train-steps**
+  *Number of steps to train (train indefinitely)*
+
+
+faster-rcnn-resnet-50
+=====================
+
+*Faster RCNN with ResNet 50*
+
+Operations
+^^^^^^^^^^
+
+detect
+------
+
+*Detect images using a trained detector*
+
+Flags
+`````
+
+**images**
+  *Directory containing images to detect (required)*
+
+evaluate
+--------
+
+*Evaluate a trained detector*
+
+Flags
+`````
+
+**eval-examples**
+  *Number of examples to evaluate (all available)*
+
+export-and-freeze
+-----------------
+
+*Export a detection graph with checkpoint weights*
+
+Flags
+`````
+
+**step**
+  *Checkpoint step to use for the frozen graph (latest checkpoint)*
+
+train
+-----
+
+*Train detector from scratch*
+
+Flags
+`````
+
+**batch-size**
+  *Number of examples in each training batch*
+
+**clones**
+  *Number of model clones. (1)
+
+  This flag has no effect unless `legacy` is `yes`.
+
+  Set this value to the number of available GPUs for multi-GPU training.
+
+  *
+
+**eval-examples**
+  *Number of examples to evaluate after training (all available)
+
+  This flag has no effect if `legacy` is `yes` (legacy train does not
+  perform evaluation).
+
+  *
+
+**legacy**
+  *Use legacy training for object detection (no)
+
+  Multi GPU support is only available with legacy training.
+
+  Unlike default training, legacy training does not perform an evaluation
+  after training.
+
+  Choices:
+    yes  Use legacy training (select for multi GPU support)
+    no   Use default training (doesn\'t support multiple GPUs)
+
+  *
+
+**train-steps**
+  *Number of steps to train (train indefinitely)*
+
+transfer-learn
+--------------
+
+*Train detector using transfer learning*
+
+Flags
+`````
+
+**batch-size**
+  *Number of examples in each training batch*
+
+**clones**
+  *Number of model clones. (1)
+
+  This flag has no effect unless `legacy` is `yes`.
+
+  Set this value to the number of available GPUs for multi-GPU training.
+
+  *
+
+**eval-examples**
+  *Number of examples to evaluate after training (all available)
+
+  This flag has no effect if `legacy` is `yes` (legacy train does not
+  perform evaluation).
+
+  *
+
+**legacy**
+  *Use legacy training for object detection (no)
+
+  Multi GPU support is only available with legacy training.
+
+  Unlike default training, legacy training does not perform an evaluation
+  after training.
+
+  Choices:
+    yes  Use legacy training (select for multi GPU support)
+    no   Use default training (doesn\'t support multiple GPUs)
+
+  *
+
+**train-steps**
+  *Number of steps to train (train indefinitely)*
+
+
+pet-images
+==========
+
+*Annotated images from Oxford-IIIT pet dataset*
+
+Operations
+^^^^^^^^^^
+
+prepare
+-------
+
+*Prepares pet images for training*
+
+
+ssd-mobilenet-v2
+================
+
+*SSD with MobileNet v2*
+
+Operations
+^^^^^^^^^^
+
+detect
+------
+
+*Detect images using a trained detector*
+
+Flags
+`````
+
+**images**
+  *Directory containing images to detect (required)*
+
+evaluate
+--------
+
+*Evaluate a trained detector*
+
+Flags
+`````
+
+**eval-examples**
+  *Number of examples to evaluate (all available)*
+
+export-and-freeze
+-----------------
+
+*Export a detection graph with checkpoint weights*
+
+Flags
+`````
+
+**step**
+  *Checkpoint step to use for the frozen graph (latest checkpoint)*
+
+train
+-----
+
+*Train detector from scratch*
+
+Flags
+`````
+
+**batch-size**
+  *Number of examples in each training batch*
+
+**clones**
+  *Number of model clones. (1)
+
+  This flag has no effect unless `legacy` is `yes`.
+
+  Set this value to the number of available GPUs for multi-GPU training.
+
+  *
+
+**eval-examples**
+  *Number of examples to evaluate after training (all available)
+
+  This flag has no effect if `legacy` is `yes` (legacy train does not
+  perform evaluation).
+
+  *
+
+**legacy**
+  *Use legacy training for object detection (no)
+
+  Multi GPU support is only available with legacy training.
+
+  Unlike default training, legacy training does not perform an evaluation
+  after training.
+
+  Choices:
+    yes  Use legacy training (select for multi GPU support)
+    no   Use default training (doesn\'t support multiple GPUs)
+
+  *
+
+**train-steps**
+  *Number of steps to train (train indefinitely)*
+
+transfer-learn
+--------------
+
+*Train detector using transfer learning*
+
+Flags
+`````
+
+**batch-size**
+  *Number of examples in each training batch*
+
+**clones**
+  *Number of model clones. (1)
+
+  This flag has no effect unless `legacy` is `yes`.
+
+  Set this value to the number of available GPUs for multi-GPU training.
+
+  *
+
+**eval-examples**
+  *Number of examples to evaluate after training (all available)
+
+  This flag has no effect if `legacy` is `yes` (legacy train does not
+  perform evaluation).
+
+  *
+
+**legacy**
+  *Use legacy training for object detection (no)
+
+  Multi GPU support is only available with legacy training.
+
+  Unlike default training, legacy training does not perform an evaluation
+  after training.
+
+  Choices:
+    yes  Use legacy training (select for multi GPU support)
+    no   Use default training (doesn\'t support multiple GPUs)
+
+  *
+
+**train-steps**
+  *Number of steps to train (train indefinitely)*
+
+
+voc-2008-images
+===============
+
+*Visual Object Classes Challenge 2008 images*
+
+Operations
+^^^^^^^^^^
+
+prepare
+-------
+
+*Prepare images annotated using Pascal VOC format for training*
+
+Flags
+`````
+
+**random-seed**
+  *Seed used for train/validation split (randomly generated)*
+
+**val-split**
+  *Percentage of images reserved for validation (30)*
+
+
+voc-annotated-images
+====================
+
+*Images annotated using Pascal VOC format*
+
+Operations
+^^^^^^^^^^
+
+prepare
+-------
+
+*Prepare images annotated using Pascal VOC format for training*
+
+Flags
+`````
+
+**annotations**
+  *Directory containing image annotations (required)*
+
+**images**
+  *Directory containing images to prepare (required)*
+
+**random-seed**
+  *Seed used for train/validation split (randomly generated)*
+
+**val-split**
+  *Percentage of images reserved for validation (30)*
+
+
+

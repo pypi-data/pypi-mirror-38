@@ -1,0 +1,53 @@
+[guild.models]
+faster-rcnn-resnet-101 = guild.model:PackageModel
+faster-rcnn-resnet-50 = guild.model:PackageModel
+pet-images = guild.model:PackageModel
+ssd-mobilenet-v2 = guild.model:PackageModel
+voc-2008-images = guild.model:PackageModel
+voc-annotated-images = guild.model:PackageModel
+
+[guild.resources]
+faster-rcnn-resnet-101:dataset-config = guild.model:PackageModelResource
+faster-rcnn-resnet-101:frozen-graph = guild.model:PackageModelResource
+faster-rcnn-resnet-101:labels = guild.model:PackageModelResource
+faster-rcnn-resnet-101:model-config = guild.model:PackageModelResource
+faster-rcnn-resnet-101:models-lib = guild.model:PackageModelResource
+faster-rcnn-resnet-101:prepared-data = guild.model:PackageModelResource
+faster-rcnn-resnet-101:train-config = guild.model:PackageModelResource
+faster-rcnn-resnet-101:trained-model = guild.model:PackageModelResource
+faster-rcnn-resnet-101:transfer-learn-checkpoint = guild.model:PackageModelResource
+faster-rcnn-resnet-101:transfer-learn-config = guild.model:PackageModelResource
+faster-rcnn-resnet-50:dataset-config = guild.model:PackageModelResource
+faster-rcnn-resnet-50:frozen-graph = guild.model:PackageModelResource
+faster-rcnn-resnet-50:labels = guild.model:PackageModelResource
+faster-rcnn-resnet-50:model-config = guild.model:PackageModelResource
+faster-rcnn-resnet-50:models-lib = guild.model:PackageModelResource
+faster-rcnn-resnet-50:prepared-data = guild.model:PackageModelResource
+faster-rcnn-resnet-50:train-config = guild.model:PackageModelResource
+faster-rcnn-resnet-50:trained-model = guild.model:PackageModelResource
+faster-rcnn-resnet-50:transfer-learn-checkpoint = guild.model:PackageModelResource
+faster-rcnn-resnet-50:transfer-learn-config = guild.model:PackageModelResource
+pet-images:dataset-config = guild.model:PackageModelResource
+pet-images:labels = guild.model:PackageModelResource
+pet-images:models-lib = guild.model:PackageModelResource
+pet-images:pets-dataset = guild.model:PackageModelResource
+ssd-mobilenet-v2:dataset-config = guild.model:PackageModelResource
+ssd-mobilenet-v2:frozen-graph = guild.model:PackageModelResource
+ssd-mobilenet-v2:labels = guild.model:PackageModelResource
+ssd-mobilenet-v2:model-config = guild.model:PackageModelResource
+ssd-mobilenet-v2:models-lib = guild.model:PackageModelResource
+ssd-mobilenet-v2:prepared-data = guild.model:PackageModelResource
+ssd-mobilenet-v2:train-config = guild.model:PackageModelResource
+ssd-mobilenet-v2:trained-model = guild.model:PackageModelResource
+ssd-mobilenet-v2:transfer-learn-checkpoint = guild.model:PackageModelResource
+ssd-mobilenet-v2:transfer-learn-config = guild.model:PackageModelResource
+voc-2008-images:dataset-config = guild.model:PackageModelResource
+voc-2008-images:labels = guild.model:PackageModelResource
+voc-2008-images:models-lib = guild.model:PackageModelResource
+voc-2008-images:prepared-data = guild.model:PackageModelResource
+voc-2008-images:voc-annotated-examples = guild.model:PackageModelResource
+voc-annotated-images:dataset-config = guild.model:PackageModelResource
+voc-annotated-images:labels = guild.model:PackageModelResource
+voc-annotated-images:models-lib = guild.model:PackageModelResource
+voc-annotated-images:prepared-data = guild.model:PackageModelResource
+
