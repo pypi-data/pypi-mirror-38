@@ -1,0 +1,16 @@
+README.md
+setup.py
+bin/mne_bids
+mne_bids/__init__.py
+mne_bids/config.py
+mne_bids/datasets.py
+mne_bids/io.py
+mne_bids/mne_bids.py
+mne_bids/pick.py
+mne_bids/utils.py
+mne_bids.egg-info/PKG-INFO
+mne_bids.egg-info/SOURCES.txt
+mne_bids.egg-info/dependency_links.txt
+mne_bids.egg-info/top_level.txt
+mne_bids/commands/__init__.py
+mne_bids/commands/mne_bids_raw_to_bids.py
