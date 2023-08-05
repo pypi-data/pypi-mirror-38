@@ -1,0 +1,744 @@
+2018-11-08 22:18:16,897 - ktdk.runtime.tags - WARNING - There is some error: 'NoneType' object is not subscriptable
+2018-11-08 22:18:16,898 - ktdk.runtime.tags - WARNING - There is some error: 'NoneType' object is not subscriptable
+2018-11-08 22:18:16,898 - ktdk.runtime.tags - WARNING - There is some error: 'NoneType' object is not subscriptable
+2018-11-08 22:18:16,904 - ktdk.asserts - WARNING - [CHK] Failed: must fail
+2018-11-08 22:18:16,912 - ktdk.asserts - WARNING - [CHK] Failed: must fail
+2018-11-08 22:18:16,914 - ktdk.asserts - WARNING - [CHK] Failed: must fail
+2018-11-08 22:18:16,967 - ktdk.asserts - WARNING - [CHK] Failed: False
+2018-11-08 22:18:16,991 - ktdk.runtime.context - DEBUG - [CTX] Overriding: (0) by (1)!
+2018-11-08 22:18:16,993 - ktdk.runtime.context - DEBUG - [CTX] Overriding: (10) by (11)!
+2018-11-08 22:18:16,994 - ktdk.runtime.context - DEBUG - [CTX] Overriding: (100) by (101)!
+2018-11-08 22:18:16,996 - ktdk.runtime.context - DEBUG - [CTX] Overriding: (101) by (102)!
+2018-11-08 22:18:16,996 - ktdk.runtime.context - DEBUG - [CTX] Overriding: (11) by (12)!
+2018-11-08 22:18:17,001 - ktdk.runtime.context - DEBUG - [CTX] Overriding: (0) by (1)!
+2018-11-08 22:18:17,001 - ktdk.runtime.context - DEBUG - [CTX] Overriding: (10) by (11)!
+2018-11-08 22:18:17,001 - ktdk.runtime.context - DEBUG - [CTX] Overriding: (100) by (101)!
+2018-11-08 22:18:17,001 - ktdk.runtime.context - DEBUG - [CTX] Overriding: (101) by (102)!
+2018-11-08 22:18:17,002 - ktdk.runtime.context - DEBUG - [CTX] Overriding: (11) by (12)!
+2018-11-08 22:18:17,006 - ktdk.runtime.context - DEBUG - [CTX] Overriding: (10) by (1000)!
+2018-11-08 22:18:17,006 - ktdk.runtime.context - DEBUG - [CTX] Overriding: (1000) by (12)!
+2018-11-08 22:18:17,014 - ktdk.runtime.context - DEBUG - [CTX] SET: task['comp'] = {'hello': 'world'}
+2018-11-08 22:18:17,016 - ktdk.runtime.context - DEBUG - [CTX] Adding (task): {'hello': 'world'} + {'hi': 'sky'} -> {'hi': 'sky', 'hello': 'world'}
+2018-11-08 22:18:17,020 - ktdk.runtime.context - DEBUG - [CTX] SET: task['comp'] = ['hello']
+2018-11-08 22:18:17,020 - ktdk.runtime.context - DEBUG - [CTX] Adding (task): ['hello'] + ['hi'] -> ['hello', 'hi']
+2018-11-08 22:18:17,024 - ktdk.runtime.runners - INFO - [RUN] Task: .counter_task
+2018-11-08 22:18:17,024 - ktdk.runtime.context - DEBUG - [CTX] Overriding: (0) by (1)!
+2018-11-08 22:18:17,025 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: .counter_task
+2018-11-08 22:18:17,031 - ktdk.core.tasks - DEBUG - [ADD] Task .counter_local: counter_global [.counter_local.counter_global]
+2018-11-08 22:18:17,032 - ktdk.runtime.runners - INFO - [RUN] Task: .counter_local
+2018-11-08 22:18:17,032 - ktdk.runtime.context - DEBUG - [CTX] Overriding: (0) by (1)!
+2018-11-08 22:18:17,032 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: .counter_local
+2018-11-08 22:18:17,032 - ktdk.runtime.runners - INFO - [RUN] Task: .counter_local.counter_global
+2018-11-08 22:18:17,032 - ktdk.runtime.context - DEBUG - [CTX] Overriding: (0) by (1)!
+2018-11-08 22:18:17,033 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: .counter_local.counter_global
+2018-11-08 22:18:17,036 - ktdk.runtime.runners - INFO - [RUN] Task: .failing_task
+2018-11-08 22:18:17,036 - ktdk.asserts - WARNING - [CHK] Failed: Is None
+Provided: None
+
+2018-11-08 22:18:17,036 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: .failing_task
+2018-11-08 22:18:17,039 - ktdk.core.tasks - DEBUG - [ADD] Task .counter_local: failing_task [.counter_local.failing_task]
+2018-11-08 22:18:17,039 - ktdk.runtime.runners - INFO - [RUN] Task: .counter_local
+2018-11-08 22:18:17,039 - ktdk.runtime.context - DEBUG - [CTX] Overriding: (0) by (1)!
+2018-11-08 22:18:17,039 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: .counter_local
+2018-11-08 22:18:17,039 - ktdk.runtime.runners - INFO - [RUN] Task: .counter_local.failing_task
+2018-11-08 22:18:17,040 - ktdk.asserts - WARNING - [CHK] Failed: Is None
+Provided: None
+
+2018-11-08 22:18:17,040 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: .counter_local.failing_task
+2018-11-08 22:18:17,047 - ktdk.core.tasks - DEBUG - [ADD] Task .counter_local: failing_require_task [.counter_local.failing_require_task]
+2018-11-08 22:18:17,048 - ktdk.runtime.runners - INFO - [RUN] Task: .counter_local
+2018-11-08 22:18:17,048 - ktdk.runtime.context - DEBUG - [CTX] Overriding: (0) by (1)!
+2018-11-08 22:18:17,048 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: .counter_local
+2018-11-08 22:18:17,049 - ktdk.runtime.runners - INFO - [RUN] Task: .counter_local.failing_require_task
+2018-11-08 22:18:17,049 - ktdk.asserts - WARNING - [CHK] Failed: Is None
+Provided: None
+
+2018-11-08 22:18:17,049 - ktdk.runtime.runners - WARNING - [REQUIRE] Failed: 
+2018-11-08 22:18:17,049 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: .counter_local.failing_require_task
+2018-11-08 22:18:17,053 - ktdk.runtime.runners - INFO - [RUN] Task: .exception_throwing
+2018-11-08 22:18:17,053 - ktdk.runtime.runners - ERROR - [ERROR] Task: Exception
+2018-11-08 22:18:17,054 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: .exception_throwing
+2018-11-08 22:18:17,058 - ktdk.core.tests - DEBUG - [ADD] Task test_1: passing_task [test_1.passing_task]
+2018-11-08 22:18:17,058 - ktdk.core.tasks - DEBUG - [ADD] Task test_1.passing_task: task_result_check [test_1.passing_task.task_result_check]
+2018-11-08 22:18:17,058 - ktdk.core.tests - DEBUG - [REG] Adding test (suite): test_1 [suite::test_1]
+2018-11-08 22:18:17,059 - ktdk.core.tests - DEBUG - [ADD] Task test_2: passing_task [test_2.passing_task]
+2018-11-08 22:18:17,059 - ktdk.core.tasks - DEBUG - [ADD] Task test_2.passing_task: task_result_check [test_2.passing_task.task_result_check]
+2018-11-08 22:18:17,060 - ktdk.core.tests - DEBUG - [REG] Adding test (suite): test_2 [suite::test_2]
+2018-11-08 22:18:17,060 - ktdk.core.tests - DEBUG - [ADD] Task test_3: passing_task [test_3.passing_task]
+2018-11-08 22:18:17,060 - ktdk.core.tasks - DEBUG - [ADD] Task test_3.passing_task: task_result_check [test_3.passing_task.task_result_check]
+2018-11-08 22:18:17,061 - ktdk.core.tests - DEBUG - [REG] Adding test (suite): test_3 [suite::test_3]
+2018-11-08 22:18:17,062 - ktdk.core.tests - DEBUG - [ADD] Task test_4: passing_task [test_4.passing_task]
+2018-11-08 22:18:17,064 - ktdk.core.tasks - DEBUG - [ADD] Task test_4.passing_task: task_result_check [test_4.passing_task.task_result_check]
+2018-11-08 22:18:17,064 - ktdk.core.tests - DEBUG - [REG] Adding test (suite): test_4 [suite::test_4]
+2018-11-08 22:18:17,065 - ktdk.core.tests - DEBUG - [ADD] Task test_5: passing_task [test_5.passing_task]
+2018-11-08 22:18:17,065 - ktdk.core.tasks - DEBUG - [ADD] Task test_5.passing_task: task_result_check [test_5.passing_task.task_result_check]
+2018-11-08 22:18:17,065 - ktdk.core.tests - DEBUG - [REG] Adding test (suite): test_5 [suite::test_5]
+2018-11-08 22:18:17,066 - ktdk.core.tests - DEBUG - [ADD] Task test_6: passing_task [test_6.passing_task]
+2018-11-08 22:18:17,066 - ktdk.core.tasks - DEBUG - [ADD] Task test_6.passing_task: task_result_check [test_6.passing_task.task_result_check]
+2018-11-08 22:18:17,066 - ktdk.core.tests - DEBUG - [REG] Adding test (suite): test_6 [suite::test_6]
+2018-11-08 22:18:17,067 - ktdk.core.tests - DEBUG - [ADD] Task test_7: passing_task [test_7.passing_task]
+2018-11-08 22:18:17,067 - ktdk.core.tasks - DEBUG - [ADD] Task test_7.passing_task: task_result_check [test_7.passing_task.task_result_check]
+2018-11-08 22:18:17,067 - ktdk.core.tests - DEBUG - [REG] Adding test (suite): test_7 [suite::test_7]
+2018-11-08 22:18:17,068 - ktdk.core.tests - DEBUG - [ADD] Task test_8: passing_task [test_8.passing_task]
+2018-11-08 22:18:17,068 - ktdk.core.tasks - DEBUG - [ADD] Task test_8.passing_task: task_result_check [test_8.passing_task.task_result_check]
+2018-11-08 22:18:17,068 - ktdk.core.tests - DEBUG - [REG] Adding test (suite): test_8 [suite::test_8]
+2018-11-08 22:18:17,068 - ktdk.core.tests - DEBUG - [ADD] Task test_9: passing_task [test_9.passing_task]
+2018-11-08 22:18:17,069 - ktdk.core.tasks - DEBUG - [ADD] Task test_9.passing_task: task_result_check [test_9.passing_task.task_result_check]
+2018-11-08 22:18:17,069 - ktdk.core.tests - DEBUG - [REG] Adding test (suite): test_9 [suite::test_9]
+2018-11-08 22:18:17,069 - ktdk.core.tests - DEBUG - [ADD] Task test_10: passing_task [test_10.passing_task]
+2018-11-08 22:18:17,070 - ktdk.core.tasks - DEBUG - [ADD] Task test_10.passing_task: task_result_check [test_10.passing_task.task_result_check]
+2018-11-08 22:18:17,071 - ktdk.core.tests - DEBUG - [REG] Adding test (suite): test_10 [suite::test_10]
+2018-11-08 22:18:17,072 - ktdk.runtime.runners - INFO - [RUN] Test: suite
+2018-11-08 22:18:17,072 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_1
+2018-11-08 22:18:17,072 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_1.passing_task
+2018-11-08 22:18:17,073 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_1.passing_task
+2018-11-08 22:18:17,073 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_1.passing_task.task_result_check
+2018-11-08 22:18:17,073 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_1.passing_task.task_result_check
+2018-11-08 22:18:17,073 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_2
+2018-11-08 22:18:17,074 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_2.passing_task
+2018-11-08 22:18:17,074 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_2.passing_task
+2018-11-08 22:18:17,074 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_2.passing_task.task_result_check
+2018-11-08 22:18:17,075 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_2.passing_task.task_result_check
+2018-11-08 22:18:17,075 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_3
+2018-11-08 22:18:17,075 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_3.passing_task
+2018-11-08 22:18:17,077 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_3.passing_task
+2018-11-08 22:18:17,078 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_3.passing_task.task_result_check
+2018-11-08 22:18:17,078 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_3.passing_task.task_result_check
+2018-11-08 22:18:17,079 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_4
+2018-11-08 22:18:17,079 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_4.passing_task
+2018-11-08 22:18:17,079 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_4.passing_task
+2018-11-08 22:18:17,079 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_4.passing_task.task_result_check
+2018-11-08 22:18:17,080 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_4.passing_task.task_result_check
+2018-11-08 22:18:17,080 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_5
+2018-11-08 22:18:17,080 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_5.passing_task
+2018-11-08 22:18:17,081 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_5.passing_task
+2018-11-08 22:18:17,081 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_5.passing_task.task_result_check
+2018-11-08 22:18:17,081 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_5.passing_task.task_result_check
+2018-11-08 22:18:17,083 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_6
+2018-11-08 22:18:17,085 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_6.passing_task
+2018-11-08 22:18:17,087 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_6.passing_task
+2018-11-08 22:18:17,089 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_6.passing_task.task_result_check
+2018-11-08 22:18:17,089 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_6.passing_task.task_result_check
+2018-11-08 22:18:17,089 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_7
+2018-11-08 22:18:17,090 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_7.passing_task
+2018-11-08 22:18:17,090 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_7.passing_task
+2018-11-08 22:18:17,090 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_7.passing_task.task_result_check
+2018-11-08 22:18:17,091 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_7.passing_task.task_result_check
+2018-11-08 22:18:17,091 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_8
+2018-11-08 22:18:17,091 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_8.passing_task
+2018-11-08 22:18:17,092 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_8.passing_task
+2018-11-08 22:18:17,092 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_8.passing_task.task_result_check
+2018-11-08 22:18:17,093 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_8.passing_task.task_result_check
+2018-11-08 22:18:17,093 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_9
+2018-11-08 22:18:17,094 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_9.passing_task
+2018-11-08 22:18:17,094 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_9.passing_task
+2018-11-08 22:18:17,094 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_9.passing_task.task_result_check
+2018-11-08 22:18:17,095 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_9.passing_task.task_result_check
+2018-11-08 22:18:17,095 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_10
+2018-11-08 22:18:17,095 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_10.passing_task
+2018-11-08 22:18:17,095 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_10.passing_task
+2018-11-08 22:18:17,095 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_10.passing_task.task_result_check
+2018-11-08 22:18:17,096 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_10.passing_task.task_result_check
+2018-11-08 22:18:17,101 - ktdk.core.tests - DEBUG - [ADD] Task test_1: passing_task [test_1.passing_task]
+2018-11-08 22:18:17,101 - ktdk.core.tasks - DEBUG - [ADD] Task test_1.passing_task: task_result_check [test_1.passing_task.task_result_check]
+2018-11-08 22:18:17,101 - ktdk.core.tests - DEBUG - [REG] Adding test (suite): test_1 [suite::test_1]
+2018-11-08 22:18:17,102 - ktdk.core.tests - DEBUG - [ADD] Task test_2: passing_task [test_2.passing_task]
+2018-11-08 22:18:17,102 - ktdk.core.tasks - DEBUG - [ADD] Task test_2.passing_task: task_result_check [test_2.passing_task.task_result_check]
+2018-11-08 22:18:17,102 - ktdk.core.tests - DEBUG - [REG] Adding test (suite): test_2 [suite::test_2]
+2018-11-08 22:18:17,103 - ktdk.core.tests - DEBUG - [ADD] Task test_3: passing_task [test_3.passing_task]
+2018-11-08 22:18:17,103 - ktdk.core.tasks - DEBUG - [ADD] Task test_3.passing_task: task_result_check [test_3.passing_task.task_result_check]
+2018-11-08 22:18:17,104 - ktdk.core.tests - DEBUG - [REG] Adding test (suite): test_3 [suite::test_3]
+2018-11-08 22:18:17,106 - ktdk.core.tests - DEBUG - [ADD] Task test_4: passing_task [test_4.passing_task]
+2018-11-08 22:18:17,107 - ktdk.core.tasks - DEBUG - [ADD] Task test_4.passing_task: task_result_check [test_4.passing_task.task_result_check]
+2018-11-08 22:18:17,107 - ktdk.core.tests - DEBUG - [REG] Adding test (suite): test_4 [suite::test_4]
+2018-11-08 22:18:17,108 - ktdk.core.tests - DEBUG - [ADD] Task test_5: passing_task [test_5.passing_task]
+2018-11-08 22:18:17,108 - ktdk.core.tasks - DEBUG - [ADD] Task test_5.passing_task: task_result_check [test_5.passing_task.task_result_check]
+2018-11-08 22:18:17,108 - ktdk.core.tests - DEBUG - [REG] Adding test (suite): test_5 [suite::test_5]
+2018-11-08 22:18:17,109 - ktdk.core.tests - DEBUG - [ADD] Task test_6: passing_task [test_6.passing_task]
+2018-11-08 22:18:17,110 - ktdk.core.tasks - DEBUG - [ADD] Task test_6.passing_task: task_result_check [test_6.passing_task.task_result_check]
+2018-11-08 22:18:17,110 - ktdk.core.tests - DEBUG - [REG] Adding test (suite): test_6 [suite::test_6]
+2018-11-08 22:18:17,111 - ktdk.core.tests - DEBUG - [ADD] Task test_7: passing_task [test_7.passing_task]
+2018-11-08 22:18:17,112 - ktdk.core.tasks - DEBUG - [ADD] Task test_7.passing_task: task_result_check [test_7.passing_task.task_result_check]
+2018-11-08 22:18:17,112 - ktdk.core.tests - DEBUG - [REG] Adding test (suite): test_7 [suite::test_7]
+2018-11-08 22:18:17,112 - ktdk.core.tests - DEBUG - [ADD] Task test_8: passing_task [test_8.passing_task]
+2018-11-08 22:18:17,112 - ktdk.core.tasks - DEBUG - [ADD] Task test_8.passing_task: task_result_check [test_8.passing_task.task_result_check]
+2018-11-08 22:18:17,113 - ktdk.core.tests - DEBUG - [REG] Adding test (suite): test_8 [suite::test_8]
+2018-11-08 22:18:17,113 - ktdk.core.tests - DEBUG - [ADD] Task test_9: passing_task [test_9.passing_task]
+2018-11-08 22:18:17,113 - ktdk.core.tasks - DEBUG - [ADD] Task test_9.passing_task: task_result_check [test_9.passing_task.task_result_check]
+2018-11-08 22:18:17,113 - ktdk.core.tests - DEBUG - [REG] Adding test (suite): test_9 [suite::test_9]
+2018-11-08 22:18:17,113 - ktdk.core.tests - DEBUG - [ADD] Task test_10: passing_task [test_10.passing_task]
+2018-11-08 22:18:17,114 - ktdk.core.tasks - DEBUG - [ADD] Task test_10.passing_task: task_result_check [test_10.passing_task.task_result_check]
+2018-11-08 22:18:17,114 - ktdk.core.tests - DEBUG - [REG] Adding test (suite): test_10 [suite::test_10]
+2018-11-08 22:18:17,114 - ktdk.core.tests - DEBUG - [ADD] Task test_1: failing_task [test_1.failing_task]
+2018-11-08 22:18:17,114 - ktdk.core.tasks - DEBUG - [ADD] Task test_1.failing_task: task_result_check [test_1.failing_task.task_result_check]
+2018-11-08 22:18:17,115 - ktdk.core.tests - DEBUG - [REG] Adding test (suite): test_1 [suite::test_1]
+2018-11-08 22:18:17,115 - ktdk.core.tests - DEBUG - [ADD] Task test_2: failing_task [test_2.failing_task]
+2018-11-08 22:18:17,115 - ktdk.core.tasks - DEBUG - [ADD] Task test_2.failing_task: task_result_check [test_2.failing_task.task_result_check]
+2018-11-08 22:18:17,115 - ktdk.core.tests - DEBUG - [REG] Adding test (suite): test_2 [suite::test_2]
+2018-11-08 22:18:17,115 - ktdk.core.tests - DEBUG - [ADD] Task test_3: failing_task [test_3.failing_task]
+2018-11-08 22:18:17,116 - ktdk.core.tasks - DEBUG - [ADD] Task test_3.failing_task: task_result_check [test_3.failing_task.task_result_check]
+2018-11-08 22:18:17,116 - ktdk.core.tests - DEBUG - [REG] Adding test (suite): test_3 [suite::test_3]
+2018-11-08 22:18:17,116 - ktdk.core.tests - DEBUG - [ADD] Task test_4: failing_task [test_4.failing_task]
+2018-11-08 22:18:17,116 - ktdk.core.tasks - DEBUG - [ADD] Task test_4.failing_task: task_result_check [test_4.failing_task.task_result_check]
+2018-11-08 22:18:17,116 - ktdk.core.tests - DEBUG - [REG] Adding test (suite): test_4 [suite::test_4]
+2018-11-08 22:18:17,117 - ktdk.core.tests - DEBUG - [ADD] Task test_5: failing_task [test_5.failing_task]
+2018-11-08 22:18:17,117 - ktdk.core.tasks - DEBUG - [ADD] Task test_5.failing_task: task_result_check [test_5.failing_task.task_result_check]
+2018-11-08 22:18:17,117 - ktdk.core.tests - DEBUG - [REG] Adding test (suite): test_5 [suite::test_5]
+2018-11-08 22:18:17,117 - ktdk.core.tests - DEBUG - [ADD] Task test_6: failing_task [test_6.failing_task]
+2018-11-08 22:18:17,117 - ktdk.core.tasks - DEBUG - [ADD] Task test_6.failing_task: task_result_check [test_6.failing_task.task_result_check]
+2018-11-08 22:18:17,117 - ktdk.core.tests - DEBUG - [REG] Adding test (suite): test_6 [suite::test_6]
+2018-11-08 22:18:17,118 - ktdk.core.tests - DEBUG - [ADD] Task test_7: failing_task [test_7.failing_task]
+2018-11-08 22:18:17,118 - ktdk.core.tasks - DEBUG - [ADD] Task test_7.failing_task: task_result_check [test_7.failing_task.task_result_check]
+2018-11-08 22:18:17,118 - ktdk.core.tests - DEBUG - [REG] Adding test (suite): test_7 [suite::test_7]
+2018-11-08 22:18:17,118 - ktdk.core.tests - DEBUG - [ADD] Task test_8: failing_task [test_8.failing_task]
+2018-11-08 22:18:17,118 - ktdk.core.tasks - DEBUG - [ADD] Task test_8.failing_task: task_result_check [test_8.failing_task.task_result_check]
+2018-11-08 22:18:17,119 - ktdk.core.tests - DEBUG - [REG] Adding test (suite): test_8 [suite::test_8]
+2018-11-08 22:18:17,119 - ktdk.core.tests - DEBUG - [ADD] Task test_9: failing_task [test_9.failing_task]
+2018-11-08 22:18:17,119 - ktdk.core.tasks - DEBUG - [ADD] Task test_9.failing_task: task_result_check [test_9.failing_task.task_result_check]
+2018-11-08 22:18:17,119 - ktdk.core.tests - DEBUG - [REG] Adding test (suite): test_9 [suite::test_9]
+2018-11-08 22:18:17,120 - ktdk.core.tests - DEBUG - [ADD] Task test_10: failing_task [test_10.failing_task]
+2018-11-08 22:18:17,120 - ktdk.core.tasks - DEBUG - [ADD] Task test_10.failing_task: task_result_check [test_10.failing_task.task_result_check]
+2018-11-08 22:18:17,121 - ktdk.core.tests - DEBUG - [REG] Adding test (suite): test_10 [suite::test_10]
+2018-11-08 22:18:17,121 - ktdk.runtime.runners - INFO - [RUN] Test: suite
+2018-11-08 22:18:17,121 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_1
+2018-11-08 22:18:17,122 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_1.passing_task
+2018-11-08 22:18:17,122 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_1.passing_task
+2018-11-08 22:18:17,122 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_1.passing_task.task_result_check
+2018-11-08 22:18:17,122 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_1.passing_task.task_result_check
+2018-11-08 22:18:17,123 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_2
+2018-11-08 22:18:17,123 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_2.passing_task
+2018-11-08 22:18:17,123 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_2.passing_task
+2018-11-08 22:18:17,123 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_2.passing_task.task_result_check
+2018-11-08 22:18:17,124 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_2.passing_task.task_result_check
+2018-11-08 22:18:17,124 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_3
+2018-11-08 22:18:17,124 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_3.passing_task
+2018-11-08 22:18:17,125 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_3.passing_task
+2018-11-08 22:18:17,126 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_3.passing_task.task_result_check
+2018-11-08 22:18:17,126 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_3.passing_task.task_result_check
+2018-11-08 22:18:17,127 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_4
+2018-11-08 22:18:17,127 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_4.passing_task
+2018-11-08 22:18:17,127 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_4.passing_task
+2018-11-08 22:18:17,127 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_4.passing_task.task_result_check
+2018-11-08 22:18:17,128 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_4.passing_task.task_result_check
+2018-11-08 22:18:17,128 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_5
+2018-11-08 22:18:17,128 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_5.passing_task
+2018-11-08 22:18:17,128 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_5.passing_task
+2018-11-08 22:18:17,129 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_5.passing_task.task_result_check
+2018-11-08 22:18:17,129 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_5.passing_task.task_result_check
+2018-11-08 22:18:17,129 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_6
+2018-11-08 22:18:17,130 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_6.passing_task
+2018-11-08 22:18:17,130 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_6.passing_task
+2018-11-08 22:18:17,130 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_6.passing_task.task_result_check
+2018-11-08 22:18:17,130 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_6.passing_task.task_result_check
+2018-11-08 22:18:17,131 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_7
+2018-11-08 22:18:17,131 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_7.passing_task
+2018-11-08 22:18:17,131 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_7.passing_task
+2018-11-08 22:18:17,131 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_7.passing_task.task_result_check
+2018-11-08 22:18:17,132 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_7.passing_task.task_result_check
+2018-11-08 22:18:17,133 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_8
+2018-11-08 22:18:17,133 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_8.passing_task
+2018-11-08 22:18:17,134 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_8.passing_task
+2018-11-08 22:18:17,134 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_8.passing_task.task_result_check
+2018-11-08 22:18:17,134 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_8.passing_task.task_result_check
+2018-11-08 22:18:17,134 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_9
+2018-11-08 22:18:17,135 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_9.passing_task
+2018-11-08 22:18:17,135 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_9.passing_task
+2018-11-08 22:18:17,135 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_9.passing_task.task_result_check
+2018-11-08 22:18:17,135 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_9.passing_task.task_result_check
+2018-11-08 22:18:17,136 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_10
+2018-11-08 22:18:17,136 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_10.passing_task
+2018-11-08 22:18:17,136 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_10.passing_task
+2018-11-08 22:18:17,136 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_10.passing_task.task_result_check
+2018-11-08 22:18:17,137 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_10.passing_task.task_result_check
+2018-11-08 22:18:17,137 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_1
+2018-11-08 22:18:17,138 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_1.failing_task
+2018-11-08 22:18:17,139 - ktdk.asserts - WARNING - [CHK] Failed: Is None
+Provided: None
+
+2018-11-08 22:18:17,139 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_1.failing_task
+2018-11-08 22:18:17,139 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_1.failing_task.task_result_check
+2018-11-08 22:18:17,139 - ktdk.asserts - WARNING - [CHK] Failed: Result did not passed
+Provided: Result: {'state': 'FAIL', 'ok': False}
+
+2018-11-08 22:18:17,140 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_1.failing_task.task_result_check
+2018-11-08 22:18:17,140 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_2
+2018-11-08 22:18:17,140 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_2.failing_task
+2018-11-08 22:18:17,140 - ktdk.asserts - WARNING - [CHK] Failed: Is None
+Provided: None
+
+2018-11-08 22:18:17,140 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_2.failing_task
+2018-11-08 22:18:17,141 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_2.failing_task.task_result_check
+2018-11-08 22:18:17,141 - ktdk.asserts - WARNING - [CHK] Failed: Result did not passed
+Provided: Result: {'state': 'FAIL', 'ok': False}
+
+2018-11-08 22:18:17,141 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_2.failing_task.task_result_check
+2018-11-08 22:18:17,141 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_3
+2018-11-08 22:18:17,148 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_3.failing_task
+2018-11-08 22:18:17,148 - ktdk.asserts - WARNING - [CHK] Failed: Is None
+Provided: None
+
+2018-11-08 22:18:17,149 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_3.failing_task
+2018-11-08 22:18:17,149 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_3.failing_task.task_result_check
+2018-11-08 22:18:17,149 - ktdk.asserts - WARNING - [CHK] Failed: Result did not passed
+Provided: Result: {'state': 'FAIL', 'ok': False}
+
+2018-11-08 22:18:17,149 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_3.failing_task.task_result_check
+2018-11-08 22:18:17,150 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_4
+2018-11-08 22:18:17,150 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_4.failing_task
+2018-11-08 22:18:17,150 - ktdk.asserts - WARNING - [CHK] Failed: Is None
+Provided: None
+
+2018-11-08 22:18:17,150 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_4.failing_task
+2018-11-08 22:18:17,151 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_4.failing_task.task_result_check
+2018-11-08 22:18:17,151 - ktdk.asserts - WARNING - [CHK] Failed: Result did not passed
+Provided: Result: {'state': 'FAIL', 'ok': False}
+
+2018-11-08 22:18:17,151 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_4.failing_task.task_result_check
+2018-11-08 22:18:17,151 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_5
+2018-11-08 22:18:17,152 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_5.failing_task
+2018-11-08 22:18:17,152 - ktdk.asserts - WARNING - [CHK] Failed: Is None
+Provided: None
+
+2018-11-08 22:18:17,152 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_5.failing_task
+2018-11-08 22:18:17,152 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_5.failing_task.task_result_check
+2018-11-08 22:18:17,152 - ktdk.asserts - WARNING - [CHK] Failed: Result did not passed
+Provided: Result: {'state': 'FAIL', 'ok': False}
+
+2018-11-08 22:18:17,153 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_5.failing_task.task_result_check
+2018-11-08 22:18:17,153 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_6
+2018-11-08 22:18:17,153 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_6.failing_task
+2018-11-08 22:18:17,154 - ktdk.asserts - WARNING - [CHK] Failed: Is None
+Provided: None
+
+2018-11-08 22:18:17,154 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_6.failing_task
+2018-11-08 22:18:17,154 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_6.failing_task.task_result_check
+2018-11-08 22:18:17,154 - ktdk.asserts - WARNING - [CHK] Failed: Result did not passed
+Provided: Result: {'state': 'FAIL', 'ok': False}
+
+2018-11-08 22:18:17,155 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_6.failing_task.task_result_check
+2018-11-08 22:18:17,155 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_7
+2018-11-08 22:18:17,155 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_7.failing_task
+2018-11-08 22:18:17,155 - ktdk.asserts - WARNING - [CHK] Failed: Is None
+Provided: None
+
+2018-11-08 22:18:17,156 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_7.failing_task
+2018-11-08 22:18:17,156 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_7.failing_task.task_result_check
+2018-11-08 22:18:17,156 - ktdk.asserts - WARNING - [CHK] Failed: Result did not passed
+Provided: Result: {'state': 'FAIL', 'ok': False}
+
+2018-11-08 22:18:17,156 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_7.failing_task.task_result_check
+2018-11-08 22:18:17,157 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_8
+2018-11-08 22:18:17,157 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_8.failing_task
+2018-11-08 22:18:17,157 - ktdk.asserts - WARNING - [CHK] Failed: Is None
+Provided: None
+
+2018-11-08 22:18:17,157 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_8.failing_task
+2018-11-08 22:18:17,159 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_8.failing_task.task_result_check
+2018-11-08 22:18:17,160 - ktdk.asserts - WARNING - [CHK] Failed: Result did not passed
+Provided: Result: {'state': 'FAIL', 'ok': False}
+
+2018-11-08 22:18:17,160 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_8.failing_task.task_result_check
+2018-11-08 22:18:17,160 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_9
+2018-11-08 22:18:17,160 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_9.failing_task
+2018-11-08 22:18:17,160 - ktdk.asserts - WARNING - [CHK] Failed: Is None
+Provided: None
+
+2018-11-08 22:18:17,161 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_9.failing_task
+2018-11-08 22:18:17,161 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_9.failing_task.task_result_check
+2018-11-08 22:18:17,161 - ktdk.asserts - WARNING - [CHK] Failed: Result did not passed
+Provided: Result: {'state': 'FAIL', 'ok': False}
+
+2018-11-08 22:18:17,161 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_9.failing_task.task_result_check
+2018-11-08 22:18:17,161 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_10
+2018-11-08 22:18:17,162 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_10.failing_task
+2018-11-08 22:18:17,162 - ktdk.asserts - WARNING - [CHK] Failed: Is None
+Provided: None
+
+2018-11-08 22:18:17,162 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_10.failing_task
+2018-11-08 22:18:17,162 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_10.failing_task.task_result_check
+2018-11-08 22:18:17,163 - ktdk.asserts - WARNING - [CHK] Failed: Result did not passed
+Provided: Result: {'state': 'FAIL', 'ok': False}
+
+2018-11-08 22:18:17,163 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_10.failing_task.task_result_check
+2018-11-08 22:18:17,177 - ktdk.core.tests - DEBUG - [ADD] Task test_1: passing_task [test_1.passing_task]
+2018-11-08 22:18:17,178 - ktdk.core.tasks - DEBUG - [ADD] Task test_1.passing_task: task_result_check [test_1.passing_task.task_result_check]
+2018-11-08 22:18:17,178 - ktdk.core.tests - DEBUG - [REG] Adding test (suite): test_1 [suite::test_1]
+2018-11-08 22:18:17,179 - ktdk.core.tests - DEBUG - [ADD] Task test_1: failing_task [test_1.failing_task]
+2018-11-08 22:18:17,179 - ktdk.core.tasks - DEBUG - [ADD] Task test_1.failing_task: task_result_check [test_1.failing_task.task_result_check]
+2018-11-08 22:18:17,179 - ktdk.core.tests - DEBUG - [REG] Adding test (suite): test_1 [suite::test_1]
+2018-11-08 22:18:17,179 - ktdk.core.tests - DEBUG - [ADD] Task test_1: failing_task [test_1.failing_task]
+2018-11-08 22:18:17,180 - ktdk.core.tasks - DEBUG - [ADD] Task test_1.failing_task: task_result_check [test_1.failing_task.task_result_check]
+2018-11-08 22:18:17,180 - ktdk.core.tests - DEBUG - [REG] Adding test (suite): test_1 [suite::test_1]
+2018-11-08 22:18:17,180 - ktdk.core.tests - DEBUG - [ADD] Task test_1: passing_task [test_1.passing_task]
+2018-11-08 22:18:17,180 - ktdk.core.tasks - DEBUG - [ADD] Task test_1.passing_task: task_result_check [test_1.passing_task.task_result_check]
+2018-11-08 22:18:17,180 - ktdk.core.tests - DEBUG - [REG] Adding test (suite): test_1 [suite::test_1]
+2018-11-08 22:18:17,181 - ktdk.runtime.runners - INFO - [RUN] Test: suite
+2018-11-08 22:18:17,181 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_1
+2018-11-08 22:18:17,181 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_1.passing_task
+2018-11-08 22:18:17,181 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_1.passing_task
+2018-11-08 22:18:17,181 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_1.passing_task.task_result_check
+2018-11-08 22:18:17,182 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_1.passing_task.task_result_check
+2018-11-08 22:18:17,182 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_1
+2018-11-08 22:18:17,182 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_1.failing_task
+2018-11-08 22:18:17,182 - ktdk.asserts - WARNING - [CHK] Failed: Is None
+Provided: None
+
+2018-11-08 22:18:17,183 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_1.failing_task
+2018-11-08 22:18:17,183 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_1.failing_task.task_result_check
+2018-11-08 22:18:17,183 - ktdk.asserts - WARNING - [CHK] Failed: Result did not passed
+Provided: Result: {'state': 'FAIL', 'ok': False}
+
+2018-11-08 22:18:17,183 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_1.failing_task.task_result_check
+2018-11-08 22:18:17,183 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_1
+2018-11-08 22:18:17,183 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_1.failing_task
+2018-11-08 22:18:17,183 - ktdk.asserts - WARNING - [CHK] Failed: Is None
+Provided: None
+
+2018-11-08 22:18:17,184 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_1.failing_task
+2018-11-08 22:18:17,184 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_1.failing_task.task_result_check
+2018-11-08 22:18:17,184 - ktdk.asserts - WARNING - [CHK] Failed: Result did not passed
+Provided: Result: {'state': 'FAIL', 'ok': False}
+
+2018-11-08 22:18:17,184 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_1.failing_task.task_result_check
+2018-11-08 22:18:17,184 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_1
+2018-11-08 22:18:17,184 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_1.passing_task
+2018-11-08 22:18:17,185 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_1.passing_task
+2018-11-08 22:18:17,185 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_1.passing_task.task_result_check
+2018-11-08 22:18:17,185 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_1.passing_task.task_result_check
+2018-11-08 22:18:17,192 - ktdk.core.tests - DEBUG - [ADD] Task test_0: passing_task [test_0.passing_task]
+2018-11-08 22:18:17,192 - ktdk.core.tasks - DEBUG - [ADD] Task test_0.passing_task: task_result_check [test_0.passing_task.task_result_check]
+2018-11-08 22:18:17,193 - ktdk.core.tests - DEBUG - [ADD] Task test_0: passing_task [test_0.passing_task]
+2018-11-08 22:18:17,194 - ktdk.core.tasks - DEBUG - [ADD] Task test_0.passing_task: task_result_check [test_0.passing_task.task_result_check]
+2018-11-08 22:18:17,195 - ktdk.core.tests - DEBUG - [ADD] Task test_1: passing_task [test_1.passing_task]
+2018-11-08 22:18:17,196 - ktdk.core.tasks - DEBUG - [ADD] Task test_1.passing_task: task_result_check [test_1.passing_task.task_result_check]
+2018-11-08 22:18:17,202 - ktdk.core.tests - DEBUG - [REG] Adding test (test_0): test_1 [test_0::test_1]
+2018-11-08 22:18:17,202 - ktdk.core.tests - DEBUG - [ADD] Task test_3: passing_task [test_3.passing_task]
+2018-11-08 22:18:17,203 - ktdk.core.tasks - DEBUG - [ADD] Task test_3.passing_task: task_result_check [test_3.passing_task.task_result_check]
+2018-11-08 22:18:17,203 - ktdk.core.tests - DEBUG - [REG] Adding test (test_0): test_3 [test_0::test_3]
+2018-11-08 22:18:17,203 - ktdk.core.tests - DEBUG - [ADD] Task test_2: failing_task [test_2.failing_task]
+2018-11-08 22:18:17,204 - ktdk.core.tasks - DEBUG - [ADD] Task test_2.failing_task: task_result_check [test_2.failing_task.task_result_check]
+2018-11-08 22:18:17,204 - ktdk.core.tests - DEBUG - [REG] Adding test (test_0): test_2 [test_0::test_2]
+2018-11-08 22:18:17,205 - ktdk.core.tests - DEBUG - [ADD] Task test_4: failing_task [test_4.failing_task]
+2018-11-08 22:18:17,205 - ktdk.core.tasks - DEBUG - [ADD] Task test_4.failing_task: task_result_check [test_4.failing_task.task_result_check]
+2018-11-08 22:18:17,205 - ktdk.core.tests - DEBUG - [REG] Adding test (test_0): test_4 [test_0::test_4]
+2018-11-08 22:18:17,206 - ktdk.core.tests - DEBUG - [ADD] Task test_1: passing_task [test_1.passing_task]
+2018-11-08 22:18:17,206 - ktdk.core.tasks - DEBUG - [ADD] Task test_1.passing_task: task_result_check [test_1.passing_task.task_result_check]
+2018-11-08 22:18:17,210 - ktdk.core.tests - DEBUG - [REG] Adding test (test_0): test_1 [test_0::test_1]
+2018-11-08 22:18:17,210 - ktdk.core.tests - DEBUG - [ADD] Task test_3: passing_task [test_3.passing_task]
+2018-11-08 22:18:17,211 - ktdk.core.tasks - DEBUG - [ADD] Task test_3.passing_task: task_result_check [test_3.passing_task.task_result_check]
+2018-11-08 22:18:17,211 - ktdk.core.tests - DEBUG - [REG] Adding test (test_0): test_3 [test_0::test_3]
+2018-11-08 22:18:17,211 - ktdk.core.tests - DEBUG - [ADD] Task test_2: failing_task [test_2.failing_task]
+2018-11-08 22:18:17,212 - ktdk.core.tasks - DEBUG - [ADD] Task test_2.failing_task: task_result_check [test_2.failing_task.task_result_check]
+2018-11-08 22:18:17,212 - ktdk.core.tests - DEBUG - [REG] Adding test (test_0): test_2 [test_0::test_2]
+2018-11-08 22:18:17,212 - ktdk.core.tests - DEBUG - [ADD] Task test_4: failing_task [test_4.failing_task]
+2018-11-08 22:18:17,213 - ktdk.core.tasks - DEBUG - [ADD] Task test_4.failing_task: task_result_check [test_4.failing_task.task_result_check]
+2018-11-08 22:18:17,213 - ktdk.core.tests - DEBUG - [REG] Adding test (test_0): test_4 [test_0::test_4]
+2018-11-08 22:18:17,213 - ktdk.core.tests - DEBUG - [REG] Adding test (suite): test_0 [suite::test_0]
+2018-11-08 22:18:17,213 - ktdk.core.tests - DEBUG - [REG] Adding test (suite): test_0 [suite::test_0]
+2018-11-08 22:18:17,214 - ktdk.runtime.runners - INFO - [RUN] Test: suite
+2018-11-08 22:18:17,214 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_0
+2018-11-08 22:18:17,214 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0.passing_task
+2018-11-08 22:18:17,214 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0.passing_task
+2018-11-08 22:18:17,216 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0.passing_task.task_result_check
+2018-11-08 22:18:17,216 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0.passing_task.task_result_check
+2018-11-08 22:18:17,216 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_0::test_1
+2018-11-08 22:18:17,217 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0::test_1.passing_task
+2018-11-08 22:18:17,217 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0::test_1.passing_task
+2018-11-08 22:18:17,217 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0::test_1.passing_task.task_result_check
+2018-11-08 22:18:17,217 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0::test_1.passing_task.task_result_check
+2018-11-08 22:18:17,218 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_0::test_3
+2018-11-08 22:18:17,218 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0::test_3.passing_task
+2018-11-08 22:18:17,218 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0::test_3.passing_task
+2018-11-08 22:18:17,219 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0::test_3.passing_task.task_result_check
+2018-11-08 22:18:17,219 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0::test_3.passing_task.task_result_check
+2018-11-08 22:18:17,219 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_0::test_2
+2018-11-08 22:18:17,220 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0::test_2.failing_task
+2018-11-08 22:18:17,220 - ktdk.asserts - WARNING - [CHK] Failed: Is None
+Provided: None
+
+2018-11-08 22:18:17,220 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0::test_2.failing_task
+2018-11-08 22:18:17,220 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0::test_2.failing_task.task_result_check
+2018-11-08 22:18:17,221 - ktdk.asserts - WARNING - [CHK] Failed: Result did not passed
+Provided: Result: {'state': 'FAIL', 'ok': False}
+
+2018-11-08 22:18:17,221 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0::test_2.failing_task.task_result_check
+2018-11-08 22:18:17,222 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_0::test_4
+2018-11-08 22:18:17,222 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0::test_4.failing_task
+2018-11-08 22:18:17,223 - ktdk.asserts - WARNING - [CHK] Failed: Is None
+Provided: None
+
+2018-11-08 22:18:17,224 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0::test_4.failing_task
+2018-11-08 22:18:17,227 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0::test_4.failing_task.task_result_check
+2018-11-08 22:18:17,228 - ktdk.asserts - WARNING - [CHK] Failed: Result did not passed
+Provided: Result: {'state': 'FAIL', 'ok': False}
+
+2018-11-08 22:18:17,228 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0::test_4.failing_task.task_result_check
+2018-11-08 22:18:17,229 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_0
+2018-11-08 22:18:17,229 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0.passing_task
+2018-11-08 22:18:17,230 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0.passing_task
+2018-11-08 22:18:17,230 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0.passing_task.task_result_check
+2018-11-08 22:18:17,231 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0.passing_task.task_result_check
+2018-11-08 22:18:17,231 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_0::test_1
+2018-11-08 22:18:17,231 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0::test_1.passing_task
+2018-11-08 22:18:17,231 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0::test_1.passing_task
+2018-11-08 22:18:17,231 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0::test_1.passing_task.task_result_check
+2018-11-08 22:18:17,232 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0::test_1.passing_task.task_result_check
+2018-11-08 22:18:17,232 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_0::test_3
+2018-11-08 22:18:17,232 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0::test_3.passing_task
+2018-11-08 22:18:17,232 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0::test_3.passing_task
+2018-11-08 22:18:17,233 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0::test_3.passing_task.task_result_check
+2018-11-08 22:18:17,233 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0::test_3.passing_task.task_result_check
+2018-11-08 22:18:17,233 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_0::test_2
+2018-11-08 22:18:17,233 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0::test_2.failing_task
+2018-11-08 22:18:17,233 - ktdk.asserts - WARNING - [CHK] Failed: Is None
+Provided: None
+
+2018-11-08 22:18:17,234 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0::test_2.failing_task
+2018-11-08 22:18:17,234 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0::test_2.failing_task.task_result_check
+2018-11-08 22:18:17,234 - ktdk.asserts - WARNING - [CHK] Failed: Result did not passed
+Provided: Result: {'state': 'FAIL', 'ok': False}
+
+2018-11-08 22:18:17,234 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0::test_2.failing_task.task_result_check
+2018-11-08 22:18:17,234 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_0::test_4
+2018-11-08 22:18:17,234 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0::test_4.failing_task
+2018-11-08 22:18:17,235 - ktdk.asserts - WARNING - [CHK] Failed: Is None
+Provided: None
+
+2018-11-08 22:18:17,235 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0::test_4.failing_task
+2018-11-08 22:18:17,235 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0::test_4.failing_task.task_result_check
+2018-11-08 22:18:17,235 - ktdk.asserts - WARNING - [CHK] Failed: Result did not passed
+Provided: Result: {'state': 'FAIL', 'ok': False}
+
+2018-11-08 22:18:17,235 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0::test_4.failing_task.task_result_check
+2018-11-08 22:18:17,243 - ktdk.core.tests - DEBUG - [ADD] Task test_0: passing_task [test_0.passing_task]
+2018-11-08 22:18:17,243 - ktdk.core.tasks - DEBUG - [ADD] Task test_0.passing_task: task_result_check [test_0.passing_task.task_result_check]
+2018-11-08 22:18:17,244 - ktdk.core.tests - DEBUG - [ADD] Task test_0: passing_task [test_0.passing_task]
+2018-11-08 22:18:17,244 - ktdk.core.tasks - DEBUG - [ADD] Task test_0.passing_task: task_result_check [test_0.passing_task.task_result_check]
+2018-11-08 22:18:17,244 - ktdk.core.tests - DEBUG - [ADD] Task test_1: passing_task [test_1.passing_task]
+2018-11-08 22:18:17,245 - ktdk.core.tasks - DEBUG - [ADD] Task test_1.passing_task: task_result_check [test_1.passing_task.task_result_check]
+2018-11-08 22:18:17,245 - ktdk.core.tests - DEBUG - [REG] Adding test (test_0): test_1 [test_0::test_1]
+2018-11-08 22:18:17,245 - ktdk.core.tests - DEBUG - [ADD] Task test_3: passing_task [test_3.passing_task]
+2018-11-08 22:18:17,246 - ktdk.core.tasks - DEBUG - [ADD] Task test_3.passing_task: task_result_check [test_3.passing_task.task_result_check]
+2018-11-08 22:18:17,246 - ktdk.core.tests - DEBUG - [REG] Adding test (test_0): test_3 [test_0::test_3]
+2018-11-08 22:18:17,247 - ktdk.core.tests - DEBUG - [ADD] Task test_2: passing_task [test_2.passing_task]
+2018-11-08 22:18:17,247 - ktdk.core.tasks - DEBUG - [ADD] Task test_2.passing_task: task_result_check [test_2.passing_task.task_result_check]
+2018-11-08 22:18:17,247 - ktdk.core.tests - DEBUG - [REG] Adding test (test_0): test_2 [test_0::test_2]
+2018-11-08 22:18:17,248 - ktdk.core.tests - DEBUG - [ADD] Task test_4: passing_task [test_4.passing_task]
+2018-11-08 22:18:17,248 - ktdk.core.tasks - DEBUG - [ADD] Task test_4.passing_task: task_result_check [test_4.passing_task.task_result_check]
+2018-11-08 22:18:17,248 - ktdk.core.tests - DEBUG - [REG] Adding test (test_0): test_4 [test_0::test_4]
+2018-11-08 22:18:17,248 - ktdk.core.tests - DEBUG - [ADD] Task test_1: passing_task [test_1.passing_task]
+2018-11-08 22:18:17,249 - ktdk.core.tasks - DEBUG - [ADD] Task test_1.passing_task: task_result_check [test_1.passing_task.task_result_check]
+2018-11-08 22:18:17,250 - ktdk.core.tests - DEBUG - [REG] Adding test (test_0): test_1 [test_0::test_1]
+2018-11-08 22:18:17,251 - ktdk.core.tests - DEBUG - [ADD] Task test_3: passing_task [test_3.passing_task]
+2018-11-08 22:18:17,251 - ktdk.core.tasks - DEBUG - [ADD] Task test_3.passing_task: task_result_check [test_3.passing_task.task_result_check]
+2018-11-08 22:18:17,251 - ktdk.core.tests - DEBUG - [REG] Adding test (test_0): test_3 [test_0::test_3]
+2018-11-08 22:18:17,252 - ktdk.core.tests - DEBUG - [ADD] Task test_2: passing_task [test_2.passing_task]
+2018-11-08 22:18:17,252 - ktdk.core.tasks - DEBUG - [ADD] Task test_2.passing_task: task_result_check [test_2.passing_task.task_result_check]
+2018-11-08 22:18:17,252 - ktdk.core.tests - DEBUG - [REG] Adding test (test_0): test_2 [test_0::test_2]
+2018-11-08 22:18:17,253 - ktdk.core.tests - DEBUG - [ADD] Task test_4: passing_task [test_4.passing_task]
+2018-11-08 22:18:17,253 - ktdk.core.tasks - DEBUG - [ADD] Task test_4.passing_task: task_result_check [test_4.passing_task.task_result_check]
+2018-11-08 22:18:17,253 - ktdk.core.tests - DEBUG - [REG] Adding test (test_0): test_4 [test_0::test_4]
+2018-11-08 22:18:17,254 - ktdk.core.tests - DEBUG - [REG] Adding test (suite): test_0 [suite::test_0]
+2018-11-08 22:18:17,255 - ktdk.core.tests - DEBUG - [REG] Adding test (suite): test_0 [suite::test_0]
+2018-11-08 22:18:17,255 - ktdk.runtime.runners - INFO - [RUN] Test: suite
+2018-11-08 22:18:17,255 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_0
+2018-11-08 22:18:17,256 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0.passing_task
+2018-11-08 22:18:17,256 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0.passing_task
+2018-11-08 22:18:17,256 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0.passing_task.task_result_check
+2018-11-08 22:18:17,257 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0.passing_task.task_result_check
+2018-11-08 22:18:17,257 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_0::test_1
+2018-11-08 22:18:17,257 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0::test_1.passing_task
+2018-11-08 22:18:17,257 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0::test_1.passing_task
+2018-11-08 22:18:17,258 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0::test_1.passing_task.task_result_check
+2018-11-08 22:18:17,258 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0::test_1.passing_task.task_result_check
+2018-11-08 22:18:17,258 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_0::test_3
+2018-11-08 22:18:17,258 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0::test_3.passing_task
+2018-11-08 22:18:17,259 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0::test_3.passing_task
+2018-11-08 22:18:17,259 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0::test_3.passing_task.task_result_check
+2018-11-08 22:18:17,259 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0::test_3.passing_task.task_result_check
+2018-11-08 22:18:17,260 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_0::test_2
+2018-11-08 22:18:17,260 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0::test_2.passing_task
+2018-11-08 22:18:17,260 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0::test_2.passing_task
+2018-11-08 22:18:17,260 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0::test_2.passing_task.task_result_check
+2018-11-08 22:18:17,261 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0::test_2.passing_task.task_result_check
+2018-11-08 22:18:17,261 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_0::test_4
+2018-11-08 22:18:17,261 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0::test_4.passing_task
+2018-11-08 22:18:17,262 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0::test_4.passing_task
+2018-11-08 22:18:17,262 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0::test_4.passing_task.task_result_check
+2018-11-08 22:18:17,262 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0::test_4.passing_task.task_result_check
+2018-11-08 22:18:17,263 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_0
+2018-11-08 22:18:17,263 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0.passing_task
+2018-11-08 22:18:17,263 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0.passing_task
+2018-11-08 22:18:17,263 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0.passing_task.task_result_check
+2018-11-08 22:18:17,263 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0.passing_task.task_result_check
+2018-11-08 22:18:17,264 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_0::test_1
+2018-11-08 22:18:17,264 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0::test_1.passing_task
+2018-11-08 22:18:17,264 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0::test_1.passing_task
+2018-11-08 22:18:17,264 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0::test_1.passing_task.task_result_check
+2018-11-08 22:18:17,265 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0::test_1.passing_task.task_result_check
+2018-11-08 22:18:17,265 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_0::test_3
+2018-11-08 22:18:17,265 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0::test_3.passing_task
+2018-11-08 22:18:17,265 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0::test_3.passing_task
+2018-11-08 22:18:17,266 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0::test_3.passing_task.task_result_check
+2018-11-08 22:18:17,266 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0::test_3.passing_task.task_result_check
+2018-11-08 22:18:17,266 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_0::test_2
+2018-11-08 22:18:17,267 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0::test_2.passing_task
+2018-11-08 22:18:17,267 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0::test_2.passing_task
+2018-11-08 22:18:17,267 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0::test_2.passing_task.task_result_check
+2018-11-08 22:18:17,267 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0::test_2.passing_task.task_result_check
+2018-11-08 22:18:17,268 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_0::test_4
+2018-11-08 22:18:17,268 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0::test_4.passing_task
+2018-11-08 22:18:17,268 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0::test_4.passing_task
+2018-11-08 22:18:17,268 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0::test_4.passing_task.task_result_check
+2018-11-08 22:18:17,269 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0::test_4.passing_task.task_result_check
+2018-11-08 22:18:17,278 - ktdk.core.tests - DEBUG - [ADD] Task test_0: passing_task [test_0.passing_task]
+2018-11-08 22:18:17,282 - ktdk.core.tasks - DEBUG - [ADD] Task test_0.passing_task: task_result_check [test_0.passing_task.task_result_check]
+2018-11-08 22:18:17,282 - ktdk.core.tests - DEBUG - [ADD] Task test_0: failing_task [test_0.failing_task]
+2018-11-08 22:18:17,283 - ktdk.core.tasks - DEBUG - [ADD] Task test_0.failing_task: task_result_check [test_0.failing_task.task_result_check]
+2018-11-08 22:18:17,283 - ktdk.core.tests - DEBUG - [ADD] Task test_1: passing_task [test_1.passing_task]
+2018-11-08 22:18:17,284 - ktdk.core.tasks - DEBUG - [ADD] Task test_1.passing_task: task_result_check [test_1.passing_task.task_result_check]
+2018-11-08 22:18:17,284 - ktdk.core.tests - DEBUG - [REG] Adding test (test_0): test_1 [test_0::test_1]
+2018-11-08 22:18:17,284 - ktdk.core.tests - DEBUG - [ADD] Task test_1: passing_task [test_1.passing_task]
+2018-11-08 22:18:17,285 - ktdk.core.tasks - DEBUG - [ADD] Task test_1.passing_task: task_result_check [test_1.passing_task.task_result_check]
+2018-11-08 22:18:17,285 - ktdk.core.tests - DEBUG - [REG] Adding test (test_0): test_1 [test_0::test_1]
+2018-11-08 22:18:17,285 - ktdk.core.tests - DEBUG - [ADD] Task test_3: passing_task [test_3.passing_task]
+2018-11-08 22:18:17,286 - ktdk.core.tasks - DEBUG - [ADD] Task test_3.passing_task: task_result_check [test_3.passing_task.task_result_check]
+2018-11-08 22:18:17,286 - ktdk.core.tests - DEBUG - [REG] Adding test (test_0): test_3 [test_0::test_3]
+2018-11-08 22:18:17,287 - ktdk.core.tests - DEBUG - [ADD] Task test_2: passing_task [test_2.passing_task]
+2018-11-08 22:18:17,287 - ktdk.core.tasks - DEBUG - [ADD] Task test_2.passing_task: task_result_check [test_2.passing_task.task_result_check]
+2018-11-08 22:18:17,287 - ktdk.core.tests - DEBUG - [REG] Adding test (test_0): test_2 [test_0::test_2]
+2018-11-08 22:18:17,288 - ktdk.core.tests - DEBUG - [ADD] Task test_4: passing_task [test_4.passing_task]
+2018-11-08 22:18:17,288 - ktdk.core.tasks - DEBUG - [ADD] Task test_4.passing_task: task_result_check [test_4.passing_task.task_result_check]
+2018-11-08 22:18:17,288 - ktdk.core.tests - DEBUG - [REG] Adding test (test_0): test_4 [test_0::test_4]
+2018-11-08 22:18:17,288 - ktdk.core.tests - DEBUG - [REG] Adding test (suite): test_0 [suite::test_0]
+2018-11-08 22:18:17,289 - ktdk.core.tests - DEBUG - [REG] Adding test (suite): test_0 [suite::test_0]
+2018-11-08 22:18:17,289 - ktdk.runtime.runners - INFO - [RUN] Test: suite
+2018-11-08 22:18:17,289 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_0
+2018-11-08 22:18:17,289 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0.passing_task
+2018-11-08 22:18:17,290 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0.passing_task
+2018-11-08 22:18:17,290 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0.passing_task.task_result_check
+2018-11-08 22:18:17,290 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0.passing_task.task_result_check
+2018-11-08 22:18:17,291 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_0::test_1
+2018-11-08 22:18:17,297 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0::test_1.passing_task
+2018-11-08 22:18:17,298 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0::test_1.passing_task
+2018-11-08 22:18:17,298 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0::test_1.passing_task.task_result_check
+2018-11-08 22:18:17,299 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0::test_1.passing_task.task_result_check
+2018-11-08 22:18:17,299 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_0
+2018-11-08 22:18:17,300 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0.failing_task
+2018-11-08 22:18:17,300 - ktdk.asserts - WARNING - [CHK] Failed: Is None
+Provided: None
+
+2018-11-08 22:18:17,300 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0.failing_task
+2018-11-08 22:18:17,300 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0.failing_task.task_result_check
+2018-11-08 22:18:17,301 - ktdk.asserts - WARNING - [CHK] Failed: Result did not passed
+Provided: Result: {'state': 'FAIL', 'ok': False}
+
+2018-11-08 22:18:17,301 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0.failing_task.task_result_check
+2018-11-08 22:18:17,301 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_0::test_1
+2018-11-08 22:18:17,302 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0::test_1.passing_task
+2018-11-08 22:18:17,302 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0::test_1.passing_task
+2018-11-08 22:18:17,302 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0::test_1.passing_task.task_result_check
+2018-11-08 22:18:17,302 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0::test_1.passing_task.task_result_check
+2018-11-08 22:18:17,303 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_0::test_3
+2018-11-08 22:18:17,303 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0::test_3.passing_task
+2018-11-08 22:18:17,303 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0::test_3.passing_task
+2018-11-08 22:18:17,304 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0::test_3.passing_task.task_result_check
+2018-11-08 22:18:17,304 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0::test_3.passing_task.task_result_check
+2018-11-08 22:18:17,304 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_0::test_2
+2018-11-08 22:18:17,304 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0::test_2.passing_task
+2018-11-08 22:18:17,305 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0::test_2.passing_task
+2018-11-08 22:18:17,305 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0::test_2.passing_task.task_result_check
+2018-11-08 22:18:17,305 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0::test_2.passing_task.task_result_check
+2018-11-08 22:18:17,305 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_0::test_4
+2018-11-08 22:18:17,306 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0::test_4.passing_task
+2018-11-08 22:18:17,306 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0::test_4.passing_task
+2018-11-08 22:18:17,306 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_0::test_4.passing_task.task_result_check
+2018-11-08 22:18:17,307 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_0::test_4.passing_task.task_result_check
+2018-11-08 22:18:17,320 - ktdk.core.tests - DEBUG - [ADD] Task test_1: failing_task [test_1.failing_task]
+2018-11-08 22:18:17,321 - ktdk.core.tasks - DEBUG - [ADD] Task test_1.failing_task: task_result_check [test_1.failing_task.task_result_check]
+2018-11-08 22:18:17,321 - ktdk.core.tests - DEBUG - [REG] Adding test (suite): test_1 [suite::test_1]
+2018-11-08 22:18:17,321 - ktdk.runtime.runners - INFO - [RUN] Test: suite
+2018-11-08 22:18:17,321 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_1
+2018-11-08 22:18:17,322 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_1.failing_task
+2018-11-08 22:18:17,322 - ktdk.asserts - WARNING - [CHK] Failed: Is None
+Provided: None
+
+2018-11-08 22:18:17,322 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_1.failing_task
+2018-11-08 22:18:17,322 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_1.failing_task.task_result_check
+2018-11-08 22:18:17,322 - ktdk.asserts - WARNING - [CHK] Failed: Result did not passed
+Provided: Result: {'state': 'FAIL', 'ok': False}
+
+2018-11-08 22:18:17,323 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_1.failing_task.task_result_check
+2018-11-08 22:18:17,329 - ktdk.core.tests - DEBUG - [ADD] Task test_1: failing_task [test_1.failing_task]
+2018-11-08 22:18:17,329 - ktdk.core.tasks - DEBUG - [ADD] Task test_1.failing_task: task_result_check [test_1.failing_task.task_result_check]
+2018-11-08 22:18:17,330 - ktdk.core.tasks - DEBUG - [ADD] Task test_1.failing_task: task_result_check [test_1.failing_task.task_result_check]
+2018-11-08 22:18:17,330 - ktdk.core.tests - DEBUG - [REG] Adding test (suite): test_1 [suite::test_1]
+2018-11-08 22:18:17,330 - ktdk.runtime.runners - INFO - [RUN] Test: suite
+2018-11-08 22:18:17,330 - ktdk.runtime.runners - INFO - [RUN] Test: suite::test_1
+2018-11-08 22:18:17,331 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_1.failing_task
+2018-11-08 22:18:17,331 - ktdk.asserts - WARNING - [CHK] Failed: Is None
+Provided: None
+
+2018-11-08 22:18:17,331 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_1.failing_task
+2018-11-08 22:18:17,331 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_1.failing_task.task_result_check
+2018-11-08 22:18:17,332 - ktdk.asserts - WARNING - [CHK] Failed: Result did not passed
+Provided: Result: {'state': 'FAIL', 'ok': False}
+
+2018-11-08 22:18:17,332 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_1.failing_task.task_result_check
+2018-11-08 22:18:17,332 - ktdk.runtime.runners - INFO - [RUN] Task: suite::test_1.failing_task.task_result_check
+2018-11-08 22:18:17,332 - ktdk.asserts - WARNING - [CHK] Failed: Result did not passed
+Provided: Result: {'state': 'FAIL', 'ok': False}
+
+2018-11-08 22:18:17,333 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: suite::test_1.failing_task.task_result_check
+2018-11-08 22:18:17,343 - ktdk.runtime.runners - INFO - [RUN] Test: test_name
+2018-11-08 22:18:17,347 - ktdk.core.tests - DEBUG - [REG] Adding test (first): second [first::second]
+2018-11-08 22:18:17,347 - ktdk.runtime.runners - INFO - [RUN] Test: first
+2018-11-08 22:18:17,347 - ktdk.runtime.runners - INFO - [RUN] Test: first::second
+2018-11-08 22:18:17,351 - ktdk.core.tests - DEBUG - [REG] Adding test (first): second [first::second]
+2018-11-08 22:18:17,352 - ktdk.core.tests - DEBUG - [ADD] Task first::second: count_task [first::second.count_task]
+2018-11-08 22:18:17,356 - ktdk.runtime.runners - INFO - [RUN] Test: first
+2018-11-08 22:18:17,356 - ktdk.runtime.runners - INFO - [RUN] Test: first::second
+2018-11-08 22:18:17,356 - ktdk.runtime.runners - INFO - [RUN] Task: first::second.count_task
+2018-11-08 22:18:17,357 - ktdk.runtime.context - DEBUG - [CTX] Overriding: (0) by (1)!
+2018-11-08 22:18:17,357 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: first::second.count_task
+2018-11-08 22:18:17,362 - ktdk.core.tests - DEBUG - [REG] Adding test (first): second [first::second]
+2018-11-08 22:18:17,362 - ktdk.core.tests - DEBUG - [ADD] Task first::second: count_task [first::second.count_task]
+2018-11-08 22:18:17,363 - ktdk.runtime.runners - INFO - [RUN] Test: first
+2018-11-08 22:18:17,363 - ktdk.runtime.runners - INFO - [RUN] Test: first::second
+2018-11-08 22:18:17,363 - ktdk.runtime.runners - INFO - [RUN] Task: first::second.count_task
+2018-11-08 22:18:17,363 - ktdk.runtime.context - DEBUG - [CTX] Overriding: (0) by (1)!
+2018-11-08 22:18:17,364 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: first::second.count_task
+2018-11-08 22:18:17,368 - ktdk.core.tests - DEBUG - [REG] Adding test (first): second [first::second]
+2018-11-08 22:18:17,368 - ktdk.core.tests - DEBUG - [ADD] Task first::second: count_task [first::second.count_task]
+2018-11-08 22:18:17,368 - ktdk.runtime.runners - INFO - [RUN] Test: first
+2018-11-08 22:18:17,369 - ktdk.runtime.runners - INFO - [RUN] Test: first::second
+2018-11-08 22:18:17,369 - ktdk.runtime.runners - INFO - [RUN] Task: first::second.count_task
+2018-11-08 22:18:17,369 - ktdk.asserts - WARNING - [CHK] Failed: Is None
+Provided: None
+
+2018-11-08 22:18:17,369 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: first::second.count_task
+2018-11-08 22:18:17,378 - ktdk.core.tests - DEBUG - [REG] Adding test (first): second [first::second]
+2018-11-08 22:18:17,379 - ktdk.core.tests - DEBUG - [ADD] Task first::second: count_task [first::second.count_task]
+2018-11-08 22:18:17,379 - ktdk.core.tests - DEBUG - [ADD] Task first::second: count_task2 [first::second.count_task2]
+2018-11-08 22:18:17,379 - ktdk.runtime.runners - INFO - [RUN] Test: first
+2018-11-08 22:18:17,379 - ktdk.runtime.runners - INFO - [RUN] Test: first::second
+2018-11-08 22:18:17,380 - ktdk.runtime.runners - INFO - [RUN] Task: first::second.count_task
+2018-11-08 22:18:17,380 - ktdk.runtime.context - DEBUG - [CTX] Overriding: (0) by (1)!
+2018-11-08 22:18:17,380 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: first::second.count_task
+2018-11-08 22:18:17,380 - ktdk.runtime.runners - INFO - [RUN] Task: first::second.count_task2
+2018-11-08 22:18:17,380 - ktdk.runtime.context - DEBUG - [CTX] Overriding: (1) by (2)!
+2018-11-08 22:18:17,381 - ktdk.runtime.runners - DEBUG - [EXEC] Executed task: first::second.count_task2
+2018-11-08 22:18:17,455 - ktdk.core.tasks - DEBUG - [ADD] Task .make_task: make_result_parser [.make_task.make_result_parser]
+2018-11-08 22:18:17,455 - ktdk.core.tasks - DEBUG - [ADD] Task .cmake_build: c_make_task [.cmake_build.c_make_task]
+2018-11-08 22:18:17,455 - ktdk.core.tasks - DEBUG - [ADD] Task .cmake_build: make_task [.cmake_build.make_task]
+2018-11-08 22:18:17,456 - ktdk.core.tasks - DEBUG - [ADD] Task .cmake_build: task_result_check [.cmake_build.task_result_check]
+2018-11-08 22:18:17,456 - ktdk.core.tests - DEBUG - [ADD] Task catch_test: catch_run_tests_one_by_one_task [catch_test.catch_run_tests_one_by_one_task]
+2018-11-08 22:18:17,457 - ktdk.core.tests - DEBUG - [ADD] Task catch_test: catch_check_cases_and_compute_point [catch_test.catch_check_cases_and_compute_point]
+2018-11-08 22:18:17,457 - ktdk.core.tests - DEBUG - [REG] Adding test (naostro): catch_test [naostro::catch_test]
+2018-11-08 22:18:17,458 - ktdk.core.tasks - DEBUG - [ADD] Task .file_tasks: make_dir [.file_tasks.make_dir]
+2018-11-08 22:18:17,459 - ktdk.core.tasks - DEBUG - [ADD] Task .file_tasks: exist_files [.file_tasks.exist_files]
+2018-11-08 22:18:17,460 - ktdk.core.tasks - DEBUG - [ADD] Task .file_tasks: copy_files [.file_tasks.copy_files]
+2018-11-08 22:18:17,460 - ktdk.core.tasks - DEBUG - [ADD] Task .file_tasks: copy_files [.file_tasks.copy_files]
+2018-11-08 22:18:17,461 - ktdk.core.tasks - DEBUG - [ADD] Task .file_tasks: exist_files [.file_tasks.exist_files]
+2018-11-08 22:18:17,461 - ktdk.core.tasks - DEBUG - [ADD] Task .file_tasks: exist_files [.file_tasks.exist_files]
+2018-11-08 22:18:17,477 - ktdk - DEBUG - [CONFIG] Submission config files has not been provided - /tmp/pytest-of-pstanko/pytest-4/test_catch_run0/submission/submission_config.yml
