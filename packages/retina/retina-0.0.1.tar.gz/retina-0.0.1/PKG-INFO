@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: retina
+Version: 0.0.1
+Summary: Painless retina image handling
+Home-page: https://github.com/dreipol/retina
+Author: dreipol
+Author-email: dev@dreipol.ch
+License: MIT
+Description: 
+        # 👁 Retina
+        
+        Painless retina image handling
+        
+        ## Usage 
+        TBD
+        
+        ## Contribute and Testing 
+        
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown
