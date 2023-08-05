@@ -1,0 +1,65 @@
+Metadata-Version: 2.0
+Name: pygments-prometheus
+Version: 1.0
+Summary: Pygments lexer for prometheus metrics
+Home-page: https://github.com/giganteous/pygments-prometheus
+Author: Kai Storbeck
+Author-email: kai@xs4all.nl
+License: BSD
+Keywords: pygments prometheus
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Plugins
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: setuptools
+Requires-Dist: pygments
+
+===================
+pygments-prometheus
+===================
+
+---------------------------------------
+A pygments lexer for Prometheus metrics
+---------------------------------------
+
+Overview
+========
+
+This package provides a prometheus metrics_ language lexer for Pygments_.
+THe lexer is published as an entry point and, once installed, Pygments
+will pick it up automatically.
+
+You can then use the ``prom`` langauge with Pygments::
+
+  $ pygmentize -l prom metrics.prom
+
+.. _metrics: https://prometheus.io/docs/instrumenting/exposition_formats/
+.. _Pygments: https://pytments.org/
+
+Installation
+============
+
+Use your favorite installer to install pygments-prometheus into the
+same Python you have installed Pygments. for example::
+
+  $ pip install pygments-prometheus
+
+TO verify the installation run::
+
+  $ pygmentize -L lexer | grep -A1 -i prometheus
+    * prometheus:
+      prom (filenames *.prom)
+
+Changelog
+=========
+
+1.0 - 2018-11-08
+----------------
+
+* Initial release.
+
+
+
