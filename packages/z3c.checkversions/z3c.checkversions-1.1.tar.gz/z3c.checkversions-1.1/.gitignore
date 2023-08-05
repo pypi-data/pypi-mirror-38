@@ -1,0 +1,17 @@
+bin
+build
+develop-eggs
+dist
+lib
+include
+man
+parts
+
+__pycache__
+.coverage
+*.dll
+*.pyc
+*.pyo
+*.so
+*.egg-info/
+.tox/
