@@ -1,0 +1,4 @@
+#!python
+
+import syzoj_tools
+syzoj_tools.main()
