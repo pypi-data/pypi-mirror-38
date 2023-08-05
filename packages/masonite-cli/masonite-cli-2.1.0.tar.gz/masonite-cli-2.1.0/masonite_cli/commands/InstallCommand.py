@@ -1,0 +1,46 @@
+from cleo import Command
+from subprocess import call
+import shutil
+import os
+
+
+class InstallCommand(Command):
+    """
+    Installs all of Masonite's dependencies
+
+    install
+        {--no-key : If set, craft install command will not generate and store a new key}
+        {--no-dev : If set, Masonite will install with dev dependencies}
+    """
+
+    def handle(self):
+
+        shutil.copy('.env-example', '.env')
+
+        if os.path.isfile('Pipfile'):
+            try:
+                if not self.option('no-dev'):
+                    call(["pipenv", "install", "--dev"])
+                else:
+                    call(["pipenv", "install"])
+
+                if not self.option('no-key'):
+                    call(["pipenv", "shell", "craft", "key", "--store"])
+
+                return
+            except Exception:
+                self.comment(
+                    """Pipenv could not install from your Pipfile .. reverting to pip installing requirements.txt""")
+                call(["pip3", "install", "-r", "requirements.txt"])
+        elif os.path.isfile('requirements.txt'):
+            call(["pip3", "install", "-r", "requirements.txt"])
+        else:
+            raise OSError(
+                'Could not find a Pipfile or a requirements.txt file')
+        if not self.option('no-key'):
+            try:
+                call(["craft", "key", "--store"])
+            except:
+                self.error('Could not successfully install Masonite. This could happen for several reasons but likely because of how craft is installed on your system and you could be hitting permission issues when craft is fetching required modules.'
+                           ' If you have correctly followed the installation instructions then you should try everything again but start inside an virtual environment first to avoid any permission issues. If that does not work then seek help in'
+                           ' the Masonite Slack channel. Links can be found on the main Masonite GitHub repo.')
