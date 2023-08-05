@@ -1,0 +1,16 @@
+# No Deps
+
+include lh-agpl3-LICENSE.txt
+
+
+include TITLE.txt
+include README.rst
+
+# Include the data files
+recursive-include roPerf/bearerTokenExample-base *
+
+# Include the data files
+recursive-include roPerf/bearerTokenExample-config *
+
+# The line below is needed when data_files are specified in setup.py
+#recursive-include data *
