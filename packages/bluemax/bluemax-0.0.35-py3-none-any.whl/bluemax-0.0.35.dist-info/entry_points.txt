@@ -1,0 +1,5 @@
+[console_scripts]
+runmax = bluemax.scripts.runmax:cli
+server = bluemax.scripts.server:main
+worker = bluemax.scripts.worker:main
+
