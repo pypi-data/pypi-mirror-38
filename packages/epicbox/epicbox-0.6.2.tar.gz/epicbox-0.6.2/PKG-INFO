@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: epicbox
+Version: 0.6.2
+Summary: Run untrusted code in secure Docker based sandboxes
+Home-page: https://github.com/StepicOrg/epicbox
+Author: Pavel Sviderski
+Author-email: ps@stepik.org
+Keywords: docker,sandbox
+Requires-Python: >=3.4,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: docker-py (==1.8.1)
+Requires-Dist: python-dateutil (==2.4.2)
+Requires-Dist: structlog (==15.3.0)
