@@ -1,0 +1,52 @@
+Metadata-Version: 2.1
+Name: zenoh
+Version: 0.1.1
+Summary: Python client API for zenoh
+Home-page: https://github.com/atolab/zenoh-python
+Author: kydos
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Intended Audience :: Developers
+Classifier: Development Status :: 3 - Alpha
+Classifier: Topic :: System :: Networking
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: License :: OSI Approved :: Eclipse Public License 2.0 (EPL-2.0)
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+# Zenoh Python API
+
+[Zenoh](http://zenoh.io) is an extremely efficient and fault-tolerant [Named Data Networking](http://named-data.net) (NDN) protocol 
+that is able to scale down to extremely constrainded devices and networks. 
+
+The Python API is for pure clients, in other terms does not support peer-to-peer communication and can be easily
+tested with our demo instace available at **demo.zenoh.io**.
+
+## Installing the API from Sources
+To install the API you can do:
+
+    $ python3 setup.py install
+
+Notice that on some platforms, such as Linux, you will need to do this as *sudo*.
+
+## Installing the API from PyPi
+You can also install the [zenoh](http://zenoh.io)'s python API from PyPi by  simply doing:
+
+    pip3 install zenoh
+
+## Running the Examples
+To run the bundled examples without installing any additional software you can the **zenoh** demo instance 
+available at **demo.zenoh.io**. To do so, simply run as follows:
+
+    $ cd zenoh-python/example
+    $ python3 sub.py -z demo.zenoh.io
+
+From another terminal:
+
+    $ cd zenoh-python/example
+    $ python3 sub.py -z demo.zenoh.io
+
+
+
+
