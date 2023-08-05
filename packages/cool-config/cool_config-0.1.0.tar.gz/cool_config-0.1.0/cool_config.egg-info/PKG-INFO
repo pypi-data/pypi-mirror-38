@@ -1,0 +1,52 @@
+Metadata-Version: 2.1
+Name: cool-config
+Version: 0.1.0
+Summary: Another Python configuration tool
+Home-page: https://github.com/strangecamelcaselogin/cool_config
+Author: strangecamelcaselogin
+Author-email: strangecamelcaselogin@gmail.com
+License: MIT
+Description: ## Cool Config
+        Simple way to use configuration files with Python configuration model.
+        
+        ### Usage
+        Simple usage example:
+        
+        ```python
+        from cool_config import *
+        
+        
+        class Config(AbstractConfig):
+            """
+            Configuration model inherits from AbstractConfig, and all configuration sections from Section
+            """
+            class main(Section):
+                a = Integer
+        
+            b = Integer
+        
+        
+        config = Config()  # global cpnfiguration object
+        
+        
+        if __name__ == '__main__':
+            config_data = {
+                'main': {
+                    'a': 5
+                },
+                'b': 42
+            }
+        
+            config.load_from_dict(config_data) # initialize configuration from dict 
+            # config.load('config.yml')  # or initialize configuration with config.yml
+        
+            print(config.main.a)  #  5
+            print(config.b)  # 42
+        
+        ```
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Description-Content-Type: text/markdown
