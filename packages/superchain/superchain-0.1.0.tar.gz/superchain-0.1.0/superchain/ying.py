@@ -1,0 +1,11 @@
+print('yingyunlong')
+from superchain.chain import chain
+a = list()
+a.append(1)
+print(a)
+b = chain()
+b.addkeys(['ying', 'yun'])
+print(b.getkeys())
+b.add([1,2])
+print(b.getvalues())
+print(b.get(1))

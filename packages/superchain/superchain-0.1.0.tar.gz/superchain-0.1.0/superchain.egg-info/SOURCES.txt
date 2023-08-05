@@ -1,0 +1,11 @@
+README.md
+setup.py
+superchain/__init__.py
+superchain/chain.py
+superchain/ying.py
+superchain.egg-info/PKG-INFO
+superchain.egg-info/SOURCES.txt
+superchain.egg-info/dependency_links.txt
+superchain.egg-info/top_level.txt
+superchain/tests/__init__.py
+superchain/tests/tests.py
