@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: clashroyale
+Version: 3.6.0
+Summary: An (a)sync wrapper for royaleapi.com
+Home-page: https://github.com/cgrok/clashroyale
+License: MIT
+Project-URL: Source, https://github.com/cgrok/clashroyale
+Project-URL: Issue Tracker, https://github.com/cgrok/clashroyale/issues
+Project-URL: Documentation, https://clashroyale.readthedocs.io/
+Description: clashroyale
+        ===========
+        
+        .. image:: https://img.shields.io/pypi/v/clashroyale.svg
+           :alt: PyPi
+        
+        .. image:: https://travis-ci.com/cgrok/clashroyale.svg?branch=master
+            :target: https://travis-ci.com/cgrok/clashroyale
+        
+        This library is currently an (a)sync wrapper for
+        https://royaleapi.com and the official Clash Royale API with
+        great functionality.
+        
+        Installation
+        ============
+        
+        .. code-block:: python
+        
+            pip install clashroyale
+        
+        Documentation
+        =============
+        
+        Hosted on readthedocs.io `https://clashroyale.readthedocs.io
+        <https://clashroyale.readthedocs.io>`_.
+Keywords: clashroyale,wrapper,cr,royaleapi
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Games/Entertainment :: Real Time Strategy
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Natural Language :: English
+Requires-Python: >=3.5
+Description-Content-Type: text/x-rst
