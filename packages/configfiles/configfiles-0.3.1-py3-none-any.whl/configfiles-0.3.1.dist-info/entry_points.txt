@@ -1,0 +1,3 @@
+[console_scripts]
+configfiles = configfiles.__main__:cli
+
