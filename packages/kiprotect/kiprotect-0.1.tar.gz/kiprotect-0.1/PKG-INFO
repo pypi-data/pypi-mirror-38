@@ -1,0 +1,13 @@
+Metadata-Version: 1.0
+Name: kiprotect
+Version: 0.1
+Summary: Python bindings to the KIProtect API.
+Home-page: https://github.com/KIProtect/kiprotect-python
+Author: KIProtect GbR
+Author-email: pypi@kiprotect.com
+License: BSD-3
+Description: KIProtect is an API for secure, privacy-preserving data science and machine learning.
+        
+        It provides state-of-the-art methods for protecting data via anonymization and pseudonymization.
+        
+Platform: UNKNOWN
