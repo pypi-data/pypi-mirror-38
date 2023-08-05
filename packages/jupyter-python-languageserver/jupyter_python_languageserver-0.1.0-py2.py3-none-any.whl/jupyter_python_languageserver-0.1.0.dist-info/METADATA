@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: jupyter-python-languageserver
+Version: 0.1.0
+Summary: Palantir Python Language Server installed as a Jupyter Notebook Server extension.
+Home-page: https://github.com/fcollonval/jupyter_python_languageserver
+Author: Jupyter Development Team
+Author-email: fcollonval@gmail.com
+License: BSD
+Download-URL: https://github.com/fcollonval/jupyter_python_languageserver/tarball/0.1.0
+Requires-Dist: notebook
+Requires-Dist: python-language-server[all]
+Requires-Dist: python-jsonrpc-server
+
+Palantir Python Language Server as Jupyter Notebook Server Extension
+
+
