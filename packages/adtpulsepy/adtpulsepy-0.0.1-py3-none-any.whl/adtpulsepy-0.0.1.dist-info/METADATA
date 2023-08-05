@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: adtpulsepy
+Version: 0.0.1
+Summary: An ADT Pulse client using their undocumented API.
+Home-page: https://github.com/tyamell/adtpulsepy
+Author: Ty Amell
+Author-email: UNKNOWN
+License: Apache 2.0
+Platform: any
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: Home Automation
+Requires-Dist: requests (>=2.12.4)
+Requires-Dist: lomond (==0.3.2)
+
+adtpulsepy is an open-source unofficial API for the ADT Pulse alarm system
+
+

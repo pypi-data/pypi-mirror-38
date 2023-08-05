@@ -1,0 +1,3 @@
+[console_scripts]
+adtpulsepy = adtpulsepy.__main__:main
+
