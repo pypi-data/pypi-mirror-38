@@ -1,0 +1,26 @@
+Metadata-Version: 1.1
+Name: gtar
+Version: 0.7.0
+Summary: Read and write archive-based trajectory formats
+Home-page: http://libgetar.readthedocs.io/
+Author: Matthew Spellings
+Author-email: mspells@umich.edu
+License: UNKNOWN
+Project-URL: Documentation, http://libgetar.readthedocs.io/
+Project-URL: Source, https://bitbucket.org/glotzer/libgetar
+Description: 
+        libgetar is a library to read and write GEneric Trajectory ARchives, a
+        binary data format designed for efficient, extensible storage of
+        trajectory data.
+        
+        For more details, consult the documentation at https://libgetar.readthedocs.io .
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: System :: Archiving
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Chemistry
+Classifier: Topic :: Scientific/Engineering :: Physics
