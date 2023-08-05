@@ -1,0 +1,14 @@
+MANIFEST.in
+README
+README.rst
+setup.cfg
+setup.py
+pypirc/__init__.py
+pypirc/cmd.py
+pypirc/pypirc.py
+pypirc_chappers.egg-info/PKG-INFO
+pypirc_chappers.egg-info/SOURCES.txt
+pypirc_chappers.egg-info/dependency_links.txt
+pypirc_chappers.egg-info/entry_points.txt
+pypirc_chappers.egg-info/requires.txt
+pypirc_chappers.egg-info/top_level.txt
