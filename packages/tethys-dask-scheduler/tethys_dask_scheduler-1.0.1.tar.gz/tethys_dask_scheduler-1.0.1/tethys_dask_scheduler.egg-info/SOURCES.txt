@@ -1,0 +1,14 @@
+README.md
+setup.cfg
+setup.py
+tests/__init__.py
+tests/test_tethys_dask_scheduler.py
+tethys_dask_scheduler/__init__.py
+tethys_dask_scheduler/dask_scheduler.py
+tethys_dask_scheduler/tethys_scheduler_plugin.py
+tethys_dask_scheduler.egg-info/PKG-INFO
+tethys_dask_scheduler.egg-info/SOURCES.txt
+tethys_dask_scheduler.egg-info/dependency_links.txt
+tethys_dask_scheduler.egg-info/entry_points.txt
+tethys_dask_scheduler.egg-info/requires.txt
+tethys_dask_scheduler.egg-info/top_level.txt
