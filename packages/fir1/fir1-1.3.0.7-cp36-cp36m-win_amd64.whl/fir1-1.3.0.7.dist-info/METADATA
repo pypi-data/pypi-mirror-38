@@ -1,0 +1,87 @@
+Metadata-Version: 2.1
+Name: fir1
+Version: 1.3.0.7
+Summary: Efficient FIR realtime filter
+Home-page: https://github.com/berndporr/fir1
+Author: Bernd Porr
+Author-email: mail@berndporr.me.uk
+License: MIT
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python
+
+====
+Fir1
+====
+
+An efficient finite impulse response (FIR) filter class
+written in C++ with python wrapper.
+
+The class offers also adaptive filtering
+using the least mean square (LMS) or normalised least mean
+square (NLMS) algorithm.
+
+Installation
+============
+
+Linux
+-----
+
+If you want to install it via pip you first need
+to install the fir1 filter package::
+
+    sudo add-apt-repository ppa:berndporr/usbdux
+    sudo apt-get update
+    sudo apt install fir1
+    sudo apt install fir1-dev
+
+Then install the python package with pip::
+    pip3 install fir1
+
+Note that this will install from source so you need
+to have swig installed.
+
+You can also install from source::
+
+    git clone https://github.com/berndporr/fir1
+    cd fir1
+    cmake .
+    make
+    make install
+    python3 setup.py install
+
+
+Windows
+-------
+The setup.py is alpha and needs to be tested.
+
+
+Usage
+=====
+
+Realtime filtering
+------------------
+
+The filter is a realtime filter which always receives the
+values one by one so can process data as it comes in from
+an ADC converter. This is simulated here with the for loop::
+
+    import fir1
+    b = signal.firwin(999,0.1)
+    f = fir1.Fir1(b)
+    for i in range(len(noisy_signal)):
+        clean_signal[i] = f.filter(noisy_signal[i])
+
+The constructor ``Fir1(b)`` receives the coefficients and
+then filtering is performed with the method ``filter()``.
+
+
+LMS adaptive filter
+-------------------
+
+Please check the C++ code for examples and the main
+github page. The functions are identical.
+
+
