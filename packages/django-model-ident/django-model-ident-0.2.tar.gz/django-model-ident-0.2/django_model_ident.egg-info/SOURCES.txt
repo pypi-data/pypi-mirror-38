@@ -1,0 +1,12 @@
+README.rst
+setup.cfg
+setup.py
+django_model_ident.egg-info/PKG-INFO
+django_model_ident.egg-info/SOURCES.txt
+django_model_ident.egg-info/dependency_links.txt
+django_model_ident.egg-info/top_level.txt
+model_ident/__init__.py
+model_ident/apps.py
+tests/__init__.py
+tests/models.py
+tests/test.py
