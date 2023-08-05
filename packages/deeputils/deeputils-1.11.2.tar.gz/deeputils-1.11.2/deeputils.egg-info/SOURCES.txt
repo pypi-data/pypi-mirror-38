@@ -1,0 +1,13 @@
+README.rst
+setup.py
+deeputils/__init__.py
+deeputils/common.py
+deeputils/dingtalk.py
+deeputils/schemas.py
+deeputils/serializers.py
+deeputils/views.py
+deeputils.egg-info/PKG-INFO
+deeputils.egg-info/SOURCES.txt
+deeputils.egg-info/dependency_links.txt
+deeputils.egg-info/requires.txt
+deeputils.egg-info/top_level.txt
