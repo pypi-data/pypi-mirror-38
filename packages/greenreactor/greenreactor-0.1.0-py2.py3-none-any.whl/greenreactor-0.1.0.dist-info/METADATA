@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: greenreactor
+Version: 0.1.0
+Summary: Twisted reactor based on gevent
+Home-page: https://github.com/nikan1996/greenreactor
+Author: Ni Kan
+Author-email: 859905874@qq.com
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: POSIX
+Classifier: Topic :: Internet
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Intended Audience :: Developers
+Classifier: Development Status :: 4 - Beta
+Requires-Python: !=3.1.*,!=3.2.*,!=3.3.*
+Description-Content-Type: text/markdown
+Requires-Dist: gevent
+
+
+# gevent_reactor
+A reactor which make twisted compatible with gevent 
+
+## Installation
+`pip install greenreactor`
+## Usage
+
+```python
+import gevent.monkey
+gevent.monkey.patch_all()
+from green_reactor.greenreactor import GreenReactor
+
+```
+
+Then you can use any gevent api such as `spawn`, `spawn_later`, `1etc.
+
+
