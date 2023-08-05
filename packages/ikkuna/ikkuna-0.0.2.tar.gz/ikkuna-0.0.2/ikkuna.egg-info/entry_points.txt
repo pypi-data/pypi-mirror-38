@@ -1,0 +1,11 @@
+[ikkuna.export.subscriber]
+HistogramSubscriber = ikkuna.export.subscriber.histogram:HistogramSubscriber
+MeanSubscriber = ikkuna.export.subscriber.mean:MeanSubscriber
+NormSubscriber = ikkuna.export.subscriber.norm:NormSubscriber
+RatioSubscriber = ikkuna.export.subscriber.ratio:RatioSubscriber
+SpectralNormSubscriber = ikkuna.export.subscriber.spectral_norm:SpectralNormSubscriber
+SumSubscriber = ikkuna.export.subscriber.sum:SumSubscriber
+TestAccuracySubscriber = ikkuna.export.subscriber.test_accuracy:TestAccuracySubscriber
+TrainAccuracySubscriber = ikkuna.export.subscriber.train_accuracy:TrainAccuracySubscriber
+VarianceSubscriber = ikkuna.export.subscriber.variance:VarianceSubscriber
+
