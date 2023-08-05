@@ -1,0 +1,14 @@
+textractor/__init__.py,sha256=R8OgHnGFrePCpfPisLQB6_OfW8HrDaovKNmabtujeaU,6120
+textractor/utils.py,sha256=RRin3UvGEtEKuukjMZBQnZ0QH8a0pC1WSmWdguvtSGc,3013
+textractor/builtin_plugins/doc.py,sha256=Mgq4LTUWsB2EqY81JkFv0Y5n0OXz8_slct5c0131h9Y,708
+textractor/builtin_plugins/odf.py,sha256=D4r681yl133ncR0zwZFWdCLZnGfMD7Ojw0oSbhhxWS8,1020
+textractor/builtin_plugins/ooxml.py,sha256=k0nIlvBBVLThYHezJz6fKfJY_Kjs42FOMer6sJWbw0U,3305
+textractor/builtin_plugins/pdf.py,sha256=wvB0lI1zCi3TRoVQRSHkdPjMblOhCf3gpVFAc4UbvUA,616
+textractor/builtin_plugins/text.py,sha256=R_3VK3Qi2vl17pK2QNIencoVUH-eklBCFT8OzzU9tnU,494
+textractor/fillwords/de.txt,sha256=nJp8XcKaCjXgybj252N-sCrRf3H4aRr3kvm32FlW3yU,6680
+textractor/fillwords/en.txt,sha256=bh5g034ZL-EGEKsc4muN9wUrCmUeo1Hn4n4GT3BXh3k,1914
+TExtractor-0.1.2.dist-info/LICENSE,sha256=C9yZd5v3sNy5E-Q0qQ2nMOQuNkbs193SBgD2T-zkSPE,1105
+TExtractor-0.1.2.dist-info/METADATA,sha256=U9DUmcAqZF1Sgjr0-5MWMwkqwnhpr9ZZ6XKirVo2hdQ,1523
+TExtractor-0.1.2.dist-info/WHEEL,sha256=MYFsq5fFBwF_oyJgrOoFmYYB1K6Sw7MxY-0897ZLbdM,92
+TExtractor-0.1.2.dist-info/top_level.txt,sha256=4F2wq1KEUnN6JVGAxP8AJip-KPi7YMpxyhwLtRfPjoA,11
+TExtractor-0.1.2.dist-info/RECORD,,
