@@ -1,0 +1,15 @@
+django
+pip
+pycrypto
+PyYAML
+setuptools
+six
+wheel
+
+[test]
+pytest
+pytest-cov
+coveralls
+pypandoc
+sphinx
+sphinx_rtd_theme
