@@ -1,0 +1,12 @@
+numpy
+
+[dev]
+pytest
+pytest-timeout
+pylint
+mypy
+black
+twine
+
+[mock]
+PyQt5
