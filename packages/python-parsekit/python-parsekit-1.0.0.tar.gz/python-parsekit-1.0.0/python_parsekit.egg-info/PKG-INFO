@@ -1,0 +1,17 @@
+Metadata-Version: 1.2
+Name: python-parsekit
+Version: 1.0.0
+Summary: A parser combinator for Python
+Home-page: https://github.com/jonghwanhyeon/python-parsekit
+Author: Jonghwan Hyeon
+Author-email: hyeon0145@gmail.com
+License: MIT
+Description: UNKNOWN
+Keywords: parser combinator
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3
