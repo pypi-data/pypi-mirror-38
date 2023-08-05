@@ -1,0 +1,54 @@
+Metadata-Version: 1.1
+Name: pybd-miniapp
+Version: 1.0.0
+Summary: Baidu SmartProgram Module for Python for MiniApp.
+Home-page: https://github.com/sdkwe/pybd-miniapp
+Author: Hackathon
+Author-email: kimi.huang@brightcells.com
+License: UNKNOWN
+Description: ============
+        pybd-miniapp
+        ============
+        
+        Baidu SmartProgram Module for Python for MiniApp.
+        
+        Installation
+        ============
+        
+        ::
+        
+            pip install pybd-miniapp
+        
+        
+        Usage
+        =====
+        
+        ::
+        
+            from pybd_miniapp import get_session_key, get_userinfo, get_phone_number
+        
+        
+        Method
+        ======
+        
+        ::
+        
+            def get_session_key(self, appid=None, secret=None, code=None, storage=None):
+        
+            def get_userinfo(self, appid=None, secret=None, code=None, session_key=None, encryptedData=None, iv=None, storage=None):
+        
+            def get_phone_number(self, appid=None, secret=None, code=None, session_key=None, encryptedData=None, iv=None, storage=None):
+        
+        
+Keywords: Baidu SmartProgram Mini App
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
