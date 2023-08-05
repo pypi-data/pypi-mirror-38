@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: incremental_counter
+Version: 0.1.2
+Summary: Incremental Counter
+Home-page: https://github.com/UedaTakeyuki/incremental_counter
+Author: Takeyuki UEDA
+Author-email: gde00107@nifty.com
+License: MIT
+Description: # incremental-counter
+        Incremental Counter
+        
+        ```python:
+        >>> from incremental_counter import counter
+        >>> c = counter.Counter("/tmp/counter.txt")
+        >>> c.current()
+        0
+        >>> c.inc()
+        1
+        >>> c.inc()
+        2
+        >>> c.reset()
+        0
+        >>> c.set(3)
+        3
+        >>> c.dec()
+        2
+        >>> c.dec()
+        1
+        >>> c.dec()
+        0
+        >>> c.dec()
+        0
+        >>> c.dec()
+        0
+        ```
+        
+Keywords: sensor,IoT
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Topic :: Terminals
+Description-Content-Type: text/markdown
