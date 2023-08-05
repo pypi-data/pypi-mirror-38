@@ -1,0 +1,117 @@
+Metadata-Version: 2.1
+Name: cs.buffer
+Version: 20181108
+Summary: Facilities to do with buffers, particularly CornuCopyBuffer, an automatically refilling buffer to support parsing of data streams.
+Home-page: https://bitbucket.org/cameron_simpson/css/commits/all
+Author: Cameron Simpson
+Author-email: cs@cskk.id.au
+License: UNKNOWN
+Description: Facilities to do with buffers, particularly CornuCopyBuffer,
+        an automatically refilling buffer to support parsing of data streams.
+        
+        ## Function `chunky(bfr_func)`
+        
+        Decorator for a function accepting a leading CornuCopyBuffer
+        parameter.
+        Returns a function accepting a leading data chunks parameter
+        (bytes instances) and optional `offset` and 'copy_offsets`
+        keywords parameters.
+        
+        Example::
+        
+            @chunky
+            def func(bfr, ...):
+        
+        ## Class `CopyingIterator`
+        
+        Wrapper for an iterator that copies every item retrieved to a callable.
+        
+        ## Class `CornuCopyBuffer`
+        
+        An automatically refilling buffer intended to support parsing
+        of data streams.
+        
+        Attributes:
+        * `buf`: a buffer of unparsed data from the input, available
+          for direct inspection by parsers
+        * `offset`: the logical offset of the buffer; this excludes
+          unconsumed input data and `.buf`
+        
+        The primary methods supporting parsing of data streams are
+        extend() and take(). Calling `.extend(min_size)` arranges
+        that `.buf` contains at least `min_size` bytes.  Calling `.take(size)`
+        fetches exactly `size` bytes from `.buf` and the input source if
+        necessary and returns them, adjusting `.buf`.
+        
+        len(CornuCopyBuffer) returns the length of `.buf`.
+        
+        bool(CornuCopyBuffer) tests whether len() > 0.
+        
+        Indexing a CornuCopyBuffer accesses `.buf`.
+        
+        A CornuCopyBuffer is also iterable, yielding data in whatever
+        sizes come from its `input_data` source, preceeded by the
+        current `.buf` if not empty.
+        
+        A CornuCopyBuffer also supports the file methods `.read`,
+        `.tell` and `.seek` supporting drop in use of the buffer in
+        many file contexts. Backward seeks are not supported. `.seek`
+        will take advantage of the `input_data`'s .seek method if it
+        has one, otherwise it will use reads.
+        
+        ## Class `FDIterator`
+        
+        MRO: `_Iterator`  
+        An iterator over the data of a file descriptor.
+        
+        *Note*: the iterator works with an os.dup() of the file
+        descriptor so that it can close it with impunity; this requires
+        the caller to close their descriptor.
+        
+        ## Class `FileIterator`
+        
+        MRO: `_Iterator`, `SeekableIteratorMixin`  
+        An iterator over the data of a file object.
+        
+        *Note*: the iterator closes the file on __del__ or if its
+        .close method is called.
+        
+        ## Class `SeekableFDIterator`
+        
+        MRO: `FDIterator`, `_Iterator`, `SeekableIteratorMixin`  
+        An iterator over the data of a seekable file descriptor.
+        
+        *Note*: the iterator works with an os.dup() of the file
+        descriptor so that it can close it with impunity; this requires
+        the caller to close their descriptor.
+        
+        ## Class `SeekableFileIterator`
+        
+        MRO: `FileIterator`, `_Iterator`, `SeekableIteratorMixin`  
+        An iterator over the data of a seekable file object.
+        
+        *Note*: the iterator closes the file on __del__ or if its
+        .close method is called.
+        
+        ## Class `SeekableIteratorMixin`
+        
+        Mixin supplying a logical with a `seek` method.
+        
+        ## Class `SeekableMMapIterator`
+        
+        MRO: `_Iterator`, `SeekableIteratorMixin`  
+        An iterator over the data of a mappable file descriptor.
+        
+        *Note*: the iterator works with an mmap of an os.dup() of the
+        file descriptor so that it can close it with impunity; this
+        requires the caller to close their descriptor.
+Keywords: python3
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Description-Content-Type: text/markdown
