@@ -1,0 +1,22 @@
+Metadata-Version: 1.1
+Name: wagtail-tinify
+Version: 0.0.3
+Summary: Automatically compress images (.jpg and .png) using tinypng.com.
+Home-page: https://github.com/KalobTaulien/wagtail_tinify
+Author: Kalob Taulien
+Author-email: kalob@kalob.io
+License: MIT
+Description: UNKNOWN
+Keywords: development
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Operating System :: OS Independent
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Wagtail
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
