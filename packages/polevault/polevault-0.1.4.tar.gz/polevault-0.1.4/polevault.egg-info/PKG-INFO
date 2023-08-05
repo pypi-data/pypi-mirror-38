@@ -1,0 +1,13 @@
+Metadata-Version: 1.0
+Name: polevault
+Version: 0.1.4
+Summary: Encrypts and decrypts credentials
+Home-page: https://paulopes.github.io/polevault/
+Author: Paulo Lopes
+Author-email: palopes@cisco.com
+License: UNKNOWN
+Description: Encrypts and decrypts credentials, stores them
+        in a .ini, .conf, .json, .yml, or .yaml file,
+        and can decrypt them into Hashicorp's Vault.
+        
+Platform: UNKNOWN
