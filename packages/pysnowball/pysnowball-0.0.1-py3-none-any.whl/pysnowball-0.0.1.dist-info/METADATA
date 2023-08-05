@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: pysnowball
+Version: 0.0.1
+Summary: xueqiu api python client
+Home-page: https://github.com/uname-yang/pysnowball
+Author: Yang Yu
+Author-email: yang.lights@hotmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+# xueqiu.api 
+
+> 
+
+## å¿«é€ŸæŒ‡å¼•
+
+```python
+>>> import pysnowball as ball
+>>> ball.set_token('xq_a_token=651af***************031c96a315c;')
+'xq_a_token=651af***************031c96a315c;'
+>>> ball.cash_flow('SH600000')
+```
+
