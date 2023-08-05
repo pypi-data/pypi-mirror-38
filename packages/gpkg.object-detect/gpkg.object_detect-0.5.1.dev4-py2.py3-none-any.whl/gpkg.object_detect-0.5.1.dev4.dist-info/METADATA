@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: gpkg.object-detect
+Version: 0.5.1.dev4
+Summary: Object detection library
+Home-page: https://github.com/guildai/packages/tree/master/object-detect
+Author: Guild AI
+Author-email: packages@guild.ai
+License: Apache 2.0
+Keywords: gpkg
+Platform: UNKNOWN
+Requires-Dist: gpkg.slim
+Requires-Dist: Cython
+Requires-Dist: contextlib2
+Requires-Dist: lxml
+Requires-Dist: matplotlib
+Requires-Dist: pillow
+Requires-Dist: pycocotools
+
+gpkg.object-detect
+##################
+
+*Object detection library*
+
+

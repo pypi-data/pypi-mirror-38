@@ -1,0 +1,17 @@
+author: Guild AI
+author-email: packages@guild.ai
+data-files:
+- config/*/*.yml
+description: Object detection library
+license: Apache 2.0
+package: gpkg.object-detect
+requires:
+- gpkg.slim
+- Cython
+- contextlib2
+- lxml
+- matplotlib
+- pillow
+- pycocotools
+url: https://github.com/guildai/packages/tree/master/object-detect
+version: 0.5.1.dev4
