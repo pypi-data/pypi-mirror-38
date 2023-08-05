@@ -1,0 +1,16 @@
+README.md
+setup.cfg
+setup.py
+andperf/__init__.py
+andperf/_config.py
+andperf/_util.py
+andperf/andperf.py
+andperf/gfxinfo.py
+andperf/meminfo.py
+andperf/stat_thread.py
+andperf.egg-info/PKG-INFO
+andperf.egg-info/SOURCES.txt
+andperf.egg-info/dependency_links.txt
+andperf.egg-info/entry_points.txt
+andperf.egg-info/requires.txt
+andperf.egg-info/top_level.txt
