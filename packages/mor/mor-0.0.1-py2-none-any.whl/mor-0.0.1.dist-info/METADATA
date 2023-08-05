@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: mor
+Version: 0.0.1
+Summary: This mor package is a simple GUI to help user perform model order reduction
+Home-page: https://github.com/SofaDefrost/ModelOrderReduction
+Author: Vanneste Felix
+Author-email: felix.vanneste@inria.fr
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2.7
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: cheetah
+Requires-Dist: PyQt4
+Requires-Dist: yaml
+
+UNKNOWN
+
+
