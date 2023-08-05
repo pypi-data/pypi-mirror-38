@@ -1,0 +1,14 @@
+analytical/__init__.py,sha256=fi1fASTcKyBiuOjm-3PP-dESUqj2oZE1Z8oZF4ttYhg,111
+analytical/models.py,sha256=zRSVlY8R45PqKxMoZkrGc4yAx6UYHeBzlVAc4FYAK6M,922
+analytical/tasks.py,sha256=y9cAai60wHOPzwrkwxAY4349kCUAh0v4P6ocfU9IN4s,1595
+analytical/utils.py,sha256=huhp8Gvjpj5wnW2hQd94iMOBEAFUl01J47JpeGawCCM,2063
+analytical/providers/__init__.py,sha256=5ygYu44MHwx94qteElmYSAWoWhEvzVsMrF-INsd0n9Y,34
+analytical/providers/base.py,sha256=JAClnJoyjnyeUKAfPL4G6x7aA734QRvBdGMb3Gn2UBo,458
+analytical/providers/googleanalytics.py,sha256=zkh_cVKIDt0ABva_Wczj3LJPzlIZFrZjaRJbl-xabV0,4154
+analytical/vendor/__init__.py,sha256=zGntKnGtXTQfOm4U2KJKC6BFVyDGJlAhIhtkJSr1jXY,28
+analytical/vendor/ipaddress.py,sha256=jNwRK2Qu3wQQ5gTuWyhrjvtYte3Zt_-IgqbBOjQII6o,79165
+analytical-0.0.1.dist-info/LICENSE,sha256=7RCRWJxN-P6tkhO6aPCuL93lewO33ufxU4jqTge-TQU,1078
+analytical-0.0.1.dist-info/METADATA,sha256=-keWz5IF1tQ8QKXCMraa6xtquaa0bDkYoK3QQZtaQRY,2285
+analytical-0.0.1.dist-info/WHEEL,sha256=CihQvCnsGZQBGAHLEUMf0IdA4fRduS_NBUTMgCTtvPM,110
+analytical-0.0.1.dist-info/top_level.txt,sha256=10enWEBkVpAelK6RXXvePbEQuJh4UVF1Qal7FWTrQOE,11
+analytical-0.0.1.dist-info/RECORD,,
