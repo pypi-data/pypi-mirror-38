@@ -1,0 +1,7 @@
+include  nf/csdk/nf-sdk-c.dll
+include  nf/csdk/c_sdk.pyd
+include  nf/csdk/c_sdk.cp36-win_amd64.pyd
+include  third_lib/TA_Lib-0.4.17-cp36-cp36m-win_amd64.whl
+include  nf/csdk/c_sdk.cp36-win32.pyd
+include  nf/csdk/c_sdk.cp27-win64.pyd
+include  nf/csdk/c_sdk.cp27-win32.pyd
