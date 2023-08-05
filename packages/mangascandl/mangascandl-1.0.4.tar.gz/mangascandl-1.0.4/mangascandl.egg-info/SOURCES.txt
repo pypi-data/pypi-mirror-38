@@ -1,0 +1,14 @@
+setup.py
+mangascandl/__init__.py
+mangascandl/mangascandl.py
+mangascandl.egg-info/PKG-INFO
+mangascandl.egg-info/SOURCES.txt
+mangascandl.egg-info/dependency_links.txt
+mangascandl.egg-info/entry_points.txt
+mangascandl.egg-info/requires.txt
+mangascandl.egg-info/top_level.txt
+mangascandl/extractor/Mangadex.py
+mangascandl/extractor/Mangareader.py
+mangascandl/extractor/__init__.py
+mangascandl/extractor/common.py
+mangascandl/extractor/model.py
