@@ -1,0 +1,24 @@
+{% if not scm_host %}
+{% set scm_host = 'github.com' %}
+{% endif %}
+{% if release != '0.0.0' %}
+
+You can install {{name}} via pip:
+
+.. code-block:: bash
+
+    $ pip install {{name}}
+
+
+or clone it and install it:
+{% else %}
+You can get it:
+{% endif %}
+
+.. code-block:: bash
+
+    $ git clone https://{{scm_host}}/{{organisation}}/{{name}}.git
+    $ cd {{name}}
+{% if setup_py != False %}
+    $ python setup.py install
+{% endif %}
