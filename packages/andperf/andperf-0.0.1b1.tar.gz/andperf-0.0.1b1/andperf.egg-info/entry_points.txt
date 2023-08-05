@@ -1,0 +1,3 @@
+[console_scripts]
+andperf = and_perf.andperf:main
+
