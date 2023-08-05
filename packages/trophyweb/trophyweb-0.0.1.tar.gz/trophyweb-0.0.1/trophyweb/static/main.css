@@ -1,0 +1,70 @@
+body {
+  margin: 0;
+}
+
+canvas {
+  width: 100%;
+  height: 100%
+}
+
+.float-text-container {
+  position: absolute;
+  left: 50vw;
+  top: 50vh;
+  z-index: 1500;
+}
+
+.float-text {
+  position: relative;
+  left: -50%;
+  top: -50%;
+  text-align: center;
+  color: goldenrod;
+  font-size: 4em;
+  font-weight: bold;
+  transform: translateY(0px);
+  animation: float 1s ease-in-out alternate infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0.5em);
+    text-shadow:0 0 .5em rgba(255,255,255,.4),
+      0 0 .2em rgba(0,0,0,.3),
+      0 .3em .2em rgba(0,0,0,.3);
+
+  }
+  100% {
+    transform: translateY(0px);
+    text-shadow:0 0 .5em rgba(255,255,255,.4),
+      0 0 .2em rgba(0,0,0,.3),
+      0 .5em .5em rgba(0,0,0,.3);
+  }
+}
+
+.curtains {
+  background: url(curtains.png);
+  background-repeat: repeat;
+  width: 50vw;
+  height: 100vh;
+  transition: all 1s;
+  z-index: 1000;
+  position: absolute;
+  top: 0;
+}
+
+.curtains-left {
+  left: 0;
+}
+
+.curtains-right {
+  left: 50vw;
+}
+
+.curtains-open-left {
+  left: -50vw;
+}
+
+.curtains-open-right {
+  left: 100vw;
+}
