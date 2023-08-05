@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "django-fast-migrations"
+version = "0.1.0"
+description = ""
+authors = ["Andreu Vallbona <avallbona@apsl.net>"]
+
+license = 'MIT'
+readme = 'README.md'
+
+include = [
+    'AUTHORS',
+    'CHANGELOG.md',
+    'LICENSE',
+    'README.md',
+]
+
+[tool.poetry.dependencies]
+python = "*"
+django = ">=1.8"
+
+[tool.poetry.dev-dependencies]
+pytest = "^3.0"
