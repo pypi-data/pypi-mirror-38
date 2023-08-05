@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: pyiacapu
+Version: 0.2.4
+Summary: Ia to help
+Home-page: https://github.com/VitorCapuano/pyia-capu
+Author: Vitor Capuano
+Author-email: capuano.vitor@gmail.com
+License: Apache2
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: pandas (>=0.23.4)
+Requires-Dist: scipy (>=1.1.0)
+
+Ia to help students
+
+
