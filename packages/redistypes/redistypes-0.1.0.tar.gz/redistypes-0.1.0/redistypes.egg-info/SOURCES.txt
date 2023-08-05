@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+redistypes/__init__.py
+redistypes/bindings.py
+redistypes/descriptors.py
+redistypes.egg-info/PKG-INFO
+redistypes.egg-info/SOURCES.txt
+redistypes.egg-info/dependency_links.txt
+redistypes.egg-info/requires.txt
+redistypes.egg-info/top_level.txt
