@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: ble2lsl
+Version: 0.1.3
+Summary: Streaming data from Bluetooth Low Energy (BLE) devices through the Lab Streaming Layer (LSL).
+Home-page: https://github.com/merlin-neurotech/ble2lsl
+Author: Merlin Neurotech
+Author-email: mnc@clubs.queensu.ca
+License: BSD 3-Clause License
+Description: 
+        
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: System :: Networking
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown
