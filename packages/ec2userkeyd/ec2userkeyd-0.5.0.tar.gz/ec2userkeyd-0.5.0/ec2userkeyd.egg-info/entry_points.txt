@@ -1,0 +1,3 @@
+[console_scripts]
+ec2userkeyd = ec2userkeyd.cli:cli
+
