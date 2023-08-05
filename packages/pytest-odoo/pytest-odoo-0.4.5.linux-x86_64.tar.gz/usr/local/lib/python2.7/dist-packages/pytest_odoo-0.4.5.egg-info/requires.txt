@@ -1,0 +1,5 @@
+pytest>=2.9
+setuptools_scm
+
+[autodiscover]
+odoo_autodiscover>=2
