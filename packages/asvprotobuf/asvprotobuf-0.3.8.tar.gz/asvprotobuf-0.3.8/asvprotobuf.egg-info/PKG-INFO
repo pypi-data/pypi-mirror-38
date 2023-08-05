@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: asvprotobuf
+Version: 0.3.8
+Summary: ASV API for using protobuf for serialization and deserialization of objects for Inter Process Communication
+Home-page: https://github.com/akashp1997/asvprotobuf
+Author: Akash Purandare
+Author-email: akash.p1997@gmail.com
+License: BSD-3-Clause
+Description: # SRMASV Protobuf Library
+        ------
+        This repository contains the SRMASV protobuf library.
+        ------
+        ## To install just run the following:
+        `python setup.py install`
+        
+        The following module contains the following messages implemented in Google Protobuf:
+        
+        #### asvprotobuf.std
+        -----
+        - [x] Header
+        - [x] Orientation
+        - [x] Vector
+        
+        #### asvprotobuf.sensor
+        -----
+        - [x] Imu
+        - [x] GPSFix
+        - [x] Image
+        - [x] LaserScan
+        
+        #### asvprotobuf.diagnostics
+        -----
+        - TODO
+        
+Keywords: asvprotobuf
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
