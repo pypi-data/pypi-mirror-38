@@ -1,0 +1,3 @@
+[console_scripts]
+pydl = pydl.dlutil:main
+
