@@ -1,0 +1,13 @@
+[Unit]
+Description=Start usrsvcd for user '%I'
+Wants=basic.target
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/usrsvcd start
+ExecStop=/usr/bin/usrsvcd stop
+ExecReload=/usr/bin/usrsvcd restart
+User=%i
+
+[Install]
+WantedBy=multi-user.target
