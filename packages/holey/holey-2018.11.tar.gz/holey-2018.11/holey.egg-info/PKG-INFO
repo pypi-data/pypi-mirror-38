@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: holey
+Version: 2018.11
+Summary: Geometry predicates written in python, optimised with numba
+Home-page: https://github.io/pelson/holey
+Author: Phil Elson
+Author-email: pelson.pub@gmail.com
+License: UNKNOWN
+Project-URL: Source, https://github.com/pelson/holey/
+Description: # Holey
+        
+        Geometry predicates written in python, optimised with numba.
+        
+        
+        
+Keywords: geometry polygon shapely triangulation rasterization
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: GIS
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
+Provides-Extra: test
