@@ -1,0 +1,7 @@
+
+[dev]
+flake8
+pytest
+sphinx
+sphinx-rtd-theme
+sphinx-autobuild
