@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: kitsune
+Version: 0.9.1
+Summary: tools for finding an optimal kmer
+Home-page: https://gitlab.com/natapol.por/kitsune
+Author: Natapol Pornputtapong
+Author-email: natapol.por@gmail.com
+License: Apache 2.0
+Keywords: kitsune
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Requires-Dist: numpy (>=1.1.0)
+Requires-Dist: scipy (>=0.18.1)
+Requires-Dist: biopython (>=1.68)
+Requires-Dist: tqdm
+
+ksiga
+--------
+
+To use (with caution), simply do::
+
+    >>> import ksiga
+    >>> print funniest.joke()
+
