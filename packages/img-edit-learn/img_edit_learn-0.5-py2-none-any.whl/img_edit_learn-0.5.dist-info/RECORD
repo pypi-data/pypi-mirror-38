@@ -1,0 +1,17 @@
+ielearn/__init__.py,sha256=QYcY1CA2uWwugRvlskXdIbg1xp2YpOrE9IyWnX1nDd8,33
+ielearn/_version.py,sha256=yH0UDZdSaWaXKGM6OQ-Hua6BvByCoyoNgcBz8H39rt8,17
+ielearn/batch_io.py,sha256=oC0tDxKda3cp-KFWOLYzlkVKaqcxdMlV5qUF8UPBzLY,4113
+ielearn/util.py,sha256=549dIUjnrYtXrvlIbV9CbtmENQASd1xhWwFpORjniOM,3228
+ielearn/extract/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+ielearn/extract/embedding.py,sha256=q6encfrtyEhYe-41dRi1wP_CpzLmVd-KwUbIeMGXNOQ,1458
+ielearn/extract/extract.py,sha256=wr01bKfqRbuTqIt_WjYSj8JBeBqWioizqBkBDK14fWE,2822
+ielearn/extract/xmp.py,sha256=X-Wsi7XPhzaRRLz1Vowvrc7oz-xAl_YZUuO4qNVC71w,10110
+ielearn/predict/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+ielearn/predict/feature_selection.py,sha256=eGrJt16JClGfD8ckU_2lhOB2R6Vtz4MxU_b92dv61LY,2903
+ielearn/predict/predict.py,sha256=hwYxn853ZlZZI8ytHUamD_In54vRRvBrexZMbpMb-s4,4051
+ielearn/predict/train.py,sha256=tl6oB-pJjq9jSPs5II77fuTXRrMEwEHCBKF9YMaQ5lI,19176
+img_edit_learn-0.5.data/data/share/aagnone/ielearn/README.rst,sha256=cN4PXjXYAcQ0kDqRizoyoXk8Iy-P9bOFhy_HEZx_Z64,1867
+img_edit_learn-0.5.dist-info/METADATA,sha256=m3m3OM54PaSG0C_LlP0g3si1pSE3BcPPbt7fRwXKiBI,621
+img_edit_learn-0.5.dist-info/RECORD,,
+img_edit_learn-0.5.dist-info/WHEEL,sha256=_V8uWu5F_h-lvAz5Mbq4oZqV_uCfL4cHgm4IIlDevzU,92
+img_edit_learn-0.5.dist-info/top_level.txt,sha256=0r82M1zT1nwG-TaX_RznV7bFMWVDTG2rBBWjvWpHJ_A,8
