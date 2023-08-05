@@ -1,0 +1,13 @@
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+vitex
+scripts/vitex
+vitex/__init__.py
+vitex/init.vim.template
+vitex.egg-info/PKG-INFO
+vitex.egg-info/SOURCES.txt
+vitex.egg-info/dependency_links.txt
+vitex.egg-info/requires.txt
+vitex.egg-info/top_level.txt
