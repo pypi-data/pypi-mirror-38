@@ -1,0 +1,9 @@
+flask
+flask-canonical
+mohawk
+pyyaml
+requests
+
+[gunicorn]
+gunicorn
+gevent
