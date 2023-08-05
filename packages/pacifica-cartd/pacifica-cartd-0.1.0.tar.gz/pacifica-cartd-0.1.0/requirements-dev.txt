@@ -1,0 +1,13 @@
+-r requirements.txt
+codeclimate-test-reporter
+coverage>=4.0,<4.4
+httpretty
+mock
+pacifica-archiveinterface
+pep257
+pre-commit
+psutil
+pylint<2.0
+pytest
+radon
+redis
