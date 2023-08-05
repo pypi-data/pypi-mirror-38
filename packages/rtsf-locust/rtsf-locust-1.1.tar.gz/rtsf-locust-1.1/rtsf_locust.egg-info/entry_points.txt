@@ -1,0 +1,4 @@
+[console_scripts]
+hlocust = httplocust.cli:main_locust
+httplocust = httplocust.cli:main_locust
+
