@@ -1,0 +1,18 @@
+include AUTHORS.rst
+include CONTRIBUTING.rst
+include HISTORY.md
+include HISTORY.rst
+include LICENSE
+include README.md
+include README.rst
+include kicost/kicost.ico
+include block_diag.png
+include gui.png
+include kicost/logo_octopart.png
+
+
+recursive-include tests *
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
+
+recursive-include docs *.rst *.md conf.py Makefile make.bat
