@@ -1,0 +1,5 @@
+click
+cloudpickle
+zappa==0.45.1
+Flask==0.12.4
+docker

@@ -1,0 +1,3 @@
+[console_scripts]
+thampi = thampi.cli.cli:main
+
