@@ -1,0 +1,223 @@
+Metadata-Version: 1.1
+Name: visaplan.tools
+Version: 1.2.2
+Summary: General Python tools
+Home-page: https://pypi.org/project/visaplan.tools
+Author: Tobias Herp
+Author-email: tobias.herp@visaplan.com
+License: GPL version 2
+Description: .. This README is meant for consumption by humans and pypi. Pypi can render rst files so please do not use Sphinx features.
+           If you want to learn more about writing documentation, please check out: http://docs.plone.org/about/documentation_styleguide.html
+           This text does not appear on pypi or github. It is a comment.
+        
+        ==============
+        visaplan.tools
+        ==============
+        
+        This is a collection of utility modules for Python projects.
+        
+        Features
+        --------
+        
+        - ``buildout`` module, for ``buildout``-built projects:
+        
+          Function ``checkPathForPackage`` to check a given package against a versions whitelist.
+          Useful if you like to constain the versions of that package without actually requiring it.
+        
+        - ``coding`` module:
+        
+          Factory functions to create ``safe_encode`` resp. ``safe_decode`` functions as needed
+        
+        - ``classes`` module:
+        
+          Several simple but useful classes derived from Python dicts, e.g. ``Mirror`` and ``Proxy``
+        
+        - ``debug`` module:
+        
+          - ``trace_this`` decorator
+        
+        - ``dicts`` module:
+        
+          - several tools to work with standard dictionaries
+        
+        - ``files`` module:
+        
+          - functions related to files; for now ``make_mtime_checker``
+        
+        - ``html`` module:
+        
+          - ``HtmlEntityProxy`` - a dict which returns unicode characters when given a named HTML entity
+        
+        - ``http`` module:
+        
+          - ``extract_hostname`` (using ``url.split`` and raising ``ValueError``)
+        
+        - ``lands0`` module:
+        
+          - several tools to work with *lists and strings*
+        
+        - ``minifuncs`` module:
+        
+          - very small functions, for some cases where functions are used as arguments
+        
+        - ``profile`` module:
+        
+          - a ``StopWatch`` context manager and ``@profile`` decorator
+        
+        - ``sequences`` module:
+        
+          - tools for sequences, e.g. ``inject_indexes``
+        
+        - ``times`` module:
+        
+          - functions related to date and/or time calculations
+        
+        
+        Documentation
+        -------------
+        
+        The modules are documented by doctests.
+        Apart from this, we don't have real user documentation yet (sorry).
+        
+        
+        Installation
+        ------------
+        
+        Simply install visaplan.tools by using pip::
+        
+            pip install visaplan.tools
+        
+        or by adding it to your buildout::
+        
+            [buildout]
+        
+            ...
+        
+            eggs =
+                visaplan.tools
+        
+        and then running ``bin/buildout``
+        
+        
+        Contribute
+        ----------
+        
+        - Issue Tracker: https://github.com/visaplan/visaplan.tools/issues
+        - Source Code: https://github.com/visaplan/visaplan.tools
+        
+        
+        Support
+        -------
+        
+        If you are having issues, please let us know;
+        please use the issue tracker mentioned above.
+        
+        
+        License
+        -------
+        
+        The project is licensed under the GNU General Public License v2 (GPLv2).
+        
+        
+        Contributors
+        ============
+        
+        - Tobias Herp, tobias.herp@visaplan.com
+        
+        
+        Changelog
+        =========
+        
+        
+        1.2.2 (2018-11-08)
+        ------------------
+        
+        - new module ``buildout`` for use in buildout-built projects:
+          use the ``checkPathForPackage`` function to check an installed package
+          against a versions whitelist
+          [tobiasherp]
+        
+        
+        1.2.1 (2018-09-17)
+        ------------------
+        
+        - new module ``dates``:
+        
+          - ``make_date_parser`` factory to create a ``parse_date`` function
+            which understands multiple date formats
+        
+          - ``make_date_formatter`` factory to create a function which formats date,
+            given as a ``datetime`` object or a tuple of ``int``
+        
+        - new module ``profile``:
+        
+          - ``StopWatch`` context manager and ``@profile`` decorator
+        
+        - new module ``mock``:
+        
+          - a few small classes for use in doctests
+        
+          - the same module as ``visaplan.plone.tools.mock``
+        
+        - module ``debug``:
+        
+          - new decorators ``trace_this``, ``log_result``
+        
+          - new function ``print_indented``
+        
+          - new factory function ``make_sleeper``
+        
+        - module ``dicts``:
+        
+          - new function ``make_key_injector``
+        
+        - module ``minifuncs``:
+        
+          - new function ``translate_dummy``
+        
+        - module ``sequences``:
+        
+          - new function ``nocomment_split``
+        
+          - new function ``columns``
+            [tobiasherp]
+        
+        - module ``lands0``:
+        
+          - new function ``join_stripped``
+        
+        - License changed to GPLv2
+        
+        
+        1.2 (2018-07-11)
+        ----------------
+        
+        - breaking changes:
+        
+          - ``classes``: Proxy is now a factory rather than a class
+        
+        - modules ``debug``, ``dicts``, ``lands0``, ``minifuncs``
+          [tobiasherp]
+        
+        
+        1.1 (2018-06-12)
+        ----------------
+        
+        - modules ``sequences``, ``times``, ``files``
+        - Minor Bugfixes
+          [tobiasherp]
+        
+        
+        1.0 (2018-06-11)
+        ----------------
+        
+        - Initial release, including modules ``classes``, ``html``, ``http`` and ``coding``
+          [tobiasherp]
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: German
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
