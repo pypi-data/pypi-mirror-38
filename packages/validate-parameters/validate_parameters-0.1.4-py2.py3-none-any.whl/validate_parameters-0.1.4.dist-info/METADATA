@@ -1,0 +1,112 @@
+Metadata-Version: 2.1
+Name: validate-parameters
+Version: 0.1.4
+Summary: A Python library for checking parameters.
+Home-page: http://igit.58corp.com/ops/validate_param.git
+Author: chenyang21
+Author-email: 745661294@qq.com
+License: 58ganji
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Microsoft
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Classifier: Topic :: Multimedia :: Video
+Classifier: Topic :: Internet
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+
+validate_parameters
+-------------------
+校验函数参数的工具
+
+- 校验类型
+
+.. code :: python
+
+    @validParam(a=int)
+    def func(a, b=1, *args, **kwargs):
+        return Result().data = a, b, args, kwargs
+
+
+| 正确时，返回值：func定义的Result()对象（由用户自己定义）
+| 错误时，返回值：Result()对象，
+
+.. code :: python
+
+    Result().flag = False,
+    Result().msg = 'func() parameter validation fails, param: a, value: a(str), msg(None)'
+    Result().code/status = -3000
+
+* 自定义函数
+
+.. code :: python
+
+    def max_11(x):
+        if x> 11:
+            return True, 'msg', 'code'
+        else:
+            return False, 'msg', 'code'
+
+    @validParam(a=int, b=max_11)
+    def func(a, b=1, *args, **kwargs)
+        return Result().data = a, b, args, kwargs
+
+| 其中，msg和code为用户自定义，且为可选参数
+| 正确时，返回值：func定义的Result()对象（由用户自己定义）
+| 错误时，返回值：Result()对象，
+
+.. code :: python
+
+    Result().flag = False,
+    Result().msg = 'func() parameter validation fails, param: a, value: a(str), msg(*{{ msg }}*)'
+    Result().code/status = *{{ code }}*
+
+* 校验类型和函数
+
+.. code :: python
+
+    @validParam(a=int, b=(int, max_11))
+    def func(a, b=1, *args, **kwargs)
+        return Result().data = a, b, args, kwargs
+
+| 其中，msg和code为用户自定义，且为可选参数
+| 正确时，返回值：func定义的Result()对象（由用户自己定义）
+| 错误时，返回值：Result()对象，
+
+.. code :: python
+
+    Result().flag = False,
+    Result().msg = 'func() parameter validation fails, param: a, value: a(str), msg(*{{ msg }}*)'
+    Result().code/status = *{{ code }}*
+
+Result
+------
+
+- 返回值对象Result()
+- 支持Result().code和Result()["code]取值
+- 支持Result().code=1和Result()["code]=1赋值
+- 支持转json格式，json.dumps(Result(), defaults=Result().to_json)
+- 支持转dict对象，Result().dict()
+
+- 默认参数包括：
+
+.. code :: python
+
+    flag=True, data=None, code=None, msg=None, status=None, return_values=None
+
+上传至pypi
+------
+
+::
+
+    python setup.py bdist_wheel --universal
+    twine upload dist/*
+
+| *username: chenyang21 passwd: devops58ganji*
+| *需要更新LICENSE里的version，否则上传会失败*
+
+
