@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: onset
+Version: 1.0.11
+Summary: Run set operations on files.
+Home-page: https://git.fmind.me/fmind/onset
+Author: Médéric Hurier
+Author-email: dev@fmind.me
+License: EUPL-1.2
+Keywords: set file utility operation
+Platform: UNKNOWN
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3
+Description-Content-Type: text/markdown
+Provides-Extra: covers
+Requires-Dist: coverage; extra == 'covers'
+Provides-Extra: devs
+Requires-Dist: pip (>=18); extra == 'devs'
+Requires-Dist: setuptools (>=40); extra == 'devs'
+Provides-Extra: formats
+Requires-Dist: black; extra == 'formats'
+Provides-Extra: lints
+Requires-Dist: pylint; extra == 'lints'
+Provides-Extra: packages
+Requires-Dist: twine; extra == 'packages'
+Requires-Dist: wheel; extra == 'packages'
+Provides-Extra: shells
+Requires-Dist: ipdb; extra == 'shells'
+Requires-Dist: ipython; extra == 'shells'
+Provides-Extra: tests
+Requires-Dist: pytest; extra == 'tests'
+Requires-Dist: hypothesis; extra == 'tests'
+Provides-Extra: types
+Requires-Dist: mypy; extra == 'types'
+
+# onset
+
+
