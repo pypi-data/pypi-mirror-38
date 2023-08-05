@@ -1,0 +1,39 @@
+Metadata-Version: 2.0
+Name: tendril-utils-www
+Version: 0.1.2
+Summary: Internet utilities for tendril
+Home-page: https://github.com/chintal/tendril-utils-www
+Author: Chintalagiri Shashank
+Author-email: shashank@chintal.in
+License: AGPLv3
+Keywords: tendril
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python
+Requires-Dist: beautifulsoup4
+Requires-Dist: cachecontrol[filecache]
+Requires-Dist: fs (==0.5.4)
+Requires-Dist: lxml
+Requires-Dist: requests
+Requires-Dist: six
+Requires-Dist: suds
+Requires-Dist: tendril-utils-core (>=0.1.4)
+
+=========================
+WWW Utilities for Tendril
+=========================
+
+.. image:: https://img.shields.io/travis/chintal/tendril-utils-www.svg
+        :target: https://travis-ci.org/chintal/tendril-utils-www
+
+.. image:: https://img.shields.io/pypi/v/tendril-utils-www.svg
+        :target: https://pypi.python.org/pypi/tendril-utils-www
+
+* License: AGPLv3
+* Documentation: http://tendril-utils-www.readthedocs.org
+
+
+Internet utilities for Tendril.
+
+
