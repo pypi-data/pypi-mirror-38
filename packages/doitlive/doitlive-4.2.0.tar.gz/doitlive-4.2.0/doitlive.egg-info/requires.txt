@@ -1,0 +1,26 @@
+click>=4.0
+click-completion>=0.3.1
+click-didyoumean>=0.0.3
+
+[dev]
+pytest
+flake8==3.6.0
+tox
+
+[dev:python_version < "3"]
+IPython<6
+
+[dev:python_version >= "3"]
+IPython==6.5.0
+
+[lint]
+flake8==3.6.0
+
+[tests]
+pytest
+
+[tests:python_version < "3"]
+IPython<6
+
+[tests:python_version >= "3"]
+IPython==6.5.0
