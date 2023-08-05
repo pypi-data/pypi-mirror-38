@@ -1,0 +1,5 @@
+.eggs
+src/*.egg-info
+dist/prybahr-*.gz
+build
+dist
