@@ -1,0 +1,14 @@
+README.md
+setup.py
+django_fav.egg-info/PKG-INFO
+django_fav.egg-info/SOURCES.txt
+django_fav.egg-info/dependency_links.txt
+django_fav.egg-info/top_level.txt
+fav/__init__.py
+fav/admin.py
+fav/apps.py
+fav/graphql_schema.py
+fav/managers.py
+fav/models.py
+fav/migrations/0001_initial.py
+fav/migrations/__init__.py
