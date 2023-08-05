@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: slurmy
+Version: 1.3.1
+Summary: Manager of batch jobs accross different backends.
+Home-page: https://github.com/Thomas-Maier/slurmy
+Author: Thomas Maier
+Author-email: thomas.maier1989@gmail.com
+License: UNKNOWN
+Description: # SLURMY - Special handLer for Universal Running of Multiple jobs, Yes!
+        
+        Slurmy is a general batch submission module, which allows to define very general jobs to be run on batch system setups on linux computing clusters. Currently, only slurm is supported as backend, but further backends can easily be added. The definition of the job execution is done with a general shell execution script, as is used by most batch systems. In addition to the batch definition, jobs can also be dynamically executed locally, which allows for an arbitrary combination of batch and local jobs.
+        
+        Please have a look at the [documentation page](https://thomas-maier.github.io/slurmy/) for more information.
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: POSIX :: Linux
+Description-Content-Type: text/markdown
