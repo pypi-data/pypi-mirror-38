@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: swisslandstats-geopy
+Version: 0.4.0
+Summary: Python for the land statistics datasets from the SFSO
+Home-page: https://github.com/martibosch/swisslandstats-geopy
+Author: Martí Bosch
+Author-email: marti.bosch@epfl.ch
+License: GPL-3.0
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: matplotlib (>=2.2)
+Requires-Dist: numpy (>=1.15)
+Requires-Dist: pandas (>=0.17.0)
+Requires-Dist: rasterio (>=1.0.0)
+Provides-Extra: geo
+Requires-Dist: geopandas; extra == 'geo'
+Requires-Dist: osmnx; extra == 'geo'
+
+Python tools for the Swiss Land Statistics datasets from the Swiss Federal
+Statistical Office. The current features are:
+* Automatically transform files from the Swiss Federal Statistical Office into
+  dataframes
+* Transform categorical land use/land cover information into numpy arrays and
+  GeoTIFF files
+* Plot categorical land use/land cover information with legend and the
+  appropriate color map
+* Clip dataframes by vector geometries
+
+
