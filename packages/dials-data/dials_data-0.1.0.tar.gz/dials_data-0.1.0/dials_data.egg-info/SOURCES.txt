@@ -1,0 +1,13 @@
+CONTRIBUTING.rst
+LICENSE
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+dials_data/__init__.py
+dials_data.egg-info/PKG-INFO
+dials_data.egg-info/SOURCES.txt
+dials_data.egg-info/dependency_links.txt
+dials_data.egg-info/not-zip-safe
+dials_data.egg-info/top_level.txt
+tests/test_dials_data.py

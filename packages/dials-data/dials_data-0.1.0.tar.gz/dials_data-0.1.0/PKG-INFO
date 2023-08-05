@@ -1,0 +1,56 @@
+Metadata-Version: 1.1
+Name: dials_data
+Version: 0.1.0
+Summary: Python Boilerplate contains all the boilerplate you need to create a Python package.
+Home-page: https://github.com/dials/data
+Author: Markus Gerstel
+Author-email: dials-support@lists.sourceforge.net
+License: BSD license
+Description: =====================
+        DIALS Regression Data
+        =====================
+        
+        .. image:: https://img.shields.io/pypi/v/dials_data.svg
+                :target: https://pypi.python.org/pypi/dials_data
+                :alt: PyPI release
+        
+        .. image:: https://travis-ci.com/dials/data.svg?branch=master
+                :target: https://travis-ci.com/dials/data
+                :alt: Build status
+        
+        .. image:: https://pyup.io/repos/github/dials/data/shield.svg
+                :target: https://pyup.io/repos/github/dials/data/
+                :alt: Updates
+        
+        .. image:: https://img.shields.io/pypi/pyversions/dials_data.svg
+                :target: https://pypi.org/project/dials_data/
+                :alt: Supported Python versions
+        
+        .. image:: https://pyup.io/repos/github/dials/data/python-3-shield.svg
+                :target: https://pyup.io/repos/github/dials/data/
+                :alt: Python 3 ready
+        
+        
+        * Free software: BSD license
+        
+        Credits
+        -------
+        
+        This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+        
+        .. _Cookiecutter: https://github.com/audreyr/cookiecutter
+        .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+        
+Keywords: dials_data
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
