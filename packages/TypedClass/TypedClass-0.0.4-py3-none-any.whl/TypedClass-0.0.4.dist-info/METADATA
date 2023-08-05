@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: TypedClass
+Version: 0.0.4
+Summary: Extend other classes to give them type checking via annotations
+Home-page: https://github.com/w0251251/TypedClass
+Author: Nicholas Tancredi
+Author-email: nicholastancredi@gmail.com
+License: GNU
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+
+# TypedClass
+A python class made for extended other classes giving them type checking on annotated attributes and other nice things like required attributes, immutable attributes, validation functions for attributes, choices for attributes.
+
+
