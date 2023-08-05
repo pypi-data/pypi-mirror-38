@@ -1,0 +1,3 @@
+[console_scripts]
+mercy = mercy.__main__:execute
+
