@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: illuminati-and-stuff
+Version: 0.1.0
+Summary: a pyramid tween that returns the traceback to the client for 500 responses
+Home-page: https://github.com/yiwensong/illuminati_and_stuff
+Author: yiwen song
+Author-email: songzgy@gmail.com
+License: MIT
+Description: # Illuminati and stuff
+        
+        A pyramid tween that throws the traceback in the body of 500 responses.
+        
+Keywords: pyramid
+Platform: UNKNOWN
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
