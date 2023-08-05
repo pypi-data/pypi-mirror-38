@@ -1,0 +1,26 @@
+Metadata-Version: 1.1
+Name: djadmin-ok
+Version: 1.1.9
+Summary: Djadmin is a django admin theme compatible with django 2.1
+Home-page: https://github.com/mushzinho/djadmin-ok
+Author: Pablo Henrique
+Author-email: sainineeraj1234@gmail.com
+License: MIT
+Description: UNKNOWN
+Platform: any
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 2.1
+Classifier: Framework :: Django :: 1.10
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: User Interfaces
+Classifier: Topic :: System :: Systems Administration
