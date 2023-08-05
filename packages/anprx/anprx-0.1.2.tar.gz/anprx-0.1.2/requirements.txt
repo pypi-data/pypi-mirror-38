@@ -1,0 +1,12 @@
+Shapely>=1.6
+matplotlib>=2.2
+networkx >= 2.2
+numpy >= 1.15.1
+requests >= 2.19.1
+pandas>=0.23
+geopandas>=0.4
+statistics >= 1.0.3
+scikit-learn >= 0.20.0
+-e git://github.com/pedroswits/osmnx.git@f180567e71737c146cc100be19954a525237bbf6#egg=osmnx
+adjustText >= 0.7.3
+progress >= 1.4
