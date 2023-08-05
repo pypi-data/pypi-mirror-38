@@ -1,0 +1,5 @@
+django<2,>=1.11
+django-registration-redux<2.4,>=2.4
+django-bootstrap4<0.0.6,>=0.0.6
+django-cities-light<3.5.0,>=3.5.0
+django-select2<6.3.1,>=6.3.1
