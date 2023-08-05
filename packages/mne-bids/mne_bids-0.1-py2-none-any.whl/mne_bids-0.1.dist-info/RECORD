@@ -1,0 +1,15 @@
+mne_bids/__init__.py,sha256=FPxy-0HnEVpkC59TEIYfEXFu-HZ90EpEntIWLdFVzxM,241
+mne_bids/config.py,sha256=CyhGChcIh1CgOIcPF3DiNPfEG7AESU-me99ZuEPziAM,73
+mne_bids/datasets.py,sha256=4LNDgu0lHdH2ef9NE4zCj7H4FUUJ8jqF5msEPepfPhU,2999
+mne_bids/io.py,sha256=22LULPAqs0UJ0k5uPxSsY_QWXVb-eAa4icahMXYylS8,2887
+mne_bids/mne_bids.py,sha256=ec4Q6uwBLTiWeWcBtqZgx7KZOTaduX74hahUam92zIg,29055
+mne_bids/pick.py,sha256=KS-fP6fEGVLwRPzKhd5ZLfbMebf6wvmAv9EsGIxBIQE,2514
+mne_bids/utils.py,sha256=WuuqaSTFPITOnYg-vBkSdiNs_p1dkoKAi2EGi6N0SYo,22114
+mne_bids/commands/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+mne_bids/commands/mne_bids_raw_to_bids.py,sha256=JbyWEx8wrOyIz4Ba33YpxzdEYlrmXFCL5mhty8PPRnY,3037
+mne_bids-0.1.data/scripts/mne_bids,sha256=FKm3jBpvR4PVK19i7cLJ-DvP-6LgmYczQi-PXEh4e0g,1154
+mne_bids-0.1.dist-info/LICENSE,sha256=L2bZf4cl7kyWJYIOjP8LxnIjI3EFdgaoS6joMVb8UxY,1540
+mne_bids-0.1.dist-info/METADATA,sha256=oWUA11iaOL8rJbR-48K3NniJKpj-YtbpF7i9ders83g,2989
+mne_bids-0.1.dist-info/WHEEL,sha256=oAVPkyAEF4ax3tnqlvKYGy8JOdoAihZXbcM6C6xJNOI,92
+mne_bids-0.1.dist-info/top_level.txt,sha256=83SLsNhqrAFsNGKAHnFxFqCAUI478zLQ01ld8E5GSXM,9
+mne_bids-0.1.dist-info/RECORD,,
