@@ -1,0 +1,22 @@
+Metadata-Version: 2.0
+Name: dyndbmutex
+Version: 0.4.0
+Summary: Mutual Exclusion using AWS DynamoDB
+Home-page: https://github.com/chiradeep/dyndb-mutex
+Author: chiradeep
+Author-email: chiradeep@apache.org
+License: ASL v2.0
+Download-URL: https://github.com/chiradeep/dyndb-mutex/releases/download/v0.40/dyndbmutex-0.4.0.tar.gz
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: System :: Distributed Computing
+Requires-Dist: boto3 (>=1.9.0)
+
+
+Mutual Exclusion using AWS DynamoDB
+
+
