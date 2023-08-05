@@ -1,0 +1,67 @@
+# Advise GitLab that these environment vars should be loaded from the Variables config.
+variables:
+    PYPI_USER: SECURE
+    PYPI_PASSWORD: SECURE
+
+stages:
+  - test
+  - deploy
+  - cleanup
+
+before_script:
+  - export DEBIAN_FRONTEND=noninteractive
+  - apt -qq update
+  - apt-get -qq install apt-utils
+
+  - echo "Europe/Paris" > /etc/timezone
+
+  - apt-get update -qy
+  - apt-get install -y python-dev python-pip gfortran python-matplotlib
+  - pip install numpy scipy Pillow sphinx==1.7.2 numpydoc twine sphinxcontrib-fulltoc
+
+unittest:
+  stage: test
+  script:
+    - python setup.py test
+
+unittest3:   # test for python3
+  stage: test
+  script:
+    - apt-get install -y python3-dev python3-pip gfortran python3-matplotlib
+    - pip3 install numpy scipy Pillow numpydoc sphinxcontrib-fulltoc
+    - python3 setup.py test
+
+testsdist:
+  stage: test
+  script:
+    - python setup.py check sdist
+  only:
+    - dev
+
+
+deploy_pypi:
+  stage: deploy
+  script:   # Configure the PyPI credentials, then push the package, and cleanup the creds.
+    - apt-get install -y git
+    - echo "[distutils]" >> ~/.pypirc
+    - echo "index-servers =" >> ~/.pypirc
+    - echo "    pypi" >> ~/.pypirc
+    - echo " " >> ~/.pypirc
+    - echo "[pypi]" >> ~/.pypirc
+    - echo "username=" ${PYPI_USER} >> ~/.pypirc
+    - echo "password=" ${PYPI_PASSWORD} >> ~/.pypirc
+    - python setup.py check sdist egg_info --tag-build="" -D
+    - git config --global user.name "${GITLAB_USER}"
+    - git config --global user.email "${GITLAB_USER_EMAIL}"
+    - git push https://${GITLAB_USER}:${GITLAB_Token}@gitlab.com/biehl/jscatter.git HEAD:master
+    - twine upload dist/*  # This will fail if version is already there
+    - echo "" > ~/.pypirc && rm ~/.pypirc  # If the above fails, this won't run.
+  only:
+    - master
+
+
+cleanup_pypirc:
+   stage: cleanup
+   when: always   # this is important; run even if preceding stages failed.
+   script:
+    - rm -vf ~/.pypirc  # we don't want to leave these around, but GitLab may clean up anyway.
