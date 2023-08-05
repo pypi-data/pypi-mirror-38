@@ -1,0 +1,11 @@
+MANIFEST.in
+README.rst
+TITLE.txt
+lh-agpl3-LICENSE.txt
+setup.py
+wsPerf/__init__.py
+wsPerf.egg-info/PKG-INFO
+wsPerf.egg-info/SOURCES.txt
+wsPerf.egg-info/dependency_links.txt
+wsPerf.egg-info/not-zip-safe
+wsPerf.egg-info/top_level.txt
