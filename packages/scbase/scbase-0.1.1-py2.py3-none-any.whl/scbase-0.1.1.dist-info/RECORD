@@ -1,0 +1,16 @@
+scbase/__init__.py,sha256=S8FUUZN0ih6nXnZrgG-ltOnAl5HF-4HFFvFfOIGYABg,492
+scbase/cli.py,sha256=xn0BjnDOhMXh-f7S_fV9Wj_jxd8fide2DwGprbwpXZw,9089
+scbase/scbase.py,sha256=U4fR6nTbgkRdBSntv2pYsfvN-yhNyELdky_v0Qhvh3w,28760
+scbase/utils.py,sha256=oXjBQkH89S_2qQE2_H20A6EfmFFRc3hjVhnQRXKNe3w,1097
+scbase/stan/bb.pkl,sha256=4RdenBEITtdyMzbUheyVfyH1sh36j5WZwJEJ-dJBkXI,29184533
+scbase/stan/pg.pkl,sha256=ojD9w3Sau4lQGNDHlm_g1BA02GAPXjDH6GThf3G0zBQ,29043626
+scbase/stan/zipg.pkl,sha256=WsCaHzL8Kx_W1paPBJ7xz5RRdT4F_GucTBIlM1NVEnY,29349929
+scbase/stan/zoibb.pkl,sha256=-D4oYCV2HgawYT-JCvY25H-2X2lTtlkfSgyg5xgd4lk,29831831
+scbase-0.1.1.data/scripts/run_mcmc_on_cluster.sh,sha256=1u445_wVgBlGMWLKvVjCPhFfpI2IczwHiujReEgn_5M,322
+scbase-0.1.1.dist-info/AUTHORS.rst,sha256=dqPQ0lGdd-qlIfFLsawOY7WRZQ3PvWZVTHJeTpSUfyE,166
+scbase-0.1.1.dist-info/LICENSE,sha256=mUnw2Ly29dJCzGVWKRAZzoecpzIvIUAwvcAl-fCfrlc,1084
+scbase-0.1.1.dist-info/METADATA,sha256=SYSLOgGuPqdjCQiqFFYHOrXarQeZWZvuc4tiVqFayqM,2019
+scbase-0.1.1.dist-info/WHEEL,sha256=CihQvCnsGZQBGAHLEUMf0IdA4fRduS_NBUTMgCTtvPM,110
+scbase-0.1.1.dist-info/entry_points.txt,sha256=kaZN_frekDDOGpePx_PLxm9Qt5pwKLE-8jexwi617qQ,44
+scbase-0.1.1.dist-info/top_level.txt,sha256=teA9ZWqomosv6o7T_EYHXDSsng7zKcGihehSK8E3agw,7
+scbase-0.1.1.dist-info/RECORD,,
