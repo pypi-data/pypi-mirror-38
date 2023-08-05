@@ -1,0 +1,3 @@
+[console_scripts]
+cart-server = pacifica.cart.__main__:main
+
