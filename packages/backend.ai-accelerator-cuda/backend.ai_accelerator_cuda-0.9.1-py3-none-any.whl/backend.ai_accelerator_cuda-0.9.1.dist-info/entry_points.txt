@@ -1,0 +1,3 @@
+[backendai_accelerator_v10]
+cuda = ai.backend.accelerator.cuda.plugin
+
