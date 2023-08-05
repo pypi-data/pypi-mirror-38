@@ -1,0 +1,52 @@
+Metadata-Version: 1.1
+Name: incolumepy.spreadsheet
+Version: 1.0.0.dev20181102
+Summary: pacote de iteração com google sheets
+Home-page: http://www.incolume.com.br
+Author: @britodfbr
+Author-email: contato@incolume.com.br
+License: BSD
+Project-URL: Documentation, https://gitlab.com/development-incolume/incolumepy.exceptions/wikis/home
+Project-URL: Funding, None
+Project-URL: Say Thanks!, None
+Project-URL: Source, https://gitlab.com/development-incolume/incolumepy.exceptions
+Project-URL: Git, https://gitlab.com/development-incolume/incolumepy.exceptions.git
+Project-URL: Tracker, https://gitlab.com/development-incolume/incolumepy.exceptions/issues
+Project-URL: Oficial, https://pypi.org/project/incolumepy.exceptions/
+Description: # README
+        
+        ## Check out do projeto
+            git clone git@gitlab.com:development-incolume/incolumepy.spreadsheet.git
+            
+        ## Ambiente virtual
+            cd incolumepy.spreadsheet
+            python -m venv /tmp/venv
+        
+        ## Ativar ambiente virtual
+            source venv/bin/activate
+            
+        ## Dependências requeridas
+            pip install -rrequirements.txt
+            
+        ## Gerar pacote pypi
+            python setup.py bdist_egg bdist_wheel sdist --formats=gztar,zip
+        
+        ## Upload pacote pypi
+            twine upload dist/*
+        
+        
+        
+        
+        
+        
+        
+        
+        
+Keywords: python incolumepy
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Operating System :: OS Independent
+Classifier: Natural Language :: Portuguese (Brazilian)
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Utilities
