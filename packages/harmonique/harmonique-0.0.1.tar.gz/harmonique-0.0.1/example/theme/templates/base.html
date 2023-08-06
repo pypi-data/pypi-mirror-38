@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <title>{% block page_title %}{{ config.site_title }}{% endblock %}</title>
+      {% if theme.css %}<style>{{ theme.css }}</style>{% endif %}
+    </head>
+    <body>
+        <div class="container">
+            {% block content %}
+            {% endblock %}
+            <div class="footer">
+                <a href="{{ config.site_url }}">Home</a>
+                {% if config.footer.github %}
+                    | <a href="https://github.com/{{ config.footer.github }}">GitHub</a>
+                {% endif %}
+                {% if config.footer.linkedin %}
+                    | <a href="https://linkedin.com/in/{{ config.footer.linkedin }}">LinkedIn</a>
+                {% endif %}
+                | <a href="sitemaps.xml">Sitemaps</a>
+
+                {% if config.footer.since %}
+                    | {{ config.footer.since }}
+                {% endif %}
+            </div>
+        </div>
+    </body>
+</html>

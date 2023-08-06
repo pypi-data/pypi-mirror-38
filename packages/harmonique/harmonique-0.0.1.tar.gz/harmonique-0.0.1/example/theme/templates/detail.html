@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block page_title %}{{ doc.title }}{% endblock %}
+
+
+{% block content %}
+    <div class="head">
+        <div class="back-button">
+            <a href="/">[Index page]</a>
+        </div>
+        <h1>{{ doc.title }}</h1>
+        <div class="preamble">{{ doc.description }}</div>
+    </div>
+
+    <div class="content">
+        <div class="pd">
+            <div class="psub">{{ doc.date }} / {{ doc.location }}</div>
+
+            {% if doc.html.toc_html %}
+                <div class="article-toc">
+                    {{ doc.html.toc_html }}
+                </div>
+            {% endif %}
+
+            {{ doc.html }}
+        </div>
+    </div>
+{% endblock content %}
