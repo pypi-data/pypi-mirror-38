@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: recsys-recoder
+Version: 0.2.0
+Summary: UNKNOWN
+Home-page: https://github.com/amoussawi/recoder
+Author: Abdallah Moussawi
+Author-email: abdallah.moussawi@gmail.com
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: torch (==0.4.1)
+Requires-Dist: annoy
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: tqdm
+Requires-Dist: glog
+
+UNKNOWN
+
+
