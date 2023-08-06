@@ -1,0 +1,47 @@
+Metadata-Version: 1.0
+Name: suggestsoda
+Version: 0.1.3
+Summary: UNKNOWN
+Home-page: UNKNOWN
+Author: Daniel J Brooks
+Author-email: daniel.brooks@alumni.caltech.edu
+License: Creative Commons Attribution-Noncommercial-Share Alike license
+Description: Suggest Soda
+        ============
+        
+        This package provides recommendations on which brand of soda to purchase.
+        
+        
+        Installing
+        ----------
+        
+        pip install suggestsoda
+        
+        
+        Example
+        -------
+        
+        .. code-block:: text
+        
+            import suggestsoda as soda
+        
+            soda.recommend()
+        
+            soda.avoid()
+        
+        
+        Package Distribution
+        --------------------
+        
+        The source distribution was created using sdist:
+        
+        .. code-block:: text
+        
+        	python setup.py sdist
+        
+        The package was uploaded to PyPI using twine:
+        
+        .. code-block:: text
+        
+        	twine upload dist/*
+Platform: UNKNOWN
