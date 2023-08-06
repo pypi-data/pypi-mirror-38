@@ -1,0 +1,75 @@
+Metadata-Version: 2.1
+Name: lunasync
+Version: 0.1.3
+Summary: Keep downloaded booru searches up-to-date, similar to Danbooru subscriptions.
+Home-page: https://github.com/mirukan/lunasync
+Author: miruka
+Author-email: miruka@disroot.org
+License: LGPLv3
+Description: # lunasync
+        
+        [![PyPI downloads](http://pepy.tech/badge/lunasync)](
+            http://pepy.tech/project/lunasync)
+        [![PyPI version](https://img.shields.io/pypi/v/lunasync.svg)](
+            https://pypi.org/projects/lunasync)
+        [![PyPI pyversions](https://img.shields.io/pypi/pyversions/lunasync.svg)](
+            https://pypi.python.org/pypi/lunasync)
+        
+        Use [lunafind](https://github.com/mirukan/lunafind) to download
+        and keep in sync tag searches from Danbooru-based sites,
+        similar to Danbooru tag subscriptions/saved searches.
+        
+        Searches are listed in a simple commented CSV file (see `--print-config-path`).  
+        Can be easily used with cron for automatic scheduling.
+        
+        ## Features
+        
+        - Full and incremental syncs, incremental stops downloading after reaching the
+          last post that was downloaded in a previous run
+        - Fast multithreaded downloads with lunafind, 8 downloads in parallel by default
+        - Can sync all or only searches with a specific labels
+        - Return the total number of downloaded posts
+        
+        ## Command line usage
+        
+        After adding some searches to the config file,
+        simply doing `lunasync` will synchronize all searches in the current directory.  
+        A full sync will be taken for a search if this is the first time,
+        incremental else.
+        See `lunasync --help` for all options.
+        
+        ## Python usage
+        
+        ```python3
+            import lunasync
+            lunasync.sync()
+        ```
+        
+        See `help(lunasync.sync)` for parameters.
+        
+        ## Installation
+        
+        Requires Python 3.6+ and pip (for automatic easy install).  
+        Tested on GNU/Linux only right now, but should work on other common OS.  
+        As root:
+        
+        ```sh
+            pip3 install -U lunasync
+        ```
+        
+Keywords: lunakit lunafind booru danbooru api image ugoira anime cli terminal scrap saved tag search filter download sync subscription cron
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Environment :: Console
+Classifier: Topic :: Utilities
+Classifier: Topic :: Internet :: WWW/HTTP :: Indexing/Search
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX
+Requires-Python: >=3.6, <4
+Description-Content-Type: text/markdown
