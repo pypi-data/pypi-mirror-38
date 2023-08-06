@@ -1,0 +1,3 @@
+[console_scripts]
+pgtest = py_pgtest.cli:main
+
