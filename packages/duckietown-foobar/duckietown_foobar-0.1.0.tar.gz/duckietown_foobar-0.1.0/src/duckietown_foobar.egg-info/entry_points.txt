@@ -1,0 +1,3 @@
+[console_scripts]
+dt-foobar-cli = duckietown_foobar.cli:cli_main
+
