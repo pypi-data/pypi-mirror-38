@@ -1,0 +1,19 @@
+Metadata-Version: 1.2
+Name: alidock
+Version: 0.0.1
+Summary: Run your ALICE environment from a container easily
+Home-page: https://github.com/dberzano/alidock
+Author: Dario Berzano
+Author-email: dario.berzano@cern.ch
+License: GPL
+Description-Content-Type: UNKNOWN
+Description: UNKNOWN
+Keywords: HEP Computing
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Education
+Classifier: Topic :: Scientific/Engineering :: Physics
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=2.7
