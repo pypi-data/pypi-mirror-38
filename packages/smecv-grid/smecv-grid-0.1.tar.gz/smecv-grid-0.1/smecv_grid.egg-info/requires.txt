@@ -1,0 +1,5 @@
+pygeogrids
+
+[test]
+pytest-cov
+pytest==3.8.2
