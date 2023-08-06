@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: color-pallete
+Version: 0.0.9
+Summary: Outputs the color pallete of the provided image..
+Home-page: https://github.com/pytholabsbot1/k-means
+Author: Pytholabs
+Author-email: info@pytholabs.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: sklearn
+Requires-Dist: opencv-python
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Requires-Dist: Image
+
+UNKNOWN
+
+
