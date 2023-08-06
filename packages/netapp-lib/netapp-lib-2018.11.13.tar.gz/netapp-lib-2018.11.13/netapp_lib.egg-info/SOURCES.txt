@@ -1,0 +1,15 @@
+README.rst
+setup.py
+netapp_lib/__init__.py
+netapp_lib/exceptions.py
+netapp_lib.egg-info/PKG-INFO
+netapp_lib.egg-info/SOURCES.txt
+netapp_lib.egg-info/dependency_links.txt
+netapp_lib.egg-info/requires.txt
+netapp_lib.egg-info/top_level.txt
+netapp_lib/api/__init__.py
+netapp_lib/api/rest/__init__.py
+netapp_lib/api/rest/rest.py
+netapp_lib/api/zapi/__init__.py
+netapp_lib/api/zapi/errors.py
+netapp_lib/api/zapi/zapi.py
