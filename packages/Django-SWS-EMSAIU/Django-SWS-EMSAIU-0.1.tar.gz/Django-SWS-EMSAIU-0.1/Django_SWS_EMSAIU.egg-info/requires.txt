@@ -1,0 +1,14 @@
+AuthZ-Group
+Django<2.0
+django-compressor
+UW-EMS-Client
+
+[:python_version < "3.0"]
+Django-SupportTools<3.0
+UW-RestClients-GWS<2.0
+UW-RestClients-SWS<2.0
+
+[:python_version >= "3.0"]
+Django-SupportTools
+UW-RestClients-GWS
+UW-RestClients-SWS
