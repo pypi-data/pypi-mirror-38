@@ -1,0 +1,14 @@
+README.md
+setup.cfg
+setup.py
+cbpro/__init__.py
+cbpro/authenticated_client.py
+cbpro/cbpro_auth.py
+cbpro/order_book.py
+cbpro/public_client.py
+cbpro/websocket_client.py
+cbpro_notbroken.egg-info/PKG-INFO
+cbpro_notbroken.egg-info/SOURCES.txt
+cbpro_notbroken.egg-info/dependency_links.txt
+cbpro_notbroken.egg-info/requires.txt
+cbpro_notbroken.egg-info/top_level.txt
