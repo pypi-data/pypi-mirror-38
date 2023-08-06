@@ -1,0 +1,26 @@
+Metadata-Version: 1.2
+Name: wools
+Version: 0.1.dev98
+Summary: ADVA-Certified Alpakka Wools
+Home-page: UNKNOWN
+Author: ADVA Optical Networking
+Maintainer: Thomas Szyrkowiec
+Maintainer-email: tszyrkowiec@advaoptical.com
+License: Apache License 2.0
+Description: UNKNOWN
+Keywords: alpakka,pyang,yang,wrappers,wrapper,wools,wool,templates,template,jinja2,jinja,python3
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Telecommunications Industry
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Code Generators
+Classifier: Topic :: Utilities
