@@ -1,0 +1,6 @@
+Value NEIGHBOR (\d+.\d+.\d+.\d+)
+Value INTERFACE (\S+)
+Value UPTIME (\S+)
+
+Start
+  ^\w+\s+${NEIGHBOR}\s+${INTERFACE}\s+\w+\s+${UPTIME} -> Record
