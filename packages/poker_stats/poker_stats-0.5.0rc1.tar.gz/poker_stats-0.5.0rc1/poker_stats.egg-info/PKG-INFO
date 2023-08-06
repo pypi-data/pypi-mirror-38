@@ -1,0 +1,16 @@
+Metadata-Version: 1.2
+Name: poker-stats
+Version: 0.5.0rc1
+Summary: Statistics generator for poker hands played online
+Home-page: https://github.com/yarpenzigrin/pokerstats
+Author: Michal Nowak and Damian Szuberski for Polish Poker Community in Manila
+Author-email: dev@null.com
+License: MIT
+Description: Statistics generator for poker hands played online
+Keywords: poker holdem stats statistics
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.7
