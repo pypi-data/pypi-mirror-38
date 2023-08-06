@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: pyzac
+Version: 0.0.5
+Summary: The Python Actor Model using zeroMQ
+Home-page: https://github.com/F2011B/pyzac
+Author: Dark Ligt alias FB2011B
+License: Apache 2.0
+Keywords: actor zeromq pzmq
+Platform: UNKNOWN
+Classifier: Environment :: Console
+Classifier: Environment :: Other Environment
+Classifier: Environment :: Web Environment
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >= 3.3
+
+UNKNOWN
+
+
