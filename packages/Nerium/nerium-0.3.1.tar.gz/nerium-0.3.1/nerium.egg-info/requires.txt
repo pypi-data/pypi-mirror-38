@@ -1,0 +1,15 @@
+aiohttp
+aiohttp_cors
+idna-ssl
+munch
+python-dotenv
+python-frontmatter
+pyyaml
+records
+webargs
+
+[mysql]
+PyMySQL
+
+[pg]
+psycopg2
