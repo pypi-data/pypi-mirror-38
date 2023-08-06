@@ -1,0 +1,4 @@
+
+          [console_scripts]
+          tap-harvest-forecast=tap_harvest_forecast:main
+      
