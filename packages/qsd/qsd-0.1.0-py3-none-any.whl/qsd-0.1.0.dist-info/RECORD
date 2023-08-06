@@ -1,0 +1,14 @@
+qsd/__init__.py,sha256=zulwgMvf-mnz6YsO6ii8LqWXTZ8s4HQT-vmCJkwOb7w,99
+qsd/data_processing/__init__.py,sha256=uEwwik5VNgeHtSxhATvMHB2rGc4D56PIpaXGssN8oHs,129
+qsd/data_processing/postproc.py,sha256=Vi9DzLZ5v7JubxhQ4sxJJiYE8prLs0sylJP2PMvX5Ps,5366
+qsd/data_processing/preproc.py,sha256=fs7FUR2UCxe9WEAurijCBmnvCuB7ZPcooOZHfEL3lnQ,281
+qsd/data_processing/readcomsol.py,sha256=LI6jLEiQQxiYhDZZbGG7uzu1ExDPALYJ2OkuAeZ1wJ0,1811
+qsd/data_processing/setparams.py,sha256=SGvjQ0cUMCnyObL9gKt1sTREgoTDlcVHIpvDY3e2c08,3364
+qsd/electromagnetics/__init__.py,sha256=cP8PiQHyrCfs4Acxsfofr03d8Catno3DO2wCL_mVzVg,21
+qsd/electromagnetics/cpw.py,sha256=EyVbSYODHS4Kz_s-ab8-_mFLBC20P8GFEILhQhCtKB4,3058
+qsd/ssh_control/__init__.py,sha256=HQdgCGKp4h0xtMD50vda1YoWdsnZ_tWxIMyZccMtodw,35
+qsd/ssh_control/sshcommand.py,sha256=rDkh1Dvdhpzpaz2-pnXce38JnFFTnDWI7t1zbAbJzKM,8325
+qsd-0.1.0.dist-info/METADATA,sha256=GtADWrKLcM6Jk-qD8YIWtXkwQK0q4QWi8iuiDPpJ5bQ,376
+qsd-0.1.0.dist-info/WHEEL,sha256=_NOXIqFgOaYmlm9RJLPQZ13BJuEIrp5jx5ptRD5uh3Y,92
+qsd-0.1.0.dist-info/top_level.txt,sha256=7Mc2YsVi1U9MzvOw1OQrnGlvxK1a-4F2hj30ox_2m8g,4
+qsd-0.1.0.dist-info/RECORD,,
