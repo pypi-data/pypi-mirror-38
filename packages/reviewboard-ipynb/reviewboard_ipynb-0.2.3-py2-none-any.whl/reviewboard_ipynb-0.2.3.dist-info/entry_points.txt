@@ -1,0 +1,3 @@
+[reviewboard.extensions]
+reviewboard_ipynb = reviewboard_ipynb.extension:IpynbReviewUIExtension
+
