@@ -1,0 +1,15 @@
+README.rst
+setup.py
+sonimei/__init__.py
+sonimei/app.py
+sonimei/icfg.py
+sonimei/metas.py
+sonimei/site_header.py
+sonimei/zutil.py
+sonimei.egg-info/PKG-INFO
+sonimei.egg-info/SOURCES.txt
+sonimei.egg-info/dependency_links.txt
+sonimei.egg-info/entry_points.txt
+sonimei.egg-info/requires.txt
+sonimei.egg-info/top_level.txt
+tests/__init__.py
