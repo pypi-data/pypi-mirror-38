@@ -1,0 +1,14 @@
+numpy>=1.9.0
+scipy
+matplotlib>=1.4.3
+pandas
+
+[gurobipy]
+gurobipy
+
+[test]
+nose
+pre-commit
+pytest
+pytest-cov
+recommonmark
