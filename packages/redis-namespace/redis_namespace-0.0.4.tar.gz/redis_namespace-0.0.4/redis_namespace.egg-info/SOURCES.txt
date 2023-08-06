@@ -1,0 +1,10 @@
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+redis_namespace/__init__.py
+redis_namespace.egg-info/PKG-INFO
+redis_namespace.egg-info/SOURCES.txt
+redis_namespace.egg-info/dependency_links.txt
+redis_namespace.egg-info/requires.txt
+redis_namespace.egg-info/top_level.txt
