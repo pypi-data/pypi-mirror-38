@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: discord-autorooms
+Version: 2.1.5
+Summary: Zero Config Autoroom Discord Bot
+Home-page: https://github.com/mikeshardmind/autorooms
+Author: mikeshardmind
+Author-email: 
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Framework :: AsyncIO
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Communications :: Chat
+Classifier: Natural Language :: English
+Requires-Python: >=3.6,<3.8
+Requires-Dist: aiohttp (<3.4.0,>=3.3.0)
+Requires-Dist: websockets (<7.0,>=6.0)
+Requires-Dist: discord.py (>=1.0.0a)
+
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)  [![Tip Jar](https://img.shields.io/badge/Paypal-Donate-blue.svg)](https://www.paypal.me/mikeshardmind)
+
+**WARNING**
+Do not use this bot if you have any channels beginning with the '♻' character and care about those channels, the bot uses this character to denote temporary channels.
+
+# How to
+
+If you'd like, you can just [invite my bot](https://discordapp.com/oauth2/authorize?client_id=365420182522429440&scope=bot&permissions=285232144)
+
+If you would prefer to host your own, keep reading.
+
+
+## autorooms
+
+This pins a specific version of discord.py, so put it in a venv if needed to prevent conflicts.
+```
+python3.6 -m pip install --process-dependency-links discord-autorooms
+AUTOROOMTOKEN='your discord bot token here' discord-autorooms
+```
+
+
