@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: pydockermon
+Version: 1.0.0
+Summary: Python API wrapper for HA Dockermon.
+Home-page: https://github.com/ludeeus/pydockermon
+Author: Joakim Sorensen
+Author-email: ludeeus@gmail.com
+License: UNKNOWN
+Description: # pydockermon [![Build Status](https://travis-ci.com/ludeeus/pydockermon.svg?branch=master)](https://travis-ci.com/ludeeus/pydockermon) [![PyPI version](https://badge.fury.io/py/pydockermon.svg)](https://badge.fury.io/py/pydockermon)
+        
+        _Python API wrapper for HA Dockermon.._
+        
+        ## Install
+        
+        ```bash
+        pip install pydockermon
+        ```
+        
+        Look at the file `example.py` for a usage example.
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
