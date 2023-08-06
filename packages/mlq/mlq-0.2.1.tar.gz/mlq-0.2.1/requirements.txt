@@ -1,0 +1,7 @@
+msgpack==0.5.6
+redis==2.10.6
+urllib3
+cloudpickle
+jsonpickle
+flask
+gevent
