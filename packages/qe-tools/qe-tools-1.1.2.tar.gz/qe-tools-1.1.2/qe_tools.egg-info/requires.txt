@@ -1,0 +1,12 @@
+numpy
+future
+
+[dev]
+pre-commit
+timeout-decorator
+yapf
+
+[docs]
+Sphinx
+docutils
+sphinx_rtd_theme
