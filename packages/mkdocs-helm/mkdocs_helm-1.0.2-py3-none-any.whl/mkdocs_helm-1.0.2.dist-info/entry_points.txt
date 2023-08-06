@@ -1,0 +1,3 @@
+[mkdocs.plugins]
+helm-repo = mkdocs_helm.repository:HelmRepositoryPlugin
+
