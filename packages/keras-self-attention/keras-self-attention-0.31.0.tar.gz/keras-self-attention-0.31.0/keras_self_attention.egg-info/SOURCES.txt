@@ -1,0 +1,11 @@
+README.rst
+setup.py
+keras_self_attention/__init__.py
+keras_self_attention/scaled_dot_attention.py
+keras_self_attention/seq_self_attention.py
+keras_self_attention/seq_weighted_attention.py
+keras_self_attention.egg-info/PKG-INFO
+keras_self_attention.egg-info/SOURCES.txt
+keras_self_attention.egg-info/dependency_links.txt
+keras_self_attention.egg-info/requires.txt
+keras_self_attention.egg-info/top_level.txt
