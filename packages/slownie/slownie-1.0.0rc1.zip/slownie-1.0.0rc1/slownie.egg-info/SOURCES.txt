@@ -1,0 +1,16 @@
+CHANGES.rst
+LICENSE
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+tox.ini
+slownie/__about__.py
+slownie/__init__.py
+slownie/_slownie.py
+slownie.egg-info/PKG-INFO
+slownie.egg-info/SOURCES.txt
+slownie.egg-info/dependency_links.txt
+slownie.egg-info/requires.txt
+slownie.egg-info/top_level.txt
+slownie.egg-info/zip-safe
