@@ -1,0 +1,56 @@
+Metadata-Version: 2.1
+Name: cached
+Version: 2018.11.19
+Summary: cached(function) - cache function
+Home-page: https://github.com/looking-for-a-job/cached.py
+License: UNKNOWN
+Keywords: cached cache function
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Software Development
+Description-Content-Type: text/markdown
+Requires-Dist: decorator
+Requires-Dist: public
+Requires-Dist: setuptools
+
+[![](https://img.shields.io/pypi/pyversions/cached.svg?longCache=True)](https://pypi.org/pypi/cached/)
+
+#### Install
+```bash
+$ [sudo] pip install cached
+```
+
+#### Functions
+function|description
+-|-
+`cached.cached(function)`|`@cache` decorator, `cache(function)` - cache function result
+
+#### Examples
+`@cached` decorator
+
+```python
+>>> from cached import cached
+
+>>> @cached
+    def func(*args, **kwags):
+```
+
+`cached(function)` function
+```python
+>>> from cached import cached
+
+>>> def func(*args, **kwags):
+        ...
+>>> cached(func)()
+```
+
+<p align="center"><a href="https://pypi.org/project/readme-md/">readme-md</a> - README.md generator</p>
+
