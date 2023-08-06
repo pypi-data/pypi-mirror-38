@@ -1,0 +1,11 @@
+PyYAML
+sphinx
+sphinxcontrib-golangdomain
+sphinxcontrib-dotnetdomain
+unidecode
+
+[:python_version < "3"]
+astroid<2
+
+[:python_version >= "3"]
+astroid
