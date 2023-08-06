@@ -1,0 +1,46 @@
+Sepiida
+=======
+
+An API framework for common tasks/behavior for a micro-service architecture.   Built on top of Flask, SQLAlchmeny, and Celery.
+Sepiida takes care of:
+ - handling errors
+ - REST methods
+ - permissions (between microservices)
+ - creating and managing sessions
+ - ... and more.
+
+Contact info@authentise.com if you want to use it.
+
+Feature : Enviroment Loading
+=======
+Seipiida contains environment loading tools, to load environment variables. A default value needs to be 
+set or created, and can be overridden by a environment variable, or by an exact-match to a docker secret.
+
+
+Feature: API Shaping
+========
+This tool contains a system for verifying incoming and outgoing  data matches a programmed API Signature, to verify basic data
+conversion and type checking before reaching the inner post, put, get, list behavior.
+
+
+Feature: Filters
+========
+API's built in sepiida can take and process a standard set of URL filters to make it eaiser to shape and fliter data
+
+Filters Examples:
+	* page[offset]=NUMBER: Set how far into known data to paginate reults when there are many results
+	* page[limit]=NUMBER: Set the count of how many responsees to return when paginating when there are many results
+	* search[propertyy]=value : Searches 'property' of the specified endpoint for a matching value or partial value
+
+
+License
+=======
+The MIT License (MIT)
+
+Copyright (c) 2016 Authentise Inc.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
