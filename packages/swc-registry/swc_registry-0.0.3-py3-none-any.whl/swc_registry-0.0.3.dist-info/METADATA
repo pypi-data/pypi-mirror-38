@@ -1,0 +1,18 @@
+Metadata-Version: 2.0
+Name: swc-registry
+Version: 0.0.3
+Summary: Python library for accessing SWC-registry content.
+Home-page: https://github.com/SmartContractSecurity/SWC-registry-python
+Author: SmartContractSecurity
+Author-email: ersul4ik@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Requires-Dist: requests (==2.20.1)
+
+# empty
+
+
