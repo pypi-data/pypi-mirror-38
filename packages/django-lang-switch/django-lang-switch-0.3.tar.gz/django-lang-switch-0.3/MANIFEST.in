@@ -1,0 +1,7 @@
+include LICENSE
+include README.rst
+include CHANGELOG.rst
+include requirements.txt
+graft django_lang_switch
+global-exclude *.pyc
+global-exclude __pycache__

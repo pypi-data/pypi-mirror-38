@@ -1,0 +1,7 @@
+Django>=2.0
+
+[quality]
+isort
+flake8
+pydocstyle
+mypy
