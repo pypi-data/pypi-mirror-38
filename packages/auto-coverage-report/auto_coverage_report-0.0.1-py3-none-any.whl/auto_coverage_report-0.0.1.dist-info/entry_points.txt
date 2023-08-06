@@ -1,0 +1,3 @@
+[console_scripts]
+runtests = auto_coverage_report.command_line:main
+
