@@ -1,0 +1,11 @@
+MANIFEST.in
+VERSION
+setup.cfg
+setup.py
+_geoip_geolite2/__init__.py
+_geoip_geolite2/__init__.pyc
+python_geoip_geolite2_coex.egg-info/PKG-INFO
+python_geoip_geolite2_coex.egg-info/SOURCES.txt
+python_geoip_geolite2_coex.egg-info/dependency_links.txt
+python_geoip_geolite2_coex.egg-info/not-zip-safe
+python_geoip_geolite2_coex.egg-info/top_level.txt
