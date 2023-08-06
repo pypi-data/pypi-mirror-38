@@ -1,0 +1,4 @@
+
+        [console_scripts]
+        mytact=mytact.__main__:main
+    
