@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: explibrosa
+Version: 0.0.0.dev1
+Summary: A tool to analyse and convert data coming from the Librosa python package.
+Home-page: https://github.com/emrecdem/exploface
+Author: V. van Hees and B.L. de Vries
+Author-email: b.devries@esciencecenter.nl
+License: UNKNOWN
+Description: # explibrosa
+        Exploration and feature generation for speech in audio files using the librosa library in Python
+        
+        ## Installation
+        To install explibrosa use pip:
+        - pip install --index-url https://test.pypi.org/simple/ example_pkg
+        - Note: we currently use the test.pypi since we are still testing and experimenting.
+        
+        Installation instructions for librosa:
+        - You can use pip install librosa
+        - See also: https://librosa.github.io/librosa/install.html
+        
+        
+Keywords: analysis,conversion,facial recoqnition,action units,Openface
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
