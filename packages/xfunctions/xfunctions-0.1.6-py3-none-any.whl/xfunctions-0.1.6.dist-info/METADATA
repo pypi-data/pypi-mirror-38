@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: xfunctions
+Version: 0.1.6
+Summary: Some useful functions.
+Home-page: https://github.com/neoctobers/xfunctions
+Author: @neoctobers
+Author-email: neoctobers@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+# xfunctions
+
+## Usage
+```python
+import xfunctinos as xf
+```
+
+methods:
+
+```python
+xp.sleep(t: int)
+xp.get_dict_by_keys(source, keys: list or dict, default_none: bool = True)
+xp.strip_in_list(the_list)
+xp.remove_in_list(the_list: list, ele=None)
+xp.strip_and_remove_in_list(the_list: list, ele=None)
+xp.x_mix(list_in_list, i=1, target=None)
+```
+
+
