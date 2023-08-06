@@ -1,0 +1,16 @@
+README.rst
+setup.py
+scrapy_frontera/__init__.py
+scrapy_frontera/converters.py
+scrapy_frontera/manager.py
+scrapy_frontera/middlewares.py
+scrapy_frontera/scheduler.py
+scrapy_frontera/settings.py
+scrapy_frontera.egg-info/PKG-INFO
+scrapy_frontera.egg-info/SOURCES.txt
+scrapy_frontera.egg-info/dependency_links.txt
+scrapy_frontera.egg-info/requires.txt
+scrapy_frontera.egg-info/top_level.txt
+scrapy_frontera/components/__init__.py
+scrapy_frontera/core/__init__.py
+scrapy_frontera/core/manager.py
