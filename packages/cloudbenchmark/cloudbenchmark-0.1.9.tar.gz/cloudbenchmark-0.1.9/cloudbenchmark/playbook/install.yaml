@@ -1,0 +1,32 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: install base software
+    yum:
+      name:
+        - git
+        - python3-pip
+        - https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+      state: present
+
+  - name: install benchmark software
+    yum:
+      name:
+        - sysbench
+      state: present
+      enablerepo: epel
+
+  - name: install cloudbenchmark
+    pip:
+      name:
+        - cloudbenchmark
+      executable: pip3
+
+  - name: run cloudbench
+    shell: "/usr/local/bin/cloudbenchmark -j ec2-sysbench-cpu -s small"
+    register: return_from_shell
+  
+  - name: show result
+    debug:
+      msg: "{{ return_from_shell.stdout }}"
