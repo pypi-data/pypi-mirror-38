@@ -1,0 +1,8 @@
+*.egg-info
+*.pyc
+.DS_Store
+.coverage
+.coverage.*
+.tox/
+coverage.xml
+htmlcov/
