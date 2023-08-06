@@ -1,0 +1,14 @@
+README.md
+setup.py
+nanoid_dictionary/__init__.py
+nanoid_dictionary/alphabet_std.py
+nanoid_dictionary/human_alphabet.py
+nanoid_dictionary/lookalikes.py
+nanoid_dictionary/lowercase.py
+nanoid_dictionary/numbers.py
+nanoid_dictionary/prevent_misreadings.py
+nanoid_dictionary/uppercase.py
+nanoid_dictionary.egg-info/PKG-INFO
+nanoid_dictionary.egg-info/SOURCES.txt
+nanoid_dictionary.egg-info/dependency_links.txt
+nanoid_dictionary.egg-info/top_level.txt
