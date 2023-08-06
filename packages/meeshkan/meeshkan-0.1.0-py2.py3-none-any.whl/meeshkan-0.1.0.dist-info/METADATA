@@ -1,0 +1,167 @@
+Metadata-Version: 2.1
+Name: meeshkan
+Version: 0.1.0
+Summary: The Meeshkan Client for interactive machine learning
+Home-page: https://www.meeshkan.com/
+Author: Meeshkan Dev Team
+Author-email: dev@meeshkan.com
+License: Apache 2.0
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Requires-Python: >=3.5.0
+Description-Content-Type: text/markdown
+Requires-Dist: dill
+Requires-Dist: requests
+Requires-Dist: Click
+Requires-Dist: Pyro4
+Requires-Dist: PyYAML
+Requires-Dist: tabulate
+Requires-Dist: matplotlib
+Provides-Extra: dev
+Requires-Dist: pylint ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: pytest-cov ; extra == 'dev'
+Requires-Dist: mypy ; extra == 'dev'
+Requires-Dist: pytest-asyncio ; extra == 'dev'
+Provides-Extra: devtf
+Requires-Dist: pylint ; extra == 'devtf'
+Requires-Dist: pytest ; extra == 'devtf'
+Requires-Dist: pytest-cov ; extra == 'devtf'
+Requires-Dist: mypy ; extra == 'devtf'
+Requires-Dist: pytest-asyncio ; extra == 'devtf'
+Requires-Dist: tensorflow ; extra == 'devtf'
+Requires-Dist: tensorboard ; extra == 'devtf'
+Requires-Dist: keras ; extra == 'devtf'
+Provides-Extra: devtorch
+Requires-Dist: pylint ; extra == 'devtorch'
+Requires-Dist: pytest ; extra == 'devtorch'
+Requires-Dist: pytest-cov ; extra == 'devtorch'
+Requires-Dist: mypy ; extra == 'devtorch'
+Requires-Dist: pytest-asyncio ; extra == 'devtorch'
+Requires-Dist: torch ; extra == 'devtorch'
+
+
+# Meeshkan client
+
+## Getting started
+Sign up at [app.meeshkan.com](https://app.meeshkan.com) and get your token. Add the folder `.meeshkan` in your home directory and, inside the folder, add a file named `credentials` with the following format:
+```ini
+[meeshkan]
+token=my-token
+```
+
+## Installation
+```bash
+pip install meeshkan
+```
+
+## Command-line interface
+To list available commands, execute `meeshkan` or `meeshkan help`:
+```bash
+Usage: meeshkan [OPTIONS] COMMAND [ARGS]...
+
+Options:
+  -h, --help  Show this message and exit.
+  --version   Show the version and exit.
+
+Commands:
+  clear     Clears Meeshkan log and job directories in ~/.meeshkan.
+  help      Show this message and exit.
+  list      Lists the job queue and status for each job.
+  sorry     Send error logs to Meeshkan HQ.
+  start     Starts Meeshkan service daemon.
+  status    Checks and returns the service daemon status.
+  stop      Stops the service daemon.
+  submit    Submits a new job to the service daemon.
+```
+
+### Start service daemon
+```bash
+meeshkan start
+```
+If you get `Unauthorized` error, please check your credentials. If the problem persists, please contact Meeshkan support.
+
+### Check service status
+```bash
+meeshkan status
+```
+You should get the message `Service is up and running`.
+
+### Submit a Python script for execution
+Submit the example script [hello_world.py](./examples/hello_world.py) for execution:
+```bash
+meeshkan submit [--name job_name] examples/train.py
+```
+
+### List submitted jobs
+```bash
+meeshkan list
+```
+
+### Stop service
+```bash
+meeshkan stop
+```
+
+## Reporting scalars from PyTorch
+
+### Get started
+Start the service first, then run
+``` bash
+meeshkan submit --poll 10 examples/report.py
+```
+
+### PyTorch
+See [examples/pytorch_mnist.py](./examples/pytorch_mnist.py) for an example script. To run the script,
+first ensure that [PyTorch]() is installed in your Python environment. Then submit the example as
+ ```bash
+meeshkan submit --poll 10 examples/pytorch_mnist.py
+```
+Meeshkan reports the training and test loss values to you every 10 seconds.
+
+
+## Development
+
+### Installation
+For users:
+```{bash}
+python setup.py install
+```
+
+For developers:
+```{bash}
+pip install -e .[dev]
+```
+
+### Running tests
+```{bash}
+pytest
+```
+
+OR
+
+```{bash}
+python setup.py test
+```
+
+### Running lint
+```bash
+pylint -f msvs meeshkan
+```
+
+### Building the documentation
+```bash
+cd docs
+sphinx-apidoc -f -e -o source/ ../meeshkan/
+make html
+```
+
