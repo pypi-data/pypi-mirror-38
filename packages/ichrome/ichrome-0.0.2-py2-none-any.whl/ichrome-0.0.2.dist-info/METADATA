@@ -1,0 +1,17 @@
+Metadata-Version: 2.0
+Name: ichrome
+Version: 0.0.2
+Summary: toy for chrome devtools protocol. Read more: https://github.com/ClericPy/ichrome.
+Home-page: https://github.com/ClericPy/ichrome
+Author: ClericPy
+Author-email: clericpy@gmail.com
+License: MIT License
+Keywords: chrome
+Platform: any
+Requires-Dist: psutil
+Requires-Dist: torequests
+Requires-Dist: websocket-client
+
+UNKNOWN
+
+
