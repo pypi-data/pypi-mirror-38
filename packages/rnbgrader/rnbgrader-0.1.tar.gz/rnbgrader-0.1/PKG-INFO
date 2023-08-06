@@ -1,0 +1,96 @@
+Metadata-Version: 2.1
+Name: rnbgrader
+Version: 0.1
+Summary: Utilities for grading R Notebook assignments
+Home-page: http://github.com/matthew-brett/rnbgrader
+Author: Matthew Brett
+Author-email: matthew.brett@gmail.com
+Maintainer: Matthew Brett
+Maintainer-email: matthew.brett@gmail.com
+License: BSD license
+Description: ########################################################
+        RNBGrader - utilities for grading R Notebook assignments
+        ########################################################
+        
+        .. shared-text-body
+        
+        **********
+        Quickstart
+        **********
+        
+        See the tests for examples.
+        projects.
+        
+        ************
+        Installation
+        ************
+        
+        ::
+        
+            pip install rnbgrader
+        
+        ****
+        Code
+        ****
+        
+        See https://github.com/matthew-brett/rnbgrader
+        
+        Released under the BSD two-clause license - see the file ``LICENSE`` in the
+        source distribution.
+        
+        `travis-ci <https://travis-ci.org/matthew-brett/rnbgrader>`_ kindly tests the
+        code automatically under Python versions 3.4 through 3.6.
+        
+        The latest released version is at https://pypi.python.org/pypi/rnbgrader
+        
+        *****
+        Tests
+        *****
+        
+        * Install ``rnbgrader``;
+        * Install the pytest_ testing framework::
+        
+            pip install pytest
+        
+        * Run the tests with::
+        
+            py.test rnbgrader
+        
+        *******
+        Support
+        *******
+        
+        Please put up issues on the `rnbgrader issue tracker`_.
+        
+        .. standalone-references
+        
+        .. |rnbgrader-documentation| replace:: `rnbgrader documentation`_
+        .. _rnbgrader documentation:
+            https://matthew-brett.github.com/rnbgrader/rnbgrader.html
+        .. _documentation: https://matthew-brett.github.com/rnbgrader
+        .. _pandoc: http://pandoc.org
+        .. _jupyter: jupyter.org
+        .. _homebrew: brew.sh
+        .. _sphinx: http://sphinx-doc.org
+        .. _rest: http://docutils.sourceforge.net/rst.html
+        .. _rnbgrader issue tracker: https://github.com/matthew-brett/rnbgrader/issues
+        .. _pytest: https://pytest.org
+        .. _mock: https://github.com/testing-cabal/mock
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Scientific/Engineering
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS
+Requires-Python: >=3.4
+Provides-Extra: test
