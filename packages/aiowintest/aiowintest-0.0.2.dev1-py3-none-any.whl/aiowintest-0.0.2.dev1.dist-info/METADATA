@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: aiowintest
+Version: 0.0.2.dev1
+Summary: Python implementation of the Win-Test UDP protocol
+Home-page: http://github.com/hin/aiowintest
+Author: Hans Insulander SM0UTY
+Author-email: hans@codium.se
+License: BSD 2-Clause "Simplified" License
+Platform: UNKNOWN
+Requires-Dist: asyncio
+
+UNKNOWN
+
+
