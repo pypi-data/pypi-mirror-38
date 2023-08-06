@@ -1,0 +1,47 @@
+/* for block of numbers */
+td.hljs-ln-numbers {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    text-align: right;
+    color: #ccc;
+    border-right: 2px solid #CCC;
+    vertical-align: right;
+    padding-right: 5px;
+}
+
+/* for block of code */
+td.hljs-ln-code {
+    padding-left: 10px;
+}
+
+hr {
+    padding: 0px;
+    margin: 5px;    
+}
+
+.btn-group-xs > .btn, .btn-xs {
+    padding  : .4rem;
+    font-size  : .875rem;
+    line-height  : .5;
+    border-radius : .2rem;
+}
+
+td.details-control {
+    background: url('https://datatables.net/examples/resources/details_open.png') no-repeat center center;
+    cursor: pointer;
+}
+
+tr.shown td.details-control {
+    background: url('https://datatables.net/examples/resources/details_close.png') no-repeat center center;
+}
+
+.material-icons {
+    display: inline-flex;
+    vertical-align: middle;
+    margin-top: -2px;
+}

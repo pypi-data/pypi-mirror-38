@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/select/1.2.6/css/select.dataTables.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/diff2html/2.3.3/diff2html.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
+
+    <link href="https://cdn.pydata.org/bokeh/release/bokeh-0.12.15.min.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="css/mystyle.css"/>
+
+    <title>Exprec</title>
+  </head>
+  <body>
+      <div style="margin: 10px">
+        <h2><i class='fas fa-flask text-primary'></i> Exprec</h2>
+        
+        <div id="sidebar" style="min-width: 200px; display: table-cell;">
+          <ul class="nav nav-tabs" id="sidebar-tabs" role="tablist">
+            <li class="nav-item">
+              <a data-toggle="pill" class="nav-link active text-center" href="#sidebar-filter" role="tab" style="width: 75px;"><i class="fas fa-filter"></i></a>
+            </li>
+          </ul>
+
+          <div class="tab-content">
+            <div id="sidebar-filter" role="tabpanel" class="tab-pane active">
+                <br>
+                <button id="show-inbox" class="btn btn-outline-primary button-inbox" style="width: 120px;"><i class="fas fa-inbox"></i> Inbox</button>
+                <br>
+                <button id="show-archive" class="btn btn-outline-primary button-inbox" style="width: 120px;"><i class="material-icons">archive</i> Archive</button>
+                <br><br>
+                <h5><i class="fas fa-tags"></i> Tags</h5>
+                <div id="tag-buttons"></div>
+            </div>
+          </div>
+        </div>
+
+        <div style="min-width: 10px; display: table-cell;"></div>
+
+        <div id="main-window" style="width: 100%; display: table-cell;">
+          <div id="main">
+            <button class="btn btn-primary button-toggle" style="height: 38px; width: 61px;" data-toggle="tooltip" title="Select/Deselect all"><i class="fas fa-adjust"></i></button>
+            <div class="btn-group" role="group">
+              <button class="btn btn-primary button-archive" style="height: 38px; width: 61px;" data-toggle="tooltip" title="Archive"><i class="material-icons">archive</i></button>
+              <button class="btn btn-primary button-delete" style="height: 38px; width: 61px;" data-toggle="tooltip" title="Delete"><i class="material-icons">delete</i></button>
+              <button class="btn btn-primary button-delete-files" style="height: 38px; width: 61px;" data-toggle="tooltip" title="Delete files"><i class="material-icons">clear_all</i></button>
+            </div>
+            <div class="btn-group" role="group">
+              <button class="btn btn-primary button-add-tags" style="height: 38px; width: 61px;" data-toggle="tooltip" title="Add tags"><i class="fa fa-plus"></i> <i class="fas fa-tags"></i></button>
+              <button class="btn btn-primary button-remove-tags" style="height: 38px; width: 61px;" data-toggle="tooltip" title="Remove tags"><i class="fa fa-minus"></i> <i class="fas fa-tags"></i></button>
+            </div>
+            <button class="btn btn-primary button-compare" style="height: 38px; width: 61px;" data-toggle="tooltip" title="Compare"><i class="material-icons">compare_arrows</i></button>
+
+            <hr>
+
+            <div id="experiment-table-div"></div>
+          </div>
+
+          <div id="experiments-div"></div>
+        </div>
+      </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.3.0/highlightjs-line-numbers.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>hljs.initLineNumbersOnLoad();</script>
+
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.colVis.min.js"></script>
+    <script src="https://cdn.datatables.net/select/1.2.6/js/dataTables.select.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/diff2html/2.3.3/diff2html.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/diff2html/2.3.3/diff2html-ui.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
+
+    <script src="https://cdn.pydata.org/bokeh/release/bokeh-0.12.15.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.min.js"></script>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
