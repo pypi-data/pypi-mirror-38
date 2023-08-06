@@ -1,0 +1,13 @@
+MANIFEST.in
+README.md
+setup.py
+django_young_america.egg-info/PKG-INFO
+django_young_america.egg-info/SOURCES.txt
+django_young_america.egg-info/dependency_links.txt
+django_young_america.egg-info/not-zip-safe
+django_young_america.egg-info/requires.txt
+django_young_america.egg-info/top_level.txt
+youngamerica/__init__.py
+youngamerica/admin.py
+youngamerica/apps.py
+youngamerica/models.py
