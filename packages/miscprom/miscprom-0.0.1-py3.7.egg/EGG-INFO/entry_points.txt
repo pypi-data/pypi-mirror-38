@@ -1,0 +1,8 @@
+[console_scripts]
+exporters = miscprom.standalone.manage:main
+
+[exporter]
+currency = miscprom.exporters.currency:Currency
+rescuetime = miscprom.exporters.rescuetime:RescueTime
+wanikani = miscprom.exporters.wanikani:VersionOne
+

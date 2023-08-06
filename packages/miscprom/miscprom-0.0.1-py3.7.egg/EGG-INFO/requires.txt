@@ -1,0 +1,14 @@
+dj_database_url
+Django==2.1.3
+envdir
+prometheus_client==0.4.2
+python-dateutil
+pytz
+raven
+requests
+
+[dev]
+unittest-xml-reporting
+
+[postgres]
+psycopg2
