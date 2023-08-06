@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: etl-pipeline
+Version: 0.0.2
+Summary: package for performing etl processing on csv files
+Home-page: UNKNOWN
+Author: Rinesh P R
+Author-email: rineshpr90@gmail.com
+License: UNKNOWN
+Description: Solution Overview:
+        etl_pipeline is a standalone module implemented in standard python 3.5.4 environment using standard libraries for performing data cleansing, preparation and enrichment before feeding it to the machine learning model.
+        This module contains a class etl_pipeline in which all functionalities are implemented. The class contains two public methods for performing ETL operations on input data:
+        load(): This method extracts data from input file and stores it as a python list in a private variable of the class for further processing in transform() method. The size of the list depends on the list of columns that are required in the output. This can be controlled using the parameters available in load() method.
+        transform():This method performs data transformation on the data stored in the list variable created by load method. The mapping rule can be passed as a parameter to transform() method.
+        Besides the two methods described above, there are other support methods (private) available in the class:
+        _get_delimiters: Returns delimiter and lineterminator of input file.
+        _format_rows: Returns row text as list of columns from the input file using delimiter and lineterminator to split.
+        _get_index: Generate a list of integers indicating the position/index of the values specified in select_list parameter of load() method with respect to the header(column names from file).
+        load_to_csv: Stores transformed data in a csv file in specified by input parameter. The file will be saved in default working directory in output.csv if no filename is specified.
+        The below list of class variables are available for debug and testing:
+        delimiter: Column delimiter in input file
+        lineterminator: Row delimiter used in input file
+        rejected_rows: Provides the list of rows that are excluded from dataset due to bad data. In case of any error while performing data transformation in transform() method, last entry in this list variable gives more details on the location and type of error. 
+        input_rows: Provides the list of rows that are used for data transform in the original format.
+        header:  Header row from the input file
+        select_list: List of columns that are present in output dataset.
+        load():
+        This method accepts following parameters:
+        1.	dataFile: it is a mandatory parameter to pass the input file name.
+        2.	header: it is an optional parameter to pass the header information. If it is not provided first row in the file will be used as header. Default value is None.
+        3.	select_list: it is an optional parameter containing the list of columns to be shown in the output. If it is not provided during function call, all columns in header will be available in output dataset. Default value is None.
+        4.	skip_rows_with: it is an optional parameter containing a single value or list of values used for identifying bad records. Default value â€˜-â€˜.
+        Example 1: â€˜-â€™ excludes the rows containing â€˜-â€™ in any column
+        Example 2: [â€˜-â€™,â€™NAâ€™] excludes the rows containing â€˜-â€™ or â€˜NAâ€™.
+        5.	delimiter: it is an optional parameter containing the column delimiter. If it is not provided during function call, _get_delimiter method will be used to get the value. Default value is None.
+        6.	lineterminator: it is an optional parameter containing the row delimiter. If it is not provided during function call, _get_delimiter method will be used to get the value. Default value is None.
+        
+         
+        transform(): 
+        This method accepts one optional parameter mapping_rule. No transformation will be applied on the data if a value is not provided.
+        If a mapping rule is passed as a dictionary, the output dataset will be transformed as defined.
+         
+        We can use a dictionary to pass mapping details of the columns which need data transformation in transform method. The column name is used as the dictionary key and the value corresponds to a list of function(s) to be applied on the column values. You can also pass the output data type for each column as last value in the list. 
+        This function returns a list of list containing the output dataset. The first list will be the header and remaining lists will be the values in row format. 
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.5
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
