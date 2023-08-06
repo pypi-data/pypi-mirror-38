@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: stdin
+Version: 2018.11.20
+Summary: stdin variable
+Home-page: https://github.com/looking-for-a-job/stdin.py
+License: UNKNOWN
+Keywords: stdin
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Software Development
+Description-Content-Type: text/markdown
+Requires-Dist: setuptools
+
+[![](https://img.shields.io/pypi/pyversions/stdin.svg?longCache=True)](https://pypi.org/pypi/stdin/)
+
+#### Install
+```bash
+$ [sudo] pip install stdin
+```
+
+#### Examples
+```bash
+$ echo "stdin text" | python -c "import stdin;print(stdin.STDIN)"
+stdin text
+
+$ python -c "import stdin;print(stdin.STDIN)"
+None
+```
+
+```python
+>>> import stdin
+
+>>> stdin.STDIN
+```
+
+<p align="center"><a href="https://pypi.org/project/readme-md/">readme-md</a> - README.md generator</p>
+
