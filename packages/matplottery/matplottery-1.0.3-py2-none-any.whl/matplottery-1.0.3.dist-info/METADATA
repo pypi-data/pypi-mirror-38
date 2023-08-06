@@ -1,0 +1,33 @@
+Metadata-Version: 2.0
+Name: matplottery
+Version: 1.0.3
+Summary: Nicer histograms with numpy and plotting with matplotlib
+Home-page: https://github.com/aminnj/matplottery
+Author: Nick Amin
+Author-email: amin.nj@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.7
+Requires-Dist: matplotlib (>2.0)
+Requires-Dist: numpy
+
+# matplottery
+
+[![PyPI version](https://badge.fury.io/py/matplottery.svg)](https://badge.fury.io/py/matplottery)
+
+Easy histogram creation/plotting with matplotlib, including importing of ROOT
+histograms with vanilla pyROOT or uproot. Plain numpy arrays are also supported
+with the usual `numpy.histogram()`.
+
+### Install
+`pip install matplottery`
+
+
+### Examples
+[Example notebook](examples/examples.ipynb)
+
+### Unit tests
+`python -m unittest discover -s tests -p "*.py"`
+
+
