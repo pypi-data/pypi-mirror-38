@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: jxctl
+Version: 0.0.2
+Summary: A Command line interface for Jenkins
+Home-page: https://github.com/deepan10/jxctl
+Author: Deepankumar
+Author-email: deepan0433@gmail.com
+License: UNKNOWN
+Description: # jxctl
+        A Command line interface for Jenkins
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
