@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: plover-splits
+Version: 0.0.1
+Summary: System for Plover that divides the left hand S
+Home-page: UNKNOWN
+Author: Gregory Chamberlain
+Author-email: chambln@pm.me
+License: GNU General Public License v2 or later (GPLv2+)
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Plugins
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: GNU General Public License v2 or later (GPLv2+)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Requires-Dist: plover (>=4.0.0.dev0)
+
+UNKNOWN
+
+
