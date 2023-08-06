@@ -1,0 +1,3 @@
+[console_scripts]
+filecompare = filecompare.__main__:main
+
