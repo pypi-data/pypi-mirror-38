@@ -1,0 +1,13 @@
+CHANGES.rst
+LICENSE
+MANIFEST.in
+README.rst
+setup.py
+glances_api/__init__.py
+glances_api/exceptions.py
+glances_api.egg-info/PKG-INFO
+glances_api.egg-info/SOURCES.txt
+glances_api.egg-info/dependency_links.txt
+glances_api.egg-info/requires.txt
+glances_api.egg-info/top_level.txt
+glances_api.egg-info/zip-safe
