@@ -1,0 +1,10 @@
+future
+pandas
+wrapt
+
+[dev]
+check-manifest
+
+[test]
+coverage
+nose
