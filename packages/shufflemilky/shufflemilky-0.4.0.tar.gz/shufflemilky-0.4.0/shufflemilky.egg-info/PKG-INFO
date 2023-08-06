@@ -1,0 +1,35 @@
+Metadata-Version: 1.0
+Name: shufflemilky
+Version: 0.4.0
+Summary: A simple shuffle player written in Python.
+Home-page: http://pypi.python.org/pypi/shufflemilky/
+Author: Samuel Freitas
+Author-email: samuelfreitas@linuxmail.org
+License: MIT
+Description: # ShuffleMilky
+        ![ShuffleMilky](https://github.com/samucafreitas/shufflemilky/blob/master/img/shufflemilky.png)
+        
+        <b>Terminal:</b> urxvt<br>
+        <b>Font:</b> Inconsolata
+        
+        # Installation
+        Python versions:
+        * Python 3.4+
+        
+        Install:
+        ```shell
+        pip install --user shufflemilky
+        ```
+        
+        # Usage
+        Command    |  Description
+        ---------- |  ---------
+          `q`      | Quit
+          `.`      | Vol Up
+          `,`      | Vol Down
+        
+        ## License
+        
+        [MIT](LICENSE)
+        
+Platform: unix
