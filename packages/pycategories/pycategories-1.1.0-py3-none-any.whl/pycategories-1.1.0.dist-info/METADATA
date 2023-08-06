@@ -1,0 +1,97 @@
+Metadata-Version: 2.1
+Name: pycategories
+Version: 1.1.0
+Summary: Implementation of some concepts from category theory
+Home-page: https://gitlab.com/danielhones/pycategories
+Author: Daniel Hones
+License: MIT
+Keywords: category theory,monoid,functor,applicative,monad,haskell
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Provides-Extra: dev
+Provides-Extra: docs
+Requires-Dist: infix (==1.2)
+Provides-Extra: dev
+Requires-Dist: flake8 (==3.6.0); extra == 'dev'
+Requires-Dist: flake8-per-file-ignores (==0.6); extra == 'dev'
+Requires-Dist: pytest; extra == 'dev'
+Requires-Dist: pytest-cov; extra == 'dev'
+Provides-Extra: docs
+Requires-Dist: Sphinx; extra == 'docs'
+Requires-Dist: sphinx-rtd-theme; extra == 'docs'
+Requires-Dist: flake8 (==3.6.0); extra == 'docs'
+Requires-Dist: flake8-per-file-ignores (==0.6); extra == 'docs'
+Requires-Dist: pytest; extra == 'docs'
+Requires-Dist: pytest-cov; extra == 'docs'
+
+Pycategories
+============
+
+|master pipeline| |master coverage|
+
+Pycategories is a Python 3 library that implements ideas from `category theory <https://en.wikipedia.org/wiki/Category_theory>`_, such as monoids, functors, and monads.  It provides a Haskell-influenced interface for defining instances of those typeclasses and defines several right out of the box, for example the Maybe monad:
+
+::
+
+   >>> from categories import apply
+   >>> from categories.maybe import Just, Nothing
+   >>> f = Just(lambda x: x ** 2)
+   >>> x = Just(17)
+   >>> apply(f, x)
+   Just(289)
+   >>> apply(f, Nothing())
+   Nothing
+
+Or to define your own instance of a typeclass:
+
+::
+
+   >>> from categories import mappend, mempty, monoid
+   >>> monoid.instance(dict, lambda: {}, lambda a, b: dict(**a, **b))
+   >>> mappend({'foo': 'bar'}, {'rhu': 'barb'})
+   {'foo': 'bar', 'rhu': 'barb'}
+
+
+Installation
+------------
+
+::
+
+   pip install pycategories
+
+
+To clone the repo and install dependencies for development: ::
+
+  git clone https://gitlab.com/danielhones/pycategories
+  cd pycategories
+  pip install -e .[dev]
+
+
+Support and Contributing
+------------------------
+
+* `Issue Tracker <https://gitlab.com/danielhones/pycategories/issues>`_
+* `Source code <https://gitlab.com/danielhones/pycategories>`_
+* `Contributing Guide <https://gitlab.com/danielhones/pycategories/blob/master/CONTRIBUTING.rst>`_
+
+
+License
+-------
+
+Pycategories is licensed under the `MIT License <https://gitlab.com/danielhones/pycategories/blob/master/LICENSE>`_
+
+
+Documentation
+-------------
+
+Documentation is available at `pycategories.readthedocs.io <http://pycategories.readthedocs.io/>`_
+
+
+.. |master pipeline| image:: https://gitlab.com/danielhones/pycategories/badges/master/pipeline.svg
+   :target: https://gitlab.com/danielhones/pycategories/commits/master
+.. |master coverage| image:: https://gitlab.com/danielhones/pycategories/badges/master/coverage.svg
+   :target: https://gitlab.com/danielhones/pycategories/commits/master
+
+

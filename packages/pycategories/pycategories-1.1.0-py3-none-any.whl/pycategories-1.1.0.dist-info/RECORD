@@ -1,0 +1,16 @@
+categories/__init__.py,sha256=BXlSGYSwPADbLlpma-KaO7DPm8ssl9MafIzi6Hp1hLw,376
+categories/applicative.py,sha256=T86TonCT6pTbirqrSqwzJvbGl1GuZmjkmCZOcIFbJkU,2887
+categories/builtins.py,sha256=gy6QzLlxIo1sN_1CAgSIdRpmbOgFq0QS5kPC0Riik7E,2509
+categories/either.py,sha256=6K14Y5x_YJmOx19cCaXGv_BEjeqST1H-cR675TtniQo,1372
+categories/functor.py,sha256=XWqTsOxBf1OkQ0udyBlbDO10gJUTjXyWQS0GKyVgNB8,956
+categories/instances.py,sha256=N8iEjJn4cA3S4u4GucLhE5Jd74UI28zC_E_i1IihGuc,576
+categories/maybe.py,sha256=BZKcsNk2WmvB4BGE3TYmS4mbcQTv0yblfeEU427hjZ8,1930
+categories/monad.py,sha256=CClkXvl3s8KaJIHW4eIKvrLkhANIkKN6Rt2wsc2baqk,1487
+categories/monoid.py,sha256=2iyO_aPsPq4RfMlYWeLxM02WDw_RYYfD-aphq5ljY8k,1165
+categories/semigroup.py,sha256=jh05Do1HP5ygrPfFLRAxskA7yd8NN5XgDd2-HueU9IA,795
+categories/utils.py,sha256=kr0fB7EeDtfWpLPX64WJ4USHpGSjGoiCeFWU9g8RWEE,949
+categories/validation.py,sha256=JwDPNl7Cc5ssvZv0n1go-kephnrGK8biyyUtjAyUScE,1481
+pycategories-1.1.0.dist-info/METADATA,sha256=JV9FChW0Zstl0wnPkD-lgpHjn5QJeFpUKu65Ynp3FZU,3016
+pycategories-1.1.0.dist-info/RECORD,,
+pycategories-1.1.0.dist-info/WHEEL,sha256=FRuHuBX28RTgsOL603qIpbSc2WeDgbsFBWKj9XFOCpg,92
+pycategories-1.1.0.dist-info/top_level.txt,sha256=t17b33GZCpOT85_HvS_8CrQcVqmvajrs41nWXGmOb04,11
