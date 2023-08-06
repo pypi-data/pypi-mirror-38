@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: popsynth
+Version: 0.1.0
+Summary: A population synthesis code for testing
+Home-page: https://github.com/grburgess/popsynth
+Author: J. Michael Burgess
+Author-email: jmichaelburgess@gmail.com
+License: BSD
+Description: 
+        # popsynth
+        
+        A simple OO population synthesis code designed for testing population inference in Stan. It also makes a lot of pretty pictures.
+        
+        ![alt text](https://raw.githubusercontent.com/grburgess/popsynth/master/pop.png)
+        
+Platform: UNKNOWN
+Requires-Python: >=2.7.0
+Description-Content-Type: text/markdown
