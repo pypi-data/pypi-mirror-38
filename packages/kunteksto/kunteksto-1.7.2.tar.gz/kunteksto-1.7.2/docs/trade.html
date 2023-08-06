@@ -1,0 +1,257 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>&lt;no title&gt; &mdash; Kunteksto - Context for Your Data</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Kunteksto
+          
+
+          
+            
+            <img src="_static/Kunteksto_logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.7.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction and Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="start.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configure.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Advanced Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="future.html">The Future</a></li>
+<li class="toctree-l1"><a class="reference internal" href="develop.html">Developing Kunteksto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License &amp; Usage</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Kunteksto</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>&lt;no title&gt;</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/trade.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This dataset contains more than 8 million rows of data. If you are using the free version of AllegroGraphDB then processing this file will exceed the 5 million triples limit many times over. The file will still process and all of the XML files will be generated. However, most of the triples will not be stored in AllegroGraph.</p>
+</div>
+<p>The original data set is provided at <a class="reference external" href="http://data.un.org/DataMartInfo.aspx#ComTrade">UNdata Comtrade</a> site.</p>
+<p>The best source (easiest download) of this data is the <a class="reference external" href="https://www.kaggle.com/unitednations/global-commodity-trade-statistics">Kaggle Competition</a></p>
+<p><a class="reference external" href="https://www.kaggle.com/unitednations/global-commodity-trade-statistics/data">Download the dataset</a> Extract the CSV data and place it the <em>kunteksto/example_data</em> directory.</p>
+<p>The metadata (click on Data then on the Column Metadata tab) information may be useful in filling in the database <em>model</em> and <em>record</em> tables. However, it is somewhat incomplete. You can find more metadata information about this dataset in the <a class="reference external" href="https://comtrade.un.org/db/mr/rfGlossaryList.aspx#">UNdata Glossary</a>. There is also a <a class="reference external" href="https://unstats.un.org/unsd/tradekb/Knowledgebase/901">knowledgebase</a> that describes how the data was collected and some hints on how to use it. Asyou can see, the metadata is not very organized nor is it computable. S3Model and related datacentric tools allow you to solve this issue with any data of interest.</p>
+<p>After you have downloaded the dataset from Kaggle or even a subset from the UNdata site; you are ready to proceed with the tutorial.</p>
+<p>Following the same step by step procedures outlined in the <em>Getting Started</em> section.</p>
+<ul class="simple">
+<li>Navigate to the directory where you installed Kunteksto.</li>
+<li>Be certain the virtual environment is active.</li>
+</ul>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p>If you closed and reopened a new window, then you need to activate the environment again. Also, be sure that you are in the <em>kunteksto</em> directory.</p>
+<p><strong>Windows</strong></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>activate &lt;path/to/directory&gt;
+</pre></div>
+</div>
+<p><strong>or Linux/MacOSX</strong></p>
+<div class="last highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> activate &lt;path/to/directory&gt;
+</pre></div>
+</div>
+</div>
+<p>For this tutorial, you start Kunteksto in commandline mode.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>kunteksto -m all -i example_data/commodity_trade_statistics_data.csv
+</pre></div>
+</div>
+<p>Kunteksto takes a few minutes analyzing the input file and creates a results database in the <em>output</em> directory.</p>
+<p>The database editor opens and just like in the previous tutorial, prompts you for model metadata which you can collect from the links above.</p>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p class="last">As you edit the data for each column, be sure to persist your changes using the <strong>Save</strong> button before advancing to the <strong>Next</strong> column.</p>
+</div>
+<p>As before, each column is presented for you to add constraints and metadata from the information you collect from the links above or from your own personal knowledge. Remember, this is <em>your</em> model of this data. Using the best details creates the best models.</p>
+<p>Be sure to check the datatype detected of columns as well as value constraints. For example the “The year” column is detected as an integer column. Obviously this is not valid. For temporals, Kunteksto only offers data, time and datetime options. Using the Datacentric Tool Suite would allow you to create this properly as a <em>Year</em> datatype column. So, using Kunteksto you must choose the most appropriate which in this case is more likely to be <em>String</em>.</p>
+<p>Often we must be creative when deciding which URI to use for a Defining URL. Our suggested approach when you do not have a specific, online vocabulary or ontology is to use resources such as the glossary mentioned above. For the <em>The Year</em> column we might use <a class="reference external" href="https://comtrade.un.org/db/mr/rfGlossaryList.aspx#Year">https://comtrade.un.org/db/mr/rfGlossaryList.aspx#Year</a> for the Defining URL and then copy the description from that row in the table.</p>
+<p>In the Predicates &amp; Objects we can use</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>skos:exactMatch http://www.w3.org/2001/XMLSchema#gYear
+</pre></div>
+</div>
+<p>Go through each of the column definitions and complete as many data points about each column as you can and that make sense.
+For example, changing the <em>The weight kg</em> column from String to Decimal will help detect missing or invalid values. Then add the ‘kg’ for the units.</p>
+<p>The output RDF will be in the Kunteksto repository in AllegroGraph which you can explore through the AllegroGraph WebView browser tool or using <a class="reference external" href="https://franz.com/agraph/gruff/">Gruff</a> which I <strong>HIGHLY</strong> recommend. You can also explore the XML using the <a class="reference external" href="http://basex.org/basex/gui/">BaseX GUI</a>.</p>
+<p>There are many written and video tutorials on using these tools. Check the <a class="reference external" href="https://www.youtube.com/user/AllegroGraph/videos">AllegroGraph YouTube Channel</a> and the <a class="reference external" href="http://docs.basex.org/wiki/Getting_Started">BaseX Getting Started</a>.</p>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Data Insights, Inc.
+      Last updated on 2018-11-25 07:14.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

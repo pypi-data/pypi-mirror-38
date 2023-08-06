@@ -1,0 +1,37 @@
+Metadata-Version: 1.2
+Name: kunteksto
+Version: 1.7.2
+Summary: The tool to translate your CSV data files into RDF, XML and JSON with full semantics and syntactic validation.
+Home-page: https://datainsights.tech/
+Author: Timothy W. Cook
+Author-email: tim@datainsights.tech
+License: UNKNOWN
+Download-URL: https://github.com/DataInsightsInc/Kunteksto/archive/1.7.2.tar.gz
+Description: **Kunteksto** (ˈkänˌteksto) is a tool to help domain experts, data scientists, data creators and data users translate CSV data files 
+        into the semantically enhanced formats that provide computable metadata. 
+            
+        This process speeds up data cleaning and provides a path for data sharing Linked Open Vocabularies.
+            
+        See the Homepage Link for more details.
+            
+Keywords: context rdf xml machine learning data-centric semantic interoperability semantics
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Customer Service
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: Financial and Insurance Industry
+Classifier: Intended Audience :: Healthcare Industry
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Legal Industry
+Classifier: Intended Audience :: Manufacturing
+Classifier: Intended Audience :: Other Audience
+Classifier: Intended Audience :: Religion
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: System Administrators
+Classifier: Intended Audience :: Telecommunications Industry
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Requires-Python: >=3.6

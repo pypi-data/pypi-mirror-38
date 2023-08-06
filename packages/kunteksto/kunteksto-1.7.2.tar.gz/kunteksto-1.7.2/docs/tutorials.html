@@ -1,0 +1,486 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Advanced Tutorials &mdash; Kunteksto - Context for Your Data</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="The Future" href="future.html" />
+    <link rel="prev" title="Configuration" href="configure.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Kunteksto
+          
+
+          
+            
+            <img src="_static/Kunteksto_logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.7.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction and Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="start.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configure.html">Configuration</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Advanced Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#marklogic-9">MarkLogic 9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">BaseX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">AllegroGraph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database-checks">Database Checks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#viewing-the-allegrograph-rdf-repository">Viewing the AllegroGraph RDF Repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-your-data-in-marklogic">Using Your Data in MarkLogic</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#us-honey-production">US Honey Production</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#global-commodity-trade-statistics">Global Commodity Trade Statistics</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="future.html">The Future</a></li>
+<li class="toctree-l1"><a class="reference internal" href="develop.html">Developing Kunteksto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License &amp; Usage</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Kunteksto</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Advanced Tutorials</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/tutorials.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="advanced-tutorials">
+<span id="advtutor"></span><h1>Advanced Tutorials<a class="headerlink" href="#advanced-tutorials" title="Permalink to this headline">¶</a></h1>
+<p>Below are additional tutorials to perform after the <strong>Getting Started</strong> <a class="reference internal" href="start.html#tutor"><span class="std std-ref">Tutorial/Demo</span></a>.</p>
+<p>It is suggested that you install one or more of the following databases for these tutorials.</p>
+<p><a class="reference external" href="https://franz.com/agraph/downloads/?ui=new">AllegroGraph</a> database for creating your semantic graph.</p>
+<p><a class="reference external" href="http://basex.org">BaseX</a> database for storing your XML documents.</p>
+<p><cite>MarkLogic 9 &lt;&gt;</cite> database can store all three types of content; XML, RDF and JSON and has many additional features.</p>
+<p>If you are not familiar with semantic graph databases please see the following links:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="https://allegrograph.com/support/documentation/current/agraph-introduction.html">AllegroGraph Documentation</a></li>
+<li><a class="reference external" href="https://docs.marklogic.com/guide/getting-started/semantics">MarkLogic Getting Started w/Semantics</a></li>
+</ul>
+</div></blockquote>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="marklogic-9">
+<h3>MarkLogic 9<a class="headerlink" href="#marklogic-9" title="Permalink to this headline">¶</a></h3>
+<p>See the <a class="reference external" href="https://docs.marklogic.com/guide/installation/intro">Installation instructions</a> for details.</p>
+</div>
+<div class="section" id="id1">
+<h3>BaseX<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>BaseX requires Java 8 for your platform.</p>
+<p>Please <a class="reference external" href="http://basex.org/download/">download the ZIP file</a> and extract it into your home directory.</p>
+<p>Start the server using the <a class="reference external" href="http://docs.basex.org/wiki/Startup">Client/Server instructions</a>. You will use the client in later parts of the tutorial.</p>
+</div>
+<div class="section" id="id2">
+<h3>AllegroGraph<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://franz.com/agraph/downloads/?ui=new">Download and Install the server for your platform based on these instructions</a> .</p>
+<p>When asked for the superuser username and password use these:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>user: admin
+password: admin
+</pre></div>
+</div>
+<p>If you use another username or password, you must edit the entries in kunteksto.conf using a text editor. See below for editing kunteksto.conf.</p>
+<p>When the server is installed and running, install the <a class="reference external" href="https://franz.com/agraph/gruff/download/index.clp?ui=new">Gruff GUI client</a> for AllegroGraph. You will use this later in the tutorials.</p>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p>Only edit the configuration file with a text editor. Do not use a word processing application such as MS Word or LibreOffice. There are many great text editors from which to choose.  Some favorites, in no particular order, are:</p>
+<blockquote class="last">
+<div><ul class="simple">
+<li><a class="reference external" href="https://atom.io/">Atom</a></li>
+<li><a class="reference external" href="https://code.visualstudio.com/">VS Code</a></li>
+<li><a class="reference external" href="https://www.sublimetext.com/">Sublime</a></li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="configuration">
+<h3>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h3>
+<p>Using a text editor, edit the <em>status</em> entries in kunteksto.conf for [BASEX] and [ALLEGROGRAPH]. Change them from INACTIVE to ACTIVE. When completed they should look like this:</p>
+<p>For BaseX:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[BASEX]
+status: ACTIVE
+host: localhost
+port: 1984
+dbname: Kunteksto
+user: admin
+password: admin
+</pre></div>
+</div>
+<p>For AllegroGraph:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[ALLEGROGRAPH]
+status: ACTIVE
+host: localhost
+port: 10035
+repo: Kunteksto
+user: admin
+password: admin
+</pre></div>
+</div>
+<p>For MarkLogic:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[MARKLOGIC]
+status: ACTIVE
+loadxml: True
+loadrdf: True
+loadjson: True
+hostip: 192.168.25.120
+hostname: localhost.localdomain
+port: 8020
+dbname: Kunteksto
+forests: 2
+user: admin
+password: admin
+</pre></div>
+</div>
+<p>Most users will run MarkLogic on another networked machine or using VirtualBox with a CentOS installation. Use the IP Address
+of that machine or VirtualBox for the <em>hostip</em> value.</p>
+<p>The <em>port</em> is the location that Kunteksto will use to create your REST API for the DB.</p>
+<p>For the tutorials just leave the number of forests at 2.</p>
+<p>The host name can be found by going to <a class="reference external" href="http:/">http:/</a>/&lt;hostip&gt;:8001/default.xqy then look in the box in the lower-right labeled <strong>Hosts</strong>.
+You probably only have one and it is labeled <em>Default</em> use this value.</p>
+<p>Unless you are using MarkLogic for JSON persistence you will likely want to turn off JSON generation.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>; Default data formats to create. Values are True or False.
+; These can be changed in the UI before generating data.
+xml: True
+rdf: True
+json: False
+</pre></div>
+</div>
+</div>
+<div class="section" id="database-checks">
+<h3>Database Checks<a class="headerlink" href="#database-checks" title="Permalink to this headline">¶</a></h3>
+<p>From the kunteksto directory run</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python utils/db_setup.py
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>This python script tests the database connections and installs the S3Model ontology and 3.1.0 Reference Model RDF.</p>
+<p class="last"><strong>It clears any previously stored data in the databases and reinstalls the required files.</strong></p>
+</div>
+<p>During execution, the script displays several lines of output to the terminal.
+If you are using AllegroGraph and BaseX then look for <em>AllegroGraph connections are okay.</em> and <em>BaseX connections are okay.</em> or any lines that start with <strong>ERROR:</strong>.</p>
+<p>The MarkLogic checks will display several lines of information as well. As long as the script ends with the message
+<em>Database Setup is finished.</em>  then everything went ok.</p>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p class="last">If you see the <em>okay</em> output lines and no <strong>ERROR:</strong> lines, then all went well.
+Otherwise, you must troubleshoot these issues before continuing.</p>
+</div>
+</div>
+<div class="section" id="viewing-the-allegrograph-rdf-repository">
+<h3>Viewing the AllegroGraph RDF Repository<a class="headerlink" href="#viewing-the-allegrograph-rdf-repository" title="Permalink to this headline">¶</a></h3>
+<p>You can view the Kunteksto repository by using <a class="reference external" href="http://127.0.0.1:10035/#/repositories/Kunteksto">this link</a> in a browser.
+Right click and open it in a new tab. Then under <strong>Explore the Repository</strong> click the <em>View Triples</em> link.
+These triples are the S3Model ontology and the S3Model 3.1.0 RDF. These triples connect all of your RDF into a graph,
+even when they do not have other semantics linking them.</p>
+<p>You may also use the Gruff GUI Client to explore the respoitory at any time. See the <a class="reference external" href="https://franz.com/agraph/gruff/learning-center.lhtml">Franz, Inc. Learning Center</a> for more information.</p>
+</div>
+<div class="section" id="using-your-data-in-marklogic">
+<h3>Using Your Data in MarkLogic<a class="headerlink" href="#using-your-data-in-marklogic" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference external" href="https://developer.marklogic.com/">MarkLogic Developer Network</a> is extensive. They provide an enormous amount of
+high quality training as well a number of open source tools to assit with data exploration and application design.</p>
+<p>Now you have high quality data in a knowledge graph. <a class="reference external" href="https://www.youtube.com/watch?v=ndmHYcQU2d4">BI Tools and MarkLogic NoSQL</a>
+demonstrates in less than 7 minutes how to use external tools to use your data.</p>
+<p><strong>The Tutorials begin here.</strong></p>
+</div>
+</div>
+<div class="section" id="us-honey-production">
+<span id="honeytutor"></span><h2>US Honey Production<a class="headerlink" href="#us-honey-production" title="Permalink to this headline">¶</a></h2>
+<p>The source of this data is from the <a class="reference external" href="https://www.kaggle.com/jessicali9530/honey-production">Kaggle project</a></p>
+<p><a class="reference external" href="https://www.kaggle.com/jessicali9530/honey-production/data">The dataset is available here</a>.</p>
+<p>Download <strong>honeyproduction.csv</strong> data set for this tutorial and place it in the  <em>kunteksto/example_data</em> directory.</p>
+<p>For those without an account on Kaggle, we have included a copy in the example_data directory.</p>
+<p>The metadata (click on Data then on the Column Metadata tab) information is useful when filling in the database <em>model</em> and <em>record</em> tables.</p>
+<p>You can find more metadata information about this dataset in <a class="reference external" href="https://www.kaggle.com/jessicali9530/wrangling-the-honey-production-dataset/data">Wrangling The Honey Production Dataset</a>.</p>
+<p>Following the same step by step procedures outlined in the <em>Getting Started</em> section.</p>
+<ul class="simple">
+<li>Navigate to the directory where you installed Kunteksto.</li>
+<li>Be certain the virtual environment is active.</li>
+</ul>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p>If you closed and reopened a new window, then you need to activate the environment again. Also, be sure that you are in the <em>kunteksto</em> directory.</p>
+<p><strong>Windows</strong></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>activate &lt;path/to/directory&gt;
+</pre></div>
+</div>
+<p><strong>or Linux/MacOSX</strong></p>
+<div class="last highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> activate &lt;path/to/directory&gt;
+</pre></div>
+</div>
+</div>
+<p>For this tutorial, you will run Kunteksto in commandline mode.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>kunteksto -m all -i example_data/honeyproduction.csv
+</pre></div>
+</div>
+<p>Kunteksto takes a few minutes analyzing the input file and creates a results database in the <em>output</em> directory.</p>
+<p>The database editor opens and just like in the previous tutorial, prompts you for model metadata which you can collect from the links above.
+After you click the <em>Save &amp; Exit</em> button. The column editor will open.</p>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p class="last">As you edit the data for each column, be sure to persist your changes using the <strong>Save</strong> button before advancing to the <strong>Next</strong> column.</p>
+</div>
+<p>As before, each column is presented for you to add constraints and metadata from the information you collect from the links above or from your own personal knowledge. Remember, this is <em>your</em> model of this data. Using the best details creates the best models.</p>
+<p>Often we must be creative when deciding which URI to use for a Defining URL. Our suggested approach when you do not have a specific, online vocabulary or ontology is to use resources such as the metadata mentioned above.</p>
+<p>For the <em>The state</em> column we might use <a class="reference external" href="https://www.kaggle.com/jessicali9530/honey-production/data#state">https://www.kaggle.com/jessicali9530/honey-production/data#state</a> for the Defining URL and then copy the description from that row in the Column Metadata tab.</p>
+<p>For additional semantics (Predicates &amp; Objects box) it is best to use <a class="reference external" href="https://lov.okfn.org/dataset/lov/">open vocabularies</a> when possible. This gives you the ability to easily connect data across models. If you go to the link for open vocabularies and type “State” into the search box you will see a list of options to choose from. A good choice here is to use the one from Schema.org because this is a popular vocabulary for website mark up. We have an <em>Object</em> now we need a <em>Predicate</em>. Since we want to indicate that this is the meaning of this item, type <em>meaning of</em> into the search box on the open vocabularies site. Notice that rdf:type is one of the first choices and the description makes sense. If you put together the two description phrases you get; “The subject is an instance of a class” “A state or province of a country”. The values in this column are instances of (a representation) of a state or province. Therefore we have a good match.</p>
+<p>In the Predicates &amp; Objects enter:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>rdf:type http://schema.org/State
+</pre></div>
+</div>
+<p>Click the <em>Save</em> button, then the <em>Next</em> button to move to the <em>The numcol</em> column. Looking at the meatdata you may choose to change the label to something more readable, like <em>Colonies</em>.</p>
+<p>Go through each of the column definitions and complete as many data points about each column as you can and that make sense. Feel free to use meaning names as the labels.</p>
+<p>Remember also that numeric columns need a Units designator. Also some columns may be detected as integer or decimal and the range of values are outside the boundaries of those types. In this case be sure to change the type to <em>Float</em>.</p>
+<p>Columns like <em>The year</em> are detected as integers. However, this is really a temporal value. In Kunteksto we cannot have a temporal datatype with just a year. So change this to <em>String</em> and in the Predicates and Objects box use</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>rdf:type http://www.w3.org/2001/XMLSchema#gYear
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In <a class="reference external" href="https://datainsights.tech/S3Model/">S3Model</a> it is possible to have all of the temporal types. The <a class="reference external" href="https://datainsights.tech/datacentrictools/">Datacentric Tools Suite</a> provides facilities to create these datatypes.</p>
+</div>
+<p>Once you complete editing of all of the columns, click the <em>Exit</em> button. The GUI will remain on the screen while the data generation process is running. The terminal where you started Kunteksto will scroll messages about the progress.</p>
+<p>After the processing is complete review <em>output/honeyproduction/honeyproduction_validation_log.csv</em> to see which files are invalid.
+The error message from the validator may be a bit cryptic but it’s what we have to work with. Just like with the Demo tutorial, the errors are also included in the Semantic Graph via the RDF.</p>
+<p>The output RDF will be in the Kunteksto repository in AllegroGraph which you can explore through the AllegroGraph WebView browser tool or using <a class="reference external" href="https://franz.com/agraph/gruff/">Gruff</a> which I <strong>HIGHLY</strong> recommend. You can also explore the XML using the <a class="reference external" href="http://basex.org/basex/gui/">BaseX GUI</a>.</p>
+<p>There are many written and video tutorials on using these tools. Check the <a class="reference external" href="https://www.youtube.com/user/AllegroGraph/videos">AllegroGraph YouTube Channel</a> and the <a class="reference external" href="http://docs.basex.org/wiki/Getting_Started">BaseX Getting Started</a>.</p>
+</div>
+<div class="section" id="global-commodity-trade-statistics">
+<span id="tradetutor"></span><h2>Global Commodity Trade Statistics<a class="headerlink" href="#global-commodity-trade-statistics" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This dataset contains more than 8 million rows of data. If you are using the free version of AllegroGraphDB then processing this file will exceed the 5 million triples limit many times over. The file will still process and all of the XML files will be generated. However, most of the triples will not be stored in AllegroGraph.</p>
+</div>
+<p>The original data set is provided at <a class="reference external" href="http://data.un.org/DataMartInfo.aspx#ComTrade">UNdata Comtrade</a> site.</p>
+<p>The best source (easiest download) of this data is the <a class="reference external" href="https://www.kaggle.com/unitednations/global-commodity-trade-statistics">Kaggle Competition</a></p>
+<p><a class="reference external" href="https://www.kaggle.com/unitednations/global-commodity-trade-statistics/data">Download the dataset</a> Extract the CSV data and place it the <em>kunteksto/example_data</em> directory.</p>
+<p>The metadata (click on Data then on the Column Metadata tab) information may be useful in filling in the database <em>model</em> and <em>record</em> tables. However, it is somewhat incomplete. You can find more metadata information about this dataset in the <a class="reference external" href="https://comtrade.un.org/db/mr/rfGlossaryList.aspx#">UNdata Glossary</a>. There is also a <a class="reference external" href="https://unstats.un.org/unsd/tradekb/Knowledgebase/901">knowledgebase</a> that describes how the data was collected and some hints on how to use it. Asyou can see, the metadata is not very organized nor is it computable. S3Model and related datacentric tools allow you to solve this issue with any data of interest.</p>
+<p>After you have downloaded the dataset from Kaggle or even a subset from the UNdata site; you are ready to proceed with the tutorial.</p>
+<p>Following the same step by step procedures outlined in the <em>Getting Started</em> section.</p>
+<ul class="simple">
+<li>Navigate to the directory where you installed Kunteksto.</li>
+<li>Be certain the virtual environment is active.</li>
+</ul>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p>If you closed and reopened a new window, then you need to activate the environment again. Also, be sure that you are in the <em>kunteksto</em> directory.</p>
+<p><strong>Windows</strong></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>activate &lt;path/to/directory&gt;
+</pre></div>
+</div>
+<p><strong>or Linux/MacOSX</strong></p>
+<div class="last highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> activate &lt;path/to/directory&gt;
+</pre></div>
+</div>
+</div>
+<p>For this tutorial, you start Kunteksto in commandline mode.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>kunteksto -m all -i example_data/commodity_trade_statistics_data.csv
+</pre></div>
+</div>
+<p>Kunteksto takes a few minutes analyzing the input file and creates a results database in the <em>output</em> directory.</p>
+<p>The database editor opens and just like in the previous tutorial, prompts you for model metadata which you can collect from the links above.</p>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p class="last">As you edit the data for each column, be sure to persist your changes using the <strong>Save</strong> button before advancing to the <strong>Next</strong> column.</p>
+</div>
+<p>As before, each column is presented for you to add constraints and metadata from the information you collect from the links above or from your own personal knowledge. Remember, this is <em>your</em> model of this data. Using the best details creates the best models.</p>
+<p>Be sure to check the datatype detected of columns as well as value constraints. For example the “The year” column is detected as an integer column. Obviously this is not valid. For temporals, Kunteksto only offers data, time and datetime options. Using the Datacentric Tool Suite would allow you to create this properly as a <em>Year</em> datatype column. So, using Kunteksto you must choose the most appropriate which in this case is more likely to be <em>String</em>.</p>
+<p>Often we must be creative when deciding which URI to use for a Defining URL. Our suggested approach when you do not have a specific, online vocabulary or ontology is to use resources such as the glossary mentioned above. For the <em>The Year</em> column we might use <a class="reference external" href="https://comtrade.un.org/db/mr/rfGlossaryList.aspx#Year">https://comtrade.un.org/db/mr/rfGlossaryList.aspx#Year</a> for the Defining URL and then copy the description from that row in the table.</p>
+<p>In the Predicates &amp; Objects we can use</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>skos:exactMatch http://www.w3.org/2001/XMLSchema#gYear
+</pre></div>
+</div>
+<p>Go through each of the column definitions and complete as many data points about each column as you can and that make sense.
+For example, changing the <em>The weight kg</em> column from String to Decimal will help detect missing or invalid values. Then add the ‘kg’ for the units.</p>
+<p>The output RDF will be in the Kunteksto repository in AllegroGraph which you can explore through the AllegroGraph WebView browser tool or using <a class="reference external" href="https://franz.com/agraph/gruff/">Gruff</a> which I <strong>HIGHLY</strong> recommend. You can also explore the XML using the <a class="reference external" href="http://basex.org/basex/gui/">BaseX GUI</a>.</p>
+<p>There are many written and video tutorials on using these tools. Check the <a class="reference external" href="https://www.youtube.com/user/AllegroGraph/videos">AllegroGraph YouTube Channel</a> and the <a class="reference external" href="http://docs.basex.org/wiki/Getting_Started">BaseX Getting Started</a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="future.html" class="btn btn-neutral float-right" title="The Future" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="configure.html" class="btn btn-neutral" title="Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Data Insights, Inc.
+      Last updated on 2018-11-25 07:14.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

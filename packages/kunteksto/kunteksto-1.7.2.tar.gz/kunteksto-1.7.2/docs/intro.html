@@ -1,0 +1,403 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introduction and Installation &mdash; Kunteksto - Context for Your Data</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Getting Started" href="start.html" />
+    <link rel="prev" title="Kunteksto" href="index.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Kunteksto
+          
+
+          
+            
+            <img src="_static/Kunteksto_logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.7.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction and Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#purpose">Purpose</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#target-audience">Target Audience</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cross-platform-on-anaconda">Cross-Platform on Anaconda</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#update-to-a-new-version">Update to a New Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-are-all-the-files-for">What are all the files for?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#files">Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#directories">Directories</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="start.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configure.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Advanced Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="future.html">The Future</a></li>
+<li class="toctree-l1"><a class="reference internal" href="develop.html">Developing Kunteksto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License &amp; Usage</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Kunteksto</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Introduction and Installation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/intro.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction-and-installation">
+<h1>Introduction and Installation<a class="headerlink" href="#introduction-and-installation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="purpose">
+<h2>Purpose<a class="headerlink" href="#purpose" title="Permalink to this headline">¶</a></h2>
+<p><strong>Kunteksto</strong> (ˈkänˌteksto) <a class="footnote-reference" href="#f1" id="id1">[1]</a> is a tool to translate simple CSV formatted data files into computable,
+semantically enhanced knowledge representations. As a foundation for <strong>crowdsourced</strong>, <em>automated knowledge base construction</em>;
+it provides a path for existing data sets to be used in conjunction with the emerging <em>graph data, model first</em> approach in analysis,
+general artificial intelligence (AGI), and decision support systems. This approach opens the door for the change to a <em>data-centric</em>
+world as opposed to the <em>application-centric</em> one we have now. This new approach enables automatic interoperability avoiding the data
+quality issues created through data migration, cleaning and massaging. See <a class="reference internal" href="start.html#mlai"><span class="std std-ref">Machine Learning &amp; AI</span></a></p>
+<p>The importance of how this simplifies query and analysis capabilities and improves data quality is discussed in foundational
+<a class="reference external" href="https://datainsights.tech/S3Model">S3Model</a> documentation and references. However, detailed understanding of S3Model is not
+required to understand and use the power of Kunteksto. Additional information on the datacentric movement can be found below <a class="footnote-reference" href="#f2" id="id2">[2]</a></p>
+<div class="section" id="target-audience">
+<h3>Target Audience<a class="headerlink" href="#target-audience" title="Permalink to this headline">¶</a></h3>
+<p>Kunteksto design is based on the ability for <em>domain experts</em> from any field, with very little programming ability to quickly
+annotate data extracts to improve the usability of the data.  Data engineers and data scientists can also benefit from Kunteksto
+in the same ways as domain experts. It just takes a bit more research to discover the semantics that the original domain experts
+usually have at hand.</p>
+</div>
+</div>
+<div class="section" id="installation">
+<span id="install"></span><h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="cross-platform-on-anaconda">
+<h3>Cross-Platform on Anaconda<a class="headerlink" href="#cross-platform-on-anaconda" title="Permalink to this headline">¶</a></h3>
+<p>Anaconda is the <strong>preferred environment</strong> for a tool like Kunteksto because it integrates easily with systems for domain experts, data engineers, and data scientists.</p>
+<ul class="simple">
+<li><a class="reference external" href="https://www.continuum.io/downloads">Download and install</a> Anaconda Python 3.7+ for your platform.</li>
+<li>More detailed Anaconda instructions are <a class="reference external" href="https://docs.continuum.io/anaconda/install/">here</a>  if you prefer.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Anaconda now offers to install the <a class="reference external" href="https://code.visualstudio.com/download">VS Code editor</a>. Unless you already have a preferred text editor,
+this is a good choice.</p>
+</div>
+<ul class="simple">
+<li>Open a terminal window and create a conda environment. On Windows it is best to open an <em>Anaconda Prompt</em> terminal from the Anaconda menu:</li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>conda create -p kunteksto <span class="nv">python</span><span class="o">=</span><span class="m">3</span> pycurl ujson
+</pre></div>
+</div>
+<ul class="simple">
+<li>Change to the directory</li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> kunteksto
+</pre></div>
+</div>
+<ul class="simple">
+<li>Activate the environment according to the instructions shown by Anaconda in the terminal window.</li>
+</ul>
+<p><strong>Windows</strong></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>activate &lt;path/to/directory&gt;
+</pre></div>
+</div>
+<p><strong>or Linux/MacOSX</strong></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> activate &lt;path/to/directory&gt;
+</pre></div>
+</div>
+<ul class="simple">
+<li>Windows users <strong>may</strong> need to manually install the pycurl library using this command:</li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>conda install pycurl
+</pre></div>
+</div>
+<p>trying will not damage anything but it may fail or just report that pycurl is the current version.</p>
+<ul class="simple">
+<li>install Kunteksto</li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip install kunteksto
+</pre></div>
+</div>
+<p>These quick steps create a virtual environment in the subdirectory <em>kunteksto</em>. Once the environment is created, conda displays how to activate the environment. When activated then Kunteksto is installed in the subdirectory along with the environment.</p>
+<p>The last step is to do the <a class="reference internal" href="start.html#tutor"><span class="std std-ref">Tutorial/Demo</span></a></p>
+</div>
+</div>
+<div class="section" id="update-to-a-new-version">
+<h2>Update to a New Version<a class="headerlink" href="#update-to-a-new-version" title="Permalink to this headline">¶</a></h2>
+<p>When you want to upgrade to a new version of Kunteksto you can use the line below in your terminal where you have activated the virtual environment.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip install  kunteksto --upgrade --no-cache-dir
+</pre></div>
+</div>
+<p>Be certain that you remove any project based catalog files from the <em>kunteksto/catalogs</em> directory. For example the <em>Demo_catalog.xml</em> file.</p>
+</div>
+<div class="section" id="what-are-all-the-files-for">
+<h2>What are all the files for?<a class="headerlink" href="#what-are-all-the-files-for" title="Permalink to this headline">¶</a></h2>
+<p>Depending on how and where you installed Kunteksto you will see a varying number of files and subdirectories. Many of them may be part of the Anaconda environment, so we do not cover those.</p>
+<p>Referenced from the <em>kunteksto</em> directory created at install time:</p>
+<div class="section" id="files">
+<h3>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>README.md</dt>
+<dd>A brief explanation of Kunteksto’s purpose and links to background information.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>LICENSE.txt</dt>
+<dd>A copy of the copyright notice and license.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>kunteksto.conf</dt>
+<dd>This file is the required configuration file for Kunteksto.</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="directories">
+<h3>Directories<a class="headerlink" href="#directories" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>example_data</dt>
+<dd>This directory contains information and sample data files for the tutorials. There is also an example of the completed Demo database, model, and data in the archive Demo_with_semantics.zip.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>output</dt>
+<dd>The default location of all generated output from Kunteksto. This directory can be changed either via the configuration file or the command line.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>catalogs</dt>
+<dd>This directory is where Kunteksto places XML catalog files used in the data validation process.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>s3model</dt>
+<dd>Support files required for operation.<ul class="last">
+<li>s3model.owl - the core S3Model ontology.</li>
+<li>s3model_3_1_0.xsd - the reference model schema version 3.1.0</li>
+<li>s3model_3_1_0.rdf - the extracted semantics from the reference model schema version 3.1.0</li>
+<li>s3model_3_1_0.xsl - a stylesheet providing visualization in a browser of the reference model schema version 3.1.0</li>
+<li><dl class="first docutils">
+<dt>dm-description.xsl - a stylesheet that provides for visualization in a browser of any S3Model data model.</dt>
+<dd>Just place it in the same directory with the dm-{uuid}.xsd file and open the schema in a browser.</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p class="rubric">Footnotes</p>
+<table class="docutils footnote" frame="void" id="f1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>S3Model is called the Esperanto of information management. Kunteksto is the Esperanto translation of the word <em>Context</em>. See <a class="reference external" href="https://simple.wikipedia.org/wiki/Esperanto">Wikipedia</a> for more information about the Esperanto language.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="f2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td><ul class="first last simple">
+<li><a class="reference external" href="http://estesparkgroup.org/">The Estes Park Group</a></li>
+<li><a class="reference external" href="http://datacentricmanifesto.org/">The Data-centric Manifesto</a></li>
+<li><a class="reference external" href="https://goo.gl/xDcpZM">Data-centric companies will devour competitors</a></li>
+<li><a class="reference external" href="https://goo.gl/zdRLm9">The Data-Centric Revolution: Gaining Traction</a></li>
+<li><a class="reference external" href="https://blog.keras.io/the-limitations-of-deep-learning.html">The limits of deep learning</a></li>
+<li><a class="reference external" href="https://blog.keras.io/the-future-of-deep-learning.html">The future of deep learning</a></li>
+</ul>
+</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="start.html" class="btn btn-neutral float-right" title="Getting Started" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Kunteksto" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Data Insights, Inc.
+      Last updated on 2018-11-25 08:09.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
