@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: Factors-and-Prime-Numbers
+Version: 0.1.1
+Summary: Number Theory Functions
+Home-page: https://harens.github.io
+Author: harens
+Author-email: harensdeveloper@gmail.com
+License: UNKNOWN
+Description: # Factors and Prime Numbers
+        [![CodeFactor](https://www.codefactor.io/repository/github/harens/factors-and-prime-numbers/badge/master)](https://www.codefactor.io/repository/github/harens/factors-and-prime-numbers/overview/master) [![Requirements Status](https://requires.io/github/harens/Factors-and-Prime-Numbers/requirements.svg?branch=master)](https://requires.io/github/harens/Factors-and-Prime-Numbers/requirements/?branch=master) [![PyPI version](https://badge.fury.io/py/Factors-and-Prime-Numbers.svg)](https://badge.fury.io/py/Factors-and-Prime-Numbers) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
+        
+        ## Installation
+        ```
+        pip install Factors-and-Prime-Numbers
+        ```
+        
+        ## License
+        
+        This project is licensed under the [GNU General Public License v3.0](https://github.com/harens/Factors-and-Prime-Numbers/blob/master/LICENSE)
+Keywords: Number Theory,Factors,Prime Numbers
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.6
+Description-Content-Type: text/markdown
