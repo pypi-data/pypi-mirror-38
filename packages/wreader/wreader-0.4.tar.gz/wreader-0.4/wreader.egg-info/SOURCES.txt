@@ -1,0 +1,11 @@
+MANIFEST.in
+README.rst
+setup.py
+wreader/__init__.py
+wreader/wreader.py
+wreader.egg-info/PKG-INFO
+wreader.egg-info/SOURCES.txt
+wreader.egg-info/dependency_links.txt
+wreader.egg-info/not-zip-safe
+wreader.egg-info/requires.txt
+wreader.egg-info/top_level.txt
