@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: seneca
+Version: 0.1.163
+Summary: Python-based smart contract language and interpreter.
+Home-page: https://github.com/Lamden/seneca
+Author: Lamden
+Author-email: team@lamden.io
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.6
+Requires-Dist: redis (==2.10.6)
+Requires-Dist: python-dotenv (==0.9.1)
+Requires-Dist: ujson (==1.35)
+Requires-Dist: coloredlogs (==10.0)
+Requires-Dist: coverage (==4.5.1)
+Requires-Dist: pynacl
+Requires-Dist: python-dateutil (==2.7.3)
+Requires-Dist: scipy (==1.1.0)
+Requires-Dist: numpy (==1.15.4)
+
+UNKNOWN
+
+
