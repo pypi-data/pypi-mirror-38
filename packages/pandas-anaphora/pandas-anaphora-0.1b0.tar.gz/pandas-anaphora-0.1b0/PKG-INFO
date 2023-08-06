@@ -1,0 +1,14 @@
+Metadata-Version: 1.2
+Name: pandas-anaphora
+Version: 0.1b0
+Summary: Anaphoric functions for columns in Pandas data frames
+Home-page: https://github.com/gwerbin/pandas-anaphora
+Author: Gregory Werbin
+Author-email: outthere@me.gregwerbin.com
+License: MIT
+Project-URL: Bug Tracker, https://github.com/gwerbin/pandas-anaphora/issues
+Project-URL: Documentation, https://github.com/gwerbin/pandas-anaphora/blob/master/README.md
+Project-URL: Source Code, https://github.com/gwerbin/pandas-anaphora
+Description: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >= 3.4
