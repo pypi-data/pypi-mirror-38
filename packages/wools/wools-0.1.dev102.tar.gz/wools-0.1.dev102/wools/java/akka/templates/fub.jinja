@@ -1,0 +1,24 @@
+{%- macro class_description(description=None) -%}
+{% if description -%}
+/**
+ * {{ description|replace('\n', "\n* " )|indent(1) }}
+ */
+{%- endif %}
+{%- endmacro -%}
+
+{%- macro parent_prefix(node) -%}
+{%- if node.parent -%}
+    {{ parent_prefix(node.parent) }}{{ node.statement.arg | replace('-', '') | firstupper }}
+{%- endif -%}
+{%- endmacro -%}
+
+{%- macro interface_method(prefix, name, node) -%}
+{{ prefix }}{{ parent_prefix(node.parent) }}{{ name | replace('-', '') | firstupper }}
+{%- endmacro -%}
+
+{%- macro key_parameters(node, type=None, parents_only=False, path_name=None) -%}
+{%- for key in node.collect_keys(parents_only) -%}
+{% if type %}{{ type }} {% endif %}{{ key }}{% if not loop.last or path_name %}, {% endif %}
+{%- endfor -%}
+{% if path_name %}{% if type %}String {% endif %}{{ path_name }}{% endif %}
+{%- endmacro -%}

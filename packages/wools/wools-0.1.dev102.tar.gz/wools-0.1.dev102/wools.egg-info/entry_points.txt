@@ -1,0 +1,5 @@
+[alpakka_wools]
+Akka = wools.java.akka
+Java = wools.java
+Jersey = wools.java.jersey
+
