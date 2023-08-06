@@ -1,0 +1,3 @@
+[console_scripts]
+noted = notedlib.console:tuinoted-cli = notedlib.console:cli
+
