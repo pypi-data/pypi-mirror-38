@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: pyhelp
+Version: 0.1.0
+Summary: A Python library for groundwater recharge assessment in regional studies with the HELP  model
+Home-page: https://github.com/cgq-qgc/pyhelp
+Author: PyHELP Project Contributors
+Author-email: jean-sebastien.gosselin@ete.inrs.ca
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Education
+Classifier: Topic :: Scientific/Engineering
+
+PyHELP is an object oriented Python library that provides a set of tools to evaluate spatially distributed groundwater recharge at the regional scale using the HELP model. This work is based on the method that was originally developed by Croteau et al. (2011) to assess spatially distributed groundwater recharge in the Chateauguay River Watershed, Quebec, Canada.
+
+
