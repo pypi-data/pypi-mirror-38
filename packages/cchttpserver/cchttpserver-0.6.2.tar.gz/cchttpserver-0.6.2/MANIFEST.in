@@ -1,0 +1,7 @@
+include *.txt
+include LICENSE
+include *.rst
+include tox.ini
+include cchttpserver/*.py
+include tests/*.py
+exclude config.py
