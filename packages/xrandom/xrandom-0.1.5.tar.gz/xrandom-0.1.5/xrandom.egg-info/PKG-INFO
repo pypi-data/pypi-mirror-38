@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: xrandom
+Version: 0.1.5
+Summary: Random something.
+Home-page: https://github.com/neoctobers/xrandom
+Author: @neoctobers
+Author-email: neoctobers@gmail.com
+License: UNKNOWN
+Description: # xrandom
+        
+        Random something.
+        
+        ## Installation
+        
+        ```
+        $ pip3 install xrandom
+        ```
+        
+        ## Usage
+        
+        - `xrandom.salt()`
+        - `first, last = xrandom.fake_name()`
+        - `salt = random.salt()`
+        - `salt, hint = random.salt(hint=True)`
+        - ...
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
