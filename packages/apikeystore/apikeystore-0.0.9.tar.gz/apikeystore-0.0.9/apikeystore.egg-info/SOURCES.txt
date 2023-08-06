@@ -1,0 +1,14 @@
+MANIFEST.in
+README.rst
+setup.py
+apikeystore/__init__.py
+apikeystore/__version__.py
+apikeystore/authentication.py
+apikeystore/vaults.py
+apikeystore.egg-info/PKG-INFO
+apikeystore.egg-info/SOURCES.txt
+apikeystore.egg-info/dependency_links.txt
+apikeystore.egg-info/not-zip-safe
+apikeystore.egg-info/top_level.txt
+test/test_credMethods.py
+test/test_vaultMethods.py

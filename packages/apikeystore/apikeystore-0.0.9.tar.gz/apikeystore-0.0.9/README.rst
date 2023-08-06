@@ -1,0 +1,71 @@
+
+===========
+ApiKeyStore 
+===========
+
+One vault to rule them all
+--------------------------
+
+|buildVersion| |buildStatus| |MitLicense|
+
+|pythonVersion|
+
+----------------------------
+
+A module for easily storing and retriving API credentials in a database. 
+
+We all know it's a bad practice to save API credentials in our code, but almost every example of working with an API, instructu you to go just that. 
+the top four lines of every sample API script starts like this
+
+.. code:: python3
+
+    # Assign appropriate values to these variables
+    sample_host = "https://baseurl.com/endpoint/path"
+    sample_script_key = "YOUR PRIVATE KEY"
+    sample_user = "YOUR USERNAME"
+    sample_password = "YOUR PASSWORD"
+
+My goal is to create an easy to use module that will allow you to protect youe credentials, by only allowing the script to access them at runtime.
+
+.. code:: python3
+  
+  import apikeystore as aks
+  import requests
+  
+  #create new vault
+  myvault = aks.Vault("Test-vault1.db")
+  myvault.new()
+  
+  mycreds = aks.Creds(vaultName="Test-vault1.db")
+  credDetails = {
+    'appName' : 'virusTotal',
+    'urlBase' : 'https://www.virustotal.com/vtapi/v2/',
+    'userId'  : '',
+    'appKey'  : 'cf51cae902609f18f1f37b33c79eb9ad559c599d29441592e1ca1c4c48d175ab',
+    'authType': 'basic'
+  }
+  mycreds.addCreds(**credDetails)
+
+  mycreds = aks.Creds(vaultName="Test-vault1.db")
+  vTcred = mycreds.getCred(appName='virusTotal')
+  vTendpoint = vTcred['urlBase'] + 'file/report?'
+  payload = {
+        'resource': '993dcc7f09c690c6f1d3049b3f66092451f2e82536cf81d15ceef447bc4b3b27', 
+        'apikey' : vTcred['appKey']
+  }
+
+  r = requests.get(vTendpoint, params=payload)
+  print(r.status_code)
+  #r.json()  
+
+
+
+
+
+
+
+
+.. |buildVersion| image:: https://img.shields.io/badge/Version-0.2.0a-blue.svg
+.. |buildStatus| image::  https://img.shields.io/bitbucket/pipelines/ewright3/apikeystore.svg?logo=python&longCache=true&style=flat
+.. |pythonVersion| image:: https://img.shields.io/badge/python-3.5%20|%203.6%20|%203.7-blue.svg
+.. |MitLicense| image:: https://img.shields.io/badge/License-MIT-orange.svg
