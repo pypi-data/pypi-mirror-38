@@ -1,0 +1,3 @@
+[console_scripts]
+web-playground = web_playground.run:main
+
