@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: notifySms
+Version: 1.0
+Summary: Package to send sms notification to mobile
+Home-page: https://github.com/kamalmansata/notfiy
+Author: Kamal Mansata
+Author-email: kamalmansata@gmail.com
+License: UNKNOWN
+Download-URL: https://github.com/kamalmansata/notfiy/archive/1.0.tar.gz
+Description: This program helps to send sms notification to specified mobile.
+        
+        Pre-Requisite : 
+            - Twilio account, Its Account, Token And Moblile number.
+        
+        Usage : 
+        <pre>
+        1. Using Program to send sms.
+           python sendSms.py [Message needs to be sent]
+        2. Using module in other script to nofiy via sms.
+            from nofiySms import sendSms
+            sendSms.send_sms("Message body",[To Number]) 
+        </pre>
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2.7
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
