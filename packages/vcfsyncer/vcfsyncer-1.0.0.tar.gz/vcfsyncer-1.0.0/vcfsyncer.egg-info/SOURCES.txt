@@ -1,0 +1,11 @@
+README.md
+setup.py
+vcfsyncer/__init__.py
+vcfsyncer/multisample.py
+vcfsyncer/multivariant.py
+vcfsyncer/vcf_syncer.py
+vcfsyncer.egg-info/PKG-INFO
+vcfsyncer.egg-info/SOURCES.txt
+vcfsyncer.egg-info/dependency_links.txt
+vcfsyncer.egg-info/requires.txt
+vcfsyncer.egg-info/top_level.txt
