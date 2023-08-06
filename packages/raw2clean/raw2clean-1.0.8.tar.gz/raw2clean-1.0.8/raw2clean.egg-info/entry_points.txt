@@ -1,0 +1,4 @@
+[console_scripts]
+raw2clean = raw2clean.raw2clean:main
+sumfq = raw2clean.summary_fastq:main
+
