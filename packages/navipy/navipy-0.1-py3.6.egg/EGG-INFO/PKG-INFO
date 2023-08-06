@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: navipy
+Version: 0.1
+Summary: Insect Navigation Toolbox
+Home-page: UNKNOWN
+Author: Olivier J.N. Bertrand
+Author-email: olivier.bertrand@uni-bielefeld.de
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Requires: numpy
+Requires: pandas
+Requires: matplotlib
+Requires: scipy
+Requires: networkx
+Requires: ipython
+Requires: yaml
+Requires: PIL
+Requires: cv2
+Requires: fastdtw

@@ -1,0 +1,38 @@
+#
+# Default configuration file used by BlendOnGridRender
+#
+
+# Define the parameter for the renderer
+BlenderRender:
+  # field of view of the camera
+  # elevation, two numbers [min, max]
+  # azimuth, two numbers [min, max]
+  fov:
+    elevation: [-90,90]
+    azimuth: [-180, 180]
+  # Number of pixel along the azimuth, and elevation
+  resolution: [360, 180]
+  # Filter width for each pixel
+  gaussian_width: 1.5
+  # Number of rays (samples) used for redering
+  # Higher number give better results, but
+  # require more computation time. 
+  samples: 30
+
+# Define the parameter for the grid
+# A n-mesh will be build from position and
+#orientation.
+OnGrid:
+  # Each coordinates have 3 values,
+  # min, max , and number of samples
+  x: [-0.5,0.5,5]
+  y: [-0.5,0.5,5]
+  z: [3,3,1]
+  alpha_0: [0 , 0 ,1]
+  alpha_1: [0 , 0 ,1]
+  alpha_2: [0 , 0 ,1]
+  # The orientation convention is defined as:
+  rotconv: 'rzyx'
+  # Note when rotconv 'quaternion' is used:
+  # the coordinate q_3 is required
+  # q_3: [0, 0, 1]
