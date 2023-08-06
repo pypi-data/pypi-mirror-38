@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: format-keys
+Version: 2018.11.19
+Summary: extract keys from a python format string
+Home-page: https://github.com/looking-for-a-job/format-keys.py
+License: UNKNOWN
+Keywords: format
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Software Development
+Description-Content-Type: text/markdown
+Requires-Dist: public
+Requires-Dist: setuptools
+
+[![](https://img.shields.io/pypi/pyversions/format-keys.svg?longCache=True)](https://pypi.org/pypi/format-keys/)
+
+#### Install
+```bash
+$ [sudo] pip install format-keys
+```
+
+#### Functions
+function|description
+-|-
+`format_keys.keys(string)`|return list of format keys
+
+#### Examples
+```python
+>>> import format_keys
+>>> format_keys.keys("https://api.travis-ci.org/{fullname}.svg?branch={branch}")
+['fullname', 'branch']
+```
+
+<p align="center"><a href="https://pypi.org/project/readme-md/">readme-md</a> - README.md generator</p>
+
