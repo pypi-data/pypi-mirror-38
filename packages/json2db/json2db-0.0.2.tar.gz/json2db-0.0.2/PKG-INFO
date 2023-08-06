@@ -1,0 +1,21 @@
+Metadata-Version: 1.2
+Name: json2db
+Version: 0.0.2
+Summary: convert json to relational db
+Home-page: https://github.com/mrzhangboss/json2db
+Author: mrzhangboss
+Author-email: 2529450174@qq.com
+License: UNKNOWN
+Description: # Json2DB
+        
+        > Python3.6+
+        
+        
+        Just need defined a json object, then you can save it in to a relational DB like MySQL PostgreSQL or other DB.
+        
+        ## Reason To Write This FrameWork
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6.0
