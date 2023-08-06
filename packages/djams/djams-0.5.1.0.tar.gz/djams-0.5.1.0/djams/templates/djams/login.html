@@ -1,0 +1,75 @@
+{% extends "djams/base_app_site.html" %}
+{% load static %}
+
+{% block main_content_holder %}
+{% block content %}
+
+<style>
+    body{
+        background: url("{% static 'djams/images/balloons.jpg' %}") no-repeat center center fixed; 
+
+ -webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+	background-color: black;
+    }
+
+
+.panel-default {
+ opacity: 0.9;
+ margin-top:30px;
+}
+.form-group.last {
+ margin-bottom:0px;
+}
+
+</style>
+
+<div class="container h-100">
+        <div class="row h-100 justify-content-center align-items-center">
+                <form class="form-horizontal" style='background-color: #dae1ed; border-radius: 15px; min-width:30%; opacity:0.9;' method='POST'>
+
+                        {% csrf_token %}
+                        <div class='vspacer_15'></div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-3 control-label black-font">
+                                Username:</label>
+                            <div class="col-sm-12">
+                                {{form.username}}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-3 control-label black-font">
+                                Password:</label>
+                            <div class="col-sm-12">
+                                {{form.password }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-3 col-sm-12">
+                                <div class="checkbox">
+                                    <!-- <label>
+                                        <input type="checkbox">
+                                        Remember me
+                                    </label> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group last">
+                            <div class="col-sm-12">
+                                <div class="col-sm-4 mx-auto">
+                                <button type="submit" class='btn btn-primary' id="login-button">Login</button>
+                                <!-- <button type="reset" class="btn btn-default btn-sm">
+                                    Reset password</button> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class='vspacer_15'></div>
+
+                    </form>
+        </div>
+      </div>
+
+    {% endblock content %}
+    {% endblock main_content_holder %}
