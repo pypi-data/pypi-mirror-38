@@ -1,0 +1,31 @@
+future
+ipython>=5.0
+notebook
+s3fs
+
+[:python_version < "3.0"]
+futures
+
+[dev]
+codecov
+coverage
+notebook
+mock
+pytest>=3.3
+pytest-cov
+pytest-mock
+
+[dev:python_version >= "3.6"]
+black
+
+[test]
+codecov
+coverage
+notebook
+mock
+pytest>=3.3
+pytest-cov
+pytest-mock
+
+[test:python_version >= "3.6"]
+black
