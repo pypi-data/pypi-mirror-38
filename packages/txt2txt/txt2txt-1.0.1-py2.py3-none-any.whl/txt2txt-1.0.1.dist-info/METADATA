@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: txt2txt
+Version: 1.0.1
+Summary: Out of the Box, Easy to use sequence to sequence library with attention for text.
+Home-page: https://github.com/bedapudi6788/txt2txt
+Author: BEDAPUDI PRANEETH
+Author-email: praneethbedapudi@gmail.com
+License: GPLv3
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: keras (>=2.2.0)
+
+
+# txt2txt
+
