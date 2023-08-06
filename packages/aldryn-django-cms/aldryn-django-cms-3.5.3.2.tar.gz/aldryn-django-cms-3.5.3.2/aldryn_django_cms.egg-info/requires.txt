@@ -1,0 +1,15 @@
+aldryn-addons
+django-cms==3.5.3
+requests
+django-treebeard>=4.0.1
+djangocms-admin-style>=1.2.0
+django-select2>=4.3
+aldryn-boilerplates>=0.7.4
+aldryn-snake
+django-compressor
+django-parler
+django-sortedm2m!=1.3.0,!=1.3.1,>=1.2.2
+django-robots
+django-simple-captcha
+lxml
+YURL
