@@ -1,0 +1,3 @@
+[console_scripts]
+pipub = pipub.cli:run
+
