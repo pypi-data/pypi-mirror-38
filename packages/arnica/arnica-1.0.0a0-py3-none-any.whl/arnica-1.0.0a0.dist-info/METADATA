@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: arnica
+Version: 1.0.0a0
+Summary: Open Source library CFD toolkit
+Home-page: https://nitrox.cerfacs.fr/open-source/arnica
+Author: CoopTeam-CERFACS
+Author-email: coop@cerfacs.com
+License: CeCILL-B FREE SOFTWARE LICENSE AGREEMENT
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: matplotlib
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: h5py
+Requires-Dist: sympy
+Requires-Dist: PyYAML
+
+ARNICA is an Open Source library toolkit.
+
+It gathers, for the moment:
+  - CFD related tools aiming to replace some of the functionalities shipped 
+  with the Reactive Combustion suite AVBP. (e.g. the adiab2colo primitives without industrial sensitive content)
+  - CFD related bare functionnalities : nparray to XDMF writers, axi-symetric shell generators, etc...
+
+Contributors are, for the moment, the CERFACS/COOP team coop@cerfacs.fr.
+
