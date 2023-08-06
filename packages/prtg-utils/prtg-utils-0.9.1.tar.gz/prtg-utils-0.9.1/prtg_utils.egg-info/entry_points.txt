@@ -1,0 +1,3 @@
+[console_scripts]
+prtg_history_csv = prtg_utils.history_cmdline:main
+
