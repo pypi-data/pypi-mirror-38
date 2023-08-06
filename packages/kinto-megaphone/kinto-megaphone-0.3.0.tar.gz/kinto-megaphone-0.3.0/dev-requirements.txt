@@ -1,0 +1,7 @@
+flake8
+mock
+pytest==3.9.3
+pytest-cache
+pytest-cov
+pytest-sugar
+WebTest
