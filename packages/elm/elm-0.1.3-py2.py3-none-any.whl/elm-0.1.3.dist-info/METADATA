@@ -1,0 +1,83 @@
+Metadata-Version: 2.1
+Name: elm
+Version: 0.1.3
+Summary: Python Extreme Learning Machine (ELM) is a machine learning technique used for classification/regression tasks.
+Home-page: https://github.com/acba/elm
+Author: Augusto Almeida
+Author-email: augustocbenvenuto@gmail.com
+License: BSD
+Keywords: elm,machine learning,artificial intelligence,ai,regression,regressor,classifier,neural network,extreme learning machine
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Requires-Dist: numpy (==1.15.4)
+Requires-Dist: deap (==1.2.2)
+Requires-Dist: optunity (==1.1.1)
+Provides-Extra: testing
+Requires-Dist: pytest; extra == 'testing'
+
+=====================================
+Python Extreme Learning Machine (ELM)
+=====================================
+
+.. image:: https://badge.fury.io/py/elm.png
+    :target: http://badge.fury.io/py/elm
+
+.. image:: https://travis-ci.org/acba/elm.png?branch=master
+        :target: https://travis-ci.org/acba/elm
+
+.. image:: https://pypip.in/d/elm/badge.png
+        :target: https://pypi.python.org/pypi/elm
+
+
+Python Extreme Learning Machine (ELM) is a machine learning technique used for classification/regression tasks.
+
+* Free software: BSD license
+* Documentation: https://elm.readthedocs.org.
+
+Features
+--------
+
+* ELM Kernel
+* ELM Random Neurons
+* MLTools
+
+
+
+.. image:: https://img.shields.io/badge/Donate-PayPal-green.svg
+    :target: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=QKX5XYS8EYJLA&currency_code=BRL&source=url
+
+
+
+
+History
+-------
+
+0.1.0 (2015-02-03)
+------------------
+
+* First release on PyPI.
+
+0.1.1 (2015-02-10)
+------------------
+
+* Fixed some package issues.
+* Added Python 2.7 support
+* Added extra parameter to search_param method.
+
+0.1.2 (2017-09-19)
+------------------
+
+* Fixed a bug when using search_param.
+* Optunity solver is available when using search_param.
+
