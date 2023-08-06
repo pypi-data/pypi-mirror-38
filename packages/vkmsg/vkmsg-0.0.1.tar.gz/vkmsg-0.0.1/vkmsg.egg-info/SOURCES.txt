@@ -1,0 +1,15 @@
+README.md
+setup.py
+vkmsg/__init__.py
+vkmsg/errors.py
+vkmsg/helpers.py
+vkmsg/vk_client.py
+vkmsg.egg-info/PKG-INFO
+vkmsg.egg-info/SOURCES.txt
+vkmsg.egg-info/dependency_links.txt
+vkmsg.egg-info/requires.txt
+vkmsg.egg-info/top_level.txt
+vkmsg/models/__init__.py
+vkmsg/models/keyboards.py
+vkmsg/models/messages.py
+vkmsg/models/requests.py
