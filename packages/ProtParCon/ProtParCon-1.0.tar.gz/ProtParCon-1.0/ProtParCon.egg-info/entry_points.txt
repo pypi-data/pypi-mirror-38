@@ -1,0 +1,9 @@
+[console_scripts]
+asr = ProtParCon.asr:main
+aut = ProtParCon.aut:main
+imc = ProtParCon.imc:main
+mlt = ProtParCon.mlt:main
+msa = ProtParCon.msa:main
+oma = ProtParCon.oma:main
+sim = ProtParCon.sim:main
+
