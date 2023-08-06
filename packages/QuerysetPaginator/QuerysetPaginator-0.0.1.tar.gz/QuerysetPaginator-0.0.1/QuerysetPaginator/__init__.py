@@ -1,0 +1,1 @@
+name = "queryset-paginator"
