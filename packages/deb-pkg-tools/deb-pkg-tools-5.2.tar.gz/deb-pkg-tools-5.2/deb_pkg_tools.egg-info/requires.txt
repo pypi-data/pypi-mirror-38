@@ -1,0 +1,13 @@
+chardet
+coloredlogs>=0.4.6
+executor>=19.0
+humanfriendly>=4.17
+property-manager>=2.1
+python-memcached>=1.58
+six>=1.10.0
+
+[:python_version < "2.7"]
+python-debian==0.1.32
+
+[:python_version > "2.6"]
+python-debian>=0.1.32
