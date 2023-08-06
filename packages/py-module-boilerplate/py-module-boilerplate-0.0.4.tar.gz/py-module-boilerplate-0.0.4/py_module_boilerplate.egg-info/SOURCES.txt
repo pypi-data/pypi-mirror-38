@@ -1,0 +1,14 @@
+MANIFEST.in
+README.rst
+requirements.dev.txt
+requirements.txt
+setup.py
+py_module_boilerplate/__init__.py
+py_module_boilerplate/main.py
+py_module_boilerplate/version.py
+py_module_boilerplate.egg-info/PKG-INFO
+py_module_boilerplate.egg-info/SOURCES.txt
+py_module_boilerplate.egg-info/dependency_links.txt
+py_module_boilerplate.egg-info/entry_points.txt
+py_module_boilerplate.egg-info/requires.txt
+py_module_boilerplate.egg-info/top_level.txt

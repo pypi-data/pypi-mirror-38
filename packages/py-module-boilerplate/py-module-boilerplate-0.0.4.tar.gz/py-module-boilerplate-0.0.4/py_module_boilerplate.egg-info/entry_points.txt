@@ -1,0 +1,6 @@
+[console_scripts]
+py-module-boilerplate = py_module_boilerplate.main:main
+
+[pylama.linter]
+imports = flake8_import_order.pylama_linter:Linter
+
