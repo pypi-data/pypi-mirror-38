@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: hellowebapp-deploy
+Version: 1.0.4
+Summary: Packages needed to deploy to Heroku using Hello Web App's tutorial.
+Home-page: https://github.com/hellowebapp/hellowebapp-deploy
+Author: Tracy Osborn
+Author-email: tracy@limedaring.com
+License: MIT
+Download-URL: https://github.com/hellowebbooks/hellowebapp-deploy/archive/v1.0.4.tar.gz
+Keywords: deployment heroku hellowebapp
+Platform: UNKNOWN
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3.6
+Classifier: License :: OSI Approved :: MIT License
+Requires-Dist: waitress (==1.1.0)
+Requires-Dist: dj-database-url (==0.5.0)
+Requires-Dist: whitenoise (==3.3.1)
+
+UNKNOWN
+
+
