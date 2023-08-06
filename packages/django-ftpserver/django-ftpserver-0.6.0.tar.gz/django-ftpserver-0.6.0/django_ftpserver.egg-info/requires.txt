@@ -1,0 +1,11 @@
+Django>=1.11
+pyftpdlib
+six
+
+[develop]
+pytest
+flake8
+pytest-django
+pytest-pythonpath
+tox
+wheel
