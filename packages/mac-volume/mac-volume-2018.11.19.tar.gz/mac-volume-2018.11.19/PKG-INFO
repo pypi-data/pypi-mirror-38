@@ -1,0 +1,50 @@
+Metadata-Version: 2.1
+Name: mac-volume
+Version: 2018.11.19
+Summary: MacOS volume
+Home-page: https://github.com/looking-for-a-job/mac-volume.py
+License: UNKNOWN
+Description: [![](https://img.shields.io/badge/OS-MacOS-blue.svg?longCache=True)]()
+        [![](https://img.shields.io/pypi/pyversions/mac-volume.svg?longCache=True)](https://pypi.org/pypi/mac-volume/)
+        
+        #### Install
+        ```bash
+        $ [sudo] pip install mac-volume
+        ```
+        
+        #### Functions
+        function|description
+        -|-
+        `mac_volume.change(volume)`|change volume
+        `mac_volume.get()`|return volume
+        `mac_volume.mute()`|mute
+        `mac_volume.muted()`|return True if muted
+        `mac_volume.unmute()`|unmute
+        
+        #### Examples
+        ```python
+        >>> import mac_volume
+        >>> mac_volume.change(10)
+        >>> mac_volume.get()
+        10
+        >>> mac_volume.mute()
+        >>> mac_volume.muted()
+        True
+        >>> mac_volume.unmute()
+        ```
+        
+        <p align="center"><a href="https://pypi.org/project/readme-md/">readme-md</a> - README.md generator</p>
+Keywords: volume
+Platform: UNKNOWN
+Classifier: Environment :: MacOS X
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Software Development
+Description-Content-Type: text/markdown
