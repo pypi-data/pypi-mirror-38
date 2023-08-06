@@ -1,0 +1,54 @@
+Metadata-Version: 2.1
+Name: mac-display
+Version: 2018.11.19
+Summary: sleep/wake display
+Home-page: https://github.com/looking-for-a-job/mac-display.py
+License: UNKNOWN
+Description: [![](https://img.shields.io/badge/OS-MacOS-blue.svg?longCache=True)]()
+        [![](https://img.shields.io/pypi/pyversions/mac-display.svg?longCache=True)](https://pypi.org/pypi/mac-display/)
+        
+        #### Install
+        ```bash
+        $ [sudo] pip install mac-display
+        ```
+        
+        #### Functions
+        function|description
+        -|-
+        `mac_display.sleep()`|put your display to sleep
+        `mac_display.sleeping()`|return True if display is sleeping
+        `mac_display.wake()`|wake from sleep
+        
+        #### CLI
+        usage|description
+        -|-
+        `python -m mac_display.sleep`|put your display to sleep
+        `python -m mac_display.sleeping`|print `true` if display is sleeping, else `false`
+        `python -m mac_display.wake`|wake from sleep
+        
+        #### Examples
+        ```python
+        >>> import mac_display
+        >>> mac_display.sleep()
+        >>> mac_display.sleeping()
+        True
+        >>> mac_display.wake()
+        >>> mac_display.sleeping()
+        False
+        ```
+        
+        <p align="center"><a href="https://pypi.org/project/readme-md/">readme-md</a> - README.md generator</p>
+Keywords: display
+Platform: UNKNOWN
+Classifier: Environment :: MacOS X
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Software Development
+Description-Content-Type: text/markdown
