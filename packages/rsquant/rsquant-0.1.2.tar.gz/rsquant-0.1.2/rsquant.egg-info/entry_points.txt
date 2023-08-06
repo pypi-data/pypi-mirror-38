@@ -1,0 +1,3 @@
+[console_scripts]
+rsquant = rsquant.__main__:main
+

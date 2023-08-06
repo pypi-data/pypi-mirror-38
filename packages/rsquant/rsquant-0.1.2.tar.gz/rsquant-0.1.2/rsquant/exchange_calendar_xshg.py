@@ -1,0 +1,188 @@
+#
+# Copyright 2018 Quantopian, Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+from datetime import time
+from itertools import chain
+
+import numpy as np
+import pandas as pd
+from pandas.tseries.holiday import (
+    EasterMonday,
+    GoodFriday,
+    Holiday,
+    sunday_to_monday,
+)
+from pytz import timezone
+import toolz
+
+from trading_calendars.trading_calendar import (
+    TradingCalendar,
+    HolidayCalendar,
+    MONDAY,
+    TUESDAY,
+    WEDNESDAY,
+    THURSDAY,
+    FRIDAY,
+    SATURDAY,
+    SUNDAY,
+)
+from .common_holidays import (
+    chinese_lunar_new_year_dates,
+    day_after_mid_autumn_festival_dates,
+    double_ninth_festival_dates,
+    dragon_boat_festival_dates,
+    labour_day,
+    chinese_national_day,
+    new_years_day,
+    new_years_eve,
+    qingming_festival_dates,
+    holiday_shift,
+)
+from .utils.pandas_utils import vectorized_sunday_to_monday
+
+# Useful resources for making changes to this file:
+# # /etc/lunisolar
+# http://www.math.nus.edu.sg/aslaksen/calendar/cal.pdf
+# https://www.hko.gov.hk/gts/time/calendarinfo.htm
+#   - the almanacs on this page are also useful
+
+weekdays = (MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY)
+
+
+class XSHGExchangeCalendar(TradingCalendar):
+    """
+    Exchange calendar for the Shanghai Security Exchange
+
+    First session: 9:30am - 11:30am, Asia/Shanghai
+    Lunch
+    Second session: 13:00pm - 3:00pm, Asia/Shanghai
+
+    NOTE: we are treating the two sessions per day as one session for now,
+    because we will not be handling minutely data in the immediate future.
+
+    Regularly-Observed Holidays:
+    - New Years Day (observed on monday when Jan 1 is a Sunday)
+    - Lunar New Year and the following 2 days. If the 3rd day of the lunar year
+      is a Sunday, then the next Monday is a holiday.
+    - Ching Ming Festival
+    - Labor Day
+    - Dragon Boat Festival
+    - Chinese National Day (observed on monday when Oct 1 is a Sunday)
+    - Day Following Mid-Autumn Festival
+
+
+    Additional Irregularities:
+    - Closes frequently for severe weather.
+    """
+    name = 'XSHG'
+    tz = timezone('Asia/Shanghai')
+
+    open_times = (
+        (None, time(9, 31)),
+    )
+    close_times = (
+        (None, time(15)),
+    )
+    regular_early_close_times = (
+        (None, time(11, 30)),
+    )
+
+    def __init__(self, *args, **kwargs):
+        super(XSHGExchangeCalendar, self).__init__(*args, **kwargs)
+
+        lunisolar_holidays = (
+            chinese_lunar_new_year_dates,
+            day_after_mid_autumn_festival_dates,
+            dragon_boat_festival_dates,
+            qingming_festival_dates,
+        )
+
+        latest_precomputed_year = min(map(np.max, lunisolar_holidays)).year
+        if latest_precomputed_year < self.last_trading_session.year:
+            raise ValueError(
+                'the lunisolar holidays have only been computed through {},'
+                ' cannot instantiate the XHKG calendar in {}'.format(
+                    latest_precomputed_year,
+                    self.last_trading_session.year,
+                ),
+            )
+
+    @property
+    def regular_holidays(self):
+        return HolidayCalendar([
+            new_years_day(observance=sunday_to_monday),
+            labour_day(observance=sunday_to_monday),
+            chinese_national_day(observance=sunday_to_monday),
+        ])
+
+    @property
+    def adhoc_holidays(self):
+        lunar_new_years_eve = (
+            chinese_lunar_new_year_dates - pd.Timedelta(days=1)
+        )[
+            (chinese_lunar_new_year_dates.weekday == SATURDAY) &
+            (chinese_lunar_new_year_dates.year < 2013)
+        ]
+
+        lunar_new_year_2 = chinese_lunar_new_year_dates + pd.Timedelta(days=1)
+        lunar_new_year_3 = chinese_lunar_new_year_dates + pd.Timedelta(days=2)
+        lunar_new_year_4 = (
+            chinese_lunar_new_year_dates + pd.Timedelta(days=3)
+        )[
+            # According to the new arrangement under the General Holidays and
+            # Employment Legislation (Substitution of Holidays)(Amendment)
+            # Ordinance 2011, when either Lunar New Year's Day, the second day
+            # of Lunar New Year or the third day of Lunar New Year falls on a
+            # Sunday, the fourth day of Lunar New Year is designated as a
+            # statutory and general holiday in substitution.
+            (
+                (chinese_lunar_new_year_dates.weekday == SUNDAY) |
+                (lunar_new_year_2.weekday == SUNDAY) |
+                (lunar_new_year_3.weekday == SUNDAY)
+            ) &
+            (chinese_lunar_new_year_dates.year >= 2013)
+        ]
+
+        qingming_festival = vectorized_sunday_to_monday(
+            qingming_festival_dates,
+        ).values
+
+        # if the day after the mid autumn festival is October first, which
+        # conflicts with national day, then national day is observed on the
+        # second, though we don't encode that in the regular holiday, so
+        # instead we pretend that the mid autumn festival would be delayed.
+        mid_autumn_festival = day_after_mid_autumn_festival_dates.values
+        mid_autumn_festival[
+            (day_after_mid_autumn_festival_dates.month == 10) &
+            (day_after_mid_autumn_festival_dates.day == 1)
+        ] += np.timedelta64(1, 'D')
+
+        return list(chain(
+            lunar_new_years_eve,
+            chinese_lunar_new_year_dates,
+            lunar_new_year_2,
+            lunar_new_year_3,
+            lunar_new_year_4,
+
+            qingming_festival,
+            vectorized_sunday_to_monday(dragon_boat_festival_dates),
+            mid_autumn_festival,
+
+            # severe swap weekend holiday
+            holiday_shift,
+
+            # special holiday: WorldExpo, etc
+            # https://www.info.gov.hk/gia/general/201507/09/P201507080716.htm
+        ))

@@ -1,0 +1,25 @@
+Metadata-Version: 1.1
+Name: rsquant
+Version: 0.1.2
+Summary: rsQuant is a Python library with securities exchange calendars used by Quantopian's Zipline.
+Home-page: UNKNOWN
+Author: Jesse Kuang
+Author-email: jkuang@21cn.com
+License: Apache License, Version 2.0
+Description: rsQuant is a Python library with
+        securities exchange calendars used by Quantopian's Zipline.
+        
+        .. _Quantopian Inc: https://www.quantopian.com
+        .. _Zipline: http://zipline.io
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.5
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Operating System :: OS Independent

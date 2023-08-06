@@ -1,0 +1,9 @@
+include LICENSE
+
+include etc/requirements*.txt
+recursive-include rsquant *.pyi
+recursive-include rsquant *.pxi
+recursive-include rsquant *.pxd
+
+include versioneer.py
+include rsquant/_version.py
