@@ -1,0 +1,54 @@
+Metadata-Version: 2.1
+Name: simpleatlassian
+Version: 0.0.2
+Summary: A really basic Atlassian REST Client
+Home-page: https://github.com/defreng/python-simpleatlassian
+Author: Alexander Hungenberg
+Author-email: alexander.hungenberg@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+# python-simpleatlassian
+The most simple, and most powerful Atlassian (JIRA) Python API
+
+## Installation
+`pip install simpleatlassian`
+
+## Usage
+```python
+from simpleatlassian import JIRA
+
+# Make a connection with basic auth
+j = JIRA(
+    'https://myjirahost.com/jira/rest/',
+    username='myuser',
+    password='mypw'
+)
+
+# Search some issues (get_all collects all pages of a result)
+issues = j.get_all(
+    'api/2/search',
+    params={
+        'jql': 'issuetype = Bug'
+    },
+    resultfield='issues'
+)
+
+# Get a board configuration
+j.get('agile/1.0/board/1/configuration')
+```
+
+Don't forget to check out Atlassian's official documentation:
+https://docs.atlassian.com/jira-software/REST/latest/
+
+## Development
+### Upload to pip
+1. Make sure that the version number has been updated
+1. Generate dist files `python setup.py sdist bdist_wheel`
+1. Upload to PyPI `twine upload dist/*`
+
+
