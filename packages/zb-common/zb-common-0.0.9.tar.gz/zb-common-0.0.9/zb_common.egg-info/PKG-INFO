@@ -1,0 +1,23 @@
+Metadata-Version: 1.1
+Name: zb-common
+Version: 0.0.9
+Summary: A package containing all the common utilities for the Zerobugz project
+Home-page: http://pypi.python.org/pypi/zb-common/
+Author: Manjunath Somashekar
+Author-email: ujnamss@gmail.com
+License: UNKNOWN
+Description: A package containing all the common utilities for the Zerobugz project
+        -----------------------------------------------------
+        
+        This version requires Python 3 or later
+        
+Keywords: synthetic,data,generation
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Environment :: Other Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Library or Lesser General Public License (LGPL)
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
