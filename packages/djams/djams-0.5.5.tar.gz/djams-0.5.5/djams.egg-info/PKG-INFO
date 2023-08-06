@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: djams
+Version: 0.5.5
+Summary: UNKNOWN
+Home-page: UNKNOWN
+Author: Eddy B
+Author-email: 
+License: MIT
+Description: # django-microsite-bindings
+        
+        ![Develop Branch Build Status]('testing')
+        
+        Bindings for django microsites
+        
+        
+        ## Installation
+        
+            pip install django_microsite_bindings
+        
+        Then, just add `django_analytics_microsites` to `INSTALLED_APPS` in your Django `settings.py` file and the django_microsite_bindings.middleware to  `MIDDLEWARE`
+        
+        Note that this package requires version 2.0 or greater of Django, due to the use of the `path` function for registering routes.
+Keywords: django analytics microsite bindings
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
