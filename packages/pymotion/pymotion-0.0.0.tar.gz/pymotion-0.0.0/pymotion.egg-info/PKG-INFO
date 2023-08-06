@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: pymotion
+Version: 0.0.0
+Summary: Python API wrapper for Motion webcontrol.
+Home-page: https://github.com/ludeeus/pymotion
+Author: Joakim Sorensen
+Author-email: ludeeus@gmail.com
+License: UNKNOWN
+Description: # pymotion [![Build Status](https://travis-ci.com/ludeeus/pymotion.svg?branch=master)](https://travis-ci.com/ludeeus/pymotion) [![PyPI version](https://badge.fury.io/py/pymotion.svg)](https://badge.fury.io/py/pymotion)
+        
+        _Python API wrapper for Motion webcontrol._
+        
+        ## Prerequisites
+        
+        To use this you need to make sure that both these settings has these values:
+        You will find these in the `motion.conf` file.
+        
+        ```
+        webcontrol_localhost off
+        webcontrol_html_output off
+        ```
+        
+        ## Install
+        
+        ```bash
+        pip install pymotion
+        ```
+        
+        Look at the file `example.py` for a usage example.
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
