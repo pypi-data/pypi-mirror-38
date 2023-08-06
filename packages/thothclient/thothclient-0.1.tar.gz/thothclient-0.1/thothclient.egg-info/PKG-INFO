@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: thothclient
+Version: 0.1
+Summary: User client for thothbackup
+Home-page: https://github.com/zyradyl/thothclient
+Author: Zyradyl
+Author-email: nmspencer89@outlook.com
+License: ISC
+Description: ## ThothClient ##
+        This repository houses the python client for the Thoth Backup system.
+        More information will be made available as time permits.
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: ISC License (ISCL)
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
