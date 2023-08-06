@@ -1,0 +1,242 @@
+2018.08.13 13:36:08 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.13 13:36:08 [ HttpController ] (DEBUG) [post] post = <http.client.HTTPResponse object at 0x02B4FF90>
+2018.08.13 13:36:08 [ HttpController ] (DEBUG) response is :<http.client.HTTPResponse object at 0x02B4FF90>
+2018.08.14 15:21:37 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:21:37 [ HttpController ] (DEBUG) [post] post = <http.client.HTTPResponse object at 0x02B8D0F0>
+2018.08.14 15:21:37 [ HttpController ] (DEBUG) response is :<http.client.HTTPResponse object at 0x02B8D0F0>
+2018.08.14 15:21:45 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:21:45 [ HttpController ] (ERROR) [post] HTTP Error 400: Bad Request
+2018.08.14 15:22:39 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:22:39 [ HttpController ] (ERROR) [post] HTTP Error 400: Bad Request
+2018.08.14 15:22:41 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:22:41 [ HttpController ] (ERROR) [post] HTTP Error 400: Bad Request
+2018.08.14 15:30:10 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:30:10 [ HttpController ] (ERROR) [post] HTTP Error 400: Bad Request
+2018.08.14 15:30:41 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:30:41 [ HttpController ] (ERROR) [post] HTTP Error 400: Bad Request
+2018.08.14 15:30:53 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:30:53 [ HttpController ] (ERROR) [post] HTTP Error 400: Bad Request
+2018.08.14 15:33:20 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:33:20 [ HttpController ] (ERROR) [post] HTTP Error 400: Bad Request
+2018.08.14 15:33:32 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:33:32 [ HttpController ] (ERROR) [post] HTTP Error 400: Bad Request
+2018.08.14 15:41:49 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:41:49 [ HttpController ] (ERROR) [post] HTTP Error 400: Bad Request
+2018.08.14 15:42:00 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:42:00 [ HttpController ] (ERROR) [post] HTTP Error 400: Bad Request
+2018.08.14 15:42:14 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:42:14 [ HttpController ] (ERROR) [post] HTTP Error 400: Bad Request
+2018.08.14 15:42:58 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:42:58 [ HttpController ] (ERROR) [post] HTTP Error 400: Bad Request
+2018.08.14 15:44:23 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:44:23 [ HttpController ] (ERROR) [post] HTTP Error 400: Bad Request
+2018.08.14 15:44:48 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:44:57 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:44:57 [ HttpController ] (ERROR) [post] httperror HTTP Error 400: Bad Request
+2018.08.14 15:45:12 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:45:12 [ HttpController ] (ERROR) [post] httperror HTTP Error 400: Bad Request
+2018.08.14 15:45:45 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:45:45 [ HttpController ] (ERROR) [post] httperror HTTP Error 400: Bad Request
+2018.08.14 15:46:04 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:46:04 [ HttpController ] (ERROR) [post] httperror HTTP Error 400: Bad Request
+2018.08.14 15:46:10 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:46:10 [ HttpController ] (ERROR) [post] httperror HTTP Error 400: Bad Request
+2018.08.14 15:46:43 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:46:43 [ HttpController ] (ERROR) [post] httperror HTTP Error 400: Bad Request
+2018.08.14 15:46:59 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:46:59 [ HttpController ] (ERROR) [post] httperror HTTP Error 400: Bad Request
+2018.08.14 15:47:09 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:47:09 [ HttpController ] (ERROR) [post] httperror HTTP Error 400: Bad Request
+2018.08.14 15:47:15 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:47:15 [ HttpController ] (ERROR) [post] httperror HTTP Error 400: Bad Request
+2018.08.14 15:47:30 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:47:30 [ HttpController ] (ERROR) [post] httperror HTTP Error 400: Bad Request
+2018.08.14 15:48:10 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:48:10 [ HttpController ] (ERROR) [post] httperror HTTP Error 400: Bad Request
+2018.08.14 15:48:16 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:48:16 [ HttpController ] (ERROR) [post] httperror HTTP Error 400: Bad Request
+2018.08.14 15:50:22 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:50:22 [ HttpController ] (ERROR) [post] HTTP Error 400: Bad Request
+2018.08.14 15:50:41 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:50:41 [ HttpController ] (ERROR) [post] HTTP Error 400: Bad Request
+2018.08.14 15:50:56 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:50:56 [ HttpController ] (ERROR) [post] HTTP Error 400: Bad Request
+2018.08.14 15:51:08 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:51:08 [ HttpController ] (ERROR) [post] HTTP Error 400: Bad Request
+2018.08.14 15:51:13 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:51:13 [ HttpController ] (ERROR) [post] HTTP Error 400: Bad Request
+2018.08.14 15:51:21 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:51:21 [ HttpController ] (ERROR) [post] HTTP Error 400: Bad Request
+2018.08.14 15:51:34 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:51:34 [ HttpController ] (ERROR) [post] HTTP Error 400: Bad Request
+2018.08.14 15:51:46 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:51:46 [ HttpController ] (ERROR) [post] HTTP Error 400: Bad Request
+2018.08.14 15:51:52 [ HttpController ] (DEBUG) [post] [url] http://192.168.41.106:8093/token
+2018.08.14 15:51:52 [ HttpController ] (ERROR) [post] HTTP Error 400: Bad Request
+2018.08.17 09:32:56 [ HttpController ] (DEBUG) [post] [url] http://19.168.41.106:8093/token
+2018-08-21 11:21:48.968 [ HttpController ] (DEBUG) [post] [url] http://19.168.41.106:8093/token
+2018-08-21 11:21:48.969 [ HttpController ] (ERROR) [post] 'NoneType' object has no attribute 'items'
+2018-08-21 11:22:06.460 [ HttpController ] (DEBUG) [post] [url] http://api-server-corpus.zhan.com/toefl-ques/get-topic-avg-count?debug=1
+2018-08-21 11:22:06.463 [ HttpController ] (ERROR) [post] 'NoneType' object has no attribute 'items'
+2018-08-21 11:22:47.599 [ HttpController ] (DEBUG) [post] [url] http://api-server-corpus.zhan.com/toefl-ques/get-topic-avg-count?debug=1
+2018-08-21 11:22:47.601 [ HttpController ] (ERROR) [post] 'NoneType' object has no attribute 'items'
+2018-08-21 11:23:37.097 [ HttpController ] (DEBUG) [post] [url] http://api-server-corpus.zhan.com/toefl-ques/get-topic-avg-count?debug=1
+2018-08-21 11:23:37.136 [ HttpController ] (DEBUG) [post] post = <http.client.HTTPResponse object at 0x02C4D4D0>
+2018-08-21 11:23:37.136 [ HttpController ] (DEBUG) response is :<http.client.HTTPResponse object at 0x02C4D4D0>
+2018-08-21 11:23:46.552 [ HttpController ] (DEBUG) [post] [url] http://api-server-corpus.zhan.com/toefl-ques/get-topic-avg-count?debug=1
+2018-08-21 11:23:46.591 [ HttpController ] (DEBUG) [post] post = <http.client.HTTPResponse object at 0x02BAC510>
+2018-08-21 11:23:46.592 [ HttpController ] (DEBUG) response is :<http.client.HTTPResponse object at 0x02BAC510>
+2018-08-21 11:24:28.572 [ HttpController ] (DEBUG) [post] [url] http://api-server-corpus.zhan.com/toefl-ques/get-topic-avg-count?debug=1
+2018-08-21 11:24:28.611 [ HttpController ] (DEBUG) [post] post = <http.client.HTTPResponse object at 0x02BFC510>
+2018-08-21 11:24:28.612 [ HttpController ] (DEBUG) response is :<http.client.HTTPResponse object at 0x02BFC510>
+2018-08-21 11:24:34.427 [ HttpController ] (DEBUG) [post] [url] http://api-server-corpus.zhan.com/toefl-ques/get-topic-avg-count
+2018-08-21 11:24:34.460 [ HttpController ] (DEBUG) [post] post = <http.client.HTTPResponse object at 0x02C0C4F0>
+2018-08-21 11:24:34.462 [ HttpController ] (DEBUG) response is :<http.client.HTTPResponse object at 0x02C0C4F0>
+2018-08-21 11:24:47.664 [ HttpController ] (DEBUG) [post] [url] http://api-server-corpus.zhan.com/toefl-ques/get-topic-avg-count
+2018-08-21 11:24:47.687 [ HttpController ] (DEBUG) [post] post = <http.client.HTTPResponse object at 0x02BBB550>
+2018-08-21 11:24:47.688 [ HttpController ] (DEBUG) response is :<http.client.HTTPResponse object at 0x02BBB550>
+2018-08-21 11:25:00.798 [ HttpController ] (DEBUG) [post] [url] http://api-server-corpus.zhan.com/toefl-ques/get-topic-avg-count?debug=1
+2018-08-21 11:25:00.836 [ HttpController ] (DEBUG) [post] post = <http.client.HTTPResponse object at 0x02B9C510>
+2018-08-21 11:25:00.838 [ HttpController ] (DEBUG) response is :<http.client.HTTPResponse object at 0x02B9C510>
+2018-08-21 11:25:11.513 [ HttpController ] (DEBUG) [post] [url] http://api-server-corpus.zhan.com/toefl-ques/get-topic-avg-count?debug=1
+2018-08-21 11:25:11.558 [ HttpController ] (DEBUG) [post] post = <http.client.HTTPResponse object at 0x02B9C510>
+2018-08-21 11:25:11.559 [ HttpController ] (DEBUG) response is :<http.client.HTTPResponse object at 0x02B9C510>
+2018-08-21 11:27:50.368 [ HttpController ] (DEBUG) [get] [url] http://api-server-corpus.zhan.com/toefl-ques/get-topic-avg-count?debug=1?app_id=beikao&btype=1&topic_ids=[1, 2]
+2018-08-21 11:27:50.411 [ HttpController ] (DEBUG) [get] get = <http.client.HTTPResponse object at 0x02BBD430>
+2018-08-21 11:27:50.411 [ HttpController ] (DEBUG) response is :<http.client.HTTPResponse object at 0x02BBD430>
+2018-08-21 11:28:40.635 [ HttpController ] (DEBUG) [post] [url] http://api-server-corpus.zhan.com/toefl-ques/get-topic-avg-count?debug=1
+2018-08-21 11:28:40.660 [ HttpController ] (DEBUG) [post] post = <http.client.HTTPResponse object at 0x02BFC510>
+2018-08-21 11:28:40.660 [ HttpController ] (DEBUG) response is :<http.client.HTTPResponse object at 0x02BFC510>
+2018-08-21 11:29:44.247 [ HttpController ] (DEBUG) [post] [url] http://api-server-corpus.zhan.com/toefl-ques/get-topic-avg-count?debug=1
+2018-08-21 11:29:44.288 [ HttpController ] (DEBUG) [post] post = <http.client.HTTPResponse object at 0x02B9B570>
+2018-08-21 11:29:44.288 [ HttpController ] (DEBUG) response is :<http.client.HTTPResponse object at 0x02B9B570>
+2018-08-21 11:30:26.576 [ HttpController ] (DEBUG) [post] [url] http://api-server-corpus.zhan.com/toefl-ques/get-topic-avg-count?debug=1
+2018-08-21 11:30:26.615 [ HttpController ] (DEBUG) [post] post = <http.client.HTTPResponse object at 0x02BDC510>
+2018-08-21 11:30:26.615 [ HttpController ] (DEBUG) response is :<http.client.HTTPResponse object at 0x02BDC510>
+2018-08-21 11:30:48.463 [ HttpController ] (DEBUG) [post] [url] http://api-server-corpus.zhan.com/toefl-ques/get-topic-avg-count?debug=1
+2018-08-21 11:30:48.506 [ HttpController ] (DEBUG) [post] post = <http.client.HTTPResponse object at 0x02C0C510>
+2018-08-21 11:30:48.507 [ HttpController ] (DEBUG) response is :<http.client.HTTPResponse object at 0x02C0C510>
+2018-08-21 11:31:01.536 [ HttpController ] (DEBUG) [post] [url] http://api-server-corpus.zhan.com/toefl-ques/get-topic-avg-count?debug=1
+2018-08-21 11:31:01.559 [ HttpController ] (DEBUG) [post] post = <http.client.HTTPResponse object at 0x02B9B550>
+2018-08-21 11:31:01.560 [ HttpController ] (DEBUG) response is :<http.client.HTTPResponse object at 0x02B9B550>
+2018-08-21 11:31:41.956 [ HttpController ] (DEBUG) [post] [url] http://api-server-corpus.zhan.com/toefl-ques/get-topic-avg-count?debug=1
+2018-08-21 11:31:41.980 [ HttpController ] (DEBUG) [post] post = <http.client.HTTPResponse object at 0x02BDB570>
+2018-08-21 11:31:41.980 [ HttpController ] (DEBUG) response is :<http.client.HTTPResponse object at 0x02BDB570>
+2018-08-21 11:32:02.625 [ HttpController ] (DEBUG) [post] [url] http://api-server-corpus.zhan.com/toefl-ques/get-topic-avg-count?debug=1
+2018-08-21 11:32:02.649 [ HttpController ] (DEBUG) [post] post = <http.client.HTTPResponse object at 0x02BDC510>
+2018-08-21 11:32:02.651 [ HttpController ] (DEBUG) response is :<http.client.HTTPResponse object at 0x02BDC510>
+2018-08-21 11:32:27.528 [ HttpController ] (DEBUG) [post] [url] http://api-server-corpus.zhan.com/toefl-ques/get-topic-avg-count?debug=1
+2018-08-21 11:32:27.568 [ HttpController ] (DEBUG) [post] post = <http.client.HTTPResponse object at 0x02BFC510>
+2018-08-21 11:32:27.569 [ HttpController ] (DEBUG) response is :<http.client.HTTPResponse object at 0x02BFC510>
+2018-08-21 11:32:45.012 [ HttpController ] (DEBUG) [post] [url] http://api-server-corpus.zhan.com/toefl-ques/get-topic-avg-count?debug=1
+2018-08-21 11:32:45.039 [ HttpController ] (DEBUG) [post] post = <http.client.HTTPResponse object at 0x02B9C510>
+2018-08-21 11:32:45.039 [ HttpController ] (DEBUG) response is :<http.client.HTTPResponse object at 0x02B9C510>
+2018-08-21 11:33:16.216 [ HttpController ] (DEBUG) [post] [url] http://api-server-corpus.zhan.com/toefl-ques/get-topic-avg-count?debug=1
+2018-08-21 11:33:16.256 [ HttpController ] (DEBUG) [post] post = <http.client.HTTPResponse object at 0x02C0B570>
+2018-08-21 11:33:16.256 [ HttpController ] (DEBUG) response is :<http.client.HTTPResponse object at 0x02C0B570>
+2018-08-21 11:40:09.963 [ HttpController ] (DEBUG) [post] [url] http://api-server-corpus.zhan.com/toefl-ques/get-topic-avg-count?debug=1
+2018-08-21 11:40:09.983 [ HttpController ] (DEBUG) [post] post = <http.client.HTTPResponse object at 0x02B9B550>
+2018-08-21 11:40:09.983 [ HttpController ] (DEBUG) response is :<http.client.HTTPResponse object at 0x02B9B550>
+2018-08-21 11:40:18.384 [ HttpController ] (DEBUG) [post] [url] http://api-server-corpus.zhan.com/toefl-ques/get-topic-avg-count?debug=1
+2018-08-21 11:40:18.414 [ HttpController ] (DEBUG) [post] post = <http.client.HTTPResponse object at 0x02BDB550>
+2018-08-21 11:40:18.414 [ HttpController ] (DEBUG) response is :<http.client.HTTPResponse object at 0x02BDB550>
+2018-08-21 11:43:23.372 [ HttpController ] (DEBUG) [post] [url] http://api-server-corpus.zhan.com/toefl-ques/get-topic-avg-count?debug=1
+2018-08-21 11:43:23.400 [ HttpController ] (DEBUG) [post] post = <http.client.HTTPResponse object at 0x02BDB550>
+2018-08-21 11:43:23.401 [ HttpController ] (DEBUG) response is :<http.client.HTTPResponse object at 0x02BDB550>
+2018-08-21 11:43:49.792 [ HttpController ] (DEBUG) [post] [url] http://api-server-corpus.zhan.com/toefl-ques/get-topic-avg-count?debug=1
+2018-08-21 11:43:49.822 [ HttpController ] (DEBUG) [post] post = <http.client.HTTPResponse object at 0x02B9B550>
+2018-08-21 11:43:49.823 [ HttpController ] (DEBUG) response is :<http.client.HTTPResponse object at 0x02B9B550>
+2018-08-21 11:46:12.199 [ HttpController ] (DEBUG) [post] [url] http://api-server-corpus.zhan.com/toefl-ques/get-topic-avg-count?debug=1
+2018-08-21 11:46:12.220 [ HttpController ] (DEBUG) [post] post = <http.client.HTTPResponse object at 0x02BBB550>
+2018-08-21 11:46:12.220 [ HttpController ] (DEBUG) response is :<http.client.HTTPResponse object at 0x02BBB550>
+2018-08-21 11:46:37.057 [ HttpController ] (DEBUG) [post] [url] http://api-server-corpus.zhan.com/toefl-ques/get-topic-avg-count?debug=1
+2018-08-21 11:46:37.059 [ HttpController ] (DEBUG) b'app_id=beikao&btype=1&topic_ids=%5B1%2C+2%5D'
+2018-08-21 11:46:37.059 [ HttpController ] (DEBUG) {'Content-type': 'application/json'}
+2018-08-21 11:46:37.118 [ HttpController ] (DEBUG) [post] post = <http.client.HTTPResponse object at 0x02C0A590>
+2018-08-21 11:46:37.118 [ HttpController ] (DEBUG) response is :<http.client.HTTPResponse object at 0x02C0A590>
+2018-08-21 11:47:34.865 [ HttpController ] (DEBUG) [post] [url] http://api-server-corpus.zhan.com/toefl-ques/get-topic-avg-count?debug=1
+2018-08-21 11:47:34.867 [ HttpController ] (DEBUG) b'app_id=beikao&btype=1&topic_ids=%5B1%2C+2%5D'
+2018-08-21 11:47:34.867 [ HttpController ] (DEBUG) {'Content-type': 'application/json'}
+2018-08-21 11:47:34.914 [ HttpController ] (DEBUG) [post] post = <http.client.HTTPResponse object at 0x02BFA590>
+2018-08-21 11:47:34.914 [ HttpController ] (DEBUG) response is :<http.client.HTTPResponse object at 0x02BFA590>
+2018-08-21 13:09:48.323 [ HttpController ] (DEBUG) [post] [url] http://api-server-corpus.zhan.com/toefl-ques/get-topic-avg-count?debug=1
+2018-08-21 13:09:48.325 [ HttpController ] (DEBUG) b'app_id=beikao&btype=1&topic_ids=%5B1%2C+2%5D'
+2018-08-21 13:09:48.328 [ HttpController ] (DEBUG) {'Content-type': 'application/json'}
+2018-08-21 13:09:48.356 [ HttpController ] (DEBUG) [post] post = <http.client.HTTPResponse object at 0x02BEB550>
+2018-08-21 13:09:48.358 [ HttpController ] (DEBUG) response is :<http.client.HTTPResponse object at 0x02BEB550>
+2018-08-21 13:11:46.140 [ HttpController ] (DEBUG) [post] [url] http://api-server-corpus.zhan.com/toefl-ques/get-topic-avg-count?debug=1
+2018-08-21 13:11:46.141 [ HttpController ] (DEBUG) b'app_id=beikao&btype=1&topic_ids=%5B1%2C+2%5D'
+2018-08-21 13:11:46.142 [ HttpController ] (DEBUG) {'Content-type': 'application\\/json'}
+2018-08-21 13:11:46.167 [ HttpController ] (DEBUG) [post] post = <http.client.HTTPResponse object at 0x02B9A590>
+2018-08-21 13:11:46.168 [ HttpController ] (DEBUG) response is :<http.client.HTTPResponse object at 0x02B9A590>
+2018-08-21 13:12:12.623 [ HttpController ] (DEBUG) [post] [url] http://api-server-corpus.zhan.com/toefl-ques/get-topic-avg-count?debug=1
+2018-08-21 13:12:12.624 [ HttpController ] (DEBUG) b'app_id=beikao&btype=1&topic_ids=%5B1%2C+2%5D'
+2018-08-21 13:12:12.624 [ HttpController ] (DEBUG) {'Content-type': 'application/json'}
+2018-08-21 13:12:12.655 [ HttpController ] (DEBUG) [post] post = <http.client.HTTPResponse object at 0x02B9A590>
+2018-08-21 13:12:12.655 [ HttpController ] (DEBUG) response is :<http.client.HTTPResponse object at 0x02B9A590>
+2018-08-21 13:12:23.302 [ HttpController ] (DEBUG) [post] [url] http://api-server-corpus.zhan.com/toefl-ques/get-topic-avg-count?debug=1
+2018-08-21 13:12:23.302 [ HttpController ] (DEBUG) b'app_id=beikao&btype=1&topic_ids=%5B1%2C+2%5D'
+2018-08-21 13:12:23.303 [ HttpController ] (DEBUG) {'Content-type': 'application\\/json'}
+2018-08-21 13:12:23.340 [ HttpController ] (DEBUG) [post] post = <http.client.HTTPResponse object at 0x02BFA590>
+2018-08-21 13:12:23.340 [ HttpController ] (DEBUG) response is :<http.client.HTTPResponse object at 0x02BFA590>
+2018-08-21 13:13:13.255 [ HttpController ] (DEBUG) [post] [url] http://api-server-corpus.zhan.com/toefl-ques/get-topic-avg-count?debug=1
+2018-08-21 13:13:13.256 [ HttpController ] (DEBUG) b'app_id=beikao&btype=1&topic_ids=%5B1%2C+2%5D'
+2018-08-21 13:13:13.256 [ HttpController ] (DEBUG) {'Content-type': 'application/json; charset=UTF-8'}
+2018-08-21 13:13:13.287 [ HttpController ] (DEBUG) [post] post = <http.client.HTTPResponse object at 0x02B9A590>
+2018-08-21 13:13:13.287 [ HttpController ] (DEBUG) response is :<http.client.HTTPResponse object at 0x02B9A590>
+2018-08-21 13:13:25.121 [ HttpController ] (DEBUG) [post] [url] http://api-server-corpus.zhan.com/toefl-ques/get-topic-avg-count?debug=1
+2018-08-21 13:13:25.127 [ HttpController ] (DEBUG) b'app_id=beikao&btype=1&topic_ids=%5B1%2C+2%5D'
+2018-08-21 13:13:25.128 [ HttpController ] (DEBUG) {'Content-type': 'application/json; charset=UTF-8'}
+2018-08-21 13:13:25.158 [ HttpController ] (DEBUG) [post] post = <http.client.HTTPResponse object at 0x02B9B550>
+2018-08-21 13:13:25.158 [ HttpController ] (DEBUG) response is :<http.client.HTTPResponse object at 0x02B9B550>
+2018-08-21 13:13:37.507 [ HttpController ] (DEBUG) [post] [url] http://api-server-corpus.zhan.com/toefl-ques/get-topic-avg-count?debug=1
+2018-08-21 13:13:37.510 [ HttpController ] (DEBUG) b'app_id=beikao&btype=1&topic_ids=%5B1%2C+2%5D'
+2018-08-21 13:13:37.513 [ HttpController ] (DEBUG) {'Content-type': 'application\\/json; charset=UTF-8'}
+2018-08-21 13:13:37.579 [ HttpController ] (DEBUG) [post] post = <http.client.HTTPResponse object at 0x02BCA590>
+2018-08-21 13:13:37.580 [ HttpController ] (DEBUG) response is :<http.client.HTTPResponse object at 0x02BCA590>
+2018-08-21 13:20:04.271 [ HttpController ] (DEBUG) [post] [url] http://api-server-corpus.zhan.com/toefl-ques/get-topic-avg-count?debug=1
+2018-08-21 13:20:04.273 [ HttpController ] (DEBUG) b'app_id=beikao&btype=1&topic_ids=%5B1%2C+2%5D'
+2018-08-21 13:20:04.273 [ HttpController ] (DEBUG) {'Content-typetest': 'application\\/json; charset=UTF-8'}
+2018-08-21 13:20:04.310 [ HttpController ] (DEBUG) [post] post = <http.client.HTTPResponse object at 0x02B9A590>
+2018-08-21 13:20:04.311 [ HttpController ] (DEBUG) response is :<http.client.HTTPResponse object at 0x02B9A590>
+2018-08-21 13:20:15.427 [ HttpController ] (DEBUG) [post] [url] http://api-server-corpus.zhan.com/toefl-ques/get-topic-avg-count?debug=1
+2018-08-21 13:20:15.428 [ HttpController ] (DEBUG) b'app_id=beikao&btype=1&topic_ids=%5B1%2C+2%5D'
+2018-08-21 13:20:15.430 [ HttpController ] (DEBUG) {'Content-typetest': 'application/json; charset=UTF-8'}
+2018-08-21 13:20:15.468 [ HttpController ] (DEBUG) [post] post = <http.client.HTTPResponse object at 0x02B9A590>
+2018-08-21 13:20:15.471 [ HttpController ] (DEBUG) response is :<http.client.HTTPResponse object at 0x02B9A590>
+2018-08-21 13:20:43.595 [ HttpController ] (DEBUG) [post] [url] http://api-server-corpus.zhan.com/toefl-ques/get-topic-avg-count?debug=1
+2018-08-21 13:20:43.598 [ HttpController ] (DEBUG) b'app_id=beikao&btype=1&topic_ids=%5B1%2C+2%5D'
+2018-08-21 13:20:43.598 [ HttpController ] (DEBUG) None
+2018-08-21 13:20:43.635 [ HttpController ] (DEBUG) [post] post = <http.client.HTTPResponse object at 0x02B9A590>
+2018-08-21 13:20:43.636 [ HttpController ] (DEBUG) response is :<http.client.HTTPResponse object at 0x02B9A590>
+2018-08-21 13:21:26.480 [ HttpController ] (DEBUG) [post] [url] http://api-server-corpus.zhan.com/toefl-ques/get-topic-avg-count?debug=1
+2018-08-21 13:21:26.480 [ HttpController ] (DEBUG) b'app_id=beikao&btype=1&topic_ids=%5B1%2C+2%5D'
+2018-08-21 13:21:26.481 [ HttpController ] (DEBUG) None
+2018-08-21 13:21:26.506 [ HttpController ] (DEBUG) [post] post = <http.client.HTTPResponse object at 0x02BDA590>
+2018-08-21 13:21:26.506 [ HttpController ] (DEBUG) response is :<http.client.HTTPResponse object at 0x02BDA590>
+2018-08-21 13:21:40.634 [ HttpController ] (DEBUG) [post] [url] http://api-server-corpus.zhan.com/toefl-ques/get-topic-avg-count?debug=1
+2018-08-21 13:21:40.635 [ HttpController ] (DEBUG) b'app_id=beikao&btype=1&topic_ids=%5B1%2C+2%5D'
+2018-08-21 13:21:40.636 [ HttpController ] (DEBUG) None
+2018-08-21 13:21:40.667 [ HttpController ] (DEBUG) [post] post = <http.client.HTTPResponse object at 0x02B9A590>
+2018-08-21 13:21:40.667 [ HttpController ] (DEBUG) response is :<http.client.HTTPResponse object at 0x02B9A590>
+2018-08-21 13:24:58.591 [ HttpController ] (DEBUG) [post] [url] http://api-server-corpus.zhan.com/toefl-ques/get-topic-avg-count?debug=1
+2018-08-21 13:24:58.592 [ HttpController ] (ERROR) [post] argument of type 'builtin_function_or_method' is not iterable
+2018-08-21 13:25:41.592 [ HttpController ] (DEBUG) [post] [url] http://api-server-corpus.zhan.com/toefl-ques/get-topic-avg-count?debug=1
+2018-08-21 13:25:41.592 [ HttpController ] (ERROR) [post] argument of type 'builtin_function_or_method' is not iterable
+2018-08-21 13:26:07.022 [ HttpController ] (DEBUG) [post] [url] http://api-server-corpus.zhan.com/toefl-ques/get-topic-avg-count?debug=1
+2018-08-21 13:26:07.022 [ HttpController ] (ERROR) [post] argument of type 'builtin_function_or_method' is not iterable
+2018-08-21 13:26:50.526 [ HttpController ] (DEBUG) [post] [url] http://api-server-corpus.zhan.com/toefl-ques/get-topic-avg-count?debug=1
+2018-08-21 13:26:50.528 [ HttpController ] (ERROR) [post] argument of type 'builtin_function_or_method' is not iterable
+2018-08-21 13:27:13.443 [ HttpController ] (DEBUG) [post] [url] http://api-server-corpus.zhan.com/toefl-ques/get-topic-avg-count?debug=1
+2018-08-21 13:27:13.443 [ HttpController ] (ERROR) [post] argument of type 'builtin_function_or_method' is not iterable
+2018-08-21 13:27:42.566 [ HttpController ] (DEBUG) [post] [url] http://api-server-corpus.zhan.com/toefl-ques/get-topic-avg-count?debug=1
+2018-08-21 13:27:42.567 [ HttpController ] (ERROR) [post] encoding without a string argument
+2018-08-21 13:28:14.273 [ HttpController ] (DEBUG) [post] [url] http://api-server-corpus.zhan.com/toefl-ques/get-topic-avg-count?debug=1
+2018-08-21 13:28:14.302 [ HttpController ] (DEBUG) [post] post = <http.client.HTTPResponse object at 0x02B9B510>
+2018-08-21 13:28:14.302 [ HttpController ] (DEBUG) response is :<http.client.HTTPResponse object at 0x02B9B510>
+2018-08-21 13:28:59.200 [ HttpController ] (DEBUG) [post] [url] http://api-server-corpus.zhan.com/toefl-ques/get-topic-avg-count?debug=1
+2018-08-21 13:28:59.224 [ HttpController ] (DEBUG) [post] post = <http.client.HTTPResponse object at 0x02B9B510>
+2018-08-21 13:28:59.225 [ HttpController ] (DEBUG) response is :<http.client.HTTPResponse object at 0x02B9B510>
+2018-08-21 13:29:39.923 [ HttpController ] (DEBUG) [post] [url] http://api-server-corpus.zhan.com/toefl-ques/get-topic-avg-count?debug=1
+2018-08-21 13:29:39.948 [ HttpController ] (DEBUG) [post] post = <http.client.HTTPResponse object at 0x02B9B550>
+2018-08-21 13:29:39.950 [ HttpController ] (DEBUG) response is :<http.client.HTTPResponse object at 0x02B9B550>

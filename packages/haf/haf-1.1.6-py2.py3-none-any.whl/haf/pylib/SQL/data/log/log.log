@@ -1,0 +1,18 @@
+2018-08-28 14:16:08.793 [ RedisTool ] (INFO) [ConnectAndExecute] start connect to 192.168.41.230
+2018-08-28 14:16:08.801 [ RedisTool ] (ERROR) [ConnectAndExecute] Client sent AUTH, but no password is set
+2018-08-28 14:16:40.302 [ RedisTool ] (INFO) [ConnectAndExecute] start connect to 192.168.41.230
+2018-08-28 14:16:40.308 [ RedisTool ] (ERROR) [ConnectAndExecute] Client sent AUTH, but no password is set
+2018-08-28 14:17:18.668 [ RedisTool ] (INFO) [ConnectAndExecute] start connect to 192.168.41.230
+2018-08-28 14:17:18.681 [ RedisTool ] (ERROR) [ConnectAndExecute] invalid DB index
+2018-08-28 14:17:26.751 [ RedisTool ] (INFO) [ConnectAndExecute] start connect to 192.168.41.230
+2018-08-28 14:17:37.358 [ RedisTool ] (INFO) [ConnectAndExecute] start connect to 192.168.41.230
+2018-08-28 14:19:56.115 [ RedisTool ] (INFO) [ConnectAndExecute] start connect to 192.168.41.230
+2018-08-28 14:20:24.580 [ RedisTool ] (INFO) [ConnectAndExecute] start connect to 192.168.41.230
+2018-08-28 14:20:24.588 [ RedisTool ] (ERROR) [ConnectAndExecute] invalid DB index
+2018-08-28 14:20:49.495 [ RedisTool ] (INFO) [ConnectAndExecute] start connect to 192.168.41.230
+2018-08-30 13:19:28.057 [ RedisTool ] (INFO) [ConnectAndExecute] start connect to 192.168.41.230
+2018-08-30 13:19:28.064 [ RedisTool ] (INFO) [ConnectAndExecute] type is b'zset'
+2018-08-30 13:24:16.937 [ RedisTool ] (INFO) [ConnectAndExecute] start connect to 192.168.41.230
+2018-08-30 13:24:16.944 [ RedisTool ] (INFO) [ConnectAndExecute] type is b'zset'
+2018-08-30 13:26:03.663 [ RedisTool ] (INFO) [ConnectAndExecute] start connect to 192.168.41.230
+2018-08-30 13:26:03.670 [ RedisTool ] (INFO) [ConnectAndExecute] type is b'zset'
