@@ -1,0 +1,12 @@
+MANIFEST.in
+README.md
+setup.py
+pyGeoMagApex/__init__.py
+pyGeoMagApex/apex.py
+pyGeoMagApex/coordinate.py
+pyGeoMagApex/dipLat.py
+pyGeoMagApex.egg-info/PKG-INFO
+pyGeoMagApex.egg-info/SOURCES.txt
+pyGeoMagApex.egg-info/dependency_links.txt
+pyGeoMagApex.egg-info/requires.txt
+pyGeoMagApex.egg-info/top_level.txt
