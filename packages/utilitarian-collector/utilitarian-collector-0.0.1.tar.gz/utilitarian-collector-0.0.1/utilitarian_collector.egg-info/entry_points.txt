@@ -1,0 +1,3 @@
+[console_scripts]
+utilitarian-collector = utilitarian_collector.management:execute_from_cli
+
