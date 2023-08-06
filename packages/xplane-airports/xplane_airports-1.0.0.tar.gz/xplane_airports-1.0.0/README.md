@@ -1,0 +1,406 @@
+`xplane_airports`: Tools for working with X-Plane airport data[¶](#xplane-airports-tools-for-working-with-x-plane-airport-data "Permalink to this headline")
+============================================================================================================================================================
+
+`xplane_airports` is a Python package for interacting with [X-Plane](https://www.x-plane.com)'s airport data (`apt.dat`) files.
+
+There are two primary components to this:
+
+1. The `AptDat` module: used to parse & query raw `apt.dat` files (e.g., the files stored on disk in your X-Plane installation) 
+2. The `gateway` module: used to interact with [the X-Plane Scenery Gateway](https://gateway.x-plane.com) to get information about what airports are available, and to download individual scenery packs contributed by the community.
+ 
+
+## The `AptDat` module
+
+Tools for reading, inspecting, and manipulating X-Plane’s airport (apt.dat) files.
+
+### AptDat
+
+_class_ `AptDat.AptDat`(_path\_to\_file=None_)
+
+A container class for `Airport` objects. Parses X-Plane’s gigantic `apt.dat` files, which may have data on hundreds of airports.
+
+Field `airports`\
+Type: list\[Airport\]
+
+_static_ `from_file_text`(_apt\_dat\_file\_text_, _from\_file_)\
+Parameters:
+
+- **apt\_dat\_file\_text** (_str_): The contents of an apt.dat (or ICAO.dat) file
+- **from\_file** (_str_): Path to the file from which this was read
+
+Property `ids`\
+Returns: A generator containing the X-Plane IDs of all airports in the collection. Note that these IDs may or may not correspond to the airports’ ICAO identifiers.\
+Return type: collection.Iterable\[str\]
+
+Property `names`\
+Returns: A generator containing the names of all airports in the collection\
+Return type: collection.Iterable\[str\]
+
+Method `search_by_id`(_apt\_id_)\
+Parameter: **apt\_id** (_str_) – The X-Plane ID of the airport you want to query\
+Returns: The airport with the specified ID, or `None` if no matching airport exists in this collection.\
+Return type: Union\[[Airport](#AptDat.Airport), None\]
+
+Method `search_by_name`(_apt\_name_)\
+Parameter: **apt\_name** (_str_) – The name of the airport you want to query\
+Returns: All airports that match the specified name, case-insensitive (an empty list if no airports match)
+Return type: list\[[Airport](#AptDat.Airport)\]
+
+Method `search_by_predicate`(_predicate\_fn_)\
+Parameter: **predicate\_fn** (_(_[_Airport_](#AptDat.Airport)_)_ _\-> bool_) – We will collect all airports for which this function returns `True`\
+Return type: list\[[Airport](#AptDat.Airport)\]
+
+Method `sort`(_key='name'_)\
+By default, we store the airport data in whatever order we read it from the apt.dat file. When you call sort, though, we’ll ensure that it’s in order (default to name order, just like it’s always been in the shipping versions of X-Plane).\
+Parameter: **key** (_str_) – The [Airport](#AptDat.Airport) key to sort on
+
+_class_ `xplane_airports.AptDat.``Airport`(_name: str_, _id: str_, _from\_file: str = ''_, _has\_atc: bool = False_, _elevation\_ft\_amsl: float = 0_, _text: List\[xplane\_airports.AptDat.AptDatLine\] = <factory>_)[¶](#xplane_airports.AptDat.Airport "Permalink to this definition")
+
+A single airport from an apt.dat file.
+
+_static_ `from_lines`(_apt\_dat\_lines_, _from\_file\_name_)[¶](#xplane_airports.AptDat.Airport.from_lines "Permalink to this definition")
+
+  
+
+Parameters:
+
+**from\_file\_name** (_str_) – The name of the apt.dat file you read this airport in from
+
+Return type:
+
+[Airport](#xplane_airports.AptDat.Airport "xplane_airports.AptDat.Airport")
+
+_static_ `from_str`(_file\_text_, _from\_file\_name_)[¶](#xplane_airports.AptDat.Airport.from_str "Permalink to this definition")
+
+  
+
+Parameters:
+
+*   **file\_text** (_str_) – The portion of the apt.dat file text that specifies this airport
+*   **from\_file\_name** (_str_) – The name of the apt.dat file you read this airport in from
+
+Return type:
+
+[Airport](#xplane_airports.AptDat.Airport "xplane_airports.AptDat.Airport")
+
+`has_comm_freq`[¶](#xplane_airports.AptDat.Airport.has_comm_freq "Permalink to this definition")
+
+  
+
+Returns:
+
+True if this airport defines communication radio frequencies for interacting with ATC
+
+Return type:
+
+bool
+
+`has_ground_routes`[¶](#xplane_airports.AptDat.Airport.has_ground_routes "Permalink to this definition")
+
+  
+
+Returns:
+
+True if this airport defines any destinations for ground vehicles (like baggage cars, fuel trucks, etc.), ground truck parking locations, or taxi routes
+
+Return type:
+
+bool
+
+`has_row_code`(_row\_code\_or\_codes_)[¶](#xplane_airports.AptDat.Airport.has_row_code "Permalink to this definition")
+
+  
+
+Parameters:
+
+**row\_code\_or\_codes** (_Union__\[__int__,_ _str__,_ _collections.Iterable__\[__int__\]__\]_) – One or more “row codes” (the first token at the beginning of a line; almost always int)
+
+Returns:
+
+True if the airport has any lines in its text that begin with the specified row code(s)
+
+Return type:
+
+bool
+
+`has_taxi_route`[¶](#xplane_airports.AptDat.Airport.has_taxi_route "Permalink to this definition")
+
+  
+
+Returns:
+
+True if this airport defines routing rules for ATC’s use of its taxiways.
+
+Return type:
+
+bool
+
+`has_taxiway`[¶](#xplane_airports.AptDat.Airport.has_taxiway "Permalink to this definition")
+
+  
+
+Returns:
+
+True if this airport defines any taxiway geometry
+
+Return type:
+
+bool
+
+`has_taxiway_sign`[¶](#xplane_airports.AptDat.Airport.has_taxiway_sign "Permalink to this definition")
+
+  
+
+Returns:
+
+True if this airport defines any taxi signs
+
+Return type:
+
+bool
+
+`has_traffic_flow`[¶](#xplane_airports.AptDat.Airport.has_traffic_flow "Permalink to this definition")
+
+  
+
+Returns:
+
+True if this airport defines rules for when and under what conditions certain runways should be used by ATC
+
+Return type:
+
+bool
+
+`latitude`[¶](#xplane_airports.AptDat.Airport.latitude "Permalink to this definition")
+
+  
+
+Returns:
+
+The latitude of the airport, which X-Plane calculates as the latitude of the center of the first runway.
+
+Return type:
+
+float
+
+`longitude`[¶](#xplane_airports.AptDat.Airport.longitude "Permalink to this definition")
+
+  
+
+Returns:
+
+The longitude of the airport, which X-Plane calculates as the longitude of the center of the first runway.
+
+Return type:
+
+float
+
+_class_ `xplane_airports.AptDat.``AptDatLine`(_line\_text_)[¶](#xplane_airports.AptDat.AptDatLine "Permalink to this definition")
+
+A single line from an apt.dat file.
+
+`is_airport_header`()[¶](#xplane_airports.AptDat.AptDatLine.is_airport_header "Permalink to this definition")
+
+  
+
+Returns:
+
+True if this line marks the beginning of an airport, seaport, or heliport
+
+Return type:
+
+bool
+
+`is_file_header`()[¶](#xplane_airports.AptDat.AptDatLine.is_file_header "Permalink to this definition")
+
+  
+
+Returns:
+
+True if this is part of an apt.dat file header
+
+Return type:
+
+bool
+
+`is_ignorable`()[¶](#xplane_airports.AptDat.AptDatLine.is_ignorable "Permalink to this definition")
+
+  
+
+Returns:
+
+True if this line carries no semantic value for any airport in the apt.dat file.
+
+Return type:
+
+bool
+
+`is_runway`()[¶](#xplane_airports.AptDat.AptDatLine.is_runway "Permalink to this definition")
+
+  
+
+Returns:
+
+True if this line represents a land runway, waterway, or helipad
+
+Return type:
+
+bool
+
+`runway_type`[¶](#xplane_airports.AptDat.AptDatLine.runway_type "Permalink to this definition")
+
+  
+
+Returns:
+
+The type of runway represented by this line
+
+Return type:
+
+[RunwayType](#xplane_airports.AptDat.RunwayType "xplane_airports.AptDat.RunwayType")
+
+`tokens`[¶](#xplane_airports.AptDat.AptDatLine.tokens "Permalink to this definition")
+
+  
+
+Returns:
+
+The tokens in this line
+
+Return type:
+
+list\[str\]
+
+_class_ `xplane_airports.AptDat.``RunwayType`[¶](#xplane_airports.AptDat.RunwayType "Permalink to this definition")
+
+Row codes used to identify different types of runways
+
+The `gateway` module[¶](#module-xplane_airports.gateway "Permalink to this headline")
+=====================================================================================
+
+Tools for interfacing with the X-Plane Scenery Gateway’s API (docs at: [https://gateway.x-plane.com/api](https://gateway.x-plane.com/api))
+
+_class_ `xplane_airports.gateway.``GatewayApt`(_apt: xplane\_airports.AptDat.Airport, txt: Optional\[str\], readme: str, copying: str, pack\_metadata: dict, apt\_metadata: Optional\[dict\]_)[¶](#xplane_airports.gateway.GatewayApt "Permalink to this definition")
+
+All the data we get back about an airport when we download a scenery pack via `scenery_pack()`
+
+_class_ `xplane_airports.gateway.``GatewayFeature`[¶](#xplane_airports.gateway.GatewayFeature "Permalink to this definition")
+
+Features that may be used to tag scenery packs on the Gateway. Note that these are subject to frequent addition/removal/change; only a few are guaranteed to be stable.
+
+`xplane_airports.gateway.``airport`(_airport\_id_)[¶](#xplane_airports.gateway.airport "Permalink to this definition")
+
+Queries the Scenery Gateway for metadata on a single airport, plus metadata on all the scenery packs uploaded for that airport. Documented at: [https://gateway.x-plane.com/api#get-a-single-airport](https://gateway.x-plane.com/api#get-a-single-airport)
+
+  
+
+Parameters:
+
+**airport\_id** (_str_) – The identifier of the airport on the Gateway (may or may not be an ICAO ID)
+
+Returns:
+
+A dict with metadata about the airport
+
+Return type:
+
+dict
+
+\>>> expected\_keys \= {'icao', 'airportName', 'airportClass', 'latitude', 'longitude', 'elevation', 'acceptedSceneryCount', 'approvedSceneryCount', 'recommendedSceneryId', 'scenery'}
+\>>> ksea \= airport('KSEA')
+\>>> all(key in ksea for key in expected\_keys)
+True
+
+Includes metadata of all scenery packs uploaded for this airport:
+
+\>>> len(airport('KSEA')\['scenery'\]) \>= 9
+True
+
+\>>> all\_scenery\_metadata \= airport('KSEA')\['scenery'\]
+\>>> first\_scenery\_pack\_metadata \= all\_scenery\_metadata\[0\]
+\>>> expected\_keys \= {'sceneryId', 'parentId', 'userId', 'userName', 'dateUploaded', 'dateAccepted', 'dateApproved', 'dateDeclined', 'type', 'features', 'artistComments', 'moderatorComments', 'Status'}
+\>>> all(key in first\_scenery\_pack\_metadata for key in expected\_keys)
+True
+
+`xplane_airports.gateway.``airports`()[¶](#xplane_airports.gateway.airports "Permalink to this definition")
+
+Queries the Scenery Gateway for all the airports it knows about. Note that the download size is greater than 1 MB. Documented at: [https://gateway.x-plane.com/api#get-all-airports](https://gateway.x-plane.com/api#get-all-airports)
+
+  
+
+Returns:
+
+A dict with metadata on all 35,000+ airports; keys are X-Plane identifiers (which may or may not correspond to ICAO identifiers), and values are various airport metadata.
+
+Return type:
+
+dict
+
+\>>> airports()\['KSEA'\]
+{'AirportCode': 'KSEA', 'AirportName': 'Seattle Tacoma Intl', 'AirportClass': None, 'Latitude': 47, 'Longitude': -122, 'Elevation': None, 'Deprecated': None, 'DeprecatedInFavorOf': None, 'AcceptedSceneryCount': 2, 'ApprovedSceneryCount': 2, 'ExcludeSubmissions': 0, 'RecommendedSceneryId': 45283, 'Status': 'Scenery Submitted', 'SceneryType': 0, 'SubmissionCount': 2}
+
+\>>> len(airports()) \> 35000
+True
+
+`xplane_airports.gateway.``recommended_scenery_packs`(_selective\_apt\_ids=None_)[¶](#xplane_airports.gateway.recommended_scenery_packs "Permalink to this definition")
+
+A generator to iterate over the recommended scenery packs for all (or just the selected) airports on the Gateway. Downloads and unzips all files into memory.
+
+  
+
+Parameters:
+
+**selective\_apt\_ids** (_Union__\[__collections.Iterable__\[__str__\]__,_ _None__\]_) – If `None`, we will download scenery for all 35,000+ airports; if a list of airport IDs (as returned by `airports()`), the airports whose recommended packs we should download.
+
+Returns:
+
+A generator of the recommended scenery packs; each pack contains the same data as a call to `scenery_pack()` directly
+
+Return type:
+
+collections.Iterable\[[GatewayApt](#xplane_airports.gateway.GatewayApt "xplane_airports.gateway.GatewayApt")\]
+
+Easily request a subset of airports:
+
+\>>> packs \= recommended\_scenery\_packs(\['KSEA', 'KLAX', 'KBOS'\])
+\>>> len(list(packs)) \== 3 and all(isinstance(pack, GatewayApt) for pack in packs)
+True
+
+Audit airports for specific features:
+
+\>>> all\_3d \= True
+\>>> all\_have\_atc\_flow \= True
+\>>> all\_have\_taxi\_route \= True
+\>>> for pack in recommended\_scenery\_packs(\['KATL', 'KORD', 'KDFW', 'KLAX'\]):
+...     all\_3d &= pack.pack\_metadata\['type'\] \== '3D' and pack.txt is not None
+...     all\_have\_atc\_flow &= GatewayFeature.HasATCFlow in pack.pack\_metadata\['features'\] and pack.apt.has\_traffic\_flow()
+...     all\_have\_taxi\_route &= GatewayFeature.HasTaxiRoute in pack.pack\_metadata\['features'\] and pack.apt.has\_taxi\_route()
+\>>> all\_3d and all\_have\_atc\_flow and all\_have\_taxi\_route
+True
+
+`xplane_airports.gateway.``scenery_pack`(_pack\_to\_download_)[¶](#xplane_airports.gateway.scenery_pack "Permalink to this definition")
+
+Downloads a single scenery pack, including its apt.dat and any associated DSF from the Gateway, and unzips it into memory.
+
+  
+
+Parameters:
+
+**pack\_to\_download** (_Union__\[__str__,_ _int__\]_) – If `int`, the scenery ID of the pack to be downloaded; if `str`, the airport whose recommended pack we should download.
+
+Returns:
+
+the downloaded files and the metadata about the scenery pack
+
+Return type:
+
+[GatewayApt](#xplane_airports.gateway.GatewayApt "xplane_airports.gateway.GatewayApt")
+
+\>>> expected\_keys \= {'sceneryId', 'parentId', 'icao', 'aptName', 'userId', 'userName', 'dateUploaded', 'dateAccepted', 'dateApproved', 'dateDeclined', 'type', 'features', 'artistComments', 'moderatorComments', 'additionalMetadata', 'masterZipBlob'}
+\>>> ksea\_pack\_metadata \= scenery\_pack('KSEA').pack\_metadata
+\>>> all(key in ksea\_pack\_metadata for key in expected\_keys)
+True
+\>>> scenery\_pack('KORD').pack\_metadata\['type'\] in ('3D', '2D')
+True
+\>>> all(isinstance(feature, GatewayFeature) for feature in scenery\_pack('KMCI').pack\_metadata\['features'\])
+True
