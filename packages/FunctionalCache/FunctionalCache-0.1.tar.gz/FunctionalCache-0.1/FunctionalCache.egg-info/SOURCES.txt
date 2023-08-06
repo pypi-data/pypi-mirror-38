@@ -1,0 +1,11 @@
+MANIFEST.in
+README.md
+example.py
+setup.py
+test-requirements.txt
+FunctionalCache.egg-info/PKG-INFO
+FunctionalCache.egg-info/SOURCES.txt
+FunctionalCache.egg-info/dependency_links.txt
+FunctionalCache.egg-info/top_level.txt
+functional_cache/__init__.py
+functional_cache/test_functionalcache.py
