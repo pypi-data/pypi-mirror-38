@@ -1,0 +1,17 @@
+README.rst
+checker
+setup.cfg
+setup.py
+uploader
+astrolabe_py/__init__.py
+astrolabe_py/fits_meta.py
+astrolabe_py/fits_ops.py
+astrolabe_py/irods_help.py
+astrolabe_py/uploader.py
+astrolabe_py/utils.py
+astrolabe_py/version.py
+astrolabe_py.egg-info/PKG-INFO
+astrolabe_py.egg-info/SOURCES.txt
+astrolabe_py.egg-info/dependency_links.txt
+astrolabe_py.egg-info/requires.txt
+astrolabe_py.egg-info/top_level.txt

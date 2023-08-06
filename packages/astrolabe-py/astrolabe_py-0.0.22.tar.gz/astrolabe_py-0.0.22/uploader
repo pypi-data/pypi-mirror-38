@@ -1,0 +1,69 @@
+#!/usr/bin/env python3
+#
+# Program to view, extract, and/or verify metadata from one or more FITS files.
+#   Written by: Tom Hicks. 7/18/2018.
+#   Last Modified: Import VERSION number from version file.
+#
+import argparse
+import os
+import sys
+
+import astrolabe_py.uploader as up
+from astrolabe_py.version import VERSION
+
+# set of metadata keys to ignore when extracting metadata from FITS files
+_IGNORE_KEYS = set([ "COMMENT", "HISTORY" ])
+
+def main(argv):
+    """ FITS file metadata extraction and upload of a file or directory of files. """
+    program = "uploader"
+    version = "{} version {}".format(program, VERSION)
+
+    parser = argparse.ArgumentParser(
+        prog=program,
+        allow_abbrev=False,
+        description= "FITS file metadata extraction and upload of a file or directory of files."
+    )
+    parser.add_argument("-v", "--verbose", action="store_true",
+                        help="provide more information during execution")
+
+    parser.add_argument("-u", "--upload-only", action="store_true",
+                        help="upload files to iRods only: do not process file metadata")
+
+    parser.add_argument("--version", action="version", version=version)
+
+    parser.add_argument("--keyfile", nargs="?", const="metadata-keys.txt",
+                        metavar="metadata-keyfile",
+                        help="a file specifying which metadata keys which should be processed")
+
+    parser.add_argument("images_path",
+                        help="""path to a FITS file or a directory of FITS files to be processed.
+                                (path may not contain '..' or '.')""")
+
+    args = vars(parser.parse_args(argv))    # parse arguments into a dictionary
+    args["ignore_keys"] = _IGNORE_KEYS      # add keys to ignore for this app
+    # print("ARGS={}".format(args))           # DEBUGGING
+
+    # check the keyfile path argument, if given
+    keyfile = args.get("keyfile")
+    if (keyfile and ((len(keyfile) < 1) or (not os.path.isfile(keyfile)))):
+        print("Error: --keyfile argument must specify the path to a readable key file")
+        parser.print_usage()
+        sys.exit(4)
+
+    # insure that the given path refers to a readable file or valid directory
+    images_path = args.get("images_path")
+    if (not os.path.exists(images_path)):   # already insured non-empty by argparse
+        print("Error: Specified images path '{}' not found or is not readable".format(images_path))
+        sys.exit(5)
+
+    if (not os.access(images_path, os.R_OK)):
+        print("Error: Specified images path '{}' is not readable".format(images_path))
+        sys.exit(6)
+
+    # upload the FITS files to iRods and possibly attach their metadata
+    up.execute(args)
+
+
+if __name__ == "__main__":
+    main(sys.argv[1:])
