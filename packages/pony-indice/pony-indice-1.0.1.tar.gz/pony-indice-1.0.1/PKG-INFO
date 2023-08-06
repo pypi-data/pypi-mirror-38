@@ -1,0 +1,88 @@
+Metadata-Version: 1.1
+Name: pony-indice
+Version: 1.0.1
+Summary: Search index for Django.
+Home-page: https://gitlab.com/ZuluPro/pony-indice
+Author: Anthony Monthe (ZuluPro)
+Author-email: anthony.monthe@gmail.com
+License: BSD License
+Description: ===========
+        Pony Indice
+        ===========
+        
+        Pony Indice is a Django re-usable app to create a simple search engine for your
+        project.
+        
+        Install
+        =======
+        
+        Install it as usual (pip coming): ::
+        
+            pip install pony-indice
+            
+        Add the app in your ``INSTALLED_APPS``: ::
+        
+            INSTALLED_APPS = (
+               ...
+               'pony_indice',
+               ...
+            )
+            
+        And launch the migration to create the table: ::
+        
+            ./manage.py migrate
+        
+        Usage
+        =====
+        
+        The usage is quite simple: ::
+        
+            from pony_indice import registry as indice_registry
+        
+            @indice_registry.register()
+            class YourModel(models.Models):
+               rank = models.IntegerField()
+        
+        Now your model is tagged as "tracked" and the following behaviors are added:
+        
+        - On ``post_save`` signals a ``Link`` will be created/updated in database
+        - On ``post_delete`` the ``Link`` will be mark as "removed"
+        
+        (Update aren't taken in account and may lead to broken URLs)
+        
+        Basicaly this app is based on the other decorated models, but you can easily
+        import ``pony_indice.models.Link`` and add the link which you want, especialy
+        external ones.
+        
+        Tools
+        =====
+        
+        QuerySet
+        --------
+        
+        The ``Link``'s queryset has the method ``filter_q`` method, which is a simple
+        filter looking if fields ``display`` or ``description`` contain a string.
+        Useful to create easily any search tool.
+        
+        Admin
+        -----
+        
+        Of course the admin interface is already configured.
+        
+        REST Framework
+        --------------
+        
+        ``pony_indice.contrib.rest_framework.serializers.LinkSerializer`` and
+        ``pony_indice.contrib.rest_framework.viewsets.LinkViewsets`` are here to play
+        quickly with Django REST Framework.
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Framework :: Django
