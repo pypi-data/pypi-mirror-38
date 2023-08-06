@@ -1,0 +1,77 @@
+=========
+Editorium
+=========
+
+`Editorium`:t: creates `Qt`:t: editors for objects or functions via reflection.
+
+Object fields or method parameters are reflected and an editor generated for each field or parameter.
+For instance an `int` field is generated as a `QSpinBox` editor.
+
+Please see the `StringCoercion`:t: project for the command-line equivalent.
+
+--------
+Features
+--------
+
+* Generate editor for field/type
+* Generate editors for object
+* Generate editors for function call
+* Read fields from object to editors
+* Write fields from editors into object
+* Supports custom editors and extensions
+
+---------------
+Default editors
+---------------
+
+.. list-table::
+    :header-rows: 1 
+
+    * - `Type` 
+      - `AbstractEditor`
+      - `QWidget`
+
+    * - `int`
+      - `IntEditor`   
+      - `QSpinBox`
+
+    * - `float`
+      - `FloatEditor` 
+      - `QLineEdit`
+
+    * - `str` 
+      - `StringEditor`
+      - `QLineEdit`
+
+    * - `Optional[T]` [1]_ 
+      - `NullableEditor` 
+      - `QCheckBox` & Editor(`T`)
+
+    * - `bool`  
+      - `BoolEditor`
+      - `QCheckBox` 
+
+    * - `Enum`  
+      - `AbstractEnumEditor` [3]_
+      - `QComboBox`
+
+    * - `Flags`   
+      - `FlagsEditor`
+      - `QCheckBox[]`
+
+    * - `List[T]`  
+      - `ListTEditor` 
+      - Editor(`T`)`[]`
+
+    * - `Filename` [2]_ 
+      - `AbstractBrowserEditor`
+      - `QLineEdit` & `QToolButton`
+
+.. [1] `Optional[T]` is a PEP-484_ annotation supplied by `Python`:t:'s `typing`:t: library and indicates that a value may be `None`.
+
+.. [2] `Filename` is a PEP-484_-style annotation provided by the `MHelper`:t: library and provides hints on an acceptable filename e.g. `Filename[".txt", EMode.SAVE]`.
+
+.. [3] The `StringCoercion`:t: library is queried to obtain the list of options for types such as `Enum`, so if you have registered your list providers with `StringCoercion`:t: you will not need to do so again for `Editorium`:t:.
+
+
+.. _PEP-484: https://www.python.org/dev/peps/pep-0484/
