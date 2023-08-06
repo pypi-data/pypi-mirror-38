@@ -1,0 +1,12 @@
+Metadata-Version: 1.1
+Name: linearCounter
+Version: 0.51
+Summary: A trivial extension to collections.Counter that enables linear operations.
+Home-page: https://github.com/MatteoLacki/linearCounter
+Author: Mateusz Lacki
+Author-email: matteo.lacki@gmail.com
+License: UNKNOWN
+Download-URL: https://github.com/MatteoLacki/linearCounter.git
+Description: This is a sparse infinitely dimensional vector, indexed by whatever you want. OK, not infinite in as much as the entries can take no more than the RAM you have. So do have some spare RAM, and you will be rewarded.
+Keywords: linear operations,abstract linear spaces,Counter
+Platform: UNKNOWN
