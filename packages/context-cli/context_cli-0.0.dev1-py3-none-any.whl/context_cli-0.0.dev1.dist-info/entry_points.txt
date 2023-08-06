@@ -1,0 +1,3 @@
+[console_scripts]
+ctx = context_cli.__main__:main
+
