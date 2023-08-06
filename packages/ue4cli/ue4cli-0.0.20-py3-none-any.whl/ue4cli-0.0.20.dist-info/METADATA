@@ -1,0 +1,24 @@
+Metadata-Version: 2.0
+Name: ue4cli
+Version: 0.0.20
+Summary: Command-line interface for Unreal Engine 4
+Home-page: http://github.com/adamrehn/ue4cli
+Author: Adam Rehn
+Author-email: adam@adamrehn.com
+License: MIT
+Keywords: epic unreal engine
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Environment :: Console
+Requires-Python: >=3.5
+Requires-Dist: setuptools
+Requires-Dist: shellescape
+Requires-Dist: wheel
+
+UNKNOWN
+
+
