@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: elephas
+Version: 0.4
+Summary: Deep learning on Spark with Keras
+Home-page: http://github.com/maxpumperla/elephas
+Author: Max Pumperla
+Author-email: max.pumperla@googlemail.com
+License: MIT
+Download-URL: https://github.com/maxpumperla/elephas/tarball/0.4
+Platform: UNKNOWN
+Requires-Dist: cython
+Requires-Dist: keras
+Requires-Dist: tensorflow
+Requires-Dist: hyperas
+Requires-Dist: flask
+Requires-Dist: six
+Requires-Dist: pyspark
+Requires-Dist: pydl4j (>=0.1.3)
+
+UNKNOWN
+
+
