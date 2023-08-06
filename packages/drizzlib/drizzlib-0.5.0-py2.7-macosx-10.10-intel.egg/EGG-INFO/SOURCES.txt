@@ -1,0 +1,11 @@
+setup.py
+bin/healpix2wcs
+drizzlib.egg-info/PKG-INFO
+drizzlib.egg-info/SOURCES.txt
+drizzlib.egg-info/dependency_links.txt
+drizzlib.egg-info/top_level.txt
+lib/__init__.py
+lib/healpix2wcs.py
+lib/utils.py
+lib/wcs2healpix.py
+src/optimized.c
