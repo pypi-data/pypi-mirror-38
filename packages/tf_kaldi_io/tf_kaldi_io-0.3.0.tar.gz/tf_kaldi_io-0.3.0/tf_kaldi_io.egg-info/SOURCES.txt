@@ -1,0 +1,15 @@
+CMakeLists.txt
+MANIFEST.in
+README.md
+setup.py
+ops/kaldi-io.cmake
+ops/kaldi_reader_dataset_op.cc
+tf_kaldi_io/__init__.py
+tf_kaldi_io/tf_kaldi_dataset.py
+tf_kaldi_io/tf_kaldi_io.py
+tf_kaldi_io.egg-info/PKG-INFO
+tf_kaldi_io.egg-info/SOURCES.txt
+tf_kaldi_io.egg-info/dependency_links.txt
+tf_kaldi_io.egg-info/not-zip-safe
+tf_kaldi_io.egg-info/requires.txt
+tf_kaldi_io.egg-info/top_level.txt

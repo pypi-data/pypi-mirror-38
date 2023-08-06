@@ -1,0 +1,30 @@
+Metadata-Version: 1.0
+Name: tf-kaldi-io
+Version: 0.3.0
+Summary: kaldi-io for Tensorflow
+Home-page: https://github.com/open-speech/tf_kaldi_io
+Author: Meixu Song
+Author-email: songmeixu@outlook.com
+License: MIT
+Description: 
+        A python package: provide a custom tensorflow dataset for kaldi io
+        
+        Python is its wrapper, C++ is its backend implemention. It depends on two things:
+        
+        Through [kaldi-io lib](https://github.com/open-speech/kaldi-io.git), it is able to:
+        - direct read from kaldi rspecifier(scp, ark, in text or binary, just as [kaldi](https://github.com/kaldi-asr/kaldi))
+        - support multiple feature transforms:
+          - delta
+          - cmvn
+          - splice
+          - sampling
+        - compute fast: kaldi Matrix|Vector with blas math lib is used
+        
+        Through [tensorflow dataset](https://www.tensorflow.org/guide/datasets), it is able to:
+        - shuffling
+        - batching at frame or utt level
+        - bucketing with input sequence lengths
+        - and all other tensorflow native dataset manipulations and features (parellel, prefetch, ..)
+        
+        
+Platform: UNKNOWN
