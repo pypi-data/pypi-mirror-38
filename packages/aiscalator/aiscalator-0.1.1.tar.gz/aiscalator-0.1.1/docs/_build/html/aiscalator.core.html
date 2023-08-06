@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>aiscalator.core package &#8212; AIscalator 0.1.0 documentation</title>
+    <link rel="stylesheet" href="_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/sidebar.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="aiscalator.jupyter package" href="aiscalator.jupyter.html" />
+    <link rel="prev" title="aiscalator.airflow package" href="aiscalator.airflow.html" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <link rel="shortcut icon" type="image/png" href="_static/favicon.png" />
+    <meta name="viewport" content="width=device-width,initial-scale=0.8">
+    
+    
+
+  </head><body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="responsive-menu"><a href="#sidebar-anchor" title="Navigation">&#9776;</a></li>
+        <li><a href="index.html">AIscalator-0.1.0</a> &#187;</li>
+          <li><a href="modules.html" >aiscalator</a> &#187;</li>
+          <li><a href="aiscalator.html" accesskey="U">aiscalator package</a> &#187;</li> 
+      </ul>
+    </div>
+    
+        <div class="badge">
+            <a href="https://github.com/Aiscalate/aiscalator/">Fork me on GitHub</a>
+            <img src="_static/right-red@2x.png">
+        </div>
+    
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="aiscalator-core-package">
+<h1>aiscalator.core package<a class="headerlink" href="#aiscalator-core-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-aiscalator.core.config">
+<span id="aiscalator-core-config-module"></span><h2>aiscalator.core.config module<a class="headerlink" href="#module-aiscalator.core.config" title="Permalink to this headline">¶</a></h2>
+<p>Handles configurations files for the application</p>
+<dl class="class">
+<dt id="aiscalator.core.config.AiscalatorConfig">
+<em class="property">class </em><code class="descclassname">aiscalator.core.config.</code><code class="descname">AiscalatorConfig</code><span class="sig-paren">(</span><em>user_config_override=None</em>, <em>step_config=None</em>, <em>steps_selection=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aiscalator/core/config.html#AiscalatorConfig"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#aiscalator.core.config.AiscalatorConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A configuration object for the Aiscalator application.</p>
+<dl class="docutils">
+<dt>This object stores:</dt>
+<dd><ul class="first last simple">
+<li>global configuration for the whole application</li>
+<li>configuration for a particular context specified in a step
+configuration file.</li>
+<li>In this case, we might even focus on a particular step.</li>
+</ul>
+</dd>
+</dl>
+<p>…</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>_user_config_override</strong> (<em>str</em>) – path to the specified user config</li>
+<li><strong>_app_conf</strong> – global configuration object for the application</li>
+<li><strong>_step_config</strong> (<em>str</em>) – path to the step configuration (or plain configuration as string)</li>
+<li><strong>_focused_steps</strong> (<em>list</em>) – list of selected steps</li>
+<li><strong>_step_it</strong> (<em>int</em>) – index of the step being processed</li>
+<li><strong>_step</strong> – configuration object for the currently processed step</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#aiscalator.core.config.AiscalatorConfig.app_config" title="aiscalator.core.config.AiscalatorConfig.app_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">app_config</span></code></a>()</td>
+<td><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">returns:</th><td class="field-body"><em>str</em> – the configuration object for the aiscalator application</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#aiscalator.core.config.AiscalatorConfig.app_config_has" title="aiscalator.core.config.AiscalatorConfig.app_config_has"><code class="xref py py-obj docutils literal notranslate"><span class="pre">app_config_has</span></code></a>(field)</td>
+<td>Tests if the applicatin config has a configuration value for the field.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#aiscalator.core.config.AiscalatorConfig.container_name" title="aiscalator.core.config.AiscalatorConfig.container_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">container_name</span></code></a>()</td>
+<td>Return the docker container name to execute this step</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#aiscalator.core.config.AiscalatorConfig.extract_parameters" title="aiscalator.core.config.AiscalatorConfig.extract_parameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">extract_parameters</span></code></a>()</td>
+<td>Returns a list of docker parameters</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#aiscalator.core.config.AiscalatorConfig.file_path" title="aiscalator.core.config.AiscalatorConfig.file_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">file_path</span></code></a>(string)</td>
+<td>Returns absolute path of a file from a field of the currently focused step.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#aiscalator.core.config.AiscalatorConfig.find_user_config_file" title="aiscalator.core.config.AiscalatorConfig.find_user_config_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_user_config_file</span></code></a>(filename)</td>
+<td>Looks for configuration files in the user configuration folder</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#aiscalator.core.config.AiscalatorConfig.has_step_field" title="aiscalator.core.config.AiscalatorConfig.has_step_field"><code class="xref py py-obj docutils literal notranslate"><span class="pre">has_step_field</span></code></a>(field)</td>
+<td>Tests if the currently focused step has a configuration value for the field.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#aiscalator.core.config.AiscalatorConfig.next_step" title="aiscalator.core.config.AiscalatorConfig.next_step"><code class="xref py py-obj docutils literal notranslate"><span class="pre">next_step</span></code></a>()</td>
+<td>Iterates to the next configuration step from the list of selected steps</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#aiscalator.core.config.AiscalatorConfig.notebook_output_path" title="aiscalator.core.config.AiscalatorConfig.notebook_output_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">notebook_output_path</span></code></a>(notebook)</td>
+<td>Generates the name of the output notebook</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#aiscalator.core.config.AiscalatorConfig.root_dir" title="aiscalator.core.config.AiscalatorConfig.root_dir"><code class="xref py py-obj docutils literal notranslate"><span class="pre">root_dir</span></code></a>()</td>
+<td><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">returns:</th><td class="field-body"><em>str</em> – Returns the path to the folder containing the step</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#aiscalator.core.config.AiscalatorConfig.setup_app_config" title="aiscalator.core.config.AiscalatorConfig.setup_app_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setup_app_config</span></code></a>()</td>
+<td>Setup global application configuration.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#aiscalator.core.config.AiscalatorConfig.step_config_path" title="aiscalator.core.config.AiscalatorConfig.step_config_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">step_config_path</span></code></a>()</td>
+<td><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">returns:</th><td class="field-body"><em>str</em> – Returns the path to the step configuration file.</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#aiscalator.core.config.AiscalatorConfig.step_field" title="aiscalator.core.config.AiscalatorConfig.step_field"><code class="xref py py-obj docutils literal notranslate"><span class="pre">step_field</span></code></a>(field)</td>
+<td>Returns the value associated with the field for the currently focused step.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#aiscalator.core.config.AiscalatorConfig.step_name" title="aiscalator.core.config.AiscalatorConfig.step_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">step_name</span></code></a>()</td>
+<td>Returns the name of the currently focused step</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#aiscalator.core.config.AiscalatorConfig.timestamp_now" title="aiscalator.core.config.AiscalatorConfig.timestamp_now"><code class="xref py py-obj docutils literal notranslate"><span class="pre">timestamp_now</span></code></a>()</td>
+<td>Depending on how the timezone is configured, returns the timestamp for this instant.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#aiscalator.core.config.AiscalatorConfig.user_env_file" title="aiscalator.core.config.AiscalatorConfig.user_env_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">user_env_file</span></code></a>()</td>
+<td>Find a list of env files to pass to docker containers</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#aiscalator.core.config.AiscalatorConfig.user_id" title="aiscalator.core.config.AiscalatorConfig.user_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">user_id</span></code></a>()</td>
+<td><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">returns:</th><td class="field-body"><em>str</em> – the user id stored when the application was first setup</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#aiscalator.core.config.AiscalatorConfig.validate_config" title="aiscalator.core.config.AiscalatorConfig.validate_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_config</span></code></a>()</td>
+<td>Check if all the fields in the reference config are defined in focused steps too.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="aiscalator.core.config.AiscalatorConfig.app_config">
+<code class="descname">app_config</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/aiscalator/core/config.html#AiscalatorConfig.app_config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#aiscalator.core.config.AiscalatorConfig.app_config" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><em>str</em> – the configuration object for the aiscalator application</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="aiscalator.core.config.AiscalatorConfig.app_config_has">
+<code class="descname">app_config_has</code><span class="sig-paren">(</span><em>field</em><span class="sig-paren">)</span> &#x2192; bool<a class="reference internal" href="_modules/aiscalator/core/config.html#AiscalatorConfig.app_config_has"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#aiscalator.core.config.AiscalatorConfig.app_config_has" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tests if the applicatin config has a configuration
+value for the field.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="aiscalator.core.config.AiscalatorConfig.container_name">
+<code class="descname">container_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; str<a class="reference internal" href="_modules/aiscalator/core/config.html#AiscalatorConfig.container_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#aiscalator.core.config.AiscalatorConfig.container_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the docker container name to execute this step</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="aiscalator.core.config.AiscalatorConfig.extract_parameters">
+<code class="descname">extract_parameters</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; list<a class="reference internal" href="_modules/aiscalator/core/config.html#AiscalatorConfig.extract_parameters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#aiscalator.core.config.AiscalatorConfig.extract_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of docker parameters</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="aiscalator.core.config.AiscalatorConfig.file_path">
+<code class="descname">file_path</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aiscalator/core/config.html#AiscalatorConfig.file_path"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#aiscalator.core.config.AiscalatorConfig.file_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns absolute path of a file from a field of the currently
+focused step.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="aiscalator.core.config.AiscalatorConfig.find_user_config_file">
+<code class="descname">find_user_config_file</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span> &#x2192; str<a class="reference internal" href="_modules/aiscalator/core/config.html#AiscalatorConfig.find_user_config_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#aiscalator.core.config.AiscalatorConfig.find_user_config_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Looks for configuration files in the user configuration folder</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filename</strong> (<em>str</em>) – file to search for</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><em>str</em> – path to the filename in the user configuration folder</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="aiscalator.core.config.AiscalatorConfig.has_step_field">
+<code class="descname">has_step_field</code><span class="sig-paren">(</span><em>field</em><span class="sig-paren">)</span> &#x2192; bool<a class="reference internal" href="_modules/aiscalator/core/config.html#AiscalatorConfig.has_step_field"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#aiscalator.core.config.AiscalatorConfig.has_step_field" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tests if the currently focused step has a configuration
+value for the field.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="aiscalator.core.config.AiscalatorConfig.next_step">
+<code class="descname">next_step</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/aiscalator/core/config.html#AiscalatorConfig.next_step"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#aiscalator.core.config.AiscalatorConfig.next_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterates to the next configuration step from the list
+of selected steps</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><em>the next configuration object</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="aiscalator.core.config.AiscalatorConfig.notebook_output_path">
+<code class="descname">notebook_output_path</code><span class="sig-paren">(</span><em>notebook</em><span class="sig-paren">)</span> &#x2192; str<a class="reference internal" href="_modules/aiscalator/core/config.html#AiscalatorConfig.notebook_output_path"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#aiscalator.core.config.AiscalatorConfig.notebook_output_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates the name of the output notebook</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="aiscalator.core.config.AiscalatorConfig.root_dir">
+<code class="descname">root_dir</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/aiscalator/core/config.html#AiscalatorConfig.root_dir"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#aiscalator.core.config.AiscalatorConfig.root_dir" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><em>str</em> – Returns the path to the folder containing the step
+configuration file</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="aiscalator.core.config.AiscalatorConfig.setup_app_config">
+<code class="descname">setup_app_config</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/aiscalator/core/config.html#AiscalatorConfig.setup_app_config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#aiscalator.core.config.AiscalatorConfig.setup_app_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setup global application configuration.
+If not found in the default location, this method will generate
+a brand new one.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="aiscalator.core.config.AiscalatorConfig.step_config_path">
+<code class="descname">step_config_path</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/aiscalator/core/config.html#AiscalatorConfig.step_config_path"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#aiscalator.core.config.AiscalatorConfig.step_config_path" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><em>str</em> – Returns the path to the step configuration file.
+If it was an URL, it will return the path to the temporary
+downloaded version of it.
+If it was a plain string, then returns None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="aiscalator.core.config.AiscalatorConfig.step_field">
+<code class="descname">step_field</code><span class="sig-paren">(</span><em>field</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aiscalator/core/config.html#AiscalatorConfig.step_field"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#aiscalator.core.config.AiscalatorConfig.step_field" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the value associated with the field for the currently
+focused step.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="aiscalator.core.config.AiscalatorConfig.step_name">
+<code class="descname">step_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/aiscalator/core/config.html#AiscalatorConfig.step_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#aiscalator.core.config.AiscalatorConfig.step_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the name of the currently focused step</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="aiscalator.core.config.AiscalatorConfig.timestamp_now">
+<code class="descname">timestamp_now</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; str<a class="reference internal" href="_modules/aiscalator/core/config.html#AiscalatorConfig.timestamp_now"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#aiscalator.core.config.AiscalatorConfig.timestamp_now" title="Permalink to this definition">¶</a></dt>
+<dd><p>Depending on how the timezone is configured, returns the
+timestamp for this instant.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="aiscalator.core.config.AiscalatorConfig.user_env_file">
+<code class="descname">user_env_file</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; list<a class="reference internal" href="_modules/aiscalator/core/config.html#AiscalatorConfig.user_env_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#aiscalator.core.config.AiscalatorConfig.user_env_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a list of env files to pass to docker containers</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><em>List</em> – env files</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="aiscalator.core.config.AiscalatorConfig.user_id">
+<code class="descname">user_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; str<a class="reference internal" href="_modules/aiscalator/core/config.html#AiscalatorConfig.user_id"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#aiscalator.core.config.AiscalatorConfig.user_id" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><em>str</em> – the user id stored when the application was first setup</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="aiscalator.core.config.AiscalatorConfig.validate_config">
+<code class="descname">validate_config</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/aiscalator/core/config.html#AiscalatorConfig.validate_config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#aiscalator.core.config.AiscalatorConfig.validate_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if all the fields in the reference config are
+defined in focused steps too. Otherwise
+raise an Exception (either pyhocon.ConfigMissingException
+or pyhocon.ConfigWrongTypeException)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="aiscalator.core.config.convert_to_format">
+<code class="descclassname">aiscalator.core.config.</code><code class="descname">convert_to_format</code><span class="sig-paren">(</span><em>file: str</em>, <em>output: str</em>, <em>output_format: str</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aiscalator/core/config.html#convert_to_format"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#aiscalator.core.config.convert_to_format" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts a HOCON file to another format</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>file</strong> (<em>str</em>) – hocon file to convert</li>
+<li><strong>output</strong> (<em>str</em>) – output file to produce</li>
+<li><strong>output_format</strong> (<em>str</em>) – format of the output file</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><em>str</em> – the output file</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="aiscalator.core.config.find_tasks">
+<code class="descclassname">aiscalator.core.config.</code><code class="descname">find_tasks</code><span class="sig-paren">(</span><em>tree: pyhocon.config_tree.ConfigTree</em>, <em>path=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aiscalator/core/config.html#find_tasks"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#aiscalator.core.config.find_tasks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find all Tasks objects in the Configuration object and report
+their paths.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>tree</strong> (<em>pyhocon.ConfigTree</em>) – Configuration object</li>
+<li><strong>path</strong> (<em>str</em>) – path that was traversed to get to this tree</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><em>list</em> – list of names of Configuration objects containing a
+definition of a section ‘task’</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="aiscalator.core.config.generate_global_config">
+<code class="descclassname">aiscalator.core.config.</code><code class="descname">generate_global_config</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; str<a class="reference internal" href="_modules/aiscalator/core/config.html#generate_global_config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#aiscalator.core.config.generate_global_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a standard configuration file for the application in the
+user’s home folder ~/.aiscalator/config/aiscalator.conf from the
+template file in aiscalator/config/template/aiscalator.conf</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="aiscalator.core.config.generate_user_id">
+<code class="descclassname">aiscalator.core.config.</code><code class="descname">generate_user_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; str<a class="reference internal" href="_modules/aiscalator/core/config.html#generate_user_id"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#aiscalator.core.config.generate_user_id" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><em>str</em> – Returns a string identifying this user when the
+setup was run first</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="aiscalator.core.config.load_logging_conf">
+<code class="descclassname">aiscalator.core.config.</code><code class="descname">load_logging_conf</code><span class="sig-paren">(</span><em>file</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aiscalator/core/config.html#load_logging_conf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#aiscalator.core.config.load_logging_conf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads and loads the logging configuration file</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="aiscalator.core.config.parse_step_config">
+<code class="descclassname">aiscalator.core.config.</code><code class="descname">parse_step_config</code><span class="sig-paren">(</span><em>step_config</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aiscalator/core/config.html#parse_step_config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#aiscalator.core.config.parse_step_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interpret the step_config to produce a step configuration
+object. It could be provided as:
+- a path to a local file
+- a url to a remote file
+- the plain configuration stored as string</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><em>Step configuration object</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="aiscalator.core.config.select_steps">
+<code class="descclassname">aiscalator.core.config.</code><code class="descname">select_steps</code><span class="sig-paren">(</span><em>step_conf</em>, <em>steps_selection: list</em><span class="sig-paren">)</span> &#x2192; list<a class="reference internal" href="_modules/aiscalator/core/config.html#select_steps"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#aiscalator.core.config.select_steps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract the list of step objects corresponding to
+the list of names provided.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>step_conf</strong> – step configuration object</li>
+<li><strong>steps_selection</strong> (<em>list</em>) – list of names of step to extract</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><em>list</em> – list of tuples of (step_name, step) of selected
+configuration objects</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="aiscalator.core.config.setup_logging">
+<code class="descclassname">aiscalator.core.config.</code><code class="descname">setup_logging</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/aiscalator/core/config.html#setup_logging"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#aiscalator.core.config.setup_logging" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setup the logging configuration of the application</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="aiscalator.core.config.validate_configs">
+<code class="descclassname">aiscalator.core.config.</code><code class="descname">validate_configs</code><span class="sig-paren">(</span><em>test</em>, <em>reference</em>, <em>path</em>, <em>missing_exception=True</em>, <em>type_mismatch_exception=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aiscalator/core/config.html#validate_configs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#aiscalator.core.config.validate_configs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recursively check two configs if they match</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>test</strong> – configuration object to test</li>
+<li><strong>reference</strong> – reference configuration object</li>
+<li><strong>path</strong> (<em>str</em>) – this accumulates the recursive path for details in Exceptions</li>
+<li><strong>missing_exception</strong> (<em>bool</em>) – when a missing field is found, raise xception?</li>
+<li><strong>type_mismatch_exception</strong> (<em>bool</em>) – when a field has type mismatch, raise xception?</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-aiscalator.core.log_regex_analyzer">
+<span id="aiscalator-core-log-regex-analyzer-module"></span><h2>aiscalator.core.log_regex_analyzer module<a class="headerlink" href="#module-aiscalator.core.log_regex_analyzer" title="Permalink to this headline">¶</a></h2>
+<p>Class to parse output logs from subprocess and catch particular expressions</p>
+<dl class="class">
+<dt id="aiscalator.core.log_regex_analyzer.LogRegexAnalyzer">
+<em class="property">class </em><code class="descclassname">aiscalator.core.log_regex_analyzer.</code><code class="descname">LogRegexAnalyzer</code><span class="sig-paren">(</span><em>pattern=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aiscalator/core/log_regex_analyzer.html#LogRegexAnalyzer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#aiscalator.core.log_regex_analyzer.LogRegexAnalyzer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A regular expression analyzer object to parse logs and extract
+values from patterns in the logs.
+…</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>_artifact</strong> (<em>str</em>) – Value of the pattern found in the logs</li>
+<li><strong>_pattern</strong> (<em>bytes</em>) – Regular expression to search for in the logs</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#aiscalator.core.log_regex_analyzer.LogRegexAnalyzer.artifact" title="aiscalator.core.log_regex_analyzer.LogRegexAnalyzer.artifact"><code class="xref py py-obj docutils literal notranslate"><span class="pre">artifact</span></code></a>()</td>
+<td>Returns the artifact extracted from the logs.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#aiscalator.core.log_regex_analyzer.LogRegexAnalyzer.grep_logs" title="aiscalator.core.log_regex_analyzer.LogRegexAnalyzer.grep_logs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">grep_logs</span></code></a>(pipe)</td>
+<td>Reads the logs and extract values defined by the pattern</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="aiscalator.core.log_regex_analyzer.LogRegexAnalyzer.artifact">
+<code class="descname">artifact</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/aiscalator/core/log_regex_analyzer.html#LogRegexAnalyzer.artifact"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#aiscalator.core.log_regex_analyzer.LogRegexAnalyzer.artifact" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the artifact extracted from the logs.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="aiscalator.core.log_regex_analyzer.LogRegexAnalyzer.grep_logs">
+<code class="descname">grep_logs</code><span class="sig-paren">(</span><em>pipe</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aiscalator/core/log_regex_analyzer.html#LogRegexAnalyzer.grep_logs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#aiscalator.core.log_regex_analyzer.LogRegexAnalyzer.grep_logs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the logs and extract values defined by the pattern</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pipe</strong> – Stream of logs to analyze</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-aiscalator.core.utils">
+<span id="aiscalator-core-utils-module"></span><h2>aiscalator.core.utils module<a class="headerlink" href="#module-aiscalator.core.utils" title="Permalink to this headline">¶</a></h2>
+<p>Various Utility functions</p>
+<dl class="class">
+<dt id="aiscalator.core.utils.BackgroundThreadRunner">
+<em class="property">class </em><code class="descclassname">aiscalator.core.utils.</code><code class="descname">BackgroundThreadRunner</code><span class="sig-paren">(</span><em>command</em>, <em>log_function</em>, <em>no_redirect=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aiscalator/core/utils.html#BackgroundThreadRunner"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#aiscalator.core.utils.BackgroundThreadRunner" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Worker Thread to run logging output in the background</p>
+<p>…</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>_process</strong> – Process object of the command running in the background</li>
+<li><strong>_log_function</strong> (<em>function</em><em>(</em><em>stream -&gt; bool</em><em>)</em>) – callback function to log the output of the command</li>
+<li><strong>_no_redirect</strong> (<em>bool</em>) – whether the subprocess STDOUT and STDERR should be redirected to logs</li>
+<li><strong>_worker</strong> (<em>Thread</em>) – Thread object</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#aiscalator.core.utils.BackgroundThreadRunner.process" title="aiscalator.core.utils.BackgroundThreadRunner.process"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process</span></code></a>()</td>
+<td>Returns the process object.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#aiscalator.core.utils.BackgroundThreadRunner.run" title="aiscalator.core.utils.BackgroundThreadRunner.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>()</td>
+<td>Starts the Thread, process the output of the process.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="aiscalator.core.utils.BackgroundThreadRunner.process">
+<code class="descname">process</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/aiscalator/core/utils.html#BackgroundThreadRunner.process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#aiscalator.core.utils.BackgroundThreadRunner.process" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the process object.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="aiscalator.core.utils.BackgroundThreadRunner.run">
+<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/aiscalator/core/utils.html#BackgroundThreadRunner.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#aiscalator.core.utils.BackgroundThreadRunner.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Starts the Thread, process the output of the process.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="aiscalator.core.utils.copy_replace">
+<code class="descclassname">aiscalator.core.utils.</code><code class="descname">copy_replace</code><span class="sig-paren">(</span><em>src</em>, <em>dst</em>, <em>pattern=''</em>, <em>replace_value=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aiscalator/core/utils.html#copy_replace"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#aiscalator.core.utils.copy_replace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copies a file from src to dst replacing pattern by replace_value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>src</strong> (<em>string</em>) – Path to the source filename to copy from</li>
+<li><strong>dst</strong> (<em>string</em>) – Path to the output filename to copy to</li>
+<li><strong>pattern</strong> (<em>string</em>) – Pattern to replace inside the src file</li>
+<li><strong>replace_value</strong> – Value to replace by in the dst file</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="aiscalator.core.utils.data_file">
+<code class="descclassname">aiscalator.core.utils.</code><code class="descname">data_file</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aiscalator/core/utils.html#data_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#aiscalator.core.utils.data_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Utility function to find resources data file packaged along with code</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>path</em>) – path to the resource file in the package</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><em>absolute path to the resource data file</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="aiscalator.core.utils.find">
+<code class="descclassname">aiscalator.core.utils.</code><code class="descname">find</code><span class="sig-paren">(</span><em>collection</em>, <em>item</em>, <em>field='name'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aiscalator/core/utils.html#find"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#aiscalator.core.utils.find" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds an element in a collection which has a field equal
+to particular item value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>collection</strong> (<em>Set</em>) – Collection of objects</li>
+<li><strong>item</strong> – value of the item that we are looking for</li>
+<li><strong>field</strong> (<em>string</em>) – Name of the field from the object to inspect</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><em>object</em> – Corresponding element that has a field matching item in
+the collection</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="aiscalator.core.utils.log_info">
+<code class="descclassname">aiscalator.core.utils.</code><code class="descname">log_info</code><span class="sig-paren">(</span><em>pipe</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aiscalator/core/utils.html#log_info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#aiscalator.core.utils.log_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default logging function</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="aiscalator.core.utils.subprocess_run">
+<code class="descclassname">aiscalator.core.utils.</code><code class="descname">subprocess_run</code><span class="sig-paren">(</span><em>command</em>, <em>log_function=&lt;function log_info&gt;</em>, <em>no_redirect=False</em>, <em>wait=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aiscalator/core/utils.html#subprocess_run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#aiscalator.core.utils.subprocess_run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run command in a subprocess while redirecting output to log_function.</p>
+<p>The subprocess either runs synchroneoulsy or in the background depending on
+the wait parameter.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>command</strong> (<em>List</em>) – Command to run in the subprocess</li>
+<li><strong>log_function</strong> (<em>function</em>) – Callback function to log the output of the subprocess</li>
+<li><strong>no_redirect</strong> (<em>bool</em>) – whether the subprocess STDOUT and STDERR should be redirected to logs</li>
+<li><strong>wait</strong> (<em>bool</em>) – Whether the subprocess should be run synchroneously or in
+the background</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><ul class="simple">
+<li><em>int</em> – return code of the subprocess</li>
+<li><em>BackgroundThreadRunner</em> – the thread running in the background</li>
+</ul>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-aiscalator.core">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-aiscalator.core" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+    <a id="sidebar-anchor"></a>
+    
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script><h3><a href="index.html">Table Of Contents</a></h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="readme.html">AIscalator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="readme.html#quick-start">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">aiscalator</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="aiscalator.html">aiscalator package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codeofconduct.html">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authors.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">History</a></li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/aiscalator.core.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="aiscalator.jupyter.html" title="aiscalator.jupyter package"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="aiscalator.airflow.html" title="aiscalator.airflow package"
+             accesskey="P">previous</a> |</li>
+      </ul>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Christophe Duong.
+      Last updated on Nov 11, 2018.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1.
+    </div>
+  </body>
+</html>

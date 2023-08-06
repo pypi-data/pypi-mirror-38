@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>aiscalator.core.config &#8212; AIscalator 0.1.0 documentation</title>
+    <link rel="stylesheet" href="../../../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/sidebar.js"></script>
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <link rel="shortcut icon" type="image/png" href="../../../_static/favicon.png" />
+    <meta name="viewport" content="width=device-width,initial-scale=0.8">
+    
+    
+
+  </head><body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="responsive-menu"><a href="#sidebar-anchor" title="Navigation">&#9776;</a></li>
+        <li><a href="../../../index.html">AIscalator-0.1.0</a> &#187;</li>
+          <li><a href="../../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    
+        <div class="badge">
+            <a href="https://github.com/Aiscalate/aiscalator/">Fork me on GitHub</a>
+            <img src="../../../_static/right-red@2x.png">
+        </div>
+    
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for aiscalator.core.config</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># Apache Software License 2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright (c) 2018, Christophe Duong</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1"># http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Handles configurations files for the application</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">uuid</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="k">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">logging</span> <span class="k">import</span> <span class="n">config</span>
+<span class="kn">from</span> <span class="nn">platform</span> <span class="k">import</span> <span class="n">uname</span>
+<span class="kn">from</span> <span class="nn">tempfile</span> <span class="k">import</span> <span class="n">TemporaryDirectory</span>
+<span class="kn">from</span> <span class="nn">urllib.error</span> <span class="k">import</span> <span class="n">HTTPError</span>
+<span class="kn">from</span> <span class="nn">urllib.error</span> <span class="k">import</span> <span class="n">URLError</span>
+
+<span class="kn">import</span> <span class="nn">pyhocon</span>
+<span class="kn">from</span> <span class="nn">pytz</span> <span class="k">import</span> <span class="n">timezone</span>
+<span class="kn">from</span> <span class="nn">yaml</span> <span class="k">import</span> <span class="n">safe_load</span>
+
+<span class="kn">from</span> <span class="nn">aiscalator</span> <span class="k">import</span> <span class="n">__version__</span>
+<span class="kn">from</span> <span class="nn">aiscalator.core.utils</span> <span class="k">import</span> <span class="n">copy_replace</span>
+<span class="kn">from</span> <span class="nn">aiscalator.core.utils</span> <span class="k">import</span> <span class="n">data_file</span>
+
+
+<div class="viewcode-block" id="setup_logging"><a class="viewcode-back" href="../../../aiscalator.core.html#aiscalator.core.config.setup_logging">[docs]</a><span class="k">def</span> <span class="nf">setup_logging</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot; Setup the logging configuration of the application &quot;&quot;&quot;</span>
+    <span class="n">log_level</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;AISCALATOR_LOG_LEVEL&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">data_file</span><span class="p">(</span><span class="s2">&quot;../config/logging.yaml&quot;</span><span class="p">),</span> <span class="s1">&#39;rt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">load_logging_conf</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">path</span><span class="p">:</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">log_level</span><span class="p">:</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">log_level</span><span class="p">)</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Starting &quot;</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span> <span class="o">+</span>
+           <span class="s2">&quot; version &quot;</span> <span class="o">+</span> <span class="n">__version__</span> <span class="o">+</span> <span class="s2">&quot; on &quot;</span> <span class="o">+</span>
+           <span class="s2">&quot;_&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">uname</span><span class="p">())</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;_&quot;</span><span class="p">))</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="load_logging_conf"><a class="viewcode-back" href="../../../aiscalator.core.html#aiscalator.core.config.load_logging_conf">[docs]</a><span class="k">def</span> <span class="nf">load_logging_conf</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Reads and loads the logging configuration file&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s1">&#39;/tmp/aiscalator/log&#39;</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">conf</span> <span class="o">=</span> <span class="n">safe_load</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">dictConfig</span><span class="p">(</span><span class="n">conf</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">file</span>
+    <span class="k">return</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="generate_global_config"><a class="viewcode-back" href="../../../aiscalator.core.html#aiscalator.core.config.generate_global_config">[docs]</a><span class="k">def</span> <span class="nf">generate_global_config</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Generate a standard configuration file for the application in the</span>
+<span class="sd">    user&#39;s home folder ~/.aiscalator/config/aiscalator.conf from the</span>
+<span class="sd">    template file in aiscalator/config/template/aiscalator.conf</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">dst</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s2">&quot;~&quot;</span><span class="p">),</span>
+                       <span class="s2">&quot;.aiscalator/config/aiscalator.conf&quot;</span><span class="p">)</span>
+    <span class="n">now</span> <span class="o">=</span> <span class="s1">&#39;&quot;&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">datetime</span>
+                    <span class="o">.</span><span class="n">utcnow</span><span class="p">()</span>
+                    <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">tzinfo</span><span class="o">=</span><span class="n">timezone</span><span class="p">(</span><span class="s2">&quot;UTC&quot;</span><span class="p">)))</span> <span class="o">+</span> <span class="s1">&#39;&quot;&#39;</span>
+    <span class="k">with</span> <span class="n">TemporaryDirectory</span><span class="p">()</span> <span class="k">as</span> <span class="n">tmp</span><span class="p">:</span>
+        <span class="n">copy_replace</span><span class="p">(</span><span class="n">data_file</span><span class="p">(</span><span class="s2">&quot;../config/template/aiscalator.conf&quot;</span><span class="p">),</span>
+                     <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="s2">&quot;aiscalator.conf&quot;</span><span class="p">),</span>
+                     <span class="n">pattern</span><span class="o">=</span><span class="s2">&quot;testUserID&quot;</span><span class="p">,</span>
+                     <span class="n">replace_value</span><span class="o">=</span><span class="n">generate_user_id</span><span class="p">())</span>
+        <span class="n">copy_replace</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="s2">&quot;aiscalator.conf&quot;</span><span class="p">),</span>
+                     <span class="n">dst</span><span class="p">,</span>
+                     <span class="n">pattern</span><span class="o">=</span><span class="s2">&quot;generation_date&quot;</span><span class="p">,</span>
+                     <span class="n">replace_value</span><span class="o">=</span><span class="n">now</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">dst</span></div>
+
+
+<div class="viewcode-block" id="generate_user_id"><a class="viewcode-back" href="../../../aiscalator.core.html#aiscalator.core.config.generate_user_id">[docs]</a><span class="k">def</span> <span class="nf">generate_user_id</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    str</span>
+<span class="sd">        Returns a string identifying this user when the</span>
+<span class="sd">        setup was run first</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="s1">&#39;u&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">((</span><span class="n">uuid</span><span class="o">.</span><span class="n">getnode</span><span class="p">()))</span></div>
+
+
+<div class="viewcode-block" id="AiscalatorConfig"><a class="viewcode-back" href="../../../aiscalator.core.html#aiscalator.core.config.AiscalatorConfig">[docs]</a><span class="k">class</span> <span class="nc">AiscalatorConfig</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A configuration object for the Aiscalator application.</span>
+
+<span class="sd">    This object stores:</span>
+<span class="sd">        - global configuration for the whole application</span>
+<span class="sd">        - configuration for a particular context specified in a step</span>
+<span class="sd">          configuration file.</span>
+<span class="sd">        - In this case, we might even focus on a particular step.</span>
+
+<span class="sd">    ...</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    _user_config_override : str</span>
+<span class="sd">        path to the specified user config</span>
+<span class="sd">    _app_conf</span>
+<span class="sd">        global configuration object for the application</span>
+<span class="sd">    _step_config : str</span>
+<span class="sd">        path to the step configuration (or plain configuration as string)</span>
+<span class="sd">    _focused_steps : list</span>
+<span class="sd">        list of selected steps</span>
+<span class="sd">    _step_it : int</span>
+<span class="sd">        index of the step being processed</span>
+<span class="sd">    _step</span>
+<span class="sd">        configuration object for the currently processed step</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">user_config_override</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">step_config</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">steps_selection</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parameters</span>
+<span class="sd">            ----------</span>
+<span class="sd">            user_config_override : str</span>
+<span class="sd">                path of the user configuration folder to override</span>
+<span class="sd">                the default one</span>
+<span class="sd">            step_config : str</span>
+<span class="sd">                path to the step configuration file (or plain configuration</span>
+<span class="sd">                string)</span>
+<span class="sd">            steps_selection : List</span>
+<span class="sd">                list of names of steps from the configuration file to focus on</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_user_config_override</span> <span class="o">=</span> <span class="n">user_config_override</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_app_conf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">setup_app_config</span><span class="p">()</span>
+        <span class="n">setup_logging</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_step_config</span> <span class="o">=</span> <span class="n">step_config</span>
+        <span class="n">all_steps</span> <span class="o">=</span> <span class="n">parse_step_config</span><span class="p">(</span><span class="n">step_config</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_focused_steps</span> <span class="o">=</span> <span class="n">select_steps</span><span class="p">(</span><span class="n">all_steps</span><span class="p">,</span> <span class="n">steps_selection</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_step_it</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_step</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">next_step</span><span class="p">()</span>
+
+<div class="viewcode-block" id="AiscalatorConfig.setup_app_config"><a class="viewcode-back" href="../../../aiscalator.core.html#aiscalator.core.config.AiscalatorConfig.setup_app_config">[docs]</a>    <span class="k">def</span> <span class="nf">setup_app_config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Setup global application configuration.</span>
+<span class="sd">        If not found in the default location, this method will generate</span>
+<span class="sd">        a brand new one.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_user_config_file</span><span class="p">(</span><span class="s2">&quot;config/aiscalator.conf&quot;</span><span class="p">)</span>
+            <span class="n">conf</span> <span class="o">=</span> <span class="n">pyhocon</span><span class="o">.</span><span class="n">ConfigFactory</span><span class="o">.</span><span class="n">parse_file</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+            <span class="n">conf</span> <span class="o">=</span> <span class="n">pyhocon</span><span class="o">.</span><span class="n">ConfigFactory</span><span class="o">.</span><span class="n">parse_file</span><span class="p">(</span><span class="n">generate_global_config</span><span class="p">())</span>
+        <span class="k">return</span> <span class="n">conf</span></div>
+
+<div class="viewcode-block" id="AiscalatorConfig.find_user_config_file"><a class="viewcode-back" href="../../../aiscalator.core.html#aiscalator.core.config.AiscalatorConfig.find_user_config_file">[docs]</a>    <span class="k">def</span> <span class="nf">find_user_config_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Looks for configuration files in the user configuration folder</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        filename : str</span>
+<span class="sd">            file to search for</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        str</span>
+<span class="sd">            path to the filename in the user configuration folder</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># TODO check user_config_folder override in environment</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_user_config_override</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_user_config_override</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+        <span class="c1"># TODO url user config?</span>
+        <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s2">&quot;~&quot;</span><span class="p">),</span> <span class="s1">&#39;.aiscalator&#39;</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="AiscalatorConfig.next_step"><a class="viewcode-back" href="../../../aiscalator.core.html#aiscalator.core.config.AiscalatorConfig.next_step">[docs]</a>    <span class="k">def</span> <span class="nf">next_step</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Iterates to the next configuration step from the list</span>
+<span class="sd">        of selected steps</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            the next configuration object</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_step_it</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_focused_steps</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_step_it</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_focused_steps</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_step</span> <span class="o">=</span> <span class="n">result</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+<div class="viewcode-block" id="AiscalatorConfig.user_env_file"><a class="viewcode-back" href="../../../aiscalator.core.html#aiscalator.core.config.AiscalatorConfig.user_env_file">[docs]</a>    <span class="k">def</span> <span class="nf">user_env_file</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Find a list of env files to pass to docker containers</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        List</span>
+<span class="sd">            env files</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># TODO look if env file has been defined in the focused step</span>
+        <span class="c1"># TODO look in user config if env file has been redefined</span>
+        <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">find_user_config_file</span><span class="p">(</span><span class="s2">&quot;config/.env&quot;</span><span class="p">)]</span></div>
+
+<div class="viewcode-block" id="AiscalatorConfig.notebook_output_path"><a class="viewcode-back" href="../../../aiscalator.core.html#aiscalator.core.config.AiscalatorConfig.notebook_output_path">[docs]</a>    <span class="k">def</span> <span class="nf">notebook_output_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">notebook</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Generates the name of the output notebook&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">(</span><span class="s2">&quot;/home/jovyan/work/notebook_run/&quot;</span> <span class="o">+</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">notebook</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;.ipynb&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">timestamp_now</span><span class="p">()</span> <span class="o">+</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">user_id</span><span class="p">()</span> <span class="o">+</span>
+                <span class="s2">&quot;.ipynb&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="AiscalatorConfig.timestamp_now"><a class="viewcode-back" href="../../../aiscalator.core.html#aiscalator.core.config.AiscalatorConfig.timestamp_now">[docs]</a>    <span class="k">def</span> <span class="nf">timestamp_now</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">         Depending on how the timezone is configured, returns the</span>
+<span class="sd">         timestamp for this instant.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">date_now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">tzinfo</span><span class="o">=</span><span class="n">timezone</span><span class="p">(</span><span class="s2">&quot;UTC&quot;</span><span class="p">))</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_app_conf</span><span class="p">[</span><span class="s2">&quot;aiscalator&quot;</span><span class="p">]:</span>
+            <span class="n">pst</span> <span class="o">=</span> <span class="n">timezone</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">app_config</span><span class="p">()</span><span class="o">.</span><span class="n">timezone</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">pst</span> <span class="o">=</span> <span class="n">timezone</span><span class="p">(</span><span class="s1">&#39;Europe/Paris&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">date_now</span><span class="o">.</span><span class="n">astimezone</span><span class="p">(</span><span class="n">pst</span><span class="p">)</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y%m</span><span class="si">%d</span><span class="s2">%H%M%S&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="AiscalatorConfig.app_config"><a class="viewcode-back" href="../../../aiscalator.core.html#aiscalator.core.config.AiscalatorConfig.app_config">[docs]</a>    <span class="k">def</span> <span class="nf">app_config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        str</span>
+<span class="sd">            the configuration object for the aiscalator application</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_app_conf</span><span class="p">[</span><span class="s2">&quot;aiscalator&quot;</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="AiscalatorConfig.user_id"><a class="viewcode-back" href="../../../aiscalator.core.html#aiscalator.core.config.AiscalatorConfig.user_id">[docs]</a>    <span class="k">def</span> <span class="nf">user_id</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        str</span>
+<span class="sd">            the user id stored when the application was first setup</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">app_config</span><span class="p">()[</span><span class="s2">&quot;user.id&quot;</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="AiscalatorConfig.app_config_has"><a class="viewcode-back" href="../../../aiscalator.core.html#aiscalator.core.config.AiscalatorConfig.app_config_has">[docs]</a>    <span class="k">def</span> <span class="nf">app_config_has</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Tests if the applicatin config has a configuration</span>
+<span class="sd">        value for the field.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">app_config</span><span class="p">():</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="n">field</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">app_config</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="AiscalatorConfig.step_field"><a class="viewcode-back" href="../../../aiscalator.core.html#aiscalator.core.config.AiscalatorConfig.step_field">[docs]</a>    <span class="k">def</span> <span class="nf">step_field</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the value associated with the field for the currently</span>
+<span class="sd">        focused step.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_step_field</span><span class="p">(</span><span class="n">field</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_step</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">field</span><span class="p">]</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="AiscalatorConfig.has_step_field"><a class="viewcode-back" href="../../../aiscalator.core.html#aiscalator.core.config.AiscalatorConfig.has_step_field">[docs]</a>    <span class="k">def</span> <span class="nf">has_step_field</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Tests if the currently focused step has a configuration</span>
+<span class="sd">        value for the field.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_step</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="n">field</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_step</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="AiscalatorConfig.step_config_path"><a class="viewcode-back" href="../../../aiscalator.core.html#aiscalator.core.config.AiscalatorConfig.step_config_path">[docs]</a>    <span class="k">def</span> <span class="nf">step_config_path</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        str</span>
+<span class="sd">            Returns the path to the step configuration file.</span>
+<span class="sd">            If it was an URL, it will return the path to the temporary</span>
+<span class="sd">            downloaded version of it.</span>
+<span class="sd">            If it was a plain string, then returns None</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_step_config</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">pyhocon</span><span class="o">.</span><span class="n">ConfigFactory</span><span class="o">.</span><span class="n">parse_file</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_step_config</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_step_config</span><span class="p">)</span>
+        <span class="c1"># TODO if string is url/git repo, download file locally first</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="AiscalatorConfig.step_name"><a class="viewcode-back" href="../../../aiscalator.core.html#aiscalator.core.config.AiscalatorConfig.step_name">[docs]</a>    <span class="k">def</span> <span class="nf">step_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the name of the currently focused step</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_step</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_step</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="AiscalatorConfig.root_dir"><a class="viewcode-back" href="../../../aiscalator.core.html#aiscalator.core.config.AiscalatorConfig.root_dir">[docs]</a>    <span class="k">def</span> <span class="nf">root_dir</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        str</span>
+<span class="sd">            Returns the path to the folder containing the step</span>
+<span class="sd">            configuration file</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">step_config_path</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">path</span><span class="p">:</span>
+            <span class="n">root_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">root_dir</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">):</span>
+                <span class="n">root_dir</span> <span class="o">+=</span> <span class="s2">&quot;/&quot;</span>
+            <span class="k">return</span> <span class="n">root_dir</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="AiscalatorConfig.file_path"><a class="viewcode-back" href="../../../aiscalator.core.html#aiscalator.core.config.AiscalatorConfig.file_path">[docs]</a>    <span class="k">def</span> <span class="nf">file_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">string</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns absolute path of a file from a field of the currently</span>
+<span class="sd">        focused step.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_step_field</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="c1"># TODO handle url</span>
+        <span class="n">root_dir</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">root_dir</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">root_dir</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root_dir</span><span class="p">,</span>
+                                                <span class="bp">self</span><span class="o">.</span><span class="n">step_field</span><span class="p">(</span><span class="n">string</span><span class="p">)))</span>
+        <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">step_field</span><span class="p">(</span><span class="n">string</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="AiscalatorConfig.container_name"><a class="viewcode-back" href="../../../aiscalator.core.html#aiscalator.core.config.AiscalatorConfig.container_name">[docs]</a>    <span class="k">def</span> <span class="nf">container_name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Return the docker container name to execute this step&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">step_field</span><span class="p">(</span><span class="s2">&quot;task.type&quot;</span><span class="p">)</span> <span class="o">+</span>
+            <span class="s2">&quot;_&quot;</span> <span class="o">+</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">step_name</span><span class="p">()</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="AiscalatorConfig.extract_parameters"><a class="viewcode-back" href="../../../aiscalator.core.html#aiscalator.core.config.AiscalatorConfig.extract_parameters">[docs]</a>    <span class="k">def</span> <span class="nf">extract_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Returns a list of docker parameters&quot;&quot;&quot;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_step_field</span><span class="p">(</span><span class="s2">&quot;task.parameters&quot;</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">param</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">step_field</span><span class="p">(</span><span class="s2">&quot;task.parameters&quot;</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">param</span><span class="p">:</span>
+                    <span class="n">result</span> <span class="o">+=</span> <span class="p">[</span><span class="s2">&quot;-p&quot;</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">param</span><span class="p">[</span><span class="n">key</span><span class="p">]]</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+<div class="viewcode-block" id="AiscalatorConfig.validate_config"><a class="viewcode-back" href="../../../aiscalator.core.html#aiscalator.core.config.AiscalatorConfig.validate_config">[docs]</a>    <span class="k">def</span> <span class="nf">validate_config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check if all the fields in the reference config are</span>
+<span class="sd">        defined in focused steps too. Otherwise</span>
+<span class="sd">        raise an Exception (either pyhocon.ConfigMissingException</span>
+<span class="sd">        or pyhocon.ConfigWrongTypeException)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">reference</span> <span class="o">=</span> <span class="n">data_file</span><span class="p">(</span><span class="s2">&quot;../config/template/minimum_aiscalator.conf&quot;</span><span class="p">)</span>
+        <span class="n">ref</span> <span class="o">=</span> <span class="n">pyhocon</span><span class="o">.</span><span class="n">ConfigFactory</span><span class="o">.</span><span class="n">parse_file</span><span class="p">(</span><span class="n">reference</span><span class="p">)</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;In Global Application Configuration file &quot;</span>
+        <span class="n">validate_configs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_app_conf</span><span class="p">,</span> <span class="n">ref</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span>
+                         <span class="n">missing_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                         <span class="n">type_mismatch_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">reference</span> <span class="o">=</span> <span class="n">data_file</span><span class="p">(</span><span class="s2">&quot;../config/template/aiscalator.conf&quot;</span><span class="p">)</span>
+        <span class="n">ref</span> <span class="o">=</span> <span class="n">pyhocon</span><span class="o">.</span><span class="n">ConfigFactory</span><span class="o">.</span><span class="n">parse_file</span><span class="p">(</span><span class="n">reference</span><span class="p">)</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;In Global Application Configuration file &quot;</span>
+        <span class="n">validate_configs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_app_conf</span><span class="p">,</span> <span class="n">ref</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span>
+                         <span class="n">missing_exception</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                         <span class="n">type_mismatch_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">reference</span> <span class="o">=</span> <span class="n">data_file</span><span class="p">(</span><span class="s2">&quot;../config/template/minimum_step.conf&quot;</span><span class="p">)</span>
+        <span class="n">ref</span> <span class="o">=</span> <span class="n">pyhocon</span><span class="o">.</span><span class="n">ConfigFactory</span><span class="o">.</span><span class="n">parse_file</span><span class="p">(</span><span class="n">reference</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">step_name</span><span class="p">,</span> <span class="n">step</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_focused_steps</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;in step named &quot;</span> <span class="o">+</span> <span class="n">step_name</span>
+            <span class="n">validate_configs</span><span class="p">(</span><span class="n">step</span><span class="p">,</span>
+                             <span class="n">ref</span><span class="p">[</span><span class="s2">&quot;steps&quot;</span><span class="p">][</span><span class="s2">&quot;Untitled&quot;</span><span class="p">],</span>
+                             <span class="n">msg</span><span class="p">,</span>
+                             <span class="n">missing_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                             <span class="n">type_mismatch_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">reference</span> <span class="o">=</span> <span class="n">data_file</span><span class="p">(</span><span class="s2">&quot;../config/template/step.conf&quot;</span><span class="p">)</span>
+        <span class="n">ref</span> <span class="o">=</span> <span class="n">pyhocon</span><span class="o">.</span><span class="n">ConfigFactory</span><span class="o">.</span><span class="n">parse_file</span><span class="p">(</span><span class="n">reference</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">step_name</span><span class="p">,</span> <span class="n">step</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_focused_steps</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;in step named &quot;</span> <span class="o">+</span> <span class="n">step_name</span>
+            <span class="n">validate_configs</span><span class="p">(</span><span class="n">step</span><span class="p">,</span>
+                             <span class="n">ref</span><span class="p">[</span><span class="s2">&quot;steps&quot;</span><span class="p">][</span><span class="s2">&quot;Untitled&quot;</span><span class="p">],</span>
+                             <span class="n">msg</span><span class="p">,</span>
+                             <span class="n">missing_exception</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                             <span class="n">type_mismatch_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="validate_configs"><a class="viewcode-back" href="../../../aiscalator.core.html#aiscalator.core.config.validate_configs">[docs]</a><span class="k">def</span> <span class="nf">validate_configs</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="n">reference</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span>
+                     <span class="n">missing_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                     <span class="n">type_mismatch_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Recursively check two configs if they match</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    test</span>
+<span class="sd">        configuration object to test</span>
+<span class="sd">    reference</span>
+<span class="sd">        reference configuration object</span>
+<span class="sd">    path : str</span>
+<span class="sd">        this accumulates the recursive path for details in Exceptions</span>
+<span class="sd">    missing_exception : bool</span>
+<span class="sd">        when a missing field is found, raise xception?</span>
+<span class="sd">    type_mismatch_exception : bool</span>
+<span class="sd">        when a field has type mismatch, raise xception?</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># TODO instead of exceptions, build a log of &quot;compilation&quot; errors...</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">reference</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">test</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;: Missing definition of &quot;</span> <span class="o">+</span> <span class="n">key</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">missing_exception</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">pyhocon</span><span class="o">.</span><span class="n">ConfigMissingException</span><span class="p">(</span>
+                    <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Exception &quot;</span> <span class="o">+</span> <span class="n">msg</span>
+                <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Warning </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="nb">type</span><span class="p">(</span><span class="n">reference</span><span class="p">[</span><span class="n">key</span><span class="p">])):</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;: Type mismatch of &quot;</span> <span class="o">+</span> <span class="n">key</span> <span class="o">+</span> <span class="s2">&quot; found type &quot;</span> <span class="o">+</span>
+                   <span class="nb">str</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="n">key</span><span class="p">]))</span> <span class="o">+</span> <span class="s2">&quot; instead of &quot;</span> <span class="o">+</span>
+                   <span class="nb">str</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">reference</span><span class="p">[</span><span class="n">key</span><span class="p">])))</span>
+            <span class="k">if</span> <span class="n">type_mismatch_exception</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">pyhocon</span><span class="o">.</span><span class="n">ConfigWrongTypeException</span><span class="p">(</span>
+                    <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Exception &quot;</span> <span class="o">+</span> <span class="n">msg</span>
+                <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Warning </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">pyhocon</span><span class="o">.</span><span class="n">config_tree</span><span class="o">.</span><span class="n">ConfigTree</span><span class="p">)</span> <span class="ow">and</span>
+              <span class="nb">isinstance</span><span class="p">(</span><span class="n">reference</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">pyhocon</span><span class="o">.</span><span class="n">config_tree</span><span class="o">.</span><span class="n">ConfigTree</span><span class="p">)):</span>
+            <span class="c1"># test recursively</span>
+            <span class="n">validate_configs</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">reference</span><span class="p">[</span><span class="n">key</span><span class="p">],</span>
+                             <span class="s2">&quot;.&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">path</span><span class="p">,</span> <span class="n">key</span><span class="p">]),</span>
+                             <span class="n">missing_exception</span><span class="p">,</span>
+                             <span class="n">type_mismatch_exception</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">and</span>
+              <span class="nb">isinstance</span><span class="p">(</span><span class="n">reference</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="nb">list</span><span class="p">)):</span>
+            <span class="c1"># iterate through both collections</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">test</span><span class="p">[</span><span class="n">key</span><span class="p">]:</span>
+                <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">reference</span><span class="p">[</span><span class="n">key</span><span class="p">]:</span>
+                    <span class="n">validate_configs</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">path</span><span class="p">,</span> <span class="n">key</span><span class="p">]),</span>
+                                     <span class="n">missing_exception</span><span class="p">,</span>
+                                     <span class="n">type_mismatch_exception</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="parse_step_config"><a class="viewcode-back" href="../../../aiscalator.core.html#aiscalator.core.config.parse_step_config">[docs]</a><span class="k">def</span> <span class="nf">parse_step_config</span><span class="p">(</span><span class="n">step_config</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Interpret the step_config to produce a step configuration</span>
+<span class="sd">    object. It could be provided as:</span>
+<span class="sd">    - a path to a local file</span>
+<span class="sd">    - a url to a remote file</span>
+<span class="sd">    - the plain configuration stored as string</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Step configuration object</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">step_config</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">step_config</span><span class="p">):</span>
+        <span class="n">conf</span> <span class="o">=</span> <span class="n">pyhocon</span><span class="o">.</span><span class="n">ConfigFactory</span><span class="o">.</span><span class="n">parse_file</span><span class="p">(</span><span class="n">step_config</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">conf</span> <span class="o">=</span> <span class="n">pyhocon</span><span class="o">.</span><span class="n">ConfigFactory</span><span class="o">.</span><span class="n">parse_URL</span><span class="p">(</span><span class="n">step_config</span><span class="p">)</span>
+        <span class="k">except</span> <span class="p">(</span><span class="n">HTTPError</span><span class="p">,</span> <span class="n">URLError</span><span class="p">):</span>
+            <span class="n">conf</span> <span class="o">=</span> <span class="n">pyhocon</span><span class="o">.</span><span class="n">ConfigFactory</span><span class="o">.</span><span class="n">parse_string</span><span class="p">(</span><span class="n">step_config</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">conf</span></div>
+
+
+<div class="viewcode-block" id="select_steps"><a class="viewcode-back" href="../../../aiscalator.core.html#aiscalator.core.config.select_steps">[docs]</a><span class="k">def</span> <span class="nf">select_steps</span><span class="p">(</span><span class="n">step_conf</span><span class="p">,</span> <span class="n">steps_selection</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Extract the list of step objects corresponding to</span>
+<span class="sd">    the list of names provided.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    step_conf</span>
+<span class="sd">        step configuration object</span>
+<span class="sd">    steps_selection : list</span>
+<span class="sd">        list of names of step to extract</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    list</span>
+<span class="sd">        list of tuples of (step_name, step) of selected</span>
+<span class="sd">        configuration objects</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">tasks</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="n">step_conf</span><span class="p">:</span>
+        <span class="n">tasks</span> <span class="o">=</span> <span class="n">find_tasks</span><span class="p">(</span><span class="n">step_conf</span><span class="p">[</span><span class="s2">&quot;steps&quot;</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">steps_selection</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">target_step</span> <span class="ow">in</span> <span class="n">steps_selection</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">step_name</span><span class="p">,</span> <span class="n">step</span> <span class="ow">in</span> <span class="n">tasks</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">step_name</span> <span class="o">==</span> <span class="n">target_step</span><span class="p">:</span>
+                        <span class="n">result</span> <span class="o">+=</span> <span class="p">[(</span><span class="n">step_name</span><span class="p">,</span> <span class="n">step</span><span class="p">)]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="n">tasks</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+    <span class="k">if</span> <span class="n">steps_selection</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">result</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">steps_selection</span><span class="p">)</span> <span class="o">+</span>
+               <span class="s2">&quot; was not found in step configurations.</span><span class="se">\n</span><span class="s2"> &quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">tasks</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">+=</span> <span class="p">(</span><span class="s2">&quot;Available tasks are: &quot;</span> <span class="o">+</span>
+                    <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">task_name</span> <span class="k">for</span> <span class="n">task_name</span><span class="p">,</span> <span class="n">tasks</span> <span class="ow">in</span> <span class="n">tasks</span><span class="p">]))</span>
+        <span class="k">raise</span> <span class="n">pyhocon</span><span class="o">.</span><span class="n">ConfigMissingException</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="find_tasks"><a class="viewcode-back" href="../../../aiscalator.core.html#aiscalator.core.config.find_tasks">[docs]</a><span class="k">def</span> <span class="nf">find_tasks</span><span class="p">(</span><span class="n">tree</span><span class="p">:</span> <span class="n">pyhocon</span><span class="o">.</span><span class="n">ConfigTree</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Find all Tasks objects in the Configuration object and report</span>
+<span class="sd">    their paths.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    tree : pyhocon.ConfigTree</span>
+<span class="sd">        Configuration object</span>
+<span class="sd">    path : str</span>
+<span class="sd">        path that was traversed to get to this tree</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    list</span>
+<span class="sd">        list of names of Configuration objects containing a</span>
+<span class="sd">        definition of a section &#39;task&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="n">path</span><span class="p">:</span>
+        <span class="n">next_path</span> <span class="o">=</span> <span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">next_path</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">tree</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">&#39;task&#39;</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">+=</span> <span class="p">[(</span><span class="n">path</span><span class="p">,</span> <span class="n">tree</span><span class="p">)]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tree</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">pyhocon</span><span class="o">.</span><span class="n">config_tree</span><span class="o">.</span><span class="n">ConfigTree</span><span class="p">):</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="n">find_tasks</span><span class="p">(</span><span class="n">tree</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">path</span><span class="o">=</span><span class="n">next_path</span> <span class="o">+</span> <span class="n">key</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">value</span><span class="p">:</span>
+                    <span class="n">result</span> <span class="o">+=</span> <span class="n">value</span>
+    <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="convert_to_format"><a class="viewcode-back" href="../../../aiscalator.core.html#aiscalator.core.config.convert_to_format">[docs]</a><span class="k">def</span> <span class="nf">convert_to_format</span><span class="p">(</span><span class="n">file</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">output</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">output_format</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Converts a HOCON file to another format</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    file : str</span>
+<span class="sd">        hocon file to convert</span>
+<span class="sd">    output : str</span>
+<span class="sd">        output file to produce</span>
+<span class="sd">    output_format : str</span>
+<span class="sd">        format of the output file</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    str</span>
+<span class="sd">        the output file</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="p">(</span><span class="n">pyhocon</span>
+     <span class="o">.</span><span class="n">converter</span>
+     <span class="o">.</span><span class="n">HOCONConverter</span>
+     <span class="o">.</span><span class="n">convert_from_file</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">output_file</span><span class="o">=</span><span class="n">output</span><span class="p">,</span>
+                        <span class="n">output_format</span><span class="o">=</span><span class="n">output_format</span><span class="p">))</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">output</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+    <a id="sidebar-anchor"></a>
+    
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script><h3><a href="../../../index.html">Table Of Contents</a></h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../readme.html">AIscalator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../readme.html#quick-start">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">aiscalator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../codeofconduct.html">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../authors.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../history.html">History</a></li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+      </ul>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Christophe Duong.
+      Last updated on Nov 11, 2018.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1.
+    </div>
+  </body>
+</html>
