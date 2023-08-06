@@ -1,0 +1,12 @@
+README.md
+setup.py
+MyTact.egg-info/PKG-INFO
+MyTact.egg-info/SOURCES.txt
+MyTact.egg-info/dependency_links.txt
+MyTact.egg-info/entry_points.txt
+MyTact.egg-info/requires.txt
+MyTact.egg-info/top_level.txt
+mytact/__init__.py
+mytact/__main__.py
+mytact/db.py
+mytact/utils.py
