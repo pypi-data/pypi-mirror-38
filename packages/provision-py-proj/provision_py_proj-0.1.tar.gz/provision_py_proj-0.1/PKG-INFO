@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: provision_py_proj
+Version: 0.1
+Summary: Utility for the creation of python packages.
+Home-page: https://github.com/ku-wolf/provision_py_proj
+Author: Kevin Wolf
+Author-email: kevinuwolf@gmail.com
+License: gplv3.txt
+Description: # provision_py_proj
+        
+        Provision an empty Python package.
+        
+        Create empty Package with following structure:
+        
+            test_pkg
+            ├── bin
+            │   └── test_pkg
+            ├── .gitignore
+            ├── LICENSE.txt
+            ├── MANIFEST.in
+            ├── README.md
+            ├── requirements.txt
+            ├── setup.py
+            └── test_pkg
+                ├── __init__.py
+                └── test
+                    └── __init__.py
+        
+        
+        # Installation
+        
+        pip3 install provision_py_proj
+        
+        # Usage
+        
+        provision_py_proj --help
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Description-Content-Type: text/markdown

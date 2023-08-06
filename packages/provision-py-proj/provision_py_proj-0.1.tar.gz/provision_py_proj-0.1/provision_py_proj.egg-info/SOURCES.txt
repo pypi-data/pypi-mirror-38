@@ -1,0 +1,15 @@
+README.md
+setup.py
+/home/kuwolf/projects/python_projs/provision_py_proj/bin/provision_py_proj
+provision_py_proj/__init__.py
+provision_py_proj/command_creator.py
+provision_py_proj/data_and_config_manager.py
+provision_py_proj/license_manager.py
+provision_py_proj/main.py
+provision_py_proj/pkg_utils.py
+provision_py_proj/template_formatter.py
+provision_py_proj.egg-info/PKG-INFO
+provision_py_proj.egg-info/SOURCES.txt
+provision_py_proj.egg-info/dependency_links.txt
+provision_py_proj.egg-info/requires.txt
+provision_py_proj.egg-info/top_level.txt
