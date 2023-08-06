@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: betagen
+Version: 0.1.1
+Summary: A coloir scheme generator to rip of Michael Betancourt
+Home-page: https://github.com/grburgess/betagen
+Author: J. Michael Burgess
+Author-email: jmichaelburgess@gmail.com
+License: BSD
+Platform: UNKNOWN
+Requires-Python: >=2.7.0
+Description-Content-Type: text/markdown
+Requires-Dist: colours
+Requires-Dist: colour
+
+A coloir scheme generator to rip of Michael Betancourt
+
+
