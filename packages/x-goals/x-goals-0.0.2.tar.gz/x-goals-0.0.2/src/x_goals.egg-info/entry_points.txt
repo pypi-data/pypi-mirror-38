@@ -1,0 +1,3 @@
+[console_scripts]
+x-goals = x_goals.cli:main
+
