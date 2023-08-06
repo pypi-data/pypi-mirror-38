@@ -1,0 +1,8 @@
+[console_scripts]
+exportme = exportme.standalone.manage:main
+
+[exportme.exporters]
+currency = exportme.exporters.currency:Currency
+rescuetime = exportme.exporters.rescuetime:RescueTime
+wanikani = exportme.exporters.wanikani:VersionOne
+
