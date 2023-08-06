@@ -1,0 +1,27 @@
+---
+env:
+  pypirc_path: $HOME/.pypirc
+shells:
+  bash:
+  - bash -eux
+  docker:
+  - docker run
+      --rm
+      -it
+      alpine:lastest
+
+---
+name: twine
+script:
+- for i in $(find . -name '*.po'); do msgfmt $i -o ${i/.po/.mo}; done
+- python3 setup.py explain
+- ! grep versioning setup.py || sed -i "s/versioning='.*',/version='$(python setup.py version | tail -n1)',/" setup.py
+- rm -rf dist
+- python3 setup.py sdist
+- twine upload ${posargs-} dist/*
+
+---
+name: install
+script:
+- '[ ! -f requirements.txt ] || pip install -r requirements.txt'
+- pip install -e .
