@@ -1,0 +1,15 @@
+pytest>=3.6
+
+[:python_version < "3.4"]
+pathlib2
+
+[docs]
+sphinx
+sphinx_rtd_theme
+
+[testing]
+pytest>=3.6
+Django
+django-configurations>=2.0
+pytest-xdist>=1.15
+six
