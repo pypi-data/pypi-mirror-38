@@ -1,0 +1,11 @@
+README.md
+setup.py
+doCal.egg-info/PKG-INFO
+doCal.egg-info/SOURCES.txt
+doCal.egg-info/dependency_links.txt
+doCal.egg-info/top_level.txt
+docal/__init__.py
+docal/calculation.py
+docal/document.py
+docal/formatting.py
+docal/parsing.py
