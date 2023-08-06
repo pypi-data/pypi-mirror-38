@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: pyrendezvous
+Version: 1.0
+Summary: Python binding for rendezvous
+Home-page: https://bitbucket.org/lukaszlaszko/pyrendezvous
+Author: Lukasz Laszko
+Author-email: lukaszlaszko@gmail.com
+License: MIT
+Description: Python binding for rendezvous. Efficient networking made easy.
+Platform: Posix
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Topic :: Communications
+Classifier: Topic :: Internet
+Classifier: Topic :: Software Development
+Classifier: Topic :: System
+Classifier: Topic :: System :: Networking
