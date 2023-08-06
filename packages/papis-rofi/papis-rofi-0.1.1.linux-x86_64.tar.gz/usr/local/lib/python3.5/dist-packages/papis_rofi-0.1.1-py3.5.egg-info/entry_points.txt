@@ -1,0 +1,3 @@
+[console_scripts]
+papis-rofi = papis_rofi.main:main
+
