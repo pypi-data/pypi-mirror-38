@@ -1,0 +1,25 @@
+cymem<1.32,>=1.30
+dill<0.3,>=0.2
+murmurhash<0.29,>=0.28
+numpy>=1.15.0
+plac<1.0.0,>=0.9.6
+preshed<2.0.0,>=1.0.0
+regex==2017.4.5
+requests<3.0.0,>=2.13.0
+thinc<6.12.0,>=6.11.2
+ujson>=1.35
+
+[:python_version < "3.4"]
+pathlib==1.0.1
+
+[cuda]
+cupy>=4.0
+
+[cuda80]
+cupy-cuda80>=4.0
+
+[cuda90]
+cupy-cuda90>=4.0
+
+[cuda91]
+cupy-cuda91>=4.0
