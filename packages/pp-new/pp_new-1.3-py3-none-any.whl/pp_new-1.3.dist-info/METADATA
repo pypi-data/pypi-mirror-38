@@ -1,0 +1,677 @@
+Metadata-Version: 2.1
+Name: pp-new
+Version: 1.3
+Summary: 视频运维平台适用于不同规模的视频监控系统的日常运维管理
+Home-page: UNKNOWN
+Author: Chang Hao
+Author-email: mixpplus@gmail.com
+License: UNKNOWN
+Keywords: demo,new,test
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+
+#### 视频平台登录信息api：
+
+1. Add video platform information
+
+   description:添加视频平台信息
+
+   - URL: /api/v1/device/addPlatform
+
+   - Method: post
+
+   - Header:Authorization=[string]
+
+   - Params:
+
+     | 参数                     | 必须 | 类型         | 说明                  |
+     | ------------------------ | ---- | ------------ | --------------------- |
+     | camera_platform_name     | 是   | string       | 平台名                |
+     | camera_platform_ip       | 是   | string       | 平台ip                |
+     | camera_platform_port     | 是   | int          | 平台端口              |
+     | platformtype_id          | 是   | string       | 外键平台类型id        |
+     | organization_id          | 是   | string       | 外键组织机构id        |
+     | camera_platform_account  | 否   | string       | 平台账户名            |
+     | camera_platform_password | 否   | string       | 平台账户密码          |
+     | camera_platform_status   | 是   | int          | 平台状态 1在线  0离线 |
+     | gb_number                | 是   | string       | 国标编码              |
+     | registration_period      | 是   | int          | 注册有效期            |
+     | heartbeat_timeout_secs   | 是   | int          | 心跳超时时间          |
+     | heartbeat_timeout_times  | 是   | int          | 心跳超时次数          |
+     | create_user_id           | 是   | string（36） | 创建人id              |
+
+     ```python
+     {
+         "camera_platform_name":"威海平台",
+         "camera_platform_ip":"172.14.100.100",
+         "camera_platform_port":"8000",
+         "platformtype_id":"2a29fce05b2f411a810dcaa3e854f6ef",
+         "organization_id":"169ed9c76888499b87baa90733fe2827",
+         "camera_platform_account":"admin",
+         "camera_platform_password":"admin",
+         "gb_number":"2325232",
+         "registration_period":3600,
+         "heartbeat_timeout_secs":30,
+         "heartbeat_timeout_times":3,
+         "camera_platform_status": 1,
+         "create_user_id":"5969354c-744d-46c1-b323-3215a4eb9f74",
+         "userdata":{}
+     }
+     ```
+
+   - Success Response:
+
+     ```python
+     {
+         "code":0,
+         "data":"",
+         "msg"："",
+         "userdata":{}
+     }
+     ```
+
+   - Error Response：
+
+     ```python
+     {
+         "code":-1,
+         "msg":"添加失败"
+     }
+     ```
+
+   - Sample Call:
+
+   - Notes：
+
+2. Modify platform information based on id
+
+   description：根据id修改平台信息，post请求提交，入库
+
+   - URL: /api/v1/device/modifyPlatform
+
+   - Method: post
+
+   - Header:Authorization=[string]
+
+   - Url Params: id=[string]
+
+   - Data Params:
+
+     ```python
+     #  平台类型是GB28181
+     {
+     	"cameraplatform_id":"e4f690f5bc1c43e388dfbff80c033b3b",
+         "camera_platform_name":"威海平台1",
+         "camera_platform_ip":"172.14.100.100",
+         "camera_platform_port":"8000",
+         "platformtype_id":"7a0a69c8883a4b0cb84455e96a79b5f9",
+         "organization_id":"44f63de9484c4341b53aa99659edd11d",
+         "camera_platform_account":"admin",
+         "camera_platform_password":"admin",
+         "gb_number":"2325232",
+         "registration_period":3600,
+         "heartbeat_timeout_secs":30,
+         "heartbeat_timeout_times":3,
+         "camera_platform_status": 1,
+         "update_user_id":"5969354c-744d-46c1-b323-3215a4eb9f74",
+         "userdata":{}
+     }
+     # 平台类型是PVG+
+     {
+     	"cameraplatform_id":"e4f690f5bc1c43e388dfbff80c033b3b",
+         "camera_platform_name":"威海平台1",
+         "camera_platform_ip":"172.14.100.100",
+         "camera_platform_port":"8000",
+         "platformtype_id":"7a0a69c8883a4b0cb84455e96a79b5f9",
+         "organization_id":"44f63de9484c4341b53aa99659edd11d",
+         "camera_platform_account":"admin",
+         "camera_platform_password":"admin",
+         "camera_platform_status": 1,
+         "update_user_id":"5969354c-744d-46c1-b323-3215a4eb9f74",
+         "userdata":{}
+     }
+     ```
+
+   - Success Response:
+
+     ```python
+     {
+         "code":0,
+         "msg":'修改成功",
+         "userdata":{}
+     }
+     ```
+
+   - Error Response：
+
+     ```python
+     {
+         "code":-1,
+         "data":'修改失败'
+     }
+     ```
+
+   - Sample Call:
+
+   - Notes:
+
+3. Delete platform information based on platform id
+
+   description:根据平台id删除平台信息
+
+   - URL: /api/v1/device/deletePlatform
+
+   - Method: post
+
+   - Header:Authorization=[string]
+
+   - Params: 
+
+     ```python
+     {
+         "ids":["",""],  # 把要删除的平台id放进数组中，可以是一个，也可以是多个
+         "userdata":{}
+     }
+     ```
+
+   - Success Response:
+
+     ```python
+     {
+         "code":0,
+         "data":"删除成功",
+         "userdata":{}
+     }
+     ```
+
+   - Error Response：
+
+     ```python
+     {
+         "code":-1,
+         "msg":'删除失败'
+     }
+     ```
+
+   - Sample Call:
+
+   - Notes：
+
+4. Obtain platform information based on video platform id
+
+   description：根据视频平台id获取平台信息
+
+   - URL: /api/v1/device/platformInfo
+
+   - Method: post
+
+   - Header:Authorization=[string]
+
+   - Params:
+
+     ```python
+     {
+         "id":"",
+         "userdata":{}
+     }
+     ```
+
+   - Success Response:
+
+     ```python
+     #  当相机平台类型是PVG+
+     {
+         "code": 0,
+         "data": [
+             {
+                 "camera_platform_account": "admin",
+                 "camera_platform_channel": null,
+                 "camera_platform_desc": null,
+                 "cameraplatform_id": "29a5e04c97224d55be630103c01f9497",
+                 "camera_platform_ip": "172.14.100.100",
+                 "camera_platform_name": "威海平台1",
+                 "camera_platform_password": "admin",
+                 "camera_platform_port": 8000,
+                 "camera_platform_status": 1,
+                 "create_time": "2018-09-05 20:30:22",
+                 "organization_id": "44f63de9484c4341b53aa99659edd11d",
+                 "organization_name": "杭州数智源",
+                 "platformtype_id": "7a0a69c8883a4b0cb84455e96a79b5f9",
+                 "camera_platform_type": "pvg+",
+                 "create_user_id":"5969354c-744d-46c1-b323-3215a4eb9f74",
+                 "update_user_id":"5969354c-744d-46c1-b323-3215a4eb9f74",
+                 "update_time": "2018-09-05 20:30:22"
+             }
+         ],
+         "msg": "查询成功",
+         "userdata": {}
+     }
+
+     # 当相机平台是GB28181
+     {
+         "code": 0,
+         "data": [
+             {
+                 "camera_platform_account": "admin",
+                 "camera_platform_channel": null,
+                 "camera_platform_desc": null,
+                 "cameraplatform_id": "e4f690f5bc1c43e388dfbff80c033b3b",
+                 "camera_platform_ip": "172.14.100.100",
+                 "camera_platform_name": "威海平台1",
+                 "camera_platform_password": "admin",
+                 "camera_platform_port": 8000,
+                 "camera_platform_status": 1,
+                 "create_time": "2018-09-05 20:24:31",
+                 "gb_number": "2325232",
+                 "heartbeat_timeout_secs": 30,
+                 "heartbeat_timeout_times": 3,
+                 "organization_id": "44f63de9484c4341b53aa99659edd11d",
+                 "organization_name": "杭州数智源",
+                 "platformtype_id": "7a0a69c8883a4b0cb84455e96a79b5f9",
+                 "camera_platform_type": "pvg+",
+                 "create_user_id":"5969354c-744d-46c1-b323-3215a4eb9f74", # 创建人id
+                 "update_user_id":"5969354c-744d-46c1-b323-3215a4eb9f74", # 更新人id
+                 "registration_period": 3600,
+                 "update_time": "2018-09-05 20:26:38"
+             }
+         ],
+         "msg": "查询成功",
+         "userdata": {}
+     }
+     ```
+
+   - Error Response：
+
+     ```python
+     {
+         "code":-1,
+         "msg":'没有获取到平台信息'
+     }
+     ```
+
+   - Sample Call:
+
+   - Notes：
+
+5. Get all the groups that have not been deleted
+
+   description：获取所有分组
+
+   - URL: /api/v1/device/GroupName
+
+   - Method: get
+
+   - Header:Authorization=[string]
+
+   - Params:
+
+   - Success Response:
+
+     ```python
+     {
+         "code":0,
+         "all_data":1,
+         "data":[
+             {
+                 "group_id":"",
+                 "group_name": "",
+                 "group_desc":"",
+                 "parent_id":"",
+                 "is_delete":"",
+                 "create_time":"",
+                 "update_time":""
+             }
+         ],
+         "userdata":{}
+     }
+     ```
+
+   - Error Response：
+
+     ```python
+     {
+         "code":-1,
+         "msg":'没有获取到平台信息'
+     }
+     ```
+
+   - Sample Call:
+
+   - Notes:
+
+6. Fuzzy query platform information
+
+   description：模糊查询平台信息，没有搜索字段默认查询所有
+
+   - URL: /api/v1/device/cameraPlatform
+
+   - Method: post
+
+   - Header:Authorization=[string]
+
+   - Params:
+
+     ```python
+     {
+     "searchInfo":{
+     	"camera_platform_name":"威",  # 平台名称
+         "camera_platform_ip":"",    # 平台地址
+         "camera_platform_port":"",    # 平台端口
+         "platformtype_id":"2a29fce05b2f411a810dcaa3e854f6ef",  # 平台类型id
+         "organization_id":"4329fce05b2f411a810dcaa3e854f6ef",   # 组织机构id
+         "is_create":true, # true表示根据创建时间排序，false表示根据更新时间排序
+     	"is_desc":true,   # true表示根据时间倒排序， false表示根据时间正排序
+     },
+     "page":1,
+     "page_size":10,
+     "userdata":{}
+     }
+     ```
+
+   - Success Response:
+
+     ```python
+     {
+         "all_data": 4,
+         "all_page": 1,
+         "code": 0,
+         "data": [
+             {
+                 "camera_numbers": 0,
+                 "camera_platform_ip": "172.14.100.100",
+                 "camera_platform_name": "威海平台2",
+                 "camera_platform_port": 8000,
+                 "create_time": "2018-09-12 16:48:12",
+                 "organization_name": "苏州数智源",
+                 "cameraplatform_id": "5ab5198ccbf649abafc84b4c6529ef90",
+                 "camera_platform_type": "GB28181",
+                 "create_user_id":"5969354c-744d-46c1-b323-3215a4eb9f74",
+                 "update_user_id":"5969354c-744d-46c1-b323-3215a4eb9f74",
+                 "update_time": "2018-09-12 16:48:12"
+             },
+             {
+                 "camera_numbers": 0,
+                 "camera_platform_ip": "172.14.100.100",
+                 "camera_platform_name": "威海平台1",
+                 "camera_platform_port": 8000,
+                 "create_time": "2018-09-12 16:48:06",
+                 "organization_name": "苏州数智源",
+                 "cameraplatform_id": "6f722b618b75413b9b6695885b1c6f29",
+                 "camera_platform_type": "GB28181",
+                 "create_user_id":"5969354c-744d-46c1-b323-3215a4eb9f74",
+                 "update_user_id":"5969354c-744d-46c1-b323-3215a4eb9f74",
+                 "update_time": "2018-09-12 16:48:06"
+             },
+             {
+                 "camera_numbers": 0,
+                 "camera_platform_ip": "172.14.100.100",
+                 "camera_platform_name": "机场平台",
+                 "camera_platform_port": 8000,
+                 "create_time": "2018-09-12 16:48:25",
+                 "organization_name": "苏州数智源",
+                 "cameraplatform_id": "7f93dba2bd6d4c6781a329800b09b49d",
+                 "camera_platform_type": "GB28181",
+                 "create_user_id":"5969354c-744d-46c1-b323-3215a4eb9f74",
+                 "update_user_id":"5969354c-744d-46c1-b323-3215a4eb9f74",
+                 "update_time": "2018-09-12 16:48:25"
+             },
+             {
+                 "camera_numbers": 0,
+                 "camera_platform_ip": "172.14.100.100",
+                 "camera_platform_name": "威海平台",
+                 "camera_platform_port": 8000,
+                 "create_time": "2018-09-12 16:47:31",
+                 "organization_name": "数智源",
+                 "cameraplatform_id": "c3f9f51202384971847c4f4aa6cabbd8",
+                 "camera_platform_type": "GB28181",
+                 "create_user_id":"5969354c-744d-46c1-b323-3215a4eb9f74",
+                 "update_user_id":"5969354c-744d-46c1-b323-3215a4eb9f74",
+                 "update_time": "2018-09-12 16:47:31"
+             }
+         ],
+         "msg": "查询成功",
+         "page": 1,
+         "userdata": {}
+     }
+     ```
+
+   - Error Response：
+
+     ```python
+     {
+         "code":-1,
+         "msg":'查询失败'
+     }
+     ```
+
+   - Sample Call:
+
+   - Notes：
+
+7. Get protocol types for all video platforms
+
+   description：获取所有相机协议
+
+   - URL: /api/v1/device/allCameraProtocol
+
+   - Method: get
+
+   - Header:Authorization=[string]
+
+   - Params:
+
+   - Success Response:
+
+     ```python
+     {
+         "all_data": 6,
+         "code": 0,
+         "data": [
+             {
+                 "camera_protocol": "RTSP",
+                 "id": "1c9b8032c64f434091160f4086d3f3b6"
+             },
+             {
+                 "camera_protocol": "ONVIF",
+                 "id": "2229924a68884695bf9ad8361836217d"
+             },
+             {
+                 "camera_protocol": "大华",
+                 "id": "62804ef392c945fa884c2ae7a7f4cf61"
+             },
+             {
+                 "camera_protocol": "RTMP",
+                 "id": "cf40e618bd2945c78df769f9d5774888"
+             },
+             {
+                 "camera_protocol": "GB28181",
+                 "id": "e9f062e6784a493999e18a8df399fe8f"
+             },
+             {
+                 "camera_protocol": "海康",
+                 "id": "edde939b5e8e4794a6e0268a5a22b522"
+             }
+         ],
+         "msg": "查询成功",
+         "userdata": null
+     }
+     ```
+
+   - Error Response：
+
+     ```python
+     {
+         "code":-1,
+         "msg":"查询失败"
+     }
+     ```
+
+   - Sample Call:
+
+   - Notes：
+
+8. Get all camera types
+
+   description：获取所有相机类型
+
+   - URL: /api/v1/device/allCameraType
+
+   - Method: get
+
+   - Header:Authorization=[string]
+
+   - Params:
+
+   - Success Response:
+
+     ```python
+     {
+         "all_data": 2,
+         "code": 0,
+         "data": [
+             {
+                 "camera_type": "IPC",
+                 "id": "b43d9770fd984671970ee4fe6d43ec99"
+             },
+             {
+                 "camera_type": "NVR",
+                 "id": "b994679085834606bf84f2bf9c2958e1"
+             }
+         ],
+         "msg": "查询成功",
+         "userdata": null
+     }
+     ```
+
+   - Error Response：
+
+     ```python
+     {
+         "code":-1,
+         "msg":"查询失败"
+     }
+     ```
+
+   - Sample Call:
+
+   - Notes：
+
+9. Sort by timeSort by time
+
+   description：根据时间排序
+
+   - URL: /api/v1/device/platformTimeOrder
+
+   - Method: post
+
+   - Header:Authorization=[string]
+
+   - Params:
+
+     ```python
+     {
+         "page":1,
+         "page_size":10,
+         "is_create":true, # true表示根据创建时间排序，false表示根据更新时间排序
+         "is_desc":true,   # true表示根据时间倒排序， false表示根据时间正排序
+         "userdata":""
+     }
+     ```
+
+   - Success Response:
+
+     ```python
+     {
+         "all_data": 2,
+         "all_page": 1,
+         "code": 0,
+         "data": [
+             {
+                 "camera_numbers": 0,
+                 "camera_platform_ip": "172.14.100.100",
+                 "camera_platform_name": "威海平台",
+                 "camera_platform_port": 8000,
+                 "create_time": "2018-09-05 20:24:31",
+                 "of_organization": "杭州数智源",
+                 "cameraplatform_id": "e4f690f5bc1c43e388dfbff80c033b3b",
+                 "camera_platform_type": "pvg+",
+                 "create_user_id":"5969354c-744d-46c1-b323-3215a4eb9f74",
+                 "update_user_id":"5969354c-744d-46c1-b323-3215a4eb9f74",
+                 "update_time": "2018-09-06 11:13:15"
+             },
+             {
+                 "camera_numbers": 0,
+                 "camera_platform_ip": "172.14.100.100",
+                 "camera_platform_name": "威海平台1",
+                 "camera_platform_port": 8000,
+                 "create_time": "2018-09-05 20:30:22",
+                 "of_organization": "杭州数智源",
+                 "cameraplatform_id": "29a5e04c97224d55be630103c01f9497",
+                 "camera_platform_type": "pvg+",
+                 "create_user_id":"5969354c-744d-46c1-b323-3215a4eb9f74",
+                 "update_user_id":"5969354c-744d-46c1-b323-3215a4eb9f74",
+                 "update_time": "2018-09-05 20:30:22"
+             }
+         ],
+         "msg": "搜索成功",
+         "page": 1,
+         "userdata": {
+             "": ""
+         }
+     }
+     ```
+
+   - Error Response：
+
+     ```python
+     {
+         "code":-1,
+         "msg":"搜索失败"
+     }
+     ```
+
+   - Sample Call:
+
+   - Notes：
+
+10. Get allplatform type info
+
+    description：获取所有平台的类型
+
+    - URL: /api/v1/device/allPlatformType
+
+    - Method: get
+
+    - Header:Authorization=[string]
+
+    - Params:
+
+    - Success Response:
+
+      ```python
+      {
+          "code":0,
+          "all_data":1,
+          "data":[
+              {
+                  "id": "",
+                  "camera_platform_type": ""
+              }
+          ],
+          "userdata":{}
+      }
+      ```
+
+    - Error Response：
+
+      ```python
+      {
+          "code":-1,
+          "msg":'没有获取到平台类型信息'
+      }
+      ```
+
+    - Sample Call:
+
+    - Notes：
+
