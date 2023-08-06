@@ -1,0 +1,3 @@
+[console_scripts]
+finance-eaoi = finance_tools.bin.eaoi:cli
+
