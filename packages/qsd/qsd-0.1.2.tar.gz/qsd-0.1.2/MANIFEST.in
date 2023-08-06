@@ -1,0 +1,8 @@
+# Include the README
+include *.md
+
+# Include the license file
+include LICENSE.txt
+
+# Include bash scripts
+#include qsd/ssh_control/set_comsol_data
