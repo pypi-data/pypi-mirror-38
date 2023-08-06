@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: listify
+Version: 2018.11.19
+Summary: @listify decorator - return a list instead of a generator
+Home-page: https://github.com/looking-for-a-job/listify.py
+License: UNKNOWN
+Description: [![](https://img.shields.io/pypi/pyversions/listify.svg?longCache=True)](https://pypi.org/pypi/listify/)
+        
+        #### Install
+        ```bash
+        $ [sudo] pip install listify
+        ```
+        
+        #### Functions
+        function|description
+        -|-
+        `listify.listify(func)`|`@listify` decorator
+        
+        #### Examples
+        `yield` + `list()`
+        ```python
+        >>> def func():
+                yield "value"
+        
+        >>> list(func())
+        ```
+        `list.append()`
+        ```python
+        >>> def func():
+                result = []
+                result.append("value")
+                return result
+        ```
+        
+        `@listify`
+        ```python
+        >>> @listify
+            def func():
+                yield "value"
+        ```
+        
+        <p align="center"><a href="https://pypi.org/project/readme-md/">readme-md</a> - README.md generator</p>
+Keywords: listify list
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Software Development
+Description-Content-Type: text/markdown
