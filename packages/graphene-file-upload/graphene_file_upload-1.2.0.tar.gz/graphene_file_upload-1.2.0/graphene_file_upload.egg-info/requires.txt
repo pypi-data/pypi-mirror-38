@@ -1,0 +1,16 @@
+six>=1.11.0
+
+[django]
+
+[flask]
+Flask>=1.0.2
+graphene>=2.1.2
+Flask-Graphql>=2.0.0
+
+[test]
+Flask>=1.0.2
+graphene>=2.1.2
+Flask-Graphql>=2.0.0
+coverage>=4.5.1
+pytest>=3.7.4
+pytest-cov>=2.6.0
