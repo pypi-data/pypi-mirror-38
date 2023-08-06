@@ -1,0 +1,15 @@
+volcano/core/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+volcano/core/__main__.py,sha256=GD7w0fW0SvAgveyMUbXoMHGOA51Uvxa3HkJg_s7OxFE,5191
+volcano/core/connection.py,sha256=2R8rdBIgirfgYa8z9e5FqyNdoqT-5e-M3FE3KHtHfa4,12357
+volcano/core/cp.py,sha256=cPZ2TSMtZpTSH_jGPw8H_BXuKQ2y6Yje9b_hhWvalno,4035
+volcano/core/cvt.py,sha256=f41aq9VcRH6qyrUjFCYSbp5ycC8dDU-0em5G3HcUNZQ,1997
+volcano/core/db.py,sha256=ki4SKxNqyiZP34v1b3FiQq85BDGf9wamhfarydHMbB4,10739
+volcano/core/demo.xml,sha256=AGNzJ9qW-8ZoE8ltssKThRq44AfANdgG9XeXhoRbmLA,272
+volcano/core/errors.py,sha256=GsxaW59eXHFe0N6ULprVYsB4KmX5K6piCQuGztb3mqU,686
+volcano/core/expr.py,sha256=fUBGhbCRl7jX1Irjps7MGk8ZPsqdjxM_CNlSNxRgbkU,1996
+volcano/core/msg_parser.py,sha256=inL-mkV5wP1MyihIW_xqZ_8oyMQhXbEtvySbaH2NpSg,5012
+volcano_core-0.4.5.dist-info/LICENSE,sha256=geFvpQVVWax3Avd3XjbVuRewPqmFL8HyR7Q_IjhqmEo,1061
+volcano_core-0.4.5.dist-info/METADATA,sha256=W405QT5OEYR6aOAAq9lX_kp-Qp8gtVjkj87q5LFFwcg,397
+volcano_core-0.4.5.dist-info/WHEEL,sha256=_NOXIqFgOaYmlm9RJLPQZ13BJuEIrp5jx5ptRD5uh3Y,92
+volcano_core-0.4.5.dist-info/top_level.txt,sha256=0aidZe7xCLgboO_cWMbeczPjPWLqVNu16f-7hJGA0xg,8
+volcano_core-0.4.5.dist-info/RECORD,,
