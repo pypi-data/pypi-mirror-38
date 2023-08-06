@@ -1,0 +1,8 @@
+MANIFEST.in
+README.md
+setup.py
+src/bindr/__init__.py
+src/bindr.egg-info/PKG-INFO
+src/bindr.egg-info/SOURCES.txt
+src/bindr.egg-info/dependency_links.txt
+src/bindr.egg-info/top_level.txt
