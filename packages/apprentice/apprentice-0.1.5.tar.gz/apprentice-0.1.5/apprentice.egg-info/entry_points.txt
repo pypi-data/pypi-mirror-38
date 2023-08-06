@@ -1,0 +1,3 @@
+[console_scripts]
+apprentice = apprentice.__main__:main
+
