@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: boto3-type-annotations
+Version: 0.1.1
+Summary: Type annotations for boto3. Adds code completion in IDEs such as PyCharm.
+Home-page: https://github.com/alliefitter/boto3_type_annotations
+Author: Allie Fitter
+Author-email: fitterj@gmail.com
+License: MIT License
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+# boto3_type_annotations
+
+A programmatically created package that defines `boto3` services as dummy class with type annotations.
+
+```python
+import boto3
+from boto3_type_annotations import sqs
+
+
+client: sqs.Client = boto3.client('sqs')
+resource: sqs.ServiceResource = boto3.resource()
+
+client.send_message(QueueUrl='foo', MessageBody='bar')
+
+queue = resource.Queue('foo')
+queue.send_message(MessageBody='foo')
+
+```
+
