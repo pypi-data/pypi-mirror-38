@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: caroline
+Version: 0.4.2
+Summary: A key/value-based JSON ODM with a memorable name.
+Home-page: https://www.grafeas.org
+Author: Grafeas Group Ltd.
+Author-email: devs@grafeas.org
+Keywords: redis,elasticsearch,odm
+Requires-Python: >=3.6,<4.0
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Database :: Front-Ends
+Provides-Extra: ci
+Requires-Dist: addict (>=2.2,<3.0)
+Requires-Dist: codacy-coverage (>=1.3,<2.0); extra == "ci"
+Requires-Dist: elasticsearch (>=6.3,<7.0)
+Requires-Dist: jsonschema (>=2.6,<3.0)
+Requires-Dist: pytest-cov (>=2.6,<3.0); extra == "ci"
+Requires-Dist: redis (>=2.10,<3.0)
+Project-URL: Repository, https://github.com/grafeasgroup/caroline
