@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: otter-manager
+Version: 0.0.1.dev1
+Summary: A cli tool to manage python application more simply.
+Home-page: https://github.com/JeongUkJae/otter
+Author: Jeong Ukjae
+Author-email: jeongukjae@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Utilities
+
+otter
+=====
+
+A cli tool to manage python application more simply.
+
+
