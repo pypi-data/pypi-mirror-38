@@ -1,0 +1,17 @@
+autofit/__init__.py,sha256=IMjkMO3twhQzluVTo8Z6rE7Eg-9U79_LGKMcsWLKBkY,22
+autofit/conf.py,sha256=Amwzy4BeQ5DmNwxVnnCukDMIZX555B5TKGtWvaQ6MNE,9557
+autofit/exc.py,sha256=al2FBk5uZiLH7OaLaUbUIOZp1Jzp0FkufmdMzmhT9Gg,564
+autofit/core/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+autofit/core/link.py,sha256=pWx28QmjFuiUnHfqcz9xkFcnvjvs38-OkF2fPzr5RU4,2423
+autofit/core/model_mapper.py,sha256=HA3Xp3EYzXBf04M8ZP9OZQeMdAcrd3GhHi3hbyuvOT4,42452
+autofit/core/non_linear.py,sha256=uhKOso6s4WSnMNG7Y9hjfbhSoeh3upfJsEzkXc0j7AU,25751
+autofit-0.1.0.dist-info/METADATA,sha256=KNQFHS2g0qrWObuPq3S7cO8IaL-1FM9jm5JVbS8ZOQg,1203
+autofit-0.1.0.dist-info/RECORD,,
+autofit-0.1.0.dist-info/WHEEL,sha256=NzFAKnL7g-U64xnS1s5e3mJnxKpOTeOtlXdFwS9yNXI,92
+autofit-0.1.0.dist-info/top_level.txt,sha256=YcrIvdsmZGBYU5gEVvc_Na6Ao48-yMxsimlpIxHanHI,13
+test/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+test/test_config.py,sha256=TSR6OXShxWx5EJDYjATF0NVOydBO9KWCRnxhqlMrdPY,1105
+test/autofit/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+test/autofit/test_link.py,sha256=hajwfF7Fj3FwVJGfLaI3-XKkuBXLSsoO-vfyst1hR0k,2311
+test/autofit/test_model_mapper.py,sha256=bWm74DNWgv-hWnHBS80VMaJFSmBgQkLv_cGodF2SZLc,47090
+test/autofit/test_non_linear.py,sha256=OoFdvgPdh5iTIyFBpRlB-bZdJuGSHzPnTqyGj5MGI8M,75395
