@@ -1,0 +1,6 @@
+torch==0.4.1
+annoy
+numpy
+pandas
+tqdm
+glog
