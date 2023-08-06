@@ -1,0 +1,7 @@
+
+[dev]
+isort
+black
+pytest
+pytest-watch
+pytest-cov
