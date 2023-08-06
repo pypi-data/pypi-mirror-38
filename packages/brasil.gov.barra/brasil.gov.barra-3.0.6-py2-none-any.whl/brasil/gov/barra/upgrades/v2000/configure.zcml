@@ -1,0 +1,17 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup">
+
+  <genericsetup:upgradeSteps
+      source="*"
+      destination="2000"
+      profile="brasil.gov.barra:default">
+
+    <genericsetup:upgradeStep
+        title="Bump up profile version"
+        handler=".dummy_step"
+        />
+
+  </genericsetup:upgradeSteps>
+
+</configure>
