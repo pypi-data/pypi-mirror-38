@@ -1,0 +1,14 @@
+README.md
+setup.py
+gopass_chrome_importer/__init__.py
+gopass_chrome_importer/gopass_chrome_importer.py
+gopass_chrome_importer.egg-info/PKG-INFO
+gopass_chrome_importer.egg-info/SOURCES.txt
+gopass_chrome_importer.egg-info/dependency_links.txt
+gopass_chrome_importer.egg-info/entry_points.txt
+gopass_chrome_importer.egg-info/requires.txt
+gopass_chrome_importer.egg-info/top_level.txt
+tests/__init__.py
+tests/basic_test.py
+tests/ci/__init__.py
+tests/ci/ci_only_tests.py
