@@ -1,0 +1,63 @@
+Metadata-Version: 2.1
+Name: mac-screensaver
+Version: 2018.11.19
+Summary: MacOS screensaver
+Home-page: https://github.com/looking-for-a-job/mac-screensaver.py
+License: UNKNOWN
+Description: [![](https://img.shields.io/badge/OS-MacOS-blue.svg?longCache=True)]()
+        [![](https://img.shields.io/pypi/pyversions/mac-screensaver.svg?longCache=True)](https://pypi.org/pypi/mac-screensaver/)
+        
+        #### Install
+        ```bash
+        $ [sudo] pip install mac-screensaver
+        ```
+        
+        #### Functions
+        function|description
+        -|-
+        `mac_screensaver.name()`|return active screensaver name
+        `mac_screensaver.names()`|return list of screensavers names
+        `mac_screensaver.pid()`|return screensaver pid
+        `mac_screensaver.start()`|start screensaver
+        `mac_screensaver.stop()`|kill screensaver process
+        `mac_screensaver.preferences.clock()`|return True if "Show with clock" enabled, else False
+        `mac_screensaver.preferences.idle()`|return screensaver idle time in seconds. 0 if disabled
+        
+        #### CLI
+        usage|description
+        -|-
+        `python -m mac_screensaver.name`|print current screensaver name
+        `python -m mac_screensaver.pid`|print screensaver pid
+        `python -m mac_screensaver.start`|start screensaver
+        `python -m mac_screensaver.stop`|stop screensaver
+        
+        #### Examples
+        ```python
+        >>> mac_screensaver.start()
+        >>> mac_screensaver.pid()
+        1488
+        >>> mac_screensaver.stop()
+        ```
+        
+        ```python
+        >>> mac_screensaver.names()
+        ['Random', 'Flurry', 'Arabesque', 'Word of the Day', 'iTunes Artwork', 'Computer Name', 'Shell', 'FloatingMessage', 'iLifeSlideshows']
+        >>> mac_screensaver.name()  # current name
+        'iLifeSlideshows'
+        ```
+        
+        <p align="center"><a href="https://pypi.org/project/readme-md/">readme-md</a> - README.md generator</p>
+Keywords: screensaver
+Platform: UNKNOWN
+Classifier: Environment :: MacOS X
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Software Development
+Description-Content-Type: text/markdown
