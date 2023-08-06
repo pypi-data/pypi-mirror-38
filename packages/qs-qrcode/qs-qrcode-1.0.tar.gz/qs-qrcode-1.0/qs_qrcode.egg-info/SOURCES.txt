@@ -1,0 +1,11 @@
+README.rst
+setup.py
+qs_qrcode.egg-info/PKG-INFO
+qs_qrcode.egg-info/SOURCES.txt
+qs_qrcode.egg-info/dependency_links.txt
+qs_qrcode.egg-info/not-zip-safe
+qs_qrcode.egg-info/requires.txt
+qs_qrcode.egg-info/top_level.txt
+qsqrcode/__init__.py
+qsqrcode/constant.py
+qsqrcode/qrcode.py
