@@ -1,0 +1,3 @@
+[console_scripts]
+k3 = kea3.cli:dispatch
+
