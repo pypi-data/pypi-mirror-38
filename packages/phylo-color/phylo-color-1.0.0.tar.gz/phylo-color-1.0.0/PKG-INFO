@@ -1,0 +1,19 @@
+Metadata-Version: 1.1
+Name: phylo-color
+Version: 1.0.0
+Summary: Color the nodes of a phylogenetic tree using regular expressions to match taxa names.
+Home-page: https://github.com/acorg/phylo-color
+Author: Terry Jones
+Author-email: tcj25@cam.ac.uk
+License: MIT
+Download-URL: https://github.com/acorg/phylo-color
+Description: UNKNOWN
+Keywords: phylogenetic tree color nexml nexus newick
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
