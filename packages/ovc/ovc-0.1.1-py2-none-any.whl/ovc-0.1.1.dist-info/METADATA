@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: ovc
+Version: 0.1.1
+Summary: SDK for ansible modules used by GiG for their OpenVCloud platform
+Home-page: UNKNOWN
+Author: Stef Graces
+License: Nubera BVBA
+Platform: UNKNOWN
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+# OVC
+
+### Description
+
+This package is used to communicate with the OpenVCloud API using Python.
+
+### Requirements
+
+* Python 2.7
+
+### Installation
+
+```
+pip install ovc
+```
+
