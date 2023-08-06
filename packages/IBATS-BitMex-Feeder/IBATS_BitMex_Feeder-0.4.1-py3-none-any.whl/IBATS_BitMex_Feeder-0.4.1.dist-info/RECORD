@@ -1,0 +1,15 @@
+IBATS_BitMex_Feeder-0.4.1.dist-info/METADATA,sha256=v_uqXXT8pUbWa3F7tJ0rjDk-cNGy3yyAwLzUKwWlVeo,1578
+IBATS_BitMex_Feeder-0.4.1.dist-info/RECORD,,
+IBATS_BitMex_Feeder-0.4.1.dist-info/WHEEL,sha256=cScVKDQXc_cp1jHmxFDq9fIOIg17a2BsmfS6J39H6Eo,97
+IBATS_BitMex_Feeder-0.4.1.dist-info/top_level.txt,sha256=EIXtqxOSYfI3S45fLhNKGPHx6USjRTVqE_tug68NCsQ,20
+ibats_bitmex_feeder/__init__.py,sha256=qs6xZL-LMFH_Ndw43galozETMBBfajzmeWTFt-pcOnU,173
+ibats_bitmex_feeder/config.py,sha256=4uDH5MgS9zc_K1lPzCSxhiBBnZqNU2wTCsIhM8V_9KU,2631
+ibats_bitmex_feeder/feeder.py,sha256=oXPEL4s7neVZpeWxNnZiC8G5kwlbiuQErSRvh6dP7Sw,16239
+ibats_bitmex_feeder/backend/__init__.py,sha256=BlaOZA1NegTSioDm118oC-SA7sQht5bW5pUc493fmbA,495
+ibats_bitmex_feeder/backend/bitmex_ws.py,sha256=b_ehMRCQQlHPkUKFPgrxpxVuMfwaP3pJLyNs2hI4SMM,14628
+ibats_bitmex_feeder/backend/check.py,sha256=Ar26DBpYPEWN1Cz5XHsPPLZZslywNbIB5CvNMwzg_lw,2983
+ibats_bitmex_feeder/backend/handler.py,sha256=F-NH-Y_ATQOaZdbirfjnu-ADIzGSgUnmuw8GdqAm8SY,4383
+ibats_bitmex_feeder/backend/orm.py,sha256=1Bmd19-auiqACTTDCFF3yjuXWCjTm4xF68cKiH3tEkc,6409
+ibats_bitmex_feeder/backend/other_tables.py,sha256=nEQuM5PApSaN31IB7CuJ-qteITzGT6ojF9jfMrHC0uc,597
+ibats_bitmex_feeder/utils/__init__.py,sha256=7HWlsvJ2VlMgD4T_I6AOjcTb1v8oLPzyJW2zMUTCtD0,173
+ibats_bitmex_feeder/utils/mess.py,sha256=R6qNgnzqCXuyeuHvMKHCHb7UtFC76ElehsSeyU9oOxo,5068
