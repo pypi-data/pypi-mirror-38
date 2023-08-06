@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: pytrun
+Version: 1.1.0
+Summary: Python Yaml Task RUNner.
+Home-page: https://github.com/marco-souza/pythun
+Author: Marco Antônio
+Author-email: ma.souza.junior@gmail.com
+License: UNKNOWN
+Description: # Python Yaml Task RUNner (pytrun).
+        
+        Simple tool to run tasks defined in a Yaml file.
+        
+        ## Usage
+        
+        First of all you need to create a `tasks.yaml` or `tasks.yml` to define which tasks should run.
+        
+        ```yaml
+        setup:
+            - pip install -e .[dev]
+        
+        
+        build:
+          - python setup.py sdist
+        
+        ```
+        
+        ```bash
+        pytrun setup build
+        ```
+        
+        Also you can specify another file to pytrun:
+        
+        ```sh
+        pytrun setup build -c ./my-tasks.yml
+        ```
+        
+Keywords: python yaml task runner
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Programming Language :: Python :: 3.6
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Provides-Extra: test
