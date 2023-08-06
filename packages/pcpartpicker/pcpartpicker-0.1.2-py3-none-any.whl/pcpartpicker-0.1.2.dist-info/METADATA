@@ -1,0 +1,66 @@
+Metadata-Version: 2.1
+Name: pcpartpicker
+Version: 0.1.2
+Summary: A fast, simple API for PCPartPicker.com.
+Home-page: https://github.com/JonathanVusich/pcpartpicker
+Author: Jonathan Vusich
+Author-email: jonathanvusich@gmail.com
+License: GPL
+Keywords: pcpartpicker api webscraper
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Topic :: Utilities
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Description-Content-Type: text/markdown
+Requires-Dist: lxml (==4.2.5)
+Requires-Dist: aiohttp (==3.4.4)
+Requires-Dist: py-moneyed (==0.8.0)
+
+# pcpartpicker
+
+[![Build Status](https://travis-ci.org/JonathanVusich/pcpartpicker.svg?branch=master)](https://travis-ci.org/JonathanVusich/pcpartpicker)
+[![Coverage Status](https://coveralls.io/repos/github/JonathanVusich/pcpartpicker/badge.svg)](https://coveralls.io/github/JonathanVusich/pcpartpicker)
+
+This is an unofficial Python 3.7+ API for the website pcpartpicker.com.
+Written using async code and multiprocessing for efficient data retrieval. 
+This package is currently in beta.
+
+## Installation (when uploaded to PyPi):
+```buildoutcfg
+pip install pcpartpicker
+```
+
+## Examples:
+
+Retrieving all part data:
+```buildoutcfg
+from pcpartpicker import API
+
+api = API()
+part_data = api.retrieve_all()
+``` 
+
+Retrieving specific part data:
+```buildoutcfg
+from pcpartpicker import API
+
+api = API()
+cpu_data = api.retrieve("cpu")
+```
+
+Changing the region:
+```buildoutcfg
+from pcpartpicker import API
+
+api = API("se")
+```
+
+Alternative method of changing the region:
+```buildoutcfg
+from pcpartpicker import API
+
+api = API()
+api.set_region("in")
+```
+
+
