@@ -1,0 +1,15 @@
+README.rst
+setup.cfg
+setup.py
+PyAAVF/__init__.py
+PyAAVF/model.py
+PyAAVF/parser.py
+PyAAVF/utils.py
+PyAAVF.egg-info/PKG-INFO
+PyAAVF.egg-info/SOURCES.txt
+PyAAVF.egg-info/dependency_links.txt
+PyAAVF.egg-info/requires.txt
+PyAAVF.egg-info/top_level.txt
+PyAAVF/test/__init__.py
+PyAAVF/test/test_parser.py
+PyAAVF/test/test_utils.py
