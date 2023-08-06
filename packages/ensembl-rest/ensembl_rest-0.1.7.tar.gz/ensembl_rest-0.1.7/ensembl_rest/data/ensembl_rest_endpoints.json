@@ -1,0 +1,551 @@
+{
+  "base_url": "https://rest.ensembl.org/",
+  "api_version": "7.0",
+  "endpoints": {
+    "archive_id_get": {
+      "resource": "GET archive/id/:id",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/archive_id_get",
+      "description": "Uses the given identifier to return the archived sequence"
+    },
+    "archive_id_post": {
+      "resource": "POST archive/id",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/archive_id_post",
+      "description": "Retrieve the archived sequence for a set of identifiers"
+    },
+    "cafe_tree": {
+      "resource": "GET cafe/genetree/id/:id",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/cafe_tree",
+      "description": "Retrieves a cafe tree of the gene tree using the gene tree stable identifier"
+    },
+    "cafe_tree_member_id": {
+      "resource": "GET cafe/genetree/member/id/:id",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/cafe_tree_member_id",
+      "description": "Retrieves the cafe tree of the gene tree that contains the gene / transcript / translation stable identifier"
+    },
+    "cafe_tree_member_symbol": {
+      "resource": "GET cafe/genetree/member/symbol/:species/:symbol",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/cafe_tree_member_symbol",
+      "description": "Retrieves the cafe tree of the gene tree that contains the gene identified by a symbol"
+    },
+    "family": {
+      "resource": "GET family/id/:id",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/family",
+      "description": "Retrieves a family information using the family stable identifier"
+    },
+    "family_member_id": {
+      "resource": "GET family/member/id/:id",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/family_member_id",
+      "description": "Retrieves the information for all the families that contains the gene / transcript / translation stable identifier"
+    },
+    "family_member_symbol": {
+      "resource": "GET family/member/symbol/:species/:symbol",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/family_member_symbol",
+      "description": "Retrieves the information for all the families that contains the gene identified by a symbol"
+    },
+    "genetree": {
+      "resource": "GET genetree/id/:id",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/genetree",
+      "description": "Retrieves a gene tree for a gene tree stable identifier"
+    },
+    "genetree_member_id": {
+      "resource": "GET genetree/member/id/:id",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/genetree_member_id",
+      "description": "Retrieves the gene tree that contains the gene / transcript / translation stable identifier"
+    },
+    "genetree_member_symbol": {
+      "resource": "GET genetree/member/symbol/:species/:symbol",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/genetree_member_symbol",
+      "description": "Retrieves the gene tree that contains the gene identified by a symbol"
+    },
+    "genomic_alignment_region": {
+      "resource": "GET alignment/region/:species/:region",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/genomic_alignment_region",
+      "description": "Retrieves genomic alignments as separate blocks based on a region and species"
+    },
+    "homology_ensemblgene": {
+      "resource": "GET homology/id/:id",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/homology_ensemblgene",
+      "description": "Retrieves homology information (orthologs) by Ensembl gene id"
+    },
+    "homology_symbol": {
+      "resource": "GET homology/symbol/:species/:symbol",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/homology_symbol",
+      "description": "Retrieves homology information (orthologs) by symbol"
+    },
+    "xref_external": {
+      "resource": "GET xrefs/symbol/:species/:symbol",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/xref_external",
+      "description": "Looks up an external symbol and returns all Ensembl objects linked to it. This can be a display name for a gene/transcript/translation, a synonym or an externally linked reference. If a gene's transcript is linked to the supplied symbol the service will return both gene and transcript (it supports transient links)."
+    },
+    "xref_id": {
+      "resource": "GET xrefs/id/:id",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/xref_id",
+      "description": "Perform lookups of Ensembl Identifiers and retrieve their external references in other databases"
+    },
+    "xref_name": {
+      "resource": "GET xrefs/name/:species/:name",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/xref_name",
+      "description": "Performs a lookup based upon the primary accession or display label of an external reference and returning the information we hold about the entry"
+    },
+    "species_id": {
+      "resource": "GET eqtl/stable_id/:species/:stable_id",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/species_id",
+      "description": "Returns the p-value for each SNP in a given gene (e.g. ENSG00000227232)"
+    },
+    "species_variant": {
+      "resource": "GET eqtl/variant_name/:species/:variant_name",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/species_variant",
+      "description": "Returns the p-values for a SNP (e.g. rs123)"
+    },
+    "tissues": {
+      "resource": "GET eqtl/tissue/:species/",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/tissues",
+      "description": "Returns all tissues currently available in the DB"
+    },
+    "analysis": {
+      "resource": "GET info/analysis/:species",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/analysis",
+      "description": "List the names of analyses involved in generating Ensembl data."
+    },
+    "assembly_info": {
+      "resource": "GET info/assembly/:species",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/assembly_info",
+      "description": "List the currently available assemblies for a species, along with toplevel sequences, chromosomes and cytogenetic bands."
+    },
+    "assembly_stats": {
+      "resource": "GET info/assembly/:species/:region_name",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/assembly_stats",
+      "description": "Returns information about the specified toplevel sequence region for the given species."
+    },
+    "biotypes": {
+      "resource": "GET info/biotypes/:species",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/biotypes",
+      "description": "List the functional classifications of gene models that Ensembl associates with a particular species. Useful for restricting the type of genes/transcripts retrieved by other endpoints."
+    },
+    "biotypes_groups": {
+      "resource": "GET info/biotypes/groups/:group/:object_type",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/biotypes_groups",
+      "description": "Without argument the list of available biotype groups is returned. With :group argument provided, list the properties of biotypes within that group. Object type (gene or transcript) can be provided for filtering."
+    },
+    "biotypes_name": {
+      "resource": "GET info/biotypes/name/:name/:object_type",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/biotypes_name",
+      "description": "List the properties of biotypes with a given name. Object type (gene or transcript) can be provided for filtering."
+    },
+    "compara_methods": {
+      "resource": "GET info/compara/methods",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/compara_methods",
+      "description": "List all compara analyses available (an analysis defines the type of comparative data)."
+    },
+    "compara_species_sets": {
+      "resource": "GET info/compara/species_sets/:method",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/compara_species_sets",
+      "description": "List all collections of species analysed with the specified compara method."
+    },
+    "comparas": {
+      "resource": "GET info/comparas",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/comparas",
+      "description": "Lists all available comparative genomics databases and their data release."
+    },
+    "data": {
+      "resource": "GET info/data",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/data",
+      "description": "Shows the data releases available on this REST server. May return more than one release (unfrequent non-standard Ensembl configuration)."
+    },
+    "external_dbs": {
+      "resource": "GET info/external_dbs/:species",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/external_dbs",
+      "description": "Lists all available external sources for a species."
+    },
+    "ping": {
+      "resource": "GET info/ping",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/ping",
+      "description": "Checks if the service is alive."
+    },
+    "rest": {
+      "resource": "GET info/rest",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/rest",
+      "description": "Shows the current version of the Ensembl REST API."
+    },
+    "software": {
+      "resource": "GET info/software",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/software",
+      "description": "Shows the current version of the Ensembl API used by the REST server."
+    },
+    "species": {
+      "resource": "GET info/species",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/species",
+      "description": "Lists all available species, their aliases, available adaptor groups and data release."
+    },
+    "variation": {
+      "resource": "GET info/variation/:species",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/variation",
+      "description": "List the variation sources used in Ensembl for a species."
+    },
+    "variation_consequence_types": {
+      "resource": "GET info/variation/consequence_types",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/variation_consequence_types",
+      "description": "Lists all variant consequence types."
+    },
+    "variation_populations": {
+      "resource": "GET info/variation/populations/:species",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/variation_populations",
+      "description": "List all populations for a species"
+    },
+    "ld_id_get": {
+      "resource": "GET ld/:species/:id/:population_name",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/ld_id_get",
+      "description": "Computes and returns LD values between the given variant and all other variants in a window centered around the given variant. The window size is set to 500 kb."
+    },
+    "ld_pairwise_get": {
+      "resource": "GET ld/:species/pairwise/:id1/:id2",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/ld_pairwise_get",
+      "description": "Computes and returns LD values between the given variants."
+    },
+    "ld_region_get": {
+      "resource": "GET ld/:species/region/:region/:population_name",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/ld_region_get",
+      "description": "Computes and returns LD values between all pairs of variants in the defined region."
+    },
+    "lookup": {
+      "resource": "GET lookup/id/:id",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/lookup",
+      "description": "Find the species and database for a single identifier e.g. gene, transcript, protein"
+    },
+    "lookup_post": {
+      "resource": "POST lookup/id",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/lookup_post",
+      "description": "Find the species and database for several identifiers. IDs that are not found are returned with no data."
+    },
+    "symbol_lookup": {
+      "resource": "GET lookup/symbol/:species/:symbol",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/symbol_lookup",
+      "description": "Find the species and database for a symbol in a linked external database"
+    },
+    "symbol_post": {
+      "resource": "POST lookup/symbol/:species/:symbol",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/symbol_post",
+      "description": "Find the species and database for a set of symbols in a linked external database. Unknown symbols are omitted from the response."
+    },
+    "assembly_cdna": {
+      "resource": "GET map/cdna/:id/:region",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/assembly_cdna",
+      "description": "Convert from cDNA coordinates to genomic coordinates. Output reflects forward orientation coordinates as returned from the Ensembl API."
+    },
+    "assembly_cds": {
+      "resource": "GET map/cds/:id/:region",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/assembly_cds",
+      "description": "Convert from CDS coordinates to genomic coordinates. Output reflects forward orientation coordinates as returned from the Ensembl API."
+    },
+    "assembly_map": {
+      "resource": "GET map/:species/:asm_one/:region/:asm_two",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/assembly_map",
+      "description": "Convert the co-ordinates of one assembly to another"
+    },
+    "assembly_translation": {
+      "resource": "GET map/translation/:id/:region",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/assembly_translation",
+      "description": "Convert from protein (translation) coordinates to genomic coordinates. Output reflects forward orientation coordinates as returned from the Ensembl API."
+    },
+    "ontology_ancestors": {
+      "resource": "GET ontology/ancestors/:id",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/ontology_ancestors",
+      "description": "Reconstruct the entire ancestry of a term from is_a and part_of relationships"
+    },
+    "ontology_ancestors_chart": {
+      "resource": "GET ontology/ancestors/chart/:id",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/ontology_ancestors_chart",
+      "description": "Reconstruct the entire ancestry of a term from is_a and part_of relationships."
+    },
+    "ontology_descendants": {
+      "resource": "GET ontology/descendants/:id",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/ontology_descendants",
+      "description": "Find all the terms descended from a given term. By default searches are conducted within the namespace of the given identifier"
+    },
+    "ontology_id": {
+      "resource": "GET ontology/id/:id",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/ontology_id",
+      "description": "Search for an ontological term by its namespaced identifier"
+    },
+    "ontology_name": {
+      "resource": "GET ontology/name/:name",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/ontology_name",
+      "description": "Search for a list of ontological terms by their name"
+    },
+    "taxonomy_classification": {
+      "resource": "GET taxonomy/classification/:id",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/taxonomy_classification",
+      "description": "Return the taxonomic classification of a taxon node"
+    },
+    "taxonomy_id": {
+      "resource": "GET taxonomy/id/:id",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/taxonomy_id",
+      "description": "Search for a taxonomic term by its identifier or name"
+    },
+    "taxonomy_name": {
+      "resource": "GET taxonomy/name/:name",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/taxonomy_name",
+      "description": "Search for a taxonomic id by a non-scientific name"
+    },
+    "overlap_id": {
+      "resource": "GET overlap/id/:id",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/overlap_id",
+      "description": "Retrieves features (e.g. genes, transcripts, variants and more) that overlap a region defined by the given identifier."
+    },
+    "overlap_region": {
+      "resource": "GET overlap/region/:species/:region",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/overlap_region",
+      "description": "Retrieves features (e.g. genes, transcripts, variants and more) that overlap a given region."
+    },
+    "overlap_translation": {
+      "resource": "GET overlap/translation/:id",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/overlap_translation",
+      "description": "Retrieve features related to a specific Translation as described by its stable ID (e.g. domains, variants)."
+    },
+    "phenotype_accession": {
+      "resource": "GET /phenotype/accession/:species/:accession",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/phenotype_accession",
+      "description": "Return phenotype annotations for genomic features given a phenotype ontology accession"
+    },
+    "phenotype_gene": {
+      "resource": "GET /phenotype/gene/:species/:gene",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/phenotype_gene",
+      "description": "Return phenotype annotations for a given gene."
+    },
+    "phenotype_region": {
+      "resource": "GET /phenotype/region/:species/:region",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/phenotype_region",
+      "description": "Return phenotype annotations that overlap a given genomic region."
+    },
+    "phenotype_term": {
+      "resource": "GET /phenotype/term/:species/:term",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/phenotype_term",
+      "description": "Return phenotype annotations for genomic features given a phenotype ontology term"
+    },
+    "array": {
+      "resource": "GET regulatory/species/:species/microarray/:microarray/vendor/:vendor",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/array",
+      "description": "Returns information about a specific microarray"
+    },
+    "fetch_all_epigenomes": {
+      "resource": "GET regulatory/species/:species/epigenome",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/fetch_all_epigenomes",
+      "description": "Returns information about all epigenomes available for the given species"
+    },
+    "list_all_microarrays": {
+      "resource": "GET regulatory/species/:species/microarray",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/list_all_microarrays",
+      "description": "Returns information about all microarrays available for the given species"
+    },
+    "probe": {
+      "resource": "GET regulatory/species/:species/microarray/:microarray/probe/:probe",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/probe",
+      "description": "Returns information about a specific probe from a microarray"
+    },
+    "probe_set": {
+      "resource": "GET regulatory/species/:species/microarray/:microarray/probe_set/:probe_set",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/probe_set",
+      "description": "Returns information about a specific probe_set from a microarray"
+    },
+    "regulatory_id": {
+      "resource": "GET regulatory/species/:species/id/:id",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/regulatory_id",
+      "description": "Returns a RegulatoryFeature given its stable ID (e.g. ENSR00000099113)"
+    },
+    "sequence_id": {
+      "resource": "GET sequence/id/:id",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/sequence_id",
+      "description": "Request multiple types of sequence by stable identifier. Supports feature masking and expand options."
+    },
+    "sequence_id_post": {
+      "resource": "POST sequence/id",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/sequence_id_post",
+      "description": "Request multiple types of sequence by a stable identifier list."
+    },
+    "sequence_region": {
+      "resource": "GET sequence/region/:species/:region",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/sequence_region",
+      "description": "Returns the genomic sequence of the specified region of the given species. Supports feature masking and expand options."
+    },
+    "sequence_region_post": {
+      "resource": "POST sequence/region/:species",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/sequence_region_post",
+      "description": "Request multiple types of sequence by a list of regions."
+    },
+    "transcript_haplotypes_get": {
+      "resource": "GET transcript_haplotypes/:species/:id",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/transcript_haplotypes_get",
+      "description": "Computes observed transcript haplotype sequences based on phased genotype data"
+    },
+    "vep_hgvs_get": {
+      "resource": "GET vep/:species/hgvs/:hgvs_notation",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/vep_hgvs_get",
+      "description": "Fetch variant consequences based on a HGVS notation"
+    },
+    "vep_hgvs_post": {
+      "resource": "POST vep/:species/hgvs",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/vep_hgvs_post",
+      "description": "Fetch variant consequences for multiple HGVS notations"
+    },
+    "vep_id_get": {
+      "resource": "GET vep/:species/id/:id",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/vep_id_get",
+      "description": "Fetch variant consequences based on a variant identifier"
+    },
+    "vep_id_post": {
+      "resource": "POST vep/:species/id",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/vep_id_post",
+      "description": "Fetch variant consequences for multiple ids"
+    },
+    "vep_region_get": {
+      "resource": "GET vep/:species/region/:region/:allele/",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/vep_region_get",
+      "description": "Fetch variant consequences"
+    },
+    "vep_region_post": {
+      "resource": "POST vep/:species/region",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/vep_region_post",
+      "description": "Fetch variant consequences for multiple regions"
+    },
+    "variant_recoder": {
+      "resource": "GET variant_recoder/:species/:id",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/variant_recoder",
+      "description": "Translate a variant identifier or HGVS notation to all possible variant IDs and HGVS"
+    },
+    "variant_recoder_post": {
+      "resource": "POST variant_recoder/:species",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/variant_recoder_post",
+      "description": "Translate a list of variant identifiers or HGVS notations to all possible variant IDs and HGVS"
+    },
+    "variation_id": {
+      "resource": "GET variation/:species/:id",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/variation_id",
+      "description": "Uses a variant identifier (e.g. rsID) to return the variation features including optional genotype, phenotype and population data"
+    },
+    "variation_pmcid_get": {
+      "resource": "GET variation/:species/pmcid/:pmcid",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/variation_pmcid_get",
+      "description": "Fetch variants by publication using PubMed Central reference number (PMCID)"
+    },
+    "variation_pmid_get": {
+      "resource": "GET variation/:species/pmid/:pmid",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/variation_pmid_get",
+      "description": "Fetch variants by publication using PubMed reference number (PMID)"
+    },
+    "variation_post": {
+      "resource": "POST variation/:species/",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/variation_post",
+      "description": "Uses a list of variant identifiers (e.g. rsID) to return the variation features including optional genotype, phenotype and population data"
+    },
+    "beacon_get": {
+      "resource": "GET ga4gh/beacon",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/beacon_get",
+      "description": "Return Beacon information"
+    },
+    "beacon_query_get": {
+      "resource": "GET ga4gh/beacon/query",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/beacon_query_get",
+      "description": "Return the Beacon response for allele information"
+    },
+    "beacon_query_post": {
+      "resource": "POST ga4gh/beacon/query",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/beacon_query_post",
+      "description": "Return the Beacon response for allele information"
+    },
+    "features_id": {
+      "resource": "GET ga4gh/features/:id",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/features_id",
+      "description": "Return the GA4GH record for a specific sequence feature given its identifier"
+    },
+    "features_post": {
+      "resource": "POST ga4gh/features/search",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/features_post",
+      "description": "Return a list of sequence annotation features in GA4GH format"
+    },
+    "gacallSet": {
+      "resource": "POST ga4gh/callsets/search",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/gacallSet",
+      "description": "Return a list of sets of genotype calls for specific samples in GA4GH format"
+    },
+    "gacallset_id": {
+      "resource": "GET ga4gh/callsets/:id",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/gacallset_id",
+      "description": "Return the GA4GH record for a specific CallSet given its identifier"
+    },
+    "gadataset": {
+      "resource": "POST ga4gh/datasets/search",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/gadataset",
+      "description": "Return a list of datasets in GA4GH format"
+    },
+    "gadataset_id": {
+      "resource": "GET ga4gh/datasets/:id",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/gadataset_id",
+      "description": "Return the GA4GH record for a specific dataset given its identifier"
+    },
+    "gafeatureset": {
+      "resource": "POST ga4gh/featuresets/search",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/gafeatureset",
+      "description": "Return a list of feature sets in GA4GH format"
+    },
+    "gafeatureset_id": {
+      "resource": "GET ga4gh/featuresets/:id",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/gafeatureset_id",
+      "description": "Return the GA4GH record for a specific featureSet given its identifier"
+    },
+    "gavariant_id": {
+      "resource": "GET ga4gh/variants/:id",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/gavariant_id",
+      "description": "Return the GA4GH record for a specific variant given its identifier."
+    },
+    "gavariantannotations": {
+      "resource": "POST ga4gh/variantannotations/search",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/gavariantannotations",
+      "description": "Return variant annotation information in GA4GH format for a region on a reference sequence"
+    },
+    "gavariants": {
+      "resource": "POST ga4gh/variants/search",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/gavariants",
+      "description": "Return variant call information in GA4GH format for a region on a reference sequence"
+    },
+    "gavariantset": {
+      "resource": "POST ga4gh/variantsets/search",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/gavariantset",
+      "description": "Return a list of variant sets in GA4GH format"
+    },
+    "gavariantset_id": {
+      "resource": "GET ga4gh/variantsets/:id",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/gavariantset_id",
+      "description": "Return the GA4GH record for a specific VariantSet given its identifier"
+    },
+    "references": {
+      "resource": "POST ga4gh/references/search",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/references",
+      "description": "Return a list of reference sequences in GA4GH format"
+    },
+    "references_id": {
+      "resource": "GET ga4gh/references/:id",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/references_id",
+      "description": "Return data for a specific reference in GA4GH format by id"
+    },
+    "referenceSets": {
+      "resource": "POST ga4gh/referencesets/search",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/referenceSets",
+      "description": "Return a list of reference sets in GA4GH format"
+    },
+    "referenceSets_id": {
+      "resource": "GET ga4gh/referencesets/:id",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/referenceSets_id",
+      "description": "Return data for a specific reference set in GA4GH format"
+    },
+    "VariantAnnotationSet": {
+      "resource": "POST ga4gh/variantannotationsets/search",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/VariantAnnotationSet",
+      "description": "Return a list of annotation sets in GA4GH format"
+    },
+    "VariantAnnotationSet_id": {
+      "resource": "GET ga4gh/variantannotationsets/:id",
+      "documentation_link": "https://rest.ensembl.org/documentation/info/VariantAnnotationSet_id",
+      "description": "Return meta data for a specific annotation set in GA4GH format"
+    }
+  }
+}
