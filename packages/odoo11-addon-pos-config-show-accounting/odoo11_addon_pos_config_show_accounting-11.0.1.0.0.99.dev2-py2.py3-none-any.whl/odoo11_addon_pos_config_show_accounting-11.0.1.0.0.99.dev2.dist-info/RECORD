@@ -1,0 +1,17 @@
+odoo/addons/pos_config_show_accounting/README.rst,sha256=68BSqX8HwKrDJ1HgzQkBJP9ZUy_fvWrwZ6dhxLxONxA,2990
+odoo/addons/pos_config_show_accounting/__init__.py,sha256=X9EJGOE2GtZbS0G82PtSXmWSZ_R8jEM0rlJTDliQjp4,21
+odoo/addons/pos_config_show_accounting/__manifest__.py,sha256=XHOhNUiruxkpPltMX_0p5I-e7NoMEhBlaMLufh1ERiY,531
+odoo/addons/pos_config_show_accounting/i18n/pos_config_show_accounting.pot,sha256=PnHP9kEAVFK_2kUDJ9bl5XzEvcv2UrxLzU7bHNRs9kM,510
+odoo/addons/pos_config_show_accounting/models/__init__.py,sha256=u-1tCl3bikvFgiuLZQINEEOOSPcfH1SVzYWz-BtMVmY,25
+odoo/addons/pos_config_show_accounting/models/pos_config.py,sha256=ghtkkb8d0eDEjSE3yT7MtqUl2ZbwlaxxYssYWdZWnJM,555
+odoo/addons/pos_config_show_accounting/readme/CONTRIBUTORS.rst,sha256=pHSaPGKdUZsefWX5cGe03Eg41v6HZgHsoelGhicyvBc,55
+odoo/addons/pos_config_show_accounting/readme/DESCRIPTION.rst,sha256=Lb6HPgnFFF7mpXBP_t2P009zsZczMI7W1rpQm-2P-as,255
+odoo/addons/pos_config_show_accounting/readme/USAGE.rst,sha256=GZ1cvYUIUAWlrnVIrzjggaHTNQQDbfU-HqHqTmKco2I,148
+odoo/addons/pos_config_show_accounting/static/description/icon.png,sha256=6xBPJauaFOF0KDHfHgQopSc28kKvxMaeoQFQWZtfZDo,9455
+odoo/addons/pos_config_show_accounting/static/description/index.html,sha256=XPkVOq6jCd6ccx3XHTqqO8BNJ6WOkUCCBnS4BIqR3-Y,12318
+odoo/addons/pos_config_show_accounting/tests/__init__.py,sha256=NdKD0VT9o3UMH86IljpLguxTPXm_CiBpB3VuGzuiWoI,46
+odoo/addons/pos_config_show_accounting/tests/test_pos_config_show_accounting.py,sha256=ee21TUwf0ADLdpADmLc7Y0dslfmeesKsq7rxLB1WxIo,533
+odoo11_addon_pos_config_show_accounting-11.0.1.0.0.99.dev2.dist-info/METADATA,sha256=EvK9SXUtx_i_slsN87sQB0sEtrteexpkwlMpKpkGGJA,3574
+odoo11_addon_pos_config_show_accounting-11.0.1.0.0.99.dev2.dist-info/RECORD,,
+odoo11_addon_pos_config_show_accounting-11.0.1.0.0.99.dev2.dist-info/WHEEL,sha256=gduuPyBvFJQSQ0zdyxF7k0zynDXbIbvg5ZBHoXum5uk,110
+odoo11_addon_pos_config_show_accounting-11.0.1.0.0.99.dev2.dist-info/top_level.txt,sha256=qBj40grFkGOfDZ2WDSw3y1RnDlgG0u8rP8pvGNdbz4w,5
