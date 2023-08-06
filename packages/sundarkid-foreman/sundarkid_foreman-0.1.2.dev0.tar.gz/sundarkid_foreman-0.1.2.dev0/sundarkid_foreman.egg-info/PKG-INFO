@@ -1,0 +1,45 @@
+Metadata-Version: 1.0
+Name: sundarkid-foreman
+Version: 0.1.2.dev0
+Summary: UNKNOWN
+Home-page: UNKNOWN
+Author: sundarkid
+Author-email: sundareswaran25@gmail.com
+License: MIT
+Description: # Foreman
+        
+        This lib is to connect to Foreman API.
+        
+        Currently Supported functions:
+        
+        1. Host
+        
+        -   Get Host details
+        -   Get Host Facts
+        -   Get All Hosts - Search String
+        -   Modify host details
+        -   Delete Host Entry
+        
+        2. Reports
+        
+        -   Get Last report of a host
+        
+        3. Hostgroup
+        
+        -   Get Hostgroup details
+        -   Get All Hostgroup
+        -   Modify Hostgroup
+        -   Add new Hostgroup
+        -   Delete Hostgroup
+        
+        4. Organization
+        
+        -   Add new Organization
+        -   Get an Organization details
+        -   Get All Organizations
+        
+        5. Environments
+        
+        -   Get All Environments
+        
+Platform: UNKNOWN
