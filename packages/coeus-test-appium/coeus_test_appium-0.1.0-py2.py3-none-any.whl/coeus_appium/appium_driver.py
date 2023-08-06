@@ -1,0 +1,31 @@
+import capabilities
+from appium import webdriver
+
+DEFAULT_TAP_DURATION = 1
+DEFAULT_SWIPE_DURATION = 1
+DEFAULT_HOST = "localhost"
+DEFAULT_PORT = 4723
+
+
+class AppiumDriver:
+    driver = None
+    capabilities = None
+
+    def __init__(self, platform):
+        self.capabilities = capabilities.get_capabilities(platform)
+
+    def connect(self, host=DEFAULT_HOST, port=DEFAULT_PORT):
+        self.driver = webdriver.Remote('http://{0}:{1}/wd/hub'.format(host, port), self.capabilities)
+
+    def stop(self):
+        self.driver.quit()
+
+    def tap(self, x, y, tap_duration=DEFAULT_TAP_DURATION):
+        self.driver.tap([[x, y]], tap_duration)
+
+    def swipe(self, start_x, start_y, end_x, end_y, swipe_duration=DEFAULT_SWIPE_DURATION):
+        self.driver.swipe(start_x, start_y, end_x, end_y, swipe_duration)
+
+    def press_key(self, char):
+        keycode = ord(char)
+        self.driver.press_keycode(keycode)
