@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+scpidev/__init__.py
+scpidev/command.py
+scpidev/device.py
+scpidev/keyword.py
+scpidev/parameter.py
+scpidev/utils.py
+scpidev/value.py
+scpidev.egg-info/PKG-INFO
+scpidev.egg-info/SOURCES.txt
+scpidev.egg-info/dependency_links.txt
+scpidev.egg-info/top_level.txt
