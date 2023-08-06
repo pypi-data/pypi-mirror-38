@@ -1,0 +1,3 @@
+[console_scripts]
+hello_world = python_skeleton_project.tools.hello_world:main
+
