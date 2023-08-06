@@ -1,0 +1,15 @@
+#+TITLE: pyFresh
+
+
+Clear out unnessesary python files like .pyc .pyo and __pycache__ folders.
+
+Run pyfresh in your project root and it will list all files which will be removed like below.
+#+BEGIN_SRC: sh
+pyfresh
+#+END_SRC
+
+Once happy run the same again with -c to action the delete
+#+BEGIN_SRC: sh
+pyfresh -c
+#+END_SRC
+ 
