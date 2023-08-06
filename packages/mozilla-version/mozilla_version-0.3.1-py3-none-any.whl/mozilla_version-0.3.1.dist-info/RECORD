@@ -1,0 +1,17 @@
+mozilla_version/__init__.py,sha256=ro9IDUmjUco6GHJhqbgynResbswRnh6HL5Iv1ttDuWU,60
+mozilla_version/balrog.py,sha256=TjRzV-3E1NVEqqXVda5dhzUMdXuiZ2CYqH-Uf-JgnBA,4975
+mozilla_version/errors.py,sha256=bahCd1gb9rW3e23ZjdVOJvF7IQ9kSOKycO4juE2cHQA,2176
+mozilla_version/gecko.py,sha256=4-2C0pEeP_C_i8ZddtVAw6tJaMrfmhLvDQAWxb_8no8,14150
+mozilla_version/maven.py,sha256=9UXfvpGLOtO1U1mCScuyu2-0U-VdHPtLemOcN-PByyE,1720
+mozilla_version/parser.py,sha256=bLDrJ7JQzHLkAKoKMWX6nQvKIBZV9vqroqDZUfNUMts,1359
+mozilla_version/version.py,sha256=vJVaPjRgKQtNXhA-gWiHTJjzPJwR6uhszeTZ1yay64c,5411
+mozilla_version/test/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+mozilla_version/test/test_balrog.py,sha256=IqZjc4K5S0vtE3VtYKezbBU6ZHxxkrEdPFgH2so21UU,7839
+mozilla_version/test/test_gecko.py,sha256=baEifjKyp0VZnM6JKGFBC1kZiC1_mqctO5PxzyvMHFQ,13130
+mozilla_version/test/test_maven.py,sha256=jNe-drnPwc_DkqZPnTasdK_QGNmqqxLAprX6VRFyMzs,2892
+mozilla_version/test/test_version.py,sha256=RGkyZhkRF8FW_MUN6HZNSKOmFHRLR8gPKJG_N-GGqI4,5465
+mozilla_version-0.3.1.dist-info/LICENSE,sha256=YCIsKMGn9qksffmOXF9EWeYk5uKF4Lm5RGevX2qzND0,15922
+mozilla_version-0.3.1.dist-info/METADATA,sha256=9kcv6D-KCU36SZa-Ctr6pFvSTk-tScSukXBlVMfIkm0,579
+mozilla_version-0.3.1.dist-info/WHEEL,sha256=MYFsq5fFBwF_oyJgrOoFmYYB1K6Sw7MxY-0897ZLbdM,92
+mozilla_version-0.3.1.dist-info/top_level.txt,sha256=K1r8SXa4ny0i7OTfimG0Ct33oHkXtLjuU1E5_aHBe94,16
+mozilla_version-0.3.1.dist-info/RECORD,,
