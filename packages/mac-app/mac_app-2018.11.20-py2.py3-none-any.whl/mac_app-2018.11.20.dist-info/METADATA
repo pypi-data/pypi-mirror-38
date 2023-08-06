@@ -1,0 +1,80 @@
+Metadata-Version: 2.1
+Name: mac-app
+Version: 2018.11.20
+Summary: Mac app generator
+Home-page: https://github.com/looking-for-a-job/mac-app.py
+License: UNKNOWN
+Keywords: app appify
+Platform: UNKNOWN
+Classifier: Environment :: MacOS X
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Software Development
+Description-Content-Type: text/markdown
+Requires-Dist: exit
+Requires-Dist: mac-appify
+Requires-Dist: mkalias
+Requires-Dist: public
+Requires-Dist: setuptools
+
+[![](https://img.shields.io/badge/OS-MacOS-blue.svg?longCache=True)]()
+[![](https://img.shields.io/pypi/pyversions/mac-app.svg?longCache=True)](https://pypi.org/pypi/mac-app/)
+
+#### Install
+```bash
+$ [sudo] pip install mac-app
+```
+
+#### Classes
+
+###### `mac_app.App`
+
+Mac app generator
+
+method|description
+-|-
+`appify()`|create Mac app
+`atexit()`|executed at termination. override this method
+`mkalias(dst)`|make Mac alias to app
+`run()`|main function. you MUST override this method
+`sleep(seconds)`|suspend app for the given number of seconds
+
+@property|description
+-|-
+`app_image`|app image. default is `mdfind kMDItemFSName=<name>.png` result
+`app_name`|app name. default is class name
+`app_path`|app path. default is `~/Applications/.appify/<name>.app`
+`app_script`|source script path. default is class module file
+`app_stderr`|stderr path. default is `~/Library/Logs/Applications/<name>/err.log`
+`app_stdout`|stdout path. default is `~/Library/Logs/Applications/<name>/out.log`
+
+#### Examples
+create app from python file
+```python
+>>> mac_app.App(app_script="file.py", app_name="name").appify().mkalias("~/name.app")
+```
+
+create app from class
+```python
+>>> import mac_app
+>>> class MyApp(mac_app.App):
+        def run(self):
+            pass
+
+    if __name__ == "__main__":
+        MyApp().run()
+```
+
+```python
+>>> MyApp().appify().mkalias("~/MyApp.app")
+```
+
+<p align="center"><a href="https://pypi.org/project/readme-md/">readme-md</a> - README.md generator</p>
+
