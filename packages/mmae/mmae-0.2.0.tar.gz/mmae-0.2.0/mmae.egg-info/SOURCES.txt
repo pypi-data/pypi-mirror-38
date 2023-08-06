@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+mmae/__init__.py
+mmae/bregman_divergences.py
+mmae/multimodal_autoencoder.py
+mmae.egg-info/PKG-INFO
+mmae.egg-info/SOURCES.txt
+mmae.egg-info/dependency_links.txt
+mmae.egg-info/requires.txt
+mmae.egg-info/top_level.txt
