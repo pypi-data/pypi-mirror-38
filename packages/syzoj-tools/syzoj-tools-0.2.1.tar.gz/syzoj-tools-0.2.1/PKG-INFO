@@ -1,0 +1,16 @@
+Metadata-Version: 1.2
+Name: syzoj-tools
+Version: 0.2.1
+Summary: The SYZOJ tools
+Home-page: http://github.com/syzoj/syzoj-tools
+Author: vincent163
+Author-email: 479258741@qq.com
+License: UNKNOWN
+Description: 一个为 OI 题目设计的方便的命令行工具，实现造题、验题、评测等整个评测流程
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.5
