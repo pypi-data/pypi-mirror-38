@@ -1,0 +1,3 @@
+[console_scripts]
+tfembedhub-convert = tfembedhub.export:main
+
