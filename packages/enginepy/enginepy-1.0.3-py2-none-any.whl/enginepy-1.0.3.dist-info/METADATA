@@ -1,0 +1,13 @@
+Metadata-Version: 2.0
+Name: enginepy
+Version: 1.0.3
+Summary: A simple and powerful python API for running external commands.
+Home-page: https://github.com/phenicle/eventropy
+Author: Phenicle
+Author-email: pheniclebeefheart@gmail.com
+License: Mozilla Public License 2.0 (MPL 2.0)
+Platform: UNKNOWN
+
+A simple and powerful python API for external commands. Arguments toggle the behavior of STDOUT and STDERR. The return code is always available.
+
+
