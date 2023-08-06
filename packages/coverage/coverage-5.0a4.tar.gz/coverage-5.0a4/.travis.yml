@@ -1,0 +1,30 @@
+# Tell Travis what to do
+# https://travis-ci.com/nedbat/coveragepy
+
+language: python
+
+cache: pip
+sudo: false
+python:
+  - '2.7'
+  - '3.4'
+  - '3.5'
+  - '3.6'
+  - 'pypy'
+  - 'pypy3.5'
+
+env:
+  matrix:
+    - COVERAGE_COVERAGE=no
+    - COVERAGE_COVERAGE=yes
+
+install:
+  - pip install -r requirements/ci.pip
+  - pip freeze
+
+script:
+  - tox
+  - pip freeze
+  - if [[ $COVERAGE_COVERAGE == 'yes' ]]; then python igor.py combine_html; fi
+  - if [[ $COVERAGE_COVERAGE == 'yes' ]]; then pip install codecov; fi
+  - if [[ $COVERAGE_COVERAGE == 'yes' ]]; then codecov -X gcov --file coverage.xml; fi
