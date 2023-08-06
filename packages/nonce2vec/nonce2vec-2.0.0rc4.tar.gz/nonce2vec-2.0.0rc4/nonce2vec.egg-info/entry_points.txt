@@ -1,0 +1,3 @@
+[console_scripts]
+n2v = nonce2vec.main:main
+
