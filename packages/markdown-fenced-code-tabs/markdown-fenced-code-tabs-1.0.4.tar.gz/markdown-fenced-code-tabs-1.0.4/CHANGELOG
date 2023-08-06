@@ -1,0 +1,27 @@
+## 1.0.4 (2018-11-14)
+  * **FIX**: Build failure due to [markdown 3+ package breaking change](https://python-markdown.github.io/change_log/release-3.0/#safe_mode-and-html_replacement_text-keywords-deprecated).
+
+## 1.0.3 (2018-05-27)
+  * Avoid adding the `<div class="md-fenced-code-tabs"></div>` structure for single code blocks if the `single_block_as_tab` option is `True`.
+
+## 1.0.2 (2018-05-27)
+  * **FIX**: Fixed the Bootsrap templates
+
+## 1.0.1 (2018-05-25)
+  * **FIX**: Fixed the missing resources
+
+## 1.0.0 (2018-05-25)
+  * **NEW**: Added the `active_class` option support in the configuration
+  * **NEW**: Added the `template` option support in the configuration
+  * **FIX**: Fixed the tab id issue for code blocks with same language #12
+  * **FIX**: Fixed the missing resources
+
+## 0.2.0 (2017-06-16)
+
+  * Added the custom tab label option
+  * Fixed the missing `active` class of the first tab
+  * Fixed the missing `string` import
+
+## 0.1.0 (2017-03-01)
+
+  * Initial release
