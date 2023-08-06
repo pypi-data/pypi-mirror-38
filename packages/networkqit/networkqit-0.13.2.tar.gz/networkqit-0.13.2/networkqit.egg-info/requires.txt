@@ -1,0 +1,13 @@
+numpy
+scipy
+networkx
+numdifftools
+matplotlib
+pandas
+bctpy
+
+[dev]
+check-manifest
+
+[test]
+coverage
