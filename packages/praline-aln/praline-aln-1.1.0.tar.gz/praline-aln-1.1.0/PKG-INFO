@@ -1,0 +1,58 @@
+Metadata-Version: 2.1
+Name: praline-aln
+Version: 1.1.0
+Summary: PRALINE sequence alignment toolkit
+Home-page: https://github.com/ibivu/PRALINE/
+Author: Maurits Dijkstra
+Author-email: mauritsdijkstra@gmail.com
+License: GPLv2
+Description: # PRALINE
+        
+        Reimplementation of the PRALINE multiple sequence alignment program.
+        
+        # Features
+        
+        * Progressive multiple sequence alignment
+        * Tree generation through hierarchical clustering and on-the-fly (PRALINE-style)
+        * Profile-profile pairwise alignment
+        * Affine and linear gap penalties supported; arbitrary gap penalties supported w/ reduced speed
+        * Semi-global, global alignment for the MSA merge step
+        * Local, global and semi-global preprofile generation
+        * Improved preprofile sampling through PSI-BLAST search (requires local installation of NCBI BLAST+)
+        * Nucleotide and amino acid alphabets supported out of the box
+        * Easy to extend to with arbitrary alphabets (e.g. secondary sequence)
+        * Packaged with common substitution matrices (BLOSUM), can be provided to the program.
+        
+        # Coming soon
+        
+        * HMM-like gap penalties per position
+        * Heuristics to speed up tree building for large numbers of sequences
+        * Better multithreading for improved scaling on many-core systems
+        
+        # Installing PRALINE
+        
+        ## Requirements
+        
+        * Python 2.7 / Python 3.6 (earlier 3.x versions may also work, but have not been tested)
+        * A C compiler (C99 support required)
+        * NCBI BLAST+ (optional, for homology searching using PSI-BLAST)
+        
+        ## Instructions
+        
+        You can install PRALINE by cloning this repository and running (in a shell):
+        
+        `python setup.py install`
+        
+        PRALINE is also available on PyPI. You can install it with the following command:
+        
+        `pip install praline`
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.6
+Requires-Python: >=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.2.*,!=3.3.*,!=3.4.*
+Description-Content-Type: text/markdown

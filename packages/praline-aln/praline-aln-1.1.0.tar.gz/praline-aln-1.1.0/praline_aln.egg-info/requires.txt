@@ -1,0 +1,4 @@
+numpy>=1.6.1
+falcon>=0.3.0
+itsdangerous>=0.24
+six>=1.10.0
