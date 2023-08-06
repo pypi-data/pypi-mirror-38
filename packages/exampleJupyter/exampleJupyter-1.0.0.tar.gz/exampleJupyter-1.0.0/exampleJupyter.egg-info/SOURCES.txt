@@ -1,0 +1,10 @@
+README.rst
+setup.py
+exampleJupyter.egg-info/PKG-INFO
+exampleJupyter.egg-info/SOURCES.txt
+exampleJupyter.egg-info/dependency_links.txt
+exampleJupyter.egg-info/not-zip-safe
+exampleJupyter.egg-info/requires.txt
+exampleJupyter.egg-info/top_level.txt
+models/__init__.py
+models/evaluate.py
