@@ -1,0 +1,17 @@
+slack_wordcloud/__init__.py,sha256=dTaMG_cL1ZhDIskmq1gg2YRVlKLYe3add4hcaOgkj98,19
+slack_wordcloud/__main__.py,sha256=8dVK1Z3nEp5c3bJRir_q91gHMR55xcYjqo18Opvtp1w,28
+slack_wordcloud/cli.py,sha256=uVhHT1MNzdQUb05ddp7hVcPS3nKjuL7MwcZAlKtlG3k,1430
+slack_wordcloud/wc.py,sha256=hTAu32M784K20-OZP4c0BAnYwm8w9Zhl4ohB8J7QrQg,1107
+slack_wordcloud/commands/GenerateWordCloud.py,sha256=3hGs5Lv5XKRLVUkDwE9cvhKXL9dPGoTVfdI9Y4iiILU,626
+slack_wordcloud/commands/SlackHistory.py,sha256=ISG9wqNEKFOO1ys6bGIBWn2f5wDixvEhOheGf0tEaCE,2215
+slack_wordcloud/commands/__init__.py,sha256=9N9ctP7a_-8sJc_w-cFyKvg0F_3M66xtPF2_q33LSGE,23
+slack_wordcloud/commands/base.py,sha256=7nqF7KnWpq_5Q6MhE00japu5xEX7ppFA2O0hEg71moc,286
+slack_wordcloud/commands/generate.py,sha256=t9K7BsyvMJoZWmCx2OCbXlkfbbTjMrXQTarV94xtQVE,844
+slack_wordcloud/commands/generate_base.py,sha256=a2gd1JO7_YZt9aB5nIUpPK-H6UfAj47VpTj_H0-VS4w,734
+slack_wordcloud/commands/hello.py,sha256=RGOqNQN2xlLSTBBSMuNRR3EhKdgOcK02l3_M7HUuWCM,249
+slack_wordcloud-0.4a0.dist-info/LICENSE,sha256=7d-0ZTmmRXWjJKu-PjUWGVYgFbOKoMD52rp4kyKHNpE,1072
+slack_wordcloud-0.4a0.dist-info/METADATA,sha256=SKEPVw1WoK1Ytrlp2AtdDj01JmuZQ97FeCFurkHAor4,1307
+slack_wordcloud-0.4a0.dist-info/WHEEL,sha256=MYFsq5fFBwF_oyJgrOoFmYYB1K6Sw7MxY-0897ZLbdM,92
+slack_wordcloud-0.4a0.dist-info/entry_points.txt,sha256=51AyZN5xDjxQpODXu1C3dc8nTvxr0SuM7AgDY87uchw,62
+slack_wordcloud-0.4a0.dist-info/top_level.txt,sha256=smTaWu9oh6seQSB5cp3nTHKoSQ_QxsF7CfnScJGASUU,16
+slack_wordcloud-0.4a0.dist-info/RECORD,,
