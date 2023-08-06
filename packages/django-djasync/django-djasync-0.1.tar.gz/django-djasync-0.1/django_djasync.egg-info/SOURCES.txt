@@ -1,0 +1,13 @@
+MANIFEST.in
+README.rst
+setup.py
+django_djasync.egg-info/PKG-INFO
+django_djasync.egg-info/SOURCES.txt
+django_djasync.egg-info/dependency_links.txt
+django_djasync.egg-info/requires.txt
+django_djasync.egg-info/top_level.txt
+djasync/__init__.py
+djasync/admin.py
+djasync/apps.py
+djasync/models.py
+djasync/tests.py
