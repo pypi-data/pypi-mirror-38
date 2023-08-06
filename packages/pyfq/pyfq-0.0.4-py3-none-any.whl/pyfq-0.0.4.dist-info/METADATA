@@ -1,0 +1,26 @@
+Metadata-Version: 2.0
+Name: pyfq
+Version: 0.0.4
+Summary: Fastq manipulations and quality check
+Home-page: UNKNOWN
+Author: bars
+Author-email: barslmn@gmail.com
+License: UNKNOWN
+Keywords: genomics next generation sequencing fastq quality check
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Provides-Extra: qc
+Provides-Extra: qc
+Requires-Dist: matplotlib; extra == 'qc'
+Requires-Dist: numpy; extra == 'qc'
+Requires-Dist: scipy; extra == 'qc'
+
+# pyfq
+Fastq manipulations and quality check.
+
+
+
