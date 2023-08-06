@@ -1,0 +1,6 @@
+[console_scripts]
+2048 = _2048.main:main
+
+[gui_scripts]
+2048w = _2048.main:main
+

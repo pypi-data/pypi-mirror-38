@@ -1,0 +1,17 @@
+README.md
+setup.py
+2048.egg-info/PKG-INFO
+2048.egg-info/SOURCES.txt
+2048.egg-info/dependency_links.txt
+2048.egg-info/entry_points.txt
+2048.egg-info/requires.txt
+2048.egg-info/top_level.txt
+_2048/ClearSans-Bold.ttf
+_2048/ClearSans.ttf
+_2048/__init__.py
+_2048/__main__.py
+_2048/game.py
+_2048/lock.py
+_2048/main.py
+_2048/manager.py
+_2048/utils.py
