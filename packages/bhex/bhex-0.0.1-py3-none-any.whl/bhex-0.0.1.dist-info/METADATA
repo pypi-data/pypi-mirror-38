@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: bhex
+Version: 0.0.1
+Summary: Python SDK for Bhex REST API (https://www.bhex.com)
+Home-page: https://github.com/bhexopen/BHEX-OpenApi/tree/master/sdk/python
+Author: Bhex
+Author-email: support@bhex.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Dist: requests
+Requires-Dist: six
+
+UNKNOWN
+
+
