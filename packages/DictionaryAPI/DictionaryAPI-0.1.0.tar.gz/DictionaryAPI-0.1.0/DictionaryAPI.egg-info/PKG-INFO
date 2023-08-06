@@ -1,0 +1,34 @@
+Metadata-Version: 1.2
+Name: DictionaryAPI
+Version: 0.1.0
+Summary: The Merriam-Webster Dictionary API
+Home-page: https://dictionaryapi.com
+Author: tcztzy
+Author-email: tcztzy@gmail.com
+License: GPLv3+
+Project-URL: Source, https://github.com/dictionaryapi/dictionaryapi
+Description: =============
+        DictionaryAPI
+        =============
+        Unofficial SDK for dictionaryapi.com
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Education
+Classifier: License :: Free for non-commercial use
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Natural Language :: English
+Classifier: Natural Language :: Spanish
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Education
+Classifier: Topic :: Utilities
+Requires-Python: ==2.7,>=3.4

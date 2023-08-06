@@ -1,0 +1,13 @@
+README.rst
+setup.py
+DictionaryAPI.egg-info/PKG-INFO
+DictionaryAPI.egg-info/SOURCES.txt
+DictionaryAPI.egg-info/dependency_links.txt
+DictionaryAPI.egg-info/entry_points.txt
+DictionaryAPI.egg-info/requires.txt
+DictionaryAPI.egg-info/top_level.txt
+dictionaryapi/__init__.py
+dictionaryapi/__main__.py
+dictionaryapi/app.py
+dictionaryapi/exception.py
+dictionaryapi/bin/dictionaryapi.py
