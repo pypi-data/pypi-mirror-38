@@ -1,0 +1,4 @@
+[console_scripts]
+ah-collection-update-ec2 = aws_info_helper.scripts.ec2_update_collection:main
+ah-info-ec2 = aws_info_helper.scripts.ec2_info:main
+
