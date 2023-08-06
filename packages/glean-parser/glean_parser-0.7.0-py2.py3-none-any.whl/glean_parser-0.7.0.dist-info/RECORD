@@ -1,0 +1,17 @@
+glean_parser/__init__.py,sha256=3wgXzKu1HurOC2Dh8YDqgGftX6LixgVWwE4wO6eFXUs,366
+glean_parser/__main__.py,sha256=n_bTHbzVLY_NUruSuvYhDfxu7GXc80BtXgc6sVdMkN8,2020
+glean_parser/kotlin.py,sha256=1QKXq6uBiOOPeK5jC--FSwlo-ZCGDlSw9eqoNM83zPM,3057
+glean_parser/metrics.py,sha256=iuodHqRp5MNNTZpcvAyicE5mGGCllGpnZz7LOFBIhqk,4486
+glean_parser/parser.py,sha256=7LtNH1JFTP7B_95Gz88QAefJdmXOG0tizs1zE_CdyNo,5000
+glean_parser/translate.py,sha256=jwhxEXjcy0j5eKCdq31lRYRKmMOGkIVpLDXGn5Y9jZQ,1117
+glean_parser/util.py,sha256=7vfYogwx_6kbe1edTiNArdFgzFLJqaabhj8hUvCDZpc,3913
+glean_parser/validate_ping.py,sha256=HlCNhYkyHNilXMA73J4JxPfSjUnbMI98ZhMggLpTmdc,2125
+glean_parser/schemas/metrics.1-0-0.schema.yaml,sha256=SAAmo20AlHS54sPFJjBu3PgaJXgjusw6lM4eodPdjM4,9105
+glean_parser/templates/kotlin.jinja2.kt,sha256=PEL7Tt8D1pRLAFtBCxio8TB7W7ohz81foK_kp13tasQ,977
+glean_parser-0.7.0.dist-info/AUTHORS.rst,sha256=TofbQyXvXWwSlU9ji1TJbBllBZ7lBhmRnj86SfXTii8,214
+glean_parser-0.7.0.dist-info/LICENSE,sha256=HyVuytGSiAUQ6ErWBHTqt1iSGHhLmlC8fO7jTCuR8dU,16725
+glean_parser-0.7.0.dist-info/METADATA,sha256=LtKnFyHxLETFYZ5huAA0EadZ-RqGZ0ixh8qAHYTmsDg,1931
+glean_parser-0.7.0.dist-info/WHEEL,sha256=_wJFdOYk7i3xxT8ElOkUJvOdOvfNGbR9g-bf6UQT6sU,110
+glean_parser-0.7.0.dist-info/entry_points.txt,sha256=N2QE9UslMxeQcAZkr3H2m7spV27QxRfko_sMLnDqw5I,61
+glean_parser-0.7.0.dist-info/top_level.txt,sha256=q7T3duD-9tYZFyDry6Wv2LcdMsK2jGnzdDFhxWcT2Z8,13
+glean_parser-0.7.0.dist-info/RECORD,,
