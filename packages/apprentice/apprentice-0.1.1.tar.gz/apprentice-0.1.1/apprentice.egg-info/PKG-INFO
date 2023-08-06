@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: apprentice
+Version: 0.1.1
+Summary: The apprentice will help in creating assistant server-less functions.
+Home-page: https://github.com/andrewgy8/apprentice
+Author: Andrew Graham-Yooll
+Author-email: andrewgy8@gmail.com
+License: GNU
+Description: 
+        # google-actions
+        Handling actions sent to google cloud functions
+        
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown
