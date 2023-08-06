@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: hearstPatterns
+Version: 0.1.3
+Summary: This is an implementation of Hearst patterns, for finding hyponyms, written in Python.
+Home-page: https://github.com/mmichelsonIF/hearst_patterns_python
+Author: mmichelsonIF
+Author-email: mmichelson@inferlink.com
+License: Apache License 2.0
+Platform: UNKNOWN
+Requires-Dist: spacy
+
+UNKNOWN
+
+
