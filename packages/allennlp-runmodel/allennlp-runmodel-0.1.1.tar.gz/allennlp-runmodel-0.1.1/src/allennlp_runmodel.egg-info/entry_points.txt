@@ -1,0 +1,3 @@
+[console_scripts]
+allennlp-runmodel = allennlp_runmodel.__main__:main
+
