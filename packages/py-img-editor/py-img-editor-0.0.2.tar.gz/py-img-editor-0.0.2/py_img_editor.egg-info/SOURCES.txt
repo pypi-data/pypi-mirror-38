@@ -1,0 +1,12 @@
+MANIFEST.in
+README.md
+postinstall.sh
+setup.py
+py_img_editor/__init__.py
+py_img_editor/index.py
+py_img_editor.egg-info/PKG-INFO
+py_img_editor.egg-info/SOURCES.txt
+py_img_editor.egg-info/dependency_links.txt
+py_img_editor.egg-info/entry_points.txt
+py_img_editor.egg-info/requires.txt
+py_img_editor.egg-info/top_level.txt
