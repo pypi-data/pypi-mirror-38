@@ -1,0 +1,40 @@
+Metadata-Version: 1.1
+Name: tdameritrade
+Version: 0.0.3
+Summary: APIs for TD Ameritrade
+Home-page: https://github.com/timkpaine/tdameritrade
+Author: Tim Paine
+Author-email: timothy.k.paine@gmail.com
+License: Apache 2.0
+Download-URL: https://github.com/timkpaine/tdameritrade/archive/v0.0.3.tar.gz
+Description: # tdameritrade
+        Python interface to TD Ameritrade Api
+        
+        
+        [![Build Status](https://travis-ci.org/timkpaine/tdameritrade.svg?branch=master)](https://travis-ci.org/timkpaine/tdameritrade)
+        [![Coverage](https://codecov.io/gh/timkpaine/tdameritrade/branch/master/graph/badge.svg)](https://codecov.io/gh/timkpaine/tdameritrade)
+        [![Waffle.io](https://badge.waffle.io/timkpaine/tdameritrade.png?label=ready&title=Ready)](https://waffle.io/timkpaine/tdameritrade?utm_source=badge)
+        [![BCH compliance](https://bettercodehub.com/edge/badge/timkpaine/tdameritrade?branch=master)](https://bettercodehub.com/)
+        [![License](https://img.shields.io/github/license/timkpaine/tdameritrade.svg)](https://pypi.python.org/pypi/tdameritrade/)
+        [![PyPI](https://img.shields.io/pypi/v/tdameritrade.svg)](https://pypi.python.org/pypi/tdameritrade/)
+        [![Docs](https://img.shields.io/readthedocs/tdameritrade.svg)](https://tdameritrade.readthedocs.io)
+        
+        
+        ## Getting Started
+        [Read the docs!](http://tdameritrade.readthedocs.io/en/latest/index.html)
+        
+        
+        ### Options Data
+        ![](https://raw.githubusercontent.com/timkpaine/tdameritrade/master/docs/img/options.png)
+        
+Keywords: finance data
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
