@@ -1,0 +1,7 @@
+pyyaml
+six
+requests
+aws-sam-translator>=1.6.0
+jsonpatch
+jsonschema~=2.6.0
+pathlib2
