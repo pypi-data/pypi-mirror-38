@@ -1,0 +1,29 @@
+language:
+  python
+
+python:
+  - 3.6
+
+services:
+  - docker
+
+install:
+  - ./tools/generate_key_pair.sh
+  - make install
+
+script:
+  - make test
+
+after_success:
+  - coveralls
+
+before_deploy:
+  - curl -s https://raw.githubusercontent.com/datahq/deploy/master/apps_travis_script.sh > .travis.sh
+  - bash .travis.sh script
+
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: bash .trigger_deploy.sh
+  on:
+    branch: master
