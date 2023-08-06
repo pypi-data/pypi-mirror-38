@@ -1,0 +1,37 @@
+Metadata-Version: 1.1
+Name: kozinak
+Version: 0.6.0
+Summary: My python tools
+Home-page: https://github.com/aleksejkozin/kozinak
+Author: Aleksey Kozin
+Author-email: cirnotoss@gmail.com
+License: MIT
+Description: kozinak
+        =======
+        
+        .. image:: https://img.shields.io/pypi/v/kozinak.svg
+            :target: https://pypi.python.org/pypi/kozinak
+            :alt: Latest PyPI version
+        
+        .. image:: https://travis-ci.org/aleksejkozin/kozinak.png
+           :target: https://travis-ci.org/aleksejkozin/kozinak
+           :alt: Latest Travis CI build status
+        
+        My python tools
+        
+        Authors
+        -------
+        
+        `kozinak` was written by `Aleksey Kozin <cirnotoss@gmail.com>`_.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
