@@ -1,0 +1,11 @@
+MANIFEST.in
+README.md
+requirements.txt
+setup.cfg
+setup.py
+north/__init__.py
+north.egg-info/PKG-INFO
+north.egg-info/SOURCES.txt
+north.egg-info/dependency_links.txt
+north.egg-info/requires.txt
+north.egg-info/top_level.txt
