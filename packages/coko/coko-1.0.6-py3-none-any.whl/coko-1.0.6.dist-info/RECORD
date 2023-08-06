@@ -1,0 +1,16 @@
+coko/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+coko/__main__.py,sha256=BiHetMpWkuYPcX3IPJiuWwn2WyCPc5G-WHhm8wpU1aY,112
+coko/launcher.py,sha256=MHQG7OlnjEUrV2TRILsjMwjSeinJE3YTz7HjD58l2nM,378
+coko/classes/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+coko/classes/configuration.py,sha256=ugI9wqXItS53JTkaOo-JTCW0xOXipacwbFzjWcy78to,2468
+coko/classes/console_parser.py,sha256=uvGdIQJwwo9JD57n4mABABsXELARK6qkvh9WZ960lRE,2830
+coko/classes/exceptions.py,sha256=-PD9U2qv8NmLVN52GSvafIAOgBqBhg1aFKWqFRjlgE8,167
+coko/classes/sync.py,sha256=aJsnBwO_GfU8c9bp-NEaVR2RAidCtYKkUAGADygJo1k,5194
+coko/classes/system.py,sha256=0nN1A-nAdqL6cGVmHrinD323gO84cB50PAchxKEfc6U,908
+coko-1.0.6.data/data/share/man/man1/coko.1,sha256=Gt4UIoz_M9u7MGYiCJxOXVz2vyLvvXv7fLm1OVf8Of4,3297
+coko-1.0.6.dist-info/LICENSE,sha256=gkv9prJth-lPZjwCORPwihbbjdS0VAe9OKLCuTJJzvs,1514
+coko-1.0.6.dist-info/METADATA,sha256=DJ6fxbz-7G2nkI_r_sUI_ZRP0F1HYWTizS3oR9O5QMg,1652
+coko-1.0.6.dist-info/WHEEL,sha256=MYFsq5fFBwF_oyJgrOoFmYYB1K6Sw7MxY-0897ZLbdM,92
+coko-1.0.6.dist-info/entry_points.txt,sha256=1J3-YpXOoskKSUgpxleHABnQsY5GXxOpjZReL7RgXmQ,45
+coko-1.0.6.dist-info/top_level.txt,sha256=6rvtIZT6OZ-2Kx2SRHJaefdr3_SipxfwZdNqnHMnb5E,5
+coko-1.0.6.dist-info/RECORD,,
