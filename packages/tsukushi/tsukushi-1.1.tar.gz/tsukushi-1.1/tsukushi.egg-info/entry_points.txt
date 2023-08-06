@@ -1,0 +1,6 @@
+[console_scripts]
+tsukushi = tsukushi.main:main
+
+[gui_scripts]
+tsukushi = tsukushi.main:main
+

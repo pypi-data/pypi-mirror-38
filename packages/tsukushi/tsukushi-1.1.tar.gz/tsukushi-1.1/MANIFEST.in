@@ -1,0 +1,6 @@
+include LICENSE
+include *.md
+include requirements.txt
+include tsukushi/*.kv
+include tsukushi/images/*
+include tsukushi/fonts/*/*
