@@ -1,0 +1,14 @@
+language: python
+dist: trusty
+sudo: required
+python:
+  - "2.7"
+  - "3.6"
+before_install:
+  - pip install pip --upgrade
+install:
+  - pip install -e .[test]
+script:
+  - pytest --cov
+after_success:
+  - codecov
