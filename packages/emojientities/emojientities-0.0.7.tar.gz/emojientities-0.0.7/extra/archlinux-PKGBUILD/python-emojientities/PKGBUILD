@@ -1,0 +1,33 @@
+# Maintainer: peippo <christoph.fink@gmail.com>
+
+pkgname=python-emojientities
+pkgver=0.0.9
+pkgrel=0
+
+pkgdesc="retrieves all emoji character identifiers from unicode.org"
+url="https://gitlab.com/christoph.fink/python-emojientities"
+license=("GPLv2")
+
+arch=("any")
+makedepends=("python-setuptools" "python-gitpython")
+depends=(
+    "python-requests"
+)
+
+source=("")
+sha256sums=("")
+
+prepare() {
+   rm -Rf "${srcdir}/*/*.egg-info"
+}
+
+build() {
+   cd "${srcdir}/emojientities-${pkgver}"
+   python setup.py build
+}
+
+package() {
+   cd "${srcdir}/emojientities-${pkgver}"
+   python setup.py install --root="${pkgdir}" --optimize=1 --skip-build
+
+}
