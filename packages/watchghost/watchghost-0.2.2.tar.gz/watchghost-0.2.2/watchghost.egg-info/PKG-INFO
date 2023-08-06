@@ -1,0 +1,50 @@
+Metadata-Version: 2.1
+Name: watchghost
+Version: 0.2.2
+Summary: Your invisible but loud monitoring pet
+Home-page: https://gitlab.com/localg-host/watchghost
+Author: Localghost
+License: GNU AFFERO GENERAL PUBLIC LICENSE version 3
+Description: ==========
+        WatchGhost
+        ==========
+        
+        .. image:: https://readthedocs.org/projects/watchghost/badge/?version=latest&style=plastic
+        
+        Your invisible but loud monitoring pet
+        
+        Quickstart
+        ==========
+        
+        .. code-block:: shell
+        
+          pip install watchghost
+          watchghost
+          $NAVIGATOR http://localhost:8888
+          $EDITOR ~/.config/watchghost/*
+        
+        Code on watchghost
+        ==================
+        
+        .. code-block:: shell
+        
+          git clone https://gitlab.com/localg-host/watchghost.git
+          cd watchghost
+          pip install -e .
+          python -m watchghost
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Environment :: No Input/Output (Daemon)
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: System :: Monitoring
+Description-Content-Type: text/x-rst
+Provides-Extra: doc
+Provides-Extra: test
