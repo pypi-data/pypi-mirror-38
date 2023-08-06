@@ -1,0 +1,8 @@
+include *.py
+include *.txt
+include poolbox.ini
+exclude runapp.py   
+exclude runtime.txt 
+recursive-include poolbox *.base64
+recursive-include poolbox *.j2
+recursive-include poolbox *.pdf
