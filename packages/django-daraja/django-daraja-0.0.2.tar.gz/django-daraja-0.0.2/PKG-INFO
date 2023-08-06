@@ -1,0 +1,28 @@
+Metadata-Version: 1.1
+Name: django-daraja
+Version: 0.0.2
+Summary: A python django library for interacting with the MPESA Daraja API.
+Home-page: https://github.com/martinmogusu/django-daraja
+Author: Martin Mogusu
+Author-email: martinmogusu@gmail.com
+License: MIT License
+Download-URL: https://github.com/martinmogusu/django-daraja.git
+Project-URL: Source, https://github.com/martinmogusu/django-daraja
+Project-URL: Documentation, https://django-daraja.readthedocs.io/
+Description: 
+        This is a django module based on the MPESA daraja API. Use it to interact with the MPESA API in a simplified manner, abstracting the details for a simple, intuitive usage experience, as well as extensive error handling.    
+        
+        Read the documentation at https://django-daraja.readthedocs.io
+        
+        Daraja API documentation can be found at https://developer.safaricom.co.ke
+Keywords: mpesa django daraja finance mobile-money
+Platform: UNKNOWN
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
