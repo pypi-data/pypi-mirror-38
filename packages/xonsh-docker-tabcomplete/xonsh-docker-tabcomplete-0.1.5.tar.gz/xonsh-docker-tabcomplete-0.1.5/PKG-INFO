@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: xonsh-docker-tabcomplete
+Version: 0.1.5
+Summary: docker tabcomplete support for the Xonsh shell
+Home-page: https://github.com/xsteadfastx/xonsh-docker-tabcomplete
+Author: Marvin Steadfast
+Author-email: marvin@xsteadfastx.org
+License: MIT
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Environment :: Plugins
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: License :: OSI Approved :: MIT License
