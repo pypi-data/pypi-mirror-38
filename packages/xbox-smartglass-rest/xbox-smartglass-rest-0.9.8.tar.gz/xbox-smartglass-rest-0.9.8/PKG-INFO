@@ -1,0 +1,224 @@
+Metadata-Version: 2.1
+Name: xbox-smartglass-rest
+Version: 0.9.8
+Summary: Xbox One Smartglass REST API
+Home-page: https://github.com/OpenXbox/xbox-smartglass-rest-python
+Author: OpenXbox
+License: GPL
+Description: ====================
+        Xbox-Smartglass-REST
+        ====================
+        
+        .. image:: https://pypip.in/version/xbox-smartglass-rest/badge.svg
+            :target: https://pypi.python.org/pypi/xbox-smartglass-rest/
+            :alt: Latest Version
+        
+        .. image:: https://travis-ci.com/OpenXbox/xbox-smartglass-rest-python.svg?branch=master
+            :target: https://travis-ci.com/OpenXbox/xbox-smartglass-rest-python
+        
+        .. image:: https://img.shields.io/badge/discord-OpenXbox-blue.svg
+            :target: https://discord.gg/E8kkJhQ
+            :alt: Discord chat channel
+        
+        Open-Source Xbox One Smartglass REST server.
+        
+        For in-depth information, check out the documentation: (https://openxbox.github.io)
+        
+        Dependencies
+        ------------
+        * Python >= 3.5
+        * xbox-smartglass-stump (https://pypi.org/project/xbox-smartglass-stump/)
+        * Flask (https://pypi.org/project/Flask/)
+        
+        Install
+        -------
+        
+        Via pip:
+        ::
+        
+            pip install xbox-smartglass-rest
+        
+        
+        How to use
+        ----------
+        
+        Start the server:
+        ::
+        
+            $ xbox-rest-server
+        
+        
+        Authentication
+        --------------
+        
+        Authenticate from scratch
+        ::
+        
+            For non-2FA enabled account: http://localhost:5557/auth/login
+            For 2FA: http://localhost:5557/auth/oauth
+        
+            # Store tokens on valid authentication
+            http://localhost:5557/auth/store
+        
+        Load tokens from disk
+        ::
+        
+            http://localhost:5557/auth/load
+            http://localhost:5557/auth/refresh
+        
+        2FA OAuth - POST
+        ::
+        
+            # Get authorize url
+            GET http://localhost:5557/auth/url
+            Response-Parameters (JSON): authorization_url
+        
+            # Submit redirect url
+            POST http://localhost:5557/auth/oauth
+            Request-Parameters: redirect_uri
+        
+        Regular (non-2FA) login - POST
+        ::
+        
+            POST http://localhost:5557/auth/login
+            Request-Parameters: email, password
+        
+        
+        General usage
+        -------------
+        
+        To see all API endpoints:
+        ::
+        
+            http://localhost:5557
+        
+        
+        Usual usage:
+        ::
+        
+            # (Optional) Poweron console
+            http://localhost:5557/device/<liveid>/poweron
+            # NOTE: You can specify device by ip: /device/<liveid>/poweron?addr=192.168.0.123
+            # Enumerate devices on network
+            # NOTE: You can enumerate device by specific ip: /device?addr=192.168.0.123
+            http://localhost:5557/device
+            # Connect to console
+            # NOTE: You can connect anonymously: /connect?anonymous=true
+            # .. if console allows it ..
+            http://localhost:5557/device/<liveid>/connect
+        
+            # Use other API endpoints ...
+        
+        
+        Known issues
+        ------------
+        * Find, report and/or fix them ;)
+        
+        Bugreporting
+        ------------
+        When reporting bugs, please make sure to provide the output of the following endpoint
+        
+        ::
+        
+            http://localhost:5557/versions
+        
+        
+        Contribute
+        ----------
+        * Report bugs/suggest features
+        * Improve / add endpoints
+        
+        Credits
+        -------
+        This package uses parts of Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+        
+        .. _Cookiecutter: https://github.com/audreyr/cookiecutter
+        .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+        
+        
+        =======
+        History
+        =======
+        
+        0.9.8 (2018-11-14)
+        ------------------
+        
+        * Python 3.7 compatibility
+        
+        0.9.7 (2018-11-05)
+        ------------------
+        
+        * Pin xbox-smartglass-core requirement
+        * Filter returned consoles when addr-query is supplied
+        * Expose last_error in console status
+        
+        0.9.6 (2018-10-04)
+        ------------------
+        
+        * Return unique index endpoint
+        * Create FAQ
+        * Always refresh XBL Client with new tokens and implement IP in /device
+        * Expose IP addr discovery through /devices?addr=192.168.0.123
+        * Always refresh XBL Client with new tokens
+        * Add GameDVR endpoint
+        
+        0.9.5 (2018-08-16)
+        ------------------
+        
+        * Add App Type and Fix Media Status
+        
+        0.9.4 (2018-08-14)
+        ------------------
+        
+        * Add /web/titlehistory endpoint
+        * Enable logfile cmdline argument
+        * Parse proper parameter from /launch/<app_id> and /media/seek/<seek_position>
+        * Standardize media commands and input keys casing
+        * Clean up status codes and auth routes
+        * Add friendly name and display image from titlehub to console_status response if authenticated
+        * Do a best effort token load and refresh on startup, auto dump tokens file on successful auth
+        * Simplify auth url endpoint
+        * Restructure app to be more modular
+        * Add XboxLiveClient and endpoint /web/title/<title_id> for downloading friendly name and displayImage
+        * Allow connecting anonymously when supplying *anonymous=true* via POST to /connect
+        * Pin xbox-smartglass-stump version
+        * Adding /media/seek endpoint
+        * Add /versions endpoint
+        * Rewrite authentication endpoints, OAUTH and regular auth supported
+        * Rename endpoint /authentication to /auth
+        
+        0.9.3 (2018-08-08)
+        ------------------
+        
+        * Rename /status to /console_status
+        
+        0.9.2 (2018-08-04)
+        ------------------
+        
+        * Stump <headend, livetv, tuner lineups> endpoints
+        * Add console flags
+        * Preparing NANO endpoints
+        * Adjusting authentication endpoint slightly
+        * Allow anonymous connection
+        
+        0.9.1 (2018-08-04)
+        ------------------
+        
+        * Small fixup
+        
+        0.9.0 (2018-08-04)
+        ------------------
+        
+        * First commit on github
+        
+Keywords: xbox one smartglass rest api
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Provides-Extra: dev
