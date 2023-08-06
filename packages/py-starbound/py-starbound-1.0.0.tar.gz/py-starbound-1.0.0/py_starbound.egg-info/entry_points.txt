@@ -1,0 +1,5 @@
+[console_scripts]
+pystarbound-export = starbound.cliexport:main
+pystarbound-region = starbound.cliregion:main
+pystarbound-repair = starbound.clirepair:main
+

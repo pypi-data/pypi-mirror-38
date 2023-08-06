@@ -1,0 +1,17 @@
+FORMATS.md
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+py_starbound.egg-info/PKG-INFO
+py_starbound.egg-info/SOURCES.txt
+py_starbound.egg-info/dependency_links.txt
+py_starbound.egg-info/entry_points.txt
+py_starbound.egg-info/top_level.txt
+starbound/__init__.py
+starbound/btreedb5.py
+starbound/cliexport.py
+starbound/cliregion.py
+starbound/clirepair.py
+starbound/sbasset6.py
+starbound/sbon.py
