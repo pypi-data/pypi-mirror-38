@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: foliant
+Version: 1.0.7
+Summary: Modular, Markdown-based documentation generator that makes pdf, docx, html, and more.
+Home-page: https://foliant-docs.github.io/docs/
+Author: Konstantin Molchanov
+Author-email: moigagoo@live.com
+Keywords: documentation,markdown,html,docx,pdf
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: cliar (>=1.2.2,<2.0.0)
+Requires-Dist: prompt_toolkit (>=2.0,<3.0)
+Requires-Dist: pyyaml (>=3.12,<4.0)
+Project-URL: Documentation, https://foliant-docs.github.io/docs/
+Project-URL: Repository, https://github.com/foliant-docs/foliant
