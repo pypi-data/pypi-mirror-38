@@ -1,0 +1,6 @@
+pip
+plover[gui_qt]>=4.0.0.dev8
+pygments
+readme-renderer[md]
+setuptools
+wheel
