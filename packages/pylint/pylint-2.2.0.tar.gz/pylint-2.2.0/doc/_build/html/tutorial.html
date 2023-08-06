@@ -1,0 +1,520 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Tutorial &#8212; Pylint 2.2.0-dev documentation</title>
+    <link rel="stylesheet" href="_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/sidebar.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="User Guide" href="user_guide/index.html" />
+    <link rel="prev" title="Introduction" href="intro.html" />
+    <link rel="shortcut icon" type="image/png" href="_static/py.png" />
+    
+    <script type="text/javascript" src="_static/copybutton.js"></script>
+    
+     
+
+  </head><body>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="user_guide/index.html" title="User Guide"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="intro.html" title="Introduction"
+             accesskey="P">previous</a> |</li>
+    <li><img src="_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="http://meta.pycqa.org/en/latest/">PyCQA</a> &#187;</li>
+    
+    <a href="index.html">Pylint 2.2.0-dev documentation</a> &#187;
+    
+
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="tutorial">
+<h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Author:</th><td class="field-body">Robert Kirkpatrick</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="intro">
+<h2>Intro<a class="headerlink" href="#intro" title="Permalink to this headline">¶</a></h2>
+<p>Beginner to coding standards?  Pylint can be your guide to reveal what's really
+going on behind the scenes and help you to become a more aware programmer.</p>
+<p>Sharing code is a rewarding endeavor.  Putting your code <code class="docutils literal notranslate"><span class="pre">out</span> <span class="pre">there</span></code> can be
+either an act of philanthropy, <code class="docutils literal notranslate"><span class="pre">coming</span> <span class="pre">of</span> <span class="pre">age</span></code>, or a basic extension of belief
+in open source.  Whatever the motivation, your good intentions may not have the
+desired outcome if people find your code hard to use or understand.  The Python
+community has formalized some recommended programming styles to help everyone
+write code in a common, agreed-upon style that makes the most sense for shared
+code.  This style is captured in <a class="reference external" href="http://www.python.org/dev/peps/pep-0008/">PEP-8</a>.  Pylint can be a quick and easy way of
+seeing if your code has captured the essence of PEP-8 and is therefore
+<code class="docutils literal notranslate"><span class="pre">friendly</span></code> to other potential users.</p>
+<p>Perhaps you're not ready to share your code but you'd like to learn a bit more
+about writing better code and don't know where to start.  Pylint can tell you
+where you may have run astray and point you in the direction to figure out what
+you have done and how to do better.</p>
+<p>This tutorial is all about approaching coding standards with little or no
+knowledge of in-depth programming or the code standards themselves.  It's the
+equivalent of skipping the manual and jumping right in.</p>
+<p>My command line prompt for these examples is:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>robertk01 Desktop$
+</pre></div>
+</div>
+</div>
+<div class="section" id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>Running Pylint with no arguments will invoke the help dialogue and give you an
+idea of the arguments available to you.  Do that now, i.e.:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>robertk01 Desktop$ pylint
+...
+a bunch of stuff
+...
+</pre></div>
+</div>
+<p>A couple of the options that we'll focus on here are:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Master</span><span class="p">:</span>
+  <span class="o">--</span><span class="n">generate</span><span class="o">-</span><span class="n">rcfile</span><span class="o">=&lt;</span><span class="n">file</span><span class="o">&gt;</span>
+<span class="n">Commands</span><span class="p">:</span>
+  <span class="o">--</span><span class="n">help</span><span class="o">-</span><span class="n">msg</span><span class="o">=&lt;</span><span class="n">msg</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;</span>
+<span class="n">Commands</span><span class="p">:</span>
+  <span class="o">--</span><span class="n">help</span><span class="o">-</span><span class="n">msg</span><span class="o">=&lt;</span><span class="n">msg</span><span class="o">-</span><span class="nb">id</span><span class="o">&gt;</span>
+<span class="n">Message</span> <span class="n">control</span><span class="p">:</span>
+  <span class="o">--</span><span class="n">disable</span><span class="o">=&lt;</span><span class="n">msg</span><span class="o">-</span><span class="n">ids</span><span class="o">&gt;</span>
+<span class="n">Reports</span><span class="p">:</span>
+  <span class="o">--</span><span class="n">files</span><span class="o">-</span><span class="n">output</span><span class="o">=&lt;</span><span class="n">y_or_n</span><span class="o">&gt;</span>
+  <span class="o">--</span><span class="n">reports</span><span class="o">=&lt;</span><span class="n">y_or_n</span><span class="o">&gt;</span>
+  <span class="o">--</span><span class="n">output</span><span class="o">-</span><span class="nb">format</span><span class="o">=&lt;</span><span class="nb">format</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Also pay attention to the last bit of help output.  This gives you a hint of what
+Pylint is going to <code class="docutils literal notranslate"><span class="pre">pick</span> <span class="pre">on</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Output</span><span class="p">:</span>
+   <span class="n">Using</span> <span class="n">the</span> <span class="n">default</span> <span class="n">text</span> <span class="n">output</span><span class="p">,</span> <span class="n">the</span> <span class="n">message</span> <span class="nb">format</span> <span class="ow">is</span> <span class="p">:</span>
+  <span class="n">MESSAGE_TYPE</span><span class="p">:</span> <span class="n">LINE_NUM</span><span class="p">:[</span><span class="n">OBJECT</span><span class="p">:]</span> <span class="n">MESSAGE</span>
+  <span class="n">There</span> <span class="n">are</span> <span class="mi">5</span> <span class="n">kind</span> <span class="n">of</span> <span class="n">message</span> <span class="n">types</span> <span class="p">:</span>
+  <span class="o">*</span> <span class="p">(</span><span class="n">C</span><span class="p">)</span> <span class="n">convention</span><span class="p">,</span> <span class="k">for</span> <span class="n">programming</span> <span class="n">standard</span> <span class="n">violation</span>
+  <span class="o">*</span> <span class="p">(</span><span class="n">R</span><span class="p">)</span> <span class="n">refactor</span><span class="p">,</span> <span class="k">for</span> <span class="n">bad</span> <span class="n">code</span> <span class="n">smell</span>
+  <span class="o">*</span> <span class="p">(</span><span class="n">W</span><span class="p">)</span> <span class="n">warning</span><span class="p">,</span> <span class="k">for</span> <span class="n">python</span> <span class="n">specific</span> <span class="n">problems</span>
+  <span class="o">*</span> <span class="p">(</span><span class="n">E</span><span class="p">)</span> <span class="n">error</span><span class="p">,</span> <span class="k">for</span> <span class="n">much</span> <span class="n">probably</span> <span class="n">bugs</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">code</span>
+  <span class="o">*</span> <span class="p">(</span><span class="n">F</span><span class="p">)</span> <span class="n">fatal</span><span class="p">,</span> <span class="k">if</span> <span class="n">an</span> <span class="n">error</span> <span class="n">occurred</span> <span class="n">which</span> <span class="n">prevented</span> <span class="n">pylint</span> <span class="kn">from</span> <span class="nn">doing</span>
+  <span class="n">further</span> <span class="n">processing</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>When Pylint is first run on a fresh piece of code, a common complaint is that it
+is too <code class="docutils literal notranslate"><span class="pre">noisy</span></code>.  The current default configuration is set to enforce all possible
+warnings.  We'll use some of the options I noted above to make it suit your
+preferences a bit better (and thus make it emit messages only when needed).</p>
+</div>
+<div class="section" id="your-first-pylint-ing">
+<h2>Your First Pylint'ing<a class="headerlink" href="#your-first-pylint-ing" title="Permalink to this headline">¶</a></h2>
+<p>We'll use a basic python script as fodder for our tutorial.  I borrowed
+extensively from the code here: <a class="reference external" href="http://www.daniweb.com/code/snippet748.html">http://www.daniweb.com/code/snippet748.html</a>
+The starting code we will use is called simplecaeser.py and is here in its
+entirety:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span> <span class="mi">1</span>  <span class="c1">#!/usr/bin/env python</span>
+ <span class="mi">2</span>
+ <span class="mi">3</span>  <span class="kn">import</span> <span class="nn">string</span>
+ <span class="mi">4</span>
+ <span class="mi">5</span>  <span class="n">shift</span> <span class="o">=</span> <span class="mi">3</span>
+ <span class="mi">6</span>  <span class="n">choice</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s2">&quot;would you like to encode or decode?&quot;</span><span class="p">)</span>
+ <span class="mi">7</span>  <span class="n">word</span> <span class="o">=</span> <span class="p">(</span><span class="nb">raw_input</span><span class="p">(</span><span class="s2">&quot;Please enter text&quot;</span><span class="p">))</span>
+ <span class="mi">8</span>  <span class="n">letters</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">ascii_letters</span> <span class="o">+</span> <span class="n">string</span><span class="o">.</span><span class="n">punctuation</span> <span class="o">+</span> <span class="n">string</span><span class="o">.</span><span class="n">digits</span>
+ <span class="mi">9</span>  <span class="n">encoded</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="mi">10</span>  <span class="k">if</span> <span class="n">choice</span> <span class="o">==</span> <span class="s2">&quot;encode&quot;</span><span class="p">:</span>
+<span class="mi">11</span>      <span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
+<span class="mi">12</span>          <span class="k">if</span> <span class="n">letter</span> <span class="o">==</span> <span class="s1">&#39; &#39;</span><span class="p">:</span>
+<span class="mi">13</span>              <span class="n">encoded</span> <span class="o">=</span> <span class="n">encoded</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span>
+<span class="mi">14</span>          <span class="k">else</span><span class="p">:</span>
+<span class="mi">15</span>              <span class="n">x</span> <span class="o">=</span> <span class="n">letters</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">letter</span><span class="p">)</span> <span class="o">+</span> <span class="n">shift</span>
+<span class="mi">16</span>              <span class="n">encoded</span><span class="o">=</span><span class="n">encoded</span> <span class="o">+</span> <span class="n">letters</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>
+<span class="mi">17</span>  <span class="k">if</span> <span class="n">choice</span> <span class="o">==</span> <span class="s2">&quot;decode&quot;</span><span class="p">:</span>
+<span class="mi">18</span>      <span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
+<span class="mi">19</span>          <span class="k">if</span> <span class="n">letter</span> <span class="o">==</span> <span class="s1">&#39; &#39;</span><span class="p">:</span>
+<span class="mi">20</span>              <span class="n">encoded</span> <span class="o">=</span> <span class="n">encoded</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span>
+<span class="mi">21</span>          <span class="k">else</span><span class="p">:</span>
+<span class="mi">22</span>              <span class="n">x</span> <span class="o">=</span> <span class="n">letters</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">letter</span><span class="p">)</span> <span class="o">-</span> <span class="n">shift</span>
+<span class="mi">23</span>              <span class="n">encoded</span> <span class="o">=</span> <span class="n">encoded</span> <span class="o">+</span> <span class="n">letters</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>
+<span class="mi">24</span>
+<span class="mi">25</span>  <span class="k">print</span> <span class="n">encoded</span>
+</pre></div>
+</div>
+<p>Let's get started.</p>
+<p>If we run this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>robertk01 Desktop$ pylint simplecaeser.py
+No config file found, using default configuration
+************* Module simplecaeser
+C:  <span class="m">1</span>, <span class="m">0</span>: Missing module docstring <span class="o">(</span>missing-docstring<span class="o">)</span>
+W:  <span class="m">3</span>, <span class="m">0</span>: Uses of a deprecated module <span class="s1">&#39;string&#39;</span> <span class="o">(</span>deprecated-module<span class="o">)</span>
+C:  <span class="m">5</span>, <span class="m">0</span>: Invalid constant name <span class="s2">&quot;shift&quot;</span> <span class="o">(</span>invalid-name<span class="o">)</span>
+C:  <span class="m">6</span>, <span class="m">0</span>: Invalid constant name <span class="s2">&quot;choice&quot;</span> <span class="o">(</span>invalid-name<span class="o">)</span>
+C:  <span class="m">7</span>, <span class="m">0</span>: Invalid constant name <span class="s2">&quot;word&quot;</span> <span class="o">(</span>invalid-name<span class="o">)</span>
+C:  <span class="m">8</span>, <span class="m">0</span>: Invalid constant name <span class="s2">&quot;letters&quot;</span> <span class="o">(</span>invalid-name<span class="o">)</span>
+C:  <span class="m">9</span>, <span class="m">0</span>: Invalid constant name <span class="s2">&quot;encoded&quot;</span> <span class="o">(</span>invalid-name<span class="o">)</span>
+C: <span class="m">16</span>,12: Operator not preceded by a space
+            <span class="nv">encoded</span><span class="o">=</span>encoded + letters<span class="o">[</span>x<span class="o">]</span>
+                   ^ <span class="o">(</span>no-space-before-operator<span class="o">)</span>
+
+
+<span class="nv">Report</span>
+<span class="o">======</span>
+<span class="m">19</span> statements analysed.
+
+Duplication
+-----------
+
++-------------------------+------+---------+-----------+
+<span class="p">|</span>                         <span class="p">|</span>now   <span class="p">|</span>previous <span class="p">|</span>difference <span class="p">|</span>
++<span class="o">=========================</span>+<span class="o">======</span>+<span class="o">=========</span>+<span class="o">===========</span>+
+<span class="p">|</span>nb duplicated lines      <span class="p">|</span><span class="m">0</span>     <span class="p">|</span><span class="m">0</span>        <span class="p">|</span><span class="o">=</span>          <span class="p">|</span>
++-------------------------+------+---------+-----------+
+<span class="p">|</span>percent duplicated lines <span class="p">|</span><span class="m">0</span>.000 <span class="p">|</span><span class="m">0</span>.000    <span class="p">|</span><span class="o">=</span>          <span class="p">|</span>
++-------------------------+------+---------+-----------+
+
+
+
+Raw metrics
+-----------
+
++----------+-------+------+---------+-----------+
+<span class="p">|</span><span class="nb">type</span>      <span class="p">|</span>number <span class="p">|</span>%     <span class="p">|</span>previous <span class="p">|</span>difference <span class="p">|</span>
++<span class="o">==========</span>+<span class="o">=======</span>+<span class="o">======</span>+<span class="o">=========</span>+<span class="o">===========</span>+
+<span class="p">|</span>code      <span class="p">|</span><span class="m">21</span>     <span class="p">|</span><span class="m">87</span>.50 <span class="p">|</span><span class="m">21</span>       <span class="p">|</span><span class="o">=</span>          <span class="p">|</span>
++----------+-------+------+---------+-----------+
+<span class="p">|</span>docstring <span class="p">|</span><span class="m">0</span>      <span class="p">|</span><span class="m">0</span>.00  <span class="p">|</span><span class="m">0</span>        <span class="p">|</span><span class="o">=</span>          <span class="p">|</span>
++----------+-------+------+---------+-----------+
+<span class="p">|</span>comment   <span class="p">|</span><span class="m">1</span>      <span class="p">|</span><span class="m">4</span>.17  <span class="p">|</span><span class="m">1</span>        <span class="p">|</span><span class="o">=</span>          <span class="p">|</span>
++----------+-------+------+---------+-----------+
+<span class="p">|</span>empty     <span class="p">|</span><span class="m">2</span>      <span class="p">|</span><span class="m">8</span>.33  <span class="p">|</span><span class="m">2</span>        <span class="p">|</span><span class="o">=</span>          <span class="p">|</span>
++----------+-------+------+---------+-----------+
+
+
+
+Statistics by <span class="nb">type</span>
+------------------
+
++---------+-------+-----------+-----------+------------+---------+
+<span class="p">|</span><span class="nb">type</span>     <span class="p">|</span>number <span class="p">|</span>old number <span class="p">|</span>difference <span class="p">|</span>%documented <span class="p">|</span>%badname <span class="p">|</span>
++<span class="o">=========</span>+<span class="o">=======</span>+<span class="o">===========</span>+<span class="o">===========</span>+<span class="o">============</span>+<span class="o">=========</span>+
+<span class="p">|</span>module   <span class="p">|</span><span class="m">1</span>      <span class="p">|</span><span class="m">1</span>          <span class="p">|</span><span class="o">=</span>          <span class="p">|</span><span class="m">0</span>.00        <span class="p">|</span><span class="m">0</span>.00     <span class="p">|</span>
++---------+-------+-----------+-----------+------------+---------+
+<span class="p">|</span>class    <span class="p">|</span><span class="m">0</span>      <span class="p">|</span><span class="m">0</span>          <span class="p">|</span><span class="o">=</span>          <span class="p">|</span><span class="m">0</span>.00        <span class="p">|</span><span class="m">0</span>.00     <span class="p">|</span>
++---------+-------+-----------+-----------+------------+---------+
+<span class="p">|</span>method   <span class="p">|</span><span class="m">0</span>      <span class="p">|</span><span class="m">0</span>          <span class="p">|</span><span class="o">=</span>          <span class="p">|</span><span class="m">0</span>.00        <span class="p">|</span><span class="m">0</span>.00     <span class="p">|</span>
++---------+-------+-----------+-----------+------------+---------+
+<span class="p">|</span><span class="k">function</span> <span class="p">|</span><span class="m">0</span>      <span class="p">|</span><span class="m">0</span>          <span class="p">|</span><span class="o">=</span>          <span class="p">|</span><span class="m">0</span>.00        <span class="p">|</span><span class="m">0</span>.00     <span class="p">|</span>
++---------+-------+-----------+-----------+------------+---------+
+
+
+
+Messages by category
+--------------------
+
++-----------+-------+---------+-----------+
+<span class="p">|</span><span class="nb">type</span>       <span class="p">|</span>number <span class="p">|</span>previous <span class="p">|</span>difference <span class="p">|</span>
++<span class="o">===========</span>+<span class="o">=======</span>+<span class="o">=========</span>+<span class="o">===========</span>+
+<span class="p">|</span>convention <span class="p">|</span><span class="m">7</span>      <span class="p">|</span><span class="m">7</span>        <span class="p">|</span><span class="o">=</span>          <span class="p">|</span>
++-----------+-------+---------+-----------+
+<span class="p">|</span>refactor   <span class="p">|</span><span class="m">0</span>      <span class="p">|</span><span class="m">0</span>        <span class="p">|</span><span class="o">=</span>          <span class="p">|</span>
++-----------+-------+---------+-----------+
+<span class="p">|</span>warning    <span class="p">|</span><span class="m">1</span>      <span class="p">|</span><span class="m">1</span>        <span class="p">|</span><span class="o">=</span>          <span class="p">|</span>
++-----------+-------+---------+-----------+
+<span class="p">|</span>error      <span class="p">|</span><span class="m">0</span>      <span class="p">|</span><span class="m">0</span>        <span class="p">|</span><span class="o">=</span>          <span class="p">|</span>
++-----------+-------+---------+-----------+
+
+
+
+Messages
+--------
+
++-------------------------+------------+
+<span class="p">|</span>message id               <span class="p">|</span>occurrences <span class="p">|</span>
++<span class="o">=========================</span>+<span class="o">============</span>+
+<span class="p">|</span>invalid-name             <span class="p">|</span><span class="m">5</span>           <span class="p">|</span>
++-------------------------+------------+
+<span class="p">|</span>no-space-before-operator <span class="p">|</span><span class="m">1</span>           <span class="p">|</span>
++-------------------------+------------+
+<span class="p">|</span>missing-docstring        <span class="p">|</span><span class="m">1</span>           <span class="p">|</span>
++-------------------------+------------+
+<span class="p">|</span>deprecated-module        <span class="p">|</span><span class="m">1</span>           <span class="p">|</span>
++-------------------------+------------+
+
+
+
+Global evaluation
+-----------------
+Your code has been rated at <span class="m">5</span>.79/10
+</pre></div>
+</div>
+<p>Wow.  That's a lot of stuff.  The first part is the 'messages' section while the
+second part is the 'report' section.  There are two points I want to tackle here.</p>
+<p>First point is that all the tables of statistics (i.e. the report) are a bit
+overwhelming so I want to silence them.  To do that, I will use the
+<strong>--reports=n</strong> option.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">Many of Pylint's commonly used command line options have shortcuts.
+for example, <strong>--reports=n</strong> can be abbreviated to <strong>-rn</strong>. Pylint's man page lists
+all these shortcuts.</p>
+</div>
+<p>Second, previous experience taught me that the default output for the messages
+needed a bit more info.  We can see the first line is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;C:  1: Missing docstring (missing-docstring)&quot;</span>
+</pre></div>
+</div>
+<p>This basically means that line 1 violates a convention <code class="docutils literal notranslate"><span class="pre">C</span></code>.  It's telling me I
+really should have a docstring.  I agree, but what if I didn't fully understand
+what rule I violated.  Knowing only that I violated a convention isn't much help
+if I'm a newbie. Another information there is the message symbol between parens,
+<code class="docutils literal notranslate"><span class="pre">missing-docstring</span></code> here.</p>
+<p>If I want to read up a bit more about that, I can go back to the
+command line and try this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>robertk01 Desktop$ pylint --help-msg<span class="o">=</span>missing-docstring
+No config file found, using default configuration
+:missing-docstring <span class="o">(</span>C0111<span class="o">)</span>: *Missing docstring*
+Used when a module, <span class="k">function</span>, class or method has no docstring. Some special
+methods like __init__ doesn<span class="se">\&#39;</span>t necessarily require a docstring. This message
+belongs to the basic checker.
+</pre></div>
+</div>
+<p>Yeah, ok. That one was a bit of a no-brainer but I have run into error messages
+that left me with no clue about what went wrong, simply because I was unfamiliar
+with the underlying mechanism of code theory.  One error that puzzled my newbie
+mind was:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">too</span><span class="o">-</span><span class="n">many</span><span class="o">-</span><span class="n">instance</span><span class="o">-</span><span class="n">attributes</span> <span class="p">(</span><span class="n">R0902</span><span class="p">):</span> <span class="o">*</span><span class="n">Too</span> <span class="n">many</span> <span class="n">instance</span> <span class="n">attributes</span> <span class="p">(</span><span class="o">%</span><span class="n">s</span><span class="o">/%</span><span class="n">s</span><span class="p">)</span><span class="o">*</span>
+</pre></div>
+</div>
+<p>I get it now thanks to Pylint pointing it out to me.  If you don't get that one,
+pour a fresh cup of coffee and look into it - let your programmer mind grow!</p>
+</div>
+<div class="section" id="the-next-step">
+<h2>The Next Step<a class="headerlink" href="#the-next-step" title="Permalink to this headline">¶</a></h2>
+<p>Now that we got some configuration stuff out of the way, let's see what we can
+do with the remaining warnings.</p>
+<p>If we add a docstring to describe what the code is meant to do that will help.
+I'm also going to be a bit cowboy and ignore the <code class="docutils literal notranslate"><span class="pre">deprecated-module</span></code> message
+because I like to take risks in life.  A deprecation warning means that future
+versions of Python may not support that code so my code may break in the future.
+There are 5 <code class="docutils literal notranslate"><span class="pre">invalid-name</span></code> messages that we will get to later.  Lastly, I violated the
+convention of using spaces around an operator such as &quot;=&quot; so I'll fix that too.
+To sum up, I'll add a docstring to line 2, put spaces around the = sign on line
+16 and use the <code class="docutils literal notranslate"><span class="pre">--disable=deprecated-module</span></code> to ignore the deprecation warning.</p>
+<p>Here is the updated code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span> <span class="mi">1</span>  <span class="c1">#!/usr/bin/env python</span>
+ <span class="mi">2</span>  <span class="s2">&quot;&quot;&quot;This script prompts a user to enter a message to encode or decode</span>
+<span class="s2"> 3  using a classic Caeser shift substitution (3 letter shift)&quot;&quot;&quot;</span>
+ <span class="mi">4</span>
+ <span class="mi">5</span>  <span class="kn">import</span> <span class="nn">string</span>
+ <span class="mi">6</span>
+ <span class="mi">7</span>  <span class="n">shift</span> <span class="o">=</span> <span class="mi">3</span>
+ <span class="mi">8</span>  <span class="n">choice</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s2">&quot;would you like to encode or decode?&quot;</span><span class="p">)</span>
+ <span class="mi">9</span>  <span class="n">word</span> <span class="o">=</span> <span class="p">(</span><span class="nb">raw_input</span><span class="p">(</span><span class="s2">&quot;Please enter text&quot;</span><span class="p">))</span>
+<span class="mi">10</span>  <span class="n">letters</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">ascii_letters</span> <span class="o">+</span> <span class="n">string</span><span class="o">.</span><span class="n">punctuation</span> <span class="o">+</span> <span class="n">string</span><span class="o">.</span><span class="n">digits</span>
+<span class="mi">11</span>  <span class="n">encoded</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="mi">12</span>  <span class="k">if</span> <span class="n">choice</span> <span class="o">==</span> <span class="s2">&quot;encode&quot;</span><span class="p">:</span>
+<span class="mi">13</span>      <span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
+<span class="mi">14</span>          <span class="k">if</span> <span class="n">letter</span> <span class="o">==</span> <span class="s1">&#39; &#39;</span><span class="p">:</span>
+<span class="mi">15</span>              <span class="n">encoded</span> <span class="o">=</span> <span class="n">encoded</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span>
+<span class="mi">16</span>          <span class="k">else</span><span class="p">:</span>
+<span class="mi">17</span>              <span class="n">x</span> <span class="o">=</span> <span class="n">letters</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">letter</span><span class="p">)</span> <span class="o">+</span> <span class="n">shift</span>
+<span class="mi">18</span>              <span class="n">encoded</span> <span class="o">=</span> <span class="n">encoded</span> <span class="o">+</span> <span class="n">letters</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>
+<span class="mi">19</span>  <span class="k">if</span> <span class="n">choice</span> <span class="o">==</span> <span class="s2">&quot;decode&quot;</span><span class="p">:</span>
+<span class="mi">20</span>      <span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
+<span class="mi">21</span>          <span class="k">if</span> <span class="n">letter</span> <span class="o">==</span> <span class="s1">&#39; &#39;</span><span class="p">:</span>
+<span class="mi">22</span>              <span class="n">encoded</span> <span class="o">=</span> <span class="n">encoded</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span>
+<span class="mi">23</span>          <span class="k">else</span><span class="p">:</span>
+<span class="mi">24</span>              <span class="n">x</span> <span class="o">=</span> <span class="n">letters</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">letter</span><span class="p">)</span> <span class="o">-</span> <span class="n">shift</span>
+<span class="mi">25</span>              <span class="n">encoded</span> <span class="o">=</span> <span class="n">encoded</span> <span class="o">+</span> <span class="n">letters</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>
+<span class="mi">26</span>
+<span class="mi">27</span>  <span class="k">print</span> <span class="n">encoded</span>
+</pre></div>
+</div>
+<p>And here is what happens when we run it with our <code class="docutils literal notranslate"><span class="pre">--disable=deprecated-module</span></code>
+option:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>robertk01 Desktop$ pylint --reports<span class="o">=</span>n --disable<span class="o">=</span>deprecated-module simplecaeser.py
+No config file found, using default configuration
+************* Module simplecaeser
+C:  <span class="m">7</span>, <span class="m">0</span>: Invalid constant name <span class="s2">&quot;shift&quot;</span> <span class="o">(</span>invalid-name<span class="o">)</span>
+C:  <span class="m">8</span>, <span class="m">0</span>: Invalid constant name <span class="s2">&quot;choice&quot;</span> <span class="o">(</span>invalid-name<span class="o">)</span>
+C:  <span class="m">9</span>, <span class="m">0</span>: Invalid constant name <span class="s2">&quot;word&quot;</span> <span class="o">(</span>invalid-name<span class="o">)</span>
+C: <span class="m">10</span>, <span class="m">0</span>: Invalid constant name <span class="s2">&quot;letters&quot;</span> <span class="o">(</span>invalid-name<span class="o">)</span>
+C: <span class="m">11</span>, <span class="m">0</span>: Invalid constant name <span class="s2">&quot;encoded&quot;</span> <span class="o">(</span>invalid-name<span class="o">)</span>
+</pre></div>
+</div>
+<p>Nice!  We're down to just the <code class="docutils literal notranslate"><span class="pre">invalid-name</span></code> messages.</p>
+<p>There are fairly well defined conventions around naming things like instance
+variables, functions, classes, etc.  The conventions focus on the use of
+UPPERCASE and lowercase as well as the characters that separate multiple words
+in the name.  This lends itself well to checking via a regular expression, thus
+the <strong>should match (([A-Z_][A-Z1-9_]*)|(__.*__))$</strong>.</p>
+<p>In this case Pylint is telling me that those variables appear to be constants
+and should be all UPPERCASE. This is an in-house convention that lives with Pylint
+since its inception. You too can create your own in-house naming
+conventions but for the purpose of this tutorial, we want to stick to the PEP-8
+standard. In this case, the variables I declared should follow the convention
+of all lowercase.  The appropriate rule would be something like:
+&quot;should match [a-z_][a-z0-9_]{2,30}$&quot;.  Notice the lowercase letters in the
+regular expression (a-z versus A-Z).</p>
+<p>If we run that rule using a <code class="docutils literal notranslate"><span class="pre">--const-rgx='[a-z\_][a-z0-9\_]{2,30}$'</span></code> option, it
+will now be quite quiet:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>robertk01 Desktop$ pylint --reports<span class="o">=</span>n --disable<span class="o">=</span>deprecated-module --const-rgx<span class="o">=</span><span class="s1">&#39;[a-z_][a-z0-9_]{2,30}$&#39;</span>  simplecaeser.py
+No config file found, using default configuration
+</pre></div>
+</div>
+<p>Regular expressions can be quite a beast so take my word on this particular
+example but go ahead and <a class="reference external" href="http://docs.python.org/library/re.html">read up</a> on them if you want.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">It would really be a pain to have to use all these options
+on the command line all the time.  That's what the configuration file is for.  We can
+configure our Pylint to store our options for us so we don't have to declare
+them on the command line.  Using the configuration file is a nice way of formalizing your
+rules and quickly sharing them with others. Invoking <code class="docutils literal notranslate"><span class="pre">pylint</span>
+<span class="pre">--generate-rcfile</span></code> will create a sample rcfile with all the options set and
+explained in comments.</p>
+</div>
+<p>That's it for the basic intro. More tutorials will follow.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Tutorial</a><ul>
+<li><a class="reference internal" href="#intro">Intro</a></li>
+<li><a class="reference internal" href="#getting-started">Getting Started</a></li>
+<li><a class="reference internal" href="#your-first-pylint-ing">Your First Pylint'ing</a></li>
+<li><a class="reference internal" href="#the-next-step">The Next Step</a></li>
+</ul>
+</li>
+</ul>
+
+<h3><a href="index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide/index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_tos/index.html">How To Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="technical_reference/index.html">Technical Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development_guide/index.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backlinks.html">Some projects using Pylint</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatsnew/index.html">What's New in Pylint</a></li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="intro.html"
+                        title="previous chapter">Introduction</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="user_guide/index.html"
+                        title="next chapter">User Guide</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/tutorial.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="user_guide/index.html" title="User Guide"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="intro.html" title="Introduction"
+             >previous</a> |</li>
+    <li><img src="_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="http://meta.pycqa.org/en/latest/">PyCQA</a> &#187;</li>
+    
+    <a href="index.html">Pylint 2.2.0-dev documentation</a> &#187;
+    
+
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="copyright.html">Copyright</a> 2003-2018, Logilab, PyCQA and contributors.
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    Last updated on None.
+    <a href="https://github.com/pycqa/pylint/issues/new">Found a bug</a>?
+    <br />
+
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.7.8.
+    </div>
+
+  </body>
+</html>

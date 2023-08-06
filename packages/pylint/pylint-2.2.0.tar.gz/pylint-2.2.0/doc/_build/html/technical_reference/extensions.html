@@ -1,0 +1,723 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Optional Pylint checkers in the extensions module &#8212; Pylint 2.2.0-dev documentation</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Pylint features" href="features.html" />
+    <link rel="prev" title="Checkers" href="checkers.html" />
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+     
+
+  </head><body>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="features.html" title="Pylint features"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="checkers.html" title="Checkers"
+             accesskey="P">previous</a> |</li>
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="http://meta.pycqa.org/en/latest/">PyCQA</a> &#187;</li>
+    
+    <a href="../index.html">Pylint 2.2.0-dev documentation</a> &#187;
+    
+
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Technical Reference</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="optional-pylint-checkers-in-the-extensions-module">
+<h1>Optional Pylint checkers in the extensions module<a class="headerlink" href="#optional-pylint-checkers-in-the-extensions-module" title="Permalink to this headline">¶</a></h1>
+<p>Pylint provides the following optional plugins:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#pylint-extensions-bad-builtin"><span class="std std-ref">Deprecated Builtins checker</span></a></li>
+<li><a class="reference internal" href="#pylint-extensions-check-elif"><span class="std std-ref">Else If Used checker</span></a></li>
+<li><a class="reference internal" href="#pylint-extensions-comparetozero"><span class="std std-ref">Compare-To-Zero checker</span></a></li>
+<li><a class="reference internal" href="#pylint-extensions-docparams"><span class="std std-ref">Parameter Documentation checker</span></a></li>
+<li><a class="reference internal" href="#pylint-extensions-docstyle"><span class="std std-ref">Docstyle checker</span></a></li>
+<li><a class="reference internal" href="#pylint-extensions-emptystring"><span class="std std-ref">Compare-To-Empty-String checker</span></a></li>
+<li><a class="reference internal" href="#pylint-extensions-mccabe"><span class="std std-ref">Design checker</span></a></li>
+<li><a class="reference internal" href="#pylint-extensions-overlapping-exceptions"><span class="std std-ref">Overlap-Except checker</span></a></li>
+<li><a class="reference internal" href="#pylint-extensions-redefined-variable-type"><span class="std std-ref">Multiple Types checker</span></a></li>
+</ul>
+<p>You can activate any or all of these extensions by adding a <code class="docutils literal notranslate"><span class="pre">load-plugins</span></code> line to the <code class="docutils literal notranslate"><span class="pre">MASTER</span></code> section of your <code class="docutils literal notranslate"><span class="pre">.pylintrc</span></code>, for example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">load</span><span class="o">-</span><span class="n">plugins</span><span class="o">=</span><span class="n">pylint</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">docparams</span><span class="p">,</span><span class="n">pylint</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">docstyle</span>
+</pre></div>
+</div>
+<div class="section" id="deprecated-builtins-checker">
+<span id="pylint-extensions-bad-builtin"></span><h2>Deprecated Builtins checker<a class="headerlink" href="#deprecated-builtins-checker" title="Permalink to this headline">¶</a></h2>
+<p>This checker is provided by <code class="docutils literal notranslate"><span class="pre">pylint.extensions.bad_builtin</span></code>.
+Verbatim name of the checker is <code class="docutils literal notranslate"><span class="pre">deprecated_builtins</span></code>.</p>
+<div class="section" id="deprecated-builtins-checker-documentation">
+<h3>Deprecated Builtins checker Documentation<a class="headerlink" href="#deprecated-builtins-checker-documentation" title="Permalink to this headline">¶</a></h3>
+<p>This used to be the <code class="docutils literal notranslate"><span class="pre">bad-builtin</span></code> core checker, but it was moved to
+an extension instead. It can be used for finding prohibited used builtins,
+such as <code class="docutils literal notranslate"><span class="pre">map</span></code> or <code class="docutils literal notranslate"><span class="pre">filter</span></code>, for which other alternatives exists.</p>
+<p>If you want to control for what builtins the checker should warn about,
+you can use the <code class="docutils literal notranslate"><span class="pre">bad-functions</span></code> option:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pylint a.py --load-plugins=pylint.extensions.bad_builtin --bad-functions=apply,reduce
+...
+</pre></div>
+</div>
+</div>
+<div class="section" id="deprecated-builtins-checker-options">
+<h3>Deprecated Builtins checker Options<a class="headerlink" href="#deprecated-builtins-checker-options" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">bad-functions:</th><td class="field-body"><p class="first">List of builtins function names that should not be used, separated by a comma</p>
+<p class="last">Default: <code class="docutils literal notranslate"><span class="pre">map,filter</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="deprecated-builtins-checker-messages">
+<h3>Deprecated Builtins checker Messages<a class="headerlink" href="#deprecated-builtins-checker-messages" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">bad-builtin (W0141):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Used builtin function %s</em>
+Used when a black listed builtin function is used (see the bad-function
+option). Usual black listed functions are the ones like map, or filter , where
+Python offers now some cleaner alternative like list comprehension.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="else-if-used-checker">
+<span id="pylint-extensions-check-elif"></span><h2>Else If Used checker<a class="headerlink" href="#else-if-used-checker" title="Permalink to this headline">¶</a></h2>
+<p>This checker is provided by <code class="docutils literal notranslate"><span class="pre">pylint.extensions.check_elif</span></code>.
+Verbatim name of the checker is <code class="docutils literal notranslate"><span class="pre">else_if_used</span></code>.</p>
+<div class="section" id="else-if-used-checker-messages">
+<h3>Else If Used checker Messages<a class="headerlink" href="#else-if-used-checker-messages" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">else-if-used (R5501):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Consider using &quot;elif&quot; instead of &quot;else if&quot;</em>
+Used when an else statement is immediately followed by an if statement and
+does not contain statements that would be unrelated to it.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="compare-to-zero-checker">
+<span id="pylint-extensions-comparetozero"></span><h2>Compare-To-Zero checker<a class="headerlink" href="#compare-to-zero-checker" title="Permalink to this headline">¶</a></h2>
+<p>This checker is provided by <code class="docutils literal notranslate"><span class="pre">pylint.extensions.comparetozero</span></code>.
+Verbatim name of the checker is <code class="docutils literal notranslate"><span class="pre">compare-to-zero</span></code>.</p>
+<div class="section" id="compare-to-zero-checker-messages">
+<h3>Compare-To-Zero checker Messages<a class="headerlink" href="#compare-to-zero-checker-messages" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">compare-to-zero (C2001):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Avoid comparisons to zero</em>
+Used when Pylint detects comparison to a 0 constant.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="parameter-documentation-checker">
+<span id="pylint-extensions-docparams"></span><h2>Parameter Documentation checker<a class="headerlink" href="#parameter-documentation-checker" title="Permalink to this headline">¶</a></h2>
+<p>This checker is provided by <code class="docutils literal notranslate"><span class="pre">pylint.extensions.docparams</span></code>.
+Verbatim name of the checker is <code class="docutils literal notranslate"><span class="pre">parameter_documentation</span></code>.</p>
+<div class="section" id="parameter-documentation-checker-documentation">
+<h3>Parameter Documentation checker Documentation<a class="headerlink" href="#parameter-documentation-checker-documentation" title="Permalink to this headline">¶</a></h3>
+<p>If you document the parameters of your functions, methods and constructors and
+their types systematically in your code this optional component might
+be useful for you. Sphinx style, Google style, and Numpy style are supported.
+(For some examples, see <a class="reference external" href="https://pypi.python.org/pypi/sphinxcontrib-napoleon">https://pypi.python.org/pypi/sphinxcontrib-napoleon</a> .)</p>
+<p>You can activate this checker by adding the line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">load</span><span class="o">-</span><span class="n">plugins</span><span class="o">=</span><span class="n">pylint</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">docparams</span>
+</pre></div>
+</div>
+<p>to the <code class="docutils literal notranslate"><span class="pre">MASTER</span></code> section of your <code class="docutils literal notranslate"><span class="pre">.pylintrc</span></code>.</p>
+<p>This checker verifies that all function, method, and constructor docstrings
+include documentation of the</p>
+<ul class="simple">
+<li>parameters and their types</li>
+<li>return value and its type</li>
+<li>exceptions raised</li>
+</ul>
+<p>and can handle docstrings in</p>
+<ul>
+<li><p class="first">Sphinx style (<code class="docutils literal notranslate"><span class="pre">param</span></code>, <code class="docutils literal notranslate"><span class="pre">type</span></code>, <code class="docutils literal notranslate"><span class="pre">return</span></code>, <code class="docutils literal notranslate"><span class="pre">rtype</span></code>,
+<code class="docutils literal notranslate"><span class="pre">raise</span></code> / <code class="docutils literal notranslate"><span class="pre">except</span></code>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">function_foo</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;function foo ...</span>
+
+<span class="sd">    :param x: bla x</span>
+<span class="sd">    :type x: int</span>
+
+<span class="sd">    :param y: bla y</span>
+<span class="sd">    :type y: float</span>
+
+<span class="sd">    :param int z: bla z</span>
+
+<span class="sd">    :return: sum</span>
+<span class="sd">    :rtype: float</span>
+
+<span class="sd">    :raises OSError: bla</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">or the Google style (<code class="docutils literal notranslate"><span class="pre">Args:</span></code>, <code class="docutils literal notranslate"><span class="pre">Returns:</span></code>, <code class="docutils literal notranslate"><span class="pre">Raises:</span></code>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">function_foo</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;function foo ...</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        x (int): bla x</span>
+<span class="sd">        y (float): bla y</span>
+
+<span class="sd">        z (int): bla z</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        float: sum</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        OSError: bla</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">or the Numpy style (<code class="docutils literal notranslate"><span class="pre">Parameters</span></code>, <code class="docutils literal notranslate"><span class="pre">Returns</span></code>, <code class="docutils literal notranslate"><span class="pre">Raises</span></code>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">function_foo</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;function foo ...</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x: int</span>
+<span class="sd">        bla x</span>
+<span class="sd">    y: float</span>
+<span class="sd">        bla y</span>
+
+<span class="sd">    z: int</span>
+<span class="sd">        bla z</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float</span>
+<span class="sd">        sum</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    OSError</span>
+<span class="sd">        bla</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>You'll be notified of <strong>missing parameter documentation</strong> but also of
+<strong>naming inconsistencies</strong> between the signature and the documentation which
+often arise when parameters are renamed automatically in the code, but not in
+the documentation.</p>
+<p>Constructor parameters can be documented in either the class docstring or
+the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> docstring, but not both:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ClassFoo</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Sphinx style docstring foo</span>
+
+<span class="sd">    :param float x: bla x</span>
+
+<span class="sd">    :param y: bla y</span>
+<span class="sd">    :type y: int</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">ClassBar</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Google style docstring bar</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            x (float): bla x</span>
+<span class="sd">            y (int): bla y</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">pass</span>
+</pre></div>
+</div>
+<p>In some cases, having to document all parameters is a nuisance, for instance if
+many of your functions or methods just follow a <strong>common interface</strong>. To remove
+this burden, the checker accepts missing parameter documentation if one of the
+following phrases is found in the docstring:</p>
+<ul class="simple">
+<li>For the other parameters, see</li>
+<li>For the parameters, see</li>
+</ul>
+<p>(with arbitrary whitespace between the words). Please add a link to the
+docstring defining the interface, e.g. a superclass method, after &quot;see&quot;:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">callback</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Sphinx style docstring for callback ...</span>
+
+<span class="sd">    :param x: bla x</span>
+<span class="sd">    :type x: int</span>
+
+<span class="sd">    For the other parameters, see</span>
+<span class="sd">    :class:`MyFrameworkUsingAndDefiningCallback`</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span>
+
+<span class="k">def</span> <span class="nf">callback</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Google style docstring for callback ...</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        x (int): bla x</span>
+
+<span class="sd">    For the other parameters, see</span>
+<span class="sd">    :class:`MyFrameworkUsingAndDefiningCallback`</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span>
+</pre></div>
+</div>
+<p>Naming inconsistencies in existing parameter and their type documentations are
+still detected.</p>
+</div>
+<div class="section" id="parameter-documentation-checker-options">
+<h3>Parameter Documentation checker Options<a class="headerlink" href="#parameter-documentation-checker-options" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">accept-no-param-doc:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Whether to accept totally missing parameter documentation in the docstring of
+a function that has parameters.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">yes</span></code></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">accept-no-raise-doc:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">Whether to accept totally missing raises documentation in the docstring of a
+function that raises an exception.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">yes</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">accept-no-return-doc:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Whether to accept totally missing return documentation in the docstring of a
+function that returns a statement.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">yes</span></code></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">accept-no-yields-doc:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">Whether to accept totally missing yields documentation in the docstring of a
+generator.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">yes</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">default-docstring-type:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">If the docstring type cannot be guessed the specified docstring type will be
+used.</p>
+<p class="last">Default: <code class="docutils literal notranslate"><span class="pre">default</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="parameter-documentation-checker-messages">
+<h3>Parameter Documentation checker Messages<a class="headerlink" href="#parameter-documentation-checker-messages" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">differing-param-doc (W9017):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>&quot;%s&quot; differing in parameter documentation</em>
+Please check parameter names in declarations.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">differing-type-doc (W9018):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>&quot;%s&quot; differing in parameter type documentation</em>
+Please check parameter names in type declarations.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">multiple-constructor-doc (W9005):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>&quot;%s&quot; has constructor parameters documented in class and __init__</em>
+Please remove parameter declarations in the class or constructor.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">missing-param-doc (W9015):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>&quot;%s&quot; missing in parameter documentation</em>
+Please add parameter declarations for all parameters.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">missing-type-doc (W9016):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>&quot;%s&quot; missing in parameter type documentation</em>
+Please add parameter type declarations for all parameters.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">missing-raises-doc (W9006):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>&quot;%s&quot; not documented as being raised</em>
+Please document exceptions for all raised exception types.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">missing-return-doc (W9011):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Missing return documentation</em>
+Please add documentation about what this method returns.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">missing-return-type-doc (W9012):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Missing return type documentation</em>
+Please document the type returned by this method.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">missing-yield-doc (W9013):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Missing yield documentation</em>
+Please add documentation about what this generator yields.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">missing-yield-type-doc (W9014):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Missing yield type documentation</em>
+Please document the type yielded by this method.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">redundant-returns-doc (W9008):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Redundant returns documentation</em>
+Please remove the return/rtype documentation from this method.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">redundant-yields-doc (W9010):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Redundant yields documentation</em>
+Please remove the yields documentation from this method.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="docstyle-checker">
+<span id="pylint-extensions-docstyle"></span><h2>Docstyle checker<a class="headerlink" href="#docstyle-checker" title="Permalink to this headline">¶</a></h2>
+<p>This checker is provided by <code class="docutils literal notranslate"><span class="pre">pylint.extensions.docstyle</span></code>.
+Verbatim name of the checker is <code class="docutils literal notranslate"><span class="pre">docstyle</span></code>.</p>
+<div class="section" id="docstyle-checker-messages">
+<h3>Docstyle checker Messages<a class="headerlink" href="#docstyle-checker-messages" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">bad-docstring-quotes (C0198):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Bad docstring quotes in %s, expected &quot;&quot;&quot;, given %s</em>
+Used when a docstring does not have triple double quotes.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">docstring-first-line-empty (C0199):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>First line empty in %s docstring</em>
+Used when a blank line is found at the beginning of a docstring.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="compare-to-empty-string-checker">
+<span id="pylint-extensions-emptystring"></span><h2>Compare-To-Empty-String checker<a class="headerlink" href="#compare-to-empty-string-checker" title="Permalink to this headline">¶</a></h2>
+<p>This checker is provided by <code class="docutils literal notranslate"><span class="pre">pylint.extensions.emptystring</span></code>.
+Verbatim name of the checker is <code class="docutils literal notranslate"><span class="pre">compare-to-empty-string</span></code>.</p>
+<div class="section" id="compare-to-empty-string-checker-messages">
+<h3>Compare-To-Empty-String checker Messages<a class="headerlink" href="#compare-to-empty-string-checker-messages" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">compare-to-empty-string (C1901):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Avoid comparisons to empty string</em>
+Used when Pylint detects comparison to an empty string constant.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="design-checker">
+<span id="pylint-extensions-mccabe"></span><h2>Design checker<a class="headerlink" href="#design-checker" title="Permalink to this headline">¶</a></h2>
+<p>This checker is provided by <code class="docutils literal notranslate"><span class="pre">pylint.extensions.mccabe</span></code>.
+Verbatim name of the checker is <code class="docutils literal notranslate"><span class="pre">design</span></code>.</p>
+<div class="section" id="design-checker-documentation">
+<h3>Design checker Documentation<a class="headerlink" href="#design-checker-documentation" title="Permalink to this headline">¶</a></h3>
+<p>You can now use this plugin for finding complexity issues in your code base.</p>
+<p>Activate it through <code class="docutils literal notranslate"><span class="pre">pylint</span> <span class="pre">--load-plugins=pylint.extensions.mccabe</span></code>. It introduces
+a new warning, <code class="docutils literal notranslate"><span class="pre">too-complex</span></code>, which is emitted when a code block has a complexity
+higher than a preestablished value, which can be controlled through the
+<code class="docutils literal notranslate"><span class="pre">max-complexity</span></code> option, such as in this example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cat a.py
+def f10():
+    &quot;&quot;&quot;McCabe rating: 11&quot;&quot;&quot;
+    myint = 2
+    if myint == 5:
+        return myint
+    elif myint == 6:
+        return myint
+    elif myint == 7:
+        return myint
+    elif myint == 8:
+        return myint
+    elif myint == 9:
+        return myint
+    elif myint == 10:
+        if myint == 8:
+            while True:
+                return True
+        elif myint == 8:
+            with myint:
+                return 8
+    else:
+        if myint == 2:
+            return myint
+        return myint
+    return myint
+$ pylint a.py --load-plugins=pylint.extensions.mccabe
+R:1: &#39;f10&#39; is too complex. The McCabe rating is 11 (too-complex)
+$ pylint a.py --load-plugins=pylint.extensions.mccabe --max-complexity=50
+$
+</pre></div>
+</div>
+</div>
+<div class="section" id="design-checker-options">
+<h3>Design checker Options<a class="headerlink" href="#design-checker-options" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">max-complexity:</th><td class="field-body"><p class="first">McCabe complexity cyclomatic threshold</p>
+<p class="last">Default: <code class="docutils literal notranslate"><span class="pre">10</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="design-checker-messages">
+<h3>Design checker Messages<a class="headerlink" href="#design-checker-messages" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">too-complex (R1260):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>%s is too complex. The McCabe rating is %d</em>
+Used when a method or function is too complex based on McCabe Complexity
+Cyclomatic</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="overlap-except-checker">
+<span id="pylint-extensions-overlapping-exceptions"></span><h2>Overlap-Except checker<a class="headerlink" href="#overlap-except-checker" title="Permalink to this headline">¶</a></h2>
+<p>This checker is provided by <code class="docutils literal notranslate"><span class="pre">pylint.extensions.overlapping_exceptions</span></code>.
+Verbatim name of the checker is <code class="docutils literal notranslate"><span class="pre">overlap-except</span></code>.</p>
+<div class="section" id="overlap-except-checker-messages">
+<h3>Overlap-Except checker Messages<a class="headerlink" href="#overlap-except-checker-messages" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">overlapping-except (W0714):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Overlapping exceptions (%s)</em>
+Used when exceptions in handler overlap or are identical</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="multiple-types-checker">
+<span id="pylint-extensions-redefined-variable-type"></span><h2>Multiple Types checker<a class="headerlink" href="#multiple-types-checker" title="Permalink to this headline">¶</a></h2>
+<p>This checker is provided by <code class="docutils literal notranslate"><span class="pre">pylint.extensions.redefined_variable_type</span></code>.
+Verbatim name of the checker is <code class="docutils literal notranslate"><span class="pre">multiple_types</span></code>.</p>
+<div class="section" id="multiple-types-checker-messages">
+<h3>Multiple Types checker Messages<a class="headerlink" href="#multiple-types-checker-messages" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">redefined-variable-type (R0204):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Redefinition of %s type from %s to %s</em>
+Used when the type of a variable changes inside a method or a function.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Optional Pylint checkers in the extensions module</a><ul>
+<li><a class="reference internal" href="#deprecated-builtins-checker">Deprecated Builtins checker</a><ul>
+<li><a class="reference internal" href="#deprecated-builtins-checker-documentation">Deprecated Builtins checker Documentation</a></li>
+<li><a class="reference internal" href="#deprecated-builtins-checker-options">Deprecated Builtins checker Options</a></li>
+<li><a class="reference internal" href="#deprecated-builtins-checker-messages">Deprecated Builtins checker Messages</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#else-if-used-checker">Else If Used checker</a><ul>
+<li><a class="reference internal" href="#else-if-used-checker-messages">Else If Used checker Messages</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#compare-to-zero-checker">Compare-To-Zero checker</a><ul>
+<li><a class="reference internal" href="#compare-to-zero-checker-messages">Compare-To-Zero checker Messages</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#parameter-documentation-checker">Parameter Documentation checker</a><ul>
+<li><a class="reference internal" href="#parameter-documentation-checker-documentation">Parameter Documentation checker Documentation</a></li>
+<li><a class="reference internal" href="#parameter-documentation-checker-options">Parameter Documentation checker Options</a></li>
+<li><a class="reference internal" href="#parameter-documentation-checker-messages">Parameter Documentation checker Messages</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#docstyle-checker">Docstyle checker</a><ul>
+<li><a class="reference internal" href="#docstyle-checker-messages">Docstyle checker Messages</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#compare-to-empty-string-checker">Compare-To-Empty-String checker</a><ul>
+<li><a class="reference internal" href="#compare-to-empty-string-checker-messages">Compare-To-Empty-String checker Messages</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#design-checker">Design checker</a><ul>
+<li><a class="reference internal" href="#design-checker-documentation">Design checker Documentation</a></li>
+<li><a class="reference internal" href="#design-checker-options">Design checker Options</a></li>
+<li><a class="reference internal" href="#design-checker-messages">Design checker Messages</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#overlap-except-checker">Overlap-Except checker</a><ul>
+<li><a class="reference internal" href="#overlap-except-checker-messages">Overlap-Except checker Messages</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#multiple-types-checker">Multiple Types checker</a><ul>
+<li><a class="reference internal" href="#multiple-types-checker-messages">Multiple Types checker Messages</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<h3><a href="../index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how_tos/index.html">How To Guides</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Technical Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="startup.html">Startup and the Linter Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checkers.html">Checkers</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Optional Pylint checkers in the extensions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html">Pylint features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c_extensions.html">Pylint and C extensions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../development_guide/index.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../backlinks.html">Some projects using Pylint</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew/index.html">What's New in Pylint</a></li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="checkers.html"
+                        title="previous chapter">Checkers</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="features.html"
+                        title="next chapter">Pylint features</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/technical_reference/extensions.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="features.html" title="Pylint features"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="checkers.html" title="Checkers"
+             >previous</a> |</li>
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="http://meta.pycqa.org/en/latest/">PyCQA</a> &#187;</li>
+    
+    <a href="../index.html">Pylint 2.2.0-dev documentation</a> &#187;
+    
+
+          <li class="nav-item nav-item-1"><a href="index.html" >Technical Reference</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">Copyright</a> 2003-2018, Logilab, PyCQA and contributors.
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    Last updated on None.
+    <a href="https://github.com/pycqa/pylint/issues/new">Found a bug</a>?
+    <br />
+
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.7.8.
+    </div>
+
+  </body>
+</html>

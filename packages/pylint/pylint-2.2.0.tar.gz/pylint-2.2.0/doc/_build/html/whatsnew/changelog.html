@@ -1,0 +1,3490 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Pylint&#39;s ChangeLog &#8212; Pylint 2.2.0-dev documentation</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="What&#39;s New In Pylint 1.6" href="1.6.html" />
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+     
+
+  </head><body>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="1.6.html" title="What&#39;s New In Pylint 1.6"
+             accesskey="P">previous</a> |</li>
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="http://meta.pycqa.org/en/latest/">PyCQA</a> &#187;</li>
+    
+    <a href="../index.html">Pylint 2.2.0-dev documentation</a> &#187;
+    
+
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">What's New in Pylint</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="pylint-s-changelog">
+<h1>Pylint's ChangeLog<a class="headerlink" href="#pylint-s-changelog" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-s-new-in-pylint-2-2">
+<h2>What's New in Pylint 2.2?<a class="headerlink" href="#what-s-new-in-pylint-2-2" title="Permalink to this headline">¶</a></h2>
+<p>Release date: TBA</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Handle <code class="docutils literal notranslate"><span class="pre">AstroidSyntaxError</span></code> when trying to import a module.</p>
+<p>Close #2313</p>
+</li>
+<li><p class="first">Allow <code class="docutils literal notranslate"><span class="pre">__module__</span></code> to be redefined at a class level. Close #2451</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">pylint</span></code> used to emit a <code class="docutils literal notranslate"><span class="pre">unused-variable</span></code> error if unused import was found in the function. Now instead of
+<code class="docutils literal notranslate"><span class="pre">unused-variable</span></code>, <code class="docutils literal notranslate"><span class="pre">unused-import</span></code> is emitted.</p>
+<p>Close #2421</p>
+</li>
+<li><p class="first">Handle asyncio.coroutine when looking for <code class="docutils literal notranslate"><span class="pre">not-an-iterable</span></code> check.</p>
+<p>Close #996</p>
+</li>
+<li><p class="first">The <code class="docutils literal notranslate"><span class="pre">locally-enabled</span></code> check is gone.</p>
+<p>Close #2442</p>
+</li>
+<li><p class="first">Infer decorated methods when looking for method-hidden</p>
+<p>Close #2369</p>
+</li>
+<li><p class="first">Pick the latest value from the inferred values when looking for <code class="docutils literal notranslate"><span class="pre">raising-non-exception</span></code></p>
+<p>Close #2431</p>
+</li>
+<li><p class="first">Extend the TYPE_CHECKING guard to TYPE_CHECKING name as well, not just the attribute</p>
+<p>Close #2411</p>
+</li>
+<li><p class="first">Ignore import x.y.z as z cases for checker <cite>useless-import-alias</cite>.</p>
+<p>Close #2309</p>
+</li>
+<li><p class="first">Fix false positive <code class="docutils literal notranslate"><span class="pre">undefined-variable</span></code> and <code class="docutils literal notranslate"><span class="pre">used-before-assignment</span></code> with nonlocal keyword usage.</p>
+<p>Close #2049</p>
+</li>
+<li><p class="first">Stop <code class="docutils literal notranslate"><span class="pre">protected-access</span></code> exception for missing class attributes</p>
+</li>
+<li><p class="first">Don't emit <cite>assignment-from-no-return</cite> for decorated function nodes</p>
+<p>Close #2385</p>
+</li>
+<li><p class="first"><cite>unnecessary-pass</cite> is now also emitted when a function or class contains only docstring and pass statement.</p>
+<blockquote>
+<div><p>In Python, stubbed functions often have a body that contains just a single <cite>pass</cite> statement,
+indicating that the function doesn't do anything. However, a stubbed function can also have just a
+docstring, and function with a docstring and no body also does nothing.</p>
+<p>Close #2208</p>
+</div></blockquote>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">duplicate-argument-name</span></code> is emitted for more than one duplicate argument per function</p>
+<blockquote>
+<div><p>Close #1712</p>
+</div></blockquote>
+</li>
+<li><p class="first">Allow double indentation levels for more distinguishable indentations</p>
+<p>Close #741</p>
+</li>
+<li><p class="first">Consider tuples in exception handler for <code class="docutils literal notranslate"><span class="pre">try-except-raise</span></code>.
+Close #2389</p>
+</li>
+<li><p class="first">Fix astroid.ClassDef check in checkers.utils.is_subclass_of</p>
+</li>
+<li><p class="first">Fix wildcard imports being ignored by the import checker</p>
+</li>
+<li><p class="first">Fix external/internal distinction being broken in the import graph</p>
+</li>
+<li><p class="first">Fix wildcard import check not skipping <cite>__init__.py</cite></p>
+<p>Close #2430</p>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-2-1-1">
+<h2>What's New in Pylint 2.1.1?<a class="headerlink" href="#what-s-new-in-pylint-2-1-1" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2018-08-07</p>
+<blockquote>
+<div><ul>
+<li><p class="first">fix pylint crash due to <code class="docutils literal notranslate"><span class="pre">misplaced-format-function</span></code> not correctly handling class attribute.
+Close #2384</p>
+</li>
+<li><p class="first">Do not emit *-builtin for Python 3 builtin checks when the builtin is used inside a try-except</p>
+<p>Close PyCQA/pylint#2228</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">simplifiable-if-statement</span></code> not emitted when dealing with subscripts</p>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-2-1">
+<h2>What's New in Pylint 2.1?<a class="headerlink" href="#what-s-new-in-pylint-2-1" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Release date: 2018-08-01</dt>
+<dd><ul class="first">
+<li><p class="first"><cite>trailing-comma-tuple</cite> gets emitted for <code class="docutils literal notranslate"><span class="pre">yield</span></code> statements as well.</p>
+<blockquote>
+<div><p>Close #2363</p>
+</div></blockquote>
+</li>
+<li><p class="first">Get only the arguments of the scope function for <cite>redefined-argument-from-local</cite></p>
+<p>Close #2364</p>
+</li>
+<li><p class="first">Add a check <cite>misplaced-format-function</cite> which is emitted if format function is used on
+non str object.</p>
+<p>Close #2200</p>
+</li>
+<li><p class="first"><cite>chain.from_iterable</cite> no longer emits <cite>dict-{}-not-iterating</cite> when dealing with dict values and keys</p>
+</li>
+<li><p class="first">Demote the <cite>try-except-raise</cite> message from an error to a warning (E0705 -&gt; W0706)</p>
+<blockquote>
+<div><p>Close #2323</p>
+</div></blockquote>
+</li>
+<li><p class="first">Correctly handle the new name of the Python implementation of the <cite>abc</cite> module.</p>
+<p>Close PyCQA/astroid#2288</p>
+</li>
+</ul>
+<blockquote>
+<div><ul>
+<li><p class="first">Modules with <cite>__getattr__</cite> are exempted by default from <cite>no-member</cite></p>
+<p>There's no easy way to figure out if a module has a particular member when
+the said module uses <cite>__getattr__</cite>, which is a new addition to Python 3.7.
+Instead we assume the safe thing to do, in the same way we do for classes,
+and skip those modules from checking.</p>
+<p>Close #2331</p>
+</li>
+<li><p class="first">Fix a false positive <cite>invalid name</cite> message when method or attribute name is longer then 30 characters.</p>
+<p>Close #2047</p>
+</li>
+<li><p class="first">Include the type of the next branch in <cite>no-else-return</cite></p>
+<p>Close #2295</p>
+</li>
+<li><p class="first">Fix inconsistent behaviour for bad-continuation on first line of file</p>
+<p>Close #2281</p>
+</li>
+</ul>
+<blockquote>
+<div><ul>
+<li><p class="first">Fix not being able to disable certain messages on the last line through
+the global disable option</p>
+<p>Close #2278</p>
+</li>
+</ul>
+</div></blockquote>
+<ul>
+<li><p class="first">Don't emit <cite>useless-return</cite> when we have a single statement that is the return itself</p>
+<p>We still want to be explicit when a function is supposed to return
+an optional value; even though <cite>pass</cite> could still work, it's not explicit
+enough and the function might look like it's missing an implementation.
+Close #2300</p>
+</li>
+</ul>
+</div></blockquote>
+<ul>
+<li><p class="first">Fix false-positive undefined-variable for self referential class name in lamdbas</p>
+<blockquote>
+<div><p>Close #704</p>
+</div></blockquote>
+</li>
+</ul>
+<blockquote>
+<div><ul>
+<li><p class="first">Don't crash when <cite>pylint</cite> is unable to infer the value of an argument to <cite>next()</cite></p>
+<p>Close #2316</p>
+</li>
+<li><p class="first">Don't emit <cite>not-an-iterable</cite> when dealing with async iterators.</p>
+<p>But do emit it when using the usual iteration protocol against
+async iterators.</p>
+<p>Close #2311</p>
+</li>
+</ul>
+</div></blockquote>
+<ul class="last">
+<li><p class="first">Can specify a default docstring type for when the check cannot guess the type</p>
+<blockquote>
+<div><p>Close #1169</p>
+</div></blockquote>
+</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="what-s-new-in-pylint-2-0">
+<h2>What's New in Pylint 2.0?<a class="headerlink" href="#what-s-new-in-pylint-2-0" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Release date: 2018-07-15</dt>
+<dd><ul class="first last">
+<li><p class="first"><cite>try-except-raise</cite> should not be emitted if there are any parent exception class handlers.</p>
+<blockquote>
+<div><p>Close #2284</p>
+</div></blockquote>
+</li>
+<li><p class="first"><cite>trailing-comma-tuple</cite> can be emitted for <cite>return</cite> statements as well.</p>
+<blockquote>
+<div><p>Close #2269</p>
+</div></blockquote>
+</li>
+<li><p class="first">Fix a false positive <code class="docutils literal notranslate"><span class="pre">inconsistent-return-statements</span></code> message when exception is raised
+inside an else statement.</p>
+<p>Close #1782</p>
+</li>
+<li><p class="first"><cite>ImportFrom</cite> nodes correctly use the full name for the import sorting checks.</p>
+<p>Close #2181</p>
+</li>
+<li><p class="first">[].extend and similar builtin operations don't emit <cite>dict-*-not-iterating</cite> with the Python 3 porting checker</p>
+<p>Close #2187</p>
+</li>
+<li><p class="first">Add a check <cite>consider-using-dict-comprehension</cite> which is emitted if for dict initialization
+the old style with list comprehensions is used.</p>
+</li>
+<li><p class="first">Add a check <cite>consider-using-set-comprehension</cite> which is emitted if for set initialization
+the old style with list comprehensions is used.</p>
+</li>
+<li><p class="first"><cite>logging-not-lazy</cite> is emitted whenever pylint infers that a string is built with addition</p>
+<p>Close #2193</p>
+</li>
+<li><p class="first">Add a check <cite>chained-comparison</cite> which is emitted if a boolean operation can be simplified
+by chaining some of its operations.
+e.g &quot;a &lt; b and b &lt; c&quot;, can be simplified as &quot;a &lt; b &lt; c&quot;.</p>
+<p>Close #2032</p>
+</li>
+<li><p class="first">Add a check <cite>consider-using-in</cite> for comparisons of a variable against
+multiple values with &quot;==&quot; and &quot;or&quot;s instead of checking if the variable
+is contained &quot;in&quot; a tuple of those values.</p>
+</li>
+<li><p class="first"><cite>in</cite> is considered iterating context for some of the Python 3 porting checkers</p>
+<p>Close #2186</p>
+</li>
+<li><p class="first">Add <cite>--ignore-none</cite> flag to control if pylint should warn about <cite>no-member</cite> where the owner is None</p>
+</li>
+<li><p class="first">Fix a false positive related to <cite>too-many-arguments</cite> and bounded <cite>__get__</cite> methods</p>
+<p>Close #2172</p>
+</li>
+<li><p class="first"><cite>mcs</cite> as the first parameter of metaclass's <cite>__new__</cite> method was replaced by <cite>cls</cite></p>
+<p>Close #2028</p>
+</li>
+<li><p class="first"><cite>assignment-from-no-return</cite> considers methods as well.</p>
+<blockquote>
+<div><p>Close #2081</p>
+</div></blockquote>
+</li>
+<li><p class="first">Support typing.TYPE_CHECKING for <em>unused-import</em> errors</p>
+<p>Close #1948</p>
+</li>
+<li><p class="first">Inferred classes at a function level no longer emit <cite>invalid-name</cite>
+when they don't respect the variable regular expression</p>
+<p>Close #1049</p>
+</li>
+<li><p class="first">Added basic support for postponed evaluation of function annotations.</p>
+<p>Close #2069</p>
+</li>
+<li><p class="first">Fix a bug with <cite>missing-kwoa</cite> and variadics parameters</p>
+<p>Close #1111</p>
+</li>
+<li><p class="first"><cite>simplifiable-if-statement</cite> takes in account only when assigning to same targets</p>
+<blockquote>
+<div><p>Close #1984</p>
+</div></blockquote>
+</li>
+<li><p class="first">Make <code class="docutils literal notranslate"><span class="pre">len-as-condition</span></code> test more cases, such as <code class="docutils literal notranslate"><span class="pre">len()</span> <span class="pre">&lt;</span> <span class="pre">1</span></code> or <code class="docutils literal notranslate"><span class="pre">len</span> <span class="pre">&lt;=</span> <span class="pre">0</span></code></p>
+</li>
+<li><p class="first">Fix false-positive <code class="docutils literal notranslate"><span class="pre">line-too-long</span></code> message emission for
+commented line at the end of a module</p>
+<p>Close #1950</p>
+</li>
+<li><p class="first">Fix false-positive <code class="docutils literal notranslate"><span class="pre">bad-continuation</span></code> for with statements</p>
+<p>Close #461</p>
+</li>
+<li><p class="first">Don't warn about <cite>stop-iteration-return</cite> when using <cite>next()</cite> over <cite>itertools.count</cite></p>
+<p>Close #2158</p>
+</li>
+<li><p class="first">Add a check <cite>consider-using-get</cite> for unidiomatic usage of value/default-retrieval
+for a key from a dictionary</p>
+<p>Close #2076</p>
+</li>
+<li><p class="first">invalid-slice-index is not emitted when the slice is used as index for a complex object.</p>
+<p>We only use a handful of known objects (list, set and friends) to figure out if
+we should emit invalid-slice-index when the slice is used to subscript an object.</p>
+</li>
+<li><p class="first">Don't emit <cite>unused-import</cite> anymore for typing imports used in type comments.</p>
+</li>
+<li><p class="first">Add a new check 'useless-import-alias'.</p>
+<p>Close #2052</p>
+</li>
+<li><p class="first">Add <cite>comparison-with-callable</cite> to warn for comparison with bare callable, without calling it.</p>
+<p>Close #2082</p>
+</li>
+<li><p class="first">Don't warn for <code class="docutils literal notranslate"><span class="pre">missing-type-doc</span></code> and/or <code class="docutils literal notranslate"><span class="pre">missing-return-type-doc</span></code>, if type
+annotations exist on the function signature for a parameter and/or return type.
+Close #2083</p>
+</li>
+<li><p class="first">Add <cite>--exit-zero</cite> option for continuous integration scripts to more
+easily call Pylint in environments that abort when a program returns a
+non-zero (error) status code.</p>
+<p>Close #2042</p>
+</li>
+<li><p class="first">Warn if the first argument of an instance/ class method gets assigned</p>
+<p>Close #977</p>
+</li>
+<li><p class="first">New check <cite>comparison-with-itself</cite> to check comparison between same value.</p>
+<p>Close #2051</p>
+</li>
+<li><p class="first">Add a new warning, 'logging-fstring-interpolation', emitted when f-string
+is used within logging function calls.</p>
+<p>Close #1998</p>
+</li>
+<li><p class="first">Don't show 'useless-super-delegation' if the subclass method has different type annotations.</p>
+<p>Close #1923</p>
+</li>
+<li><p class="first">Add <cite>unhashable-dict-key</cite> check.</p>
+<p>Closes #586</p>
+</li>
+<li><p class="first">Don't warn that a global variable is unused if it is defined by an import</p>
+<p>Close #1453</p>
+</li>
+<li><p class="first">Skip wildcard import check for <cite>__init__.py</cite>.</p>
+<p>Close #2026</p>
+</li>
+<li><p class="first">The Python 3 porting mode can now run with Python 3 as well.</p>
+</li>
+<li><p class="first"><cite>too-few-public-methods</cite> is not emitted for dataclasses.</p>
+<blockquote>
+<div><p>Close #1793</p>
+</div></blockquote>
+</li>
+<li><p class="first">New verbose mode option, enabled with <cite>--verbose</cite> command line flag, to
+display of extra non-checker-related output. It is disabled by default.</p>
+<p>Close #1863</p>
+</li>
+<li><p class="first"><cite>undefined-loop-variable</cite> takes in consideration non-empty iterred objects before emitting</p>
+<p>Close #2039</p>
+</li>
+<li><p class="first">Add support for numpydoc optional return value names.</p>
+<p>Close #2030</p>
+</li>
+<li><p class="first"><cite>singleton-comparison</cite> accounts for negative checks</p>
+<p>Close #2037</p>
+</li>
+<li><p class="first">Add a check <cite>consider-using-in</cite> for comparisons of a variable against
+multiple values with &quot;==&quot; and &quot;or&quot;s instead of checking if the variable
+is contained &quot;in&quot; a tuple of those values.</p>
+<p>Close #1977</p>
+</li>
+<li><p class="first">defaultdict and subclasses of dict are now handled for dict-iter-* checks</p>
+<p>Close #2005</p>
+</li>
+<li><p class="first"><cite>logging-format-interpolation</cite> also emits when f-strings are used instead of % syntax.</p>
+<p>Close #1788</p>
+</li>
+<li><p class="first">Don't trigger misplaced-bare-raise when the raise is in a finally clause</p>
+<p>Close #1924</p>
+</li>
+<li><p class="first">Add a new check, <cite>possibly-unused-variable</cite>.</p>
+<p>This is similar to <cite>unused-variable</cite>, the only difference is that it is
+emitted when we detect a locals() call in the scope of the unused variable.
+The <cite>locals()</cite> call could potentially use the said variable, by consuming
+all values that are present up to the point of the call. This new check
+allows to disable this error when the user intentionally uses <cite>locals()</cite>
+to consume everything.</p>
+<p>Close #1909.</p>
+</li>
+<li><p class="first"><cite>no-else-return</cite> accounts for multiple cases</p>
+<blockquote>
+<div><p>The check was a bit overrestrictive because we were checking for
+return nodes in the .orelse node. At that point though the if statement
+can be refactored to not have the orelse. This improves the detection of
+other cases, for instance it now detects TryExcept nodes that are part of
+the .else branch.</p>
+<p>Close #1852</p>
+</div></blockquote>
+</li>
+<li><p class="first">Added two new checks, <cite>invalid-envvar-value</cite> and <cite>invalid-envvar-default</cite>.</p>
+<p>The former is trigger whenever pylint detects that environment variable manipulation
+functions uses a different type than strings, while the latter is emitted whenever
+the said functions are using a default variable of different type than expected.</p>
+</li>
+<li><p class="first">Add a check <cite>consider-using-join</cite> for concatenation of strings using str.join(sequence)</p>
+<p>Close #1952</p>
+</li>
+<li><p class="first">Add a check <cite>consider-swap-variables</cite> for swapping variables with tuple unpacking</p>
+<p>Close #1922</p>
+</li>
+<li><p class="first">Add new checker <cite>try-except-raise</cite> that warns the user if an except handler block
+has a <code class="docutils literal notranslate"><span class="pre">raise</span></code> statement as its first operator. The warning is shown when there is
+a bare raise statement, effectively re-raising the exception that was caught or the
+type of the exception being raised is the same as the one being handled.</p>
+</li>
+<li><p class="first">Don't crash on invalid strings when checking for <cite>logging-format-interpolation</cite></p>
+<p>Close #1944</p>
+</li>
+<li><p class="first">Exempt <cite>__doc__</cite> from triggering a <cite>redefined-builtin</cite></p>
+<p><cite>__doc__</cite> can be used to specify a docstring for a module without
+passing it as a first-statement string.</p>
+</li>
+<li><p class="first">Fix false positive bad-whitespace from function arguments with default
+values and annotations</p>
+<p>Close #1831</p>
+</li>
+<li><p class="first">Fix stop-iteration-return false positive when next builtin has a
+default value in a generator</p>
+<p>Close #1830</p>
+</li>
+<li><p class="first">Fix emission of false positive <code class="docutils literal notranslate"><span class="pre">no-member</span></code> message for class with  &quot;private&quot; attributes whose name is mangled.</p>
+<p>Close #1643</p>
+</li>
+<li><p class="first">Fixed a crash which occurred when <cite>Uninferable</cite> wasn't properly handled in <cite>stop-iteration-return</cite></p>
+<p>Close #1779</p>
+</li>
+<li><p class="first">Use the proper node to get the name for redefined functions (#1792)</p>
+<p>Close #1774</p>
+</li>
+<li><p class="first">Don't crash when encountering bare raises while checking inconsistent returns</p>
+<p>Close #1773</p>
+</li>
+<li><p class="first">Fix a false positive <code class="docutils literal notranslate"><span class="pre">inconsistent-return-statements</span></code> message when if statement is inside try/except.</p>
+<p>Close #1770</p>
+</li>
+<li><p class="first">Fix a false positive <code class="docutils literal notranslate"><span class="pre">inconsistent-return-statements</span></code> message when while loop are used.</p>
+<p>Close #1772</p>
+</li>
+<li><p class="first">Correct column number for whitespace conventions.</p>
+<p>Previously the column was stuck at 0</p>
+<p>Close #1649</p>
+</li>
+<li><p class="first">Fix <code class="docutils literal notranslate"><span class="pre">unused-argument</span></code> false positives with overshadowed variable in
+dictionary comprehension.</p>
+<p>Close #1731</p>
+</li>
+<li><p class="first">Fix false positive <code class="docutils literal notranslate"><span class="pre">inconsistent-return-statements</span></code> message when never
+returning functions are used (i.e sys.exit for example).</p>
+<p>Close #1771</p>
+</li>
+<li><p class="first">Fix error when checking if function is exception, as in <code class="docutils literal notranslate"><span class="pre">bad-exception-context</span></code>.</p>
+</li>
+<li><p class="first">Fix false positive <code class="docutils literal notranslate"><span class="pre">inconsistent-return-statements</span></code> message when a
+function is defined under an if statement.</p>
+<p>Close #1794</p>
+</li>
+<li><p class="first">New <code class="docutils literal notranslate"><span class="pre">useless-return</span></code> message when function or method ends with a &quot;return&quot; or
+&quot;return None&quot; statement and this is the only return statement in the body.</p>
+</li>
+<li><p class="first">Fix false positive <code class="docutils literal notranslate"><span class="pre">inconsistent-return-statements</span></code> message by
+avoiding useless exception inference if the exception is not handled.</p>
+<p>Close #1794 (second part)</p>
+</li>
+<li><p class="first">Fix bad thread instantiation check when target function is provided in args.</p>
+<p>Close #1840</p>
+</li>
+<li><p class="first">Fixed false positive when a numpy Attributes section follows a Parameters
+section</p>
+<p>Close #1867</p>
+</li>
+<li><p class="first">Fix incorrect file path when file absolute path contains multiple <code class="docutils literal notranslate"><span class="pre">path_strip_prefix</span></code> strings.</p>
+<p>Close #1120</p>
+</li>
+<li><p class="first">Fix false positive undefined-variable for lambda argument in class definitions</p>
+<p>Close #1824</p>
+</li>
+<li><p class="first">Add of a new checker that warns the user if some messages are enabled or disabled
+by id instead of symbol.</p>
+<p>Close #1599</p>
+</li>
+<li><p class="first">Suppress false-positive <code class="docutils literal notranslate"><span class="pre">not-callable</span></code> messages from certain
+staticmethod descriptors</p>
+<p>Close #1699</p>
+</li>
+<li><p class="first">Fix indentation handling with tabs</p>
+<p>Close #1148</p>
+</li>
+<li><p class="first">Fix false-positive <code class="docutils literal notranslate"><span class="pre">bad-continuation</span></code> error</p>
+<p>Close #638</p>
+</li>
+<li><p class="first">Fix false positive unused-variable in lambda default arguments</p>
+<p>Close #1921
+Close #1552
+Close #1099
+Close #210</p>
+</li>
+<li><p class="first">Updated the default report format to include paths that can be clicked on in some terminals (e.g. iTerm).</p>
+</li>
+<li><p class="first">Fix inline def behavior with <code class="docutils literal notranslate"><span class="pre">too-many-statements</span></code> checker</p>
+<p>Close #1978</p>
+</li>
+<li><p class="first">Fix <cite>KeyError</cite> raised when using docparams and NotImplementedError is documented.</p>
+<p>Close #2102</p>
+</li>
+<li><p class="first">Fix 'method-hidden' raised when assigning to a property or data descriptor.</p>
+</li>
+<li><p class="first">Fix emitting <code class="docutils literal notranslate"><span class="pre">useless-super-delegation</span></code> when changing the default value of keyword arguments.</p>
+<p>Close #2022</p>
+</li>
+<li><p class="first">Expand ignored-argument-names include starred arguments and keyword arguments</p>
+<p>Close #2214</p>
+</li>
+<li><p class="first">Fix false-postive undefined-variable in nested lambda</p>
+<p>Close #760</p>
+</li>
+<li><p class="first">Fix false-positive <code class="docutils literal notranslate"><span class="pre">bad-whitespace</span></code> message for typing annoatations
+with ellipses in them</p>
+<p>Close 1992</p>
+</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="what-s-new-in-pylint-1-9">
+<h2>What's New in Pylint 1.9?<a class="headerlink" href="#what-s-new-in-pylint-1-9" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2018-05-15</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Added two new Python 3 porting checks, <cite>exception-escape</cite> and <cite>comprehension-escape</cite></p>
+<p>These two are emitted whenever pylint detects that a variable defined in the
+said blocks is used outside of the given block. On Python 3 these values are deleted.</p>
+</li>
+<li><p class="first">Added a new <cite>deprecated-sys-function</cite>, emitted when accessing removed sys members.</p>
+</li>
+<li><p class="first">Added <cite>xreadlines-attribute</cite>, emitted when the <cite>xreadlines()</cite> attribute is accessed.</p>
+</li>
+<li><p class="first">The Python 3 porting mode can now run with Python 3 as well.</p>
+</li>
+<li><p class="first">docparams extension allows abstract methods to document what overriding
+implementations should return, and to raise NotImplementedError without
+documenting it.</p>
+<p>Closes #2044</p>
+</li>
+<li><p class="first">Special methods do not count towards <cite>too-few-methods</cite>,
+and are considered part of the public API.</p>
+</li>
+<li><p class="first">Enum classes do not trigger <cite>too-few-methods</cite></p>
+<p>Close #605</p>
+</li>
+<li><p class="first">Added a new Python 2/3 check for accessing <cite>operator.div</cite>, which is removed in Python 3</p>
+<p>Close #1936</p>
+</li>
+<li><p class="first">Added a new Python 2/3 check for accessing removed urllib functions</p>
+<p>Close #1997</p>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-1-8-1">
+<h2>What's New in Pylint 1.8.1?<a class="headerlink" href="#what-s-new-in-pylint-1-8-1" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2017-12-15</p>
+<blockquote>
+<div><ul class="simple">
+<li>Wrong version number in __pkginfo__.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-1-8">
+<h2>What's New in Pylint 1.8?<a class="headerlink" href="#what-s-new-in-pylint-1-8" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2017-12-15</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Respect disable=... in config file when running with --py3k.</p>
+</li>
+<li><p class="first">New warning <cite>shallow-copy-environ</cite> added</p>
+<p>Shallow copy of os.environ doesn't work as people may expect. os.environ
+is not a dict object but rather a proxy object, so any changes made
+on copy may have unexpected effects on os.environ</p>
+<p>Instead of copy.copy(os.environ) method os.environ.copy() should be
+used.</p>
+<p>See <a class="reference external" href="https://bugs.python.org/issue15373">https://bugs.python.org/issue15373</a> for details.</p>
+<p>Close #1301</p>
+</li>
+<li><p class="first">Do not display no-absolute-import warning multiple times per file.</p>
+</li>
+<li><dl class="first docutils">
+<dt><cite>trailing-comma-tuple</cite> refactor check now extends to assignment with</dt>
+<dd><p class="first last">more than one element (such as lists)</p>
+</dd>
+</dl>
+<p>Close #1713</p>
+</li>
+<li><p class="first">Fixing u'' string in superfluous-parens message</p>
+<p>Close #1420</p>
+</li>
+<li><p class="first"><cite>abstract-class-instantiated</cite> is now emitted for all inference paths.</p>
+<blockquote>
+<div><p>Close #1673</p>
+</div></blockquote>
+</li>
+<li><p class="first">Add set of predefined naming style to ease configuration of checking
+naming conventions.</p>
+<p>Closes #1013</p>
+</li>
+<li><p class="first">Added a new check, <code class="docutils literal notranslate"><span class="pre">keyword-arg-before-vararg</span></code></p>
+<p>This is emitted for function definitions
+in which keyword arguments are placed before variable
+positional arguments (*args).</p>
+<p>This may lead to args list getting modified if keyword argument's value
+is not provided in the function call assuming it will take default value
+provided in the definition.</p>
+</li>
+<li><p class="first">The <cite>invalid-name</cite> check contains the name of the template that caused the failure</p>
+<p>Close #1176</p>
+</li>
+<li><p class="first">Using the -j flag won't start more child linters than needed.</p>
+<p>Contributed by Roman Ivanov in #1614</p>
+</li>
+<li><p class="first">Fix a false positive with bad-python3-import on relative imports</p>
+<p>Close #1608</p>
+</li>
+<li><p class="first">Added a new Python 3 check, <code class="docutils literal notranslate"><span class="pre">non-ascii-bytes-literals</span></code></p>
+<p>Close #1545</p>
+</li>
+<li><p class="first">Added a couple of new Python 3 checks for accessing dict methods in non-iterable context</p>
+</li>
+<li><p class="first">Protocol checks (not-a-mapping, not-an-iterable and co.) aren't emitted on classes with dynamic getattr</p>
+</li>
+<li><p class="first">Added a new warning, 'bad-thread-instantiation'</p>
+<p>This message is emitted when the threading.Thread class does not
+receive the target argument, but receives just one argument, which
+is by default the group parameter.</p>
+<p>Close #1327</p>
+</li>
+<li><p class="first">In non-quiet mode, absolute path of used config file is logged to
+standard error.
+Close #1519</p>
+</li>
+<li><p class="first">Raise meaningful exception for invalid reporter class being selected</p>
+<p>When unknown reporter class will be selected as Pylint reporter,
+meaningful error message would be raised instead of bare <code class="docutils literal notranslate"><span class="pre">ImportError</span></code>
+or <code class="docutils literal notranslate"><span class="pre">AttribueError</span></code> related to module or reporter class being not found.
+Close #1388</p>
+</li>
+<li><p class="first">Added a new Python 3 check for accessing removed functions from itertools
+like <code class="docutils literal notranslate"><span class="pre">izip</span></code> or <code class="docutils literal notranslate"><span class="pre">ifilterfalse</span></code></p>
+</li>
+<li><p class="first">Added a new Python 3 check for accessing removed fields from the types
+module like <code class="docutils literal notranslate"><span class="pre">UnicodeType</span></code> or <code class="docutils literal notranslate"><span class="pre">XRangeType</span></code></p>
+</li>
+<li><p class="first">Added a new Python 3 check for declaring a method <code class="docutils literal notranslate"><span class="pre">next</span></code> that would have
+been treated as an iterator in Python 2 but a normal function in Python 3.</p>
+</li>
+<li><p class="first">Added a new key-value pair in json output. The key is <code class="docutils literal notranslate"><span class="pre">message-id</span></code>
+and the value is the message id.
+Close #1512</p>
+</li>
+<li><p class="first">Added a new Python 3.0 check for raising a StopIteration inside a generator.
+The check about raising a StopIteration inside a generator is also valid if the exception
+raised inherit from StopIteration.
+Close #1385</p>
+</li>
+<li><p class="first">Added a new warning, <code class="docutils literal notranslate"><span class="pre">raising-format-tuple</span></code>, to detect multi-argument
+exception construction instead of message string formatting.</p>
+</li>
+<li><p class="first">Added a new check for method of logging module that concatenate string via + operator
+Close #1479</p>
+</li>
+<li><p class="first">Added parameter for limiting number of suggestions in spellchecking checkers</p>
+</li>
+<li><p class="first">Fix a corner-case in <code class="docutils literal notranslate"><span class="pre">consider-using-ternary</span></code> checker.</p>
+<p>When object <code class="docutils literal notranslate"><span class="pre">A</span></code> used in  <code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">and</span> <span class="pre">A</span> <span class="pre">or</span> <span class="pre">B</span></code> was falsy in boolean context,
+Pylint incorrectly emitted non-equivalent ternary-based suggestion.
+After a change message is correctly not emitted for this case.
+Close #1559</p>
+</li>
+<li><p class="first">Added <code class="docutils literal notranslate"><span class="pre">suggestion-mode</span></code> configuration flag. When flag is enabled, informational
+message is emitted instead of cryptic error message for attributes accessed on
+c-extensions.
+Close #1466</p>
+</li>
+<li><p class="first">Fix a false positive <code class="docutils literal notranslate"><span class="pre">useless-super-delegation</span></code> message when
+parameters default values are different from those used in the base class.
+Close #1085</p>
+</li>
+<li><p class="first">Disabling 'wrong-import-order', 'wrong-import-position', or
+'ungrouped-imports' for a single line now prevents that line from
+triggering violations on subsequent lines.</p>
+<p>Close #1336</p>
+</li>
+<li><p class="first">Added a new Python check for inconsistent return statements inside method or function.
+Close #1267</p>
+</li>
+<li><p class="first">Fix <code class="docutils literal notranslate"><span class="pre">superfluous-parens</span></code> false positive related to handling logical statements
+involving <code class="docutils literal notranslate"><span class="pre">in</span></code> operator.</p>
+<p>Close #574</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">function-redefined</span></code> message is no longer emitted for functions and
+methods which names matches dummy variable name regular expression.
+Close #1369</p>
+</li>
+<li><p class="first">Fix <code class="docutils literal notranslate"><span class="pre">missing-param-doc</span></code> and <code class="docutils literal notranslate"><span class="pre">missing-type-doc</span></code> false positives when
+mixing <code class="docutils literal notranslate"><span class="pre">Args</span></code> and <code class="docutils literal notranslate"><span class="pre">Keyword</span> <span class="pre">Args</span></code> in Google docstring.
+Close #1409</p>
+</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>Fix <code class="docutils literal notranslate"><span class="pre">missing-docstring</span></code> false negatives when modules, classes, or methods
+consist of compound statements that exceed the <code class="docutils literal notranslate"><span class="pre">docstring-min-length</span></code></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li>Fix <code class="docutils literal notranslate"><span class="pre">useless-else-on-loop</span></code> false positives when break statements are
+deeply nested inside loop.
+Close #1661</li>
+<li>Fix no <code class="docutils literal notranslate"><span class="pre">wrong-import-order</span></code> message emitted on ordering of first and third party
+libraries. With this fix, pylint distinguishes third and first party
+modules when checking import order.
+Close #1702</li>
+<li>Fix <code class="docutils literal notranslate"><span class="pre">pylint</span> <span class="pre">disable=fixme</span></code> directives ignored for comments following the
+last statement in a file.
+Close #1681</li>
+<li>Fix <code class="docutils literal notranslate"><span class="pre">line-too-long</span></code> message deactivated by wrong disable directive.
+The directive <code class="docutils literal notranslate"><span class="pre">disable=fixme</span></code> doesn't deactivate anymore the emission
+of <code class="docutils literal notranslate"><span class="pre">line-too-long</span></code> message for long commented lines.
+Close #1741</li>
+<li>If the rcfile specified on the command line doesn't exist, then an
+IOError exception is raised.
+Close #1747</li>
+<li>Fix the wrong scope of the <code class="docutils literal notranslate"><span class="pre">disable=</span></code> directive after a commented line.
+For example when a <code class="docutils literal notranslate"><span class="pre">disable=line-too-long</span></code> directive is at the end of
+a long commented line, it no longer disables the emission of <code class="docutils literal notranslate"><span class="pre">line-too-long</span></code>
+message for lines that follow.
+Close #1742</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-1-7-1">
+<h2>What's New in Pylint 1.7.1?<a class="headerlink" href="#what-s-new-in-pylint-1-7-1" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2017-04-17</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Fix a false positive which occurred when an exception was reraised</p>
+<p>Close #1419</p>
+</li>
+<li><p class="first">Fix a false positive of <code class="docutils literal notranslate"><span class="pre">disallow-trailing-tuple</span></code></p>
+<p>The check was improved by verifying for non-terminating newlines, which
+should exempt function calls and function definitions from the check
+Close #1424</p>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-1-7">
+<h2>What's New in Pylint 1.7?<a class="headerlink" href="#what-s-new-in-pylint-1-7" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2017-04-13</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Don't emit missing-final-newline or trailing-whitespace for formfeeds (page breaks).</p>
+<p>Close #1218 and #1219</p>
+</li>
+<li><p class="first">Don't emit by default no-member if we have opaque inference objects in the inference results</p>
+<p>This is controlled through the new flag ignore-on-opaque-inference, which is by
+default True. The inference can return  multiple potential results while
+evaluating a Python object, but some branches might not be evaluated, which
+results in partial inference. In that case, it might be useful to still emit
+no-member and other checks for the rest of the inferred objects.</p>
+</li>
+<li><p class="first">Added new message <cite>assign-to-new-keyword</cite> to warn about assigning to names which
+will become a keyword in future Python releases.</p>
+<p>Close #1351</p>
+</li>
+<li><p class="first">Split the 'missing or differing' in parameter documentation in different error.
+'differing-param-doc' covers the differing part of the old 'missing-param-doc',
+and 'differing-type-doc' covers the differing part of the old 'missing-type-doc'</p>
+<p>Close #1342</p>
+</li>
+<li><p class="first">Added a new error, 'used-prior-global-declaration', which is emitted when a name
+is used prior a global declaration in a function. This causes a SyntaxError in
+Python 3.6</p>
+<p>Close #1257</p>
+</li>
+<li><p class="first">The protocol checks are emitting their messages when a special method is set to None.</p>
+<p>Close #1263</p>
+</li>
+<li><p class="first">Properly detect if imported name is assigned to same name in different
+scope.</p>
+<p>Close #636, #848, #851, and #900</p>
+</li>
+<li><p class="first">Require one space for annotations with type hints, as per PEP 8.</p>
+</li>
+<li><p class="first">'trailing-comma-tuple' check was added</p>
+<p>This message is emitted when pylint finds an one-element tuple,
+created by a stray comma. This can suggest a potential problem in the
+code and it is recommended to use parantheses in order to emphasise the
+creation of a tuple, rather than relying on the comma itself.</p>
+</li>
+<li><p class="first">Don't emit not-callable for instances with unknown bases.</p>
+<p>Close #1213</p>
+</li>
+<li><p class="first">Treat keyword only arguments the same as positional arguments with regard to unused-argument check</p>
+</li>
+<li><p class="first">Don't try to access variables defined in a separate scope when checking for <code class="docutils literal notranslate"><span class="pre">protected-access</span></code></p>
+</li>
+<li><p class="first">Added new check to detect incorrect usage of len(SEQUENCE) inside
+test conditions.</p>
+</li>
+<li><p class="first">Added new extension to detect comparisons against empty string constants</p>
+</li>
+<li><p class="first">Added new extension to detect comparisons of integers against zero</p>
+</li>
+<li><p class="first">Added new error conditions for 'bad-super-call'</p>
+<p>Now detects <code class="docutils literal notranslate"><span class="pre">super(type(self),</span> <span class="pre">self)</span></code> and <code class="docutils literal notranslate"><span class="pre">super(self.__class__,</span> <span class="pre">self)</span></code>
+which can lead to recursion loop in derived classes.</p>
+</li>
+<li><p class="first">PyLinter.should_analyze_file has a new optional parameter, called <cite>is_argument</cite></p>
+<p>Close #1079</p>
+</li>
+<li><p class="first">Add attribute hints for missing members</p>
+<p>Closes #1035</p>
+</li>
+<li><p class="first">Add a new warning, 'redefined-argument-from-local'</p>
+<p>Closes #649</p>
+</li>
+<li><p class="first">Support inline comments for comma separated values in the config file</p>
+<p>Closes #1024</p>
+</li>
+<li><p class="first">epylint.py_run's <em>script</em> parameter was removed.</p>
+</li>
+<li><p class="first">epylint.py_run now uses <code class="docutils literal notranslate"><span class="pre">shell=False</span></code> for running the underlying process.</p>
+<p>Closes #441</p>
+</li>
+<li><p class="first">Added a new warning, 'useless-super-delegation'</p>
+<p>Close 839.</p>
+</li>
+<li><p class="first">Added a new error, 'invalid-metaclass', raised when
+we can detect that a class is using an improper metaclass.</p>
+<p>Close #579</p>
+</li>
+<li><p class="first">Added a new refactoring message, 'literal-comparison'.</p>
+<p>Close #786</p>
+</li>
+<li><p class="first">arguments-differ takes in consideration kwonlyargs and variadics</p>
+<p>Close #983</p>
+</li>
+<li><p class="first">Removed --optimized-ast. Part of #975.</p>
+</li>
+<li><p class="first">Removed --files-output option. Part of #975.</p>
+</li>
+<li><p class="first">Removed pylint-gui from the package.</p>
+</li>
+<li><p class="first">Removed the HTML reporter. Part of #975.</p>
+</li>
+<li><p class="first">ignored-argument-names is now used for ignoring arguments for unused-variable check.</p>
+<p>This option was used for ignoring arguments when computing the correct number of arguments
+a function should have, but for handling the arguments with regard
+to unused-variable check, dummy-variables-rgx was used instead. Now, ignored-argument-names
+is used for its original purpose and also for ignoring the matched arguments for
+the unused-variable check. This offers a better control of what should be ignored
+and how.
+Also, the same option was moved from the design checker to the variables checker,
+which means that the option now appears under the <code class="docutils literal notranslate"><span class="pre">[VARIABLES]</span></code> section inside
+the configuration file.
+Close #862.</p>
+</li>
+<li><p class="first">Fix a false positive for keyword variadics with regard to keyword only arguments.</p>
+<p>If a keyword only argument was necessary for a function, but that function was called
+with keyword variadics (**kwargs), then we were emitting a missing-kwoa false positive,
+which is now fixed.</p>
+<p>Close #934.</p>
+</li>
+<li><p class="first">Fix some false positives with unknown sized variadics.</p>
+<p>Close #878</p>
+</li>
+<li><p class="first">Added a new extension, check_docstring, for checking PEP 257 conventions.</p>
+<p>Closes #868.</p>
+</li>
+<li><p class="first">config files with BOM markers can now be read.</p>
+<p>Close #864.</p>
+</li>
+<li><p class="first">epylint.py_run does not crash on big files, using .communicate() instead of .wait()</p>
+<p>Close #599</p>
+</li>
+<li><p class="first">Disable reports by default and show the evaluation score by default</p>
+<p>As per discussion from issue #746, the reports were disabled by
+default in order to simplify the interaction between the tool
+and the users. The score is still shown by default, as a way of
+closely measuring when it increases or decreases due to changes
+brought to the code.</p>
+</li>
+<li><p class="first">Disable the information category messages by default.</p>
+<p>This is a step towards making pylint more sane, as
+per the discussion from issue #746.</p>
+</li>
+<li><p class="first">Catch more cases as not proper iterables for __slots__ with
+regard to invalid-slots pattern. Closes issue #775.</p>
+</li>
+<li><p class="first">empty indent strings are rejected.</p>
+</li>
+<li><p class="first">Added a new error, 'relative-beyond-top-level', which is emitted
+when a relative import was attempted beyond the top level package.</p>
+<p>Closes issue #588.</p>
+</li>
+<li><p class="first">Added a new warning, 'unsupported-assignment-operation', which is
+emitted when item assignment is tried on an object which doesn't
+have this ability. Closes issue #591.</p>
+</li>
+<li><p class="first">Added a new warning, 'unsupported-delete-operation', which is
+emitted when item deletion is tried on an object which doesn't
+have this ability. Closes issue #592.</p>
+</li>
+<li><p class="first">Fix a false positive of 'redundant-returns-doc', occurred when the documented
+function was using <em>yield</em> instead of <em>return</em>.</p>
+<p>Closes issue #984.</p>
+</li>
+<li><p class="first">Fix false positives of 'missing-[raises|params|type]-doc' due to not
+recognizing keyword synonyms supported by Sphinx.</p>
+</li>
+<li><p class="first">Added a new refactoring message, 'consider-merging-isinstance', which is
+emitted whenever we can detect that consecutive isinstance calls can be
+merged together.</p>
+<p>Closes issue #968</p>
+</li>
+<li><p class="first">Fix a false positive of 'missing-param-doc' and 'missing-type-doc',
+occurred when a class docstring uses the 'For the parameters, see'
+magic string but the class __init__ docstring does not, or vice versa.</p>
+</li>
+<li><p class="first"><cite>redefined-outer-name</cite> is now also emitted when a nested loop's target
+variable is the same as a target variable in an outer loop.</p>
+<p>Closes issue #911.</p>
+</li>
+<li><p class="first">Added proper exception type inference for 'missing-raises-doc'.</p>
+</li>
+<li><p class="first">Added InvalidMessageError exception class to replace asserts in
+pylint.utils.</p>
+</li>
+<li><p class="first">More thorough validation in MessagesStore.register_messages() to avoid
+one message accidentally overwriting another.</p>
+</li>
+<li><p class="first">InvalidMessageError, UnknownMessage, and EmptyReport exceptions are
+moved to the new pylint.exceptions submodule.</p>
+</li>
+<li><p class="first">UnknownMessage and EmptyReport are renamed to UnknownMessageError and
+EmptyReportError.</p>
+</li>
+<li><p class="first">Warnings 'missing-returns-type-doc' and 'missing-yields-type-doc'
+have each been split into two warnings - 'missing-[return|yield]-doc'
+and 'missing-[return|yield]-type-doc'.</p>
+</li>
+<li><p class="first">Added epytext support to docparams extension.</p>
+<p>Closes #1029.</p>
+</li>
+<li><p class="first">Support having plugins with the same name and with options defined</p>
+<p>Closes #1018</p>
+</li>
+<li><p class="first">Sort configuration options in a section</p>
+<p>Closes #1087</p>
+</li>
+<li><p class="first">Added a new Python 3 warning around implementing '__div__', '__idiv__', or
+'__rdiv__' as those methods are phased out in Python 3.</p>
+</li>
+<li><p class="first">Added a new warning, 'overlapping-except', which is
+emitted when two exceptions in the same except-clause are aliases
+for each other or one exceptions is an ancestor of another.</p>
+</li>
+<li><p class="first">Avoid crashing on ill-formatted strings when checking for string formatting errors.</p>
+</li>
+<li><p class="first">Added a new Python 3 warning for calling 'str.encode' or 'str.decode' with a non-text
+encoding.</p>
+</li>
+<li><p class="first">Added new coding convention message, 'single-string-used-for-slots'.</p>
+<p>Closes #1166</p>
+</li>
+<li><p class="first">Added a new Python 3 check for accessing 'sys.maxint' which was removed in Python 3 in favor
+of 'sys.maxsize'</p>
+</li>
+<li><p class="first">Added a new Python 3 check for bad imports.</p>
+</li>
+<li><p class="first">Added a new Python 3 check for accessing deprecated string functions.</p>
+</li>
+<li><p class="first">Do not warn about unused arguments or function being redefined in singledispatch
+registered implementations.</p>
+<p>Closes #1032 and #1034</p>
+</li>
+<li><p class="first">Added refactoring message 'no-else-return'.</p>
+</li>
+<li><p class="first">Improve unused-variable checker to warn about unused variables in module scope.</p>
+<p>Closes #919</p>
+</li>
+<li><p class="first">Ignore modules import as _ when checking for unused imports.</p>
+<p>Closes #1190</p>
+</li>
+<li><p class="first">Improve handing of Python 3 classes with metaclasses declared in nested scopes.</p>
+<p>Closes #1177</p>
+</li>
+<li><p class="first">Added refactoring message 'consider-using-ternary'.</p>
+<p>Closes #1204</p>
+</li>
+<li><p class="first">Bug-fix for false-positive logging-format-interpolation` when format specifications
+are used in formatted string.</p>
+<p>Fixes #572</p>
+</li>
+<li><p class="first">Added a new switch <code class="docutils literal notranslate"><span class="pre">single-line-class-stmt</span></code> to allow single-line declaration
+of empty class bodies.</p>
+<p>Closes #738</p>
+</li>
+<li><p class="first">Protected access in form <cite>type(self)._attribute</cite> are now allowed.</p>
+<p>Fixes #1031</p>
+</li>
+<li><p class="first">Let the user modify msg-template when Pylint is called from a Python script</p>
+<p>Fixes #1269</p>
+</li>
+<li><p class="first">Imports checker supports new switch <code class="docutils literal notranslate"><span class="pre">allow-wildcard-with-all</span></code> which disables
+warning on wildcard import when imported module defines <cite>__all__</cite> variable.</p>
+<p>Fixes #831</p>
+</li>
+<li><p class="first"><cite>too-many-format-args</cite> and <cite>too-few-format-args</cite> are emitted correctly when
+starred expression are used in RHS tuple.</p>
+<p>Fixes #957</p>
+</li>
+<li><p class="first"><cite>cyclic-import</cite> checker supports local disable clauses. When one
+of cycle imports was done in scope where disable clause was active,
+cycle is not reported as violation.</p>
+<p>Fixes #59</p>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-1-6-3">
+<h2>What's new in Pylint 1.6.3?<a class="headerlink" href="#what-s-new-in-pylint-1-6-3" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2016-07-18</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Do not crash when inferring uninferable exception types for docparams extension</p>
+<p>Close #998</p>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-1-6-2">
+<h2>What's new in Pylint 1.6.2?<a class="headerlink" href="#what-s-new-in-pylint-1-6-2" title="Permalink to this headline">¶</a></h2>
+<p>Release date: TBA</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Do not crash when printing the help of options with default regular expressions</p>
+<p>Close #990</p>
+</li>
+<li><p class="first">More granular versions for deprecated modules.</p>
+<p>Close #991</p>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-1-6-1">
+<h2>What's new in Pylint 1.6.1?<a class="headerlink" href="#what-s-new-in-pylint-1-6-1" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2016-07-07</p>
+<blockquote>
+<div><ul class="simple">
+<li>Use environment markers for supporting conditional dependencies.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-1-6-0">
+<h2>What's New in Pylint 1.6.0?<a class="headerlink" href="#what-s-new-in-pylint-1-6-0" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2016-07-03</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Added a new extension, <cite>pylint.extensions.mccabe</cite>, for warning
+about complexity in code.</p>
+</li>
+<li><p class="first">Deprecate support for --optimize-ast. Part of #975.</p>
+</li>
+<li><p class="first">Deprecate support for the HTML output. Part of #975.</p>
+</li>
+<li><p class="first">Deprecate support for --output-files. Part of #975.</p>
+</li>
+<li><p class="first">Fixed a documentation error for the check_docs extension. Fixes #735.</p>
+</li>
+<li><p class="first">Made the list of property-defining decorators configurable.</p>
+</li>
+<li><p class="first">Fix a bug where the top name of a qualified import was detected as unused variable.</p>
+<p>Close #923.</p>
+</li>
+<li><p class="first">bad-builtin is now an extension check.</p>
+</li>
+<li><p class="first">generated-members support qualified name through regular expressions.</p>
+<p>For instance, one can specify a regular expression as --generated-members=astroid.node_classes.*
+for ignoring every no-member error that is accessed as in <cite>astroid.node_classes.missing.object</cite>.</p>
+</li>
+<li><p class="first">Add the ability to ignore files based on regex matching, with the new <code class="docutils literal notranslate"><span class="pre">--ignore-patterns</span></code>
+option.</p>
+<p>This addresses issue #156 by allowing for multiple ignore patterns
+to be specified. Rather than clobber the existing ignore option, we
+introduced a new one called ignore-patterns.</p>
+</li>
+<li><p class="first">Added a new error, 'trailing-newlines', which is emitted when a file
+has trailing new lines.</p>
+<p>Closes issue #682.</p>
+</li>
+<li><p class="first">Add a new option, 'redefining-builtins-modules', for controlling the modules
+which can redefine builtins, such as six.moves and future.builtins.</p>
+<p>Close #464.</p>
+</li>
+<li><p class="first">'reimported' is emitted when the same name is imported from different module.</p>
+<p>Close #162.</p>
+</li>
+<li><p class="first">Add a new recommendation checker, 'consider-iterating-dictionary', which is emitted
+which is emitted when a dictionary is iterated through .keys().</p>
+<p>Close #699</p>
+</li>
+<li><p class="first">Use the configparser backport for Python 2</p>
+<p>This fixes a problem we were having with comments inside values, which is fixed
+in Python 3's configparser.
+Close #828</p>
+</li>
+<li><p class="first">A new error was added, 'invalid-length-returned', when the <cite>__len__</cite>
+special method returned something else than a non-negative number.</p>
+<p>Close issue #557</p>
+</li>
+<li><p class="first">Switch to using isort internally for wrong-import-order.</p>
+<p>Closes #879.</p>
+</li>
+<li><p class="first">check_docs extension can find constructor parameters in __init__.</p>
+<p>Closes #887.</p>
+</li>
+<li><p class="first">Don't warn about invalid-sequence-index if the indexed object has unknown base
+classes.</p>
+<p>Closes #867</p>
+</li>
+<li><p class="first">Don't crash when checking, for super-init-not-called, a method defined in an if block.</p>
+</li>
+<li><p class="first">Do not emit import-error or no-name-in-module for fallback import blocks by default.</p>
+<p>Until now, we warned with these errors when a fallback import block (a TryExcept block
+that contained imports for Python 2 and 3) was found, but this gets cumbersome when
+trying to write compatible code. As such, we don't check these blocks by default,
+but the analysis can be enforced by using the new <code class="docutils literal notranslate"><span class="pre">--analyse-fallback-block</span></code> flag.</p>
+<p>Close #769.</p>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-1-5-5">
+<h2>What's New in Pylint 1.5.5?<a class="headerlink" href="#what-s-new-in-pylint-1-5-5" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2016-03-21</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Let visit_importfrom from Python 3 porting checker be called when everything is disabled</p>
+<p>Because the visit method was filtering the patterns it was expecting to be activated,
+it didn't run when everything but one pattern was disabled, leading to spurious false
+positives</p>
+<p>Close #852</p>
+</li>
+<li><p class="first">Don't emit unsubscriptable-value for classes with unknown
+base classes.</p>
+<p>Close #776.</p>
+</li>
+<li><p class="first">Use an OrderedDict for storing the configuration elements</p>
+<p>This fixes an issue related to impredictible order of the disable / enable
+elements from a config file. In certain cases, the disable was coming before
+the enable which resulted in classes of errors to be enabled, even though the intention
+was to disable them. The best example for this was in the context of running multiple
+processes, each one of it having different enables / disables that affected the output.</p>
+<p>Close #815</p>
+</li>
+<li><p class="first">Don't consider bare and broad except handlers as ignoring NameError,
+AttributeError and similar exceptions, in the context of checkers for
+these issues.</p>
+<p>Closes issue #826</p>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-1-5-4">
+<h2>What's New in Pylint 1.5.4?<a class="headerlink" href="#what-s-new-in-pylint-1-5-4" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2016-01-15</p>
+<blockquote>
+<div><ul class="simple">
+<li>Merge StringMethodChecker with StringFormatChecker. This fixes a
+bug where disabling all the messages and enabling only a handful of
+messages from the StringFormatChecker would have resulted in no
+messages at all.</li>
+<li>Don't apply unneeded-not over sets.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-1-5-3">
+<h2>What's New in Pylint 1.5.3?<a class="headerlink" href="#what-s-new-in-pylint-1-5-3" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2016-01-11</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Handle the import fallback idiom with regard to wrong-import-order.</p>
+<p>Closes issue #750.</p>
+</li>
+<li><p class="first">Decouple the displaying of reports from the displaying of messages</p>
+<p>Some reporters are aggregating the messages instead of displaying
+them when they are available. The actual displaying was conflatted
+in the generate_reports. Unfortunately this behaviour was flaky
+and in the case of the JSON reporter, the messages weren't shown
+at all if a file had syntax errors or if it was missing.
+In order to fix this, the aggregated messages can now be
+displayed with Reporter.display_message, while the reports are
+displayed with display_reports.</p>
+<p>Closes issues #766 and #765.</p>
+</li>
+<li><p class="first">Ignore function calls with variadic arguments without a context.</p>
+<p>Inferring variadic positional arguments and keyword arguments
+will result into empty Tuples and Dicts, which can lead in
+some cases to false positives with regard to no-value-for-parameter.
+In order to avoid this, until we'll have support for call context
+propagation, we're ignoring such cases if detected.
+Closes issue #722.</p>
+</li>
+<li><p class="first">Treat AsyncFunctionDef just like FunctionDef nodes,
+by implementing visit_asyncfunctiondef in terms of
+visit_functiondef.</p>
+<p>Closes issue #767.</p>
+</li>
+<li><p class="first">Take in account kwonlyargs when verifying that arguments
+are defined with the check_docs extension.</p>
+<p>Closes issue #745.</p>
+</li>
+<li><p class="first">Suppress reporting 'unneeded-not' inside <cite>__ne__</cite> methods</p>
+<p>Closes issue #749.</p>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-1-5-2">
+<h2>What's New in Pylint 1.5.2?<a class="headerlink" href="#what-s-new-in-pylint-1-5-2" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2015-12-21</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Don't crash if graphviz is not installed, instead emit a
+warning letting the user to know.</p>
+<p>Closes issue #168.</p>
+</li>
+<li><p class="first">Accept only functions and methods for the deprecated-method checker.</p>
+<p>This prevents a crash which can occur when an object doesn't have
+.qname() method after the inference.</p>
+</li>
+<li><p class="first">Don't emit super-on-old-class on classes with unknown bases.
+Closes issue #721.</p>
+</li>
+<li><p class="first">Allow statements in <cite>if</cite> or <cite>try</cite> blocks containing imports.</p>
+<p>Closes issue #714.</p>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-1-5-1">
+<h2>What's New in Pylint 1.5.1?<a class="headerlink" href="#what-s-new-in-pylint-1-5-1" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2015-12-02</p>
+<blockquote>
+<div><ul class="simple">
+<li>Fix a crash which occurred when old visit methods are encountered
+in plugin modules. Closes issue #711.</li>
+<li>Add wrong-import-position to check_messages's decorator arguments
+for ImportChecker.leave_module
+This fixes an esoteric bug which occurs when ungrouped-imports and
+wrong-import-order are disabled and pylint is executed on multiple files.
+What happens is that without wrong-import-position in check_messages,
+leave_module will never be called, which means that the first non-import node
+from other files might leak into the current file,
+leading to wrong-import-position being emitted by pylint.</li>
+<li>Fix a crash which occurred when old visit methods are encountered
+in plugin modules. Closes issue #711.</li>
+<li>Don't emit import-self and cyclic-import for relative imports
+of modules with the same name as the package itself.
+Closes issues #708 and #706.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-1-5-0">
+<h2>What's New in Pylint 1.5.0?<a class="headerlink" href="#what-s-new-in-pylint-1-5-0" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2015-11-29</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Added multiple warnings related to imports. 'wrong-import-order'
+is emitted when PEP 8 recommendations regarding imports are not
+respected (that is, standard imports should be followed by third-party
+imports and then by local imports). 'ungrouped-imports' is emitted
+when imports from the same package or module are not placed
+together, but scattered around in the code. 'wrong-import-position'
+is emitted when code is mixed with imports, being recommended for the
+latter to be at the top of the file, in order to figure out easier by
+a human reader what dependencies a module has.
+Closes issue #692.</p>
+</li>
+<li><p class="first">Added a new refactoring warning, 'unneeded-not', emitted
+when an expression with the not operator could be simplified.
+Closes issue #670.</p>
+</li>
+<li><p class="first">Added a new refactoring warning, 'simplifiable-if-statement',
+used when an if statement could be reduced to a boolean evaluation
+of its test. Closes issue #698.</p>
+</li>
+<li><p class="first">Added a new refactoring warning, 'too-many-boolean-expressions',
+used when an if statement contains too many boolean expressions,
+which makes the code less maintainable and harder to understand.
+Closes issue #677.</p>
+</li>
+<li><p class="first">Property methods are shown as attributes instead of functions in
+pyreverse class diagrams. Closes Issue #284</p>
+</li>
+<li><p class="first">Add a new refactoring error, 'too-many-nested-blocks', which is emitted
+when a function or a method has too many nested blocks, which makes the
+code less readable and harder to understand. Closes issue #668.</p>
+</li>
+<li><p class="first">Add a new error, 'unsubscriptable-object', that is emitted when
+value used in subscription expression doesn't support subscription
+(i.e. doesn't define __getitem__ method).</p>
+</li>
+<li><p class="first">Don't warn about abstract classes instantiated in their own
+body. Closes issue #627.</p>
+</li>
+<li><p class="first">Obsolete options are not present by default in the generated
+configuration file. Closes issue #632.</p>
+</li>
+<li><p class="first">non-iterator-returned can detect classes with iterator-metaclasses.
+Closes issue #679.</p>
+</li>
+<li><p class="first">Add a new error, 'unsupported-membership-test', emitted when value
+to the right of the 'in' operator doesn't support membership test
+protocol (i.e. doesn't define __contains__/__iter__/__getitem__)</p>
+</li>
+<li><p class="first">Add new errors, 'not-an-iterable', emitted when non-iterable value
+is used in an iterating context (starargs, for-statement,
+comprehensions, etc), and 'not-a-mapping', emitted when non-mapping
+value is used in a mapping context. Closes issue #563.</p>
+</li>
+<li><p class="first">Make 'no-self-use' checker not emit a warning if there is a 'super()'
+call inside the method.
+Closes issue #667.</p>
+</li>
+<li><p class="first">Add checker to identify multiple imports on one line.
+Closes issue #598.</p>
+</li>
+<li><p class="first">Fix unused-argument false positive when the &quot;+=&quot; operator is used.
+Closes issue #518.</p>
+</li>
+<li><p class="first">Don't emit import-error for ignored modules. PyLint will not emit import
+errors for any import which is, or is a subpackage of, a module in
+the ignored-modules list. Closes issue #223.</p>
+</li>
+<li><p class="first">Fix unused-import false positive when the import is used in a
+class assignment. Closes issue #475</p>
+</li>
+<li><p class="first">Add a new error, 'not-context-manager', emitted when something
+that doesn't implement __enter__ and __exit__ is used in a with
+statement.</p>
+</li>
+<li><p class="first">Add a new warning, 'confusing-with-statement', emitted by the
+base checker, when an ambiguous looking with statement is used.
+For example <cite>with open() as first, second</cite> which looks like a
+tuple assignment but is actually 2 context managers.</p>
+</li>
+<li><p class="first">Add a new warning, 'duplicate-except', emitted when there is an
+exception handler which handles an exception type that was handled
+before. Closes issue #485.</p>
+</li>
+<li><p class="first">A couple of warnings got promoted to errors, since they could uncover
+potential bugs in the code. These warnings are: assignment-from-none,
+unbalanced-tuple-unpacking, unpacking-non-sequence, non-iterator-returned.
+Closes issue #388.</p>
+</li>
+<li><p class="first">Allow ending a pragma control with a semicolon. In this way, users
+can continue a pragma control with a reason for why it is used,
+as in <cite># pylint: disable=old-style-class;reason=...</cite>.
+Closes issue #449.</p>
+</li>
+<li><p class="first">--jobs can be used with --load-plugins now. Closes issue #456.</p>
+</li>
+<li><p class="first">Improve the performance of --jobs when dealing only with a package
+name. Closes issue #479.</p>
+</li>
+<li><p class="first">Don't emit an unused-wildcard-import when the imported name comes
+from another module and it is in fact a __future__ name.</p>
+</li>
+<li><p class="first">The colorized reporter now works on Windows. Closes issue #96.</p>
+</li>
+<li><p class="first">Remove pointless-except warning. It was previously disabled by
+default and it wasn't very useful. Closes issue #506.</p>
+</li>
+<li><p class="first">Fix a crash on Python 3 related to the string checker, which
+crashed when it encountered a bytes string with a .format
+method called.</p>
+</li>
+<li><p class="first">Don't warn about no-self-use for builtin properties.</p>
+</li>
+<li><p class="first">Fix a false positive for bad-reversed-sequence, when a subclass
+of a <cite>dict</cite> provides a __reversed__ method.</p>
+</li>
+<li><p class="first">Change the default no-docstring-rgx so missing-docstring isn't
+emitted for private functions.</p>
+</li>
+<li><p class="first">Don't emit redefined-outer-name for __future__ directives.
+Closes issue #520.</p>
+</li>
+<li><p class="first">Provide some hints for the bad-builtin message. Closes issue #522.</p>
+</li>
+<li><p class="first">When checking for invalid arguments to a callable, in typecheck.py,
+look up for the __init__ in case the found __new__ comes from builtins.</p>
+<p>Since the __new__ comes from builtins, it will not have attached any
+information regarding what parameters it expects, so the check
+will be useless. Retrieving __init__ in that case will at least
+detect a couple of false negatives. Closes issue #429.</p>
+</li>
+<li><p class="first">Don't emit no-member for classes with unknown bases.</p>
+<p>Since we don't know what those bases might add, we simply ignore
+the error in this case.</p>
+</li>
+<li><p class="first">Lookup in the implicit metaclass when checking for no-member,
+if the class in question has an implicit metaclass, which is
+True for new style classes. Closes issue #438.</p>
+</li>
+<li><p class="first">Add two new warnings, duplicate-bases and inconsistent-mro.</p>
+<p>duplicate-bases is emitted when a class has the same bases
+listed more than once in its bases definition, while inconsistent-mro
+is emitted when no sane mro hierarchy can be determined. Closes issue #526.</p>
+</li>
+<li><p class="first">Remove interface-not-implemented warning. Closes issue #532.</p>
+</li>
+<li><p class="first">Remove the rest of interface checks: interface-is-not-class,
+missing-interface-method, unresolved-interface. The reason is that
+its better to start recommending ABCs instead of the old Zope era
+of interfaces. One side effect of this change is that ignore-iface-methods
+becomes a noop, it's deprecated and it will be removed at some time.</p>
+</li>
+<li><p class="first">Emit a proper deprecation warning for reporters.BaseReporter.add_message.</p>
+<p>The alternative way is to use handle_message. add_message will be removed in
+Pylint 1.6.</p>
+</li>
+<li><p class="first">Added new module 'extensions' for optional checkers with the test
+directory 'test/extensions' and documentation file 'doc/extensions.rst'.</p>
+</li>
+<li><p class="first">Added new checker 'extensions.check_docs' that verifies parameter
+documention in Sphinx, Google, and Numpy style.</p>
+</li>
+<li><p class="first">Detect undefined variable cases, where the &quot;definition&quot; of an undefined
+variable was in del statement. Instead of emitting used-before-assignment,
+which is totally misleading, it now emits undefined-variable.
+Closes issue #528.</p>
+</li>
+<li><p class="first">Don't emit attribute-defined-outside-init and access-member-before-definition
+for mixin classes. Actual errors can occur in mixin classes, but this is
+controlled by the ignore-mixin-members option. Closes issue #412.</p>
+</li>
+<li><p class="first">Improve the detection of undefined variables and variables used before
+assignment for variables used as default arguments to function,
+where the variable was first defined in the class scope.
+Closes issue #342 and issue #404.</p>
+</li>
+<li><p class="first">Add a new warning, 'unexpected-special-method-signature', which is emitted
+when a special method (dunder method) doesn't have the expected signature,
+which can lead to actual errors in the application code.
+Closes issue #253.</p>
+</li>
+<li><p class="first">Remove 'bad-context-manager' due to the inclusion of 'unexpected-special-method-signature'.</p>
+</li>
+<li><p class="first">Don't emit no-name-in-module if the import is guarded by an ImportError, Exception or
+a bare except clause.</p>
+</li>
+<li><p class="first">Don't emit no-member if the attribute access node is protected by an
+except handler, which handles AttributeError, Exception or it is a
+bare except.</p>
+</li>
+<li><p class="first">Don't emit import-error if the import is guarded by an ImportError, Exception or a
+bare except clause.</p>
+</li>
+<li><p class="first">Don't emit undefined-variable if the node is guarded by a NameError, Exception
+or bare except clause.</p>
+</li>
+<li><p class="first">Add a new warning, 'using-constant-test', which is emitted when a conditional
+statement (If, IfExp) uses a test which is always constant, such as numbers,
+classes, functions etc. This is most likely an error from the user's part.
+Closes issue #524.</p>
+</li>
+<li><p class="first">Don't emit 'raising-non-exception' when the exception has unknown
+bases. We don't know what those bases actually are and it's better
+to assume that the user knows what he is doing rather than emitting
+a message which can be considered a false positive.</p>
+</li>
+<li><p class="first">Look for a .pylintrc configuration file in the current folder,
+if pylintrc is not found. Dotted pylintrc files will not be searched
+in the parents of the current folder, as it is done for pylintrc.</p>
+</li>
+<li><p class="first">Add a new error, 'invalid-unary-type-operand', emitted when
+an unary operand is used on something which doesn't support that
+operation (for instance, using the unary bitwise inversion operator
+on an instance which doesn't implement __invert__).</p>
+</li>
+<li><p class="first">Take in consideration differences between arguments of various
+type of functions (classmethods, staticmethods, properties)
+when checking for <cite>arguments-differ</cite>. Closes issue #548.</p>
+</li>
+<li><p class="first">astroid.inspector was moved to pylint.pyreverse, since it belongs
+there and it doesn't need to be in astroid.</p>
+</li>
+<li><p class="first">astroid.utils.LocalsVisitor was moved to pylint.pyreverse.LocalsVisitor.</p>
+</li>
+<li><p class="first">pylint.checkers.utils.excepts_import_error was removed.
+Use pylint.chekcers.utils.error_of_type instead.</p>
+</li>
+<li><p class="first">Don't emit undefined-all-variables for nodes which can't be
+inferred (YES nodes).</p>
+</li>
+<li><p class="first">yield-outside-func is also emitted for <cite>yield from</cite>.</p>
+</li>
+<li><p class="first">Add a new error, 'too-many-star-expressions', emitted when
+there are more than one starred expression (<cite>*x</cite>) in an assignment.
+The warning is emitted only on Python 3.</p>
+</li>
+<li><p class="first">Add a new error, 'invalid-star-assignment-target', emitted when
+a starred expression (<cite>*x</cite>) is used as the lhs side of an assignment,
+as in <cite>*x = [1, 2]</cite>. This is not a SyntaxError on Python 3 though.</p>
+</li>
+<li><p class="first">Detect a couple of objects which can't be base classes (bool,
+slice, range and memoryview, which weren't detected until now).</p>
+</li>
+<li><p class="first">Add a new error for the Python 3 porting checker, <cite>import-star-module-level</cite>,
+which is used when a star import is detected in another scope than the
+module level, which is an error on Python 3. Using this will emit a
+SyntaxWarning on Python 2.</p>
+</li>
+<li><p class="first">Add a new error, 'star-needs-assignment-target', emitted on Python 3 when
+a Starred expression (<cite>*x</cite>) is not used in an assignment target. This is not
+caught when parsing the AST on Python 3, so it needs to be a separate check.</p>
+</li>
+<li><p class="first">Add a new error, 'unsupported-binary-operation', emitted when
+two a binary arithmetic operation is executed between two objects
+which don't support it (a number plus a string for instance).
+This is currently disabled, since the it exhibits way too many false
+positives, but it will be reenabled as soon as possible.</p>
+</li>
+<li><p class="first">New imported features from astroid into pyreverse: pyreverse.inspector.Project,
+pyreverse.inspector.project_from_files and pyreverse.inspector.interfaces.</p>
+<p>These were moved since they didn't belong in astroid.</p>
+</li>
+<li><p class="first">Enable misplaced-future for Python 3. Closes issue #580.</p>
+</li>
+<li><p class="first">Add a new error, 'nonlocal-and-global', which is emitted when a
+name is found to be both nonlocal and global in the same scope.
+Closes issue #581.</p>
+</li>
+<li><p class="first">ignored-classes option can work with qualified names (ignored-classes=optparse.Values)
+Closes issue #297.</p>
+</li>
+<li><p class="first">ignored-modules can work with qualified names as well as with Unix pattern
+matching for recursive ignoring. Closes issues #244.</p>
+</li>
+<li><p class="first">Improve detection of relative imports in non-packages, as well as importing
+missing modules with a relative import from a package.</p>
+</li>
+<li><p class="first">Don't emit no-init if not all the bases from a class are known.
+Closes issue #604.</p>
+</li>
+<li><p class="first">--no-space-check option accepts <cite>empty-line</cite> as a possible option.
+Closes issue #541.</p>
+</li>
+<li><p class="first">--generate-rcfile generates by default human readable symbols
+for the --disable option. Closes issue #608.</p>
+</li>
+<li><p class="first">Improved the not-in-loop checker to properly detect more cases.</p>
+</li>
+<li><p class="first">Add a new error, 'continue-in-finally', which is emitted when
+the <cite>continue</cite> keyword is found inside a <cite>finally</cite> clause, which
+is a SyntaxError.</p>
+</li>
+<li><p class="first">The --zope flag is deprecated and it is slated for removal
+in Pylint 1.6.</p>
+<p>The reason behind this removal is the fact that it's a specialized
+flag and there are solutions for the original problem:
+use --generated-members with the members that causes problems
+when using Zope or add AST transforms tailored to the zope
+project.</p>
+<p>At the same time, --include-ids and --symbols will also be removed
+in Pylint 1.6. Closes issue #570.</p>
+</li>
+<li><p class="first">missing-module-attribute was removed and the corresponding
+CLI option, required-attributes, which is slated for removal
+in Pylint 1.6.</p>
+</li>
+<li><p class="first">missing-reversed-argument was removed.</p>
+<p>The reason behind this is that this kind of errors should be
+detected by the type checker for <em>all</em> the builtins and not
+as a special case for the reversed builtin. This will happen
+shortly in the future.</p>
+</li>
+<li><p class="first">--comment flag is obsolete and it will be removed in Pylint 1.6.</p>
+</li>
+<li><p class="first">--profile flag is obsolete and it will be removed in Pylint 1.6.</p>
+</li>
+<li><p class="first">Add a new error, 'misplaced-bare-raise'.</p>
+<p>The error is used when a bare raise is not used inside an except clause.
+This can generate a RuntimeError in Python, if there are no active exceptions
+to be reraised. While it works in Python 2 due to the fact that the exception
+leaks outside of the except block, it's nevertheless a behaviour that
+a user shouldn't depend upon, since it's not obvious to the reader of the code
+what exception will be raised and it will not be compatible with Python 3 anyhow.
+Closes issue #633.</p>
+</li>
+<li><p class="first">Bring logilab-common's ureports into pylint.reporters.</p>
+<p>With this change, we moved away from depending on logilab-common,
+having in Pylint all the components that were used from logilab-common.
+The API should be considered an implementation detail and can change at
+some point in the future.
+Closes issue #621.</p>
+</li>
+<li><p class="first"><cite>reimported</cite> is emitted for reimported objects on the same line.</p>
+<p>Closes issue #639.</p>
+</li>
+<li><p class="first">Abbreviations of command line options are not supported anymore.</p>
+<p>Using abbreviations for CLI options was never considered to be
+a feature of pylint, this fact being only a side effect of using optparse.
+As this was the case, using --load-plugin or other abbreviation
+for --load-plugins never actually worked, while it also didn't raise
+an error. Closes issue #424.</p>
+</li>
+<li><p class="first">Add a new error, 'nonlocal-without-binding'</p>
+<p>The error is emitted on Python 3 when a nonlocal name is not bound
+to any variable in the parents scopes. Closes issue #582.</p>
+</li>
+<li><dl class="first docutils">
+<dt>'deprecated-module' can be shown for modules which aren't</dt>
+<dd><p class="first last">available. Closes issue #362.</p>
+</dd>
+</dl>
+</li>
+<li><p class="first">Don't consider a class abstract if its members can't
+be properly inferred.</p>
+<p>This fixes a false positive related to abstract-class-instantiated.
+Closes issue #648.</p>
+</li>
+<li><p class="first">Add a new checker for the async features added by PEP 492.</p>
+</li>
+<li><p class="first">Add a new error, 'yield-inside-async-function', emitted on
+Python 3.5 and upwards when the <cite>yield</cite> statement is found inside
+a new coroutine function (PEP 492).</p>
+</li>
+<li><p class="first">Add a new error, 'not-async-context-manager', emitted when
+an async context manager block is used with an object which doesn't
+support this protocol (PEP 492).</p>
+</li>
+<li><p class="first">Add a new convention warning, 'singleton-comparison', emitted when
+comparison to True, False or None is found.</p>
+</li>
+<li><p class="first">Don't emit 'assigning-non-slot' for descriptors. Closes issue #652.</p>
+</li>
+<li><p class="first">Add a new error, 'repeated-keyword', when a keyword argument is passed
+multiple times into a function call.</p>
+<p>This is similar with redundant-keyword-arg, but it's mildly different
+that it needs to be a separate error.</p>
+</li>
+<li><p class="first">--enable=all can now be used. Closes issue #142.</p>
+</li>
+<li><p class="first">Add a new convention message, 'misplaced-comparison-constant',
+emitted when a constant is placed in the left hand side of a comparison,
+as in '5 == func()'. This is also called Yoda condition, since the
+flow of code reminds of the Star Wars green character, conditions usually
+encountered in languages with variabile assignments in conditional
+statements.</p>
+</li>
+<li><p class="first">Add a new convention message, 'consider-using-enumerate', which is
+emitted when code that uses <cite>range</cite> and <cite>len</cite> for iterating is encountered.
+Closes issue #684.</p>
+</li>
+<li><p class="first">Added two new refactoring messages, 'no-classmethod-decorator' and
+'no-staticmethod-decorator', which are emitted when a static method or a class
+method is declared without using decorators syntax.</p>
+<p>Closes issue #675.</p>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-1-4-3">
+<h2>What's New in Pylint 1.4.3?<a class="headerlink" href="#what-s-new-in-pylint-1-4-3" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2015-03-14</p>
+<blockquote>
+<div><ul class="simple">
+<li>Remove three warnings: star-args, abstract-class-little-used,
+abstract-class-not-used. These warnings don't add any real value
+and they don't imply errors or problems in the code.</li>
+<li>Added a new option for controlling the peephole optimizer in astroid.
+The option <code class="docutils literal notranslate"><span class="pre">--optimize-ast</span></code> will control the peephole optimizer,
+which is used to optimize a couple of AST subtrees. The current problem
+solved by the peephole optimizer is when multiple joined strings,
+with the addition operator, are encountered. If the numbers of such
+strings is high enough, Pylint will then fail with a maximum recursion
+depth exceeded error, due to its visitor architecture. The peephole
+just transforms such calls, if it can, into the final resulting string
+and this exhibit a problem, because the visit_binop method stops being
+called (in the optimized AST it will be a Const node).</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-1-4-2">
+<h2>What's New in Pylint 1.4.2?<a class="headerlink" href="#what-s-new-in-pylint-1-4-2" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2015-03-11</p>
+<blockquote>
+<div><ul class="simple">
+<li>Don't require a docstring for empty modules. Closes issue #261.</li>
+<li>Fix a false positive with <cite>too-few-format-args</cite> string warning,
+emitted when the string format contained a normal positional
+argument ('{0}'), mixed with a positional argument which did
+an attribute access ('{0.__class__}').
+Closes issue #463.</li>
+<li>Take in account all the methods from the ancestors
+when checking for too-few-public-methods. Closes issue #471.</li>
+<li>Catch enchant errors and emit 'invalid-characters-in-docstring'
+when checking for spelling errors. Closes issue #469.</li>
+<li>Use all the inferred statements for the super-init-not-called
+check. Closes issue #389.</li>
+<li>Add a new warning, 'unichr-builtin', emitted by the Python 3
+porting checker, when the unichr builtin is found. Closes issue #472.</li>
+<li>Add a new warning, 'intern-builtin', emitted by the Python 3
+porting checker, when the intern builtin is found. Closes issue #473.</li>
+<li>Add support for editable installations.</li>
+<li>The HTML output accepts the <cite>--msg-template</cite> option. Patch by
+Dan Goldsmith.</li>
+<li>Add 'map-builtin-not-iterating' (replacing 'implicit-map-evaluation'),
+'zip-builtin-not-iterating', 'range-builtin-not-iterating', and
+'filter-builtin-not-iterating' which are emitted by <cite>--py3k</cite> when the
+appropriate built-in is not used in an iterating context (semantics
+taken from 2to3).</li>
+<li>Add a new warning, 'unidiomatic-typecheck', emitted when an explicit
+typecheck uses type() instead of isinstance(). For example,
+<cite>type(x) == Y</cite> instead of <cite>isinstance(x, Y)</cite>. Patch by Chris Rebert.
+Closes issue #299.</li>
+<li>Add support for combining the Python 3 checker mode with the --jobs
+flag (--py3k and --jobs). Closes issue #467.</li>
+<li>Add a new warning for the Python 3 porting checker, 'using-cmp-argument',
+emitted when the <cite>cmp</cite> argument for the <cite>list.sort</cite> or <cite>sorted builtin</cite>
+is encountered.</li>
+<li>Make the --py3k flag commutative with the -E flag. Also, this patch
+fixes the leaks of error messages from the Python 3 checker when
+the errors mode was activated. Closes issue #437.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-1-4-1">
+<h2>What's New in Pylint 1.4.1?<a class="headerlink" href="#what-s-new-in-pylint-1-4-1" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2015-01-16</p>
+<blockquote>
+<div><ul class="simple">
+<li>Look only in the current function's scope for bad-super-call.
+Closes issue #403.</li>
+<li>Check the return of properties when checking for not-callable.
+Closes issue #406.</li>
+<li>Warn about using the input() or round() built-ins for Python 3.
+Closes issue #411.</li>
+<li>Proper abstract method lookup while checking for
+abstract-class-instantiated. Closes issue #401.</li>
+<li>Use a mro traversal for finding abstract methods. Closes issue #415.</li>
+<li>Fix a false positive with catching-non-exception and tuples of
+exceptions.</li>
+<li>Fix a false negative with raising-non-exception, when the raise used
+an uninferrable exception context.</li>
+<li>Fix a false positive on Python 2 for raising-bad-type, when
+raising tuples in the form 'raise (ZeroDivisionError, None)'.</li>
+<li>Fix a false positive with invalid-slots-objects, where the slot entry
+was a unicode string on Python 2. Closes issue #421.</li>
+<li>Add a new warning, 'redundant-unittest-assert', emitted when using
+unittest's methods assertTrue and assertFalse with constant value
+as argument. Patch by Vlad Temian.</li>
+<li>Add a new JSON reporter, usable through -f flag.</li>
+<li>Add the method names for the 'signature-differs' and 'argument-differs'
+warnings. Closes issue #433.</li>
+<li>Don't compile test files when installing.</li>
+<li>Fix a crash which occurred when using multiple jobs and the files
+given as argument didn't exist at all.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-1-4-0">
+<h2>What's New in Pylint 1.4.0?<a class="headerlink" href="#what-s-new-in-pylint-1-4-0" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2014-11-23</p>
+<blockquote>
+<div><ul class="simple">
+<li>Added new options for controlling the loading of C extensions.
+By default, only C extensions from the stdlib will be loaded
+into the active Python interpreter for inspection, because they
+can run arbitrary code on import. The option
+<cite>--extension-pkg-whitelist</cite> can be used to specify modules
+or packages that are safe to load.</li>
+<li>Change default max-line-length to 100 rather than 80</li>
+<li>Drop BaseRawChecker class which were only there for backward
+compat for a while now</li>
+<li>Don't try to analyze string formatting with objects coming from
+function arguments. Closes issue #373.</li>
+<li>Port source code to be Python 2/3 compatible. This drops the
+need for 2to3, but does drop support for Python 2.5.</li>
+<li>Each message now comes with a confidence level attached, and
+can be filtered base on this level. This allows to filter out
+all messages that were emitted even though an inference failure
+happened during checking.</li>
+<li>Improved presenting unused-import message. Closes issue #293.</li>
+<li>Add new checker for finding spelling errors. New messages:
+wrong-spelling-in-comment, wrong-spelling-in-docstring.
+New options: spelling-dict, spelling-ignore-words.</li>
+<li>Add new '-j' option for running checks in sub-processes.</li>
+<li>Added new checks for line endings if they are mixed (LF vs CRLF)
+or if they are not as expected. New messages: mixed-line-endings,
+unexpected-line-ending-format. New option: expected-line-ending-format.</li>
+<li>'dangerous-default-value' no longer evaluates the value of the arguments,
+which could result in long error messages or sensitive data being leaked.
+Closes issue #282</li>
+<li>Fix a false positive with string formatting checker, when
+encountering a string which uses only position-based arguments.
+Closes issue #285.</li>
+<li>Fix a false positive with string formatting checker, when using
+keyword argument packing. Closes issue #288.</li>
+<li>Proper handle class level scope for lambdas.</li>
+<li>Handle 'too-few-format-args' or 'too-many-format-args' for format
+strings with both named and positional fields. Closes issue #286.</li>
+<li>Analyze only strings by the string format checker. Closes issue #287.</li>
+<li>Properly handle nested format string fields. Closes issue #294.</li>
+<li>Don't emit 'attribute-defined-outside-init' if the attribute
+was set by a function call in a defining method. Closes issue #192.</li>
+<li>Properly handle unicode format strings for Python 2.
+Closes issue #296.</li>
+<li>Don't emit 'import-error' if an import was protected by a try-except,
+which excepted ImportError.</li>
+<li>Fix an 'unused-import' false positive, when the error was emitted
+for all the members imported with 'from import' form.
+Closes issue #304.</li>
+<li>Don't emit 'invalid-name' when assigning a name in an
+ImportError handler. Closes issue #302.</li>
+<li>Don't count branches from nested functions.</li>
+<li>Fix a false positive with 'too-few-format-args', when the format
+strings contains duplicate manual position arguments.
+Closes issue #310.</li>
+<li>fixme regex handles comments without spaces after the hash.
+Closes issue #311.</li>
+<li>Don't emit 'unused-import' when a special object is imported
+(__all__, __doc__ etc.). Closes issue #309.</li>
+<li>Look in the metaclass, if defined, for members not found in the current
+class. Closes issue #306.</li>
+<li>Don't emit 'protected-access' if the attribute is accessed using
+a property defined at the class level.</li>
+<li>Detect calls of the parent's __init__, through a binded super() call.</li>
+<li>Check that a class has an explicitly defined metaclass before
+emitting 'old-style-class' for Python 2.</li>
+<li>Emit 'catching-non-exception' for non-class nodes. Closes issue #303.</li>
+<li>Order of reporting is consistent.</li>
+<li>Add a new warning, 'boolean-datetime', emitted when an instance
+of 'datetime.time' is used in a boolean context. Closes issue #239.</li>
+<li>Fix a crash which occurred while checking for 'method-hidden',
+when the parent frame was something different than a function.</li>
+<li>Generate html output for missing files. Closes issue #320.</li>
+<li>Fix a false positive with 'too-many-format-args', when the format
+string contains mixed attribute access arguments and manual
+fields. Closes issue #322.</li>
+<li>Extend the cases where 'undefined-variable' and 'used-before-assignment'
+can be detected. Closes issue #291.</li>
+<li>Add support for customising callback identifiers, by adding a new
+'--callbacks' command line option. Closes issue #326.</li>
+<li>Add a new warning, 'logging-format-interpolation', emitted when .format()
+string interpolation is used within logging function calls.</li>
+<li>Don't emit 'unbalanced-tuple-unpacking' when the rhs of the assignment
+is a variable length argument. Closes issue #329.</li>
+<li>Add a new warning, 'inherit-non-class', emitted when a class inherits
+from something which is not a class. Closes issue #331.</li>
+<li>Fix another false positives with 'undefined-variable', where the variable
+can be found as a class assignment and used in a function annotation.
+Closes issue #342.</li>
+<li>Handle assignment of the string format method to a variable.
+Closes issue #351.</li>
+<li>Support wheel packaging format for PyPi. Closes issue #334.</li>
+<li>Check that various built-ins that do not exist in Python 3 are not
+used: apply, basestring, buffer, cmp, coerce, execfile, file, long
+raw_input, reduce, StandardError, unicode, reload and xrange.</li>
+<li>Warn for magic methods which are not used in any way in Python 3:
+__coerce__, __delslice__, __getslice__, __setslice__, __cmp__,
+__oct__, __nonzero__ and __hex__.</li>
+<li>Don't emit 'assigning-non-slot' when the assignment is for a property.
+Closes issue #359.</li>
+<li>Fix for regression: '{path}' was no longer accepted in '--msg-template'.</li>
+<li>Report the percentage of all messages, not just for errors and warnings.
+Closes issue #319.</li>
+<li>'too-many-public-methods' is reported only for methods defined in a class,
+not in its ancestors. Closes issue #248.</li>
+<li>'too-many-lines' disable pragma can be located on any line, not only the
+first. Closes issue #321.</li>
+<li>Warn in Python 2 when an import statement is found without a
+corresponding <cite>from __future__ import absolute_import</cite>.</li>
+<li>Warn in Python 2 when a non-floor division operation is found without
+a corresponding <cite>from __future__ import division</cite>.</li>
+<li>Add a new option, 'exclude-protected', for excluding members
+from the protected-access warning. Closes issue #48.</li>
+<li>Warn in Python 2 when using dict.iter*(), dict.view*(); none of these
+methods are available in Python 3.</li>
+<li>Warn in Python 2 when calling an object's next() method; Python 3 uses
+__next__() instead.</li>
+<li>Warn when assigning to __metaclass__ at a class scope; in Python 3 a
+metaclass is specified as an argument to the 'class' statement.</li>
+<li>Warn when performing parameter tuple unpacking; it is not supported in
+Python 3.</li>
+<li>'abstract-class-instantiated' is also emitted for Python 2.
+It was previously disabled.</li>
+<li>Add 'long-suffix' error, emitted when encountering the long suffix
+on numbers.</li>
+<li>Add support for disabling a checker, by specifying an 'enabled'
+attribute on the checker class.</li>
+<li>Add a new CLI option, --py3k, for enabling Python 3 porting mode. This
+mode will disable all other checkers and will emit warnings and
+errors for constructs which are invalid or removed in Python 3.</li>
+<li>Add 'old-octal-literal' to Python 3 porting checker, emitted when
+encountering octals with the old syntax.</li>
+<li>Add 'implicit-map-evaluation' to Python 3 porting checker, emitted
+when encountering the use of map builtin, without explicit evaluation.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-1-3-0">
+<h2>What's New in Pylint 1.3.0?<a class="headerlink" href="#what-s-new-in-pylint-1-3-0" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2014-07-26</p>
+<blockquote>
+<div><ul class="simple">
+<li>Allow hanging continued indentation for implicitly concatenated
+strings. Closes issue #232.</li>
+<li>Pylint works under Python 2.5 again, and its test suite passes.</li>
+<li>Fix some false positives for the cellvar-from-loop warnings.
+Closes issue #233.</li>
+<li>Return new astroid class nodes when the inferencer can detect that
+that result of a function invocation on a type (like <cite>type</cite> or
+<cite>abc.ABCMeta</cite>) is requested. Closes #205.</li>
+<li>Emit 'undefined-variable' for undefined names when using the
+Python 3 <cite>metaclass=</cite> argument.</li>
+<li>Checkers respect priority now. Close issue #229.</li>
+<li>Fix a false positive regarding W0511. Closes issue #149.</li>
+<li>Fix unused-import false positive with Python 3 metaclasses (#143).</li>
+<li>Don't warn with 'bad-format-character' when encountering
+the 'a' format on Python 3.</li>
+<li>Add multiple checks for PEP 3101 advanced string formatting:
+'bad-format-string', 'missing-format-argument-key',
+'unused-format-string-argument', 'format-combined-specification',
+'missing-format-attribute' and 'invalid-format-index'.</li>
+<li>Issue broad-except and bare-except even if the number
+of except handlers is different than 1. Fixes issue #113.</li>
+<li>Issue attribute-defined-outside-init for all cases, not just
+for the last assignment. Closes issue #262.</li>
+<li>Emit 'not-callable' when calling properties. Closes issue #268.</li>
+<li>Fix a false positive with unbalanced iterable unpacking,
+when encountering starred nodes. Closes issue #273.</li>
+<li>Add new checks, 'invalid-slice-index' and 'invalid-sequence-index'
+for invalid sequence and slice indices.</li>
+<li>Add 'assigning-non-slot' warning, which detects assignments to
+attributes not defined in slots.</li>
+<li>Don't emit 'no-name-in-module' for ignored modules.
+Closes issue #223.</li>
+<li>Fix an 'unused-variable' false positive, where the variable is
+assigned through an import. Closes issue #196.</li>
+<li>Definition order is considered for classes, function arguments
+and annotations. Closes issue #257.</li>
+<li>Don't emit 'unused-variable' when assigning to a nonlocal.
+Closes issue #275.</li>
+<li>Do not let ImportError propagate from the import checker, leading to crash
+in some namespace package related cases. Closes issue #203.</li>
+<li>Don't emit 'pointless-string-statement' for attribute docstrings.
+Closes issue #193.</li>
+<li>Use the proper mode for pickle when opening and writing the stats file.
+Closes issue #148.</li>
+<li>Don't emit hidden-method message when the attribute has been
+monkey-patched, you're on your own when you do that.</li>
+<li>Only emit attribute-defined-outside-init for definition within the same
+module as the offended class, avoiding to mangle the output in some cases.</li>
+<li>Don't emit 'unnecessary-lambda' if the body of the lambda call contains
+call chaining. Closes issue #243.</li>
+<li>Don't emit 'missing-docstring' when the actual docstring uses <cite>.format</cite>.
+Closes issue #281.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-1-2-1">
+<h2>What's New in Pylint 1.2.1?<a class="headerlink" href="#what-s-new-in-pylint-1-2-1" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2014-04-30</p>
+<blockquote>
+<div><ul class="simple">
+<li>Restore the ability to specify the init-hook option via the
+configuration file, which was accidentally broken in 1.2.0.</li>
+<li>Add a new warning [bad-continuation] for badly indentend continued
+lines.</li>
+<li>Emit [assignment-from-none] when the function contains bare returns.
+Fixes BitBucket issue #191.</li>
+<li>Added a new warning for closing over variables that are
+defined in loops. Fixes Bitbucket issue #176.</li>
+<li>Do not warn about u escapes in string literals when Unicode literals
+are used for Python 2.*. Fixes BitBucket issue #151.</li>
+<li>Extend the checking for unbalanced-tuple-unpacking and
+unpacking-non-sequence to instance attribute unpacking as well.</li>
+<li>Fix explicit checking of python script (1.2 regression, #219)</li>
+<li>Restore --init-hook, renamed accidentally into --init-hooks in 1.2.0
+(#211)</li>
+<li>Add 'indexing-exception' warning, which detects that indexing
+an exception occurs in Python 2 (behaviour removed in Python 3).</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-1-2-0">
+<h2>What's New in Pylint 1.2.0?<a class="headerlink" href="#what-s-new-in-pylint-1-2-0" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2014-04-18</p>
+<blockquote>
+<div><ul class="simple">
+<li>Pass the current python paths to pylint process when invoked via
+epylint.  Fixes BitBucket issue #133.</li>
+<li>Add -i / --include-ids and -s / --symbols back as completely ignored
+options. Fixes BitBucket issue #180.</li>
+<li>Extend the number of cases in which logging calls are detected. Fixes
+bitbucket issue #182.</li>
+<li>Improve pragma handling to not detect pylint:* strings in non-comments.
+Fixes BitBucket issue #79.</li>
+<li>Do not crash with UnknownMessage if an unknown message ID/name appears
+in disable or enable in the configuration. Patch by Cole Robinson.
+Fixes bitbucket issue #170.</li>
+<li>Add new warning 'eval-used', checking that the builtin function <cite>eval</cite>
+was used.</li>
+<li>Make it possible to show a naming hint for invalid name by setting
+include-naming-hint. Also make the naming hints configurable. Fixes
+BitBucket issue #138.</li>
+<li>Added support for enforcing multiple, but consistent name styles for
+different name types inside a single module; based on a patch written
+by <a class="reference external" href="mailto:morbo&#37;&#52;&#48;google&#46;com">morbo<span>&#64;</span>google<span>&#46;</span>com</a>.</li>
+<li>Also warn about empty docstrings on overridden methods; contributed
+by <a class="reference external" href="mailto:sebastianu&#37;&#52;&#48;google&#46;com">sebastianu<span>&#64;</span>google<span>&#46;</span>com</a>.</li>
+<li>Also inspect arguments to constructor calls, and emit relevant
+warnings; contributed by <a class="reference external" href="mailto:sebastianu&#37;&#52;&#48;google&#46;com">sebastianu<span>&#64;</span>google<span>&#46;</span>com</a>.</li>
+<li>Added a new configuration option logging-modules to make the list
+of module names that can be checked for 'logging-not-lazy' et. al.
+configurable; contributed by <a class="reference external" href="mailto:morbo&#37;&#52;&#48;google&#46;com">morbo<span>&#64;</span>google<span>&#46;</span>com</a>.</li>
+<li>ensure init-hooks is evaluated before other options, notably load-plugins
+(#166)</li>
+<li>Python 2.5 support restored: fixed small issues preventing pylint to run
+on python 2.5. Bitbucket issues #50 and #62.</li>
+<li>bitbucket #128: pylint doesn't crash when looking
+for used-before-assignment in context manager
+assignments.</li>
+<li>Add new warning, 'bad-reversed-sequence', for checking that the
+reversed() builtin receive a sequence (implements __getitem__ and __len__,
+without being a dict or a dict subclass) or an instance which implements
+__reversed__.</li>
+<li>Mark <cite>file</cite> as a bad function when using python2 (closes #8).</li>
+<li>Add new warning 'bad-exception-context', checking
+that <cite>raise ... from ...</cite> uses a proper exception context
+(None or an exception).</li>
+<li>Enhance the check for 'used-before-assignment' to look
+for 'nonlocal' uses.</li>
+<li>Emit 'undefined-all-variable' if a package's __all__
+variable contains a missing submodule (closes #126).</li>
+<li>Add a new warning 'abstract-class-instantiated' for checking
+that abstract classes created with <cite>abc</cite> module and
+with abstract methods are instantied.</li>
+<li>Do not warn about 'return-arg-in-generator' in Python 3.3+.</li>
+<li>Do not warn about 'abstract-method' when the abstract method
+is implemented through assignment (#155).</li>
+<li>Improve cyclic import detection in the case of packages, patch by Buck
+Golemon</li>
+<li>Add new warnings for checking proper class __slots__:
+<cite>invalid-slots-object</cite> and <cite>invalid-slots</cite>.</li>
+<li>Search for rc file in <cite>~/.config/pylintrc</cite> if <cite>~/.pylintrc</cite>
+doesn't exists (#121)</li>
+<li>Don't register the newstyle checker w/ python &gt;= 3</li>
+<li>Fix unused-import false positive w/ augment assignment (#78)</li>
+<li>Fix access-member-before-definition false negative wrt aug assign (#164)</li>
+<li>Do not attempt to analyze non python file, eg .so file (#122)</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-1-1-0">
+<h2>What's New in Pylint 1.1.0?<a class="headerlink" href="#what-s-new-in-pylint-1-1-0" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2013-12-22</p>
+<blockquote>
+<div><ul class="simple">
+<li>Add new check for use of deprecated pragma directives &quot;pylint:disable-msg&quot;
+or &quot;pylint:enable-msg&quot; (I0022, deprecated-pragma) which was previously
+emitted as a regular warn().</li>
+<li>Avoid false used-before-assignment for except handler defined
+identifier used on the same line (#111).</li>
+<li>Combine 'no-space-after-operator', 'no-space-after-comma' and
+'no-space-before-operator' into a new warning 'bad-whitespace'.</li>
+<li>Add a new warning 'superfluous-parens' for unnecessary
+parentheses after certain keywords.</li>
+<li>Fix a potential crash in the redefine-in-handler warning
+if the redefined name is a nested getattr node.</li>
+<li>Add a new option for the multi-statement warning to
+allow single-line if statements.</li>
+<li>Add 'bad-context-manager' error, checking that '__exit__'
+special method accepts the right number of arguments.</li>
+<li>Run pylint as a python module 'python -m pylint' (anatoly techtonik).</li>
+<li>Check for non-exception classes inside an except clause.</li>
+<li>epylint support options to give to pylint after the file to analyze and
+have basic input validation (bitbucket #53 and #54), patches provided by
+felipeochoa and Brian Lane.</li>
+<li>Added a new warning, 'non-iterator-returned', for non-iterators
+returned by '__iter__'.</li>
+<li>Add new checks for unpacking non-sequences in assignments
+(unpacking-non-sequence) as well as unbalanced tuple unpacking
+(unbalanced-tuple-unpacking).</li>
+<li>useless-else-on-loop not emitted if there is a break in the
+else clause of inner loop (#117).</li>
+<li>don't mark <cite>input</cite> as a bad function when using python3 (#110).</li>
+<li>badly-implemented-container caused several problems in its
+current implementation. Deactivate it until we have something
+better. See #112 for instance.</li>
+<li>Use attribute regexp for properties in python3, as in python2</li>
+<li>Create the PYLINTHOME directory when needed, it might fail and lead to
+spurious warnings on import of pylint.config.</li>
+<li>Fix setup.py so that pylint properly install on Windows when using python3</li>
+<li>Various documentation fixes and enhancements</li>
+<li>Fix issue #55 (false-positive trailing-whitespace on Windows)</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-1-0-0">
+<h2>What's New in Pylint 1.0.0?<a class="headerlink" href="#what-s-new-in-pylint-1-0-0" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2013-08-06</p>
+<blockquote>
+<div><ul class="simple">
+<li>Add check for the use of 'exec' function</li>
+<li>New --msg-template option to control output, deprecating &quot;msvc&quot; and
+&quot;parseable&quot; output formats as well as killing <cite>--include-ids</cite> and <cite>--symbols</cite>
+options</li>
+<li>Do not emit [fixme] for every line if the config value 'notes'
+is empty, but [fixme] is enabled.</li>
+<li>Emit warnings about lines exceeding the column limit when
+those lines are inside multiline docstrings.</li>
+<li>Do not double-check parameter names with the regex for parameters and
+inline variables.</li>
+<li>Added a new warning missing-final-newline (C0304) for files missing
+the final newline.</li>
+<li>Methods that are decorated as properties are now treated as attributes
+for the purposes of name checking.</li>
+<li>Names of derived instance class member are not checked any more.</li>
+<li>Names in global statements are now checked against the regular
+expression for constants.</li>
+<li>For toplevel name assignment, the class name regex will be used if
+pylint can detect that value on the right-hand side is a class
+(like collections.namedtuple()).</li>
+<li>Simplified invalid-name message</li>
+<li>Added a new warning invalid-encoded-data (W0512) for files that
+contain data that cannot be decoded with the specified or
+default encoding.</li>
+<li>New warning bad-open-mode (W1501) for calls to open (or file) that
+specify invalid open modes (Original implementation by Sasha Issayev).</li>
+<li>New warning old-style-class (C1001) for classes that do not have any
+base class.</li>
+<li>Add new name type 'class_attribute' for attributes defined
+in class scope. By default, allow both const and variable names.</li>
+<li>New warning trailing-whitespace (C0303) that warns about
+trailing whitespace.</li>
+<li>Added a new warning unpacking-in-except (W0712) about unpacking
+exceptions in handlers, which is unsupported in Python 3.</li>
+<li>Add a configuration option for missing-docstring to
+optionally exempt short functions/methods/classes from
+the check.</li>
+<li>Add the type of the offending node to missing-docstring
+and empty-docstring.</li>
+<li>New utility classes for per-checker unittests in testutils.py</li>
+<li>Do not warn about redefinitions of variables that match the
+dummy regex.</li>
+<li>Do not treat all variables starting with _ as dummy variables,
+only _ itself.</li>
+<li>Make the line-too-long warning configurable by adding a regex for lines
+for with the length limit should not be enforced</li>
+<li>Do not warn about a long line if a pylint disable
+option brings it above the length limit</li>
+<li>Do not flag names in nested with statements as undefined.</li>
+<li>Added a new warning 'old-raise-syntax' for the deprecated syntax
+raise Exception, args</li>
+<li>Support for PEP 3102 and new missing-kwoa (E1125) message for missing
+mandatory keyword argument (logilab.org's #107788)</li>
+<li>Fix spelling of max-branchs option, now max-branches</li>
+<li>Added a new base class and interface for checkers that work on the
+tokens rather than the syntax, and only tokenize the input file
+once.</li>
+<li>Follow astng renaming to astroid</li>
+<li>bitbucket #37: check for unbalanced unpacking in assignments</li>
+<li>bitbucket #25: fix incomplete-protocol false positive for read-only
+containers like tuple</li>
+<li>bitbucket #16: fix False positive E1003 on Python 3 for argument-less super()</li>
+<li>bitbucket #6: put back documentation in source distribution</li>
+<li>bitbucket #15: epylint shouldn't hang anymore when there is a large
+output on pylint'stderr</li>
+<li>bitbucket #7: fix epylint w/ python3</li>
+<li>bitbucket #3: remove string module from the default list of deprecated
+modules</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-28-0">
+<h2>What's New in Pylint 0.28.0?<a class="headerlink" href="#what-s-new-in-pylint-0-28-0" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2013-04-25</p>
+<blockquote>
+<div><ul class="simple">
+<li>bitbucket #1: fix &quot;dictionary changed size during iteration&quot; crash</li>
+<li>#74013: new E1310[bad-str-strip-call] message warning when a call to a
+{l,r,}strip method contains duplicate characters (patch by Torsten Marek)</li>
+<li>#123233: new E0108[duplicate-argument-name] message reporting duplicate
+argument names</li>
+<li>#81378: emit W0120[useless-else-on-loop] for loops without break</li>
+<li>#124660: internal dependencies should not appear in external dependencies
+report</li>
+<li>#124662: fix name error causing crash when symbols are included in output
+messages</li>
+<li>#123285: apply pragmas for warnings attached to lines to physical source
+code lines</li>
+<li>#123259: do not emit E0105 for yield expressions inside lambdas</li>
+<li>#123892: don't crash when attempting to show source code line that can't
+be encoded with the current locale settings</li>
+<li>Simplify checks for dangerous default values by unifying tests for all
+different mutable compound literals.</li>
+<li>Improve the description for E1124[redundant-keyword-arg]</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-27-0">
+<h2>What's New in Pylint 0.27.0?<a class="headerlink" href="#what-s-new-in-pylint-0-27-0" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2013-02-26</p>
+<blockquote>
+<div><ul class="simple">
+<li>#20693: replace pylint.el by Ian Eure version (patch by J.Kotta)</li>
+<li>#105327: add support for --disable=all option and deprecate the
+'disable-all' inline directive in favour of 'skip-file' (patch by
+A.Fayolle)</li>
+<li>#110840: add messages I0020 and I0021 for reporting of suppressed
+messages and useless suppression pragmas. (patch by Torsten Marek)</li>
+<li>#112728: add warning E0604 for non-string objects in __all__
+(patch by Torsten Marek)</li>
+<li>#120657: add warning W0110/deprecated-lambda when a map/filter
+of a lambda could be a comprehension (patch by Martin Pool)</li>
+<li>#113231: logging checker now looks at instances of Logger classes
+in addition to the base logging module. (patch by Mike Bryant)</li>
+<li>#111799: don't warn about octal escape sequence, but warn about o
+which is not octal in Python (patch by Martin Pool)</li>
+<li>#110839: bind &lt;F5&gt; to Run button in pylint-gui</li>
+<li>#115580: fix erroneous W0212 (access to protected member) on super call
+(patch by Martin Pool)</li>
+<li>#110853: fix a crash when an __init__ method in a base class has been
+created by assignment rather than direct function definition (patch by
+Torsten Marek)</li>
+<li>#110838: fix pylint-gui crash when include-ids is activated (patch by
+Omega Weapon)</li>
+<li>#112667: fix emission of reimport warnings for mixed imports and extend
+the testcase (patch by Torsten Marek)</li>
+<li>#112698: fix crash related to non-inferable __all__ attributes and
+invalid __all__ contents (patch by Torsten Marek)</li>
+<li>Python 3 related fixes:</li>
+<li><dl class="first docutils">
+<dt>#110213: fix import of checkers broken with python 3.3, causing</dt>
+<dd>&quot;No such message id W0704&quot; breakage</dd>
+</dl>
+</li>
+<li>#120635: redefine cmp function used in pylint.reporters</li>
+<li>Include full warning id for I0020 and I0021 and make sure to flush
+warnings after each module, not at the end of the pylint run.
+(patch by Torsten Marek)</li>
+<li>Changed the regular expression for inline options so that it must be
+preceded by a # (patch by Torsten Marek)</li>
+<li>Make dot output for import graph predictable and not depend
+on ordering of strings in hashes. (patch by Torsten Marek)</li>
+<li>Add hooks for import path setup and move pylint's sys.path
+modifications into them. (patch by Torsten Marek)</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-26-0">
+<h2>What's New in Pylint 0.26.0?<a class="headerlink" href="#what-s-new-in-pylint-0-26-0" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2012-10-05</p>
+<blockquote>
+<div><ul class="simple">
+<li>#106534: add --ignore-imports option to code similarity checking
+and 'symilar' command line tool (patch by Ry4an Brase)</li>
+<li>#104571: check for anomalous backslash escape, introducing new
+W1401 and W1402 messages (patch by Martin Pool)</li>
+<li>#100707: check for boolop being used as exception class, introducing
+new W0711 message (patch by Tim Hatch)</li>
+<li>#4014: improve checking of metaclass methods first args, introducing
+new C0204 message (patch by <a class="reference external" href="mailto:lothiraldan&#37;&#52;&#48;gmail&#46;com">lothiraldan<span>&#64;</span>gmail<span>&#46;</span>com</a> finalized by sthenault)</li>
+<li>#4685: check for consistency of a module's __all__ variable,
+introducing new E0603 message</li>
+<li>#105337: allow custom reporter in output-format (patch by Kevin Jing Qiu)</li>
+<li>#104420: check for protocol completness and avoid false R0903
+(patch by Peter Hammond)</li>
+<li>#100654: fix grammatical error for W0332 message (using 'l' as
+long int identifier)</li>
+<li>#103656: fix W0231 false positive for missing call to object.__init__
+(patch by <a class="reference external" href="mailto:lothiraldan&#37;&#52;&#48;gmail&#46;com">lothiraldan<span>&#64;</span>gmail<span>&#46;</span>com</a>)</li>
+<li>#63424: fix similarity report disabling by properly renaming it to RP0801</li>
+<li>#103949: create a console_scripts entry point to be used by
+easy_install, buildout and pip</li>
+<li>fix cross-interpreter issue (non compatible access to __builtins__)</li>
+<li>stop including tests files in distribution, they causes crash when
+installed with python3 (#72022, #82417, #76910)</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-25-2">
+<h2>What's New in Pylint 0.25.2?<a class="headerlink" href="#what-s-new-in-pylint-0-25-2" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2012-07-17</p>
+<blockquote>
+<div><ul class="simple">
+<li>#93591: Correctly emit warnings about clobbered variable names when an
+except handler contains a tuple of names instead of a single name.
+(patch by <a class="reference external" href="mailto:tmarek&#37;&#52;&#48;google&#46;com">tmarek<span>&#64;</span>google<span>&#46;</span>com</a>)</li>
+<li>#7394: W0212 (access to protected member) not emitted on assigments
+(patch by <a class="reference external" href="mailto:lothiraldan&#37;&#52;&#48;gmail&#46;com">lothiraldan<span>&#64;</span>gmail<span>&#46;</span>com</a>)</li>
+<li>#18772; no prototype consistency check for mangled methods (patch by
+<a class="reference external" href="mailto:lothiraldan&#37;&#52;&#48;gmail&#46;com">lothiraldan<span>&#64;</span>gmail<span>&#46;</span>com</a>)</li>
+<li>#92911: emit W0102 when sets are used as default arguments in functions
+(patch by <a class="reference external" href="mailto:tmarek&#37;&#52;&#48;google&#46;com">tmarek<span>&#64;</span>google<span>&#46;</span>com</a>)</li>
+<li>#77982: do not emit E0602 for loop variables of comprehensions
+used as argument values inside a decorator (patch by <a class="reference external" href="mailto:tmarek&#37;&#52;&#48;google&#46;com">tmarek<span>&#64;</span>google<span>&#46;</span>com</a>)</li>
+<li>#89092: don't emit E0202 (attribute hiding a method) on &#64;property methods</li>
+<li>#92584: fix pylint-gui crash due to internal API change</li>
+<li>#87192: fix crash when decorators are accessed through more than one dot
+(for instance &#64;a.b is fine, &#64;a.b.c crash)</li>
+<li>#88914: fix parsing of --generated-members options, leading to crash
+when using a regexp value set</li>
+<li>fix potential crashes with utils.safe_infer raising InferenceError</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-25-1">
+<h2>What's New in Pylint 0.25.1?<a class="headerlink" href="#what-s-new-in-pylint-0-25-1" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2011-12-08</p>
+<blockquote>
+<div><ul class="simple">
+<li>#81078: Warn if names in  exception handlers clobber overwrite
+existing names (patch by <a class="reference external" href="mailto:tmarek&#37;&#52;&#48;google&#46;com">tmarek<span>&#64;</span>google<span>&#46;</span>com</a>)</li>
+<li>#81113: Fix W0702 messages appearing with the wrong line number.
+(patch by <a class="reference external" href="mailto:tmarek&#37;&#52;&#48;google&#46;com">tmarek<span>&#64;</span>google<span>&#46;</span>com</a>)</li>
+<li>#50461, #52020, #51222: Do not issue warnings when using 2.6's
+property.setter/deleter functionality (patch by <a class="reference external" href="mailto:dneil&#37;&#52;&#48;google&#46;com">dneil<span>&#64;</span>google<span>&#46;</span>com</a>)</li>
+<li>#9188, #4024: Do not trigger W0631 if a loop variable is assigned
+in the else branch of a for loop.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-25-0">
+<h2>What's New in Pylint 0.25.0?<a class="headerlink" href="#what-s-new-in-pylint-0-25-0" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2011-10-7</p>
+<blockquote>
+<div><ul class="simple">
+<li>#74742: make allowed name for first argument of class method configurable
+(patch by Google)</li>
+<li>#74087: handle case where inference of a module return YES; this avoid
+some cases of &quot;TypeError: '_Yes' object does not support indexing&quot; (patch
+by Google)</li>
+<li>#74745: make &quot;too general&quot; exception names configurable (patch by Google)</li>
+<li>#74747: crash occurs when lookup up a special attribute in class scope
+(patch by google)</li>
+<li>#76920: crash if on eg &quot;pylint --rcfile&quot; (patch by Torsten Marek)</li>
+<li>#77237: warning for E0202 may be very misleading</li>
+<li>#73941: HTML report messages table is badly rendered</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-24-0">
+<h2>What's New in Pylint 0.24.0?<a class="headerlink" href="#what-s-new-in-pylint-0-24-0" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2011-07-18</p>
+<blockquote>
+<div><ul class="simple">
+<li>#69738: add regular expressions support for &quot;generated-members&quot;</li>
+<li>ids of logging and string_format checkers have been changed:
+logging: 65 -&gt; 12, string_format: 99 -&gt; 13
+Also add documentation to say that ids of range 1-50 shall be reserved
+to pylint internal checkers</li>
+<li>#69993: Additional string format checks for logging module:
+check for missing arguments, too many arguments, or invalid string
+formats in the logging checker module. Contributed by Daniel Arena</li>
+<li>#69220: add column offset to the reports. If you've a custom reporter,
+this change may break it has now location gain a new item giving the
+column offset.</li>
+<li>#60828: Fix false positive in reimport check</li>
+<li>#70495: absolute imports fail depending on module path (patch by Jacek Konieczny)</li>
+<li>#22273: Fix --ignore option documentation to match reality</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-23-0">
+<h2>What's New in Pylint 0.23.0?<a class="headerlink" href="#what-s-new-in-pylint-0-23-0" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2011-01-11</p>
+<blockquote>
+<div><ul class="simple">
+<li>documentation update, add manpages</li>
+<li>several performance improvements</li>
+<li>finalize python3 support</li>
+<li>new W0106 warning 'Expression &quot;%s&quot; is assigned to nothing'</li>
+<li>drop E0501 and E0502 messages about wrong source encoding: not anymore
+interesting since it's a syntax error for python &gt;= 2.5 and we now only
+support this python version and above.</li>
+<li>don't emit W0221 or W0222 when methods as variable arguments (eg *arg
+and/or **args). Patch submitted by Charles Duffy.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-22-0">
+<h2>What's New in Pylint 0.22.0?<a class="headerlink" href="#what-s-new-in-pylint-0-22-0" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2010-11-15</p>
+<blockquote>
+<div><ul class="simple">
+<li>python versions: minimal python3.x support; drop python &lt; 2.5 support</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-21-4">
+<h2>What's New in Pylint 0.21.4?<a class="headerlink" href="#what-s-new-in-pylint-0-21-4" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2010-10-27</p>
+<blockquote>
+<div><ul class="simple">
+<li>fix #48066: pylint crashes when redirecting output containing non-ascii characters</li>
+<li>fix #19799: &quot;pylint -blah&quot; exit with status 2</li>
+<li>update documentation</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-21-3">
+<h2>What's New in Pylint 0.21.3?<a class="headerlink" href="#what-s-new-in-pylint-0-21-3" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2010-09-28</p>
+<blockquote>
+<div><ul class="simple">
+<li>restored python 2.3 compatibility. Along with logilab-astng
+0.21.3 and logilab-common 0.52, this will much probably be the
+latest release supporting python &lt; 2.5.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-21-2">
+<h2>What's New in Pylint 0.21.2?<a class="headerlink" href="#what-s-new-in-pylint-0-21-2" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2010-08-26</p>
+<blockquote>
+<div><ul class="simple">
+<li>fix #36193: import checker raise exception on cyclic import</li>
+<li>fix #28796: regression in --generated-members introduced pylint 0.20</li>
+<li>some documentation cleanups</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-21-1">
+<h2>What's New in Pylint 0.21.1?<a class="headerlink" href="#what-s-new-in-pylint-0-21-1" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2010-06-04</p>
+<blockquote>
+<div><ul class="simple">
+<li>fix #28962: pylint crash with new options, due to missing stats data while
+writing the Statistics by types report</li>
+<li>updated man page to 0.21 or greater command line usage (fix debian #582494)</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-21-0">
+<h2>What's New in Pylint 0.21.0?<a class="headerlink" href="#what-s-new-in-pylint-0-21-0" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2010-05-11</p>
+<blockquote>
+<div><ul class="simple">
+<li>command line updated (closes #9774, #9787, #9992, #22962):</li>
+<li>all enable-* / disable-* options have been merged into --enable / --disable</li>
+<li>BACKWARD INCOMPATIBLE CHANGE: short name of --errors-only becomes -E, -e being
+affected to --enable</li>
+<li>pylint --help output much simplified, with --long-help available to get the
+complete one</li>
+<li>revisited gui, thanks to students from Toronto university (they are great
+contributors to this release!)</li>
+<li>fix #21591: html reporter produces no output if reports is set to 'no'</li>
+<li>fix #4581: not Missing docstring (C0111) warning if a method is overridden</li>
+<li>fix #4683: Non-ASCII characters count double if utf8 encode</li>
+<li>fix #9018: when using defining-attr-method, method order matters</li>
+<li>fix #4595: Comma not followed by a space should not occurs on trailing comma
+in list/tuple/dict definition</li>
+<li>fix #22585: [Patch] fix man warnings for pyreverse.1 manpage</li>
+<li>fix #20067: AttributeError: 'NoneType' object has no attribute 'name' with with</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-20-0">
+<h2>What's New in Pylint 0.20.0?<a class="headerlink" href="#what-s-new-in-pylint-0-20-0" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2010-03-01</p>
+<blockquote>
+<div><ul class="simple">
+<li>fix #19498: fix windows batch file</li>
+<li>fix #19339: pylint.el : non existing py-mod-map
+(closes Debian Bug report logs - #475939)</li>
+<li>implement #18860, new W0199 message on assert (a, b)</li>
+<li>implement #9776, 'W0150' break or return statement in finally block may
+swallow exception.</li>
+<li>fix #9263, __init__ and __new__ are checked for unused arguments</li>
+<li>fix #20991, class scope definitions ignored in a genexpr</li>
+<li>fix #5975, Abstract intermediate class not recognized as such</li>
+<li>fix #5977, yield and return statement have their own counters, no more R0911
+(Too many return statements) when a function have many yield stamtements</li>
+<li>implement #5564, function / method arguments with leading &quot;_&quot; are ignored in
+arguments / local variables count.</li>
+<li>implement #9982, E0711 specific error message when raising NotImplemented</li>
+<li>remove --cache-size option</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-19-0">
+<h2>What's New in Pylint 0.19.0?<a class="headerlink" href="#what-s-new-in-pylint-0-19-0" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2009-12-18</p>
+<blockquote>
+<div><ul class="simple">
+<li>implement #18947, #5561: checker for function arguments</li>
+<li>include James Lingard string format checker</li>
+<li>include simple message (ids) listing by Vincent Ferotin (#9791)</li>
+<li>--errors-only does not hide fatal error anymore</li>
+<li>include james Lingard patches for ++/-- and duplicate key in dicts</li>
+<li>include James Lingard patches for function call arguments checker</li>
+<li>improved flymake code and doc provided by Derek Harland</li>
+<li>refactor and fix the imports checker</li>
+<li>fix #18862: E0601 false positive with lambda functions</li>
+<li>fix #8764: More than one statement on a single line false positive with
+try/except/finally</li>
+<li>fix #9215: false undefined variable error in lambda function</li>
+<li>fix for w0108 false positive (Nathaniel)</li>
+<li>fix test/fulltest.sh</li>
+<li>#5821 added a utility function to run pylint in another process (patch provide by Vincent Ferotin)</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-18-0">
+<h2>What's New in Pylint 0.18.0?<a class="headerlink" href="#what-s-new-in-pylint-0-18-0" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2009-03-25</p>
+<blockquote>
+<div><ul class="simple">
+<li>tests ok with python 2.4, 2.5, 2.6. 2.3 not tested</li>
+<li>fix #8687, W0613 false positive on inner function</li>
+<li>fix #8350, C0322 false positive on multi-line string</li>
+<li>fix #8332: set E0501 line no to the first line where non ascii character
+has been found</li>
+<li>avoid some E0203 / E0602 false negatives by detecting respectively
+AttributeError / NameError</li>
+<li>implements #4037: don't issue W0142 (* or ** magic) when they are barely
+passed from <em>/*</em> arguments</li>
+<li>complete #5573: more complete list of special methods, also skip W0613
+for python internal method</li>
+<li>don't show information messages by default</li>
+<li>integration of Yuen Ho Wong's patches on emacs lisp files</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-17-0">
+<h2>What's New in Pylint 0.17.0?<a class="headerlink" href="#what-s-new-in-pylint-0-17-0" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2009-03-19</p>
+<blockquote>
+<div><ul class="simple">
+<li>semicolon check : move W0601 to W0301</li>
+<li>remove rpython : remove all rpython checker, modules and tests</li>
+<li>astng 0.18 compatibility: support for _ast module modifies interfaces</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-16-0">
+<h2>What's New in Pylint 0.16.0?<a class="headerlink" href="#what-s-new-in-pylint-0-16-0" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2009-01-28</p>
+<blockquote>
+<div><ul class="simple">
+<li>change [en|dis]able-msg-cat options: only accept message categories
+identified by their first letter (eg IRCWEF) without the need for comma
+as separator</li>
+<li>add epylint.bat script to fix Windows installation</li>
+<li>setuptools/easy_install support</li>
+<li>include a modified version of Maarten ter Huurne patch to avoid W0613
+warning on arguments from overridden method</li>
+<li>implement #5575  drop dumb W0704 message) by adding W0704 to ignored
+messages by default</li>
+<li>new W0108 message, checking for suspicious lambda (provided by  Nathaniel
+Manista)</li>
+<li>fix W0631, false positive reported by Paul Hachmann</li>
+<li>fix #6951: false positive with W0104</li>
+<li>fix #6949</li>
+<li>patches by Mads Kiilerich:</li>
+<li>implement #4691, make pylint exits with a non zero return
+status if any messages other then Information are issued</li>
+<li>fix #3711, #5626 (name resolution bug w/ decorator and class members)</li>
+<li>fix #6954</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-15-2">
+<h2>What's New in Pylint 0.15.2?<a class="headerlink" href="#what-s-new-in-pylint-0-15-2" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2008-10-13</p>
+<blockquote>
+<div><ul class="simple">
+<li>fix #5672: W0706 weirdness ( W0706 removed )</li>
+<li>fix #5998: documentation points to wrong url for mailing list</li>
+<li>fix #6022: no error message on wrong module names</li>
+<li>fix #6040: pytest doesn't run test/func_test.py</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-15-1">
+<h2>What's New in Pylint 0.15.1?<a class="headerlink" href="#what-s-new-in-pylint-0-15-1" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2008-09-15</p>
+<blockquote>
+<div><ul class="simple">
+<li>fix #4910: default values are missing in manpage</li>
+<li>fix #5991: missing files in 0.15.0 tarball</li>
+<li>fix #5993: epylint should work with python 2.3</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-15-0">
+<h2>What's New in Pylint 0.15.0?<a class="headerlink" href="#what-s-new-in-pylint-0-15-0" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2008-09-10</p>
+<blockquote>
+<div><ul class="simple">
+<li>include pyreverse package and class diagram generation</li>
+<li>included Stefan Rank's patch to deal with 2.4 relative import</li>
+<li>included Robert Kirkpatrick's tutorial and typos fixes</li>
+<li>fix bug in reenabling message</li>
+<li>fix #2473: invoking pylint on __init__.py (hopefully)</li>
+<li>typecheck: acquired-members option has been dropped in favor of the more
+generic generated-members option. If the zope option is set, the behaviour
+is now to add some default values to generated-members.</li>
+<li>flymake integration: added bin/epylint and elisp/pylint-flymake.el</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-14-0">
+<h2>What's New in Pylint 0.14.0?<a class="headerlink" href="#what-s-new-in-pylint-0-14-0" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2008-01-14</p>
+<blockquote>
+<div><ul class="simple">
+<li>fix #3733: Messages (dis)appear depending on order of file names</li>
+<li>fix #4026: pylint.el should require compile</li>
+<li>fix a bug in colorized reporter, spotted by Dave Borowitz</li>
+<li>applied patch from Stefan Rank to avoid W0410 false positive when
+multiple &quot;from __future__&quot; import statements</li>
+<li>implement #4012: flag back tick as deprecated (new W0333 message)</li>
+<li>new ignored-class option on typecheck checker allowing to skip members
+checking based on class name (patch provided by Thomas W Barr)</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-13-2">
+<h2>What's New in Pylint 0.13.2?<a class="headerlink" href="#what-s-new-in-pylint-0-13-2" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2007-06-07</p>
+<blockquote>
+<div><ul class="simple">
+<li>fix disable-checker option so that it won't accidentally enable the
+rpython checker which is disabled by default</li>
+<li>added note about the gedit plugin into documentation</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-13-1">
+<h2>What's New in Pylint 0.13.1?<a class="headerlink" href="#what-s-new-in-pylint-0-13-1" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2007-03-02</p>
+<blockquote>
+<div><ul class="simple">
+<li>fix some unexplained 0.13.0 packaging issue which led to a bunch of
+files missing from the distribution</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-13-0">
+<h2>What's New in Pylint 0.13.0?<a class="headerlink" href="#what-s-new-in-pylint-0-13-0" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2007-02-28</p>
+<blockquote>
+<div><ul class="simple">
+<li>new RPython (Restricted Python) checker for PyPy fellow or people
+wanting to get a compiled version of their python program using the
+translator of the PyPy project. For more information about PyPy or
+RPython, visit <a class="reference external" href="http://codespeak.net/pypy/">http://codespeak.net/pypy/</a></li>
+<li>new E0104 and E0105 messages introduced to respectively warn about
+&quot;return&quot; and &quot;yield&quot; outside function or method</li>
+<li>new E0106 message when &quot;yield&quot; and &quot;return something&quot; are mixed in a
+function or method</li>
+<li>new W0107 message for unnecessary pass statement</li>
+<li>new W0614 message to differentiate between unused <cite>import X</cite> and
+unused <cite>from X import *</cite> (#3209, patch submitted by Daniel Drake)</li>
+<li>included Daniel Drake's patch to have a different message E1003 instead of
+E1001 when a missing member is found but an inference failure has been
+detected</li>
+<li>msvs reporter for Visual Studio line number reporting (#3285)</li>
+<li>allow disable-all option inline (#3218, patch submitted by Daniel Drake)</li>
+<li>--init-hook option to call arbitrary code necessary to set
+environment (eg sys.path) (#3156)</li>
+<li>One more Daniel's patch fixing a command line option parsing
+problem, this'll definitely be the DDrake release :)</li>
+<li>fix #3184: crashes on &quot;return&quot; outside function</li>
+<li>fix #3205: W0704 false positive</li>
+<li>fix #3123: W0212 false positive on static method</li>
+<li>fix #2485: W0222 false positive</li>
+<li>fix #3259: when a message is explicitly enabled, check the checker
+emitting it is enabled</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-12-2">
+<h2>What's New in Pylint 0.12.2?<a class="headerlink" href="#what-s-new-in-pylint-0-12-2" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2006-11-23</p>
+<blockquote>
+<div><ul class="simple">
+<li>fix #3143: W0233 bug w/ YES objects</li>
+<li>fix #3119: Off-by-one error counting lines in a file</li>
+<li>fix #3117: ease sys.stdout overriding for reporters</li>
+<li>fix #2508: E0601 false positive with lambda</li>
+<li>fix #3125: E1101 false positive and a message duplication. Only the last part
+is actually fixed since the initial false positive is due to dynamic setting of
+attributes on the decimal.Context class.</li>
+<li>fix #3149: E0101 false positives and introduced E0100 for generator __init__
+methods</li>
+<li>fixed some format checker false positives</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-12-1">
+<h2>What's New in Pylint 0.12.1?<a class="headerlink" href="#what-s-new-in-pylint-0-12-1" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2006-09-25</p>
+<blockquote>
+<div><ul class="simple">
+<li>fixed python &gt;= 2.4 format false positive with multiple lines statement</li>
+<li>fixed some 2.5 issues</li>
+<li>fixed generator expression scope bug (depends on astng 0.16.1)</li>
+<li>stop requiring __revision__</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-12-0">
+<h2>What's New in Pylint 0.12.0?<a class="headerlink" href="#what-s-new-in-pylint-0-12-0" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2006-08-10</p>
+<blockquote>
+<div><ul>
+<li><p class="first">usability changes:</p>
+<blockquote>
+<div><ul class="simple">
+<li>parseable, html and color options are now handled by a single
+output-format option</li>
+<li>enable-&lt;checkerid&gt; and disable-all options are now handled by
+two (exclusive) enable-checker and disable-checker options
+taking a comma separated list of checker names as value</li>
+<li>renamed debug-mode option to errors-only</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">started a reference user manual</p>
+</li>
+<li><p class="first">new W0212 message for access to protected member from client code
+(close #14081)</p>
+</li>
+<li><p class="first">new W0105 and W0106 messages extracted from W0104 (statement seems
+to have no effect) respectively when the statement is actually string
+(that's sometimes used instead of comments for documentation) or an
+empty  statement generated by a useless semicolon</p>
+</li>
+<li><p class="first">reclassified W0302 to C0302</p>
+</li>
+<li><p class="first">fix so that global messages are not anymore connected to the last
+analyzed module (close #10106)</p>
+</li>
+<li><p class="first">fix some bugs related to local disabling of messages</p>
+</li>
+<li><p class="first">fix cr/lf pb when generating the rc file on windows platforms</p>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-11-0">
+<h2>What's New in Pylint 0.11.0?<a class="headerlink" href="#what-s-new-in-pylint-0-11-0" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2006-04-19</p>
+<blockquote>
+<div><ul class="simple">
+<li>fix crash caused by the exceptions checker in some case</li>
+<li>fix some E1101 false positive with abstract method or classes defining
+__getattr__</li>
+<li>dirty fix to avoid &quot;_socketobject&quot; has not &quot;connect&quot; member. The actual
+problem is that astng isn't able to understand the code used to create
+socket.socket object with exec</li>
+<li>added an option in the similarity checker to ignore docstrings, enabled
+by default</li>
+<li>included patch from Benjamin Niemann to allow block level
+enabling/disabling of messages</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-10-0">
+<h2>What's New in Pylint 0.10.0?<a class="headerlink" href="#what-s-new-in-pylint-0-10-0" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2006-03-06</p>
+<blockquote>
+<div><ul>
+<li><p class="first">WARNING, this release include some configuration changes (see below),
+so you may have to check and update your own configuration file(s) if
+you use one</p>
+</li>
+<li><p class="first">this release require the 0.15 version of astng or superior (it will save
+you a lot of pylint crashes...)</p>
+</li>
+<li><p class="first">W0705 has been reclassified to E0701, and is now detecting more
+inheriting problem, and a false positive when empty except clause is
+following an Exception catch has been fixed (close #10422)</p>
+</li>
+<li><p class="first">E0212 and E0214 (metaclass/class method should have mcs/cls as first
+argument have been reclassified to C0202 and C0203 since this not as
+well established as &quot;self&quot; for instance method (E0213)</p>
+</li>
+<li><p class="first">W0224 has been reclassified into F0220 (failed to resolve interfaces
+implemented by a class)</p>
+</li>
+<li><p class="first">a new typecheck checker, introducing the following checks:</p>
+<blockquote>
+<div><ul class="simple">
+<li>E1101, access to unexistent member (implements #10430), remove
+the need of E0201 and so some options has been moved from the
+classes checker to this one</li>
+<li>E1102, calling a non callable object</li>
+<li>E1111 and W1111 when an assignment is done on a function call but the
+inferred function returns None (implements #10431)</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">change in the base checker:</p>
+<blockquote>
+<div><ul class="simple">
+<li>checks module level and instance attribute names (new const-rgx
+and attr-rgx configuration option) (implements #10209  and
+#10440)</li>
+<li>list comprehension and generator expression variables have their
+own regular expression  (the inlinevar-rgx option) (implements
+#9146)</li>
+<li>the C0101 check with its min-name-length option has
+been removed (this can be specified in the regxp after all...)</li>
+<li>W0103 and W0121 are now handled by the variables checker
+(W0103 is now W0603 and W0604 has been splitted into different messages)</li>
+<li>W0131 and W0132 messages  have been reclassified to C0111 and
+C0112 respectively</li>
+<li>new W0104 message on statement without effect</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">regexp support for dummy-variables (dummy-variables-rgx option
+replace dummy-variables) (implements #10027)</p>
+</li>
+<li><p class="first">better global statement handling, see W0602, W0603, W0604 messages
+(implements #10344 and #10236)</p>
+</li>
+<li><p class="first">--debug-mode option, disabling all checkers without error message
+and filtering others to only display error</p>
+</li>
+<li><p class="first">fixed some R0201 (method could be a function) false positive</p>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-9-0">
+<h2>What's New in Pylint 0.9.0?<a class="headerlink" href="#what-s-new-in-pylint-0-9-0" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2006-01-10</p>
+<blockquote>
+<div><ul class="simple">
+<li>a lot of updates to follow astng 0.14 API changes, so install
+logilab-astng  0.14 or greater before using this version of pylint</li>
+<li>checker number 10 ! newstyle will search for problems regarding old
+style / new style classes usage problems (rely on astng 0.14 new
+style detection feature)</li>
+<li>new 'load-plugins' options to load additional pylint plugins (usable
+from the command line or from a configuration file) (implements
+#10031)</li>
+<li>check if a &quot;pylintrc&quot; file exists in the current working directory
+before using the one specified in the PYLINTRC environment variable
+or the default ~/.pylintrc or /etc/pylintrc</li>
+<li>fixed W0706 (Identifier used to raise an exception is assigned...)
+false positive and reraising a catched exception instance</li>
+<li>fixed E0611 (No name get in module blabla) false positive when accessing
+to a class'__dict__</li>
+<li>fixed some E0203 (&quot;access to member before its definition&quot;) false
+positive</li>
+<li>fixed E0214 (&quot;metaclass method first argument should be mcs) false
+positive with staticmethod used on a metaclass</li>
+<li>fixed packaging which was missing the test/regrtest_data directory</li>
+<li>W0212 (method could be a function) has been reclassified in the
+REFACTOR category as R0201, and is no more considerer when a method
+overrides an abstract method from an ancestor class</li>
+<li>include module name in W0401 (wildcard import), as suggested by
+Amaury</li>
+<li>when using the '--parseable', path are written relative to the
+current working directory if in a sub-directory of it (#9789)</li>
+<li>'pylint --version' shows logilab-astng and logilab-common versions</li>
+<li>fixed pylint.el to handle space in file names</li>
+<li>misc lint style fixes</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-8-1">
+<h2>What's New in Pylint 0.8.1?<a class="headerlink" href="#what-s-new-in-pylint-0-8-1" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2005-11-07</p>
+<blockquote>
+<div><ul class="simple">
+<li>fix &quot;deprecated module&quot; false positive when the code imports a
+module whose name starts with a deprecated module's name (close
+#10061)</li>
+<li>fix &quot;module has no name __dict__&quot; false positive (close #10039)</li>
+<li>fix &quot;access to undefined variable __path__&quot; false positive (close
+#10065)</li>
+<li>fix &quot;explicit return in __init__&quot; false positive when return is
+actually in an inner function (close #10075)</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-8-0">
+<h2>What's New in Pylint 0.8.0?<a class="headerlink" href="#what-s-new-in-pylint-0-8-0" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2005-10-21</p>
+<blockquote>
+<div><ul class="simple">
+<li>check names imported from a module exists in the module (E0611),
+patch contributed by Amaury Forgeot d'Arc</li>
+<li>print a warning (W0212) for methods that could be a function
+(implements #9100)</li>
+<li>new --defining-attr-methods option on classes checker</li>
+<li>new --acquired-members option on the classes checker, used when
+--zope=yes to avoid false positive on acquired attributes (listed
+using this new option) (close #8616)</li>
+<li>generate one E0602 for each use of an undefined variable
+(previously, only one for the first use but not for the following)
+(implements #1000)</li>
+<li>make profile option saveable</li>
+<li>fix Windows .bat file,  patch contributed by Amaury Forgeot d'Arc</li>
+<li>fix one more false positive for E0601 (access before definition)
+with for loop such as &quot;for i in range(10): print i&quot; (test
+func_noerror_defined_and_used_on_same_line)</li>
+<li>fix false positive for E0201 (undefined member) when accessing to
+__name__ on a class object</li>
+<li>fix astng checkers traversal order</li>
+<li>fix bug in format checker when parsing a file from a platform
+using different new line characters (close #9239)</li>
+<li>fix encoding detection regexp</li>
+<li>fix --rcfile handling (support for --rcfile=file, close #9590)</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-7-0">
+<h2>What's New in Pylint 0.7.0?<a class="headerlink" href="#what-s-new-in-pylint-0-7-0" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2005-05-27</p>
+<blockquote>
+<div><ul class="simple">
+<li>WARNING: pylint is no longer a logilab subpackage. Users may have to
+manually remove the old logilab/pylint directory.</li>
+<li>introduce a new --additional-builtins option to handle user defined
+builtins</li>
+<li>--reports option has now -r as short alias, and -i for --include-ids</li>
+<li>fix a bug in the variables checker which may causing some false
+positives when variables are defined and used within the same
+statement (test func_noerror_defined_and_used_on_same_line)</li>
+<li>this time, real fix of the &quot;disable-msg in the config file&quot; problem,
+test added to unittest_lint</li>
+<li>fix bug with --list-messages and python -OO</li>
+<li>fix possible false positive for W0201</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-6-4">
+<h2>What's New in Pylint 0.6.4?<a class="headerlink" href="#what-s-new-in-pylint-0-6-4" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2005-04-14</p>
+<blockquote>
+<div><ul class="simple">
+<li>allow to parse files without extension when a path is given on the
+command line (test noext)</li>
+<li>don't fail if we are unable to read an inline option  (e.g. inside a
+module), just produce an information message (test func_i0010)</li>
+<li>new message E0103 for break or continue outside loop (close #8883,
+test func_continue_not_in_loop)</li>
+<li>fix bug in the variables checker, causing non detection of some
+actual name error (close #8884, test
+func_nameerror_on_string_substitution)</li>
+<li>fix bug in the classes checker which was making pylint crash if
+&quot;object&quot; is assigned in a class inheriting from it (test
+func_noerror_object_as_class_attribute)</li>
+<li>fix problem with the similar checker when related options are
+defined in a configuration file</li>
+<li>new --generate-man option to generate pylint's man page (require the
+latest logilab.common (&gt;= 0.9.3)</li>
+<li>packaged (generated...) man page</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-6-3">
+<h2>What's New in Pylint 0.6.3?<a class="headerlink" href="#what-s-new-in-pylint-0-6-3" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2005-02-24</p>
+<blockquote>
+<div><ul class="simple">
+<li>fix scope problem which may cause false positive and true negative
+on E0602</li>
+<li>fix problem with some options such as disable-msg causing error when
+they are coming from the configuration file</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-6-2">
+<h2>What's New in Pylint 0.6.2?<a class="headerlink" href="#what-s-new-in-pylint-0-6-2" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2005-02-16</p>
+<blockquote>
+<div><ul class="simple">
+<li>fix false positive on E0201 (&quot;access to undefined member&quot;) with
+metaclasses</li>
+<li>fix false positive on E0203 (&quot;access to member before its
+definition&quot;) when attributes are defined in a parent class</li>
+<li>fix false positive on W0706 (&quot;identifier used to raise an exception
+assigned to...&quot;)</li>
+<li>fix interpretation of &quot;t&quot; as value for the indent-string
+configuration variable</li>
+<li>fix --rcfile so that --rcfile=pylintrc (only --rcfile pylintrc was
+working in earlier release)</li>
+<li>new raw checker example in the examples/ directory</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-6-1">
+<h2>What's New in Pylint 0.6.1?<a class="headerlink" href="#what-s-new-in-pylint-0-6-1" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2005-02-04</p>
+<blockquote>
+<div><ul class="simple">
+<li>new --rcfile option to specify the configuration file without the
+PYLINTRC environment variable</li>
+<li>added an example module for a custom pylint checker (see the
+example/ directory)</li>
+<li>some fixes to handle fixes in common 0.9.1 (should however still working
+with common 0.9.0, even if upgrade is recommended)</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-6-0">
+<h2>What's New in Pylint 0.6.0?<a class="headerlink" href="#what-s-new-in-pylint-0-6-0" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2005-01-20</p>
+<blockquote>
+<div><ul class="simple">
+<li>refix pylint emacs mode</li>
+<li>no more traceback when just typing &quot;pylint&quot;</li>
+<li>fix a bug which may cause crashes on resolving parent classes</li>
+<li>fix problems with the format checker: don't chock on files
+containing multiple CR, avoid C0322, C0323, C0324 false positives
+with triple quoted string with quote inside</li>
+<li>correctly detect access to member defined latter in __init__ method</li>
+<li>now depends on common 0.8.1 to fix problem with interface resolution
+(close #8606)</li>
+<li>new --list-msgs option describing available checkers and their
+messages</li>
+<li>added windows specific documentation to the README file, contributed
+by Brian van den Broek</li>
+<li>updated doc/features.txt (actually this file is now generated using
+the --list-msgs option), more entries into the FAQ</li>
+<li>improved tests coverage</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-5-0">
+<h2>What's New in Pylint 0.5.0?<a class="headerlink" href="#what-s-new-in-pylint-0-5-0" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2004-10-19</p>
+<blockquote>
+<div><ul class="simple">
+<li>avoid to import analyzed modules !</li>
+<li>new Refactor and Convention message categories. Some Warnings have been
+remaped into those new categories</li>
+<li>added &quot;similar&quot;, a tool to find copied and pasted lines of code,
+both using a specific command line tool and integrated as a
+pylint's checker</li>
+<li>imports checker may report import dependencies as a dot graph</li>
+<li>new checker regrouping most Refactor detection (with some new metrics)</li>
+<li>more command line options storable in the configuration file</li>
+<li>fix bug with total / undocumented number of methods</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-4-2">
+<h2>What's New in Pylint 0.4.2?<a class="headerlink" href="#what-s-new-in-pylint-0-4-2" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2004-07-08</p>
+<blockquote>
+<div><ul class="simple">
+<li>fix pylint emacs mode</li>
+<li>fix classes checkers to handler twisted interfaces</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-4-1">
+<h2>What's New in Pylint 0.4.1?<a class="headerlink" href="#what-s-new-in-pylint-0-4-1" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2004-05-14</p>
+<blockquote>
+<div><ul class="simple">
+<li>fix the setup.py script to allow bdist_winst (well, the generated
+installer has not been tested...) with the necessary
+logilab/__init__.py file</li>
+<li>fix file naming convention as suggested by Andreas Amoroso</li>
+<li>fix stupid crash bug with bad method names</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-4-0">
+<h2>What's New in Pylint 0.4.0?<a class="headerlink" href="#what-s-new-in-pylint-0-4-0" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2004-05-10</p>
+<blockquote>
+<div><ul class="simple">
+<li>fix file path with --parsable</li>
+<li>--parsable option has been renamed to --parseable</li>
+<li>added patch from Andreas Amoroso to output message to files instead
+of standard output</li>
+<li>added Run to the list of correct variable names</li>
+<li>fix variable names regexp and checking of local classes names</li>
+<li>some basic handling of metaclasses</li>
+<li>no-docstring-rgx apply now on classes too</li>
+<li>new option to specify a different regexp for methods than for
+functions</li>
+<li>do not display the evaluation report when no statements has been
+analysed</li>
+<li>fixed crash with a class nested in a method</li>
+<li>fixed format checker to deals with triple quoted string and
+lines with code and comment mixed</li>
+<li>use logilab.common.ureports to layout reports</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-3-3">
+<h2>What's New in Pylint 0.3.3?<a class="headerlink" href="#what-s-new-in-pylint-0-3-3" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2004-02-17</p>
+<blockquote>
+<div><ul class="simple">
+<li>added a parsable text output, used when the --parsable option is
+provided</li>
+<li>added an emacs mode using this output, available in the distrib's
+elisp directory</li>
+<li>fixed some typos in messages</li>
+<li>change include-ids options to yn, and allow it to be in the
+configuration file</li>
+<li>do not chock on corrupted stats files</li>
+<li>fixed bug in the format checker which may stop pylint execution</li>
+<li>provide scripts for unix and windows to wrap the minimal pylint tk
+gui</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-3-2">
+<h2>What's New in Pylint 0.3.2?<a class="headerlink" href="#what-s-new-in-pylint-0-3-2" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2003-12-23</p>
+<blockquote>
+<div><ul class="simple">
+<li>html-escape messages in the HTML reporter (bug reported by Juergen
+Hermann)</li>
+<li>added &quot;TODO&quot; to the list of default note tags</li>
+<li>added &quot;rexec&quot; to the list of default deprecated modules</li>
+<li>fixed typos in some messages</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-3-1">
+<h2>What's New in Pylint 0.3.1?<a class="headerlink" href="#what-s-new-in-pylint-0-3-1" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2003-12-05</p>
+<blockquote>
+<div><ul class="simple">
+<li>bug fix in format and classes checkers</li>
+<li>remove print statement from imports checkers</li>
+<li>provide a simple tk gui, essentially useful for windows users</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-3-0">
+<h2>What's New in Pylint 0.3.0?<a class="headerlink" href="#what-s-new-in-pylint-0-3-0" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2003-11-20</p>
+<blockquote>
+<div><ul class="simple">
+<li>new exceptions checker, checking for string exception and empty
+except clauses.</li>
+<li>imports checker checks for reimport of modules</li>
+<li>classes checker checks for calls to ancestor's __init__ and abstract
+method not overridden. It doesn't complain anymore for unused import in
+__init__ files, and provides a new option ignore-interface-methods,
+useful when you're using zope Interface implementation in your project</li>
+<li>base checker checks for black listed builtins call (controlled by the
+bad-functions option) and for use of * and **</li>
+<li>format checker checks for use of &lt;&gt; and &quot;l&quot; as long int marker</li>
+<li>major internal API changes</li>
+<li>use the rewrite of astng, based on compiler.ast</li>
+<li>added unique id for messages, as suggested by Wolfgang Grafen</li>
+<li>added unique id for reports</li>
+<li>can take multiple modules or files as argument</li>
+<li>new options command line options : --disable-msg, --enable-msg,
+--help-msg, --include-ids, --reports, --disable-report, --cache-size</li>
+<li>--version shows the version of the python interpreter</li>
+<li>removed some options which are now replaced by [en|dis]able-msg, or
+disable-report</li>
+<li>read disable-msg and enable-msg options in source files (should be
+in comments on the top of the file, in the form
+&quot;# pylint: disable-msg=W0402&quot;</li>
+<li>new message for modules importing themselves instead of the &quot;cyclic
+import&quot; message</li>
+<li>fix bug with relative and cyclic imports</li>
+<li>fix bug in imports checker (cycle was not always detected)</li>
+<li>still fixes in format checker : don't check comment and docstring,
+check first line after an indent</li>
+<li>black and white list now apply to all identifiers, not only
+variables,  so changed the configuration option from
+(good|bad)-variable-names to (good|bad)-names</li>
+<li>added string, rexec and Bastion to the default list of deprecated
+modules</li>
+<li>do not print redefinition warning for function/class/method defined
+in mutually exclusive branches</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-2-1">
+<h2>What's New in Pylint 0.2.1?<a class="headerlink" href="#what-s-new-in-pylint-0-2-1" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2003-10-10</p>
+<blockquote>
+<div><ul class="simple">
+<li>added some documentation, fixed some typos</li>
+<li>set environment variable PYLINT_IMPORT to 1 during pylint execution.</li>
+<li>check that variables &quot;imported&quot; using the global statement exist</li>
+<li>indentation problems are now warning instead of errors</li>
+<li>fix checkers.initialize to try to load all files with a known python
+extension (patch from wrobell)</li>
+<li>fix a bunch of messages</li>
+<li>fix sample configuration file</li>
+<li>fix the bad-construction option</li>
+<li>fix encoding checker</li>
+<li>fix format checker</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-2-0">
+<h2>What's New in Pylint 0.2.0?<a class="headerlink" href="#what-s-new-in-pylint-0-2-0" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2003-09-12</p>
+<blockquote>
+<div><ul class="simple">
+<li>new source encoding / FIXME checker (pep 263)</li>
+<li>new --zope option which trigger Zope import. Useful to check Zope
+products code.</li>
+<li>new --comment option which enable the evaluation note comment
+(disabled by default).</li>
+<li>a ton of bug fixes</li>
+<li>easy functional test infrastructure</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-1-2">
+<h2>What's New in Pylint 0.1.2?<a class="headerlink" href="#what-s-new-in-pylint-0-1-2" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2003-06-18</p>
+<blockquote>
+<div><ul class="simple">
+<li>bug fix release</li>
+<li>remove dependency to pyreverse</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-1-1">
+<h2>What's New in Pylint 0.1.1?<a class="headerlink" href="#what-s-new-in-pylint-0-1-1" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2003-06-01</p>
+<blockquote>
+<div><ul class="simple">
+<li>much more functionalities !</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="what-s-new-in-pylint-0-1">
+<h2>What's New in Pylint 0.1?<a class="headerlink" href="#what-s-new-in-pylint-0-1" title="Permalink to this headline">¶</a></h2>
+<p>Release date: 2003-05-19</p>
+<blockquote>
+<div><ul class="simple">
+<li>initial release</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Pylint's ChangeLog</a><ul>
+<li><a class="reference internal" href="#what-s-new-in-pylint-2-2">What's New in Pylint 2.2?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-2-1-1">What's New in Pylint 2.1.1?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-2-1">What's New in Pylint 2.1?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-2-0">What's New in Pylint 2.0?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-1-9">What's New in Pylint 1.9?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-1-8-1">What's New in Pylint 1.8.1?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-1-8">What's New in Pylint 1.8?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-1-7-1">What's New in Pylint 1.7.1?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-1-7">What's New in Pylint 1.7?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-1-6-3">What's new in Pylint 1.6.3?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-1-6-2">What's new in Pylint 1.6.2?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-1-6-1">What's new in Pylint 1.6.1?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-1-6-0">What's New in Pylint 1.6.0?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-1-5-5">What's New in Pylint 1.5.5?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-1-5-4">What's New in Pylint 1.5.4?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-1-5-3">What's New in Pylint 1.5.3?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-1-5-2">What's New in Pylint 1.5.2?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-1-5-1">What's New in Pylint 1.5.1?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-1-5-0">What's New in Pylint 1.5.0?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-1-4-3">What's New in Pylint 1.4.3?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-1-4-2">What's New in Pylint 1.4.2?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-1-4-1">What's New in Pylint 1.4.1?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-1-4-0">What's New in Pylint 1.4.0?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-1-3-0">What's New in Pylint 1.3.0?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-1-2-1">What's New in Pylint 1.2.1?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-1-2-0">What's New in Pylint 1.2.0?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-1-1-0">What's New in Pylint 1.1.0?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-1-0-0">What's New in Pylint 1.0.0?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-28-0">What's New in Pylint 0.28.0?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-27-0">What's New in Pylint 0.27.0?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-26-0">What's New in Pylint 0.26.0?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-25-2">What's New in Pylint 0.25.2?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-25-1">What's New in Pylint 0.25.1?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-25-0">What's New in Pylint 0.25.0?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-24-0">What's New in Pylint 0.24.0?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-23-0">What's New in Pylint 0.23.0?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-22-0">What's New in Pylint 0.22.0?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-21-4">What's New in Pylint 0.21.4?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-21-3">What's New in Pylint 0.21.3?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-21-2">What's New in Pylint 0.21.2?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-21-1">What's New in Pylint 0.21.1?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-21-0">What's New in Pylint 0.21.0?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-20-0">What's New in Pylint 0.20.0?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-19-0">What's New in Pylint 0.19.0?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-18-0">What's New in Pylint 0.18.0?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-17-0">What's New in Pylint 0.17.0?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-16-0">What's New in Pylint 0.16.0?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-15-2">What's New in Pylint 0.15.2?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-15-1">What's New in Pylint 0.15.1?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-15-0">What's New in Pylint 0.15.0?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-14-0">What's New in Pylint 0.14.0?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-13-2">What's New in Pylint 0.13.2?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-13-1">What's New in Pylint 0.13.1?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-13-0">What's New in Pylint 0.13.0?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-12-2">What's New in Pylint 0.12.2?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-12-1">What's New in Pylint 0.12.1?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-12-0">What's New in Pylint 0.12.0?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-11-0">What's New in Pylint 0.11.0?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-10-0">What's New in Pylint 0.10.0?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-9-0">What's New in Pylint 0.9.0?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-8-1">What's New in Pylint 0.8.1?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-8-0">What's New in Pylint 0.8.0?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-7-0">What's New in Pylint 0.7.0?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-6-4">What's New in Pylint 0.6.4?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-6-3">What's New in Pylint 0.6.3?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-6-2">What's New in Pylint 0.6.2?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-6-1">What's New in Pylint 0.6.1?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-6-0">What's New in Pylint 0.6.0?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-5-0">What's New in Pylint 0.5.0?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-4-2">What's New in Pylint 0.4.2?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-4-1">What's New in Pylint 0.4.1?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-4-0">What's New in Pylint 0.4.0?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-3-3">What's New in Pylint 0.3.3?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-3-2">What's New in Pylint 0.3.2?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-3-1">What's New in Pylint 0.3.1?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-3-0">What's New in Pylint 0.3.0?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-2-1">What's New in Pylint 0.2.1?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-2-0">What's New in Pylint 0.2.0?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-1-2">What's New in Pylint 0.1.2?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-1-1">What's New in Pylint 0.1.1?</a></li>
+<li><a class="reference internal" href="#what-s-new-in-pylint-0-1">What's New in Pylint 0.1?</a></li>
+</ul>
+</li>
+</ul>
+
+<h3><a href="../index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how_tos/index.html">How To Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../technical_reference/index.html">Technical Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development_guide/index.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../backlinks.html">Some projects using Pylint</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">What's New in Pylint</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="2.2.html">What's New in Pylint 2.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.1.html">What's New in Pylint 2.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.0.html">What's New in Pylint 2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.9.html">What's New In Pylint 1.9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.8.html">What's New In Pylint 1.8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.7.html">What's New In Pylint 1.7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.6.html">What's New In Pylint 1.6</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Pylint's ChangeLog</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="1.6.html"
+                        title="previous chapter">What's New In Pylint 1.6</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/whatsnew/changelog.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="1.6.html" title="What&#39;s New In Pylint 1.6"
+             >previous</a> |</li>
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="http://meta.pycqa.org/en/latest/">PyCQA</a> &#187;</li>
+    
+    <a href="../index.html">Pylint 2.2.0-dev documentation</a> &#187;
+    
+
+          <li class="nav-item nav-item-1"><a href="index.html" >What's New in Pylint</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">Copyright</a> 2003-2018, Logilab, PyCQA and contributors.
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    Last updated on None.
+    <a href="https://github.com/pycqa/pylint/issues/new">Found a bug</a>?
+    <br />
+
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.7.8.
+    </div>
+
+  </body>
+</html>

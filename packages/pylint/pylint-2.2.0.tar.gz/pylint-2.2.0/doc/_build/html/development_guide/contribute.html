@@ -1,0 +1,326 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Contributing &#8212; Pylint 2.2.0-dev documentation</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Tidelift" href="support.html" />
+    <link rel="prev" title="Development" href="index.html" />
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+     
+
+  </head><body>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="support.html" title="Tidelift"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Development"
+             accesskey="P">previous</a> |</li>
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="http://meta.pycqa.org/en/latest/">PyCQA</a> &#187;</li>
+    
+    <a href="../index.html">Pylint 2.2.0-dev documentation</a> &#187;
+    
+
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Development</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="contributing">
+<h1>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="bug-reports-feedback">
+<span id="id1"></span><h2>Bug reports, feedback<a class="headerlink" href="#bug-reports-feedback" title="Permalink to this headline">¶</a></h2>
+<p>You think you have found a bug in Pylint? Well, this may be the case
+since Pylint is under heavy development!</p>
+<p>Please take the time to check if it is already in the issue tracker at
+<a class="reference external" href="https://github.com/PyCQA/pylint">https://github.com/PyCQA/pylint</a></p>
+<p>If you cannot find it in the tracker, create a new issue there or discuss your
+problem on the <a class="reference external" href="mailto:code-quality&#37;&#52;&#48;python&#46;org">code-quality<span>&#64;</span>python<span>&#46;</span>org</a> mailing list.</p>
+<p>The code-quality mailing list is also a nice place to provide feedback about
+Pylint, since it is shared with other tools that aim at improving the quality of
+python code.</p>
+<p>Note that if you don't find something you have expected in Pylint's
+issue tracker, it may be because it is an issue with one of its dependencies, namely
+astroid:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/PyCQA/astroid">https://github.com/PyCQA/astroid</a></li>
+</ul>
+</div>
+<div class="section" id="mailing-lists">
+<span id="id2"></span><h2>Mailing lists<a class="headerlink" href="#mailing-lists" title="Permalink to this headline">¶</a></h2>
+<p>You can subscribe to this mailing list at
+<a class="reference external" href="http://mail.python.org/mailman/listinfo/code-quality">http://mail.python.org/mailman/listinfo/code-quality</a></p>
+<p>Archives are available at
+<a class="reference external" href="http://mail.python.org/pipermail/code-quality/">http://mail.python.org/pipermail/code-quality/</a></p>
+<p>Archives before April 2013 are available at
+<a class="reference external" href="http://lists.logilab.org/pipermail/python-projects/">http://lists.logilab.org/pipermail/python-projects/</a></p>
+</div>
+<div class="section" id="repository">
+<span id="id3"></span><h2>Repository<a class="headerlink" href="#repository" title="Permalink to this headline">¶</a></h2>
+<p>Pylint is developed using the <a class="reference external" href="https://git-scm.com/">git</a> distributed version control system.</p>
+<p>You can clone Pylint and its dependencies from</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">PyCQA</span><span class="o">/</span><span class="n">pylint</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">PyCQA</span><span class="o">/</span><span class="n">astroid</span>
+</pre></div>
+</div>
+<p>Got a change for Pylint?  Below are a few steps you should take to make sure
+your patch gets accepted.</p>
+<ul>
+<li><p class="first">Test your code</p>
+<ul>
+<li><p class="first">Pylint is very well tested, with a high good code coverage.
+It has two types of tests, usual unittests and functional tests.</p>
+<p>The usual unittests can be found under <cite>/pylint/test</cite> directory and they can
+be used for testing almost anything Pylint related. But for the ease
+of testing Pylint's messages, we also have the concept of functional tests.</p>
+</li>
+<li><p class="first">You should also run all the tests to ensure that your change isn't
+breaking one. You can run the tests using the <a class="reference external" href="http://tox.readthedocs.io/en/latest/">tox</a> package, as in:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">tox</span>
+<span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">tox</span> <span class="o">-</span><span class="n">epy36</span> <span class="c1"># for Python 3.6 suite only</span>
+<span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">tox</span> <span class="o">-</span><span class="n">epylint</span> <span class="c1"># for running Pylint over Pylint&#39;s codebase</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">To run only a specific test suite, use a pattern for the test filename
+(<strong>without</strong> the <code class="docutils literal notranslate"><span class="pre">.py</span></code> extension), as in:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">tox</span> <span class="o">-</span><span class="n">e</span> <span class="n">py36</span> <span class="o">--</span> <span class="o">-</span><span class="n">k</span> <span class="n">test_functional</span>
+<span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">tox</span> <span class="o">-</span><span class="n">e</span> <span class="n">py36</span> <span class="o">--</span> <span class="o">-</span><span class="n">k</span>  \<span class="o">*</span><span class="n">func</span>\<span class="o">*</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Since we just use <a class="reference external" href="http://pytest.readthedocs.io/en/latest/">pytest</a> to run the tests, you can also use it as well,
+although we highly recommend using <a class="reference external" href="http://tox.readthedocs.io/en/latest/">tox</a> instead:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pytest</span> <span class="n">pylint</span> <span class="o">-</span><span class="n">k</span> <span class="n">test_functional</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p class="first">Add a short entry to the ChangeLog describing the change, except for internal
+implementation only changes. Not usually required, but for changes other than small
+bugs we also add a couple of sentences in the release document for that release,
+(<cite>What's New</cite> section). For the release document we usually write some more details,
+and it is also a good place to offer examples on how the new change is supposed to work.</p>
+</li>
+<li><p class="first">Add yourself to the <cite>CONTRIBUTORS</cite> file, if you are not already there.</p>
+</li>
+<li><p class="first">Write a comprehensive commit message</p>
+</li>
+<li><p class="first">Relate your change to an issue in the tracker if such an issue exists (see
+<a class="reference external" href="https://help.github.com/articles/closing-issues-via-commit-messages/">Closing issues via commit messages</a> of the GitHub documentation for more
+information on this)</p>
+</li>
+<li><p class="first">Document your change, if it is a non-trivial one.</p>
+</li>
+<li><p class="first">Send a pull request from GitHub (see <a class="reference external" href="https://help.github.com/articles/using-pull-requests/">About pull requests</a> for more insight
+about this topic)</p>
+</li>
+</ul>
+</div>
+<div class="section" id="functional-tests">
+<span id="id4"></span><h2>Functional Tests<a class="headerlink" href="#functional-tests" title="Permalink to this headline">¶</a></h2>
+<p>These are residing under '/pylint/test/functional' and they are formed of multiple
+components. First, each Python file is considered to be a test case and it
+should be accompanied by a .txt file, having the same name, with the messages
+that are supposed to be emitted by the given test file.</p>
+<p>In the Python file, each line for which Pylint is supposed to emit a message
+has to be annotated with a comment in the form <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">[message_symbol]</span></code>, as in:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># [unbalanced-tuple-unpacking]</span>
+</pre></div>
+</div>
+<p>If multiple messages are expected on the same line, then this syntax can be used:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="mf">1.</span><span class="n">test</span> <span class="c1"># [unbalanced-tuple-unpacking, no-member]</span>
+</pre></div>
+</div>
+<p>The syntax of the .txt file has to be this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">symbol</span><span class="p">:</span><span class="n">line_number</span><span class="p">:</span><span class="n">function_or_class</span><span class="p">:</span><span class="n">Expected</span> <span class="n">message</span>
+</pre></div>
+</div>
+<p>For example, this is a valid message line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>abstract-class-instantiated:79:main:Abstract class &#39;BadClass&#39; with abstract methods instantiated
+</pre></div>
+</div>
+<p>If the Python file is expected to not emit any errors, then the .txt file has to be empty.
+If you need special control over Pylint's flag, you can also create a .rc file, which
+can have sections of Pylint's configuration.</p>
+<p>During development, it's sometimes helpful to run all functional tests in your
+current environment in order to have faster feedback. Run with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">pylint</span><span class="o">/</span><span class="n">test</span><span class="o">/</span><span class="n">test_functional</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="tips-for-getting-started-with-pylint-development">
+<h2>Tips for Getting Started with Pylint Development<a class="headerlink" href="#tips-for-getting-started-with-pylint-development" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Read the <a class="reference internal" href="../technical_reference/index.html#technical-reference"><span class="std std-ref">Technical Reference</span></a>. It gives a short walkthrough of the pylint
+codebase and will help you identify where you will need to make changes
+for what you are trying to implement.</li>
+<li><code class="xref py py-func docutils literal notranslate"><span class="pre">astroid.extract_node()</span></code> is your friend. Most checkers are AST based,
+so you will likely need to interact with <a class="reference external" href="https://astroid.readthedocs.io/en/latest/api/general.html#module-astroid" title="(in Astroid v2.1.0-dev)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">astroid</span></code></a>.
+A short example of how to use <code class="xref py py-func docutils literal notranslate"><span class="pre">astroid.extract_node()</span></code> is given
+<a class="reference internal" href="../how_tos/custom_checkers.html#astroid-extract-node"><span class="std std-ref">here</span></a>.</li>
+<li>When fixing a bug for a specific check, search the code for the warning
+message to find where the warning is raised,
+and therefore where the logic for that code exists.</li>
+</ul>
+</div>
+<div class="section" id="building-the-documentation">
+<h2>Building the documentation<a class="headerlink" href="#building-the-documentation" title="Permalink to this headline">¶</a></h2>
+<p>We use <strong>tox</strong> for building the documentation:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tox -e docs
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Contributing</a><ul>
+<li><a class="reference internal" href="#bug-reports-feedback">Bug reports, feedback</a></li>
+<li><a class="reference internal" href="#mailing-lists">Mailing lists</a></li>
+<li><a class="reference internal" href="#repository">Repository</a></li>
+<li><a class="reference internal" href="#functional-tests">Functional Tests</a></li>
+<li><a class="reference internal" href="#tips-for-getting-started-with-pylint-development">Tips for Getting Started with Pylint Development</a></li>
+<li><a class="reference internal" href="#building-the-documentation">Building the documentation</a></li>
+</ul>
+</li>
+</ul>
+
+<h3><a href="../index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how_tos/index.html">How To Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../technical_reference/index.html">Technical Reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Development</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="support.html">Tidelift</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../backlinks.html">Some projects using Pylint</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew/index.html">What's New in Pylint</a></li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Development</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="support.html"
+                        title="next chapter">Tidelift</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/development_guide/contribute.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="support.html" title="Tidelift"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Development"
+             >previous</a> |</li>
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="http://meta.pycqa.org/en/latest/">PyCQA</a> &#187;</li>
+    
+    <a href="../index.html">Pylint 2.2.0-dev documentation</a> &#187;
+    
+
+          <li class="nav-item nav-item-1"><a href="index.html" >Development</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">Copyright</a> 2003-2018, Logilab, PyCQA and contributors.
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    Last updated on None.
+    <a href="https://github.com/pycqa/pylint/issues/new">Found a bug</a>?
+    <br />
+
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.7.8.
+    </div>
+
+  </body>
+</html>

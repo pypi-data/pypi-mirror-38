@@ -1,0 +1,1052 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>What&#39;s New In Pylint 1.7 &#8212; Pylint 2.2.0-dev documentation</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="What&#39;s New In Pylint 1.6" href="1.6.html" />
+    <link rel="prev" title="What&#39;s New In Pylint 1.8" href="1.8.html" />
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+     
+
+  </head><body>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="1.6.html" title="What&#39;s New In Pylint 1.6"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="1.8.html" title="What&#39;s New In Pylint 1.8"
+             accesskey="P">previous</a> |</li>
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="http://meta.pycqa.org/en/latest/">PyCQA</a> &#187;</li>
+    
+    <a href="../index.html">Pylint 2.2.0-dev documentation</a> &#187;
+    
+
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">What's New in Pylint</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="what-s-new-in-pylint-1-7">
+<h1>What's New In Pylint 1.7<a class="headerlink" href="#what-s-new-in-pylint-1-7" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Release:</th><td class="field-body">1.7</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Date:</th><td class="field-body">2017-04-13</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="summary-release-highlights">
+<h2>Summary -- Release highlights<a class="headerlink" href="#summary-release-highlights" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>None yet.</li>
+</ul>
+</div>
+<div class="section" id="new-checkers">
+<h2>New checkers<a class="headerlink" href="#new-checkers" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">single-string-used-for-slots</span></code> check was added, which is used
+whenever a class is using a single string as a slot value. While this
+is technically not a problem per se, it might trip users when manipulating
+the slots value as an iterable, which would in turn iterate over characters
+of the slot value. In order to be more straight-forward, always try to use
+a container such as a list or a tuple for defining slot values.</p>
+</li>
+<li><p class="first">We added a new check, <code class="docutils literal notranslate"><span class="pre">literal-comparison</span></code>, which is used
+whenever <strong>pylint</strong> can detect a comparison to a literal. This is usually
+not what we want and, potentially, error prone. For instance, in the given example,
+the first string comparison returns true, since smaller strings are interned
+by the interpreter, while for larger ones, it will return False:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mystring</span> <span class="o">=</span> <span class="s2">&quot;ok&quot;</span>
+<span class="k">if</span> <span class="n">mystring</span> <span class="ow">is</span> <span class="s2">&quot;ok&quot;</span><span class="p">:</span> <span class="c1"># Returns true</span>
+    <span class="c1"># do stuff</span>
+
+<span class="n">mystring</span> <span class="o">=</span> <span class="s2">&quot;a&quot;</span> <span class="o">*</span> <span class="mi">1000</span>
+<span class="k">if</span> <span class="n">mystring</span> <span class="ow">is</span> <span class="p">(</span><span class="s2">&quot;a&quot;</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">):</span> <span class="c1"># This will return False</span>
+    <span class="c1"># do stuff</span>
+</pre></div>
+</div>
+<p>Instead of using the <code class="docutils literal notranslate"><span class="pre">is</span></code> operator, you should use the <code class="docutils literal notranslate"><span class="pre">==</span></code> operator for
+this use case.</p>
+</li>
+<li><p class="first">We added a new refactoring message, <code class="docutils literal notranslate"><span class="pre">consider-merging-isinstance</span></code>, which is
+emitted whenever we can detect that consecutive <em>isinstance</em> calls can be merged
+together.
+For instance, in this example, we can merge the first two <em>isinstance</em> calls:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># $ cat a.py</span>
+<span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">float</span><span class="p">):</span>
+    <span class="k">pass</span>
+<span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">))</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">pass</span>
+<span class="c1"># $ pylint a.py</span>
+<span class="c1"># R:  1, 0: Consider merging these isinstance calls to isinstance(x, (float, int)) (consider-merging-isinstance)</span>
+<span class="c1"># R:  3, 0: Consider merging these isinstance calls to isinstance(x, (int, float, str)) (consider-merging-isinstance)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">A new error check was added, <code class="docutils literal notranslate"><span class="pre">invalid-metaclass</span></code>, which is used whenever <em>pylint</em>
+can detect that a given class is using a metaclass which is invalid for the purpose
+of the class. This usually might indicate a problem in the code, rather than
+something done on purpose.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Needs to inherit from *type* in order to be valid</span>
+<span class="k">class</span> <span class="nc">SomeClass</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="o">...</span>
+
+<span class="k">class</span> <span class="nc">MyClass</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">SomeClass</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">A new warning was added, <code class="docutils literal notranslate"><span class="pre">useless-super-delegation</span></code>, which is used whenever
+we can detect that an overridden method is useless, relying on <em>super()</em> delegation
+to do the same thing as another method from the MRO.</p>
+<p>For instance, in this example, the first two methods are useless, since they
+do the exact same thing as the methods from the base classes, while the next
+two methods are not, since they do some extra operations with the passed
+arguments.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Impl</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">param1</span><span class="p">,</span> <span class="n">param2</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Impl</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">param1</span><span class="p">,</span> <span class="n">param2</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">useless</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">Impl</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">useless</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">not_useless</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">debug</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;debug&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">debug</span><span class="p">:</span>
+            <span class="o">...</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">Impl</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">not_useless</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">not_useless_1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">Impl</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">not_useless_1</span><span class="p">(</span><span class="n">first</span> <span class="o">+</span> <span class="n">some_value</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">A new warning was added, <code class="docutils literal notranslate"><span class="pre">len-as-condition</span></code>, which is used whenever
+we detect that a condition uses <code class="docutils literal notranslate"><span class="pre">len(SEQUENCE)</span></code> incorrectly. Instead
+one could use <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">SEQUENCE</span></code> or <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">not</span> <span class="pre">SEQUENCE</span></code>.</p>
+<p>For instance, all of the examples below:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">S</span><span class="p">):</span>
+  <span class="k">pass</span>
+
+<span class="k">if</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span><span class="n">S</span><span class="p">):</span>
+  <span class="k">pass</span>
+
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">S</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+  <span class="k">pass</span>
+
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">S</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+  <span class="k">pass</span>
+
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">S</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+  <span class="k">pass</span>
+</pre></div>
+</div>
+<p>can be written in a more natural way:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">S</span><span class="p">:</span>
+  <span class="k">pass</span>
+
+<span class="k">if</span> <span class="ow">not</span> <span class="n">S</span><span class="p">:</span>
+  <span class="k">pass</span>
+</pre></div>
+</div>
+<p>See <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/#programming-recommendations">https://www.python.org/dev/peps/pep-0008/#programming-recommendations</a>
+for more information.</p>
+</li>
+<li><p class="first">A new extension was added, <code class="docutils literal notranslate"><span class="pre">emptystring.py</span></code> which detects whenever
+we detect comparisons to empty string constants. This extension is disabled
+by default. For instance, the examples below:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">S</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+  <span class="k">pass</span>
+
+<span class="k">if</span> <span class="n">S</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+  <span class="k">pass</span>
+</pre></div>
+</div>
+<p>can be written in a more natural way:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">S</span><span class="p">:</span>
+  <span class="k">pass</span>
+
+<span class="k">if</span> <span class="ow">not</span> <span class="n">S</span><span class="p">:</span>
+  <span class="k">pass</span>
+</pre></div>
+</div>
+<p>An exception to this is when empty string is an allowed value whose meaning
+is treated differently than <code class="docutils literal notranslate"><span class="pre">None</span></code>. For example the meaning could be
+user selected no additional options vs. user has not made their selection yet!</p>
+<p>You can activate this checker by adding the line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">load</span><span class="o">-</span><span class="n">plugins</span><span class="o">=</span><span class="n">pylint</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">emptystring</span>
+</pre></div>
+</div>
+<p>to the <code class="docutils literal notranslate"><span class="pre">MASTER</span></code> section of your <code class="docutils literal notranslate"><span class="pre">.pylintrc</span></code> or using the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pylint a.py --load-plugins=pylint.extensions.emptystring
+</pre></div>
+</div>
+</li>
+<li><p class="first">A new extension was added, <code class="docutils literal notranslate"><span class="pre">comparetozero.py</span></code> which detects whenever
+we compare integers to zero. This extension is disabled by default.
+For instance, the examples below:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">X</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+  <span class="k">pass</span>
+
+<span class="k">if</span> <span class="n">X</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+  <span class="k">pass</span>
+</pre></div>
+</div>
+<p>can be written in a more natural way:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">X</span><span class="p">:</span>
+  <span class="k">pass</span>
+
+<span class="k">if</span> <span class="ow">not</span> <span class="n">X</span><span class="p">:</span>
+  <span class="k">pass</span>
+</pre></div>
+</div>
+<p>An exception to this is when zero is an allowed value whose meaning
+is treated differently than <code class="docutils literal notranslate"><span class="pre">None</span></code>. For example the meaning could be
+<code class="docutils literal notranslate"><span class="pre">None</span></code> means no limit, while <code class="docutils literal notranslate"><span class="pre">0</span></code> means the limit it zero!</p>
+<p>You can activate this checker by adding the line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">load</span><span class="o">-</span><span class="n">plugins</span><span class="o">=</span><span class="n">pylint</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">comparetozero</span>
+</pre></div>
+</div>
+<p>to the <code class="docutils literal notranslate"><span class="pre">MASTER</span></code> section of your <code class="docutils literal notranslate"><span class="pre">.pylintrc</span></code> or using the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pylint a.py --load-plugins=pylint.extensions.comparetozero
+</pre></div>
+</div>
+</li>
+<li><p class="first">We've added new error conditions for <code class="docutils literal notranslate"><span class="pre">bad-super-call</span></code> which now detect
+the usage of <code class="docutils literal notranslate"><span class="pre">super(type(self),</span> <span class="pre">self)</span></code> and <code class="docutils literal notranslate"><span class="pre">super(self.__class__,</span> <span class="pre">self)</span></code>
+patterns. These can lead to recursion loop in derived classes. The problem
+is visible only if you override a class that uses these incorrect invocations
+of <code class="docutils literal notranslate"><span class="pre">super()</span></code>.</p>
+<p>For instance, <code class="docutils literal notranslate"><span class="pre">Derived.__init__()</span></code> will correctly call <code class="docutils literal notranslate"><span class="pre">Base.__init__</span></code>.
+At this point <code class="docutils literal notranslate"><span class="pre">type(self)</span></code> will be equal to <code class="docutils literal notranslate"><span class="pre">Derived</span></code> and the call again
+goes to <code class="docutils literal notranslate"><span class="pre">Base.__init__</span></code> and we enter a recursion loop.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Base</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">param1</span><span class="p">,</span> <span class="n">param2</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">),</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">param1</span><span class="p">,</span> <span class="n">param2</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Derived</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">param1</span><span class="p">,</span> <span class="n">param2</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Derived</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">param1</span><span class="p">,</span> <span class="n">param2</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">The warnings <code class="docutils literal notranslate"><span class="pre">missing-returns-doc</span></code> and <code class="docutils literal notranslate"><span class="pre">missing-yields-doc</span></code> have each
+been replaced with two new warnings - <code class="docutils literal notranslate"><span class="pre">missing-[return|yield]-doc</span></code> and
+<code class="docutils literal notranslate"><span class="pre">missing-[return|yield]-type-doc</span></code>. Having these as separate warnings
+allows the user to choose whether their documentation style requires
+text descriptions of function return/yield, specification of return/yield
+types, or both.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This will raise missing-return-type-doc but not missing-return-doc</span>
+<span class="k">def</span> <span class="nf">my_sphinx_style_func</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;This is a Sphinx-style docstring.</span>
+
+<span class="sd">    :returns: Always False</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="bp">False</span>
+
+<span class="c1"># This will raise missing-return-doc but not missing-return-type-doc</span>
+<span class="k">def</span> <span class="nf">my_google_style_func</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;This is a Google-style docstring.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        bool:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="bp">False</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">A new refactoring check was added, <code class="docutils literal notranslate"><span class="pre">redefined-argument-from-local</span></code>, which is
+emitted when <strong>pylint</strong> can detect than a function argument is redefined locally
+in some potential error prone cases. For instance, in the following piece of code,
+we have a bug, since the check will never return <code class="docutils literal notranslate"><span class="pre">True</span></code>, given the fact that we
+are comparing the same object to its attributes.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">resource</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">resource</span> <span class="ow">in</span> <span class="n">resources</span><span class="p">:</span>
+        <span class="c1"># The ``for`` is reusing ``resource``, which means that the following</span>
+        <span class="c1"># ``resource`` is not what we wanted to check against.</span>
+        <span class="k">if</span> <span class="n">resource</span><span class="o">.</span><span class="n">resource_type</span> <span class="o">==</span> <span class="n">resource</span><span class="p">:</span>
+           <span class="n">call_resource</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Other places where this check looks are <em>with</em> statement name bindings and
+except handler's name binding.</p>
+</li>
+<li><p class="first">A new refactoring check was added, <code class="docutils literal notranslate"><span class="pre">no-else-return</span></code>, which is
+emitted when pylint encounters an else following a chain of ifs,
+all of them containing a return statement.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">foo1</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">y</span>
+    <span class="k">else</span><span class="p">:</span>  <span class="c1"># This is unnecessary here.</span>
+        <span class="k">return</span> <span class="n">z</span>
+</pre></div>
+</div>
+<p>We could fix it deleting the <code class="docutils literal notranslate"><span class="pre">else</span></code> statement.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">foo1</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">y</span>
+    <span class="k">return</span> <span class="n">z</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">A new Python 3 check was added, <code class="docutils literal notranslate"><span class="pre">eq-without-hash</span></code>, which enforces classes that implement
+<code class="docutils literal notranslate"><span class="pre">__eq__</span></code> <em>also</em> implement <code class="docutils literal notranslate"><span class="pre">__hash__</span></code>.  The behavior around classes which implement <code class="docutils literal notranslate"><span class="pre">__eq__</span></code>
+but not <code class="docutils literal notranslate"><span class="pre">__hash__</span></code> changed in Python 3; in Python 2 such classes would get <code class="docutils literal notranslate"><span class="pre">object.__hash__</span></code>
+as their default implementation.  In Python 3, aforementioned classes get <code class="docutils literal notranslate"><span class="pre">None</span></code> as their
+implementation thus making them unhashable.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">JustEq</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+   <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+     <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+
+   <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">x</span>
+
+<span class="k">class</span> <span class="nc">Neither</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+
+<span class="k">class</span> <span class="nc">HashAndEq</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+   <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+     <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+
+   <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">x</span>
+
+   <span class="k">def</span> <span class="fm">__hash__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+     <span class="k">return</span> <span class="nb">hash</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+
+<span class="p">{</span><span class="n">Neither</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">Neither</span><span class="p">(</span><span class="mi">2</span><span class="p">)}</span>  <span class="c1"># OK in Python 2 and Python 3</span>
+<span class="p">{</span><span class="n">HashAndEq</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">HashAndEq</span><span class="p">(</span><span class="mi">2</span><span class="p">)}</span>  <span class="c1"># OK in Python 2 and Python 3</span>
+<span class="p">{</span><span class="n">JustEq</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">JustEq</span><span class="p">(</span><span class="mi">2</span><span class="p">)}</span>  <span class="c1"># Works in Python 2, throws in Python 3</span>
+</pre></div>
+</div>
+<p>In general, this is a poor practice which motivated the behavior change.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">as_set</span> <span class="o">=</span> <span class="p">{</span><span class="n">JustEq</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">JustEq</span><span class="p">(</span><span class="mi">2</span><span class="p">)}</span>
+<span class="k">print</span><span class="p">(</span><span class="n">JustEq</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="ow">in</span> <span class="n">as_set</span><span class="p">)</span>  <span class="c1"># prints False</span>
+<span class="k">print</span><span class="p">(</span><span class="n">JustEq</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">as_set</span><span class="p">))</span>  <span class="c1"># prints True</span>
+</pre></div>
+</div>
+<p>In order to fix this error and avoid behavior differences between Python 2 and Python 3, classes
+should either explicitly set <code class="docutils literal notranslate"><span class="pre">__hash__</span></code> to <code class="docutils literal notranslate"><span class="pre">None</span></code> or implement a hashing function.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">JustEq</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+   <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+     <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+
+   <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">x</span>
+
+   <span class="fm">__hash__</span> <span class="o">=</span> <span class="bp">None</span>
+
+<span class="p">{</span><span class="n">JustEq</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">JustEq</span><span class="p">(</span><span class="mi">2</span><span class="p">)}</span>  <span class="c1"># Now throws an exception in both Python 2 and Python 3.</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">3 new Python 3 checkers were added, <code class="docutils literal notranslate"><span class="pre">div-method</span></code>, <code class="docutils literal notranslate"><span class="pre">idiv-method</span></code> and <code class="docutils literal notranslate"><span class="pre">rdiv-method</span></code>.
+The magic methods <code class="docutils literal notranslate"><span class="pre">__div__</span></code> and <code class="docutils literal notranslate"><span class="pre">__idiv__</span></code> have been phased out in Python 3 in favor
+of <code class="docutils literal notranslate"><span class="pre">__truediv__</span></code>.  Classes implementing <code class="docutils literal notranslate"><span class="pre">__div__</span></code> that still need to be used from Python
+2 code not using <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">__future__</span> <span class="pre">import</span> <span class="pre">division</span></code> should implement <code class="docutils literal notranslate"><span class="pre">__truediv__</span></code> and
+alias <code class="docutils literal notranslate"><span class="pre">__div__</span></code> to that implementation.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
+
+<span class="k">class</span> <span class="nc">DivisibleThing</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+   <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+     <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+
+   <span class="k">def</span> <span class="fm">__truediv__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+     <span class="k">return</span> <span class="n">DivisibleThing</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">/</span> <span class="n">other</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+
+   <span class="fm">__div__</span> <span class="o">=</span> <span class="fm">__truediv__</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">A new Python 3 checker was added to warn about accessing the <code class="docutils literal notranslate"><span class="pre">message</span></code> attribute on
+Exceptions.  The message attribute was deprecated in Python 2.7 and was removed in Python 3.
+See <a class="reference external" href="https://www.python.org/dev/peps/pep-0352/#retracted-ideas">https://www.python.org/dev/peps/pep-0352/#retracted-ideas</a> for more information.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+  <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Oh No!!&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Instead of relying on the <code class="docutils literal notranslate"><span class="pre">message</span></code> attribute, you should explicitly cast the exception to a
+string:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+  <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Oh No!!&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+  <span class="k">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">A new Python 3 checker was added to warn about using <code class="docutils literal notranslate"><span class="pre">encode</span></code> or <code class="docutils literal notranslate"><span class="pre">decode</span></code> on strings
+with non-text codecs.  This check also checks calls to <code class="docutils literal notranslate"><span class="pre">open</span></code> with the keyword argument
+<code class="docutils literal notranslate"><span class="pre">encoding</span></code>.  See <a class="reference external" href="https://docs.python.org/3/whatsnew/3.4.html#improvements-to-codec-handling">https://docs.python.org/3/whatsnew/3.4.html#improvements-to-codec-handling</a>
+for more information.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;hello world&#39;</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;hex&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Instead of using the <code class="docutils literal notranslate"><span class="pre">encode</span></code> method for non-text codecs use the <code class="docutils literal notranslate"><span class="pre">codecs</span></code> module.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">codecs</span>
+<span class="n">codecs</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;hello world&#39;</span><span class="p">,</span> <span class="s1">&#39;hex&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">A new warning was added, <code class="docutils literal notranslate"><span class="pre">overlapping-except</span></code>, which is emitted
+when an except handler treats two exceptions which are <em>overlapping</em>.
+This means that one exception is an ancestor of the other one or it is
+just an alias.</p>
+<p>For example, in Python 3.3+, IOError is an alias for OSError. In addition, socket.error is
+an alias for OSError. The intention is to find cases like the following:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">socket</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">pass</span>
+<span class="k">except</span> <span class="p">(</span><span class="n">ConnectionError</span><span class="p">,</span> <span class="ne">IOError</span><span class="p">,</span> <span class="ne">OSError</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">error</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">A new Python 3 checker was added to warn about accessing <code class="docutils literal notranslate"><span class="pre">sys.maxint</span></code>.  This attribute was
+removed in Python 3 in favor of <code class="docutils literal notranslate"><span class="pre">sys.maxsize</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="k">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">maxint</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Instead of using <code class="docutils literal notranslate"><span class="pre">sys.maxint</span></code>, use <code class="docutils literal notranslate"><span class="pre">sys.maxsize</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="k">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">maxsize</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">A new Python 3 checker was added to warn about importing modules that have either moved or been
+removed from the standard library.</p>
+<p>One of the major undertakings with Python 3 was a reorganization of the standard library to
+remove old or supplanted modules and reorganize some of the existing modules.  As a result,
+roughly 100 modules that exist in Python 2 no longer exist in Python 3.  See
+<a class="reference external" href="https://www.python.org/dev/peps/pep-3108/">https://www.python.org/dev/peps/pep-3108/</a> and <a class="reference external" href="https://www.python.org/dev/peps/pep-0004/">https://www.python.org/dev/peps/pep-0004/</a> for more
+information.  For suggestions on how to handle this, see
+<a class="reference external" href="https://pythonhosted.org/six/#module-six.moves">https://pythonhosted.org/six/#module-six.moves</a> or <a class="reference external" href="http://python3porting.com/stdlib.html">http://python3porting.com/stdlib.html</a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cStringIO</span> <span class="kn">import</span> <span class="n">StringIO</span>
+</pre></div>
+</div>
+<p>Instead of directly importing the deprecated module, either use <code class="docutils literal notranslate"><span class="pre">six.moves</span></code> or a conditional
+import.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">six.moves</span> <span class="kn">import</span> <span class="n">cStringIO</span> <span class="k">as</span> <span class="n">StringIO</span>
+
+<span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">StringIO</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">cStringIO</span> <span class="kn">import</span> <span class="n">StringIO</span>
+</pre></div>
+</div>
+<p>This checker will assume any imports that happen within a conditional or a <code class="docutils literal notranslate"><span class="pre">try/except</span></code> block
+are valid.</p>
+</li>
+<li><p class="first">A new Python 3 checker was added to warn about accessing deprecated functions on the string
+module.  Python 3 removed functions that were duplicated from the builtin <code class="docutils literal notranslate"><span class="pre">str</span></code> class.  See
+<a class="reference external" href="https://docs.python.org/2/library/string.html#deprecated-string-functions">https://docs.python.org/2/library/string.html#deprecated-string-functions</a> for more information.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">string</span>
+<span class="k">print</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">upper</span><span class="p">(</span><span class="s1">&#39;hello world!&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Instead of using <code class="docutils literal notranslate"><span class="pre">string.upper</span></code>, call the <code class="docutils literal notranslate"><span class="pre">upper</span></code> method directly on the string object.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;hello world!&quot;</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">A new Python 3 checker was added to warn about calling <code class="docutils literal notranslate"><span class="pre">str.translate</span></code> with the removed
+<code class="docutils literal notranslate"><span class="pre">deletechars</span></code> parameter.  <code class="docutils literal notranslate"><span class="pre">str.translate</span></code> is frequently used as a way to remove characters
+from a string.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;hello world&#39;</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Unfortunately, there is not an idiomatic way of writing this call in a 2and3 compatible way.  If
+this code is not in the critical path for your application and the use of <code class="docutils literal notranslate"><span class="pre">translate</span></code> was a
+premature optimization, consider using <code class="docutils literal notranslate"><span class="pre">re.sub</span></code> instead:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+<span class="n">chars_to_remove</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">&#39;[low]&#39;</span><span class="p">)</span>
+<span class="n">chars_to_remove</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;hello world&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If this code is in your critical path and must be as fast as possible, consider declaring a
+helper method that varies based upon Python version.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">six</span><span class="o">.</span><span class="n">PY3</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">_remove_characters</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">deletechars</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">text</span><span class="o">.</span><span class="n">translate</span><span class="p">({</span><span class="nb">ord</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="bp">None</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">deletechars</span><span class="p">})</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">_remove_characters</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">deletechars</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">text</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="n">deletechars</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">A new refactoring check was added, <code class="docutils literal notranslate"><span class="pre">consider-using-ternary</span></code>, which is
+emitted when pylint encounters constructs which were used to emulate
+ternary statement before it was introduced in Python 2.5.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">value</span> <span class="o">=</span> <span class="n">condition</span> <span class="ow">and</span> <span class="n">truth_value</span> <span class="ow">or</span> <span class="n">false_value</span>
+</pre></div>
+</div>
+<p>Warning can be fixed by using standard ternary construct:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">value</span> <span class="o">=</span> <span class="n">truth_value</span> <span class="k">if</span> <span class="n">condition</span> <span class="k">else</span> <span class="n">false_value</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">A new refactoring check was added, <code class="docutils literal notranslate"><span class="pre">trailing-comma-tuple</span></code>, which is emitted
+when pylint finds an one-element tuple, created by a stray comma. This can
+suggest a potential problem in the code and it is recommended to use parantheses
+in order to emphasise the creation of a tuple, rather than relying on the comma
+itself.</p>
+<p>The warning is emitted for such a construct:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+</pre></div>
+</div>
+<p>The warning can be fixed by adding parantheses:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Two new check were added for detecting an unsupported operation
+over an instance, <code class="docutils literal notranslate"><span class="pre">unsupported-assignment-operation</span></code> and <code class="docutils literal notranslate"><span class="pre">unsupported-delete-operation</span></code>.
+The first one is emitted whenever an object does not support item assignment, while
+the second is emitted when an object does not support item deletion:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
+    <span class="k">pass</span>
+<span class="n">instance</span> <span class="o">=</span> <span class="n">A</span><span class="p">()</span>
+<span class="n">instance</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span> <span class="c1"># unsupported-assignment-operation</span>
+<span class="k">del</span> <span class="n">instance</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="c1"># unsupported-delete-operation</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">A new check was added, <code class="docutils literal notranslate"><span class="pre">relative-beyond-top-level</span></code>, which is emitted
+when a relative import tries to access too many levels in the current package.</p>
+</li>
+<li><p class="first">A new check was added, <code class="docutils literal notranslate"><span class="pre">trailing-newlines</span></code>, which is emitted when a file
+has trailing new lines.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">invalid-length-returned</span></code> check was added, which is emitted when a <code class="docutils literal notranslate"><span class="pre">__len__</span></code>
+implementation does not return a non-negative integer.</p>
+</li>
+<li><p class="first">There is a new extension, <code class="docutils literal notranslate"><span class="pre">pylint.extensions.mccabe</span></code>, which can be used for
+computing the McCabe complexity of classes and functions.</p>
+<p>You can enable this extension through <code class="docutils literal notranslate"><span class="pre">--load-plugins=pylint.extensions.mccabe</span></code></p>
+</li>
+<li><p class="first">A new check was added, <code class="docutils literal notranslate"><span class="pre">used-prior-global-declaration</span></code>. This is emitted when
+a name is used prior a global declaration, resulting in a SyntaxError in Python 3.6.</p>
+</li>
+<li><p class="first">A new message was added, <code class="docutils literal notranslate"><span class="pre">assign-to-new-keyword</span></code>. This is emitted when used name
+is known to become a keyword in future Python release. Assignments to keywords
+would result in <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code> after switching to newer interpreter version.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># While it&#39;s correct in Python 2.x, it raises a SyntaxError in Python 3.x</span>
+<span class="bp">True</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="bp">False</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># Same as above, but it&#39;ll be a SyntaxError starting from Python 3.7</span>
+<span class="n">async</span> <span class="o">=</span> <span class="s2">&quot;async&quot;</span>
+<span class="n">await</span> <span class="o">=</span> <span class="s2">&quot;await</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="other-changes">
+<h2>Other Changes<a class="headerlink" href="#other-changes" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">We don't emit by default <code class="docutils literal notranslate"><span class="pre">no-member</span></code> if we have opaque inference objects in the inference results</p>
+<p>This is controlled through the new flag <code class="docutils literal notranslate"><span class="pre">--ignore-on-opaque-inference</span></code>, which is by
+default True. The inference can return  multiple potential results while
+evaluating a Python object, but some branches might not be evaluated, which
+results in partial inference. In that case, it might be useful to still emit
+no-member and other checks for the rest of the inferred objects.</p>
+</li>
+<li><p class="first">Namespace packages are now supported by pylint. This includes both explicit namespace
+packages and implicit namespace packages, supported in Python 3 through PEP 420.</p>
+</li>
+<li><p class="first">A new option was added, <code class="docutils literal notranslate"><span class="pre">--analyse-fallback-block</span></code>.</p>
+<p>This can be used to support both Python 2 and 3 compatible import block code,
+which means that the import block might have code that exists only in one or another
+interpreter, leading to false positives when analysed. By default, this is false, you
+can enable the analysis for both branches using this flag.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">ignored-argument-names</span></code> option is now used for ignoring arguments
+for unused-variable check.</p>
+<p>This option was used for ignoring arguments when computing the correct number of arguments
+a function should have, but for handling the arguments with regard
+to unused-variable check, dummy-variables-rgx was used instead. Now, ignored-argument-names
+is used for its original purpose and also for ignoring the matched arguments for
+the unused-variable check. This offers a better control of what should be ignored
+and how.
+Also, the same option was moved from the design checker to the variables checker,
+which means that the option now appears under the <code class="docutils literal notranslate"><span class="pre">[VARIABLES]</span></code> section inside
+the configuration file.</p>
+</li>
+<li><p class="first">A new option was added, <code class="docutils literal notranslate"><span class="pre">redefining-builtins-modules</span></code>, for controlling the modules
+which can redefine builtins, such as six.moves and future.builtins.</p>
+</li>
+<li><p class="first">A new option was added, <code class="docutils literal notranslate"><span class="pre">ignore-patterns</span></code>, which is used for building a
+blacklist of directories and files matching the regex patterns, similar to the
+<code class="docutils literal notranslate"><span class="pre">ignore</span></code> option.</p>
+</li>
+<li><p class="first">The reports are now disabled by default, as well as the information category
+warnings.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">arguments-differ</span></code> check was rewritten to take in consideration
+keyword only parameters and variadics.</p>
+<p>Now it also complains about losing or adding capabilities to a method,
+by introducing positional or keyword variadics. For instance, <em>pylint</em>
+now complains about these cases:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Parent</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">):</span>
+        <span class="o">...</span>
+
+    <span class="k">def</span> <span class="nf">bar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="o">...</span>
+
+    <span class="k">def</span> <span class="nf">baz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">first</span><span class="p">):</span>
+        <span class="o">...</span>
+
+<span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Parent</span><span class="p">):</span>
+
+    <span class="c1"># Why subclassing in the first place?</span>
+    <span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="c1"># mutate args or kwargs.</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Child</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">foo</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">bar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">second</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="c1"># The overridden method adds two new parameters,</span>
+        <span class="c1"># which can also be passed as positional arguments,</span>
+        <span class="c1"># breaking the contract of the parent&#39;s method.</span>
+
+    <span class="k">def</span> <span class="nf">baz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">):</span>
+        <span class="c1"># Not keyword-only</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">redefined-outer-name</span></code> is now also emitted when a
+nested loop's target variable is the same as an outer loop.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)]:</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">relax character limit for method and function names that starts with <code class="docutils literal notranslate"><span class="pre">_</span></code>.
+This will let people to use longer descriptive names for methods and
+functions with a shorter scope (considered as private). The same idea
+applies to variable names, only with an inverse rule: you want long
+descriptive names for variables with bigger scope, like globals.</p>
+</li>
+<li><p class="first">Add <code class="docutils literal notranslate"><span class="pre">InvalidMessageError</span></code> exception class and replace <code class="docutils literal notranslate"><span class="pre">assert</span></code> in
+pylint.utils with <code class="docutils literal notranslate"><span class="pre">raise</span> <span class="pre">InvalidMessageError</span></code>.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">UnknownMessageError</span></code> (formerly <code class="docutils literal notranslate"><span class="pre">UnknownMessage</span></code>) and
+<code class="docutils literal notranslate"><span class="pre">EmptyReportError</span></code> (formerly <code class="docutils literal notranslate"><span class="pre">EmptyReport</span></code>) are now provided by the new
+<code class="docutils literal notranslate"><span class="pre">pylint.exceptions</span></code> submodule instead of <code class="docutils literal notranslate"><span class="pre">pylint.utils</span></code> as before.</p>
+</li>
+<li><p class="first">We now support inline comments for comma separated values in the configurations</p>
+<p>For instance, you can now use the <strong>#</strong> sign for having comments inside
+comma separated values, as seen below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">disable</span><span class="o">=</span><span class="n">no</span><span class="o">-</span><span class="n">member</span><span class="p">,</span> <span class="c1"># Don&#39;t care about it for now</span>
+        <span class="n">bad</span><span class="o">-</span><span class="n">indentation</span><span class="p">,</span> <span class="c1"># No need for this</span>
+        <span class="n">import</span><span class="o">-</span><span class="n">error</span>
+</pre></div>
+</div>
+<p>Of course, interweaving comments with values is also working:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">disable</span><span class="o">=</span><span class="n">no</span><span class="o">-</span><span class="n">member</span><span class="p">,</span>
+        <span class="c1"># Don&#39;t care about it for now</span>
+        <span class="n">bad</span><span class="o">-</span><span class="n">indentation</span> <span class="c1"># No need for this</span>
+</pre></div>
+</div>
+<p>This works by setting the <a class="reference external" href="https://docs.python.org/3/library/configparser.html#customizing-parser-behaviour">inline comment prefixes</a> accordingly.</p>
+</li>
+<li><p class="first">Added epytext docstring support to the docparams extension.</p>
+</li>
+<li><p class="first">We added support for providing hints when not finding a missing member.</p>
+<p>For example, given the following code, it should be obvious that
+the programmer intended to use the <code class="docutils literal notranslate"><span class="pre">mail</span></code> attribute, rather than
+<code class="docutils literal notranslate"><span class="pre">email</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Contribution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">date</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mail</span> <span class="o">=</span> <span class="n">mail</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="n">date</span>
+
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">contributions</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">email</span><span class="p">)</span> <span class="c1"># Oups</span>
+</pre></div>
+</div>
+<p><strong>pylint</strong> will now warn that there is a chance of having a typo,
+suggesting new names that could be used instead.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ pylint a.py
+E: <span class="m">8</span>,10: Instance of <span class="s1">&#39;Contribution&#39;</span> has no <span class="s1">&#39;email&#39;</span> member<span class="p">;</span> maybe <span class="s1">&#39;mail&#39;</span>?
+</pre></div>
+</div>
+<p>The behaviour is controlled through the <code class="docutils literal notranslate"><span class="pre">--missing-member-hint</span></code> option.
+Other options that come with this change are <code class="docutils literal notranslate"><span class="pre">--missing-member-max-choices</span></code>
+for choosing the total number of choices that should be picked in this
+situation and <code class="docutils literal notranslate"><span class="pre">--missing-member-hint-distance</span></code>, which specifies a metric
+for computing the distance between the names (this is based on Levenshtein
+distance, which means the lower the number, the more pickier the algorithm
+will be).</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">PyLinter.should_analyze_file</span></code> has a new parameter, <code class="docutils literal notranslate"><span class="pre">is_argument</span></code>,
+which specifies if the given path is a <strong>pylint</strong> argument or not.</p>
+<p><code class="docutils literal notranslate"><span class="pre">should_analyze_file</span></code> is called whenever <strong>pylint</strong> tries to determine
+if a file should be analyzed, defaulting to files with the <code class="docutils literal notranslate"><span class="pre">.py</span></code>
+extension, but this function gets called only in the case where the said
+file is not passed as a command line argument to <strong>pylint</strong>. This usually
+means that pylint will analyze a file, even if that file has a different
+extension, as long as the file was explicitly passed at command line.
+Since <code class="docutils literal notranslate"><span class="pre">should_analyze_file</span></code> cannot be overridden to handle all the cases,
+the check for the provenience of files was moved into <code class="docutils literal notranslate"><span class="pre">should_analyze_file</span></code>.
+This means we now can write something similar with this example, for ignoring
+every file respecting the desired property, disregarding the provenience of the
+file, being it a file passed as CLI argument or part of a package.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pylint.lint</span> <span class="kn">import</span> <span class="n">Run</span><span class="p">,</span> <span class="n">PyLinter</span>
+
+<span class="k">class</span> <span class="nc">CustomPyLinter</span><span class="p">(</span><span class="n">PyLinter</span><span class="p">):</span>
+
+     <span class="k">def</span> <span class="nf">should_analyze_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">modname</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">is_argument</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+         <span class="k">if</span> <span class="n">respect_condition</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+             <span class="k">return</span> <span class="bp">False</span>
+         <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">should_analyze_file</span><span class="p">(</span><span class="n">modname</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">is_argument</span><span class="o">=</span><span class="n">is_argument</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">CustomRun</span><span class="p">(</span><span class="n">Run</span><span class="p">):</span>
+     <span class="n">LinterClass</span> <span class="o">=</span> <span class="n">CustomPyLinter</span>
+
+<span class="n">CustomRun</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Imports aliased with underscore are skipped when checking for unused imports.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">bad-builtin</span></code> and <code class="docutils literal notranslate"><span class="pre">redefined-variable-type</span></code> are now extensions,
+being disabled by default. They can be enabled through:
+<code class="docutils literal notranslate"><span class="pre">--load-plugins=pylint.extensions.redefined_variable_type,pylint.extensions.bad_builtin</span></code></p>
+<ul class="simple">
+<li>Imports checker supports new switch <code class="docutils literal notranslate"><span class="pre">allow-wildcard-with-all</span></code> which disables
+warning on wildcard import when imported module defines <cite>__all__</cite> variable.</li>
+</ul>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">differing-param-doc</span></code> is now used for the differing part of the old <code class="docutils literal notranslate"><span class="pre">missing-param-doc</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">differing-type-doc</span></code> for the differing part of the old <code class="docutils literal notranslate"><span class="pre">missing-type-doc</span></code>.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="bug-fixes">
+<h2>Bug fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Fix a false positive of <code class="docutils literal notranslate"><span class="pre">redundant-returns-doc</span></code>, occurred when the documented
+function was using <em>yield</em> instead of <em>return</em>.</p>
+</li>
+<li><p class="first">Fix a false positive of <code class="docutils literal notranslate"><span class="pre">missing-param-doc</span></code> and <code class="docutils literal notranslate"><span class="pre">missing-type-doc</span></code>,
+occurred when a class docstring uses the <code class="docutils literal notranslate"><span class="pre">For</span> <span class="pre">the</span> <span class="pre">parameters,</span> <span class="pre">see</span></code>
+magic string but the class <code class="docutils literal notranslate"><span class="pre">__init__</span></code> docstring does not, or vice versa.</p>
+</li>
+<li><p class="first">Added proper exception type inference for <code class="docutils literal notranslate"><span class="pre">missing-raises-doc</span></code>. Now:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_func</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;&quot;My function.&quot;&quot;&quot;</span>
+    <span class="n">ex</span> <span class="o">=</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="n">ex</span>
+</pre></div>
+</div>
+<p>will properly be flagged for missing documentation of
+<code class="docutils literal notranslate"><span class="pre">:raises</span> <span class="pre">ValueError:</span></code> instead of <code class="docutils literal notranslate"><span class="pre">:raises</span> <span class="pre">ex:</span></code>, among other scenarios.</p>
+</li>
+<li><p class="first">Fix false positives of <code class="docutils literal notranslate"><span class="pre">missing-[raises|params|type]-doc</span></code> due to not
+recognizing valid keyword synonyms supported by Sphinx.</p>
+</li>
+<li><p class="first">More thorough validation in <code class="docutils literal notranslate"><span class="pre">MessagesStore.register_messages()</span></code> to detect
+conflicts between a new message and any existing message id, symbol,
+or <code class="docutils literal notranslate"><span class="pre">old_names</span></code>.</p>
+</li>
+<li><p class="first">We now support having plugins that shares the same name and with each one
+providing options.</p>
+<p>A plugin can be logically split into multiple classes, each class providing
+certain capabilities, all of them being tied under the same name. But when
+two or more such classes are also adding options, then <strong>pylint</strong> crashed,
+since it already added the first encountered section. Now, these should
+work as expected.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pylint.checkers</span> <span class="kn">import</span> <span class="n">BaseChecker</span>
+
+
+<span class="k">class</span> <span class="nc">DummyPlugin1</span><span class="p">(</span><span class="n">BaseChecker</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;dummy_plugin&#39;</span>
+    <span class="n">msgs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;I9061&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;Dummy short desc 01&#39;</span><span class="p">,</span> <span class="s1">&#39;dummy-message-01&#39;</span><span class="p">,</span> <span class="s1">&#39;Dummy long desc&#39;</span><span class="p">)}</span>
+    <span class="n">options</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="p">(</span><span class="s1">&#39;dummy_option_1&#39;</span><span class="p">,</span> <span class="p">{</span>
+            <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;metavar&#39;</span><span class="p">:</span> <span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;help&#39;</span><span class="p">:</span> <span class="s1">&#39;Dummy option 1&#39;</span><span class="p">,</span>
+        <span class="p">}),</span>
+    <span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">DummyPlugin2</span><span class="p">(</span><span class="n">BaseChecker</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;dummy_plugin&#39;</span>
+    <span class="n">msgs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;I9060&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;Dummy short desc 02&#39;</span><span class="p">,</span> <span class="s1">&#39;dummy-message-02&#39;</span><span class="p">,</span> <span class="s1">&#39;Dummy long desc&#39;</span><span class="p">)}</span>
+    <span class="n">options</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="p">(</span><span class="s1">&#39;dummy_option_2&#39;</span><span class="p">,</span> <span class="p">{</span>
+            <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;metavar&#39;</span><span class="p">:</span> <span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;help&#39;</span><span class="p">:</span> <span class="s1">&#39;Dummy option 2&#39;</span><span class="p">,</span>
+        <span class="p">}),</span>
+    <span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">register</span><span class="p">(</span><span class="n">linter</span><span class="p">):</span>
+    <span class="n">linter</span><span class="o">.</span><span class="n">register_checker</span><span class="p">(</span><span class="n">DummyPlugin1</span><span class="p">(</span><span class="n">linter</span><span class="p">))</span>
+    <span class="n">linter</span><span class="o">.</span><span class="n">register_checker</span><span class="p">(</span><span class="n">DummyPlugin2</span><span class="p">(</span><span class="n">linter</span><span class="p">))</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">We do not yield <code class="docutils literal notranslate"><span class="pre">unused-argument</span></code> for singledispatch implementations and
+do not warn about <code class="docutils literal notranslate"><span class="pre">function-redefined</span></code> for multiple implementations with same name.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">singledispatch</span>
+
+<span class="nd">@singledispatch</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span>
+
+<span class="nd">@f.register</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">_</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+
+<span class="nd">@f.register</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="nd">@f.register</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">_</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="o">-</span><span class="n">x</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">unused-variable</span></code> checker has new functionality of warning about unused
+variables in global module namespace. Since globals in module namespace
+may be a part of exposed API, this check is disabled by default. For
+enabling it, set <code class="docutils literal notranslate"><span class="pre">allow-global-unused-variables</span></code> option to false.</p>
+</li>
+<li><p class="first">Fix a false-positive <code class="docutils literal notranslate"><span class="pre">logging-format-interpolation</span></code> message, when format
+specifications are used in formatted string. In general, these operations
+are not always convertible to old-style formatting used by logging module.</p>
+</li>
+<li><p class="first">Added a new switch <code class="docutils literal notranslate"><span class="pre">single-line-class-stmt</span></code> to allow single-line declaration
+of empty class bodies (as seen in the example below). Pylint won't emit a
+<code class="docutils literal notranslate"><span class="pre">multiple-statements</span></code> message when this option is enabled.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span> <span class="k">pass</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><cite>too-many-format-args</cite> and <cite>too-few-format-args</cite> are emitted correctly
+(or not emitted at all, when exact count of elements in RHS cannot be
+inferred) when starred expressions are used in RHS tuple. For example,
+code block as shown below detects correctly that the used tuple has in
+fact three elements, not two.</li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">meat</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;spam&#39;</span><span class="p">,</span> <span class="s1">&#39;ham&#39;</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s%s%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="s1">&#39;eggs&#39;</span><span class="p">,</span> <span class="o">*</span><span class="n">meat</span><span class="p">))</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><cite>cyclic-import</cite> checker supports local disable clauses. When one
+of cycle imports was done in scope where disable clause was active,
+cycle is not reported as violation.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="removed-changes">
+<h2>Removed Changes<a class="headerlink" href="#removed-changes" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">pylint-gui</span></code> was removed, because it was deemed unfit for being included
+in <em>pylint</em>. It had a couple of bugs and misfeatures, its usability was subpar
+and since its development was neglected, we decided it is best to move on without it.</p>
+</li>
+<li><p class="first">The HTML reporter was removed, including the <code class="docutils literal notranslate"><span class="pre">--output-format=html</span></code> option.
+It was lately a second class citizen in Pylint, being mostly neglected.
+Since we now have the JSON reporter, it can be used as a basis for building
+more prettier HTML reports than what Pylint can currently generate. This is
+part of the effort of removing cruft from Pylint, by removing less used
+features.</p>
+</li>
+<li><p class="first">The <code class="docutils literal notranslate"><span class="pre">--files-output</span></code> option was removed. While the same functionality cannot
+be easily replicated, the JSON reporter, for instance, can be used as a basis
+for generating the messages per each file.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">--required-attributes</span></code> option was removed.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">--ignore-iface-methods</span></code> option was removed.</p>
+</li>
+<li><p class="first">The <code class="docutils literal notranslate"><span class="pre">--optimize-ast</span></code> flag was removed.</p>
+<p>The option was initially added for handling pathological cases,
+such as joining too many strings using the addition operator, which
+was leading pylint to have a recursion error when trying to figure
+out what the string was. Unfortunately, we decided to ignore the
+issue, since the pathological case would have happen when the
+code was parsed by Python as well, without actually reaching the
+runtime step and as such, we decided to remove the error altogether.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">epylint.py_run</span></code>'s <em>script</em> parameter was removed.</p>
+<p>Now <code class="docutils literal notranslate"><span class="pre">epylint.py_run</span></code> is always using the underlying <code class="docutils literal notranslate"><span class="pre">epylint.lint</span></code>
+method from the current interpreter. This avoids some issues when multiple
+instances of <strong>pylint</strong> are installed, which means that <code class="docutils literal notranslate"><span class="pre">epylint.py_run</span></code>
+might have ran a different <code class="docutils literal notranslate"><span class="pre">epylint</span></code> script than what was intended.</p>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">What's New In Pylint 1.7</a><ul>
+<li><a class="reference internal" href="#summary-release-highlights">Summary -- Release highlights</a></li>
+<li><a class="reference internal" href="#new-checkers">New checkers</a></li>
+<li><a class="reference internal" href="#other-changes">Other Changes</a></li>
+<li><a class="reference internal" href="#bug-fixes">Bug fixes</a></li>
+<li><a class="reference internal" href="#removed-changes">Removed Changes</a></li>
+</ul>
+</li>
+</ul>
+
+<h3><a href="../index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how_tos/index.html">How To Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../technical_reference/index.html">Technical Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development_guide/index.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../backlinks.html">Some projects using Pylint</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">What's New in Pylint</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="2.2.html">What's New in Pylint 2.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.1.html">What's New in Pylint 2.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.0.html">What's New in Pylint 2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.9.html">What's New In Pylint 1.9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.8.html">What's New In Pylint 1.8</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">What's New In Pylint 1.7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.6.html">What's New In Pylint 1.6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html">Pylint's ChangeLog</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="1.8.html"
+                        title="previous chapter">What's New In Pylint 1.8</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="1.6.html"
+                        title="next chapter">What's New In Pylint 1.6</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/whatsnew/1.7.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="1.6.html" title="What&#39;s New In Pylint 1.6"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="1.8.html" title="What&#39;s New In Pylint 1.8"
+             >previous</a> |</li>
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="http://meta.pycqa.org/en/latest/">PyCQA</a> &#187;</li>
+    
+    <a href="../index.html">Pylint 2.2.0-dev documentation</a> &#187;
+    
+
+          <li class="nav-item nav-item-1"><a href="index.html" >What's New in Pylint</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">Copyright</a> 2003-2018, Logilab, PyCQA and contributors.
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    Last updated on None.
+    <a href="https://github.com/pycqa/pylint/issues/new">Found a bug</a>?
+    <br />
+
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.7.8.
+    </div>
+
+  </body>
+</html>

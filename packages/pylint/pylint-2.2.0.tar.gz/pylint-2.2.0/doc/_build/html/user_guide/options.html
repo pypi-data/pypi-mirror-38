@@ -1,0 +1,420 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Configuration &#8212; Pylint 2.2.0-dev documentation</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Editor and IDE integration" href="ide-integration.html" />
+    <link rel="prev" title="Messages control" href="message-control.html" />
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+     
+
+  </head><body>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="ide-integration.html" title="Editor and IDE integration"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="message-control.html" title="Messages control"
+             accesskey="P">previous</a> |</li>
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="http://meta.pycqa.org/en/latest/">PyCQA</a> &#187;</li>
+    
+    <a href="../index.html">Pylint 2.2.0-dev documentation</a> &#187;
+    
+
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">User Guide</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="configuration">
+<h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="naming-styles">
+<h2>Naming Styles<a class="headerlink" href="#naming-styles" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="introduction">
+<h3>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h3>
+<p>Pylint recognizes a number of different name types internally. With a few
+exceptions, the type of the name is governed by the location the assignment to a
+name is found in, and not the type of object assigned.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="83%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">module</span></code></td>
+<td>Module and package names, same as the file names.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">const</span></code></td>
+<td>Module-level constants, any variable defined at module level that is not bound to a class object.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">class</span></code></td>
+<td>Names in <code class="docutils literal notranslate"><span class="pre">class</span></code> statements, as well as names bound to class objects at module level.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">function</span></code></td>
+<td>Functions, toplevel or nested in functions or methods.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">method</span></code></td>
+<td>Methods, functions defined in class bodies. Includes static and class methods.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">attr</span></code></td>
+<td>Attributes created on class instances inside methods.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">argument</span></code></td>
+<td>Arguments to any function type, including lambdas.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">variable</span></code></td>
+<td>Local variables in function scopes.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">class-attribute</span></code></td>
+<td>Attributes defined in class bodies.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">inlinevar</span></code></td>
+<td>Loop variables in list comprehensions and generator expressions.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="default-behavior">
+<h3>Default behavior<a class="headerlink" href="#default-behavior" title="Permalink to this headline">¶</a></h3>
+<p>By default, Pylint will enforce <a class="reference external" href="https://www.python.org/dev/peps/pep-0008">PEP8</a>-suggested names.</p>
+</div>
+<div class="section" id="predefined-naming-styles">
+<h3>Predefined Naming Styles<a class="headerlink" href="#predefined-naming-styles" title="Permalink to this headline">¶</a></h3>
+<p>Pylint provides set of predefined naming styles. Those predefined
+naming styles may be used to adjust Pylint configuration to coding
+style used in linted project.</p>
+<p>Following predefined naming styles are available:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">snake_case</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">camelCase</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">PascalCase</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">UPPER_CASE</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">any</span></code> - fake style which does not enforce any limitations</li>
+</ul>
+<p>Following options are exposed:</p>
+<dl class="option">
+<dt id="cmdoption-module-naming-style">
+<code class="descname">--module-naming-style</code><code class="descclassname">=&lt;style&gt;</code><a class="headerlink" href="#cmdoption-module-naming-style" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-const-naming-style">
+<code class="descname">--const-naming-style</code><code class="descclassname">=&lt;style&gt;</code><a class="headerlink" href="#cmdoption-const-naming-style" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-class-naming-style">
+<code class="descname">--class-naming-style</code><code class="descclassname">=&lt;style&gt;</code><a class="headerlink" href="#cmdoption-class-naming-style" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-function-naming-style">
+<code class="descname">--function-naming-style</code><code class="descclassname">=&lt;style&gt;</code><a class="headerlink" href="#cmdoption-function-naming-style" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-method-naming-style">
+<code class="descname">--method-naming-style</code><code class="descclassname">=&lt;style&gt;</code><a class="headerlink" href="#cmdoption-method-naming-style" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-attr-naming-style">
+<code class="descname">--attr-naming-style</code><code class="descclassname">=&lt;style&gt;</code><a class="headerlink" href="#cmdoption-attr-naming-style" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-argument-naming-style">
+<code class="descname">--argument-naming-style</code><code class="descclassname">=&lt;style&gt;</code><a class="headerlink" href="#cmdoption-argument-naming-style" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-variable-naming-style">
+<code class="descname">--variable-naming-style</code><code class="descclassname">=&lt;style&gt;</code><a class="headerlink" href="#cmdoption-variable-naming-style" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-class-attribute-naming-style">
+<code class="descname">--class-attribute-naming-style</code><code class="descclassname">=&lt;style&gt;</code><a class="headerlink" href="#cmdoption-class-attribute-naming-style" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-inlinevar-naming-style">
+<code class="descname">--inlinevar-naming-style</code><code class="descclassname">=&lt;style&gt;</code><a class="headerlink" href="#cmdoption-inlinevar-naming-style" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="custom-regular-expressions">
+<h3>Custom regular expressions<a class="headerlink" href="#custom-regular-expressions" title="Permalink to this headline">¶</a></h3>
+<p>If predefined naming styles are too limited, checker behavior may be further
+customized. For each name type, a separate regular expression matching valid
+names of this type can be defined. If any of custom regular expressions are
+defined, it overrides <code class="docutils literal notranslate"><span class="pre">*-naming-style</span></code> option value.</p>
+<p>Regular expressions for the names are anchored at the beginning, any anchor for
+the end must be supplied explicitly. Any name not matching the regular
+expression will lead to an instance of <code class="docutils literal notranslate"><span class="pre">invalid-name</span></code>.</p>
+<dl class="option">
+<dt id="cmdoption-module-rgx">
+<code class="descname">--module-rgx</code><code class="descclassname">=&lt;regex&gt;</code><a class="headerlink" href="#cmdoption-module-rgx" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-const-rgx">
+<code class="descname">--const-rgx</code><code class="descclassname">=&lt;regex&gt;</code><a class="headerlink" href="#cmdoption-const-rgx" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-class-rgx">
+<code class="descname">--class-rgx</code><code class="descclassname">=&lt;regex&gt;</code><a class="headerlink" href="#cmdoption-class-rgx" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-function-rgx">
+<code class="descname">--function-rgx</code><code class="descclassname">=&lt;regex&gt;</code><a class="headerlink" href="#cmdoption-function-rgx" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-method-rgx">
+<code class="descname">--method-rgx</code><code class="descclassname">=&lt;regex&gt;</code><a class="headerlink" href="#cmdoption-method-rgx" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-attr-rgx">
+<code class="descname">--attr-rgx</code><code class="descclassname">=&lt;regex&gt;</code><a class="headerlink" href="#cmdoption-attr-rgx" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-argument-rgx">
+<code class="descname">--argument-rgx</code><code class="descclassname">=&lt;regex&gt;</code><a class="headerlink" href="#cmdoption-argument-rgx" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-variable-rgx">
+<code class="descname">--variable-rgx</code><code class="descclassname">=&lt;regex&gt;</code><a class="headerlink" href="#cmdoption-variable-rgx" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-class-attribute-rgx">
+<code class="descname">--class-attribute-rgx</code><code class="descclassname">=&lt;regex&gt;</code><a class="headerlink" href="#cmdoption-class-attribute-rgx" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-inlinevar-rgx">
+<code class="descname">--inlinevar-rgx</code><code class="descclassname">=&lt;regex&gt;</code><a class="headerlink" href="#cmdoption-inlinevar-rgx" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>Multiple naming styles for custom regular expressions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^</p>
+<p>Large code bases that have been worked on for multiple years often exhibit an
+evolution in style as well. In some cases, modules can be in the same package,
+but still have different naming style based on the stratum they belong to.
+However, intra-module consistency should still be required, to make changes
+inside a single file easier. For this case, Pylint supports regular expression
+with several named capturing group.</p>
+<p>Rather than emitting name warnings immediately, Pylint will determine the
+prevalent naming style inside each module and enforce it on all names.</p>
+<p>Consider the following (simplified) example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pylint</span> <span class="o">--</span><span class="n">function</span><span class="o">-</span><span class="n">rgx</span><span class="o">=</span><span class="s1">&#39;(?:(?P&lt;snake&gt;[a-z_]+)|(?P&lt;camel&gt;_?[A-Z]+))$&#39;</span> <span class="n">sample</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>The regular expression defines two naming styles, <code class="docutils literal notranslate"><span class="pre">snake</span></code> for snake-case
+names, and <code class="docutils literal notranslate"><span class="pre">camel</span></code> for camel-case names.</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">sample.py</span></code>, the function name on line 1 and 7 will mark the module
+and enforce the match of named group <code class="docutils literal notranslate"><span class="pre">snake</span></code> for the remaining names in
+the module:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">valid_snake_case</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
+   <span class="o">...</span>
+
+<span class="k">def</span> <span class="nf">InvalidCamelCase</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
+   <span class="o">...</span>
+
+<span class="k">def</span> <span class="nf">more_valid_snake_case</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
+ <span class="o">...</span>
+</pre></div>
+</div>
+<p>Because of this, the name on line 4 will trigger an <code class="docutils literal notranslate"><span class="pre">invalid-name</span></code> warning,
+even though the name matches the given regex.</p>
+<p>Matches named <code class="docutils literal notranslate"><span class="pre">exempt</span></code> or <code class="docutils literal notranslate"><span class="pre">ignore</span></code> can be used for non-tainting names, to
+prevent built-in or interface-dictated names to trigger certain naming styles.</p>
+<dl class="option">
+<dt id="cmdoption-name-group">
+<code class="descname">--name-group</code><code class="descclassname">=&lt;name1:name2:...,...&gt;</code><a class="headerlink" href="#cmdoption-name-group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default value: empty</p>
+<p>Format: comma-separated groups of colon-separated names.</p>
+<p>This option can be used to combine name styles. For example, <code class="docutils literal notranslate"><span class="pre">function:method</span></code> enforces that functions and methods use the same style, and a style triggered by either name type carries over to the other. This requires that the regular expression for the combined name types use the same group names.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="name-hints">
+<h3>Name Hints<a class="headerlink" href="#name-hints" title="Permalink to this headline">¶</a></h3>
+<dl class="option">
+<dt id="cmdoption-include-naming-hint">
+<code class="descname">--include-naming-hint</code><code class="descclassname">=y|n</code><a class="headerlink" href="#cmdoption-include-naming-hint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default: off</p>
+<p>Include a hint (regular expression used) for the correct name format with every <code class="docutils literal notranslate"><span class="pre">invalid-name</span></code> warning.</p>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Configuration</a><ul>
+<li><a class="reference internal" href="#naming-styles">Naming Styles</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#default-behavior">Default behavior</a></li>
+<li><a class="reference internal" href="#predefined-naming-styles">Predefined Naming Styles</a></li>
+<li><a class="reference internal" href="#custom-regular-expressions">Custom regular expressions</a></li>
+<li><a class="reference internal" href="#name-hints">Name Hints</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<h3><a href="../index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">User Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="run.html">Running Pylint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="output.html">Pylint output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message-control.html">Messages control</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ide-integration.html">Editor and IDE integration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../how_tos/index.html">How To Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../technical_reference/index.html">Technical Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development_guide/index.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../backlinks.html">Some projects using Pylint</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew/index.html">What's New in Pylint</a></li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="message-control.html"
+                        title="previous chapter">Messages control</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ide-integration.html"
+                        title="next chapter">Editor and IDE integration</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/user_guide/options.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="ide-integration.html" title="Editor and IDE integration"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="message-control.html" title="Messages control"
+             >previous</a> |</li>
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="http://meta.pycqa.org/en/latest/">PyCQA</a> &#187;</li>
+    
+    <a href="../index.html">Pylint 2.2.0-dev documentation</a> &#187;
+    
+
+          <li class="nav-item nav-item-1"><a href="index.html" >User Guide</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">Copyright</a> 2003-2018, Logilab, PyCQA and contributors.
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    Last updated on None.
+    <a href="https://github.com/pycqa/pylint/issues/new">Found a bug</a>?
+    <br />
+
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.7.8.
+    </div>
+
+  </body>
+</html>

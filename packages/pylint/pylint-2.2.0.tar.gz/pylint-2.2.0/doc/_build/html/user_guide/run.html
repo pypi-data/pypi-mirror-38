@@ -1,0 +1,389 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Running Pylint &#8212; Pylint 2.2.0-dev documentation</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Pylint output" href="output.html" />
+    <link rel="prev" title="Installation" href="installation.html" />
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+     
+
+  </head><body>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="output.html" title="Pylint output"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="installation.html" title="Installation"
+             accesskey="P">previous</a> |</li>
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="http://meta.pycqa.org/en/latest/">PyCQA</a> &#187;</li>
+    
+    <a href="../index.html">Pylint 2.2.0-dev documentation</a> &#187;
+    
+
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">User Guide</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="running-pylint">
+<h1>Running Pylint<a class="headerlink" href="#running-pylint" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="invoking-pylint">
+<h2>Invoking Pylint<a class="headerlink" href="#invoking-pylint" title="Permalink to this headline">¶</a></h2>
+<p>Pylint is meant to be called from the command line. The usage is</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pylint</span> <span class="p">[</span><span class="n">options</span><span class="p">]</span> <span class="n">modules_or_packages</span>
+</pre></div>
+</div>
+<p>You should give Pylint the name of a python package or module, or some number
+of packages or modules. Pylint
+<code class="docutils literal notranslate"><span class="pre">will</span> <span class="pre">not</span> <span class="pre">import</span></code> this package or module, though uses Python internals
+to locate them and as such is subject to the same rules and configuration.
+You should pay attention to your <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code>, since it is a common error
+to analyze an installed version of a module instead of the
+development version.</p>
+<p>It is also possible to analyze python files, with a few
+restrictions. The thing to keep in mind is that Pylint will try to
+convert the file name to a module name, and only be able to process
+the file if it succeeds.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pylint</span> <span class="n">mymodule</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>should always work since the current working
+directory is automatically added on top of the python path</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pylint</span> <span class="n">directory</span><span class="o">/</span><span class="n">mymodule</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>will work if <code class="docutils literal notranslate"><span class="pre">directory</span></code> is a python package (i.e. has an __init__.py
+file or it is an implicit namespace package) or if &quot;directory&quot; is in the
+python path.</p>
+<p>For more details on this see the <a class="reference internal" href="../faq.html#faq"><span class="std std-ref">Frequently Asked Questions</span></a>.</p>
+<p>It is also possible to call Pylint from another python program,
+thanks to <code class="docutils literal notranslate"><span class="pre">Run()</span></code> function in <code class="docutils literal notranslate"><span class="pre">pylint.lint</span></code> module,
+assuming Pylint options are stored in a list of strings <code class="docutils literal notranslate"><span class="pre">pylint_options</span></code>, as:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pylint.lint</span>
+<span class="n">pylint_opts</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;--version&#39;</span><span class="p">]</span>
+<span class="n">pylint</span><span class="o">.</span><span class="n">lint</span><span class="o">.</span><span class="n">Run</span><span class="p">(</span><span class="n">pylint_opts</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To silently run Pylint on a <code class="docutils literal notranslate"><span class="pre">module_name.py</span></code> module,
+and get its standard output and error:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pylint</span> <span class="kn">import</span> <span class="n">epylint</span> <span class="k">as</span> <span class="n">lint</span>
+<span class="p">(</span><span class="n">pylint_stdout</span><span class="p">,</span> <span class="n">pylint_stderr</span><span class="p">)</span> <span class="o">=</span> <span class="n">lint</span><span class="o">.</span><span class="n">py_run</span><span class="p">(</span><span class="s1">&#39;module_name.py&#39;</span><span class="p">,</span> <span class="n">return_std</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="command-line-options">
+<h2>Command line options<a class="headerlink" href="#command-line-options" title="Permalink to this headline">¶</a></h2>
+<p>First of all, we have two basic (but useful) options.</p>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">--version</span></kbd></td>
+<td>show program's version number and exit</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-h</span>, <span class="option">--help</span></kbd></td>
+<td>show help about the command line options</td></tr>
+</tbody>
+</table>
+<p>Pylint is architectured around several checkers. you can disable a specific
+checker or some of its messages or messages categories by specifying
+<code class="docutils literal notranslate"><span class="pre">--disable=&lt;symbol&gt;</span></code>. If you want to enable only some checkers or some
+message symbols, first use <code class="docutils literal notranslate"><span class="pre">--disable=all</span></code> then
+<code class="docutils literal notranslate"><span class="pre">--enable=&lt;symbol&gt;</span></code> with &lt;symbol&gt; being a comma separated list of checker
+names and message symbols. See the list of available features for a
+description of provided checkers with their functionalities.
+The <code class="docutils literal notranslate"><span class="pre">--disable</span></code> and <code class="docutils literal notranslate"><span class="pre">--enable</span></code> options can be used with comma separated lists
+mixing checkers, message ids and categories like <code class="docutils literal notranslate"><span class="pre">-d</span> <span class="pre">C,W,no-error,design</span></code></p>
+<p>It is possible to disable all messages with <code class="docutils literal notranslate"><span class="pre">--disable=all</span></code>. This is
+useful to enable only a few checkers or a few messages by first
+disabling everything, and then re-enabling only what you need.</p>
+<p>Each checker has some specific options, which can take either a yes/no
+value, an integer, a python regular expression, or a comma separated
+list of values (which are generally used to override a regular
+expression in special cases). For a full list of options, use <code class="docutils literal notranslate"><span class="pre">--help</span></code></p>
+<p>Specifying all the options suitable for your setup and coding
+standards can be tedious, so it is possible to use a configuration file to
+specify the default values.  You can specify a configuration file on the
+command line using the <code class="docutils literal notranslate"><span class="pre">--rcfile</span></code> option.  Otherwise, Pylint searches for a
+configuration file in the following order and uses the first one it finds:</p>
+<ol class="arabic simple">
+<li><code class="docutils literal notranslate"><span class="pre">pylintrc</span></code> in the current working directory</li>
+<li><code class="docutils literal notranslate"><span class="pre">.pylintrc</span></code> in the current working directory</li>
+<li>If the current working directory is in a Python module, Pylint searches up the hierarchy of Python modules until it finds a <code class="docutils literal notranslate"><span class="pre">pylintrc</span></code> file. This allows you to specify coding standards on a module-by-module basis.  Of course, a directory is judged to be a Python module if it contains an <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> file.</li>
+<li>The file named by environment variable <code class="docutils literal notranslate"><span class="pre">PYLINTRC</span></code></li>
+<li>if you have a home directory which isn't <code class="docutils literal notranslate"><span class="pre">/root</span></code>:<ol class="arabic">
+<li><code class="docutils literal notranslate"><span class="pre">.pylintrc</span></code> in your home directory</li>
+<li><code class="docutils literal notranslate"><span class="pre">.config/pylintrc</span></code> in your home directory</li>
+</ol>
+</li>
+<li><code class="docutils literal notranslate"><span class="pre">/etc/pylintrc</span></code></li>
+</ol>
+<p>The <code class="docutils literal notranslate"><span class="pre">--generate-rcfile</span></code> option will generate a commented configuration file
+on standard output according to the current configuration and exit. This
+includes:</p>
+<ul class="simple">
+<li>Any configuration file found as explained above</li>
+<li>Options appearing before <code class="docutils literal notranslate"><span class="pre">--generate-rcfile</span></code> on the Pylint command line</li>
+</ul>
+<p>Of course you can also start with the default values and hand tune the
+configuration.</p>
+<p>Other useful global options include:</p>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--ignore=<var>&lt;file[,file...]&gt;</var></span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>Add files or directories to the blacklist. They
+should be base names, not paths.</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--output-format=<var>&lt;format&gt;</var></span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>Select output format (text, json, custom).</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--msg-template=<var>&lt;template&gt;</var></span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>Modify text output message template.</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--list-msgs</span></kbd></td>
+<td>Generate pylint's messages.</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--full-documentation</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>Generate pylint's full documentation, in reST
+format.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="parallel-execution">
+<h2>Parallel execution<a class="headerlink" href="#parallel-execution" title="Permalink to this headline">¶</a></h2>
+<p>It is possible to speed up the execution of Pylint. If the running computer
+has more CPUs than one, then the files for checking could be spread on all
+cores via Pylints's sub-processes.
+This functionality is exposed via <code class="docutils literal notranslate"><span class="pre">-j</span></code> command line parameter.
+If the provided number is 0, then the total number of CPUs will be used.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pylint</span> <span class="o">-</span><span class="n">j</span> <span class="mi">4</span> <span class="n">mymodule1</span><span class="o">.</span><span class="n">py</span> <span class="n">mymodule2</span><span class="o">.</span><span class="n">py</span> <span class="n">mymodule3</span><span class="o">.</span><span class="n">py</span> <span class="n">mymodule4</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>This will spawn 4 parallel Pylint sub-process, where each provided module will
+be checked in parallel. Discovered problems by checkers are not displayed
+immediately. They are shown just after completing checking a module.</p>
+<p>There are some limitations in running checks in parallel in current
+implementation. It is not possible to use custom plugins
+(i.e. <code class="docutils literal notranslate"><span class="pre">--load-plugins</span></code> option), nor it is not possible to use
+initialization hooks (i.e. <code class="docutils literal notranslate"><span class="pre">--init-hook</span></code> option).</p>
+<p>This will spawn 4 parallel Pylint subprocesses, each provided module being checked
+by one or another subprocess.</p>
+</div>
+<div class="section" id="exit-codes">
+<h2>Exit codes<a class="headerlink" href="#exit-codes" title="Permalink to this headline">¶</a></h2>
+<p>Pylint returns bit-encoded exit codes. If applicable the table lists related
+stderr stream message output.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="33%" />
+<col width="55%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">exit code</th>
+<th class="head">meaning</th>
+<th class="head">stderr stream message</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0</td>
+<td>no error</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>fatal message issued</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>2</td>
+<td>error message issued</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>4</td>
+<td>warning message issued</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>8</td>
+<td>refactor message issued</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>16</td>
+<td>convention message issued</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>32</td>
+<td>usage error</td>
+<td><ul class="first last simple">
+<li>&quot;internal error while receiving resultsfrom child linter&quot; &quot;Error occurred,
+stopping the linter.&quot;</li>
+<li>&quot;&lt;return of linter.help()&gt;&quot;</li>
+<li>&quot;Jobs number &lt;#&gt; should be greater than 0&quot;</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Running Pylint</a><ul>
+<li><a class="reference internal" href="#invoking-pylint">Invoking Pylint</a></li>
+<li><a class="reference internal" href="#command-line-options">Command line options</a></li>
+<li><a class="reference internal" href="#parallel-execution">Parallel execution</a></li>
+<li><a class="reference internal" href="#exit-codes">Exit codes</a></li>
+</ul>
+</li>
+</ul>
+
+<h3><a href="../index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">User Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Running Pylint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="output.html">Pylint output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message-control.html">Messages control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="options.html">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ide-integration.html">Editor and IDE integration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../how_tos/index.html">How To Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../technical_reference/index.html">Technical Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development_guide/index.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../backlinks.html">Some projects using Pylint</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew/index.html">What's New in Pylint</a></li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="installation.html"
+                        title="previous chapter">Installation</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="output.html"
+                        title="next chapter">Pylint output</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/user_guide/run.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="output.html" title="Pylint output"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="installation.html" title="Installation"
+             >previous</a> |</li>
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="http://meta.pycqa.org/en/latest/">PyCQA</a> &#187;</li>
+    
+    <a href="../index.html">Pylint 2.2.0-dev documentation</a> &#187;
+    
+
+          <li class="nav-item nav-item-1"><a href="index.html" >User Guide</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">Copyright</a> 2003-2018, Logilab, PyCQA and contributors.
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    Last updated on None.
+    <a href="https://github.com/pycqa/pylint/issues/new">Found a bug</a>?
+    <br />
+
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.7.8.
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,265 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Transform plugins &#8212; Pylint 2.2.0-dev documentation</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Technical Reference" href="../technical_reference/index.html" />
+    <link rel="prev" title="How To Write a Pylint Plugin" href="plugins.html" />
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+     
+
+  </head><body>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../technical_reference/index.html" title="Technical Reference"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="plugins.html" title="How To Write a Pylint Plugin"
+             accesskey="P">previous</a> |</li>
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="http://meta.pycqa.org/en/latest/">PyCQA</a> &#187;</li>
+    
+    <a href="../index.html">Pylint 2.2.0-dev documentation</a> &#187;
+    
+
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">How To Guides</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="transform-plugins">
+<h1>Transform plugins<a class="headerlink" href="#transform-plugins" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="why-write-a-plugin">
+<h2>Why write a plugin?<a class="headerlink" href="#why-write-a-plugin" title="Permalink to this headline">¶</a></h2>
+<p>Pylint is a static analysis tool and Python is a dynamically typed language.
+So there will be cases where Pylint cannot analyze files properly (this problem
+can happen in statically typed languages also if reflection or dynamic
+evaluation is used).</p>
+<p>The plugins are a way to tell Pylint how to handle such cases,
+since only the user would know what needs to be done. They are usually operating
+on the AST level, by modifying or changing it in a way which can ease its
+understanding by Pylint.</p>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>Let us run Pylint on a module from the Python source: <a class="reference external" href="http://hg.python.org/cpython/file/2.7/Lib/warnings.py">warnings.py</a> and see what happens:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>amitdev$ pylint -E Lib/warnings.py
+E:297,36: Instance of <span class="s1">&#39;WarningMessage&#39;</span> has no <span class="s1">&#39;message&#39;</span> member <span class="o">(</span>no-member<span class="o">)</span>
+E:298,36: Instance of <span class="s1">&#39;WarningMessage&#39;</span> has no <span class="s1">&#39;filename&#39;</span> member <span class="o">(</span>no-member<span class="o">)</span>
+E:298,51: Instance of <span class="s1">&#39;WarningMessage&#39;</span> has no <span class="s1">&#39;lineno&#39;</span> member <span class="o">(</span>no-member<span class="o">)</span>
+E:298,64: Instance of <span class="s1">&#39;WarningMessage&#39;</span> has no <span class="s1">&#39;line&#39;</span> member <span class="o">(</span>no-member<span class="o">)</span>
+</pre></div>
+</div>
+<p>Did we catch a genuine error? Let's open the code and look at <code class="docutils literal notranslate"><span class="pre">WarningMessage</span></code> class:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">WarningMessage</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+  <span class="sd">&quot;&quot;&quot;Holds the result of a single showwarning() call.&quot;&quot;&quot;</span>
+
+  <span class="n">_WARNING_DETAILS</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;message&quot;</span><span class="p">,</span> <span class="s2">&quot;category&quot;</span><span class="p">,</span> <span class="s2">&quot;filename&quot;</span><span class="p">,</span> <span class="s2">&quot;lineno&quot;</span><span class="p">,</span> <span class="s2">&quot;file&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;line&quot;</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">category</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">lineno</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                  <span class="n">line</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="n">local_values</span> <span class="o">=</span> <span class="nb">locals</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_WARNING_DETAILS</span><span class="p">:</span>
+      <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="n">local_values</span><span class="p">[</span><span class="n">attr</span><span class="p">])</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_category_name</span> <span class="o">=</span> <span class="n">category</span><span class="o">.</span><span class="vm">__name__</span> <span class="k">if</span> <span class="n">category</span> <span class="k">else</span> <span class="bp">None</span>
+
+  <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<p>Ah, the fields (<code class="docutils literal notranslate"><span class="pre">message</span></code>, <code class="docutils literal notranslate"><span class="pre">category</span></code> etc) are not defined statically on the class.
+Instead they are added using <code class="docutils literal notranslate"><span class="pre">setattr</span></code>. Pylint would have a tough time figuring
+this out.</p>
+</div>
+<div class="section" id="enter-plugin">
+<h2>Enter Plugin<a class="headerlink" href="#enter-plugin" title="Permalink to this headline">¶</a></h2>
+<p>We can write a transform plugin to tell Pylint how to analyze this properly.</p>
+<p>One way to fix our example with a plugin would be to transform the <code class="docutils literal notranslate"><span class="pre">WarningMessage</span></code> class,
+by setting the attributes so that Pylint can see them. This can be done by
+registering a transform function. We can transform any node in the parsed AST like
+Module, Class, Function etc. In our case we need to transform a class. It can be done so:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">astroid</span>
+<span class="kn">from</span> <span class="nn">astroid</span> <span class="kn">import</span> <span class="n">MANAGER</span>
+
+<span class="k">def</span> <span class="nf">register</span><span class="p">(</span><span class="n">linter</span><span class="p">):</span>
+  <span class="c1"># Needed for registering the plugin.</span>
+  <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+  <span class="k">if</span> <span class="bp">cls</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;WarningMessage&#39;</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">warnings</span>
+    <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">warnings</span><span class="o">.</span><span class="n">WarningMessage</span><span class="o">.</span><span class="n">_WARNING_DETAILS</span><span class="p">:</span>
+      <span class="bp">cls</span><span class="o">.</span><span class="n">locals</span><span class="p">[</span><span class="n">f</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">astroid</span><span class="o">.</span><span class="n">Class</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">None</span><span class="p">)]</span>
+
+<span class="n">MANAGER</span><span class="o">.</span><span class="n">register_transform</span><span class="p">(</span><span class="n">astroid</span><span class="o">.</span><span class="n">Class</span><span class="p">,</span> <span class="n">transform</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Let's go through the plugin. First, we need to register a class transform, which
+is done via the <code class="docutils literal notranslate"><span class="pre">register_transform</span></code> function in <code class="docutils literal notranslate"><span class="pre">MANAGER</span></code>. It takes the node
+type and function as parameters. We need to change a class, so we use <code class="docutils literal notranslate"><span class="pre">astroid.Class</span></code>.
+We also pass a <code class="docutils literal notranslate"><span class="pre">transform</span></code> function which does the actual transformation.</p>
+<p><code class="docutils literal notranslate"><span class="pre">transform</span></code> function is simple as well. If the class is <code class="docutils literal notranslate"><span class="pre">WarningMessage</span></code> then we
+add the attributes to its locals (we are not bothered about type of attributes, so setting
+them as class will do. But we could set them to any type we want). That's it.</p>
+<p>Note: We don't need to do anything in the <code class="docutils literal notranslate"><span class="pre">register</span></code> function of the plugin since we
+are not modifying anything in the linter itself.</p>
+<p>Lets run Pylint with this plugin and see:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>amitdev$ pylint -E --load-plugins warning_plugin Lib/warnings.py
+amitdev$
+</pre></div>
+</div>
+<p>All the false positives associated with <code class="docutils literal notranslate"><span class="pre">WarningMessage</span></code> are now gone. This is just
+an example, any code transformation can be done by plugins.</p>
+<p>See <a class="reference external" href="https://github.com/PyCQA/astroid/tree/master/astroid/brain">astroid/brain</a> for real life examples of transform plugins.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Transform plugins</a><ul>
+<li><a class="reference internal" href="#why-write-a-plugin">Why write a plugin?</a></li>
+<li><a class="reference internal" href="#example">Example</a></li>
+<li><a class="reference internal" href="#enter-plugin">Enter Plugin</a></li>
+</ul>
+</li>
+</ul>
+
+<h3><a href="../index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/index.html">User Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">How To Guides</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="custom_checkers.html">How to Write a Checker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugins.html">How To Write a Pylint Plugin</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Transform plugins</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../technical_reference/index.html">Technical Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development_guide/index.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../backlinks.html">Some projects using Pylint</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew/index.html">What's New in Pylint</a></li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="plugins.html"
+                        title="previous chapter">How To Write a Pylint Plugin</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../technical_reference/index.html"
+                        title="next chapter">Technical Reference</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/how_tos/transform_plugins.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../technical_reference/index.html" title="Technical Reference"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="plugins.html" title="How To Write a Pylint Plugin"
+             >previous</a> |</li>
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="http://meta.pycqa.org/en/latest/">PyCQA</a> &#187;</li>
+    
+    <a href="../index.html">Pylint 2.2.0-dev documentation</a> &#187;
+    
+
+          <li class="nav-item nav-item-1"><a href="index.html" >How To Guides</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">Copyright</a> 2003-2018, Logilab, PyCQA and contributors.
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    Last updated on None.
+    <a href="https://github.com/pycqa/pylint/issues/new">Found a bug</a>?
+    <br />
+
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.7.8.
+    </div>
+
+  </body>
+</html>

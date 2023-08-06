@@ -1,0 +1,2836 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Pylint features &#8212; Pylint 2.2.0-dev documentation</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Pylint and C extensions" href="c_extensions.html" />
+    <link rel="prev" title="Optional Pylint checkers in the extensions module" href="extensions.html" />
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+     
+
+  </head><body>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="c_extensions.html" title="Pylint and C extensions"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="extensions.html" title="Optional Pylint checkers in the extensions module"
+             accesskey="P">previous</a> |</li>
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="http://meta.pycqa.org/en/latest/">PyCQA</a> &#187;</li>
+    
+    <a href="../index.html">Pylint 2.2.0-dev documentation</a> &#187;
+    
+
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Technical Reference</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="pylint-features">
+<h1>Pylint features<a class="headerlink" href="#pylint-features" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="pylint-global-options-and-switches">
+<h2>Pylint global options and switches<a class="headerlink" href="#pylint-global-options-and-switches" title="Permalink to this headline">¶</a></h2>
+<p>Pylint provides global options and switches.</p>
+<div class="section" id="general-options">
+<h3>General options<a class="headerlink" href="#general-options" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">ignore:</th><td class="field-body"><p class="first">Add files or directories to the blacklist. They should be base names, not
+paths.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">CVS</span></code></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">ignore-patterns:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">Add files or directories matching the regex patterns to the blacklist. The
+regex matches against base names, not paths.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">persistent:</th><td class="field-body"><p class="first">Pickle collected data for later comparisons.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">yes</span></code></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">load-plugins:</th><td class="field-body"><p class="first">List of plugins (as comma separated values of python modules names) to load,
+usually to register additional checkers.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">jobs:</th><td class="field-body"><p class="first">Use multiple processes to speed up Pylint. Specifying 0 will auto-detect the
+number of processors available to use.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">unsafe-load-any-extension:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">Allow loading of arbitrary C extensions. Extensions are imported into the
+active Python interpreter and may run arbitrary code.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">limit-inference-results:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Control the amount of potential inferred values when inferring a single
+object. This can help the performance when dealing with large functions or
+complex, nested conditions.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">100</span></code></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">extension-pkg-whitelist:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">A comma-separated list of package or module names from where C extensions may
+be loaded. Extensions are loading into the active Python interpreter and may
+run arbitrary code.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">suggestion-mode:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">When enabled, pylint would attempt to guess common misconfiguration and emit
+user-friendly hints instead of false-positive error messages.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">yes</span></code></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">exit-zero:</th><td class="field-body"><p class="first last">Always return a 0 (non-error) status code, even if lint errors are found.
+This is primarily useful in continuous integration scripts.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="messages-control-options">
+<h3>Messages control options<a class="headerlink" href="#messages-control-options" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">confidence:</th><td class="field-body"><p class="first">Only show warnings with the listed confidence levels. Leave empty to show
+all. Valid levels: HIGH, INFERENCE, INFERENCE_FAILURE, UNDEFINED.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">enable:</th><td class="field-body"><p class="first">Enable the message, report, category or checker with the given id(s). You can
+either give multiple identifier separated by comma (,) or put this option
+multiple time (only on the command line, not in the configuration file where
+it should appear only once). See also the &quot;--disable&quot; option for examples.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">disable:</th><td class="field-body"><p class="first">Disable the message, report, category or checker with the given id(s). You
+can either give multiple identifiers separated by comma (,) or put this
+option multiple times (only on the command line, not in the configuration
+file where it should appear only once). You can also use &quot;--disable=all&quot; to
+disable everything first and then reenable specific checks. For example, if
+you want to run only the similarities checker, you can use &quot;--disable=all
+--enable=similarities&quot;. If you want to run only the classes checker, but have
+no Warning level messages displayed, use &quot;--disable=all --enable=classes
+--disable=W&quot;.</p>
+<p class="last">Default: <code class="docutils literal notranslate"><span class="pre">print-statement,parameter-unpacking,unpacking-in-except,old-raise-syntax,backtick,long-suffix,old-ne-operator,old-octal-literal,import-star-module-level,non-ascii-bytes-literal,apply-builtin,basestring-builtin,buffer-builtin,cmp-builtin,coerce-builtin,execfile-builtin,file-builtin,long-builtin,raw_input-builtin,reduce-builtin,standarderror-builtin,unicode-builtin,xrange-builtin,coerce-method,delslice-method,getslice-method,setslice-method,no-absolute-import,old-division,dict-iter-method,dict-view-method,next-method-called,metaclass-assignment,indexing-exception,raising-string,reload-builtin,oct-method,hex-method,nonzero-method,cmp-method,input-builtin,round-builtin,intern-builtin,unichr-builtin,map-builtin-not-iterating,zip-builtin-not-iterating,range-builtin-not-iterating,filter-builtin-not-iterating,using-cmp-argument,eq-without-hash,div-method,idiv-method,rdiv-method,exception-message-attribute,invalid-str-codec,sys-max-int,bad-python3-import,deprecated-string-function,deprecated-str-translate-call,deprecated-itertools-function,deprecated-types-field,next-method-defined,dict-items-not-iterating,dict-keys-not-iterating,dict-values-not-iterating,deprecated-operator-function,deprecated-urllib-function,xreadlines-attribute,deprecated-sys-function,exception-escape,comprehension-escape</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="reports-options">
+<h3>Reports options<a class="headerlink" href="#reports-options" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">output-format:</th><td class="field-body"><p class="first">Set the output format. Available formats are text, parseable, colorized, json
+and msvs (visual studio). You can also give a reporter class, e.g.
+mypackage.mymodule.MyReporterClass.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">text</span></code></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">reports:</th><td class="field-body"><p class="first">Tells whether to display a full report or only the messages.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">evaluation:</th><td class="field-body"><p class="first">Python expression which should return a note less than 10 (10 is the highest
+note). You have access to the variables errors warning, statement which
+respectively contain the number of errors / warnings messages and the total
+number of statements analyzed. This is used by the global evaluation report
+(RP0004).</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">10.0</span> <span class="pre">-</span> <span class="pre">((float(5</span> <span class="pre">*</span> <span class="pre">error</span> <span class="pre">+</span> <span class="pre">warning</span> <span class="pre">+</span> <span class="pre">refactor</span> <span class="pre">+</span> <span class="pre">convention)</span> <span class="pre">/</span> <span class="pre">statement)</span> <span class="pre">*</span> <span class="pre">10)</span></code></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">score:</th><td class="field-body"><p class="first">Activate the evaluation score.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">yes</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">msg-template:</th><td class="field-body"><p class="first last">Template used to display messages. This is a python new-style format string
+used to format the message information. See doc for all details.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="pylint-checkers-options-and-switches">
+<h2>Pylint checkers' options and switches<a class="headerlink" href="#pylint-checkers-options-and-switches" title="Permalink to this headline">¶</a></h2>
+<p>Pylint checkers can provide three set of features:</p>
+<ul class="simple">
+<li>options that control their execution,</li>
+<li>messages that they can raise,</li>
+<li>reports that they can generate.</li>
+</ul>
+<p>Below is a list of all checkers and their features.</p>
+<div class="section" id="async-checker">
+<h3>Async checker<a class="headerlink" href="#async-checker" title="Permalink to this headline">¶</a></h3>
+<p>Verbatim name of the checker is <code class="docutils literal notranslate"><span class="pre">async</span></code>.</p>
+<div class="section" id="async-checker-messages">
+<h4>Async checker Messages<a class="headerlink" href="#async-checker-messages" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">not-async-context-manager (E1701):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Async context manager '%s' doesn't implement __aenter__ and __aexit__.</em>
+Used when an async context manager is used with an object that does not
+implement the async context management protocol. This message can't be emitted
+when using Python &lt; 3.5.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">yield-inside-async-function (E1700):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Yield inside async function</em>
+Used when an <cite>yield</cite> or <cite>yield from</cite> statement is found inside an async
+function. This message can't be emitted when using Python &lt; 3.5.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="basic-checker">
+<h3>Basic checker<a class="headerlink" href="#basic-checker" title="Permalink to this headline">¶</a></h3>
+<p>Verbatim name of the checker is <code class="docutils literal notranslate"><span class="pre">basic</span></code>.</p>
+<div class="section" id="basic-checker-options">
+<h4>Basic checker Options<a class="headerlink" href="#basic-checker-options" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">good-names:</th><td class="field-body"><p class="first">Good variable names which should always be accepted, separated by a comma.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">i,j,k,ex,Run,_</span></code></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">bad-names:</th><td class="field-body"><p class="first">Bad variable names which should always be refused, separated by a comma.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">foo,bar,baz,toto,tutu,tata</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">name-group:</th><td class="field-body"><p class="first">Colon-delimited sets of names that determine each other's naming style when
+the name regexes allow several styles.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">include-naming-hint:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">Include a hint for the correct naming format with invalid-name.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">property-classes:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">List of decorators that produce properties, such as abc.abstractproperty. Add
+to this list to register other decorators that produce valid properties.
+These decorators are taken in consideration only for invalid-name.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">abc.abstractproperty</span></code></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">argument-naming-style:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">Naming style matching correct argument names.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">snake_case</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">argument-rgx:</th><td class="field-body"><p class="first">Regular expression matching correct argument names. Overrides argument-
+naming-style.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">attr-naming-style:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">Naming style matching correct attribute names.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">snake_case</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">attr-rgx:</th><td class="field-body"><p class="first">Regular expression matching correct attribute names. Overrides attr-naming-
+style.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">class-naming-style:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">Naming style matching correct class names.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">PascalCase</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">class-rgx:</th><td class="field-body"><p class="first">Regular expression matching correct class names. Overrides class-naming-
+style.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">class-attribute-naming-style:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">Naming style matching correct class attribute names.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">any</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">class-attribute-rgx:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Regular expression matching correct class attribute names. Overrides class-
+attribute-naming-style.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">const-naming-style:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">Naming style matching correct constant names.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">UPPER_CASE</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">const-rgx:</th><td class="field-body"><p class="first">Regular expression matching correct constant names. Overrides const-naming-
+style.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">function-naming-style:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">Naming style matching correct function names.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">snake_case</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">function-rgx:</th><td class="field-body"><p class="first">Regular expression matching correct function names. Overrides function-
+naming-style.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">inlinevar-naming-style:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">Naming style matching correct inline iteration names.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">any</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">inlinevar-rgx:</th><td class="field-body"><p class="first">Regular expression matching correct inline iteration names. Overrides
+inlinevar-naming-style.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">method-naming-style:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">Naming style matching correct method names.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">snake_case</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">method-rgx:</th><td class="field-body"><p class="first">Regular expression matching correct method names. Overrides method-naming-
+style.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">module-naming-style:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">Naming style matching correct module names.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">snake_case</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">module-rgx:</th><td class="field-body"><p class="first">Regular expression matching correct module names. Overrides module-naming-
+style.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">variable-naming-style:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">Naming style matching correct variable names.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">snake_case</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">variable-rgx:</th><td class="field-body"><p class="first">Regular expression matching correct variable names. Overrides variable-
+naming-style.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">no-docstring-rgx:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">Regular expression which should only match function or class names that do
+not require a docstring.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">^_</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">docstring-min-length:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Minimum line length for functions/classes that require docstrings, shorter
+ones are exempt.</p>
+<p class="last">Default: <code class="docutils literal notranslate"><span class="pre">-1</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="basic-checker-messages">
+<h4>Basic checker Messages<a class="headerlink" href="#basic-checker-messages" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">not-in-loop (E0103):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>%r not properly in loop</em>
+Used when break or continue keywords are used outside a loop.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">function-redefined (E0102):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>%s already defined line %s</em>
+Used when a function / class / method is redefined.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">continue-in-finally (E0116):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>'continue' not supported inside 'finally' clause</em>
+Emitted when the <cite>continue</cite> keyword is found inside a finally clause, which is
+a SyntaxError.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">abstract-class-instantiated (E0110):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Abstract class %r with abstract methods instantiated</em>
+Used when an abstract class with <cite>abc.ABCMeta</cite> as metaclass has abstract
+methods and is instantiated.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">star-needs-assignment-target (E0114):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Can use starred expression only in assignment target</em>
+Emitted when a star expression is not used in an assignment target.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">duplicate-argument-name (E0108):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Duplicate argument name %s in function definition</em>
+Duplicate argument names in function definitions are syntax errors.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">return-in-init (E0101):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Explicit return in __init__</em>
+Used when the special class method __init__ has an explicit return value.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">too-many-star-expressions (E0112):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>More than one starred expression in assignment</em>
+Emitted when there are more than one starred expressions (<cite>*x</cite>) in an
+assignment. This is a SyntaxError.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">nonlocal-and-global (E0115):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Name %r is nonlocal and global</em>
+Emitted when a name is both nonlocal and global.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">used-prior-global-declaration (E0118):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Name %r is used prior to global declaration</em>
+Emitted when a name is used prior a global declaration, which results in an
+error since Python 3.6. This message can't be emitted when using Python &lt; 3.6.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">return-outside-function (E0104):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Return outside function</em>
+Used when a &quot;return&quot; statement is found outside a function or method.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">return-arg-in-generator (E0106):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Return with argument inside generator</em>
+Used when a &quot;return&quot; statement with an argument is found outside in a
+generator function or method (e.g. with some &quot;yield&quot; statements). This message
+can't be emitted when using Python &gt;= 3.3.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">invalid-star-assignment-target (E0113):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Starred assignment target must be in a list or tuple</em>
+Emitted when a star expression is used as a starred assignment target.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">bad-reversed-sequence (E0111):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>The first reversed() argument is not a sequence</em>
+Used when the first argument to reversed() builtin isn't a sequence (does not
+implement __reversed__, nor __getitem__ and __len__</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">nonexistent-operator (E0107):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Use of the non-existent %s operator</em>
+Used when you attempt to use the C-style pre-increment or pre-decrement
+operator -- and ++, which doesn't exist in Python.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">yield-outside-function (E0105):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Yield outside function</em>
+Used when a &quot;yield&quot; statement is found outside a function or method.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">init-is-generator (E0100):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>__init__ method is a generator</em>
+Used when the special class method __init__ is turned into a generator by a
+yield in its body.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">misplaced-format-function (E0119):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>format function is not called on str</em>
+Emitted when format function is not called on str object. e.g doing
+print(&quot;value: {}&quot;).format(123) instead of print(&quot;value: {}&quot;.format(123)). This
+might not be what the user intended to do.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">nonlocal-without-binding (E0117):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>nonlocal name %s found without binding</em>
+Emitted when a nonlocal variable does not have an attached name somewhere in
+the parent scopes</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">lost-exception (W0150):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>%s statement in finally block may swallow exception</em>
+Used when a break or a return statement is found inside the finally clause of
+a try...finally block: the exceptions raised in the try clause will be
+silently swallowed instead of being re-raised.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">assert-on-tuple (W0199):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Assert called on a 2-uple. Did you mean 'assert x,y'?</em>
+A call of assert on a tuple will always evaluate to true if the tuple is not
+empty, and will always evaluate to false if it is.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">comparison-with-callable (W0143):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Comparing against a callable, did you omit the parenthesis?</em>
+This message is emitted when pylint detects that a comparison with a callable
+was made, which might suggest that some parenthesis were omitted, resulting in
+potential unwanted behaviour.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">dangerous-default-value (W0102):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Dangerous default value %s as argument</em>
+Used when a mutable value as list or dictionary is detected in a default value
+for an argument.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">duplicate-key (W0109):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Duplicate key %r in dictionary</em>
+Used when a dictionary expression binds the same key multiple times.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">useless-else-on-loop (W0120):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Else clause on loop without a break statement</em>
+Loops should only have an else clause if they can exit early with a break
+statement, otherwise the statements under else should be on the same scope as
+the loop itself.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">expression-not-assigned (W0106):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Expression &quot;%s&quot; is assigned to nothing</em>
+Used when an expression that is not a function call is assigned to nothing.
+Probably something else was intended.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">confusing-with-statement (W0124):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Following &quot;as&quot; with another context manager looks like a tuple.</em>
+Emitted when a <cite>with</cite> statement component returns multiple values and uses
+name binding with <cite>as</cite> only for a part of those values, as in with ctx() as a,
+b. This can be misleading, since it's not clear if the context manager returns
+a tuple or if the node without a name binding is another context manager.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">unnecessary-lambda (W0108):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Lambda may not be necessary</em>
+Used when the body of a lambda expression is a function call on the same
+argument list as the lambda itself; such lambda expressions are in all but a
+few cases replaceable with the function being called in the body of the
+lambda.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">assign-to-new-keyword (W0111):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Name %s will become a keyword in Python %s</em>
+Used when assignment will become invalid in future Python release due to
+introducing new keyword.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">pointless-statement (W0104):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Statement seems to have no effect</em>
+Used when a statement doesn't have (or at least seems to) any effect.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">pointless-string-statement (W0105):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>String statement has no effect</em>
+Used when a string is used as a statement (which of course has no effect).
+This is a particular case of W0104 with its own message so you can easily
+disable it if you're using those strings as documentation, instead of
+comments.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">unnecessary-pass (W0107):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Unnecessary pass statement</em>
+Used when a &quot;pass&quot; statement that can be avoided is encountered.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">unreachable (W0101):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Unreachable code</em>
+Used when there is some code behind a &quot;return&quot; or &quot;raise&quot; statement, which
+will never be accessed.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">eval-used (W0123):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Use of eval</em>
+Used when you use the &quot;eval&quot; function, to discourage its usage. Consider using
+<cite>ast.literal_eval</cite> for safely evaluating strings containing Python expressions
+from untrusted sources.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">exec-used (W0122):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Use of exec</em>
+Used when you use the &quot;exec&quot; statement (function for Python 3), to discourage
+its usage. That doesn't mean you cannot use it !</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">using-constant-test (W0125):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Using a conditional statement with a constant value</em>
+Emitted when a conditional statement (If or ternary if) uses a constant value
+for its test. This might not be what the user intended to do.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">literal-comparison (R0123):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Comparison to literal</em>
+Used when comparing an object to a literal, which is usually what you do not
+want to do, since you can compare to a different literal than what was
+expected altogether.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">comparison-with-itself (R0124):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Redundant comparison - %s</em>
+Used when something is compared against itself.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">invalid-name (C0103):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>%s name &quot;%s&quot; doesn't conform to %s</em>
+Used when the name doesn't conform to naming rules associated to its type
+(constant, variable, class...).</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">blacklisted-name (C0102):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Black listed name &quot;%s&quot;</em>
+Used when the name is listed in the black list (unauthorized names).</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">misplaced-comparison-constant (C0122):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Comparison should be %s</em>
+Used when the constant is placed on the left side of a comparison. It is
+usually clearer in intent to place it in the right hand side of the
+comparison.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">singleton-comparison (C0121):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Comparison to %s should be %s</em>
+Used when an expression is compared to singleton values like True, False or
+None.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">unneeded-not (C0113):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Consider changing &quot;%s&quot; to &quot;%s&quot;</em>
+Used when a boolean expression contains an unneeded negation.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">empty-docstring (C0112):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Empty %s docstring</em>
+Used when a module, function, class or method has an empty docstring (it would
+be too easy ;).</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">missing-docstring (C0111):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Missing %s docstring</em>
+Used when a module, function, class or method has no docstring.Some special
+methods like __init__ doesn't necessary require a docstring.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">unidiomatic-typecheck (C0123):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Using type() instead of isinstance() for a typecheck.</em>
+The idiomatic way to perform an explicit typecheck in Python is to use
+isinstance(x, Y) rather than type(x) == Y, type(x) is Y. Though there are
+unusual situations where these give different results.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="basic-checker-reports">
+<h4>Basic checker Reports<a class="headerlink" href="#basic-checker-reports" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">RP0101:</th><td class="field-body">Statistics by type</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="classes-checker">
+<h3>Classes checker<a class="headerlink" href="#classes-checker" title="Permalink to this headline">¶</a></h3>
+<p>Verbatim name of the checker is <code class="docutils literal notranslate"><span class="pre">classes</span></code>.</p>
+<div class="section" id="classes-checker-options">
+<h4>Classes checker Options<a class="headerlink" href="#classes-checker-options" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">defining-attr-methods:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">List of method names used to declare (i.e. assign) instance attributes.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">__init__,__new__,setUp</span></code></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">valid-classmethod-first-arg:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">List of valid names for the first argument in a class method.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">cls</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">valid-metaclass-classmethod-first-arg:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">List of valid names for the first argument in a metaclass class method.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">cls</span></code></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">exclude-protected:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">List of member names, which should be excluded from the protected access
+warning.</p>
+<p class="last">Default: <code class="docutils literal notranslate"><span class="pre">_asdict,_fields,_replace,_source,_make</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="classes-checker-messages">
+<h4>Classes checker Messages<a class="headerlink" href="#classes-checker-messages" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">access-member-before-definition (E0203):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Access to member %r before its definition line %s</em>
+Used when an instance member is accessed before it's actually assigned.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">method-hidden (E0202):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>An attribute defined in %s line %s hides this method</em>
+Used when a class defines a method which is hidden by an instance attribute
+from an ancestor class or set by some client code.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">assigning-non-slot (E0237):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Assigning to attribute %r not defined in class slots</em>
+Used when assigning to an attribute not defined in the class slots.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">duplicate-bases (E0241):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Duplicate bases for class %r</em>
+Used when a class has duplicate bases.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">inconsistent-mro (E0240):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Inconsistent method resolution order for class %r</em>
+Used when a class has an inconsistent method resolution order.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">inherit-non-class (E0239):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Inheriting %r, which is not a class.</em>
+Used when a class inherits from something which is not a class.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">invalid-slots (E0238):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Invalid __slots__ object</em>
+Used when an invalid __slots__ is found in class. Only a string, an iterable
+or a sequence is permitted.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">invalid-slots-object (E0236):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Invalid object %r in __slots__, must contain only non empty strings</em>
+Used when an invalid (non-string) object occurs in __slots__.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">no-method-argument (E0211):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Method has no argument</em>
+Used when a method which should have the bound instance as first argument has
+no argument defined.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">no-self-argument (E0213):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Method should have &quot;self&quot; as first argument</em>
+Used when a method has an attribute different the &quot;self&quot; as first argument.
+This is considered as an error since this is a so common convention that you
+shouldn't break it!</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">unexpected-special-method-signature (E0302):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>The special method %r expects %s param(s), %d %s given</em>
+Emitted when a special method was defined with an invalid number of
+parameters. If it has too few or too many, it might not work at all.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">non-iterator-returned (E0301):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>__iter__ returns non-iterator</em>
+Used when an __iter__ method returns something which is not an iterable (i.e.
+has no <cite>__next__</cite> method)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">invalid-length-returned (E0303):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>__len__ does not return non-negative integer</em>
+Used when a __len__ method returns something which is not a non-negative
+integer</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">protected-access (W0212):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Access to a protected member %s of a client class</em>
+Used when a protected member (i.e. class member with a name beginning with an
+underscore) is access outside the class or a descendant of the class where
+it's defined.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">attribute-defined-outside-init (W0201):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Attribute %r defined outside __init__</em>
+Used when an instance attribute is defined outside the __init__ method.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">no-init (W0232):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Class has no __init__ method</em>
+Used when a class has no __init__ method, neither its parent classes.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">abstract-method (W0223):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Method %r is abstract in class %r but is not overridden</em>
+Used when an abstract method (i.e. raise NotImplementedError) is not
+overridden in concrete class.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">arguments-differ (W0221):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Parameters differ from %s %r method</em>
+Used when a method has a different number of arguments than in the implemented
+interface or in an overridden method.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">signature-differs (W0222):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Signature differs from %s %r method</em>
+Used when a method signature is different than in the implemented interface or
+in an overridden method.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">bad-staticmethod-argument (W0211):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Static method with %r as first argument</em>
+Used when a static method has &quot;self&quot; or a value specified in valid-
+classmethod-first-arg option or valid-metaclass-classmethod-first-arg option
+as first argument.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">useless-super-delegation (W0235):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Useless super delegation in method %r</em>
+Used whenever we can detect that an overridden method is useless, relying on
+super() delegation to do the same thing as another method from the MRO.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">non-parent-init-called (W0233):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>__init__ method from a non direct base class %r is called</em>
+Used when an __init__ method is called on a class which is not in the direct
+ancestors for the analysed class.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">super-init-not-called (W0231):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>__init__ method from base class %r is not called</em>
+Used when an ancestor class method has an __init__ method which is not called
+by a derived class.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">useless-object-inheritance (R0205):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Class %r inherits from object, can be safely removed from bases in python3</em>
+Used when a class inherit from object, which under python3 is implicit, hence
+can be safely removed from bases.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">no-classmethod-decorator (R0202):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Consider using a decorator instead of calling classmethod</em>
+Used when a class method is defined without using the decorator syntax.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">no-staticmethod-decorator (R0203):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Consider using a decorator instead of calling staticmethod</em>
+Used when a static method is defined without using the decorator syntax.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">no-self-use (R0201):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Method could be a function</em>
+Used when a method doesn't use its bound instance, and so could be written as
+a function.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">single-string-used-for-slots (C0205):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Class __slots__ should be a non-string iterable</em>
+Used when a class __slots__ is a simple string, rather than an iterable.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">bad-classmethod-argument (C0202):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Class method %s should have %s as first argument</em>
+Used when a class method has a first argument named differently than the value
+specified in valid-classmethod-first-arg option (default to &quot;cls&quot;),
+recommended to easily differentiate them from regular instance methods.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">bad-mcs-classmethod-argument (C0204):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Metaclass class method %s should have %s as first argument</em>
+Used when a metaclass class method has a first argument named differently than
+the value specified in valid-metaclass-classmethod-first-arg option (default
+to &quot;mcs&quot;), recommended to easily differentiate them from regular instance
+methods.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">bad-mcs-method-argument (C0203):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Metaclass method %s should have %s as first argument</em>
+Used when a metaclass method has a first argument named differently than the
+value specified in valid-classmethod-first-arg option (default to &quot;cls&quot;),
+recommended to easily differentiate them from regular instance methods.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">method-check-failed (F0202):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Unable to check methods signature (%s / %s)</em>
+Used when Pylint has been unable to check methods signature compatibility for
+an unexpected reason. Please report this kind if you don't make sense of it.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="design-checker">
+<h3>Design checker<a class="headerlink" href="#design-checker" title="Permalink to this headline">¶</a></h3>
+<p>Verbatim name of the checker is <code class="docutils literal notranslate"><span class="pre">design</span></code>.</p>
+<div class="section" id="design-checker-options">
+<h4>Design checker Options<a class="headerlink" href="#design-checker-options" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">max-args:</th><td class="field-body"><p class="first">Maximum number of arguments for function / method.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">5</span></code></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">max-locals:</th><td class="field-body"><p class="first">Maximum number of locals for function / method body.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">15</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">max-returns:</th><td class="field-body"><p class="first">Maximum number of return / yield for function / method body.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">6</span></code></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">max-branches:</th><td class="field-body"><p class="first">Maximum number of branch for function / method body.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">12</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">max-statements:</th><td class="field-body"><p class="first">Maximum number of statements in function / method body.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">50</span></code></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">max-parents:</th><td class="field-body"><p class="first">Maximum number of parents for a class (see R0901).</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">7</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">max-attributes:</th><td class="field-body"><p class="first">Maximum number of attributes for a class (see R0902).</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">7</span></code></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">min-public-methods:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">Minimum number of public methods for a class (see R0903).</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">2</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">max-public-methods:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Maximum number of public methods for a class (see R0904).</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">20</span></code></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">max-bool-expr:</th><td class="field-body"><p class="first">Maximum number of boolean expressions in an if statement.</p>
+<p class="last">Default: <code class="docutils literal notranslate"><span class="pre">5</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="design-checker-messages">
+<h4>Design checker Messages<a class="headerlink" href="#design-checker-messages" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">too-few-public-methods (R0903):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Too few public methods (%s/%s)</em>
+Used when class has too few public methods, so be sure it's really worth it.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">too-many-ancestors (R0901):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Too many ancestors (%s/%s)</em>
+Used when class has too many parent classes, try to reduce this to get a
+simpler (and so easier to use) class.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">too-many-arguments (R0913):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Too many arguments (%s/%s)</em>
+Used when a function or method takes too many arguments.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">too-many-boolean-expressions (R0916):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Too many boolean expressions in if statement (%s/%s)</em>
+Used when an if statement contains too many boolean expressions.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">too-many-branches (R0912):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Too many branches (%s/%s)</em>
+Used when a function or method has too many branches, making it hard to
+follow.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">too-many-instance-attributes (R0902):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Too many instance attributes (%s/%s)</em>
+Used when class has too many instance attributes, try to reduce this to get a
+simpler (and so easier to use) class.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">too-many-locals (R0914):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Too many local variables (%s/%s)</em>
+Used when a function or method has too many local variables.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">too-many-public-methods (R0904):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Too many public methods (%s/%s)</em>
+Used when class has too many public methods, try to reduce this to get a
+simpler (and so easier to use) class.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">too-many-return-statements (R0911):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Too many return statements (%s/%s)</em>
+Used when a function or method has too many return statement, making it hard
+to follow.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">too-many-statements (R0915):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Too many statements (%s/%s)</em>
+Used when a function or method has too many statements. You should then split
+it in smaller functions / methods.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="exceptions-checker">
+<h3>Exceptions checker<a class="headerlink" href="#exceptions-checker" title="Permalink to this headline">¶</a></h3>
+<p>Verbatim name of the checker is <code class="docutils literal notranslate"><span class="pre">exceptions</span></code>.</p>
+<div class="section" id="exceptions-checker-options">
+<h4>Exceptions checker Options<a class="headerlink" href="#exceptions-checker-options" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">overgeneral-exceptions:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Exceptions that will emit a warning when being caught. Defaults to
+&quot;Exception&quot;.</p>
+<p class="last">Default: <code class="docutils literal notranslate"><span class="pre">Exception</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="exceptions-checker-messages">
+<h4>Exceptions checker Messages<a class="headerlink" href="#exceptions-checker-messages" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">bad-except-order (E0701):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Bad except clauses order (%s)</em>
+Used when except clauses are not in the correct order (from the more specific
+to the more generic). If you don't fix the order, some exceptions may not be
+caught by the most specific handler.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">catching-non-exception (E0712):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Catching an exception which doesn't inherit from Exception: %s</em>
+Used when a class which doesn't inherit from Exception is used as an exception
+in an except clause.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">bad-exception-context (E0703):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Exception context set to something which is not an exception, nor None</em>
+Used when using the syntax &quot;raise ... from ...&quot;, where the exception context
+is not an exception, nor None.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">notimplemented-raised (E0711):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>NotImplemented raised - should raise NotImplementedError</em>
+Used when NotImplemented is raised instead of NotImplementedError</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">raising-bad-type (E0702):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Raising %s while only classes or instances are allowed</em>
+Used when something which is neither a class, an instance or a string is
+raised (i.e. a <cite>TypeError</cite> will be raised).</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">raising-non-exception (E0710):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Raising a new style class which doesn't inherit from BaseException</em>
+Used when a new style class which doesn't inherit from BaseException is
+raised.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">misplaced-bare-raise (E0704):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>The raise statement is not inside an except clause</em>
+Used when a bare raise is not used inside an except clause. This generates an
+error, since there are no active exceptions to be reraised. An exception to
+this rule is represented by a bare raise inside a finally clause, which might
+work, as long as an exception is raised inside the try block, but it is
+nevertheless a code smell that must not be relied upon.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">duplicate-except (W0705):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Catching previously caught exception type %s</em>
+Used when an except catches a type that was already caught by a previous
+handler.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">broad-except (W0703):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Catching too general exception %s</em>
+Used when an except catches a too general exception, possibly burying
+unrelated errors.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">raising-format-tuple (W0715):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Exception arguments suggest string formatting might be intended</em>
+Used when passing multiple arguments to an exception constructor, the first of
+them a string literal containing what appears to be placeholders intended for
+formatting</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">binary-op-exception (W0711):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Exception to catch is the result of a binary &quot;%s&quot; operation</em>
+Used when the exception to catch is of the form &quot;except A or B:&quot;. If intending
+to catch multiple, rewrite as &quot;except (A, B):&quot;</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">bare-except (W0702):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>No exception type(s) specified</em>
+Used when an except clause doesn't specify exceptions type to catch.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">try-except-raise (W0706):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>The except handler raises immediately</em>
+Used when an except handler uses raise as its first or only operator. This is
+useless because it raises back the exception immediately. Remove the raise
+operator or the entire try-except-raise block!</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="format-checker">
+<h3>Format checker<a class="headerlink" href="#format-checker" title="Permalink to this headline">¶</a></h3>
+<p>Verbatim name of the checker is <code class="docutils literal notranslate"><span class="pre">format</span></code>.</p>
+<div class="section" id="format-checker-options">
+<h4>Format checker Options<a class="headerlink" href="#format-checker-options" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">max-line-length:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Maximum number of characters on a single line.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">100</span></code></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">ignore-long-lines:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">Regexp for a line that is allowed to be longer than the limit.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">^\s*(#</span> <span class="pre">)?&lt;?https?://\S+&gt;?$</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">single-line-if-stmt:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Allow the body of an if to be on the same line as the test if there is no
+else.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">single-line-class-stmt:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">Allow the body of a class to be on the same line as the declaration if body
+contains single statement.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">no-space-check:</th><td class="field-body"><p class="first">List of optional constructs for which whitespace checking is disabled. <cite>dict-
+separator</cite> is used to allow tabulation in dicts, etc.: {1  : 1,n222: 2}.
+<cite>trailing-comma</cite> allows a space between comma and closing bracket: (a, ).
+<cite>empty-line</cite> allows space-only lines.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">trailing-comma,dict-separator</span></code></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">max-module-lines:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">Maximum number of lines in a module.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">1000</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">indent-string:</th><td class="field-body"><p class="first">String used as indentation unit. This is usually &quot;    &quot; (4 spaces) or &quot;t&quot; (1
+tab).</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">'</span>&#160;&#160;&#160; <span class="pre">'</span></code></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">indent-after-paren:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">Number of spaces of indent required inside a hanging or continued line.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">4</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">expected-line-ending-format:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first last">Expected format of line ending, e.g. empty (any line ending), LF or CRLF.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="format-checker-messages">
+<h4>Format checker Messages<a class="headerlink" href="#format-checker-messages" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">bad-indentation (W0311):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Bad indentation. Found %s %s, expected %s</em>
+Used when an unexpected number of indentation's tabulations or spaces has been
+found.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">mixed-indentation (W0312):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Found indentation with %ss instead of %ss</em>
+Used when there are some mixed tabs and spaces in a module.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">unnecessary-semicolon (W0301):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Unnecessary semicolon</em>
+Used when a statement is ended by a semi-colon (&quot;;&quot;), which isn't necessary
+(that's python, not C ;).</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">bad-whitespace (C0326):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>%s space %s %s %s</em>
+Used when a wrong number of spaces is used around an operator, bracket or
+block opener.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">missing-final-newline (C0304):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Final newline missing</em>
+Used when the last line in a file is missing a newline.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">line-too-long (C0301):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Line too long (%s/%s)</em>
+Used when a line is longer than a given number of characters.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">mixed-line-endings (C0327):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Mixed line endings LF and CRLF</em>
+Used when there are mixed (LF and CRLF) newline signs in a file.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">multiple-statements (C0321):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>More than one statement on a single line</em>
+Used when more than on statement are found on the same line.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">too-many-lines (C0302):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Too many lines in module (%s/%s)</em>
+Used when a module has too many lines, reducing its readability.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">trailing-newlines (C0305):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Trailing newlines</em>
+Used when there are trailing blank lines in a file.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">trailing-whitespace (C0303):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Trailing whitespace</em>
+Used when there is whitespace between the end of a line and the newline.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">unexpected-line-ending-format (C0328):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Unexpected line ending format. There is '%s' while it should be '%s'.</em>
+Used when there is different newline than expected.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">superfluous-parens (C0325):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Unnecessary parens after %r keyword</em>
+Used when a single item in parentheses follows an if, for, or other keyword.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">bad-continuation (C0330):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Wrong %s indentation%s%s.</em>
+TODO</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="imports-checker">
+<h3>Imports checker<a class="headerlink" href="#imports-checker" title="Permalink to this headline">¶</a></h3>
+<p>Verbatim name of the checker is <code class="docutils literal notranslate"><span class="pre">imports</span></code>.</p>
+<div class="section" id="imports-checker-options">
+<h4>Imports checker Options<a class="headerlink" href="#imports-checker-options" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">deprecated-modules:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Deprecated modules which should not be used, separated by a comma.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">optparse,tkinter.tix</span></code></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">import-graph:</th><td class="field-body"><p class="first">Create a graph of every (i.e. internal and external) dependencies in the
+given file (report RP0402 must not be disabled).</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">ext-import-graph:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Create a graph of external dependencies in the given file (report RP0402 must
+not be disabled).</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">int-import-graph:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">Create a graph of internal dependencies in the given file (report RP0402 must
+not be disabled).</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">known-standard-library:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Force import order to recognize a module as part of the standard
+compatibility libraries.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">known-third-party:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">Force import order to recognize a module as part of a third party library.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">enchant</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">analyse-fallback-blocks:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Analyse import fallback blocks. This can be used to support both Python 2 and
+3 compatible code, which means that the block might have code that exists
+only in one or another interpreter, leading to false positives when analysed.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">allow-wildcard-with-all:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first last">Allow wildcard imports from modules that define __all__.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="imports-checker-messages">
+<h4>Imports checker Messages<a class="headerlink" href="#imports-checker-messages" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">relative-beyond-top-level (E0402):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Attempted relative import beyond top-level package</em>
+Used when a relative import tries to access too many levels in the current
+package.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">import-error (E0401):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Unable to import %s</em>
+Used when pylint has been unable to import a module.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">import-self (W0406):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Module import itself</em>
+Used when a module is importing itself.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">reimported (W0404):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Reimport %r (imported line %s)</em>
+Used when a module is reimported multiple times.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">relative-import (W0403):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Relative import %r, should be %r</em>
+Used when an import relative to the package directory is detected. This
+message can't be emitted when using Python &gt;= 3.0.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">deprecated-module (W0402):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Uses of a deprecated module %r</em>
+Used a module marked as deprecated is imported.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">wildcard-import (W0401):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Wildcard import %s</em>
+Used when <cite>from module import *</cite> is detected.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">misplaced-future (W0410):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>__future__ import is not the first non docstring statement</em>
+Python 2.5 and greater require __future__ import to be the first non docstring
+statement in the module.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">cyclic-import (R0401):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Cyclic import (%s)</em>
+Used when a cyclic import between two or more modules is detected.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">wrong-import-order (C0411):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>%s should be placed before %s</em>
+Used when PEP8 import order is not respected (standard imports first, then
+third-party libraries, then local imports)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">wrong-import-position (C0413):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Import &quot;%s&quot; should be placed at the top of the module</em>
+Used when code and imports are mixed</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">useless-import-alias (C0414):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Import alias does not rename original package</em>
+Used when an import alias is same as original package.e.g using import numpy
+as numpy instead of import numpy as np</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">ungrouped-imports (C0412):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Imports from package %s are not grouped</em>
+Used when imports are not grouped by packages</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">multiple-imports (C0410):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Multiple imports on one line (%s)</em>
+Used when import statement importing multiple modules is detected.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="imports-checker-reports">
+<h4>Imports checker Reports<a class="headerlink" href="#imports-checker-reports" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">RP0401:</th><td class="field-body">External dependencies</td>
+</tr>
+<tr class="field-even field"><th class="field-name">RP0402:</th><td class="field-body">Modules dependencies graph</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="iterable-check-checker">
+<h3>Iterable Check checker<a class="headerlink" href="#iterable-check-checker" title="Permalink to this headline">¶</a></h3>
+<p>Verbatim name of the checker is <code class="docutils literal notranslate"><span class="pre">iterable_check</span></code>.</p>
+<div class="section" id="iterable-check-checker-messages">
+<h4>Iterable Check checker Messages<a class="headerlink" href="#iterable-check-checker-messages" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">not-an-iterable (E1133):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Non-iterable value %s is used in an iterating context</em>
+Used when a non-iterable value is used in place where iterable is expected</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">not-a-mapping (E1134):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Non-mapping value %s is used in a mapping context</em>
+Used when a non-mapping value is used in place where mapping is expected</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="len-checker">
+<h3>Len checker<a class="headerlink" href="#len-checker" title="Permalink to this headline">¶</a></h3>
+<p>Verbatim name of the checker is <code class="docutils literal notranslate"><span class="pre">len</span></code>.</p>
+<div class="section" id="len-checker-messages">
+<h4>Len checker Messages<a class="headerlink" href="#len-checker-messages" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">len-as-condition (C1801):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Do not use `len(SEQUENCE)` to determine if a sequence is empty</em>
+Used when Pylint detects that len(sequence) is being used inside a condition
+to determine if a sequence is empty. Instead of comparing the length to 0,
+rely on the fact that empty sequences are false.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="logging-checker">
+<h3>Logging checker<a class="headerlink" href="#logging-checker" title="Permalink to this headline">¶</a></h3>
+<p>Verbatim name of the checker is <code class="docutils literal notranslate"><span class="pre">logging</span></code>.</p>
+<div class="section" id="logging-checker-options">
+<h4>Logging checker Options<a class="headerlink" href="#logging-checker-options" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">logging-modules:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Logging modules to check that the string format arguments are in logging
+function parameter format.</p>
+<p class="last">Default: <code class="docutils literal notranslate"><span class="pre">logging</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="logging-checker-messages">
+<h4>Logging checker Messages<a class="headerlink" href="#logging-checker-messages" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">logging-format-truncated (E1201):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Logging format string ends in middle of conversion specifier</em>
+Used when a logging statement format string terminates before the end of a
+conversion specifier.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">logging-too-few-args (E1206):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Not enough arguments for logging format string</em>
+Used when a logging format string is given too few arguments.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">logging-too-many-args (E1205):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Too many arguments for logging format string</em>
+Used when a logging format string is given too many arguments.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">logging-unsupported-format (E1200):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Unsupported logging format character %r (%#02x) at index %d</em>
+Used when an unsupported format character is used in a logging statement
+format string.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">logging-not-lazy (W1201):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Specify string format arguments as logging function parameters</em>
+Used when a logging statement has a call form of &quot;logging.&lt;logging
+method&gt;(format_string % (format_args...))&quot;. Such calls should leave string
+interpolation to the logging method itself and be written &quot;logging.&lt;logging
+method&gt;(format_string, format_args...)&quot; so that the program may avoid
+incurring the cost of the interpolation in those cases in which no message
+will be logged. For more, see <a class="reference external" href="http://www.python.org/dev/peps/pep-0282/">http://www.python.org/dev/peps/pep-0282/</a>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">logging-format-interpolation (W1202):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Use % formatting in logging functions and pass the % parameters as arguments</em>
+Used when a logging statement has a call form of &quot;logging.&lt;logging
+method&gt;(format_string.format(format_args...))&quot;. Such calls should use %
+formatting instead, but leave interpolation to the logging function by passing
+the parameters as arguments.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">logging-fstring-interpolation (W1203):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Use % formatting in logging functions and pass the % parameters as arguments</em>
+Used when a logging statement has a call form of &quot;logging.method(f&quot;...&quot;))&quot;.
+Such calls should use % formatting instead, but leave interpolation to the
+logging function by passing the parameters as arguments.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="metrics-checker">
+<h3>Metrics checker<a class="headerlink" href="#metrics-checker" title="Permalink to this headline">¶</a></h3>
+<p>Verbatim name of the checker is <code class="docutils literal notranslate"><span class="pre">metrics</span></code>.</p>
+<div class="section" id="metrics-checker-reports">
+<h4>Metrics checker Reports<a class="headerlink" href="#metrics-checker-reports" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">RP0701:</th><td class="field-body">Raw metrics</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="miscellaneous-checker">
+<h3>Miscellaneous checker<a class="headerlink" href="#miscellaneous-checker" title="Permalink to this headline">¶</a></h3>
+<p>Verbatim name of the checker is <code class="docutils literal notranslate"><span class="pre">miscellaneous</span></code>.</p>
+<div class="section" id="miscellaneous-checker-options">
+<h4>Miscellaneous checker Options<a class="headerlink" href="#miscellaneous-checker-options" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">notes:</th><td class="field-body"><p class="first">List of note tags to take in consideration, separated by a comma.</p>
+<p class="last">Default: <code class="docutils literal notranslate"><span class="pre">FIXME,XXX,TODO</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="miscellaneous-checker-messages">
+<h4>Miscellaneous checker Messages<a class="headerlink" href="#miscellaneous-checker-messages" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">fixme (W0511):</th><td class="field-body">Used when a warning note as FIXME or XXX is detected.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">invalid-encoded-data (W0512):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Cannot decode using encoding &quot;%s&quot;, unexpected byte at position %d</em>
+Used when a source line cannot be decoded using the specified source file
+encoding. This message can't be emitted when using Python &gt;= 3.0.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">use-symbolic-message-instead (I0023):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Used when a message is enabled or disabled by id.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="newstyle-checker">
+<h3>Newstyle checker<a class="headerlink" href="#newstyle-checker" title="Permalink to this headline">¶</a></h3>
+<p>Verbatim name of the checker is <code class="docutils literal notranslate"><span class="pre">newstyle</span></code>.</p>
+<div class="section" id="newstyle-checker-messages">
+<h4>Newstyle checker Messages<a class="headerlink" href="#newstyle-checker-messages" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">bad-super-call (E1003):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Bad first argument %r given to super()</em>
+Used when another argument than the current class is given as first argument
+of the super builtin.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">missing-super-argument (E1004):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Missing argument to super()</em>
+Used when the super builtin didn't receive an argument. This message can't be
+emitted when using Python &gt;= 3.0.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="python3-checker">
+<h3>Python3 checker<a class="headerlink" href="#python3-checker" title="Permalink to this headline">¶</a></h3>
+<p>Verbatim name of the checker is <code class="docutils literal notranslate"><span class="pre">python3</span></code>.</p>
+<div class="section" id="python3-checker-messages">
+<h4>Python3 checker Messages<a class="headerlink" href="#python3-checker-messages" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">unpacking-in-except (E1603):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Implicit unpacking of exceptions is not supported in Python 3</em>
+Python3 will not allow implicit unpacking of exceptions in except clauses. See
+<a class="reference external" href="http://www.python.org/dev/peps/pep-3110/">http://www.python.org/dev/peps/pep-3110/</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">import-star-module-level (E1609):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Import * only allowed at module level</em>
+Used when the import star syntax is used somewhere else than the module level.
+This message can't be emitted when using Python &gt;= 3.0.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">non-ascii-bytes-literal (E1610):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Non-ascii bytes literals not supported in 3.x</em>
+Used when non-ascii bytes literals are found in a program. They are no longer
+supported in Python 3. This message can't be emitted when using Python &gt;= 3.0.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">parameter-unpacking (E1602):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Parameter unpacking specified</em>
+Used when parameter unpacking is specified for a function(Python 3 doesn't
+allow it)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">long-suffix (E1606):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Use of long suffix</em>
+Used when &quot;l&quot; or &quot;L&quot; is used to mark a long integer. This will not work in
+Python 3, since <cite>int</cite> and <cite>long</cite> types have merged. This message can't be
+emitted when using Python &gt;= 3.0.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">old-octal-literal (E1608):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Use of old octal literal</em>
+Used when encountering the old octal syntax, removed in Python 3. To use the
+new syntax, prepend 0o on the number. This message can't be emitted when using
+Python &gt;= 3.0.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">old-ne-operator (E1607):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Use of the &lt;&gt; operator</em>
+Used when the deprecated &quot;&lt;&gt;&quot; operator is used instead of &quot;!=&quot;. This is
+removed in Python 3. This message can't be emitted when using Python &gt;= 3.0.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">backtick (E1605):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Use of the `` operator</em>
+Used when the deprecated &quot;``&quot; (backtick) operator is used instead of the str()
+function.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">old-raise-syntax (E1604):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Use raise ErrorClass(args) instead of raise ErrorClass, args.</em>
+Used when the alternate raise syntax 'raise foo, bar' is used instead of
+'raise foo(bar)'.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">print-statement (E1601):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>print statement used</em>
+Used when a print statement is used (<cite>print</cite> is a function in Python 3)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">deprecated-types-field (W1652):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Accessing a deprecated fields on the types module</em>
+Used when accessing a field on types that has been removed in Python 3.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">deprecated-itertools-function (W1651):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Accessing a deprecated function on the itertools module</em>
+Used when accessing a function on itertools that has been removed in Python 3.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">deprecated-string-function (W1649):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Accessing a deprecated function on the string module</em>
+Used when accessing a string function that has been deprecated in Python 3.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">deprecated-operator-function (W1657):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Accessing a removed attribute on the operator module</em>
+Used when accessing a field on operator module that has been removed in Python
+3.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">deprecated-sys-function (W1660):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Accessing a removed attribute on the sys module</em>
+Used when accessing a field on sys module that has been removed in Python 3.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">deprecated-urllib-function (W1658):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Accessing a removed attribute on the urllib module</em>
+Used when accessing a field on urllib module that has been removed or moved in
+Python 3.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">xreadlines-attribute (W1659):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Accessing a removed xreadlines attribute</em>
+Used when accessing the xreadlines() function on a file stream, removed in
+Python 3.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">metaclass-assignment (W1623):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Assigning to a class's __metaclass__ attribute</em>
+Used when a metaclass is specified by assigning to __metaclass__ (Python 3
+specifies the metaclass as a class statement argument)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">next-method-called (W1622):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Called a next() method on an object</em>
+Used when an object's next() method is called (Python 3 uses the next() built-
+in function)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">dict-iter-method (W1620):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Calling a dict.iter*() method</em>
+Used for calls to dict.iterkeys(), itervalues() or iteritems() (Python 3 lacks
+these methods)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">dict-view-method (W1621):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Calling a dict.view*() method</em>
+Used for calls to dict.viewkeys(), viewvalues() or viewitems() (Python 3 lacks
+these methods)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">exception-message-attribute (W1645):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Exception.message removed in Python 3</em>
+Used when the message attribute is accessed on an Exception. Use
+str(exception) instead.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">eq-without-hash (W1641):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Implementing __eq__ without also implementing __hash__</em>
+Used when a class implements __eq__ but not __hash__. In Python 2, objects get
+object.__hash__ as the default implementation, in Python 3 objects get None as
+their default __hash__ implementation if they also implement __eq__.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">indexing-exception (W1624):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Indexing exceptions will not work on Python 3</em>
+Indexing exceptions will not work on Python 3. Use <cite>exception.args[index]</cite>
+instead.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">bad-python3-import (W1648):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Module moved in Python 3</em>
+Used when importing a module that no longer exists in Python 3.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">raising-string (W1625):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Raising a string exception</em>
+Used when a string exception is raised. This will not work on Python 3.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">standarderror-builtin (W1611):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>StandardError built-in referenced</em>
+Used when the StandardError built-in function is referenced (missing from
+Python 3)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">comprehension-escape (W1662):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Using a variable that was bound inside a comprehension</em>
+Emitted when using a variable, that was bound in a comprehension handler,
+outside of the comprehension itself. On Python 3 these variables will be
+deleted outside of the comprehension.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">exception-escape (W1661):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Using an exception object that was bound by an except handler</em>
+Emitted when using an exception, that was bound in an except handler, outside
+of the except handler. On Python 3 these exceptions will be deleted once they
+get out of the except handler.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">deprecated-str-translate-call (W1650):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Using str.translate with deprecated deletechars parameters</em>
+Used when using the deprecated deletechars parameters from str.translate. Use
+re.sub to remove the desired characters</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">using-cmp-argument (W1640):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Using the cmp argument for list.sort / sorted</em>
+Using the cmp argument for list.sort or the sorted builtin should be avoided,
+since it was removed in Python 3. Using either <cite>key</cite> or <cite>functools.cmp_to_key</cite>
+should be preferred.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">cmp-method (W1630):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>__cmp__ method defined</em>
+Used when a __cmp__ method is defined (method is not used by Python 3)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">coerce-method (W1614):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>__coerce__ method defined</em>
+Used when a __coerce__ method is defined (method is not used by Python 3)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">delslice-method (W1615):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>__delslice__ method defined</em>
+Used when a __delslice__ method is defined (method is not used by Python 3)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">div-method (W1642):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>__div__ method defined</em>
+Used when a __div__ method is defined. Using <cite>__truediv__</cite> and setting__div__
+= __truediv__ should be preferred.(method is not used by Python 3)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">getslice-method (W1616):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>__getslice__ method defined</em>
+Used when a __getslice__ method is defined (method is not used by Python 3)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">hex-method (W1628):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>__hex__ method defined</em>
+Used when a __hex__ method is defined (method is not used by Python 3)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">idiv-method (W1643):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>__idiv__ method defined</em>
+Used when an __idiv__ method is defined. Using <cite>__itruediv__</cite> and
+setting__idiv__ = __itruediv__ should be preferred.(method is not used by
+Python 3)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">nonzero-method (W1629):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>__nonzero__ method defined</em>
+Used when a __nonzero__ method is defined (method is not used by Python 3)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">oct-method (W1627):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>__oct__ method defined</em>
+Used when an __oct__ method is defined (method is not used by Python 3)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">rdiv-method (W1644):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>__rdiv__ method defined</em>
+Used when a __rdiv__ method is defined. Using <cite>__rtruediv__</cite> and
+setting__rdiv__ = __rtruediv__ should be preferred.(method is not used by
+Python 3)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">setslice-method (W1617):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>__setslice__ method defined</em>
+Used when a __setslice__ method is defined (method is not used by Python 3)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">apply-builtin (W1601):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>apply built-in referenced</em>
+Used when the apply built-in function is referenced (missing from Python 3)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">basestring-builtin (W1602):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>basestring built-in referenced</em>
+Used when the basestring built-in function is referenced (missing from Python
+3)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">buffer-builtin (W1603):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>buffer built-in referenced</em>
+Used when the buffer built-in function is referenced (missing from Python 3)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">cmp-builtin (W1604):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>cmp built-in referenced</em>
+Used when the cmp built-in function is referenced (missing from Python 3)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">coerce-builtin (W1605):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>coerce built-in referenced</em>
+Used when the coerce built-in function is referenced (missing from Python 3)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">dict-items-not-iterating (W1654):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>dict.items referenced when not iterating</em>
+Used when dict.items is referenced in a non-iterating context (returns an
+iterator in Python 3)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">dict-keys-not-iterating (W1655):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>dict.keys referenced when not iterating</em>
+Used when dict.keys is referenced in a non-iterating context (returns an
+iterator in Python 3)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">dict-values-not-iterating (W1656):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>dict.values referenced when not iterating</em>
+Used when dict.values is referenced in a non-iterating context (returns an
+iterator in Python 3)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">old-division (W1619):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>division w/o __future__ statement</em>
+Used for non-floor division w/o a float literal or <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">__future__</span> <span class="pre">import</span>
+<span class="pre">division</span></code> (Python 3 returns a float for int division unconditionally)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">execfile-builtin (W1606):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>execfile built-in referenced</em>
+Used when the execfile built-in function is referenced (missing from Python 3)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">file-builtin (W1607):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>file built-in referenced</em>
+Used when the file built-in function is referenced (missing from Python 3)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">filter-builtin-not-iterating (W1639):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>filter built-in referenced when not iterating</em>
+Used when the filter built-in is referenced in a non-iterating context
+(returns an iterator in Python 3)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">no-absolute-import (W1618):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>import missing `from __future__ import absolute_import`</em>
+Used when an import is not accompanied by <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">__future__</span> <span class="pre">import</span>
+<span class="pre">absolute_import</span></code> (default behaviour in Python 3)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">input-builtin (W1632):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>input built-in referenced</em>
+Used when the input built-in is referenced (backwards-incompatible semantics
+in Python 3)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">intern-builtin (W1634):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>intern built-in referenced</em>
+Used when the intern built-in is referenced (Moved to sys.intern in Python 3)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">long-builtin (W1608):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>long built-in referenced</em>
+Used when the long built-in function is referenced (missing from Python 3)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">map-builtin-not-iterating (W1636):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>map built-in referenced when not iterating</em>
+Used when the map built-in is referenced in a non-iterating context (returns
+an iterator in Python 3)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">next-method-defined (W1653):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>next method defined</em>
+Used when a next method is defined that would be an iterator in Python 2 but
+is treated as a normal function in Python 3.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">invalid-str-codec (W1646):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>non-text encoding used in str.decode</em>
+Used when using str.encode or str.decode with a non-text encoding. Use codecs
+module to handle arbitrary codecs.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">range-builtin-not-iterating (W1638):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>range built-in referenced when not iterating</em>
+Used when the range built-in is referenced in a non-iterating context (returns
+an iterator in Python 3)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">raw_input-builtin (W1609):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>raw_input built-in referenced</em>
+Used when the raw_input built-in function is referenced (missing from Python
+3)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">reduce-builtin (W1610):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>reduce built-in referenced</em>
+Used when the reduce built-in function is referenced (missing from Python 3)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">reload-builtin (W1626):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>reload built-in referenced</em>
+Used when the reload built-in function is referenced (missing from Python 3).
+You can use instead imp.reload or importlib.reload.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">round-builtin (W1633):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>round built-in referenced</em>
+Used when the round built-in is referenced (backwards-incompatible semantics
+in Python 3)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">sys-max-int (W1647):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>sys.maxint removed in Python 3</em>
+Used when accessing sys.maxint. Use sys.maxsize instead.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">unichr-builtin (W1635):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>unichr built-in referenced</em>
+Used when the unichr built-in is referenced (Use chr in Python 3)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">unicode-builtin (W1612):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>unicode built-in referenced</em>
+Used when the unicode built-in function is referenced (missing from Python 3)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">xrange-builtin (W1613):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>xrange built-in referenced</em>
+Used when the xrange built-in function is referenced (missing from Python 3)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">zip-builtin-not-iterating (W1637):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>zip built-in referenced when not iterating</em>
+Used when the zip built-in is referenced in a non-iterating context (returns
+an iterator in Python 3)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="refactoring-checker">
+<h3>Refactoring checker<a class="headerlink" href="#refactoring-checker" title="Permalink to this headline">¶</a></h3>
+<p>Verbatim name of the checker is <code class="docutils literal notranslate"><span class="pre">refactoring</span></code>.</p>
+<div class="section" id="refactoring-checker-options">
+<h4>Refactoring checker Options<a class="headerlink" href="#refactoring-checker-options" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">max-nested-blocks:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Maximum number of nested blocks for function / method body</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">5</span></code></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">never-returning-functions:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">Complete name of functions that never returns. When checking for
+inconsistent-return-statements if a never returning function is called then
+it will be considered as an explicit return statement and no message will be
+printed.</p>
+<p class="last">Default: <code class="docutils literal notranslate"><span class="pre">sys.exit</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="refactoring-checker-messages">
+<h4>Refactoring checker Messages<a class="headerlink" href="#refactoring-checker-messages" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">simplify-boolean-expression (R1709):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Boolean expression may be simplified to %s</em>
+Emitted when redundant pre-python 2.5 ternary syntax is used.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">consider-using-in (R1714):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Consider merging these comparisons with &quot;in&quot; to %r</em>
+To check if a variable is equal to one of many values,combine the values into
+a tuple and check if the variable is contained &quot;in&quot; it instead of checking for
+equality against each of the values.This is faster and less verbose.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">consider-merging-isinstance (R1701):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Consider merging these isinstance calls to isinstance(%s, (%s))</em>
+Used when multiple consecutive isinstance calls can be merged into one.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">consider-using-dict-comprehension (R1717):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Consider using a dictionary comprehension</em>
+Although there is nothing syntactically wrong with this code, it is hard to
+read and can be simplified to a dict comprehension.Also it is faster since you
+don't need to create another transient list</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">consider-using-set-comprehension (R1718):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Consider using a set comprehension</em>
+Although there is nothing syntactically wrong with this code, it is hard to
+read and can be simplified to a set comprehension.Also it is faster since you
+don't need to create another transient list</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">consider-using-get (R1715):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Consider using dict.get for getting values from a dict if a key is present or a default if not</em>
+Using the builtin dict.get for getting a value from a dictionary if a key is
+present or a default if not, is simpler and considered more idiomatic,
+although sometimes a bit slower</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">consider-using-join (R1713):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Consider using str.join(sequence) for concatenating strings from an iterable</em>
+Using str.join(sequence) is faster, uses less memory and increases readability
+compared to for-loop iteration.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">consider-using-ternary (R1706):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Consider using ternary (%s)</em>
+Used when one of known pre-python 2.5 ternary syntax is used.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">consider-swap-variables (R1712):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Consider using tuple unpacking for swapping variables</em>
+You do not have to use a temporary variable in order to swap variables. Using
+&quot;tuple unpacking&quot; to directly swap variables makes the intention more clear.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">trailing-comma-tuple (R1707):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Disallow trailing comma tuple</em>
+In Python, a tuple is actually created by the comma symbol, not by the
+parentheses. Unfortunately, one can actually create a tuple by misplacing a
+trailing comma, which can lead to potential weird bugs in your code. You
+should always use parentheses explicitly for creating a tuple.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">stop-iteration-return (R1708):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Do not raise StopIteration in generator, use return statement instead</em>
+According to PEP479, the raise of StopIteration to end the loop of a generator
+may lead to hard to find bugs. This PEP specify that raise StopIteration has
+to be replaced by a simple return statement</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">inconsistent-return-statements (R1710):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Either all return statements in a function should return an expression, or none of them should.</em>
+According to PEP8, if any return statement returns an expression, any return
+statements where no value is returned should explicitly state this as return
+None, and an explicit return statement should be present at the end of the
+function (if reachable)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">redefined-argument-from-local (R1704):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Redefining argument with the local name %r</em>
+Used when a local name is redefining an argument, which might suggest a
+potential error. This is taken in account only for a handful of name binding
+operations, such as for iteration, with statement assignment and exception
+handler assignment.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">chained-comparison (R1716):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Simplify chained comparison between the operands</em>
+This message is emitted when pylint encounters boolean operation like&quot;a &lt; b
+and b &lt; c&quot;, suggesting instead to refactor it to &quot;a &lt; b &lt; c&quot;</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">simplifiable-if-statement (R1703):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>The if statement can be replaced with %s</em>
+Used when an if statement can be replaced with 'bool(test)'.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">too-many-nested-blocks (R1702):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Too many nested blocks (%s/%s)</em>
+Used when a function or a method has too many nested blocks. This makes the
+code less understandable and maintainable.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">no-else-return (R1705):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Unnecessary &quot;%s&quot; after &quot;return&quot;</em>
+Used in order to highlight an unnecessary block of code following an if
+containing a return statement. As such, it will warn when it encounters an
+else following a chain of ifs, all of them containing a return statement.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">useless-return (R1711):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Useless return at end of function or method</em>
+Emitted when a single &quot;return&quot; or &quot;return None&quot; statement is found at the end
+of function or method definition. This statement can safely be removed because
+Python will implicitly return None</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">consider-iterating-dictionary (C0201):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Consider iterating the dictionary directly instead of calling .keys()</em>
+Emitted when the keys of a dictionary are iterated through the .keys() method.
+It is enough to just iterate through the dictionary itself, as in &quot;for key in
+dictionary&quot;.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">consider-using-enumerate (C0200):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Consider using enumerate instead of iterating with range and len</em>
+Emitted when code that iterates with range and len is encountered. Such code
+can be simplified by using the enumerate builtin.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="similarities-checker">
+<h3>Similarities checker<a class="headerlink" href="#similarities-checker" title="Permalink to this headline">¶</a></h3>
+<p>Verbatim name of the checker is <code class="docutils literal notranslate"><span class="pre">similarities</span></code>.</p>
+<div class="section" id="similarities-checker-options">
+<h4>Similarities checker Options<a class="headerlink" href="#similarities-checker-options" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">min-similarity-lines:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Minimum lines number of a similarity.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">4</span></code></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">ignore-comments:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">Ignore comments when computing similarities.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">yes</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">ignore-docstrings:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Ignore docstrings when computing similarities.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">yes</span></code></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">ignore-imports:</th><td class="field-body"><p class="first last">Ignore imports when computing similarities.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="similarities-checker-messages">
+<h4>Similarities checker Messages<a class="headerlink" href="#similarities-checker-messages" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">duplicate-code (R0801):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Similar lines in %s files</em>
+Indicates that a set of similar lines has been detected among multiple file.
+This usually means that the code should be refactored to avoid this
+duplication.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="similarities-checker-reports">
+<h4>Similarities checker Reports<a class="headerlink" href="#similarities-checker-reports" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">RP0801:</th><td class="field-body">Duplication</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="spelling-checker">
+<h3>Spelling checker<a class="headerlink" href="#spelling-checker" title="Permalink to this headline">¶</a></h3>
+<p>Verbatim name of the checker is <code class="docutils literal notranslate"><span class="pre">spelling</span></code>.</p>
+<div class="section" id="spelling-checker-options">
+<h4>Spelling checker Options<a class="headerlink" href="#spelling-checker-options" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">spelling-dict:</th><td class="field-body"><p class="first">Spelling dictionary name. Available dictionaries: none. To make it working
+install python-enchant package..</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">spelling-ignore-words:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">List of comma separated words that should not be checked.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">spelling-private-dict-file:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">A path to a file that contains private dictionary; one word per line.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">spelling-store-unknown-words:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">Tells whether to store unknown words to indicated private dictionary in
+--spelling-private-dict-file option instead of raising a message.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">max-spelling-suggestions:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Limits count of emitted suggestions for spelling mistakes.</p>
+<p class="last">Default: <code class="docutils literal notranslate"><span class="pre">4</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="spelling-checker-messages">
+<h4>Spelling checker Messages<a class="headerlink" href="#spelling-checker-messages" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">invalid-characters-in-docstring (C0403):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Invalid characters %r in a docstring</em>
+Used when a word in docstring cannot be checked by enchant.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">wrong-spelling-in-comment (C0401):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Wrong spelling of a word '%s' in a comment:</em>
+Used when a word in comment is not spelled correctly.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">wrong-spelling-in-docstring (C0402):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Wrong spelling of a word '%s' in a docstring:</em>
+Used when a word in docstring is not spelled correctly.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="stdlib-checker">
+<h3>Stdlib checker<a class="headerlink" href="#stdlib-checker" title="Permalink to this headline">¶</a></h3>
+<p>Verbatim name of the checker is <code class="docutils literal notranslate"><span class="pre">stdlib</span></code>.</p>
+<div class="section" id="stdlib-checker-messages">
+<h4>Stdlib checker Messages<a class="headerlink" href="#stdlib-checker-messages" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">invalid-envvar-value (E1507):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>%s does not support %s type argument</em>
+Env manipulation functions support only string type arguments. See
+<a class="reference external" href="https://docs.python.org/3/library/os.html#os.getenv">https://docs.python.org/3/library/os.html#os.getenv</a>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">bad-open-mode (W1501):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>&quot;%s&quot; is not a valid mode for open.</em>
+Python supports: r, w, a[, x] modes with b, +, and U (only with r) options.
+See <a class="reference external" href="http://docs.python.org/2/library/functions.html#open">http://docs.python.org/2/library/functions.html#open</a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">invalid-envvar-default (W1508):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>%s default type is %s. Expected str or None.</em>
+Env manipulation functions return None or str values. Supplying anything
+different as a default may cause bugs. See
+<a class="reference external" href="https://docs.python.org/3/library/os.html#os.getenv">https://docs.python.org/3/library/os.html#os.getenv</a>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">redundant-unittest-assert (W1503):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Redundant use of %s with constant value %r</em>
+The first argument of assertTrue and assertFalse is a condition. If a constant
+is passed as parameter, that condition will be always true. In this case a
+warning should be emitted.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">shallow-copy-environ (W1507):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Using copy.copy(os.environ). Use os.environ.copy() instead.</em>
+os.environ is not a dict object but proxy object, so shallow copy has still
+effects on original object. See <a class="reference external" href="https://bugs.python.org/issue15373">https://bugs.python.org/issue15373</a> for
+reference.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">boolean-datetime (W1502):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Using datetime.time in a boolean context.</em>
+Using datetime.time in a boolean context can hide subtle bugs when the time
+they represent matches midnight UTC. This behaviour was fixed in Python 3.5.
+See <a class="reference external" href="http://bugs.python.org/issue13936">http://bugs.python.org/issue13936</a> for reference. This message can't be
+emitted when using Python &gt;= 3.5.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">deprecated-method (W1505):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Using deprecated method %s()</em>
+The method is marked as deprecated and will be removed in a future version of
+Python. Consider looking for an alternative in the documentation.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">subprocess-popen-preexec-fn (W1509):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Using preexec_fn keyword which may be unsafe in the presence of threads</em>
+The preexec_fn parameter is not safe to use in the presence of threads in your
+application. The child process could deadlock before exec is called. If you
+must use it, keep it trivial! Minimize the number of libraries you call
+into.https://docs.python.org/3/library/subprocess.html#popen-constructor</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">bad-thread-instantiation (W1506):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>threading.Thread needs the target function</em>
+The warning is emitted when a threading.Thread class is instantiated without
+the target function being passed. By default, the first parameter is the group
+param, not the target param.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="string-checker">
+<h3>String checker<a class="headerlink" href="#string-checker" title="Permalink to this headline">¶</a></h3>
+<p>Verbatim name of the checker is <code class="docutils literal notranslate"><span class="pre">string</span></code>.</p>
+<div class="section" id="string-checker-messages">
+<h4>String checker Messages<a class="headerlink" href="#string-checker-messages" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">format-needs-mapping (E1303):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Expected mapping for format string, not %s</em>
+Used when a format string that uses named conversion specifiers is used with
+an argument that is not a mapping.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">truncated-format-string (E1301):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Format string ends in middle of conversion specifier</em>
+Used when a format string terminates before the end of a conversion specifier.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">missing-format-string-key (E1304):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Missing key %r in format string dictionary</em>
+Used when a format string that uses named conversion specifiers is used with a
+dictionary that doesn't contain all the keys required by the format string.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">mixed-format-string (E1302):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Mixing named and unnamed conversion specifiers in format string</em>
+Used when a format string contains both named (e.g. '%(foo)d') and unnamed
+(e.g. '%d') conversion specifiers. This is also used when a named conversion
+specifier contains * for the minimum field width and/or precision.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">too-few-format-args (E1306):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Not enough arguments for format string</em>
+Used when a format string that uses unnamed conversion specifiers is given too
+few arguments</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">bad-str-strip-call (E1310):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Suspicious argument in %s.%s call</em>
+The argument to a str.{l,r,}strip call contains a duplicate character,</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">too-many-format-args (E1305):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Too many arguments for format string</em>
+Used when a format string that uses unnamed conversion specifiers is given too
+many arguments.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">bad-format-character (E1300):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Unsupported format character %r (%#02x) at index %d</em>
+Used when an unsupported format character is used in a formatstring.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">format-combined-specification (W1305):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Format string contains both automatic field numbering and manual field specification</em>
+Used when a PEP 3101 format string contains both automatic field numbering
+(e.g. '{}') and manual field specification (e.g. '{0}'). This message can't be
+emitted when using Python &lt; 2.7.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">bad-format-string-key (W1300):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Format string dictionary key should be a string, not %s</em>
+Used when a format string that uses named conversion specifiers is used with a
+dictionary whose keys are not all strings.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">bad-format-string (W1302):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Invalid format string</em>
+Used when a PEP 3101 format string is invalid. This message can't be emitted
+when using Python &lt; 2.7.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">missing-format-attribute (W1306):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Missing format attribute %r in format specifier %r</em>
+Used when a PEP 3101 format string uses an attribute specifier ({0.length}),
+but the argument passed for formatting doesn't have that attribute. This
+message can't be emitted when using Python &lt; 2.7.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">missing-format-argument-key (W1303):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Missing keyword argument %r for format string</em>
+Used when a PEP 3101 format string that uses named fields doesn't receive one
+or more required keywords. This message can't be emitted when using Python &lt;
+2.7.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">unused-format-string-argument (W1304):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Unused format argument %r</em>
+Used when a PEP 3101 format string that uses named fields is used with an
+argument that is not required by the format string. This message can't be
+emitted when using Python &lt; 2.7.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">unused-format-string-key (W1301):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Unused key %r in format string dictionary</em>
+Used when a format string that uses named conversion specifiers is used with a
+dictionary that contains keys not required by the format string.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">invalid-format-index (W1307):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Using invalid lookup key %r in format specifier %r</em>
+Used when a PEP 3101 format string uses a lookup specifier ({a[1]}), but the
+argument passed for formatting doesn't contain or doesn't have that key as an
+attribute. This message can't be emitted when using Python &lt; 2.7.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="string-constant-checker">
+<h3>String Constant checker<a class="headerlink" href="#string-constant-checker" title="Permalink to this headline">¶</a></h3>
+<p>Verbatim name of the checker is <code class="docutils literal notranslate"><span class="pre">string_constant</span></code>.</p>
+<div class="section" id="string-constant-checker-messages">
+<h4>String Constant checker Messages<a class="headerlink" href="#string-constant-checker-messages" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">anomalous-unicode-escape-in-string (W1402):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Anomalous Unicode escape in byte string: '%s'. String constant might be missing an r or u prefix.</em>
+Used when an escape like u is encountered in a byte string where it has no
+effect.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">anomalous-backslash-in-string (W1401):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Anomalous backslash in string: '%s'. String constant might be missing an r prefix.</em>
+Used when a backslash is in a literal string but not as an escape.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="typecheck-checker">
+<h3>Typecheck checker<a class="headerlink" href="#typecheck-checker" title="Permalink to this headline">¶</a></h3>
+<p>Verbatim name of the checker is <code class="docutils literal notranslate"><span class="pre">typecheck</span></code>.</p>
+<div class="section" id="typecheck-checker-options">
+<h4>Typecheck checker Options<a class="headerlink" href="#typecheck-checker-options" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">ignore-on-opaque-inference:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">This flag controls whether pylint should warn about no-member and similar
+checks whenever an opaque object is returned when inferring. The inference
+can return multiple potential results while evaluating a Python object, but
+some branches might not be evaluated, which results in partial inference. In
+that case, it might be useful to still emit no-member and other checks for
+the rest of the inferred objects.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">yes</span></code></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">ignore-mixin-members:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">Tells whether missing members accessed in mixin class should be ignored. A
+mixin class is detected if its name ends with &quot;mixin&quot; (case insensitive).</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">yes</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">ignore-none:</th><td class="field-body"><p class="first">Tells whether to warn about missing members when the owner of the attribute
+is inferred to be None.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">yes</span></code></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">ignored-modules:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">List of module names for which member attributes should not be checked
+(useful for modules/projects where namespaces are manipulated during runtime
+and thus existing member attributes cannot be deduced by static analysis. It
+supports qualified module names, as well as Unix pattern matching.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">ignored-classes:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">List of class names for which member attributes should not be checked (useful
+for classes with dynamically set attributes). This supports the use of
+qualified names.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">optparse.Values,thread._local,_thread._local</span></code></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">generated-members:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">List of members which are set dynamically and missed by pylint inference
+system, and so shouldn't trigger E1101 when accessed. Python regular
+expressions are accepted.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">contextmanager-decorators:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">List of decorators that produce context managers, such as
+contextlib.contextmanager. Add to this list to register other decorators that
+produce valid context managers.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">contextlib.contextmanager</span></code></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">missing-member-hint-distance:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">The minimum edit distance a name should have in order to be considered a
+similar match for a missing member name.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">missing-member-max-choices:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">The total number of similar names that should be taken in consideration when
+showing a hint for a missing member.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">missing-member-hint:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">Show a hint with possible names when a member name was not found. The aspect
+of finding the hint is based on edit distance.</p>
+<p class="last">Default: <code class="docutils literal notranslate"><span class="pre">yes</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="typecheck-checker-messages">
+<h4>Typecheck checker Messages<a class="headerlink" href="#typecheck-checker-messages" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">unsupported-assignment-operation (E1137):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>%r does not support item assignment</em>
+Emitted when an object does not support item assignment (i.e. doesn't define
+__setitem__ method).</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">unsupported-delete-operation (E1138):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>%r does not support item deletion</em>
+Emitted when an object does not support item deletion (i.e. doesn't define
+__delitem__ method).</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">invalid-unary-operand-type (E1130):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Emitted when a unary operand is used on an object which does not support this
+type of operation.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">unsupported-binary-operation (E1131):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Emitted when a binary arithmetic operation between two operands is not
+supported.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">no-member (E1101):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>%s %r has no %r member%s</em>
+Used when a variable is accessed for an unexistent member.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">not-callable (E1102):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>%s is not callable</em>
+Used when an object being called has been inferred to a non callable object.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">redundant-keyword-arg (E1124):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Argument %r passed by position and keyword in %s call</em>
+Used when a function call would result in assigning multiple values to a
+function parameter, one value from a positional argument and one from a
+keyword argument.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">assignment-from-no-return (E1111):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Assigning result of a function call, where the function has no return</em>
+Used when an assignment is done on a function call but the inferred function
+doesn't return anything.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">assignment-from-none (E1128):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Assigning result of a function call, where the function returns None</em>
+Used when an assignment is done on a function call but the inferred function
+returns nothing but None.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">not-context-manager (E1129):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Context manager '%s' doesn't implement __enter__ and __exit__.</em>
+Used when an instance in a with statement doesn't implement the context
+manager protocol(__enter__/__exit__).</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">unhashable-dict-key (E1140):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Dict key is unhashable</em>
+Emitted when a dict key is not hashable (i.e. doesn't define __hash__ method).</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">repeated-keyword (E1132):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Got multiple values for keyword argument %r in function call</em>
+Emitted when a function call got multiple values for a keyword.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">invalid-metaclass (E1139):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Invalid metaclass %r used</em>
+Emitted whenever we can detect that a class is using, as a metaclass,
+something which might be invalid for using as a metaclass.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">missing-kwoa (E1125):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Missing mandatory keyword argument %r in %s call</em>
+Used when a function call does not pass a mandatory keyword-only argument.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">no-value-for-parameter (E1120):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>No value for argument %s in %s call</em>
+Used when a function call passes too few arguments.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">invalid-sequence-index (E1126):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Sequence index is not an int, slice, or instance with __index__</em>
+Used when a sequence type is indexed with an invalid type. Valid types are
+ints, slices, and objects with an __index__ method.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">invalid-slice-index (E1127):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Slice index is not an int, None, or instance with __index__</em>
+Used when a slice index is not an integer, None, or an object with an
+__index__ method.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">too-many-function-args (E1121):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Too many positional arguments for %s call</em>
+Used when a function call passes too many positional arguments.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">unexpected-keyword-arg (E1123):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Unexpected keyword argument %r in %s call</em>
+Used when a function call passes a keyword argument that doesn't correspond to
+one of the function's parameter names.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">unsupported-membership-test (E1135):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Value '%s' doesn't support membership test</em>
+Emitted when an instance in membership test expression doesn't implement
+membership protocol (__contains__/__iter__/__getitem__).</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">unsubscriptable-object (E1136):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Value '%s' is unsubscriptable</em>
+Emitted when a subscripted value doesn't support subscription (i.e. doesn't
+define __getitem__ method).</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">keyword-arg-before-vararg (W1113):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Keyword argument before variable positional arguments list in the definition of %s function</em>
+When defining a keyword argument before variable positional arguments, one can
+end up in having multiple values passed for the aforementioned parameter in
+case the method is called with keyword arguments.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">c-extension-no-member (I1101):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>%s %r has no %r member%s, but source is unavailable. Consider adding this module to extension-pkg-whitelist if you want to perform analysis based on run-time introspection of living objects.</em>
+Used when a variable is accessed for non-existent member of C extension. Due
+to unavailability of source static analysis is impossible, but it may be
+performed by introspecting living objects in run-time.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="variables-checker">
+<h3>Variables checker<a class="headerlink" href="#variables-checker" title="Permalink to this headline">¶</a></h3>
+<p>Verbatim name of the checker is <code class="docutils literal notranslate"><span class="pre">variables</span></code>.</p>
+<div class="section" id="variables-checker-options">
+<h4>Variables checker Options<a class="headerlink" href="#variables-checker-options" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">init-import:</th><td class="field-body"><p class="first">Tells whether we should check for unused import in __init__ files.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">dummy-variables-rgx:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">A regular expression matching the name of dummy variables (i.e. expected to
+not be used).</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">_+$|(_[a-zA-Z0-9_]*[a-zA-Z0-9]+?$)|dummy|^ignored_|^unused_</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">additional-builtins:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">List of additional names supposed to be defined in builtins. Remember that
+you should avoid to define new builtins when possible.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">callbacks:</th><td class="field-body"><p class="first">List of strings which can identify a callback function by name. A callback
+name must start or end with one of those strings.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">cb_,_cb</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">redefining-builtins-modules:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">List of qualified module names which can have objects that can redefine
+builtins.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">six.moves,past.builtins,future.builtins,builtins,io</span></code></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">ignored-argument-names:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">Argument names that match this expression will be ignored. Default to name
+with leading underscore.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">_.*|^ignored_|^unused_</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">allow-global-unused-variables:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Tells whether unused global variables should be treated as a violation.</p>
+<p class="last">Default: <code class="docutils literal notranslate"><span class="pre">yes</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="variables-checker-messages">
+<h4>Variables checker Messages<a class="headerlink" href="#variables-checker-messages" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">unpacking-non-sequence (E0633):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Attempting to unpack a non-sequence%s</em>
+Used when something which is not a sequence is used in an unpack assignment</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">invalid-all-object (E0604):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Invalid object %r in __all__, must contain only strings</em>
+Used when an invalid (non-string) object occurs in __all__.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">no-name-in-module (E0611):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>No name %r in module %r</em>
+Used when a name cannot be found in a module.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">unbalanced-tuple-unpacking (E0632):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Possible unbalanced tuple unpacking with sequence%s: left side has %d label(s), right side has %d value(s)</em>
+Used when there is an unbalanced tuple unpacking in assignment</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">undefined-variable (E0602):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Undefined variable %r</em>
+Used when an undefined variable is accessed.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">undefined-all-variable (E0603):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Undefined variable name %r in __all__</em>
+Used when an undefined variable name is referenced in __all__.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">used-before-assignment (E0601):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Using variable %r before assignment</em>
+Used when a local variable is accessed before it's assignment.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">cell-var-from-loop (W0640):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Cell variable %s defined in loop</em>
+A variable used in a closure is defined in a loop. This will result in all
+closures using the same value for the closed-over variable.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">global-variable-undefined (W0601):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Global variable %r undefined at the module level</em>
+Used when a variable is defined through the &quot;global&quot; statement but the
+variable is not defined in the module scope.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">self-cls-assignment (W0642):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Invalid assignment to %s in method</em>
+Invalid assignment to self or cls in instance or class method respectively.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">possibly-unused-variable (W0641):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Possibly unused variable %r</em>
+Used when a variable is defined but might not be used. The possibility comes
+from the fact that locals() might be used, which could consume or not the said
+variable</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">redefined-builtin (W0622):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Redefining built-in %r</em>
+Used when a variable or function override a built-in.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">redefine-in-handler (W0623):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Redefining name %r from %s in exception handler</em>
+Used when an exception handler assigns the exception to an existing name</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">redefined-outer-name (W0621):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Redefining name %r from outer scope (line %s)</em>
+Used when a variable's name hides a name defined in the outer scope.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">unused-import (W0611):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Unused %s</em>
+Used when an imported module or variable is not used.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">unused-argument (W0613):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Unused argument %r</em>
+Used when a function or method argument is not used.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">unused-wildcard-import (W0614):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Unused import %s from wildcard import</em>
+Used when an imported module or variable is not used from a <cite>'from X import
+*'</cite> style import.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">unused-variable (W0612):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Unused variable %r</em>
+Used when a variable is defined but not used.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">global-variable-not-assigned (W0602):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Using global for %r but no assignment is done</em>
+Used when a variable is defined through the &quot;global&quot; statement but no
+assignment to this variable is done.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">undefined-loop-variable (W0631):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Using possibly undefined loop variable %r</em>
+Used when a loop variable (i.e. defined by a for loop or a list comprehension
+or a generator expression) is used outside the loop.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">global-statement (W0603):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><em>Using the global statement</em>
+Used when you use the &quot;global&quot; statement to update a global variable. Pylint
+just try to discourage this usage. That doesn't mean you cannot use it !</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">global-at-module-level (W0604):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><em>Using the global statement at the module level</em>
+Used when you use the &quot;global&quot; statement at the module level since it has no
+effect</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Pylint features</a><ul>
+<li><a class="reference internal" href="#pylint-global-options-and-switches">Pylint global options and switches</a><ul>
+<li><a class="reference internal" href="#general-options">General options</a></li>
+<li><a class="reference internal" href="#messages-control-options">Messages control options</a></li>
+<li><a class="reference internal" href="#reports-options">Reports options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pylint-checkers-options-and-switches">Pylint checkers' options and switches</a><ul>
+<li><a class="reference internal" href="#async-checker">Async checker</a><ul>
+<li><a class="reference internal" href="#async-checker-messages">Async checker Messages</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#basic-checker">Basic checker</a><ul>
+<li><a class="reference internal" href="#basic-checker-options">Basic checker Options</a></li>
+<li><a class="reference internal" href="#basic-checker-messages">Basic checker Messages</a></li>
+<li><a class="reference internal" href="#basic-checker-reports">Basic checker Reports</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#classes-checker">Classes checker</a><ul>
+<li><a class="reference internal" href="#classes-checker-options">Classes checker Options</a></li>
+<li><a class="reference internal" href="#classes-checker-messages">Classes checker Messages</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#design-checker">Design checker</a><ul>
+<li><a class="reference internal" href="#design-checker-options">Design checker Options</a></li>
+<li><a class="reference internal" href="#design-checker-messages">Design checker Messages</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#exceptions-checker">Exceptions checker</a><ul>
+<li><a class="reference internal" href="#exceptions-checker-options">Exceptions checker Options</a></li>
+<li><a class="reference internal" href="#exceptions-checker-messages">Exceptions checker Messages</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#format-checker">Format checker</a><ul>
+<li><a class="reference internal" href="#format-checker-options">Format checker Options</a></li>
+<li><a class="reference internal" href="#format-checker-messages">Format checker Messages</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#imports-checker">Imports checker</a><ul>
+<li><a class="reference internal" href="#imports-checker-options">Imports checker Options</a></li>
+<li><a class="reference internal" href="#imports-checker-messages">Imports checker Messages</a></li>
+<li><a class="reference internal" href="#imports-checker-reports">Imports checker Reports</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iterable-check-checker">Iterable Check checker</a><ul>
+<li><a class="reference internal" href="#iterable-check-checker-messages">Iterable Check checker Messages</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#len-checker">Len checker</a><ul>
+<li><a class="reference internal" href="#len-checker-messages">Len checker Messages</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#logging-checker">Logging checker</a><ul>
+<li><a class="reference internal" href="#logging-checker-options">Logging checker Options</a></li>
+<li><a class="reference internal" href="#logging-checker-messages">Logging checker Messages</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#metrics-checker">Metrics checker</a><ul>
+<li><a class="reference internal" href="#metrics-checker-reports">Metrics checker Reports</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#miscellaneous-checker">Miscellaneous checker</a><ul>
+<li><a class="reference internal" href="#miscellaneous-checker-options">Miscellaneous checker Options</a></li>
+<li><a class="reference internal" href="#miscellaneous-checker-messages">Miscellaneous checker Messages</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#newstyle-checker">Newstyle checker</a><ul>
+<li><a class="reference internal" href="#newstyle-checker-messages">Newstyle checker Messages</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#python3-checker">Python3 checker</a><ul>
+<li><a class="reference internal" href="#python3-checker-messages">Python3 checker Messages</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#refactoring-checker">Refactoring checker</a><ul>
+<li><a class="reference internal" href="#refactoring-checker-options">Refactoring checker Options</a></li>
+<li><a class="reference internal" href="#refactoring-checker-messages">Refactoring checker Messages</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#similarities-checker">Similarities checker</a><ul>
+<li><a class="reference internal" href="#similarities-checker-options">Similarities checker Options</a></li>
+<li><a class="reference internal" href="#similarities-checker-messages">Similarities checker Messages</a></li>
+<li><a class="reference internal" href="#similarities-checker-reports">Similarities checker Reports</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spelling-checker">Spelling checker</a><ul>
+<li><a class="reference internal" href="#spelling-checker-options">Spelling checker Options</a></li>
+<li><a class="reference internal" href="#spelling-checker-messages">Spelling checker Messages</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#stdlib-checker">Stdlib checker</a><ul>
+<li><a class="reference internal" href="#stdlib-checker-messages">Stdlib checker Messages</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#string-checker">String checker</a><ul>
+<li><a class="reference internal" href="#string-checker-messages">String checker Messages</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#string-constant-checker">String Constant checker</a><ul>
+<li><a class="reference internal" href="#string-constant-checker-messages">String Constant checker Messages</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#typecheck-checker">Typecheck checker</a><ul>
+<li><a class="reference internal" href="#typecheck-checker-options">Typecheck checker Options</a></li>
+<li><a class="reference internal" href="#typecheck-checker-messages">Typecheck checker Messages</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#variables-checker">Variables checker</a><ul>
+<li><a class="reference internal" href="#variables-checker-options">Variables checker Options</a></li>
+<li><a class="reference internal" href="#variables-checker-messages">Variables checker Messages</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<h3><a href="../index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how_tos/index.html">How To Guides</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Technical Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="startup.html">Startup and the Linter Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checkers.html">Checkers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extensions.html">Optional Pylint checkers in the extensions module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Pylint features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c_extensions.html">Pylint and C extensions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../development_guide/index.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../backlinks.html">Some projects using Pylint</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew/index.html">What's New in Pylint</a></li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="extensions.html"
+                        title="previous chapter">Optional Pylint checkers in the extensions module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="c_extensions.html"
+                        title="next chapter">Pylint and C extensions</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/technical_reference/features.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="c_extensions.html" title="Pylint and C extensions"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="extensions.html" title="Optional Pylint checkers in the extensions module"
+             >previous</a> |</li>
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="http://meta.pycqa.org/en/latest/">PyCQA</a> &#187;</li>
+    
+    <a href="../index.html">Pylint 2.2.0-dev documentation</a> &#187;
+    
+
+          <li class="nav-item nav-item-1"><a href="index.html" >Technical Reference</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">Copyright</a> 2003-2018, Logilab, PyCQA and contributors.
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    Last updated on None.
+    <a href="https://github.com/pycqa/pylint/issues/new">Found a bug</a>?
+    <br />
+
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.7.8.
+    </div>
+
+  </body>
+</html>

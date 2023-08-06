@@ -1,0 +1,450 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Editor and IDE integration &#8212; Pylint 2.2.0-dev documentation</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="How To Guides" href="../how_tos/index.html" />
+    <link rel="prev" title="Configuration" href="options.html" />
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+     
+
+  </head><body>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../how_tos/index.html" title="How To Guides"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="options.html" title="Configuration"
+             accesskey="P">previous</a> |</li>
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="http://meta.pycqa.org/en/latest/">PyCQA</a> &#187;</li>
+    
+    <a href="../index.html">Pylint 2.2.0-dev documentation</a> &#187;
+    
+
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">User Guide</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="editor-and-ide-integration">
+<span id="ide-integration"></span><h1>Editor and IDE integration<a class="headerlink" href="#editor-and-ide-integration" title="Permalink to this headline">¶</a></h1>
+<p>To use Pylint with:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="http://www.gnu.org/software/emacs/">Emacs</a>, see <a class="reference external" href="http://www.emacswiki.org/emacs/PythonProgrammingInEmacs#toc8">http://www.emacswiki.org/emacs/PythonProgrammingInEmacs#toc8</a>,</li>
+<li><a class="reference external" href="http://www.vim.org/">Vim</a>, see <a class="reference external" href="http://www.vim.org/scripts/script.php?script_id=891">http://www.vim.org/scripts/script.php?script_id=891</a>,</li>
+<li><a class="reference external" href="https://www.visualstudio.com/">Visual Studio</a>, see <a class="reference external" href="https://docs.microsoft.com/visualstudio/python/code-pylint">https://docs.microsoft.com/visualstudio/python/code-pylint</a>,</li>
+<li><a class="reference external" href="https://www.eclipse.org/">Eclipse</a> and <a class="reference external" href="http://pydev.org">PyDev</a>, see <a class="reference external" href="http://pydev.org/manual_adv_pylint.html">http://pydev.org/manual_adv_pylint.html</a>,</li>
+<li><a class="reference external" href="http://www.activestate.com/Products/Komodo/">Komodo</a>, see <a class="reference external" href="http://mateusz.loskot.net/posts/2006/01/15/running-pylint-from-komodo/">http://mateusz.loskot.net/posts/2006/01/15/running-pylint-from-komodo/</a>,</li>
+<li><a class="reference external" href="https://wiki.gnome.org/Apps/Gedit">gedit</a>, see <a class="reference external" href="https://launchpad.net/gedit-pylint-2">https://launchpad.net/gedit-pylint-2</a> or <a class="reference external" href="https://wiki.gnome.org/Apps/Gedit/PylintPlugin">https://wiki.gnome.org/Apps/Gedit/PylintPlugin</a>,</li>
+<li><a class="reference external" href="http://www.wingware.com/">WingIDE</a>, see <a class="reference external" href="http://www.wingware.com/doc/edit/pylint">http://www.wingware.com/doc/edit/pylint</a>,</li>
+<li><a class="reference external" href="http://www.jetbrains.com/pycharm/">PyCharm</a>, see <a class="reference internal" href="#pylint-in-pycharm"><span class="std std-ref">the section below</span></a>,</li>
+<li><a class="reference external" href="http://macromates.com">TextMate</a>, see <a class="reference internal" href="#pylint-in-textmate"><span class="std std-ref">the section below</span></a></li>
+<li><a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a>, see <a class="reference external" href="https://code.visualstudio.com/docs/python/linting#_pylint">https://code.visualstudio.com/docs/python/linting#_pylint</a>,</li>
+</ul>
+</div></blockquote>
+<p>Pylint is integrated in:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="https://www.visualstudio.com/">Visual Studio</a>, see the <cite>Python &gt; Run PyLint</cite> command on a project's context menu.</li>
+<li><a class="reference external" href="http://eric-ide.python-projects.org/">Eric</a> IDE, see the <cite>Project &gt; Check</cite> menu,</li>
+<li><a class="reference external" href="https://www.spyder-ide.org/">Spyder</a>, see the <cite>View -&gt; Panes -&gt; Static code analysis</cite> pane and
+its <a class="reference external" href="https://docs.spyder-ide.org/pylint.html">corresponding documentation</a>.</li>
+<li><a class="reference external" href="http://code.google.com/p/pyscripter/">pyscripter</a>, see the <cite>Tool -&gt; Tools</cite> menu.</li>
+<li><a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a>, see the <cite>Preferences -&gt; Settings</cite> menu.</li>
+</ul>
+</div></blockquote>
+<div class="section" id="using-pylint-thru-flymake-in-emacs">
+<h2>Using Pylint thru flymake in Emacs<a class="headerlink" href="#using-pylint-thru-flymake-in-emacs" title="Permalink to this headline">¶</a></h2>
+<p>To enable flymake for Python, insert the following into your .emacs:</p>
+<div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="c1">;; Configure flymake for Python</span>
+<span class="p">(</span><span class="nb">when</span> <span class="p">(</span><span class="nb">load</span> <span class="s">&quot;flymake&quot;</span> <span class="no">t</span><span class="p">)</span>
+  <span class="p">(</span><span class="nb">defun</span> <span class="nv">flymake-pylint-init</span> <span class="p">()</span>
+    <span class="p">(</span><span class="k">let*</span> <span class="p">((</span><span class="nv">temp-file</span> <span class="p">(</span><span class="nv">flymake-init-create-temp-buffer-copy</span>
+                       <span class="ss">&#39;flymake-create-temp-inplace</span><span class="p">))</span>
+           <span class="p">(</span><span class="nv">local-file</span> <span class="p">(</span><span class="nv">file-relative-name</span>
+                        <span class="nv">temp-file</span>
+                        <span class="p">(</span><span class="nv">file-name-directory</span> <span class="nv">buffer-file-name</span><span class="p">))))</span>
+      <span class="p">(</span><span class="nb">list</span> <span class="s">&quot;epylint&quot;</span> <span class="p">(</span><span class="nb">list</span> <span class="nv">local-file</span><span class="p">))))</span>
+  <span class="p">(</span><span class="nv">add-to-list</span> <span class="ss">&#39;flymake-allowed-file-name-masks</span>
+               <span class="o">&#39;</span><span class="p">(</span><span class="s">&quot;\\.py\\&#39;&quot;</span> <span class="nv">flymake-pylint-init</span><span class="p">)))</span>
+
+<span class="c1">;; Set as a minor mode for Python</span>
+<span class="p">(</span><span class="nv">add-hook</span> <span class="ss">&#39;python-mode-hook</span> <span class="o">&#39;</span><span class="p">(</span><span class="k">lambda</span> <span class="p">()</span> <span class="p">(</span><span class="nv">flymake-mode</span><span class="p">)))</span>
+</pre></div>
+</div>
+<p>Above stuff is in <code class="docutils literal notranslate"><span class="pre">pylint/elisp/pylint-flymake.el</span></code>, which should be automatically
+installed on Debian systems, in which cases you don't have to put it in your <code class="docutils literal notranslate"><span class="pre">.emacs</span></code> file.</p>
+<p>Other things you may find useful to set:</p>
+<div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="c1">;; Configure to wait a bit longer after edits before starting</span>
+<span class="p">(</span><span class="nv">setq-default</span> <span class="nv">flymake-no-changes-timeout</span> <span class="ss">&#39;3</span><span class="p">)</span>
+
+<span class="c1">;; Keymaps to navigate to the errors</span>
+<span class="p">(</span><span class="nv">add-hook</span> <span class="ss">&#39;python-mode-hook</span> <span class="o">&#39;</span><span class="p">(</span><span class="k">lambda</span> <span class="p">()</span> <span class="p">(</span><span class="nv">define-key</span> <span class="nv">python-mode-map</span> <span class="s">&quot;\C-cn&quot;</span> <span class="ss">&#39;flymake-goto-next-error</span><span class="p">)))</span>
+<span class="p">(</span><span class="nv">add-hook</span> <span class="ss">&#39;python-mode-hook</span> <span class="o">&#39;</span><span class="p">(</span><span class="k">lambda</span> <span class="p">()</span> <span class="p">(</span><span class="nv">define-key</span> <span class="nv">python-mode-map</span> <span class="s">&quot;\C-cp&quot;</span> <span class="ss">&#39;flymake-goto-prev-error</span><span class="p">)))</span>
+</pre></div>
+</div>
+<p>Finally, by default flymake only displays the extra information about the error when you
+hover the mouse over the highlighted line. The following will use the minibuffer to display
+messages when you the cursor is on the line.</p>
+<div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="c1">;; To avoid having to mouse hover for the error message, these functions make flymake error messages</span>
+<span class="c1">;; appear in the minibuffer</span>
+<span class="p">(</span><span class="nb">defun</span> <span class="nv">show-fly-err-at-point</span> <span class="p">()</span>
+  <span class="s">&quot;If the cursor is sitting on a flymake error, display the message in the minibuffer&quot;</span>
+  <span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;cl</span><span class="p">)</span>
+  <span class="p">(</span><span class="nv">interactive</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nv">line-no</span> <span class="p">(</span><span class="nv">line-number-at-pos</span><span class="p">)))</span>
+    <span class="p">(</span><span class="nb">dolist</span> <span class="p">(</span><span class="nv">elem</span> <span class="nv">flymake-err-info</span><span class="p">)</span>
+      <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">eq</span> <span class="p">(</span><span class="nb">car</span> <span class="nv">elem</span><span class="p">)</span> <span class="nv">line-no</span><span class="p">)</span>
+      <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nv">err</span> <span class="p">(</span><span class="nb">car</span> <span class="p">(</span><span class="nb">second</span> <span class="nv">elem</span><span class="p">))))</span>
+        <span class="p">(</span><span class="nv">message</span> <span class="s">&quot;%s&quot;</span> <span class="p">(</span><span class="nv">flymake-ler-text</span> <span class="nv">err</span><span class="p">)))))))</span>
+
+<span class="p">(</span><span class="nv">add-hook</span> <span class="ss">&#39;post-command-hook</span> <span class="ss">&#39;show-fly-err-at-point</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Alternative, if you only wish to pollute the minibuffer after an explicit flymake-goto-* then use
+the following instead of a post-command-hook</p>
+<div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nv">defadvice</span> <span class="nv">flymake-goto-next-error</span> <span class="p">(</span><span class="nv">after</span> <span class="nv">display-message</span> <span class="nv">activate</span> <span class="nb">compile</span><span class="p">)</span>
+  <span class="s">&quot;Display the error in the mini-buffer rather than having to mouse over it&quot;</span>
+  <span class="p">(</span><span class="nv">show-fly-err-at-point</span><span class="p">))</span>
+
+<span class="p">(</span><span class="nv">defadvice</span> <span class="nv">flymake-goto-prev-error</span> <span class="p">(</span><span class="nv">after</span> <span class="nv">display-message</span> <span class="nv">activate</span> <span class="nb">compile</span><span class="p">)</span>
+  <span class="s">&quot;Display the error in the mini-buffer rather than having to mouse over it&quot;</span>
+  <span class="p">(</span><span class="nv">show-fly-err-at-point</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="integrate-pylint-with-pycharm">
+<span id="pylint-in-pycharm"></span><h2>Integrate Pylint with PyCharm<a class="headerlink" href="#integrate-pylint-with-pycharm" title="Permalink to this headline">¶</a></h2>
+<p>Install Pylint the usual way:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pylint</span>
+</pre></div>
+</div>
+<p>Remember the path at which it's installed:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">which</span> <span class="n">pylint</span>
+</pre></div>
+</div>
+<div class="section" id="using-pylint-pycharm-plugin">
+<h3>Using pylint-pycharm plugin<a class="headerlink" href="#using-pylint-pycharm-plugin" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>In PyCharm go to <em>Preferences</em> &gt; <em>Plugins</em> &gt; <em>Browse repositories...</em></li>
+<li>Right-click on the plugin named <strong>Pylint</strong>, select <strong>Download and Install</strong> and restart PyCharm when prompted</li>
+</ol>
+<p>If the plugin is not finding the Pylint executable (e.g. is not inside the PATH environmental variable), you can
+specify it manually using the plugin settings:</p>
+<ol class="arabic simple">
+<li><em>Preferences</em> &gt; <em>Other Settings</em> &gt; <em>Pylint</em> or simply click the gear icon from the side bar of the Pylint tool window</li>
+<li>Type the path directly or use the Browse button to open a file selection dialog</li>
+<li>Press the Test button to check if the plugin is able to run the executable</li>
+</ol>
+<p>For more info on how to use the plugin please check the <a class="reference external" href="https://github.com/leinardi/pylint-pycharm/blob/master/README.md">official plugin documentation</a>.</p>
+</div>
+<div class="section" id="using-external-tools">
+<h3>Using External Tools<a class="headerlink" href="#using-external-tools" title="Permalink to this headline">¶</a></h3>
+<p>Within PyCharm:</p>
+<ol class="arabic simple">
+<li>Navigate to the preferences window</li>
+<li>Select &quot;External Tools&quot;</li>
+<li>Click the plus sign at the bottom of the dialog to add a new external task</li>
+<li>In the dialog, populate the following fields:<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Name:</th><td class="field-body">Pylint</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Description:</th><td class="field-body">A Python source code analyzer which looks for programming errors, helps enforcing a coding standard and sniffs for some code smells.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Synchronize files after execution:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">unchecked</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Program:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">/path/to/pylint</span></code></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">$FilePath$</span></code></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>Click OK</li>
+</ol>
+<p>The option to check the current file with Pylint should now be available in <em>Tools</em> &gt; <em>External Tools</em> &gt; <em>Pylint</em>.</p>
+</div>
+</div>
+<div class="section" id="integrate-pylint-with-textmate">
+<span id="pylint-in-textmate"></span><h2>Integrate Pylint with TextMate<a class="headerlink" href="#integrate-pylint-with-textmate" title="Permalink to this headline">¶</a></h2>
+<p>Install Pylint in the usual way:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pylint</span>
+</pre></div>
+</div>
+<p>Install the <a class="reference external" href="https://github.com/textmate/python.tmbundle">Python bundle for TextMate</a>:</p>
+<ol class="arabic simple">
+<li>select <em>TextMate</em> &gt; <em>Preferences</em></li>
+<li>select the <em>Bundles</em> tab</li>
+<li>find and tick the <em>Python</em> bundle in the list</li>
+</ol>
+<p>You should now see it in <em>Bundles</em> &gt; <em>Python</em>.</p>
+<p>In <em>Preferences</em>, select the <em>Variables</em> tab. If a <code class="docutils literal notranslate"><span class="pre">TM_PYCHECKER</span></code> variable is not already listed, add
+it, with the value <code class="docutils literal notranslate"><span class="pre">pylint</span></code>.</p>
+<p>The default keyboard shortcut to run the syntax checker is <em>Control-Shift-V</em> - open a <code class="docutils literal notranslate"><span class="pre">.py</span></code> file
+in Textmate, and try it.</p>
+<p>You should see the output in a new window:</p>
+<blockquote>
+<div><p>PyCheckMate 1.2 – Pylint 1.4.4</p>
+<p>No config file found, using default configuration</p>
+</div></blockquote>
+<p>Then all is well, and most likely Pylint will have expressed some opinions about your Python code
+(or will exit with <code class="docutils literal notranslate"><span class="pre">0</span></code> if your code already conforms to its expectations).</p>
+<p>If you receive a message:</p>
+<blockquote>
+<div>Please install PyChecker, PyFlakes, Pylint, PEP 8 or flake8 for more extensive code checking.</div></blockquote>
+<p>That means that Pylint wasn't found, which is likely an issue with command paths - TextMate needs
+be looking for Pylint on the right paths.</p>
+<p>Check where Pylint has been installed, using <code class="docutils literal notranslate"><span class="pre">which</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ which pylint
+/usr/local/bin/pylint
+</pre></div>
+</div>
+<p>The output will tell you where Pylint can be found; in this case, in <code class="docutils literal notranslate"><span class="pre">/usr/local/bin</span></code>.</p>
+<ol class="arabic simple">
+<li>select <em>TextMate</em> &gt; <em>Preferences</em></li>
+<li>select the <em>Variables</em> tab</li>
+<li>find and check that a <code class="docutils literal notranslate"><span class="pre">PATH</span></code> variable exists, and that it contains the appropriate path (if
+the path to Pylint were <code class="docutils literal notranslate"><span class="pre">/usr/local/bin/pylint</span></code> as above, then the variable would need to
+contain <code class="docutils literal notranslate"><span class="pre">/usr/local/bin</span></code>). An actual example in this case might be
+<code class="docutils literal notranslate"><span class="pre">$PATH:/opt/local/bin:/usr/local/bin:/usr/texbin</span></code>, which includes other paths.</li>
+</ol>
+<p>... and try running Pylint again.</p>
+</div>
+<div class="section" id="integrate-pylint-with-visual-studio-code">
+<h2>Integrate Pylint with Visual Studio Code<a class="headerlink" href="#integrate-pylint-with-visual-studio-code" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="command-line-arguments-and-configuration-files">
+<h3>Command-line arguments and configuration files<a class="headerlink" href="#command-line-arguments-and-configuration-files" title="Permalink to this headline">¶</a></h3>
+<p>See <a class="reference external" href="https://pylint.readthedocs.io/en/latest/user_guide/run.html#command-line-options">Pylint command line arguments</a> for general switches. Command line
+arguments can be used to load Pylint plugins, such as that for Django:</p>
+<div class="code json highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;python.linting.pylintArgs&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;--load-plugins&quot;</span><span class="p">,</span> <span class="s2">&quot;pylint_django&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Options can also be specified in a <code class="docutils literal notranslate"><span class="pre">pylintrc</span></code> or <code class="docutils literal notranslate"><span class="pre">.pylintrc</span></code> file in
+the workspace folder, as described on <a class="reference external" href="https://pylint.readthedocs.io/en/latest/user_guide/run.html#command-line-options">Pylint command line arguments</a>.</p>
+<p>To control which Pylint messages are shown, add the following contents
+to an options file:</p>
+<div class="code ini highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">MESSAGES</span> <span class="n">CONTROL</span><span class="p">]</span>
+
+<span class="c1"># Enable the message, report, category or checker with the given id(s). You can</span>
+<span class="c1"># either give multiple identifier separated by comma (,) or put this option</span>
+<span class="c1"># multiple time.</span>
+<span class="c1">#enable=</span>
+
+<span class="c1"># Disable the message, report, category or checker with the given id(s). You</span>
+<span class="c1"># can either give multiple identifier separated by comma (,) or put this option</span>
+<span class="c1"># multiple time (only on the command line, not in the configuration file where</span>
+<span class="c1"># it should appear only once).</span>
+<span class="c1">#disable=</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="message-category-mapping">
+<h3>Message category mapping<a class="headerlink" href="#message-category-mapping" title="Permalink to this headline">¶</a></h3>
+<p>The Python extension maps Pylint message categories to VS Code
+categories through the following settings. If desired, change the
+setting to change the mapping.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="47%" />
+<col width="24%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Pylint category</th>
+<th class="head">Applicable setting
+(python.linting.)</th>
+<th class="head">VS Code category
+mapping</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>convention</td>
+<td>pylintCategorySeverity.convention</td>
+<td>Information</td>
+</tr>
+<tr class="row-odd"><td>refactor</td>
+<td>pylintCategorySeverity.refactor</td>
+<td>Hint</td>
+</tr>
+<tr class="row-even"><td>warning</td>
+<td>pylintCategorySeverity.warning</td>
+<td>Warning</td>
+</tr>
+<tr class="row-odd"><td>error</td>
+<td>pylintCategorySeverity.error</td>
+<td>Error</td>
+</tr>
+<tr class="row-even"><td>fatal</td>
+<td>pylintCategorySeverity.fatal</td>
+<td>Error</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Editor and IDE integration</a><ul>
+<li><a class="reference internal" href="#using-pylint-thru-flymake-in-emacs">Using Pylint thru flymake in Emacs</a></li>
+<li><a class="reference internal" href="#integrate-pylint-with-pycharm">Integrate Pylint with PyCharm</a><ul>
+<li><a class="reference internal" href="#using-pylint-pycharm-plugin">Using pylint-pycharm plugin</a></li>
+<li><a class="reference internal" href="#using-external-tools">Using External Tools</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#integrate-pylint-with-textmate">Integrate Pylint with TextMate</a></li>
+<li><a class="reference internal" href="#integrate-pylint-with-visual-studio-code">Integrate Pylint with Visual Studio Code</a><ul>
+<li><a class="reference internal" href="#command-line-arguments-and-configuration-files">Command-line arguments and configuration files</a></li>
+<li><a class="reference internal" href="#message-category-mapping">Message category mapping</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<h3><a href="../index.html">Table Of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">User Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="run.html">Running Pylint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="output.html">Pylint output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message-control.html">Messages control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="options.html">Configuration</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Editor and IDE integration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../how_tos/index.html">How To Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../technical_reference/index.html">Technical Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development_guide/index.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../backlinks.html">Some projects using Pylint</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew/index.html">What's New in Pylint</a></li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="options.html"
+                        title="previous chapter">Configuration</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../how_tos/index.html"
+                        title="next chapter">How To Guides</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/user_guide/ide-integration.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../how_tos/index.html" title="How To Guides"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="options.html" title="Configuration"
+             >previous</a> |</li>
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="http://meta.pycqa.org/en/latest/">PyCQA</a> &#187;</li>
+    
+    <a href="../index.html">Pylint 2.2.0-dev documentation</a> &#187;
+    
+
+          <li class="nav-item nav-item-1"><a href="index.html" >User Guide</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">Copyright</a> 2003-2018, Logilab, PyCQA and contributors.
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    Last updated on None.
+    <a href="https://github.com/pycqa/pylint/issues/new">Found a bug</a>?
+    <br />
+
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.7.8.
+    </div>
+
+  </body>
+</html>
