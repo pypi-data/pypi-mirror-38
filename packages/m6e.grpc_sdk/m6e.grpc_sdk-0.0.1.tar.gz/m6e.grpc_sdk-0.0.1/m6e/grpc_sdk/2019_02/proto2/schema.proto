@@ -1,0 +1,717 @@
+syntax = "proto2";
+
+option go_package = "proto2";
+
+message EndpointUnion {
+    optional string hash = 1;
+    optional EndpointKind kind = 2;
+    optional GetServicesEndpoint getServices = 3;
+    optional GetServiceByIdEndpoint getServiceById = 4;
+    optional CreateServicesEndpoint createServices = 5;
+    optional UpdateServicesEndpoint updateServices = 6;
+    optional DeleteServicesEndpoint deleteServices = 7;
+}
+
+enum EndpointKind {
+    GET_SERVICES = 0;
+    GET_SERVICE_BY_ID = 1;
+    CREATE_SERVICES = 2;
+    UPDATE_SERVICES = 3;
+    DELETE_SERVICES = 4;
+    WATCH_SERVICES = 5;
+}
+
+message IdUnionQuery {
+    optional string hash = 1;
+    optional IdKind kind = 2;
+    optional string url = 3;
+    optional string name = 4;
+    optional string username = 5;
+}
+
+message AllQuery {
+    optional string hash = 1;
+    optional int32 i_lte = 2;
+    optional int32 i_gte = 3;
+    optional string s = 4;
+    optional double f_lte = 5;
+    optional double f_gte = 6;
+}
+
+message ServiceQuery {
+    optional string hash = 1;
+    optional string name = 2;
+    optional string host = 3;
+    optional ServicePortsQuery ports = 4;
+}
+
+message ServicePortsQuery {
+    optional string hash = 1;
+    optional int32 grpc_lte = 2;
+    optional int32 grpc_gte = 3;
+    optional int32 graphql_lte = 4;
+    optional int32 graphql_gte = 5;
+}
+
+message LocationQuery {
+    optional string hash = 1;
+    optional LengthValueQuery radius = 2;
+    optional string street = 3;
+    optional string zipCode = 4;
+    optional string city = 5;
+    optional string cityDistrict = 6;
+    optional string country = 7;
+    optional string countryState = 8;
+    optional string countryStateDistrict = 9;
+}
+
+message LengthValueQuery {
+    optional string hash = 1;
+    optional ValueKind kind = 2;
+    optional LengthUnit unit = 3;
+    optional double baseValue_lte = 4;
+    optional double baseValue_gte = 5;
+    optional double value_lte = 6;
+    optional double value_gte = 7;
+    optional FloatRangeQuery baseRange = 8;
+    optional FloatRangeQuery range = 9;
+}
+
+message FloatRangeQuery {
+    optional string hash = 1;
+    optional double from_lte = 2;
+    optional double from_gte = 3;
+    optional double to_lte = 4;
+    optional double to_gte = 5;
+}
+
+message GetServiceByIdRequestFilter {
+    optional string hash = 1;
+    optional IdUnionFilter id = 2;
+    repeated GetServiceByIdRequestFilter and = 3;
+    repeated GetServiceByIdRequestFilter or = 4;
+    repeated GetServiceByIdRequestFilter not = 5;
+}
+
+message IdUnionFilter {
+    optional string hash = 1;
+    optional IdKind kind_is = 2;
+    optional IdKind kind_not = 3;
+    repeated IdKind kind_in = 4;
+    repeated IdKind kind_not_in = 5;
+    optional string url_is = 6;
+    optional string url_not = 7;
+    optional string url_lt = 8;
+    optional string url_lte = 9;
+    optional string url_gt = 10;
+    optional string url_gte = 11;
+    optional string url_contains = 12;
+    optional string url_not_contains = 13;
+    optional string url_starts_with = 14;
+    optional string url_not_starts_with = 15;
+    optional string url_ends_with = 16;
+    optional string url_not_ends_with = 17;
+    repeated string url_in = 18;
+    repeated string url_not_in = 19;
+    optional string name_is = 20;
+    optional string name_not = 21;
+    optional string name_lt = 22;
+    optional string name_lte = 23;
+    optional string name_gt = 24;
+    optional string name_gte = 25;
+    optional string name_contains = 26;
+    optional string name_not_contains = 27;
+    optional string name_starts_with = 28;
+    optional string name_not_starts_with = 29;
+    optional string name_ends_with = 30;
+    optional string name_not_ends_with = 31;
+    repeated string name_in = 32;
+    repeated string name_not_in = 33;
+    optional string username_is = 34;
+    optional string username_not = 35;
+    optional string username_lt = 36;
+    optional string username_lte = 37;
+    optional string username_gt = 38;
+    optional string username_gte = 39;
+    optional string username_contains = 40;
+    optional string username_not_contains = 41;
+    optional string username_starts_with = 42;
+    optional string username_not_starts_with = 43;
+    optional string username_ends_with = 44;
+    optional string username_not_ends_with = 45;
+    repeated string username_in = 46;
+    repeated string username_not_in = 47;
+    repeated IdUnionFilter and = 48;
+    repeated IdUnionFilter or = 49;
+    repeated IdUnionFilter not = 50;
+}
+
+message AllFilter {
+    optional string hash = 1;
+    optional int32 i_is = 2;
+    optional int32 i_not = 3;
+    optional int32 i_lt = 4;
+    optional int32 i_lte = 5;
+    optional int32 i_gt = 6;
+    optional int32 i_gte = 7;
+    repeated int32 i_in = 8;
+    repeated int32 i_not_in = 9;
+    optional string s_is = 10;
+    optional string s_not = 11;
+    optional string s_lt = 12;
+    optional string s_lte = 13;
+    optional string s_gt = 14;
+    optional string s_gte = 15;
+    optional string s_contains = 16;
+    optional string s_not_contains = 17;
+    optional string s_starts_with = 18;
+    optional string s_not_starts_with = 19;
+    optional string s_ends_with = 20;
+    optional string s_not_ends_with = 21;
+    repeated string s_in = 22;
+    repeated string s_not_in = 23;
+    optional bool b_is = 24;
+    optional bool b_not = 25;
+    optional double f_is = 26;
+    optional double f_not = 27;
+    optional double f_lt = 28;
+    optional double f_lte = 29;
+    optional double f_gt = 30;
+    optional double f_gte = 31;
+    repeated double f_in = 32;
+    repeated double f_not_in = 33;
+    optional IntFilter is_every = 34;
+    optional IntFilter is_some = 35;
+    optional IntFilter is_none = 36;
+    optional StringFilter ss_every = 37;
+    optional StringFilter ss_some = 38;
+    optional StringFilter ss_none = 39;
+    optional BooleanFilter bs_every = 40;
+    optional BooleanFilter bs_some = 41;
+    optional BooleanFilter bs_none = 42;
+    optional FloatFilter fs_every = 43;
+    optional FloatFilter fs_some = 44;
+    optional FloatFilter fs_none = 45;
+    repeated AllFilter and = 46;
+    repeated AllFilter or = 47;
+    repeated AllFilter not = 48;
+}
+
+message ServiceFilter {
+    optional string hash = 1;
+    optional IdUnionFilter ids_every = 2;
+    optional IdUnionFilter ids_some = 3;
+    optional IdUnionFilter ids_none = 4;
+    optional string name_is = 5;
+    optional string name_not = 6;
+    optional string name_lt = 7;
+    optional string name_lte = 8;
+    optional string name_gt = 9;
+    optional string name_gte = 10;
+    optional string name_contains = 11;
+    optional string name_not_contains = 12;
+    optional string name_starts_with = 13;
+    optional string name_not_starts_with = 14;
+    optional string name_ends_with = 15;
+    optional string name_not_ends_with = 16;
+    repeated string name_in = 17;
+    repeated string name_not_in = 18;
+    optional EndpointUnionFilter endpoints_every = 19;
+    optional EndpointUnionFilter endpoints_some = 20;
+    optional EndpointUnionFilter endpoints_none = 21;
+    optional string host_is = 22;
+    optional string host_not = 23;
+    optional string host_lt = 24;
+    optional string host_lte = 25;
+    optional string host_gt = 26;
+    optional string host_gte = 27;
+    optional string host_contains = 28;
+    optional string host_not_contains = 29;
+    optional string host_starts_with = 30;
+    optional string host_not_starts_with = 31;
+    optional string host_ends_with = 32;
+    optional string host_not_ends_with = 33;
+    repeated string host_in = 34;
+    repeated string host_not_in = 35;
+    optional ServicePortsFilter ports = 36;
+    repeated ServiceFilter and = 37;
+    repeated ServiceFilter or = 38;
+    repeated ServiceFilter not = 39;
+}
+
+message ServicePortsFilter {
+    optional string hash = 1;
+    optional IdUnionFilter ids_every = 2;
+    optional IdUnionFilter ids_some = 3;
+    optional IdUnionFilter ids_none = 4;
+    optional int32 grpc_is = 5;
+    optional int32 grpc_not = 6;
+    optional int32 grpc_lt = 7;
+    optional int32 grpc_lte = 8;
+    optional int32 grpc_gt = 9;
+    optional int32 grpc_gte = 10;
+    repeated int32 grpc_in = 11;
+    repeated int32 grpc_not_in = 12;
+    optional int32 graphql_is = 13;
+    optional int32 graphql_not = 14;
+    optional int32 graphql_lt = 15;
+    optional int32 graphql_lte = 16;
+    optional int32 graphql_gt = 17;
+    optional int32 graphql_gte = 18;
+    repeated int32 graphql_in = 19;
+    repeated int32 graphql_not_in = 20;
+    repeated ServicePortsFilter and = 21;
+    repeated ServicePortsFilter or = 22;
+    repeated ServicePortsFilter not = 23;
+}
+
+message LocationFilter {
+    optional string hash = 1;
+    optional IdUnionFilter ids_every = 2;
+    optional IdUnionFilter ids_some = 3;
+    optional IdUnionFilter ids_none = 4;
+    optional LengthValueFilter radius = 5;
+    optional string street_is = 6;
+    optional string street_not = 7;
+    optional string street_lt = 8;
+    optional string street_lte = 9;
+    optional string street_gt = 10;
+    optional string street_gte = 11;
+    optional string street_contains = 12;
+    optional string street_not_contains = 13;
+    optional string street_starts_with = 14;
+    optional string street_not_starts_with = 15;
+    optional string street_ends_with = 16;
+    optional string street_not_ends_with = 17;
+    repeated string street_in = 18;
+    repeated string street_not_in = 19;
+    optional string zipCode_is = 20;
+    optional string zipCode_not = 21;
+    optional string zipCode_lt = 22;
+    optional string zipCode_lte = 23;
+    optional string zipCode_gt = 24;
+    optional string zipCode_gte = 25;
+    optional string zipCode_contains = 26;
+    optional string zipCode_not_contains = 27;
+    optional string zipCode_starts_with = 28;
+    optional string zipCode_not_starts_with = 29;
+    optional string zipCode_ends_with = 30;
+    optional string zipCode_not_ends_with = 31;
+    repeated string zipCode_in = 32;
+    repeated string zipCode_not_in = 33;
+    optional string city_is = 34;
+    optional string city_not = 35;
+    optional string city_lt = 36;
+    optional string city_lte = 37;
+    optional string city_gt = 38;
+    optional string city_gte = 39;
+    optional string city_contains = 40;
+    optional string city_not_contains = 41;
+    optional string city_starts_with = 42;
+    optional string city_not_starts_with = 43;
+    optional string city_ends_with = 44;
+    optional string city_not_ends_with = 45;
+    repeated string city_in = 46;
+    repeated string city_not_in = 47;
+    optional string cityDistrict_is = 48;
+    optional string cityDistrict_not = 49;
+    optional string cityDistrict_lt = 50;
+    optional string cityDistrict_lte = 51;
+    optional string cityDistrict_gt = 52;
+    optional string cityDistrict_gte = 53;
+    optional string cityDistrict_contains = 54;
+    optional string cityDistrict_not_contains = 55;
+    optional string cityDistrict_starts_with = 56;
+    optional string cityDistrict_not_starts_with = 57;
+    optional string cityDistrict_ends_with = 58;
+    optional string cityDistrict_not_ends_with = 59;
+    repeated string cityDistrict_in = 60;
+    repeated string cityDistrict_not_in = 61;
+    optional string country_is = 62;
+    optional string country_not = 63;
+    optional string country_lt = 64;
+    optional string country_lte = 65;
+    optional string country_gt = 66;
+    optional string country_gte = 67;
+    optional string country_contains = 68;
+    optional string country_not_contains = 69;
+    optional string country_starts_with = 70;
+    optional string country_not_starts_with = 71;
+    optional string country_ends_with = 72;
+    optional string country_not_ends_with = 73;
+    repeated string country_in = 74;
+    repeated string country_not_in = 75;
+    optional string countryState_is = 76;
+    optional string countryState_not = 77;
+    optional string countryState_lt = 78;
+    optional string countryState_lte = 79;
+    optional string countryState_gt = 80;
+    optional string countryState_gte = 81;
+    optional string countryState_contains = 82;
+    optional string countryState_not_contains = 83;
+    optional string countryState_starts_with = 84;
+    optional string countryState_not_starts_with = 85;
+    optional string countryState_ends_with = 86;
+    optional string countryState_not_ends_with = 87;
+    repeated string countryState_in = 88;
+    repeated string countryState_not_in = 89;
+    optional string countryStateDistrict_is = 90;
+    optional string countryStateDistrict_not = 91;
+    optional string countryStateDistrict_lt = 92;
+    optional string countryStateDistrict_lte = 93;
+    optional string countryStateDistrict_gt = 94;
+    optional string countryStateDistrict_gte = 95;
+    optional string countryStateDistrict_contains = 96;
+    optional string countryStateDistrict_not_contains = 97;
+    optional string countryStateDistrict_starts_with = 98;
+    optional string countryStateDistrict_not_starts_with = 99;
+    optional string countryStateDistrict_ends_with = 100;
+    optional string countryStateDistrict_not_ends_with = 101;
+    repeated string countryStateDistrict_in = 102;
+    repeated string countryStateDistrict_not_in = 103;
+    repeated LocationFilter and = 104;
+    repeated LocationFilter or = 105;
+    repeated LocationFilter not = 106;
+}
+
+message LengthValueFilter {
+    optional string hash = 1;
+    optional ValueKind kind_is = 2;
+    optional ValueKind kind_not = 3;
+    repeated ValueKind kind_in = 4;
+    repeated ValueKind kind_not_in = 5;
+    optional LengthUnit unit_is = 6;
+    optional LengthUnit unit_not = 7;
+    repeated LengthUnit unit_in = 8;
+    repeated LengthUnit unit_not_in = 9;
+    optional bool is_is = 10;
+    optional bool is_not = 11;
+    optional double baseValue_is = 12;
+    optional double baseValue_not = 13;
+    optional double baseValue_lt = 14;
+    optional double baseValue_lte = 15;
+    optional double baseValue_gt = 16;
+    optional double baseValue_gte = 17;
+    repeated double baseValue_in = 18;
+    repeated double baseValue_not_in = 19;
+    optional double value_is = 20;
+    optional double value_not = 21;
+    optional double value_lt = 22;
+    optional double value_lte = 23;
+    optional double value_gt = 24;
+    optional double value_gte = 25;
+    repeated double value_in = 26;
+    repeated double value_not_in = 27;
+    optional FloatRangeFilter baseRange = 28;
+    optional FloatRangeFilter range = 29;
+    repeated LengthValueFilter and = 30;
+    repeated LengthValueFilter or = 31;
+    repeated LengthValueFilter not = 32;
+}
+
+message FloatRangeFilter {
+    optional string hash = 1;
+    optional double from_is = 2;
+    optional double from_not = 3;
+    optional double from_lt = 4;
+    optional double from_lte = 5;
+    optional double from_gt = 6;
+    optional double from_gte = 7;
+    repeated double from_in = 8;
+    repeated double from_not_in = 9;
+    optional double to_is = 10;
+    optional double to_not = 11;
+    optional double to_lt = 12;
+    optional double to_lte = 13;
+    optional double to_gt = 14;
+    optional double to_gte = 15;
+    repeated double to_in = 16;
+    repeated double to_not_in = 17;
+    repeated FloatRangeFilter and = 18;
+    repeated FloatRangeFilter or = 19;
+    repeated FloatRangeFilter not = 20;
+}
+
+message EndpointUnionFilter {
+    optional string hash = 1;
+    optional EndpointKind kind_is = 2;
+    optional EndpointKind kind_not = 3;
+    repeated EndpointKind kind_in = 4;
+    repeated EndpointKind kind_not_in = 5;
+    repeated EndpointUnionFilter and = 6;
+    repeated EndpointUnionFilter or = 7;
+    repeated EndpointUnionFilter not = 8;
+}
+
+message StringFilter {
+    optional string hash = 1;
+    optional string is = 2;
+    optional string not = 3;
+    optional string lt = 4;
+    optional string lte = 5;
+    optional string gt = 6;
+    optional string gte = 7;
+    optional string contains = 8;
+    optional string not_contains = 9;
+    optional string starts_with = 10;
+    optional string not_starts_with = 11;
+    optional string ends_with = 12;
+    optional string not_ends_with = 13;
+    repeated string in = 14;
+    repeated string not_in = 15;
+}
+
+message BooleanFilter {
+    optional string hash = 1;
+    optional bool is = 2;
+    optional bool not = 3;
+}
+
+message IntFilter {
+    optional string hash = 1;
+    optional int32 is = 2;
+    optional int32 not = 3;
+    optional int32 lt = 4;
+    optional int32 lte = 5;
+    optional int32 gt = 6;
+    optional int32 gte = 7;
+    repeated int32 in = 8;
+    repeated int32 not_in = 9;
+}
+
+message FloatFilter {
+    optional string hash = 1;
+    optional double is = 2;
+    optional double not = 3;
+    optional double lt = 4;
+    optional double lte = 5;
+    optional double gt = 6;
+    optional double gte = 7;
+    repeated double in = 8;
+    repeated double not_in = 9;
+}
+
+enum IdKind {
+    URL = 0;
+    NAME = 1;
+    USERNAME = 2;
+}
+
+message IdUnion {
+    optional string hash = 1;
+    optional IdKind kind = 2;
+    repeated IdKind kinds = 3;
+    optional string url = 4;
+    optional string name = 5;
+    optional string username = 6;
+}
+
+message All {
+    optional string hash = 1;
+    optional int32 i = 2;
+    optional string s = 3;
+    optional bool b = 4;
+    optional double f = 5;
+    repeated int32 is = 6;
+    repeated string ss = 7;
+    repeated bool bs = 8;
+    repeated double fs = 9;
+}
+
+message Service {
+    optional string hash = 1;
+    repeated IdUnion ids = 2;
+    optional string name = 3;
+    repeated EndpointUnion endpoints = 4;
+    optional string host = 5;
+    optional ServicePorts ports = 6;
+}
+
+message ServicePorts {
+    optional string hash = 1;
+    repeated IdUnion ids = 2;
+    optional int32 grpc = 3;
+    optional int32 graphql = 4;
+}
+
+message Location {
+    optional string hash = 1;
+    repeated IdUnion ids = 2;
+    optional LengthValue radius = 3;
+    optional string street = 4;
+    optional string zipCode = 5;
+    optional string city = 6;
+    optional string cityDistrict = 7;
+    optional string country = 8;
+    optional string countryState = 9;
+    optional string countryStateDistrict = 10;
+}
+
+enum LengthUnit {
+    NANOMETER = 0;
+    MICROMETER = 1;
+    MILLIMETER = 2;
+    CENTIMETER = 3;
+    DECIMETER = 4;
+    METER = 5;
+    KILOMETER = 6;
+    THOU = 7;
+    LINE = 8;
+    INCH = 9;
+    FOOT = 10;
+    YARD = 11;
+    MILE = 12;
+    LEAGUE = 13;
+}
+
+message LengthValue {
+    optional string hash = 1;
+    optional ValueKind kind = 2;
+    optional LengthUnit unit = 3;
+    optional bool is = 4;
+    optional double baseValue = 5;
+    optional double value = 6;
+    optional FloatRange baseRange = 7;
+    optional FloatRange range = 8;
+}
+
+message FloatRange {
+    optional string hash = 1;
+    optional double from = 2;
+    optional double to = 3;
+}
+
+enum ValueKind {
+    VALUE = 0;
+    RANGE = 1;
+}
+
+message GetServicesEndpoint {
+    optional string hash = 1;
+    optional string where = 2;
+}
+
+message GetServiceByIdEndpoint {
+    optional string hash = 1;
+    optional GetServiceByIdRequestFilter where = 2;
+}
+
+message CreateServicesEndpoint {
+    optional string hash = 1;
+    optional string where = 2;
+}
+
+message UpdateServicesEndpoint {
+    optional string hash = 1;
+    optional string where = 2;
+}
+
+message DeleteServicesEndpoint {
+    optional string hash = 1;
+    optional string where = 2;
+}
+
+message Error {
+    optional string hash = 1;
+    optional string message = 2;
+}
+
+message RequestMeta {
+    optional string hash = 1;
+    optional string sth = 2;
+}
+
+message ResponseMeta {
+    optional string hash = 1;
+    repeated Error errors = 2;
+}
+
+message GetServicesRequest {
+    optional string hash = 1;
+    optional RequestMeta meta = 2;
+    optional int32 page = 3;
+    optional LocationQuery locationQuery = 4;
+    optional ServiceQuery query = 5;
+    optional ServiceFilter where = 6;
+}
+
+message GetServicesResponse {
+    optional string hash = 1;
+    optional ResponseMeta meta = 2;
+    optional int32 totalCount = 3;
+    repeated Service services = 4;
+}
+
+message GetServiceByIdRequest {
+    optional string hash = 1;
+    optional RequestMeta meta = 2;
+    optional IdUnion id = 3;
+}
+
+message GetServiceByIdResponse {
+    optional string hash = 1;
+    optional ResponseMeta meta = 2;
+    optional Service service = 3;
+}
+
+message CreateServicesRequest {
+    optional string hash = 1;
+    optional RequestMeta meta = 2;
+    repeated IdUnion ids = 3;
+    repeated Service services = 4;
+}
+
+message CreateServicesResponse {
+    optional string hash = 1;
+    optional ResponseMeta meta = 2;
+}
+
+message UpdateServicesRequest {
+    optional string hash = 1;
+    optional RequestMeta meta = 2;
+    repeated Service services = 3;
+}
+
+message UpdateServicesResponse {
+    optional string hash = 1;
+    optional ResponseMeta meta = 2;
+}
+
+message DeleteServicesRequest {
+    optional string hash = 1;
+    optional RequestMeta meta = 2;
+    repeated IdUnion ids = 3;
+}
+
+message DeleteServicesResponse {
+    optional string hash = 1;
+    optional ResponseMeta meta = 2;
+}
+
+service CreateServices {
+	rpc Create(CreateServicesRequest) returns (CreateServicesResponse);
+}
+
+service GetServices {
+	rpc Get(GetServicesRequest) returns (GetServicesResponse);
+}
+
+service GetServiceById {
+	rpc Get(GetServiceByIdRequest) returns (GetServiceByIdResponse);
+}
+
+service UpdateServices {
+	rpc Update(UpdateServicesRequest) returns (UpdateServicesResponse);
+}
+
+service DeleteServices {
+	rpc Delete(DeleteServicesRequest) returns (DeleteServicesResponse);
+}
+
+service WatchServices {
+	rpc Watch(GetServicesRequest) returns (stream GetServicesResponse);
+}
+
+service StreamServices {
+	rpc Stream(GetServicesRequest) returns (stream GetServicesResponse);
+}
