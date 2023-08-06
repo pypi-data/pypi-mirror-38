@@ -1,0 +1,915 @@
+Metadata-Version: 2.1
+Name: Fortuna
+Version: 0.19.5
+Summary: Fast & Flexible Random Value Generator
+Home-page: https://sharpdesigndigital.com
+Author: Broken aka Robert Sharp
+Author-email: webmaster@sharpdesigndigital.com
+License: UNKNOWN
+Description: # Fortuna Beta: Fast & Flexible Random Value Generator
+        **Adventures in Predictable Non-determinism** \
+        More than just a high performance random number generator. \
+        Fortuna can help you build dynamic rarefied random value generators and more. \
+        See the random treasure examples in `.../fortuna_extras/fortuna_examples.py`
+        
+        **Notes** \
+        Public Beta: _Fortuna is under active development, and may evolve without notice._ \
+        Ranges: _All ranges are inclusive unless stated otherwise._ \
+        Installation: _Open your favorite unix terminal and type_ `pip install Fortuna` or build from source.
+        
+        ## Fortuna Random Functions
+        ### Random Numbers
+        `Fortuna.random_range(lo: int, hi: int) -> int` \
+        Returns a random integer in range `[lo..hi]` inclusive. \
+        Up to 15x faster than `random.randint()` \
+        Flat uniform distribution.
+        
+        `Fortuna.random_below(num: int) -> int` \
+        Returns a random integer in the exclusive range `[0..num)` for positive values of num. \
+        Returns a random integer in the exclusive range `(num..0]` for negative values of num. \
+        This function never returns the value of num except in the case where `num == 0` \
+        As a result, it will always return zero if num is in range `[-1..1]` \
+        Flat uniform distribution.
+        
+        `Fortuna.d(sides: int) -> int` \
+        Represents a single die roll of a given size die. \
+        Returns a random integer in the range `[1..sides]` \
+        Flat uniform distribution.
+        
+        `Fortuna.dice(rolls: int, sides: int) -> int` \
+        Returns a random integer in range `[X..Y]` where `X == rolls` and `Y == rolls * sides` \
+        Represents the sum of multiple rolls of the same size die. \
+        Geometric distribution based on the number and size of the dice rolled. \
+        Complexity scales primarily with the number of rolls, not the size of the dice.
+        
+        `Fortuna.plus_or_minus(num: int) -> int` \
+        Negative and positive input values of num will produce equivalent distributions. \
+        Returns random integer in the range `[-N..N]` where `N = abs(num)` \
+        Flat uniform distribution.
+        
+        `Fortuna.plus_or_minus_linear(num: int) -> int` \
+        Negative and positive input values of num will produce equivalent distributions. \
+        Returns random integer in the range `[-N..N]` where `N = abs(num)` \
+        Zero peak geometric distribution, triangle.
+        
+        `Fortuna.plus_or_minus_curve(num: int, bounded: bool=True) -> int` \
+        Negative and positive input values of num will produce equivalent distributions. \
+        Returns a random integer in the target range `[-num..num]` \
+        If bounded is False, less than 0.1% of the results will fall outside the target range by up to +/- num. \
+        This will not change the overall shape of the distribution curve. \
+        Zero centered gaussian distribution, stretched bell curve: mean = 0, variance = num / pi
+        
+        `Fortuna.zero_flat(num: int) -> int` \
+        Returns a random integer in range `[0..num]` or `[num..0]` if num is negative. \
+        Flat uniform distribution.
+        
+        `Fortuna.zero_cool(num: int) -> int` \
+        Returns a random integer in range `[0..num]` or `[num..0]` if num is negative. \
+        Zero peak, geometric distribution, half triangle.
+        
+        `Fortuna.zero_extreme(num: int) -> int` \
+        Returns a random integer in range `[0..num]` or `[num..0]` if num is negative. \
+        Zero peak, gaussian distribution, half bell curve: mean = 0, variance = num / pi
+        
+        `Fortuna.max_cool(num: int) -> int` \
+        Returns a random integer in range `[0..num]` or `[num..0]` if num is negative. \
+        Max peak (num), geometric distribution, half triangle.
+        
+        `Fortuna.max_extreme(num: int) -> int` \
+        Returns a random integer in range `[0..num]` or `[num..0]` if num is negative. \
+        Max peak (num), gaussian distribution, half bell curve: mean = num, variance = num / pi
+        
+        `Fortuna.mostly_middle(num: int) -> int` \
+        Returns a random integer in range `[0..num]` or `[num..0]` if num is negative. \
+        Middle peak (num / 2), geometric distribution, half triangle.
+        
+        `Fortuna.mostly_center(num: int) -> int` \
+        Returns a random integer in range `[0..num]` or `[num..0]` if num is negative. \
+        Middle peak (num / 2), gaussian distribution, bell curve: mean = num / 2, variance = num / pi
+        
+        ### Random Truth
+        `Fortuna.percent_true(num: int) -> bool` \
+        Always returns False if num is 0 or less, always returns True if num is 100 or more. \
+        Any value of num in range `[1..99]` will produce True or False. \
+        Returns a random Bool based on the probability of True as a percentage.
+        
+        ### Random Sequence Values
+        `Fortuna.random_value(arr) -> value` \
+        Returns a random value from a sequence (list or tuple), uniform distribution, non-destructive. \
+        Up to 10x faster than random.choice()
+        
+        `Fortuna.pop_random_value(arr: list) -> value` \
+        Returns and removes a random value from a sequence list, uniform distribution, destructive. \
+        This function is not included in the Fortuna test suite due to it's destructive nature. \
+        This is the only destructive function in the module, use with care. It will raise an error if the list is empty.
+        
+        ### Random Table Values
+        `Fortuna.cumulative_weighted_choice(table) -> value` \
+        Core function for the WeightedChoice base class. \
+        Produces a custom distribution of values based on cumulative weights. \
+        Requires input format: `[(weight, value), ... ]` sorted in ascending order by weight. \
+        Weights must be unique positive integers. \
+        See WeightedChoice class for a more comprehensive solution that verifies and optimizes the table. \
+        Up to 15x faster than random.choices()
+        
+        ### Utility Functions
+        `Fortuna.min_max(num: int, lo: int, hi: int) -> int` \
+        Used to force a number in to the range `[lo..hi]` \
+        Returns num if it is already in the proper range. \
+        Returns lo if num is less than lo. Returns hi if num is greater than hi.
+        
+        `Fortuna.analytic_continuation(func: staticmethod, num: int) -> int` \
+        Used to map a positive only function to the negative number line for complete input domain coverage. \
+        The "C" version of this function is used throughout the Fortuna extension. \
+        The function to be analytically continued must take an integer as input and return an integer.
+        
+        ## Fortuna Random Classes
+        ### Sequence Wrappers
+        #### Random Cycle: The Truffle Shuffle
+        Returns a random value from the sequence. Produces a uniform distribution with no consecutive duplicates 
+        and relatively few nearly-consecutive duplicates. Longer sequences will naturally push duplicates even farther apart. 
+        This behavior gives rise to output sequences that seem much less mechanical than other random value sequences. 
+        
+        - Constructor takes a copy of a sequence (list or tuple) of arbitrary values.
+        - Sequence length must be greater than three, best if ten or more.
+        - Values can be any Python object that can be passed around... string, int, list, function etc.
+        - Features continuous smart micro-shuffling: The Truffle Shuffle.
+        - Performance scales by some small fraction of the length of the sequence.
+        ```python
+        from Fortuna import RandomCycle
+        
+        random_cycle = RandomCycle(["Alpha", "Beta", "Delta", "Eta", "Gamma", "Kappa", "Zeta"])
+        random_cycle()  # returns a random value, cycled uniform distribution.
+        ```
+        
+        #### The Quantum Monty
+        A set of strategies for producing random values from a sequence where the probability \
+        of each value is based on the monty you choose. For example: the mostly_front monty \
+        produces random values where the beginning of the sequence is geometrically more common than the back. \
+        The Quantum Monty Algorithm results from overlapping the probability waves of six of the other eight methods. \
+        The distribution it produces is a gentle curve with a bump in the middle.
+        
+        - Constructor takes a copy of a sequence (list or tuple) of arbitrary values.
+        - Sequence length must be greater than three, best if ten or more.
+        - Values can be any Python object that can be passed around... string, int, list, function etc.
+        - Performance scales by some tiny fraction of the length of the sequence. Method scaling may vary slightly.
+        ```python
+        from Fortuna import QuantumMonty
+        
+        quantum_monty = QuantumMonty(["Alpha", "Beta", "Delta", "Eta", "Gamma", "Kappa", "Zeta"])
+        # Each of the following methods will return a random value from the sequence in it's own unique way.
+        quantum_monty.mostly_front()    # Mostly from the front of the list (geometric descending)
+        quantum_monty.mostly_middle()   # Mostly from the middle of the list (geometric pyramid)
+        quantum_monty.mostly_back()     # Mostly from the back of the list (geometric ascending)
+        quantum_monty.mostly_first()    # Mostly from the very front of the list (stretched gaussian descending)
+        quantum_monty.mostly_center()   # Mostly from the very center of the list (stretched gaussian bell curve)
+        quantum_monty.mostly_last()     # Mostly from the very back of the list (stretched gaussian ascending)
+        quantum_monty.quantum_monty()   # Quantum Monty Algorithm (all of the above)
+        quantum_monty.mostly_flat()     # Uniform flat distribution (see Fortuna.random_value)
+        quantum_monty.mostly_cycle()    # Cycled uniform flat distribution (see RandomCycle)
+        ```
+        
+        ### Table & Dictionary Wrappers
+        #### Weighted Choice: Custom Rarity
+        Two strategies for selecting random values from a sequence where rarity counts. \
+        Both produce a custom distribution of values based on the weights of the values. \
+        Up to 10x faster than random.choices()
+        
+        - Constructor takes a copy of a sequence of weighted value pairs... `[(weight, value), ... ]`
+        - Automatically optimizes the sequence for correctness and optimal call performance for large data sets.
+        - The sequence must not be empty, and each pair must have a weight and a value.
+        - Weights must be integers. A future release may allow weights to be floats.
+        - Values can be any Python object that can be passed around... string, int, list, function etc.
+        - Weighted Values should be unique, pass non_unique=True during instantiation to bypass this check. 
+        As a result: non-unique values will have their probabilities logically accumulated. 
+        Relative Weights are summed, Cumulative Weights are over-lapped, but the effect is the same.
+        - Performance scales by some fraction of the length of the sequence.
+        
+        The following examples produce equivalent distributions with comparable performance. 
+        The choice to use one strategy over the other is purely about which one suits you or your data best.
+        Relative weights are easier to understand at a glance.
+        However, RPG Treasure Tables map rather nicely to a cumulative weighted strategy.
+        
+        ##### Cumulative Weight Strategy
+        _Note: Logic dictates Cumulative Weights must be unique!_
+        ```python
+        from Fortuna import CumulativeWeightedChoice
+        
+        cumulative_weighted_choice = CumulativeWeightedChoice((
+            (7, "Apple"),
+            (11, "Banana"),
+            (13, "Cherry"),
+            (23, "Grape"),
+            (26, "Lime"),
+            (30, "Orange"),
+        ))
+        cumulative_weighted_choice()  # returns a weighted random value
+        ```
+        
+        ##### Relative Weight Strategy
+        ```python
+        from Fortuna import RelativeWeightedChoice
+        
+        relative_weighted_choice = RelativeWeightedChoice((
+            (7, "Apple"),
+            (4, "Banana"),
+            (2, "Cherry"),
+            (10, "Grape"),
+            (3, "Lime"),
+            (4, "Orange"),
+        ))
+        relative_weighted_choice()  # returns a weighted random value
+        ```
+        
+        #### FlexCat
+        FlexCat wraps an OrderedDict of keyed sequences, and takes two optional keyword arguments, y_bias and x_bias.
+        FlexCat requires at least three keyed sequences each with at least 3 values.
+        The Y axis keys are accessed directly at call time, or randomized with one of the QuantumMonty methods, specified by y_bias.
+        The X axis sequences are randomized with one of the QuantumMonty methods, specified by x_bias.
+        
+        By default FlexCat will use `y_bias="front"` and `x_bias="cycle"` if not specified at initialization. 
+        This will make the top of the data structure geometrically more common than the bottom, and it produces a flat 
+        cycled distribution for each category. The name FlexCat is short for flexible category sequence value generator.
+        
+        Options for x & y bias: _See QuantumMonty for details_
+        - front, geometric descending
+        - middle, geometric pyramid
+        - back, geometric ascending
+        - first, stretched gaussian descending
+        - center, stretched gaussian bell curve
+        - last, stretched gaussian ascending
+        - flat, uniform flat
+        - cycle, cycled uniform flat
+        - monty, Quantum Monty Algorithm: steady with a bump in the middle.
+        
+        ```python
+        from Fortuna import FlexCat
+        from collections import OrderedDict
+        
+        flex_cat = FlexCat(
+            OrderedDict({
+                "Cat_A": ("A1", "A2", "A3", "A4", "A5"),
+                "Cat_B": ("B1", "B2", "B3", "B4", "B5"),
+                "Cat_C": ("C1", "C2", "C3", "C4", "C5"),
+            }), y_bias="cycle", x_bias="cycle"
+        )
+        flex_cat("Cat_A")  # returns random value from "Cat_A" : cycled uniform distribution
+        flex_cat("Cat_B")  # returns random value from "Cat_B" : cycled uniform distribution
+        flex_cat("Cat_C")  # returns random value from "Cat_C" : cycled uniform distribution
+        flex_cat()         # returns random value from randomly cycled category : cycled uniform distribution
+        ```
+        
+        ## Fortuna Sample Distribution and Performance Test Suite
+        _Testbed: MacOS 10.14.1, Python3.7, Quad 2.7GHz i7 Skylake, 16GB RAM, 1TB SSD_
+        <pre>
+        Random Numbers
+        -------------------------------------------------------------------------
+        
+        Base Case:
+        random.randint(1, 10) x 10000: Total time: 15.073 ms, Average time: 1507 nano
+         1: 9.7%
+         2: 9.9%
+         3: 9.99%
+         4: 9.91%
+         5: 10.17%
+         6: 9.95%
+         7: 10.35%
+         8: 10.35%
+         9: 9.76%
+         10: 9.92%
+        
+        random_range(1, 10) x 10000: Total time: 1.008 ms, Average time: 101 nano
+         1: 9.85%
+         2: 9.95%
+         3: 9.74%
+         4: 9.87%
+         5: 10.2%
+         6: 9.75%
+         7: 10.26%
+         8: 9.96%
+         9: 10.14%
+         10: 10.28%
+        
+        Base Case:
+        random.randrange(10) x 10000: Total time: 10.483 ms, Average time: 1048 nano
+         0: 10.2%
+         1: 9.62%
+         2: 9.76%
+         3: 9.97%
+         4: 10.19%
+         5: 10.01%
+         6: 10.05%
+         7: 9.9%
+         8: 10.19%
+         9: 10.11%
+        
+        random_below(10) x 10000: Total time: 0.876 ms, Average time: 88 nano
+         0: 9.69%
+         1: 10.0%
+         2: 10.19%
+         3: 9.96%
+         4: 10.39%
+         5: 10.17%
+         6: 9.7%
+         7: 10.3%
+         8: 9.51%
+         9: 10.09%
+        
+        d(10) x 10000: Total time: 0.781 ms, Average time: 78 nano
+         1: 9.77%
+         2: 9.85%
+         3: 10.3%
+         4: 9.74%
+         5: 9.62%
+         6: 10.12%
+         7: 10.06%
+         8: 10.06%
+         9: 10.17%
+         10: 10.31%
+        
+        dice(2, 6) x 10000: Total time: 1.027 ms, Average time: 103 nano
+         2: 2.97%
+         3: 5.54%
+         4: 8.69%
+         5: 11.27%
+         6: 13.94%
+         7: 16.37%
+         8: 14.16%
+         9: 10.56%
+         10: 8.43%
+         11: 5.08%
+         12: 2.99%
+        
+        plus_or_minus(5) x 10000: Total time: 0.713 ms, Average time: 71 nano
+         -5: 9.04%
+         -4: 8.61%
+         -3: 9.2%
+         -2: 9.5%
+         -1: 9.43%
+         0: 9.28%
+         1: 8.51%
+         2: 8.83%
+         3: 9.12%
+         4: 9.22%
+         5: 9.26%
+        
+        plus_or_minus_linear(5) x 10000: Total time: 0.987 ms, Average time: 99 nano
+         -5: 2.51%
+         -4: 5.72%
+         -3: 8.2%
+         -2: 11.05%
+         -1: 13.94%
+         0: 16.97%
+         1: 14.23%
+         2: 11.28%
+         3: 8.52%
+         4: 5.08%
+         5: 2.5%
+        
+        plus_or_minus_curve(5) x 10000: Total time: 1.207 ms, Average time: 121 nano
+         -5: 0.12%
+         -4: 0.9%
+         -3: 4.18%
+         -2: 11.71%
+         -1: 20.94%
+         0: 24.72%
+         1: 20.08%
+         2: 11.64%
+         3: 4.33%
+         4: 1.13%
+         5: 0.25%
+        
+        plus_or_minus_curve(5, False) x 10000: Total time: 1.199 ms, Average time: 120 nano
+         -6: 0.02%
+         -5: 0.2%
+         -4: 1.32%
+         -3: 4.63%
+         -2: 11.56%
+         -1: 20.25%
+         0: 24.53%
+         1: 20.55%
+         2: 11.69%
+         3: 3.85%
+         4: 1.23%
+         5: 0.17%
+        
+        zero_flat(10) x 10000: Total time: 0.718 ms, Average time: 72 nano
+         0: 9.2%
+         1: 8.61%
+         2: 9.32%
+         3: 8.95%
+         4: 9.71%
+         5: 8.62%
+         6: 8.67%
+         7: 9.06%
+         8: 9.25%
+         9: 9.34%
+         10: 9.27%
+        
+        zero_cool(10) x 10000: Total time: 1.717 ms, Average time: 172 nano
+         0: 16.68%
+         1: 14.64%
+         2: 13.19%
+         3: 12.62%
+         4: 10.67%
+         5: 9.28%
+         6: 7.84%
+         7: 5.91%
+         8: 4.63%
+         9: 2.9%
+         10: 1.64%
+        
+        zero_extreme(10) x 10000: Total time: 1.832 ms, Average time: 183 nano
+         0: 21.77%
+         1: 21.58%
+         2: 18.5%
+         3: 13.85%
+         4: 10.32%
+         5: 6.64%
+         6: 3.63%
+         7: 1.99%
+         8: 0.96%
+         9: 0.56%
+         10: 0.2%
+        
+        max_cool(10) x 10000: Total time: 1.688 ms, Average time: 169 nano
+         0: 1.43%
+         1: 2.93%
+         2: 5.03%
+         3: 5.85%
+         4: 7.1%
+         5: 9.56%
+         6: 10.32%
+         7: 12.1%
+         8: 13.87%
+         9: 15.29%
+         10: 16.52%
+        
+        max_extreme(10) x 10000: Total time: 1.864 ms, Average time: 186 nano
+         0: 0.13%
+         1: 0.42%
+         2: 1.05%
+         3: 2.23%
+         4: 3.75%
+         5: 6.07%
+         6: 10.69%
+         7: 13.9%
+         8: 18.75%
+         9: 21.53%
+         10: 21.48%
+        
+        mostly_middle(10) x 10000: Total time: 1.013 ms, Average time: 101 nano
+         0: 2.47%
+         1: 5.66%
+         2: 7.82%
+         3: 11.29%
+         4: 13.7%
+         5: 16.87%
+         6: 14.35%
+         7: 10.92%
+         8: 8.51%
+         9: 5.6%
+         10: 2.81%
+        
+        mostly_center(10) x 10000: Total time: 1.22 ms, Average time: 122 nano
+         0: 0.26%
+         1: 1.34%
+         2: 4.51%
+         3: 11.38%
+         4: 20.59%
+         5: 24.48%
+         6: 20.15%
+         7: 11.3%
+         8: 4.65%
+         9: 1.2%
+         10: 0.14%
+        
+        
+        Random Truth
+        -------------------------------------------------------------------------
+        
+        percent_true(25) x 10000: Total time: 0.69 ms, Average time: 69 nano
+         False: 75.02%
+         True: 24.98%
+        
+        
+        Random Values from a Sequence
+        -------------------------------------------------------------------------
+        
+        some_list = ('Alpha', 'Beta', 'Delta', 'Eta', 'Gamma', 'Kappa', 'Zeta')
+        
+        Base Case:
+        random.choice(some_list) x 10000: Total time: 7.556 ms, Average time: 756 nano
+         Alpha: 14.32%
+         Beta: 13.85%
+         Delta: 14.54%
+         Eta: 14.01%
+         Gamma: 14.69%
+         Kappa: 14.68%
+         Zeta: 13.91%
+        
+        random_value(some_list) x 10000: Total time: 0.675 ms, Average time: 68 nano
+         Alpha: 14.09%
+         Beta: 14.63%
+         Delta: 13.96%
+         Eta: 14.83%
+         Gamma: 14.12%
+         Kappa: 13.96%
+         Zeta: 14.41%
+        
+        monty = Fortuna.QuantumMonty(
+        	('Alpha', 'Beta', 'Delta', 'Eta', 'Gamma', 'Kappa', 'Zeta')
+        )
+        
+        monty.mostly_front() x 10000: Total time: 2.107 ms, Average time: 211 nano
+         Alpha: 24.94%
+         Beta: 21.51%
+         Delta: 17.73%
+         Eta: 14.08%
+         Gamma: 10.73%
+         Kappa: 7.56%
+         Zeta: 3.45%
+        
+        monty.mostly_middle() x 10000: Total time: 1.621 ms, Average time: 162 nano
+         Alpha: 6.05%
+         Beta: 12.67%
+         Delta: 18.75%
+         Eta: 24.79%
+         Gamma: 18.43%
+         Kappa: 12.53%
+         Zeta: 6.78%
+        
+        monty.mostly_back() x 10000: Total time: 2.075 ms, Average time: 208 nano
+         Alpha: 3.58%
+         Beta: 7.59%
+         Delta: 11.03%
+         Eta: 14.15%
+         Gamma: 18.86%
+         Kappa: 20.56%
+         Zeta: 24.23%
+        
+        monty.mostly_first() x 10000: Total time: 2.444 ms, Average time: 244 nano
+         Alpha: 33.73%
+         Beta: 30.2%
+         Delta: 20.18%
+         Eta: 10.66%
+         Gamma: 3.77%
+         Kappa: 1.21%
+         Zeta: 0.25%
+        
+        monty.mostly_center() x 10000: Total time: 1.901 ms, Average time: 190 nano
+         Alpha: 0.4%
+         Beta: 5.75%
+         Delta: 23.82%
+         Eta: 41.04%
+         Gamma: 23.06%
+         Kappa: 5.52%
+         Zeta: 0.41%
+        
+        monty.mostly_last() x 10000: Total time: 2.463 ms, Average time: 246 nano
+         Alpha: 0.33%
+         Beta: 1.19%
+         Delta: 4.08%
+         Eta: 10.01%
+         Gamma: 19.62%
+         Kappa: 29.32%
+         Zeta: 35.45%
+        
+        monty.quantum_monty() x 10000: Total time: 3.226 ms, Average time: 323 nano
+         Alpha: 11.52%
+         Beta: 13.3%
+         Delta: 15.23%
+         Eta: 19.33%
+         Gamma: 16.15%
+         Kappa: 12.61%
+         Zeta: 11.86%
+        
+        monty.mostly_flat() x 10000: Total time: 1.352 ms, Average time: 135 nano
+         Alpha: 14.21%
+         Beta: 14.14%
+         Delta: 14.32%
+         Eta: 14.07%
+         Gamma: 14.95%
+         Kappa: 14.12%
+         Zeta: 14.19%
+        
+        monty.mostly_cycle() x 10000: Total time: 7.832 ms, Average time: 783 nano
+         Alpha: 14.49%
+         Beta: 14.22%
+         Delta: 14.32%
+         Eta: 14.26%
+         Gamma: 14.29%
+         Kappa: 14.41%
+         Zeta: 14.01%
+        
+        random_cycle = Fortuna.RandomCycle(
+        	('Alpha', 'Beta', 'Delta', 'Eta', 'Gamma', 'Kappa', 'Zeta')
+        )
+        
+        random_cycle() x 10000: Total time: 6.867 ms, Average time: 687 nano
+         Alpha: 14.61%
+         Beta: 14.29%
+         Delta: 14.25%
+         Eta: 14.29%
+         Gamma: 14.22%
+         Kappa: 14.17%
+         Zeta: 14.17%
+        
+        
+        Random Values by Weighted Table
+        -------------------------------------------------------------------------
+        
+        population = ('Apple', 'Banana', 'Cherry', 'Grape', 'Lime', 'Orange')
+        cum_weights = (7, 11, 13, 23, 26, 30)
+        rel_weights = (7, 4, 2, 10, 3, 4)
+        
+        Cumulative Base Case:
+        random.choices(pop, cum_weights=cum_weights) x 10000: Total time: 16.986 ms, Average time: 1699 nano
+         Apple: 23.69%
+         Banana: 13.95%
+         Cherry: 6.71%
+         Grape: 32.76%
+         Lime: 9.95%
+         Orange: 12.94%
+        
+        Relative Base Case:
+        random.choices(pop, rel_weights) x 10000: Total time: 20.154 ms, Average time: 2015 nano
+         Apple: 22.48%
+         Banana: 13.04%
+         Cherry: 6.81%
+         Grape: 33.45%
+         Lime: 10.08%
+         Orange: 14.14%
+        
+        cumulative_table = ((7, 'Apple'), (11, 'Banana'), (13, 'Cherry'), (23, 'Grape'), (26, 'Lime'), (30, 'Orange'))
+        
+        Fortuna.cumulative_weighted_choice(cumulative_table) x 10000: Total time: 1.473 ms, Average time: 147 nano
+         Apple: 22.77%
+         Banana: 13.32%
+         Cherry: 6.09%
+         Grape: 33.92%
+         Lime: 10.55%
+         Orange: 13.35%
+        
+        cumulative_choice = Fortuna.CumulativeWeightedChoice(
+        	((7, 'Apple'), (11, 'Banana'), (13, 'Cherry'), (23, 'Grape'), (26, 'Lime'), (30, 'Orange'))
+        )
+        
+        cumulative_choice() x 10000: Total time: 2.307 ms, Average time: 231 nano
+         Apple: 22.72%
+         Banana: 13.44%
+         Cherry: 6.25%
+         Grape: 33.77%
+         Lime: 9.98%
+         Orange: 13.84%
+        
+        relative_choice = Fortuna.RelativeWeightedChoice(
+        	((7, 'Apple'), (4, 'Banana'), (2, 'Cherry'), (10, 'Grape'), (3, 'Lime'), (4, 'Orange'))
+        )
+        
+        relative_choice() x 10000: Total time: 2.304 ms, Average time: 230 nano
+         Apple: 24.35%
+         Banana: 12.96%
+         Cherry: 6.49%
+         Grape: 32.99%
+         Lime: 10.12%
+         Orange: 13.09%
+        
+        
+        Random Values by Category
+        -------------------------------------------------------------------------
+        
+        flex_cat = Fortuna.FlexCat(OrderedDict(
+        	{'Cat_A': ('A1', 'A2', 'A3'), 'Cat_B': ('B1', 'B2', 'B3'), 'Cat_C': ('C1', 'C2', 'C3')}
+        ), y_bias='front', x_bias='flat')
+        
+        flex_cat('Cat_A') x 10000: Total time: 2.693 ms, Average time: 269 nano
+         A1: 32.83%
+         A2: 34.09%
+         A3: 33.08%
+        
+        flex_cat('Cat_B') x 10000: Total time: 2.859 ms, Average time: 286 nano
+         B1: 33.57%
+         B2: 33.3%
+         B3: 33.13%
+        
+        flex_cat('Cat_C') x 10000: Total time: 3.05 ms, Average time: 305 nano
+         C1: 32.8%
+         C2: 32.96%
+         C3: 34.24%
+        
+        flex_cat() x 10000: Total time: 4.144 ms, Average time: 414 nano
+         A1: 16.61%
+         A2: 16.15%
+         A3: 16.18%
+         B1: 11.98%
+         B2: 11.56%
+         B3: 11.15%
+         C1: 5.51%
+         C2: 5.37%
+         C3: 5.49%
+        
+        
+        -------------------------------------------------------------------------
+        Total Test Time: 0.2 sec
+        
+        
+        </pre>
+        
+        ## Fortuna Beta Development Log
+        **Fortuna 0.19.5** \
+        _Minor documentation update._
+        
+        **Fortuna 0.19.4** \
+        _Minor update to all classes for better debugging._
+        
+        **Fortuna 0.19.3** \
+        _Updated plus_or_minus_curve to allow unbounded output._
+        
+        **Fortuna 0.19.2** \
+        _Internal development cycle_ \
+        _Minor update to FlexCat for better debugging._
+        
+        **Fortuna 0.19.1** \
+        _Internal development cycle_
+        
+        **Fortuna 0.19.0** \
+        _Updated documentation for clarity._ \
+        _MultiCat has been removed, it is replaced by FlexCat._ \
+        _Mostly has been removed, it is replaced by QuantumMonty._
+        
+        **Fortuna 0.18.7** \
+        _Fixed some more README typos._
+        
+        **Fortuna 0.18.6** \
+        _Fixed some README typos._
+        
+        **Fortuna 0.18.5** \
+        _Updated documentation._ \
+        _Fixed another minor test bug._ \
+        
+        **Fortuna 0.18.4** \
+        _Updated documentation to reflect recent changes._ \
+        _Fixed some small test bugs._ \
+        _Reduced default number of test cycles to 10,000 - down from 100,000._
+        
+        **Fortuna 0.18.3** \
+        _Fixed some minor README typos._
+        
+        **Fortuna 0.18.2** \
+        _Fixed a bug with Fortuna Pure._
+        
+        **Fortuna 0.18.1** \
+        _Fixed some minor typos._ \
+        _Added tests to Fortuna Pure._
+        
+        **Fortuna 0.18.0** \
+        _Introduced new test format, now includes average call time in nanoseconds._ \
+        _Reduced default number of test cycles to 100,000 - down from 1,000,000._ \
+        _Added pure Python implementation of Fortuna:_ `.../fortuna_extras/fortuna_pure.py` \
+        _Promoted several low level functions to top level._
+        - `zero_flat(num: int) -> int`
+        - `zero_cool(num: int) -> int`
+        - `zero_extreme(num: int) -> int`
+        - `max_cool(num: int) -> int`
+        - `max_extreme(num: int) -> int`
+        - `analytic_continuation(func: staticmethod, num: int) -> int`
+        - `min_max(num: int, lo: int, hi: int) -> int`
+        
+        **Fortuna 0.17.3** \
+        _Internal development cycle._
+        
+        **Fortuna 0.17.2** \
+        _User Requested: dice() and d() functions now support negative numbers as input._
+        
+        **Fortuna 0.17.1** \
+        _Fixed some minor typos._
+        
+        **Fortuna 0.17.0** \
+        _Added QuantumMonty to replace Mostly, same default behavior with more options._ \
+        _Mostly is depreciated and may be removed in a future release._ \
+        _Added FlexCat to replace MultiCat, same default behavior with more options._ \
+        _MultiCat is depreciated and may be removed in a future release._ \
+        _Expanded the Treasure Table example in .../fortuna_extras/fortuna_examples.py_
+        
+        **Fortuna 0.16.2** \
+        _Minor refactoring for WeightedChoice_
+        
+        **Fortuna 0.16.1** \
+        _Redesigned fortuna_examples.py to feature a dynamic random magic item generator._ \
+        _Raised cumulative_weighted_choice function to top level._ \
+        _Added test for cumulative_weighted_choice as free function._ \
+        _Updated MultiCat documentation for clarity._
+        
+        **Fortuna 0.16.0** \
+        _Pushed distribution_timer to the .pyx layer._ \
+        _Changed default number of iterations of tests to 1 million, up form 1 hundred thousand._ \
+        _Reordered tests to better match documentation._ \
+        _Added Base Case Fortuna.fast_rand_below._
+        _Added Base Case Fortuna.fast_d._ \
+        _Added Base Case Fortuna.fast_dice._
+        
+        **Fortuna 0.15.10** \
+        _Internal Development Cycle_
+        
+        **Fortuna 0.15.9** \
+        _Added Base Cases for random.choices_ \
+        _Added Base Case for randint_dice_
+        
+        **Fortuna 0.15.8** \
+        _Clarified MultiCat Test_
+        
+        **Fortuna 0.15.7** \
+        _Fixed minor typos._
+        
+        **Fortuna 0.15.6** \
+        _Fixed minor typos._ \
+        _Simplified MultiCat example._
+        
+        **Fortuna 0.15.5** \
+        _Added MultiCat test._ \
+        _Fixed some minor typos in docs._
+        
+        **Fortuna 0.15.4** \
+        _Performance optimization for both WeightedChoice() variants._ \
+        _Cython update provides small performance enhancement across the board._ \
+        _Compilation now leverages Python3 all the way down._ \
+        _MultiCat pushed to the .pyx layer for better performance._
+        
+        **Fortuna 0.15.3** \
+        _Reworked the MultiCat example to include several randomizing strategies working in concert._ \
+        _Added Multi Dice 10d10 performance tests._ \
+        _Updated sudo code in documentation to be more pythonic._
+        
+        **Fortuna 0.15.2** \
+        _Fixed: Linux installation failure._ \
+        _Added: complete source files to the distribution (.cpp .hpp .pyx)._
+        
+        **Fortuna 0.15.1** \
+        _Updated & simplified distribution_timer in fortuna_tests.py_ \
+        _Readme updated, fixed some typos._ \
+        _Known issue preventing successful installation on some linux platforms._
+        
+        **Fortuna 0.15.0** \
+        _Performance tweaks._ \ 
+        _Readme updated, added some details._
+        
+        **Fortuna 0.14.1** \
+        _Readme updated, fixed some typos._
+        
+        **Fortuna 0.14.0** \
+        _Fixed a bug where the analytic continuation algorithm caused a rare issue during compilation on some platforms._
+        
+        **Fortuna 0.13.3** \
+        _Fixed Test Bug: percent sign was missing in output distributions._ \
+        _Readme updated: added update history, fixed some typos._
+        
+        **Fortuna 0.13.2** \
+        _Readme updated for even more clarity._
+        
+        **Fortuna 0.13.1** \
+        _Readme updated for clarity._
+        
+        **Fortuna 0.13.0** \
+        _Minor Bug Fixes._ \
+        _Readme updated for aesthetics._ \
+        _Added Tests: .../fortuna_extras/fortuna_tests.py_
+        
+        **Fortuna 0.12.0** \
+        _Internal test for future update._
+        
+        **Fortuna 0.11.0** \
+        _Initial Release: Public Beta_
+        
+        **Fortuna 0.10.0** \
+        _Module name changed from Dice to Fortuna_
+        
+        
+        ## Legal Stuff
+        Fortuna :: Copyright (c) 2018 Broken aka Robert W. Sharp
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy \
+        of this software and associated documentation files (the "Software"), to deal \
+        in the Software without restriction, including without limitation the rights \
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell \
+        copies of the Software, and to permit persons to whom the Software is \
+        furnished to do so, subject to the following conditions:
+        
+        This README.md file shall be included in all copies or portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR \
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, \
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE \
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER \
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, \
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE \
+        SOFTWARE.
+        
+Keywords: Fortuna,Random Patterns,Data Perturbation,Game Dice,Weighted Choice,Random Cycle,Random Value,Gaussian Distribution,Linear Geometric Distribution,Truffle Shuffle,FlexCat,Percent True,Zero Cool,Quantum Monty,Custom Distribution,Rarity Table
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.7
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Development Status :: 4 - Beta
+Requires: Cython
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
