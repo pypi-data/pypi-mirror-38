@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: perfcounters
+Version: 1.0.0
+Summary: Easily add performance counters to your code
+Home-page: https://github.com/ebursztein/perfcounters
+Author: Elie Bursztein
+Author-email: code@elie.net
+License: Apache 2
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development :: Debuggers
+Classifier: Topic :: Software Development :: Testing
+Requires-Dist: tabulate
+
+
+PerfCounter is a thoroughly tested library that make it easy to add multiple
+counters to any python code to measure intermediate timing and values.
+
+Its various reporting mechanisms makes it easy to analyze and
+report performance measurement regardless of your workflow.
+
+
