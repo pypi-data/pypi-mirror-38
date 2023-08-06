@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: bayesian_trajectory_replay
+Version: 1.0.0
+Summary: Non-parametric Bayesian learning of robot behaviors from demonstration
+Home-page: https://github.com/bayesian_trajectory_replay/bayesian_trajectory_replay
+Author: Stéphane Magnenat and Francis Colas
+Author-email: francis.colas@inria.fr
+License: BSD
+Description: This repository contains the Python/Cython core of our work on non-parametric Bayesian learning of robot behaviors from demonstration.
+        		Stéphane Magnenat and Francis Colas.
+        		Copyright (c) 2011-2018 ETH Zurich.
+        		This work was mostly done at the Autonomous Systems Lab (http://www.asl.ethz.ch/).
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Cython
+Classifier: Programming Language :: Python :: 2 :: Only
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
