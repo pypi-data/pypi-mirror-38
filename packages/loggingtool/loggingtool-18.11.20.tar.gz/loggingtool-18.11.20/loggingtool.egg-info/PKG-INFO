@@ -1,0 +1,11 @@
+Metadata-Version: 1.0
+Name: loggingtool
+Version: 18.11.20
+Summary: The package for logging
+Home-page: https://github.com/lijiacaigit/LogTool
+Author: Lijiacai
+Author-email: 1050518702@qq.com
+License: MIT License
+Description: The package uses the dictionary method of logging module to achieve log rollback and other output.
+Keywords: pip,logging,loggingtool
+Platform: any
