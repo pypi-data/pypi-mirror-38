@@ -1,0 +1,37 @@
+Metadata-Version: 1.2
+Name: moose-frank
+Version: 1.0
+Summary: A Python package packed with tools that are commonly used in Moose projects.
+Home-page: https://gitlab.com/mediamoose/moose-frank/tree/v1.0
+Author: Sven Groot (Mediamoose)
+Author-email: sven@mediamoose.nl
+License: MIT
+Download-URL: https://gitlab.com/mediamoose/moose-frank/repository/v1.0/archive.tar.gz
+Description: Moose Frank
+        ===========
+        
+        A Python package packed with tools that are commonly used in Moose projects.
+        
+        
+        Installation
+        ++++++++++++
+        
+        .. code-block:: sh
+        
+            pip install moose-frank
+        
+Keywords: moose,frank,frankenstein
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 1.11
+Classifier: Framework :: Django :: 2.0
+Classifier: Framework :: Django :: 2.1
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.6
