@@ -1,0 +1,17 @@
+.gitignore
+CHANGELOG.md
+README.md
+goss-config.json
+setup.py
+goss_config_gen/__init__.py
+goss_config_gen/cli.py
+goss_config_gen/config.py
+goss_config_gen/exceptions.py
+goss_config_gen/role_import.py
+goss_config_gen/utils.py
+goss_config_gen.egg-info/PKG-INFO
+goss_config_gen.egg-info/SOURCES.txt
+goss_config_gen.egg-info/dependency_links.txt
+goss_config_gen.egg-info/entry_points.txt
+goss_config_gen.egg-info/requires.txt
+goss_config_gen.egg-info/top_level.txt
