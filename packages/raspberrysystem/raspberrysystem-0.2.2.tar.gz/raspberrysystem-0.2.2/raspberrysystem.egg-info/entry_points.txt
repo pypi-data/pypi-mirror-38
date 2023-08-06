@@ -1,0 +1,3 @@
+[console_scripts]
+raspberrysystem = raspberrysystem.__main__:main
+
