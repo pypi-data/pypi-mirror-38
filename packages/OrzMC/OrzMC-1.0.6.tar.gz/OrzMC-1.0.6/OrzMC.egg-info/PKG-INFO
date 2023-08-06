@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: OrzMC
+Version: 1.0.6
+Summary: A project for deployment of minecraft game.
+Home-page: https://github.com/OrzGeeker/OrzMC.git
+Author: 王志舟<wangzhizhou>
+Author-email: 824219521@qq.com
+Maintainer: 王志舟
+Maintainer-email: 824219521@qq.com
+License: UNKNOWN
+Description: # OrzMC
+        
+        A project for deploy minecraft client
+        
+        Only support Python >=3.2
+        
+        
+        # Support Minecraft Client Version
+        
+        - 1.13
+        
+        This Program has been uploaded into PIP
+        
+        # Usage
+        
+        You should have a jre runtime on you device
+        
+        ```
+        $ pip3 install orzmc
+        $ mkdir minecraft
+        $ cd minecraft
+        $ orzmc
+        ```
+        
+        
+Keywords: minecraft python
+Platform: all
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: License :: OSI Approved :: Apache Software License
+Requires-Python: >=2.7, <4
+Description-Content-Type: text/markdown
