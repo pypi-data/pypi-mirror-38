@@ -1,0 +1,2 @@
+recursive-include make_django/batteries *
+recursive-include make_django/data *
