@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: RequestIdLogger
+Version: 0.1
+Summary: Logger with request id
+Home-page: UNKNOWN
+Author: Atman Corp
+Author-email: corp@atman.com
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: flask-log-request-id
+Requires-Dist: Flask
+
+UNKNOWN
+
+
