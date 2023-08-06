@@ -1,0 +1,23 @@
+Metadata-Version: 1.1
+Name: hap
+Version: 1.3.1
+Summary: A simple HTML scraping tool
+Home-page: https://github.com/lexndru/hap
+Author: Alexandru Catrina
+Author-email: alex@codeissues.net
+License: MIT
+Download-URL: https://github.com/lexndru/hap
+Description: 
+        Hap! is an HTML parser and scraping tool build upon its own concept to transform markup-language documents into valuable data. It implements the dataplan application specification for markup-language data-oriented documents.
+        
+        The complete guide for Hap! can be found on the frontpage of the github repository https://github.com/lexndru/hap
+        
+Keywords: html,scraping,crawler,tool,hap
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Text Processing :: Markup :: HTML
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.7
