@@ -1,0 +1,19 @@
+Metadata-Version: 1.2
+Name: rchain-keygen
+Version: 0.0.1
+Summary: Do development and deploy with the RAPyDo framework
+Home-page: https://pdonorio.github.io/rchain-keys-generator
+Author: Paolo D'Onorio De Meo
+Author-email: paolo@proofmedia.io
+License: MIT
+Description: UNKNOWN
+Keywords: rchain,blockchain,keypairs,generator
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Intended Audience :: Developers
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.5.1
