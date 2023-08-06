@@ -1,0 +1,24 @@
+{
+  "name": "mycelyso-frontend",
+  "version": "0.0.1",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Christian C. Sachs <c.sachs@fz-juelich.de>",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "angular": "^1.5.11",
+    "angular-ui-grid": "^4.0.11",
+    "angular-ui-slider": "^0.4.0",
+    "bootstrap": "^3.3.7",
+    "cytoscape": "^2.7.29",
+    "d3": "^3.5.17",
+    "jquery": "^3.3.1",
+    "jquery-ui": "^1.12.1",
+    "lightbox2": "^2.9.0",
+    "mathbox": "0.0.5",
+    "pdfmake": "^0.1.38"
+  }
+}
