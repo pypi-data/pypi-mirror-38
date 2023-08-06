@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: chunk_logger
+Version: 1.0.0
+Summary: SafeTimedChunksFileHandler
+Home-page: https://github.com/intento/chunk_logger
+Author: Alexander Zelenin
+Author-email: az@inten.to
+License: MIT
+Description: SafeTimedChunksFileHandler is concurrent safe FileHandler that splits logs into N-minute chunks
+Platform: UNKNOWN
