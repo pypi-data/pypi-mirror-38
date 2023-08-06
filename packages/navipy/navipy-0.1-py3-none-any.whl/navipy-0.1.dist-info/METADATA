@@ -1,0 +1,41 @@
+Metadata-Version: 2.0
+Name: navipy
+Version: 0.1
+Summary: Insect Navigation Toolbox
+Home-page: https://gitlab.ub.uni-bielefeld.de/olivier.bertrand/navipy.git
+Author: Olivier J.N. Bertrand
+Author-email: olivier.bertrand@uni-bielefeld.de
+License: UNKNOWN
+Description-Content-Type: UNKNOWN
+Platform: UNKNOWN
+Requires: numpy
+Requires: pandas
+Requires: matplotlib
+Requires: scipy
+Requires: networkx
+Requires: ipython
+Requires: yaml
+Requires: PIL
+Requires: cv2
+Requires: fastdtw
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: matplotlib
+Requires-Dist: scipy
+Requires-Dist: sphinx-rtd-theme
+Requires-Dist: networkx
+Requires-Dist: sphinx-argparse
+Requires-Dist: ipython
+Requires-Dist: flake8
+Requires-Dist: tox
+Requires-Dist: pyyaml
+Requires-Dist: Pillow
+Requires-Dist: tables
+Requires-Dist: nbsphinx
+Requires-Dist: opencv-python
+Requires-Dist: coverage
+Requires-Dist: fastdtw
+
+UNKNOWN
+
+

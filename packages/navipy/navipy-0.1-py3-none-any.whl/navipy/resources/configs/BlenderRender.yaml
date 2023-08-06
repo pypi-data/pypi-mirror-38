@@ -1,0 +1,21 @@
+#
+# Default configuration file used by BlendRenderer
+#
+
+BlenderRender:
+  # field of view of the camera
+  # elevation, two numbers [min, max]
+  # azimuth, two numbers [min, max]
+  fov:
+    elevation: [-90,90]
+    azimuth: [-180, 180]
+  # Number of pixel along the azimuth, and elevation
+  resolution: [360, 180]
+  # Filter width for each pixel
+  gaussian_width: 1.5
+  # Number of rays (samples) used for redering
+  # Higher number give better results, but
+  # require more computation time. 
+  samples: 30
+  # maximum possible distance
+  worldlimit: 100
