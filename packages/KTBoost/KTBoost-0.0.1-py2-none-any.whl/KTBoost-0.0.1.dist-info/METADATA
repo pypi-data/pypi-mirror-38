@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: KTBoost
+Version: 0.0.1
+Summary: Implements several boosting algorithms in Python (in particular, KTBoost, Grabit, and Newton boosting)
+Home-page: https://github.com/fabsig/KTBoost
+Author: Fabio Sigrist
+Author-email: fabiosigrist@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2.7
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+# KTBoost
+
+This package implements several boosting algorithm. In particular, this 
+includes the KTBoost algorith, the Grabit algorithm, as well as Newton
+boosting. The package is an extenion of scikit-learn and re-uses code from
+scikit-learn.
+
