@@ -1,0 +1,25 @@
+Metadata-Version: 1.1
+Name: cherries
+Version: 1.0a0
+Summary: Library of Python utilities
+Home-page: https://github.com/kosarev/cherries
+Author: Ivan Kosarev
+Author-email: ivan@kosarev.info
+License: MIT
+Description: UNKNOWN
+Keywords: utilities rangeset range_set
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Utilities
