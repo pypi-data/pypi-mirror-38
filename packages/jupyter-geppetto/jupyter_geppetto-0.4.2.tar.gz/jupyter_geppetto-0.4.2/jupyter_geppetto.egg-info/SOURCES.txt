@@ -1,0 +1,13 @@
+MANIFEST.in
+README.rst
+setup.py
+jupyter_geppetto/__init__.py
+jupyter_geppetto/index.js
+jupyter_geppetto/jupyter_geppetto.py
+jupyter_geppetto/synchronization.py
+jupyter_geppetto/utils.py
+jupyter_geppetto.egg-info/PKG-INFO
+jupyter_geppetto.egg-info/SOURCES.txt
+jupyter_geppetto.egg-info/dependency_links.txt
+jupyter_geppetto.egg-info/requires.txt
+jupyter_geppetto.egg-info/top_level.txt
