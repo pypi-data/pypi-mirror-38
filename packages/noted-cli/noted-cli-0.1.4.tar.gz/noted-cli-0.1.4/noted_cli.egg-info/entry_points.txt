@@ -1,0 +1,4 @@
+[console_scripts]
+noted = notedlib.console:tui
+noted-cli = notedlib.console:cli
+
