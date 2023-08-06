@@ -1,0 +1,10 @@
+sqlcop/__init__.py,sha256=XHyrs2mvMhAEggTFQsgiH_Tq23vGVDZGGQTvBRjo4jE,85
+sqlcop/cli.py,sha256=bc0XNLt1OSJ7vnXg_vro1I7LFdNRb_LFURlioeehLN0,1938
+sqlcop/checks/__init__.py,sha256=UfMpBR2CUpxf2ddCKfr1DvafiU5pwUbFm2i7xchS47g,255
+sqlcop/checks/cross_join.py,sha256=e5d8t2hj9kNGmi9fUcWM7wvP4f0SPG72QKdXLQIJIPI,5163
+sqlcop/checks/order_by_count.py,sha256=54E5gw7maQs8o2JFzkSov_p2new1tcaKz7yJXoZ8KmQ,2311
+sqlcop-0.10.17.dist-info/METADATA,sha256=mVunnAwDzHsVU7ph_jSZRd7UkwflD3sP2gJG-dpz4L0,1963
+sqlcop-0.10.17.dist-info/RECORD,,
+sqlcop-0.10.17.dist-info/WHEEL,sha256=gduuPyBvFJQSQ0zdyxF7k0zynDXbIbvg5ZBHoXum5uk,110
+sqlcop-0.10.17.dist-info/entry_points.txt,sha256=fM328DFDZV2LM3cdCsRXerZau5mL-xlU6HFZQ6panUY,44
+sqlcop-0.10.17.dist-info/top_level.txt,sha256=h-0ifsLkMN0HaE--jBiKywD4CrBKy4gTvzqsuOEmTuo,7
