@@ -1,0 +1,3 @@
+[console_scripts]
+bundle-requirements=bin.bundle_requirements:main
+
