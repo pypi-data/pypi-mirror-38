@@ -1,0 +1,184 @@
+Metadata-Version: 2.1
+Name: belogging
+Version: 0.1.3
+Summary: Belogging
+Home-page: https://github.com/georgeyk/belogging/
+Author: George Y. Kussumoto
+Author-email: contato@georgeyk.com.br
+License: MIT
+Download-URL: https://github.com/georgeyk/belogging/releases
+Keywords: logging
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: System :: Logging
+Requires-Dist: python-json-logger (>=0.1.5)
+
+
+Belogging
+=========
+
+*Don't fight with logging ...*
+
+|TravisCI Build Status| |Coverage Status| |PyPI Version| |PyPI License| |PyPI latest|
+
+----
+
+Easy logging configuration based on environment variables.
+
+Features:
+
+    * Set logging level using environment variable LOG_LEVEL (defaults to 'INFO')
+    * Set which loggers to enable using environment variable LOGGERS (defaults to '', everything)
+    * Always output to stdout
+    * Optional JSON formatter
+    * Completely disable logging setting LOG_LEVEL=DISABLED
+
+Requirements:
+
+    * Python 3.5 and beyond
+
+Install:
+
+    `pip install belogging`
+
+
+Examples:
+---------
+
+Simple applications:
+~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: python
+
+    # my_script.py
+
+    import belogging
+    belogging.load()
+    # ^^ this call is optional, only useful for customization
+    # For example, to enable JSON output: belogging.load(json=True)
+
+    # belogging.getLogger is just a sugar to logging.getLogger, you can
+    # use logging.getLogger as usual (and recommended).
+    logger = belogging.getLogger('foobar')
+    logger.debug('test 1')
+    logger.info('test 2')
+
+
+Executing:
+
+.. code-block:: bash
+
+    # selecting LOG_LEVEL
+    $ LOG_LEVEL=DEBUG python my_script.py
+    # level=DEBUG message=test 1
+    # level=INFO message=test 2
+
+    # selecting LOGGERS
+    $ LOGGERS=foobar python my_script.py
+    # Both messages
+
+    # Both
+    $ LOGGERS=foobar LOG_LEVEL=INFO my_script.py
+    # only level=INFO message=test 2
+
+
+Applications should call ```belogging.load()``` upon initialization.
+The first ```__init__.py``` would be a good candidate, but anything before any call to
+```logging``` module will be fine.
+
+
+Django:
+~~~~~~~
+
+
+In your projects ```settings.py```:
+
+.. code-block:: python
+
+    import belogging
+    # Disable django logging setup
+    LOGGING_CONFIG = None
+    belogging.load()
+
+
+Inside your code, just use ```logging.getLogger()``` as usual.
+
+.. code-block:: bash
+
+    $ export LOG_LEVEL=WARNING
+    $ ./manage.py runserver
+    # It will output only logging messages with severity > WARNING
+
+
+Logging follows a hierarchy, so you easily select or skip some logging messages:
+
+
+.. code-block:: bash
+
+    $ export LOGGERS=my_app.critical_a,my_app.critical_c,my_lib
+    $ ./my-app.py
+    # "my_app.critical_b messages" will be skipped
+    # all messages from my_lib will show up
+
+
+.. |TravisCI Build Status| image:: https://travis-ci.org/georgeyk/belogging.svg?branch=master
+   :target: https://travis-ci.org/georgeyk/belogging
+.. |Coverage Status| image:: https://coveralls.io/repos/github/georgeyk/belogging/badge.svg?branch=master
+   :target: https://coveralls.io/github/georgeyk/belogging?branch=master
+.. |PyPI Version| image:: https://img.shields.io/pypi/pyversions/belogging.svg?maxAge=2592000
+   :target: https://pypi.python.org/pypi/belogging
+.. |PyPI License| image:: https://img.shields.io/pypi/l/belogging.svg?maxAge=2592000
+   :target: https://pypi.python.org/pypi/belogging
+.. |PyPI latest| image:: https://img.shields.io/pypi/v/belogging.svg?maxAge=2592000
+   :target: https://pypi.python.org/pypi/belogging
+
+
+Changelog:
+----------
+
+0.1.3
+-----
+
+* Fix duplication filter: use formatted log message to detect duplication
+  (thanks to @rodjjo)
+
+0.1.2
+-----
+
+* Add missing tests asserts
+* Add lock for dealing with OrderedDict self._cache
+
+0.1.1
+-----
+
+* Workaround to prevent KeyError exception in LoggerDuplicationFilter
+
+0.1.0
+-----
+
+* Add JSON formatter
+* Minor improvements
+
+
+0.0.2
+-----
+
+* Added LoggerDuplicationFilter and enable_duplication_filter option
+* Added belogging.getLogger (sugar to logging.getLogger)
+
+
+0.0.1
+-----
+
+* Initial release
+
+
