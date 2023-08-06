@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: maui-tools
+Version: 0.1
+Summary: Multi-omics Autoencoder Integration
+Home-page: https://github.com/BIMSBbioinfo/maui
+Author: Jonathan Ronen
+Author-email: yablee@gmail.com
+License: GPLv3
+Platform: UNKNOWN
+Requires-Dist: pytest
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: scipy
+Requires-Dist: scikit-learn
+Requires-Dist: keras
+Requires-Dist: tensorflow
+
+UNKNOWN
+
+
