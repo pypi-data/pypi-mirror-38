@@ -1,0 +1,7 @@
+__author__ = 'Managed by Q, Inc.'
+__author_email__ = 'open-source@managedbyq.com'
+__description__ = 'MBQ Tokens'
+__license__ = 'Apache 2.0'
+__title__ = 'mbq.tokens'
+__url__ = 'https://github.com/managedbyq/mbq.tokens'
+__version__ = '0.1.0'
