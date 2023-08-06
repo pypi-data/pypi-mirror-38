@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: ZEdit
+Version: 1.2.1
+Summary: A simple 3-D rendering engine and editor
+Home-page: https://github.com/Lax125/renderer
+Author: Marcus Koh
+Author-email: marcuskoh29@gmail.com
+License: UNKNOWN
+Description: # ZEdit
+        A simple 3-D rendering engine and editor.
+        
+        ## Installation
+        In shell:
+        
+        ```
+        $ pip3 install zedit
+        ```
+        
+        In Python 3.x:
+        
+        ```
+        >>> import ZEdit
+        >>> ZEdit.run()
+        ```
+        
+        ## Use
+        Press the [F1] key for help.
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3
+Description-Content-Type: text/markdown
