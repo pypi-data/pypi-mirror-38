@@ -1,0 +1,5 @@
+requests
+requests-oauthlib
+
+[provider]
+django-oauth-toolkit
