@@ -1,0 +1,185 @@
+Metadata-Version: 2.1
+Name: pycronic
+Version: 0.0.5
+Summary: A crontab script wrapper written by python
+Home-page: https://github.com/piglei/pycronic/
+Author: piglei
+Author-email: piglei2007@gmail.com
+License: GPL
+Keywords: crontab cronic
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 2.7
+Requires-Dist: configobj
+Requires-Dist: sender
+
+========
+pycronic
+========
+
+`Chinese Version`_
+
+This project is inspired by `cronic`_ and includes some extra useful functions
+such as sending email error report through SMTP and store logs of crontab scripts.
+
+Why pycronic?
+=============
+
+Crontab has the ability to send mail notification when any output was generated
+executing your script, as we know. It will send a bunch of emails to you 
+every day if you have a lof of scripts. What if we only want to get the mail 
+when something goes wrong?
+
+As a result, You may config your crontab like this: ::
+
+    # Redirect all standard output to /dev/null so we will get an email
+    # only if this script has some standard error output.
+    * * * * * some_work > /dev/null
+
+    # Or this to ignore all output for lazy people, but you will never 
+    # be notified if your script fails.
+    * * * * * some_work > /dev/null 2>&1
+
+Using pycronic make things simplier: ::
+
+    cronic="/usr/local/bin/cronic"                                                                       
+    * * * * * &cronic some_work
+
+All you need is to prepend cronic to your script execution command.
+**cronic** command will check the return code and the error output for you, if something
+wents wrong, you will get an email notification through crontab's default mailing system
+or your customized STMP server. ::
+
+    MAIL TITLE: [Cronic@server1] Error occoured when running "backup"
+
+    MAIL CONTENT: 
+
+    Cronic Error Report
+    ===================
+
+    [2013-11-12 16:07:24.228788] Cronic detected failure or error output for the command:
+
+    backup
+
+    RESULT CODE: 2
+
+    ERROR OUTPUT:
+    ~~~~~~~~~~~~~
+
+    Can not connect to database!
+
+    STANDARD OUTPUT:
+    ~~~~~~~~~~~~~~~~
+
+    Starting backup...
+
+And cronic will store all your scripts output to a directory (/tmp/pycronic by default).
+
+Installation
+============
+
+Using pip: ::
+
+    # Install from pypi
+    sudo pip install pycronic
+    # Latest version from git
+    sudo pip install https://github.com/piglei/pycronic/archive/master.zip
+    # Or install from github
+    sudo pip install -e git+https://github.com/piglei/pycronic/#egg=pycronic
+
+Note: pycronic is now python3 compatible, you can install using ``pip3 install ...``
+
+
+Configuration
+=============
+
+After the installation, run "cronic" in your command line to verify: ::
+
+    $ cronic 
+    Usage: cronic YOUR_COMMAND
+
+    $ cronic ls
+    Config file "/etc/pycronic.conf" does not exist!
+    Run "cronic init" to create a default one."
+
+Then run "sudo cronic init" to create a default config file under /etc, the default config
+file should look like this: ::
+
+    # Log path for pycronic, pycronic will store all logs to this directory
+    log_path = /tmp/pycronic
+
+    # Send an error email or not, default to not send
+    send_alert_email = True
+
+    # Email Title
+    mail_title = [Cronic@%(host)s] Error occoured when running "%(command)s"
+
+    # Email receivers
+    # receivers = sample@sample.com
+
+    # Email smtp server config
+    [email_config_smtp]
+    # username = username
+    # host = smtp.sample.com
+    # password = password
+    # from = Cronic <pycronic@sample.com>
+    # port = 587
+
+How to use
+==========
+
+cronic will be silent if no error occured when running a script: ::
+
+    piglei@macbook-pro:etc$ cronic ls
+    piglei@macbook-pro:etc$ cat /tmp/pycronic/ls.log 
+    [The script result will be stored in the log file]
+
+But if an error has occured (cronic will check the standard error output), it will print
+an error message like this: ::
+
+    $ cronic ls asdf
+    Cronic Error Report
+    ===================
+
+    [2013-11-12 15:49:03.349575] Cronic detected failure or error output for the command:
+
+    ls asdf
+
+    RESULT CODE: 1
+
+    ERROR OUTPUT: 
+    ~~~~~~~~~~~~~
+
+    ls: asdf: No such file or directory
+
+    STANDARD OUTPUT:
+    ~~~~~~~~~~~~~~~~
+
+    None
+
+If you have configured your crontab an email will send to your email address.
+
+You can also modify config to send mail through SMTP instead of using crontab 
+which is highly more recommended.
+
+Rock crontab
+============
+
+Now config your crontab, using pycronic to wrap your scripts: ::
+
+
+    $ crontab -e
+    # If you have not config your pycronic.conf's smtp config, you can still
+    # use crontab to send error emails.
+    MAILTO="piglei2007@gmail.com"
+    cronic="/usr/local/bin/cronic"                                                                       
+
+    */5 * * * *  $cronic YOUR SCRIPT
+
+Enjoy!
+
+.. _cronic: http://habilis.net/cronic/
+.. _Chinese Version: https://github.com/piglei/pycronic/blob/master/README_zh.rst
+
+
+
