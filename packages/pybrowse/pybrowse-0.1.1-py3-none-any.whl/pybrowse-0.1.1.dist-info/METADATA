@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: pybrowse
+Version: 0.1.1
+Summary: A (very simple) Python web browser.
+Home-page: https://github.com/chrisnorman7/
+Author: Chris Norman
+Author-email: chris.norman2@googlemail.com
+License: MPL-2
+Platform: UNKNOWN
+Requires-Dist: pytest
+Requires-Dist: flake8
+Requires-Dist: wxpython
+
+# pybrowse
+A (very simple) Python web browser.
+
+
+
