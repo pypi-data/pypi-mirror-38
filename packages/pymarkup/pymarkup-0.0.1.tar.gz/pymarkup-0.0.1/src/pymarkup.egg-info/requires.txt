@@ -1,0 +1,15 @@
+
+[dev]
+pytest
+black
+twine
+sphinx
+sphinx_rtd_theme
+
+[docs]
+sphinx
+sphinx_rtd_theme
+dataclasses
+
+[tests]
+pytest
