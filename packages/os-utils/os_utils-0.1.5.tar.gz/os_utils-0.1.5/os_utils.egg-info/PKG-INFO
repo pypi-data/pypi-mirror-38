@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: os-utils
+Version: 0.1.5
+Summary: os utils to reduce code copy paste
+Home-page: https://github.com/ahcub/os_utils
+Author: Alex Buchkovsky
+Author-email: olex.buchkovsky@gmail.com
+License: UNKNOWN
+Description: Utils for python
+        ====================
+        
+        os utils for python to reduce copy pasting same functionality and unity functions to handle common problems with delete of file or directory or creating directory
+        - logging configuration
+        - path operations (delete, crearing)
+        - files operation (like md5 calculation or zipping a folder)
+Keywords: logging,path,dirs,files
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
