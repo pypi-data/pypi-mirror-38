@@ -1,0 +1,16 @@
+README.md
+setup.py
+statreg/__init__.py
+statreg/basis.py
+statreg/memoize.py
+statreg/vector.py
+statreg.egg-info/PKG-INFO
+statreg.egg-info/SOURCES.txt
+statreg.egg-info/dependency_links.txt
+statreg.egg-info/requires.txt
+statreg.egg-info/top_level.txt
+statreg/examples/__init__.py
+statreg/examples/function.py
+statreg/examples/kernels.py
+statreg/model/__init__.py
+statreg/model/gauss_error.py
