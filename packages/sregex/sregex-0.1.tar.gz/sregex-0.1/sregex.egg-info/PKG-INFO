@@ -1,0 +1,31 @@
+Metadata-Version: 1.1
+Name: sregex
+Version: 0.1
+Summary: Structural Regular Expressions in Python
+Home-page: http://sregex.googlecode.com
+Author: Joe Gregorio
+Author-email: joe@bitworking.org
+License: Apache Software License (v2)
+Description: sregex
+        ======
+        
+        Installation
+        ------------
+          $ python setup.py install
+        
+        Tests
+        -----
+          $ python sregex_test.py
+        
+        License
+        -------
+          Apache 2
+        
+Keywords: regex structured regular expression
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Text Processing
