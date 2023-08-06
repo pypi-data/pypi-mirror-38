@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: vanity-address
+Version: 0.1.4
+Summary: Bitcoin vanity address miner
+Home-page: https://github.com/jcsongor/vanity_address
+Author: Jozsa Csongor
+Author-email: jozsa.csongor@gmail.com
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: ecdsa (==0.13)
+Requires-Dist: base58 (==1.0.2)
+Provides-Extra: dev
+Requires-Dist: coverage (==4.5.2) ; extra == 'dev'
+Requires-Dist: coveralls (==1.5.1) ; extra == 'dev'
+
+Generate bitcoin vanity addresses matched by an arbitrary callback.
+
+
