@@ -1,0 +1,10 @@
+import requests
+url = 'https://v61af4co0d.execute-api.us-east-1.amazonaws.com/dev/asset'
+response = requests.post(url)
+presigned = response.json().get('body').get('upload_url')
+print presigned
+#files = {'file': open('bla.txt','rb')}
+response = requests.put(presigned, data=open("bla.txt").read())
+#response = requests.put(presigned, files=files)
+print response
+
