@@ -1,0 +1,12 @@
+include LICENSE
+include MANIFEST.in
+include pyproject.toml
+include tox.ini
+
+recursive-include docs *
+prune docs/_build
+
+recursive-include references *.pdf
+
+recursive-include tests *.py
+recursive-include tests/data *
