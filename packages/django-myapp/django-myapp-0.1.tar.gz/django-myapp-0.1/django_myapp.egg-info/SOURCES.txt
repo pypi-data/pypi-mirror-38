@@ -1,0 +1,14 @@
+MANIFEST.in
+README.rst
+setup.py
+django_myapp.egg-info/PKG-INFO
+django_myapp.egg-info/SOURCES.txt
+django_myapp.egg-info/dependency_links.txt
+django_myapp.egg-info/requires.txt
+django_myapp.egg-info/top_level.txt
+myapp/__init__.py
+myapp/admin.py
+myapp/apps.py
+myapp/models.py
+myapp/tests.py
+myapp/views.py
