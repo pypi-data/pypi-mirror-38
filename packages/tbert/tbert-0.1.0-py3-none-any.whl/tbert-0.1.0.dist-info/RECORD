@@ -1,0 +1,15 @@
+tbert/__init__.py,sha256=nVrL2B8iLrgI7Q2e_6XkDOEUtKdIq6GvOrdXrSv4Nh4,269
+tbert/attention.py,sha256=YbvtRwghjYkXkrTMZWjTGqObftN_jYPRibhXSJ4gIfk,2546
+tbert/bert.py,sha256=TEyrfHwgR2VLBvsm7ZFTPjhztXmhHK3jgY_EgcwrcGo,3108
+tbert/data.py,sha256=Qa97bx9VqGZlP1FQ0OD7JFGcFQ0h2AbEyjWYDb7REZk,5197
+tbert/embedding.py,sha256=RBFddQLks0DK9sFEjIo81P86RCkoVlAUCyc3s_59V6I,2093
+tbert/gelu.py,sha256=tJsGlmi4ASOO_0GIPWj2iZNPhz5E6GWymZyTkbI-ewk,177
+tbert/optimization.py,sha256=JohYkTvDrtwn9VnnCK9qy0J7eqV-IrXG69ZZ9HUD1u4,463
+tbert/tf_util.py,sha256=7P3N-D-fq-TsYFoisvNH7Jc_CO9g8HXbirAlcLNI2I8,10793
+tbert/transformer.py,sha256=RH9PCImwtbfNsDAdu8McCa_2gqUtEq2VAYLZkjwL4cY,5332
+tbert-0.1.0.dist-info/LICENSE,sha256=GV4ODfx5q0bs4DrwioVOcpjerHhudS_95726XeRDewc,1070
+tbert-0.1.0.dist-info/METADATA,sha256=WuZ55WKOGVlImeu9w0ta2IVTTOqdaJ2gQofN2Y2XgLs,761
+tbert-0.1.0.dist-info/WHEEL,sha256=MYFsq5fFBwF_oyJgrOoFmYYB1K6Sw7MxY-0897ZLbdM,92
+tbert-0.1.0.dist-info/entry_points.txt,sha256=RTmww6-8oMagw7fdNTFKOdaveaU8AKGWazlIz_2DSeQ,126
+tbert-0.1.0.dist-info/top_level.txt,sha256=Nn2vbpoFSAgDHnAWmQvdmSMkjsTImRzjVD7XjCozc0A,6
+tbert-0.1.0.dist-info/RECORD,,
