@@ -1,0 +1,3 @@
+[run]
+source = z3c.currency
+omit = */test*

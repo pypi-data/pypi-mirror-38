@@ -1,0 +1,8 @@
+recursive-include src *.cfg *.txt *.rst *.zcml
+include *.txt
+include *.rst
+include tox.ini
+include .coveragerc
+
+global-exclude *.pyc
+
