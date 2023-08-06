@@ -1,0 +1,146 @@
+#compdef hubugs hubugs.py
+# hubugs - ZSH completion support for hubugs
+# Copyright © 2012-2018  James Rowe <jnrowe@gmail.com>
+#
+# SPDX-License-Identifier: GPL-3.0+
+#
+# This file is part of hubugs.
+#
+# hubugs is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later
+# version.
+#
+# hubugs is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+# A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# hubugs.  If not, see <http://www.gnu.org/licenses/>.
+
+# Most of this file is generated from hubugs/__init__.py, but feel free to
+# customise it!  If you make improvements, open a pull request against
+# ‘JNRowe/hubugs’ with your super changes attached.
+
+(( $+functions[__list_projects] )) ||
+__list_projects() {
+    local tmp
+    tmp=($(git remote -v \
+        | sed -n '/push/s,^.*github.com[/:]\([^ ]*\)\.git .*$,\1,p'))
+    if [ -z "${tmp}" ]; then
+        _message "No GitHub remotes found!"
+    else
+        compadd ${tmp[@]}
+    fi
+}
+
+(( $+functions[__list_hosts] )) ||
+__list_hosts() {
+    local tmp
+    if [ -f ~/.ssh/known_hosts ]; then
+        tmp=($(sed -n '/^[^#]/s,\([^ \t]\+\)[ \t].*$,\1,p' ~/.ssh/known_hosts))
+    fi
+    if [ -z "${tmp}" ]; then
+        _message "No remote hosts found!"
+    else
+        compadd ${tmp[@]}
+    fi
+}
+
+_arguments '--help[show help message and exit]' \
+    "--version[show program’s version number and exit]" \
+    "--pager=[pass output through a pager]:select pager:_command_names -e" \
+    "--no-pager[do not pass output through pager]" \
+    '--project=[GitHub project to operate on]:select project:__list_projects' \
+    '--host-url=[GitHub Enterprise host to connect to]:select host:__list_hosts' \
+    ':hubugs command:((
+        close\:"Closing bugs."
+        comment\:"ommenting on bugs."
+        edit\:"Editing bugs."
+        label\:"Labelling bugs."
+        list\:"Listing bugs."
+        milestone\:"Issue milestones."
+        milestones\:"Repository milestones."
+        open\:"Opening new bugs."
+        reopen\:"Reopening closed bugs."
+        search\:"Searching bugs."
+        show\:"Displaying bugs."
+    ))' \
+    '*::subcmd:->subcmd' && return 0
+
+### DGEN_TAG: Generated from hubugs/__init__.py {{{
+case "$words[1]" in
+(close)
+    _arguments '--help[show help message and exit]' \
+        '--stdin[read message from standard input]' \
+        '--message=[comment text]:message text: ' \
+        '*:bug number:_guard "[0-9]#" "numeric value"'
+    ;;
+(comment)
+    _arguments '--help[show help message and exit]' \
+        '--stdin[read message from standard input]' \
+        '--message=[comment text]:message text: ' \
+        '*:bug number:_guard "[0-9]#" "numeric value"'
+    ;;
+(edit)
+    _arguments '--help[show help message and exit]' \
+        '--stdin[read message from standard input]' \
+        '*:bug number:_guard "[0-9]#" "numeric value"'
+    ;;
+(label)
+    _arguments '--help[show help message and exit]' \
+        '--add=[add label to issue]:select label: ' \
+        '--remove=[remove label from issue]:select label: ' \
+        '*:bug number:_guard "[0-9]#" "numeric value"'
+    ;;
+(list)
+    _arguments '--help[show help message and exit]' \
+        '--state=[state of bugs to operate on]:select state:(open closed all)' \
+        '--label=[list bugs with specified label]:select label: ' \
+        '--order=[sort order for listing bugs]:select order:(number updated)' \
+        '*:bug number:_guard "[0-9]#" "numeric value"'
+    ;;
+(milestone)
+    _arguments '--help[show help message and exit]'
+    ;;
+(milestones)
+    _arguments '--help[show help message and exit]' \
+        '--order=[sort order for listing milestones]:select order:(due_date completeness)'
+        '--state=[state of milestones to operate on]:select state:(open closed)' \
+        '--create=[create new milestone]:select milestone: ' \
+        '--list[list available milestones]:select milestone: '
+    ;;
+(open)
+    _arguments '--help[show help message and exit]' \
+        '--add[add label to issue]:select label: ' \
+        '--stdin[read message from standard input]'
+    ;;
+(reopen)
+    _arguments '--help[show help message and exit]' \
+        '--stdin[read message from standard input]' \
+        '--message=[comment text]:message text: ' \
+        '*:bug number:_guard "[0-9]#" "numeric value"'
+    ;;
+(setup)
+    _arguments '--help[show help message and exit]' \
+        '--local[set access token for local repository only]'
+    ;;
+(search)
+    _arguments '--help[show help message and exit]' \
+        '--state=[state of bugs to operate on]:select state:(open closed all)' \
+        '--order=[sort order for listing bugs]:select order:(number updated)'
+    ;;
+(show)
+    _arguments '--help[show help message and exit]' \
+        '--help[show this help message and exit]' \
+        '--full[show bug including comments]' \
+        '--patch[display patches for pull requests]' \
+        '--patch-only[display only the patch content of pull requests]' \
+        '--browse[open bug in web browser]' \
+        '*:bug number:_guard "[0-9]#" "numeric value"'
+    ;;
+(*)
+    ;;
+esac
+### DGEN_TAG: Generated from hubugs/__init__.py }}}
+
