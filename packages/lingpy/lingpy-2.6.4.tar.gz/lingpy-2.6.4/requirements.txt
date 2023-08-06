@@ -1,0 +1,10 @@
+numpy
+appdirs
+networkx>=2.0
+nose
+clldutils>=2.0.1
+csvw
+tqdm
+six
+mock
+pycldf
