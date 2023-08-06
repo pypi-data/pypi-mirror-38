@@ -1,0 +1,36 @@
+# askfmcrawler
+Python askfm crawler.
+
+
+## Install(not work now)
+```
+pipenv install askfmcrawler
+```
+
+## Requirements
+- Python 3.6 or higher
+- selenium
+
+## Usage
+```python
+from selenium import webdriver
+
+from askfmcrawler.crawl import Crawler
+
+driver = webdriver.Chrome('./chromedriver')
+
+crawler = Crawler(driver)
+
+# Crawl user questions
+for article in crawler.crawl_user_questions('uehara1414test', limit=20):
+    print(article.question, " => ", article.answer)
+
+# 好きなデザートは？ => ガトーショコラ
+# 赤信号なのに道路を渡ることはある？ => ある
+# ...
+
+# Get random users and crawl questions of them
+for user in crawler.crawl_random_users():
+    for article in crawler.crawl_user_questions(user):
+        print(user, article.question, " => ", article.answer)
+```
