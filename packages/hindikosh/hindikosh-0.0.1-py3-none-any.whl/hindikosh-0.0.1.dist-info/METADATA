@@ -1,0 +1,20 @@
+Metadata-Version: 2.0
+Name: hindikosh
+Version: 0.0.1
+Summary: Hindi corpus reader
+Home-page: https://github.com/daksh95/hindi-corpus
+Author: Karishnu Poddar
+Author-email: karishnu@gmail.com
+License: MIT
+Keywords: hindi corpus reader tokenizer
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Text Processing :: Linguistic
+Requires-Dist: markdown
+Requires-Dist: numpy
+Requires-Dist: pydub
+
+Hindi corpus reader
+
+
