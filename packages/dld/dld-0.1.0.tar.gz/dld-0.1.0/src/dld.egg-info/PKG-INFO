@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: dld
+Version: 0.1.0
+Summary: Download files from the web
+Home-page: https://gitlab.com/starshell/dld
+Author: Derek Goddeau
+Author-email: datenstrom@protonmail.com
+License: mit
+Description: ===
+        dld
+        ===
+        
+        
+        Just some python file download utilities for HTTP and FTP.
+        
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Provides-Extra: testing
