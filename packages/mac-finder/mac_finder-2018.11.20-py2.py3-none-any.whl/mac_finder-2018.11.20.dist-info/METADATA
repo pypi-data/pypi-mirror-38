@@ -1,0 +1,54 @@
+Metadata-Version: 2.1
+Name: mac-finder
+Version: 2018.11.20
+Summary: MacOS Finder
+Home-page: https://github.com/looking-for-a-job/mac-finder.py
+License: UNKNOWN
+Keywords: Finder
+Platform: UNKNOWN
+Classifier: Environment :: MacOS X
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Software Development
+Description-Content-Type: text/markdown
+Requires-Dist: Click
+Requires-Dist: applescript
+Requires-Dist: public
+Requires-Dist: runcmd
+Requires-Dist: setuptools
+
+[![](https://img.shields.io/badge/OS-MacOS-blue.svg?longCache=True)]()
+[![](https://img.shields.io/pypi/pyversions/mac-finder.svg?longCache=True)](https://pypi.org/pypi/mac-finder/)
+
+#### Install
+```bash
+$ [sudo] pip install mac-finder
+```
+
+#### Functions
+function|description
+-|-
+`mac_finder.reveal(path)`|reveal path in Finder
+`mac_finder.selection()`|return list with Finder selection paths
+`mac_finder.comment.get(path)`|return string with Finder comment
+`mac_finder.comment.update(path, comment=None)`|update Finder comment
+`mac_finder.icon.rm(path)`|remove icon
+`mac_finder.icon.update(path, image)`|update icon
+
+#### CLI
+usage|description
+-|-
+`python -m mac_finder.comment path [comment]`|get/update Finder comment
+`python -m mac_finder.icon.rm path ...`|remove icon
+`python -m mac_finder.icon.update path image`|update icon
+`python -m mac_finder.selection`|print Finder selection paths
+
+<p align="center"><a href="https://pypi.org/project/readme-md/">readme-md</a> - README.md generator</p>
+
