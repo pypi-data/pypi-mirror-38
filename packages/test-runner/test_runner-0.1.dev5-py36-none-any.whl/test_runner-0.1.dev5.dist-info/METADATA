@@ -1,0 +1,92 @@
+Metadata-Version: 2.1
+Name: test-runner
+Version: 0.1.dev5
+Summary: A small test runner library for Python testing
+Home-page: https://github.com/stephanlukasczyk/test-runner
+Author: Stephan Lukasczyk
+Author-email: python-test-runner@googlegroups.com
+License: GNU General Public License (GPLv3)
+Keywords: test runner unittest nose pytest
+Platform: Linux
+Platform: macOS
+Platform: POSIX
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Education
+Classifier: Topic :: Education :: Testing
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Testing
+Classifier: Topic :: Software Development :: Testing :: Unit
+Classifier: Topic :: Utilities
+Requires-Dist: GitPython
+Requires-Dist: virtualenv
+Requires-Dist: plumbum
+Requires-Dist: lxml
+Requires-Dist: coverage
+Requires-Dist: pytest
+Requires-Dist: pytest-cov
+Requires-Dist: pypandoc
+Requires-Dist: flake8
+Requires-Dist: black
+Requires-Dist: twine
+
+test-runner—A Runner for Python Tests
+=====================================
+
+Running Python tests is a complicated task, as it seems that there is
+not standard way of doing it. ``test-runner`` implements some heuristics
+that try to run tests with or without coverage measuring, independent of
+the used testing framework.
+
+|Build Status| |codecov| |License GPL v3| |Code style: black| |PyPI
+version|
+
+``test-runner`` requires at least Python 3.6 and was tested on Linux and
+macOS with Python versions 3.6 and 3.7.
+
+Development
+-----------
+
+See the `development documentation <doc/development.md>`__ for more
+details.
+
+License
+-------
+
+``test-runner`` is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by the
+Free Software Foundation, either version 3 of the License, or (at your
+option) any later version.
+
+``test-runner`` is distributed in the hope that it will be useful but
+WITHOUT ANY WARRANT; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+Public License for more details.
+
+You should have received a `copy <LICENSE.txt>`__ of the GNU General
+Public License along with ``test-runner``. If not, see
+https://www.gnu.org/licenses/.
+
+.. |Build Status| image:: https://travis-ci.com/pytesting/test-runner.svg?token=ZgCiES6Mybgq3a2Jbw2K&branch=master
+   :target: https://travis-ci.com/pytesting/test-runner
+.. |codecov| image:: https://codecov.io/gh/pytesting/test-runner/branch/master/graph/badge.svg?token=yLu7itEVep
+   :target: https://codecov.io/gh/pytesting/test-runner
+.. |License GPL v3| image:: https://img.shields.io/badge/License-GPL%20v3-blue.svg
+   :target: https://www.gnu.org/licenses/gpl-3.0
+.. |Code style: black| image:: https://img.shields.io/badge/code%20style-black-000000.svg
+   :target: https://github.com/ambv/black
+.. |PyPI version| image:: https://badge.fury.io/py/test-runner.svg
+   :target: https://badge.fury.io/py/test-runner
+
+
