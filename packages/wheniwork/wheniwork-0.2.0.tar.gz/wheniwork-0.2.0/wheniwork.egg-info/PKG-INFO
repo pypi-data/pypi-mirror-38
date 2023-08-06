@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: wheniwork
+Version: 0.2.0
+Summary: A library for interfacing with the WhenIWork.com API
+Home-page: https://github.com/fimion/wheniwork-api-py
+Author: Alex Riviere
+Author-email: fimion@gmail.com
+License: MIT
+Download-URL: https://github.com/fimion/wheniwork-api-py/tarball/0.2.0
+Description: # wheniwork-api-py #
+        
+        [![Join the chat at https://gitter.im/fimion/wheniwork-api-py](https://badges.gitter.im/fimion/wheniwork-api-py.svg)](https://gitter.im/fimion/wheniwork-api-py?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+        
+        This package is a simple interface for the WhenIWork.com Api written in python. It is translated into python from [dolfelt/wheniwork-api-php](http://github.com/dolfelt/wheniwork-api-php/)
+        
+        Documentation can be found at https://fimion.github.io/wheniwork-api-py/
+        
+        
+Keywords: wheniwork,api
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
