@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: ffffff
+Version: 2018.11.15
+Summary: Black but single quotes
+Home-page: https://github.com/grktsh/ffffff
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Software Development :: Quality Assurance
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Provides-Extra: d
+Requires-Dist: aiohttp (>=3.3.2); extra == 'd'
+
+# ffffff
+
+
