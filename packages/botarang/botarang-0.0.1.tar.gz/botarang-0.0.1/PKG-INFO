@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: botarang
+Version: 0.0.1
+Summary: Ui elements for building telegram bot
+Home-page: https://github.com/newmediatech/botarang
+Author: Ruslan Roskoshnyj
+Author-email: i.am.yarger@gmail.com
+License: LICENSE.txt
+Download-URL: https://github.com/ruslux/newmediatech/archive/0.0.1.tar.gz
+Description: Ui elements for building telegram bot
+Keywords: telegram,bot,ui,framework
+Platform: OS Independent
+Requires-Python: >3.7.0
+Provides-Extra: tests
