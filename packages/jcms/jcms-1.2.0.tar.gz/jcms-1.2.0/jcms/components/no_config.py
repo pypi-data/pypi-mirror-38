@@ -1,0 +1,2 @@
+class NoConfig:
+    pass
