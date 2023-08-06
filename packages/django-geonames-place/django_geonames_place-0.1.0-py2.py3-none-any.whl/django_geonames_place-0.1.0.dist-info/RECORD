@@ -1,0 +1,17 @@
+geonames_place/__init__.py,sha256=IMjkMO3twhQzluVTo8Z6rE7Eg-9U79_LGKMcsWLKBkY,22
+geonames_place/admin.py,sha256=WRS3qeXe9ICDia2-ffyGXDFJHKlW5Ynzu52h5rfLD4E,674
+geonames_place/apps.py,sha256=80FHjbHMuh-CYXaP8Nt-zoJcewb1QIi4wTpqPlqZxr8,122
+geonames_place/models.py,sha256=KO2c8-uoQH79vxwF2cK2LlFQpNpnnD4Apj_M1Wxa7B8,3522
+geonames_place/migrations/0001_initial.py,sha256=e9cWS7mt03kzzRfDkV8qA4xH5ncwEqwQFRgVlkMMCeA,3781
+geonames_place/migrations/0002_alter_field_geonames_id_on_place.py,sha256=5rx2W-lgICiS0fKnkBEAEV7TBUNtJkKK2OYYBGd6Nrg,395
+geonames_place/migrations/0003_place_update_from_geonames.py,sha256=MeoEY8xXQxbMNNkgWfcBBj11Ca1VjyQER39o5S6knIo,420
+geonames_place/migrations/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+geonames_place/static/css/geonames_place.css,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+geonames_place/static/js/geonames_place.js,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+geonames_place/templates/geonames_place/base.html,sha256=zzaUPjEgvwxg-Gn2rZ6gIMWphucmEGvAU_skUXJIcDA,661
+django_geonames_place-0.1.0.dist-info/AUTHORS.rst,sha256=vl2KFVj1u2vwRbkWEEV0jrj_4-h5lxvUIoRduTnNQT8,157
+django_geonames_place-0.1.0.dist-info/LICENSE,sha256=Ery60PFI4Rm7z222Oum9hXBos_ujZ5v1gL50L9WYnHw,1081
+django_geonames_place-0.1.0.dist-info/METADATA,sha256=dwSnvDVrJBbphOIT6DaHZWoUZdgrDgvOTXmi-hxNaO4,3950
+django_geonames_place-0.1.0.dist-info/WHEEL,sha256=CrDFromy0BmNYzyZFyVIlKdTa5Zg2RBBtjMkE7goq78,110
+django_geonames_place-0.1.0.dist-info/top_level.txt,sha256=YstTqB7bqJ4mVlHvs1HmKlvvjmcWjlIB2rLFVXb2DDw,15
+django_geonames_place-0.1.0.dist-info/RECORD,,
