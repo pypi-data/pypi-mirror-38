@@ -1,0 +1,5 @@
+
+        [console_scripts]
+        atools=aiohttptools.cli:cli
+        aiohttptools=aiohttptools.cli:cli
+    
