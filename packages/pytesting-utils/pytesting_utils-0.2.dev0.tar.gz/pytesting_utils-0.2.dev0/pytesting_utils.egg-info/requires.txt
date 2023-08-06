@@ -1,0 +1,9 @@
+virtualenv
+pypandoc
+pytest
+pytest-cov
+lxml
+coverage
+flake8
+black
+twine
