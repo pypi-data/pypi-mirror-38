@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: xtick
+Version: 0.0.2a0
+Summary: Visualization for intraday data
+Home-page: https://github.com/alpha-xone/xtick
+Author: Alpha x1
+Author-email: alpha.xone@outlook.com
+License: Apache
+Description: xtick
+        =====
+        
+        Visualization for intraday data
+        
+        Installation
+        ============
+        
+        .. code:: console
+        
+           pip install xtick
+        
+        Tutorial
+        ========
+        
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Description-Content-Type: text/markdown
