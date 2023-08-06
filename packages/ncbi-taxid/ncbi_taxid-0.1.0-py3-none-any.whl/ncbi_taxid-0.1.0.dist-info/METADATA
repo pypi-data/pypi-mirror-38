@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: ncbi-taxid
+Version: 0.1.0
+Summary: 
+Home-page: UNKNOWN
+License: UNKNOWN
+Author: Peter van Heusden
+Author-email: pvh@sanbi.ac.za
+Requires-Python: >=3.6,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: click (>=7.0,<8.0)
+Requires-Dist: ete3 (>=3.1,<4.0)
