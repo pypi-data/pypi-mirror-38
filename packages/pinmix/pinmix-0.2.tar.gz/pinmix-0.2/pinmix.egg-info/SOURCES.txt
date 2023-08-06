@@ -1,0 +1,11 @@
+setup.py
+pinmix/__init__.py
+pinmix/cmdline.py
+pinmix/filler.py
+pinmix/opendoc_factory.py
+pinmix.egg-info/PKG-INFO
+pinmix.egg-info/SOURCES.txt
+pinmix.egg-info/dependency_links.txt
+pinmix.egg-info/entry_points.txt
+pinmix.egg-info/requires.txt
+pinmix.egg-info/top_level.txt
