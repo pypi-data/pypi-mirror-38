@@ -1,0 +1,3 @@
+[submodule "third_party/lilac"]
+	path = package_builder/third_party/lilac
+	url = https://github.com/archlinuxcn/lilac
