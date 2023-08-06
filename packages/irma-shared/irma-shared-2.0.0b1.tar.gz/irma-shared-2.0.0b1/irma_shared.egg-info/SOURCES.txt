@@ -1,0 +1,15 @@
+README.md
+setup.py
+irma_shared.egg-info/PKG-INFO
+irma_shared.egg-info/SOURCES.txt
+irma_shared.egg-info/dependency_links.txt
+irma_shared.egg-info/namespace_packages.txt
+irma_shared.egg-info/requires.txt
+irma_shared.egg-info/top_level.txt
+src/__init__.py
+src/csts.py
+src/exceptions.py
+src/schemas/__init__.py
+src/schemas/base.py
+src/schemas/v2.py
+src/schemas/v3.py
