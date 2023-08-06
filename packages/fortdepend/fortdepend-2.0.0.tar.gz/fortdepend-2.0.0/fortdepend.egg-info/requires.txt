@@ -1,0 +1,9 @@
+colorama>=0.3.9
+pcpp>=1.1.0
+
+[docs]
+sphinx>=1.4
+sphinx-argparse>=0.2.3
+
+[tests]
+pytest>=3.3.0
