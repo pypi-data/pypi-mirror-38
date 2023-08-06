@@ -1,0 +1,13 @@
+virtualenv
+plumbum
+pytesting-utils
+pipfile
+lxml
+coverage
+pytest
+pytest-cov
+GitPython
+pypandoc
+flake8
+black
+twine
