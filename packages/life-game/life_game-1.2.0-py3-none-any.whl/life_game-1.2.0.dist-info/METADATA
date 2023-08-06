@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: life-game
+Version: 1.2.0
+Summary: life game
+Home-page: https://github.com/MemoryD/life_game
+Author: Memory
+Author-email: memory_d@foxmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Topic :: Games/Entertainment 
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: pygame (<=1.9.5)
+
+life game written by pygame
+
+
