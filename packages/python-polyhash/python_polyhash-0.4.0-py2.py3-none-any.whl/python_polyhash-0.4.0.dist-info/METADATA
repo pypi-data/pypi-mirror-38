@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: python-polyhash
+Version: 0.4.0
+Summary: Python library for converting polygons to geohashes and vice versa.
+Home-page: https://github.com/jerome-montino/polyhash
+Author: Jerome Montino
+Author-email: jerome.montino@gmail.com
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: Shapely
+Requires-Dist: python-geohash
+Requires-Dist: georaptor
+
+UNKNOWN
+
+
