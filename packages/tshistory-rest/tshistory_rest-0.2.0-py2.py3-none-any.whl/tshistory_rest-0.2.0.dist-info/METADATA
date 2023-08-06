@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: tshistory-rest
+Version: 0.2.0
+Summary: timeseries histories http front & python client
+Home-page: https://bitbucket.org/pythonian/tshistory_rest
+Author: Pythonian
+Author-email: aurelien.campeas@pythonian.fr
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Database
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Software Development :: Version Control
+Requires-Dist: flask-restplus
+Requires-Dist: tshistory
+Requires-Dist: requests
+Requires-Dist: pytest-sa-pg
+Requires-Dist: webtest
+
+UNKNOWN
+
+
