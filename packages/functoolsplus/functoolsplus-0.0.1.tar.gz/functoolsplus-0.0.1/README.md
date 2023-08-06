@@ -1,0 +1,3 @@
+# FuncTools+
+
+Functional programming goodies
