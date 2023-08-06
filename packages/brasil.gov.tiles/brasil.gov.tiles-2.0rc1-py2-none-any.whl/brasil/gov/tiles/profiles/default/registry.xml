@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<registry>
+  <record name="plone.app.tiles">
+    <value purge="false">
+      <element>collective.polls</element>
+      <element>videogallery</element>
+      <element>audio</element>
+      <element>audiogallery</element>
+      <element>standaloneheader</element>
+      <element>video</element>
+      <element>albuns</element>
+      <element>brasil.gov.tiles.potd</element>
+      <element>brasil.gov.tiles.quote</element>
+      <element>brasil.gov.tiles.photogallery</element>
+      <element>brasil.gov.tiles.navigation</element>
+      <element>brasil.gov.tiles.videocarousel</element>
+      <element>brasil.gov.tiles.groupcarousel</element>
+      <element>brasil.gov.tiles.highlightscarousel</element>
+    </value>
+  </record>
+  <record name="collective.cover.controlpanel.ICoverSettings.searchable_content_types">
+    <value purge="false">
+      <element>sc.embedder</element>
+    </value>
+  </record>
+</registry>
