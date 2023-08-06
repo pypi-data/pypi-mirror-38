@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: opendxmc
+Version: 0.3.8
+Summary: Monte Carlo dose simulation for diagnostic x-rays
+Home-page: https://github.com/medicalphysics/OpenDXMC
+Author: Erlend Andersen
+Author-email: andersen.erlend@gmail.com
+License: GPLv3
+Requires-Dist: scipy
+Requires-Dist: numpy
+Requires-Dist: tables
+Requires-Dist: pydicom
+Requires-Dist: pyqtgraph
+Requires-Dist: pyopengl
+Requires-Dist: PyQt5
+
+#OpenDXMC
+
+
