@@ -1,0 +1,22 @@
+Metadata-Version: 1.1
+Name: apollo-cli
+Version: 0.0.6
+Summary: Tool for snapshot/restore Cassandra clusters to S3 buckets
+Home-page: https://github.com/SnirX/apollo
+Author: Snir Nissan
+Author-email: snir994@gmail.com
+License: GPLv3+
+Description: Apollo allows you to take full/incremental snapshots of your Cassandra cluster and restore them
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: System Administrators
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Database
+Classifier: Topic :: System :: Systems Administration
+Classifier: Topic :: System :: Archiving :: Backup
+Classifier: Topic :: Utilities
