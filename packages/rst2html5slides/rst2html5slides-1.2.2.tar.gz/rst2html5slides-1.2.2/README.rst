@@ -1,0 +1,245 @@
+===============
+rst2html5slides
+===============
+
+    rst2html5slides extends rst2html5_ to translate a reStructuredText file
+    into a web presentation.
+
+Rationale
+=========
+
+Presentations based on web frameworks such as `impress.js`_, `jmpress.js`_ and `deck.js`_
+are great alternatives to traditional software packages:
+
+#. HTML, CSS and javascript files are plain text files and thus
+   they are friendly to version control systems,
+   making easy to follow and visualize their changes between revisions;
+#. There is a separation between content and presentation design
+#. They have new and great visual effects such as slide transitions and positional effects
+#. A web presentation is portable. It runs on any modern browser
+
+On the other hand,
+creating presentations directly in HTML is painful.
+A better approach is to use another markup language that is easier to read and write,
+and then translate the text to HTML.
+
+I could have listed or cooked up a few reasons to justify reStructuredText_ as the best choice.
+The truth is that the best markup language is the one you already know.
+So, if you also use reStructuredText in other projects or contexts,
+then :literal:`rst2html5slides` is perfect for you to create your presentations.
+
+
+Features
+========
+
+* CSS can be extended or overwritten by adding new stylesheets;
+* Slides can be positioned manually or automatically through pre-defined functions
+  (:literal:`linear`, :literal:`grid` and :literal:`grid-rotate`);
+
+
+Installation
+============
+
+.. code-block:: bash
+
+    pip install rst2html5slides
+
+
+Basic Usage
+===========
+
+.. code-block:: bash
+
+    $ rst2html5slides [OPTIONS] SOURCE [DESTINATION]
+
+
+If no destination is given, then the presentation is written to the *stdout*.
+Else, the presentation and all related files (images, CSS, scripts etc.)
+are written into the specified path.
+
+Options:
+
+--presentation=<framework>
+                        Choose a web presentation framework for the output.
+                        Possible values are impress.js, jmpress.js, deck.js,
+                        None. Default is impress.js.
+--distribution=<function_name>
+                        Specify the name of the slide distribution function.
+                        Options are "linear", "grid" or "grid-rotate". An
+                        additional parameter can be specified along with the
+                        name such as in "grid_rotate  3".
+--increment=<increment>
+                        Specify the value of the increment used by the
+                        distribution functions. To specify different values
+                        for X and Y increments, separate them by space.
+                        Example "1000 500". Default value is 1600 for X and Y
+                        increments.
+--manual-slide-id       Disable slide automatic identification based on title.
+--deck-selector=<deck_selector>
+                        Specify the tag, id and/or class to replace the
+                        default (and non-standard) <deck> tag used to surround
+                        the slides. Follow the pattern tag#id.class (such as a
+                        CSS selector). Examples: div, div#impress, div.deck-
+                        container, article#impress.impress-not-supported
+--slide-selector=<slide_selector>
+                        Specify the tag, id and/or class to replace the
+                        default (and non-standard) <slide> tag used to
+                        surround each slide.Follow the pattern tag#id.class
+                        (such as a CSS selector)Examples: div.slide, section,
+                        div.step
+
+.. tip::
+
+    All rst2html5_ options can be used with :literal:`rst2html5slides` such as
+    :literal:`--stylesheet` and :literal:`--script`.
+
+.. note::
+
+    :literal:`--deck-selector` and :literal:`--slide-selector` are only required for advanced usage.
+    See the full documentation for additional information.
+
+
+Example
+=======
+
+:literal:`simple.rst`:
+
+.. code-block:: rst
+
+    .. title:: Simple Presentation | rst2html5slides
+    .. meta::
+      :author: André Felipe Dias
+
+    .. class:: cover
+
+    Presentation
+    ============
+
+    Author
+    ------
+
+    Topic 1
+    =======
+
+    * item A
+    * item B
+
+    Topic 2
+    =======
+
+    * item C
+    * item D
+
+
+To translate it to a  presentation located at :literal:`/tmp/slides`,
+use this command:
+
+.. code-block:: bash
+
+    $ rst2html5slides simple.rst /tmp/slides
+
+
+The generated file is:
+
+.. code-block:: html
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <link rel="stylesheet" href="css/slideshow.css">
+        <script src="js/jquery.min.js"></script>
+        <script src="js/greensock/TweenMax.min.js"></script>
+        <script src="js/video_animation.js" defer></script>
+        <script src="js/slide_animations.js" defer></script>
+        <script src="js/slideshow.js" defer></script>
+
+        <meta charset="utf-8" />
+        <meta generator="rst2html5slides" />
+        <meta generator-homepage="https://pypi.python.org/pypi/rst2html5slides" />
+
+    </head>
+    <body>
+
+    <deck>
+        <slide id="presentation">
+            <header>
+                <h1>Presentation</h1>
+                <h2>Author</h2>
+            </header>
+        </slide>
+        <slide id="topic-1">
+            <header>
+                <h1>Topic 1</h1>
+            </header>
+            <section>
+                <ul>
+                    <li>item A</li>
+                    <li>item B</li>
+                </ul>
+            </section>
+        </slide>
+        <slide id="topic-2">
+            <header>
+                <h1>Topic 2</h1>
+            </header>
+            <section>
+                <ul>
+                    <li>item C</li>
+                    <li>item D</li>
+                </ul>
+            </section>
+        </slide>
+    </deck>
+
+    </body>
+    </html>
+
+
+rst2html5slides copies all referenced files (images, additional scripts and css)
+to the destination path:
+
+.. code-block:: bash
+
+    $ ls -R /tmp/slides
+    /tmp/slides:
+    css  js  simple.html
+
+    /tmp/slides/css:
+    slideshow.css
+
+    /tmp/slides/js:
+    greensock  jquery.min.js  slide_animations.js  slideshow.js  video_animation.js
+
+
+
+.. note::
+
+    You can customize your presentation adding CSS files, scripts or
+    changing the default template.
+    See the full documentation for more information.
+
+
+Documentation
+=============
+
+The full documentation is available at readthedocs.org and also in the :literal:`doc` subdirectory.
+
+
+Source
+======
+
+rst2html5slides source is located at http://bitbucket.org/andre_felipe_dias/rst2html5slides
+
+
+License
+=======
+
+rst2html5slides is available under a MIT license.
+
+
+.. _rst2html5: https://pypi.python.org/pypi/rst2html5
+.. _reStructuredText: http://docutils.sourceforge.net/rst.html
+.. _JQuery: http://jquery.com/
+.. _impress.js: http://github.com/bartaz/impress.js
+.. _jmpress.js: http://jmpressjs.github.io/jmpress.js/
+.. _deck.js: http://imakewebthings.com/deck.js/
