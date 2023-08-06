@@ -1,0 +1,14 @@
+README.md
+setup.cfg
+setup.py
+django_sebs.egg-info/PKG-INFO
+django_sebs.egg-info/SOURCES.txt
+django_sebs.egg-info/dependency_links.txt
+django_sebs.egg-info/not-zip-safe
+django_sebs.egg-info/top_level.txt
+sebs/__init__.py
+sebs/apps.py
+sebs/backend.py
+sebs/tests/__init__.py
+sebs/tests/conftest.py
+sebs/tests/test_backend.py
