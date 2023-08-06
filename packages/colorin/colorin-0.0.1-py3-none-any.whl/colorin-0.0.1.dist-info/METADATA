@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: colorin
+Version: 0.0.1
+Summary: Colorea y formatea texto y tablas para salida estandar
+Home-page: https://github.com/gmolino/colorin
+Author: Álvaro García
+Author-email: alvaro.garcia.molino@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+## Descripción del proyecto
+
+La siguiente proyecto consiste en una clase que permite el coloreado y el formateo de la salida estándar para la terminal en lenguaje **python**.
+
+A su vez, la clase es polimórfica y se puede instanciar indicando los títulos de la cabecera para generar tablas de datos que se formtearán adaptándose al tamaño de los campos.
+
+Uso de la clase y ejemplos:    
+[https://github.com/gmolino/colorin](https://github.com/gmolino/colorin)
+
+## Versiones
+
+##### 0.0.1
+
+* Primer commit con los métodos descritos en el proyecto
+
+
