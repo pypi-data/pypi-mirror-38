@@ -1,0 +1,3 @@
+[sphinx.builders]
+jekyll = sphinx_to_jekyll
+
