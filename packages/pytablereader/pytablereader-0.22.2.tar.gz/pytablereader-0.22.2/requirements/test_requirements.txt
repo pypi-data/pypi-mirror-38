@@ -1,0 +1,10 @@
+futures;python_version<"3.2"
+pypandoc
+pytablewriter[excel]>=0.36.0
+pytest-cov
+pytest
+responses
+simplejson
+subprocrunner
+tox
+urllib3==1.21.1
