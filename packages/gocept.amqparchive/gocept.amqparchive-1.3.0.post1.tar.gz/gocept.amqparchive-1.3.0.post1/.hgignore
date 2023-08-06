@@ -1,0 +1,14 @@
+syntax: glob
+
+*.egg-info
+*.pyc
+.cache
+.installed.cfg
+.pytest_cache
+bin
+develop-eggs
+elasticsearch-test.log
+include
+lib
+local
+parts
