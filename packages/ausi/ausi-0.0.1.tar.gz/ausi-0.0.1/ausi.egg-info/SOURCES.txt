@@ -1,0 +1,12 @@
+MANIFEST.in
+README.md
+setup.py
+ausi/__init__.py
+ausi/d3.py
+ausi/pygal.py
+ausi.egg-info/PKG-INFO
+ausi.egg-info/SOURCES.txt
+ausi.egg-info/dependency_links.txt
+ausi.egg-info/requires.txt
+ausi.egg-info/top_level.txt
+ausi/d3_templates/zoomable_circle_package/template.html
