@@ -1,0 +1,31 @@
+# metrics-python
+Abstract API wrapping application metrics collection methods. 
+
+## Installation
+```bash
+pip install mm-metrics
+```
+
+## API
+Depending on whether the client requests a statsD or a REST version of the interface, they will
+be presented with different available methods to track metrics.
+
+### StatsD Methods
+#### Increment
+Increment a counter for a metric.
+
+```increment(metric)```
+
+#### Gauge
+Set the magnitude of a metric to a value
+
+```gauge(metric, value)```
+
+## Motivation
+Given that most client's have similar (and straightforward) requirements for metric tracking,
+we wrap these common methods (as well as helper tooling) in this abstract Python API. This 
+gives us the flexibility to:
+
+* Maintain metric tracking functionality in a central location
+* Decouple metric tracking from core application functionality
+* Swap statsD providers opaquely (e.g DogStatsD -> Vanilla StatsD)
