@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: pypelearn
+Version: 0.0.20
+Summary: A pipeline library for testing and validating time series data
+Home-page: https://github.com/alexharston/pypelearn
+Author: Alex Harston
+Author-email: alex@harston.io
+License: MIT
+Keywords: pypelearn machine learning time series pipeline
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3
+Description-Content-Type: text/markdown
+Requires-Dist: statsmodels
+Requires-Dist: argparse
+Requires-Dist: pandas
+Requires-Dist: matplotlib
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: sklearn
+Requires-Dist: tensorflow
+
+# pypelearn
+
+### A pipeline for testing and validation of synthetic machine learning data
+
+pypelearn is a Python framework for handling and processing high-dimensional time series data.
+
+For full documentation, please visit https://harston.io/pypelearn
+
+pypelearn utilises numpy, pandas, matplotlib, and statsmodels to allow linear and nonlinear modelling of high-dimensional time series tensors. 
+
+
+
