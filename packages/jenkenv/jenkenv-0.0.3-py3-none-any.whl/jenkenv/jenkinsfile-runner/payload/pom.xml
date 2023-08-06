@@ -1,0 +1,55 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>io.jenkins</groupId>
+    <artifactId>jenkinsfile-runner-parent</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>jenkinsfile-runner-payload</artifactId>
+
+  <build>
+    <plugins>
+      <plugin>
+         <groupId>org.codehaus.mojo</groupId>
+         <artifactId>appassembler-maven-plugin</artifactId>
+         <version>1.10</version>
+         <configuration>
+           <programs>
+             <program>
+               <mainClass>io.jenkins.jenkinsfile.runner.App</mainClass>
+               <id>app</id>
+             </program>
+           </programs>
+         </configuration>
+       </plugin>
+      <plugin>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <configuration>
+          <!-- Bypassing problem like this:
+[INFO] - - - maven-enforcer-plugin:3.0.0-M1:enforce (display-info) @ jenkinsfile-runner - - -
+[WARNING] Rule 3: org.apache.maven.plugins.enforcer.RequireUpperBoundDeps failed with message:
+Failed while enforcing RequireUpperBoundDeps. The error(s) are [
+]
+          -->
+          <skip>true</skip>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <dependencies>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>jenkinsfile-runner-payload-dependencies</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>jenkinsfile-runner-setup</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+  </dependencies>
+</project>

@@ -1,0 +1,3 @@
+[console_scripts]
+jenkenv = jenkenv.__init__:main
+
