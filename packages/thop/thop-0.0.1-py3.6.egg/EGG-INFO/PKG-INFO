@@ -1,0 +1,47 @@
+Metadata-Version: 1.0
+Name: thop
+Version: 0.0.1
+Summary: A tool to count the FLOPs of PyTorch model.
+Home-page: https://github.com/Lyken17/pytorch-thop
+Author: Ligeng Zhu
+Author-email: lykensyu+github@gmail.com
+License: MIT
+Description: # pytorch-OpCounter
+        Count the FLOPs of your model.
+        
+        ## How to use 
+        * Through PyPi
+            
+            `pip install PyTorch-OpCounter`
+            
+        * Using GitHub (always latest)
+            
+            `pip install git+https://github.com/Lyken17/pytorch-OpCounter.git`
+            
+            
+            
+        ## Results on Recent Models
+        Model | Params(M) | FLOPs(G)
+        ---|---|---
+        alexnet | 61.10 | 0.71
+        vgg11 | 132.86 | 7.75
+        vgg11_bn | 132.87 | 7.76
+        vgg13 | 133.05 | 11.46
+        vgg13_bn | 133.05 | 11.48
+        vgg16 | 138.36 | 15.62
+        vgg16_bn | 138.37 | 15.65
+        vgg19 | 143.67 | 19.79
+        vgg19_bn | 143.68 | 19.82
+        densenet121 | 7.98 | 2.79
+        densenet161 | 28.68 | 7.69
+        densenet169 | 14.15 | 3.33
+        densenet201 | 20.01 | 4.28
+        resnet18 | 11.69 | 1.58
+        resnet34 | 21.80 | 3.44
+        resnet50 | 25.56 | 3.53
+        resnet101 | 44.55 | 7.26
+        resnet152 | 60.19 | 10.99
+        squeezenet1_0 | 1.25 | 0.70
+        squeezenet1_1 | 1.24 | 0.34
+        
+Platform: UNKNOWN
