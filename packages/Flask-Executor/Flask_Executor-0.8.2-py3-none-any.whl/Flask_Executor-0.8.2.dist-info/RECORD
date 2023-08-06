@@ -1,0 +1,12 @@
+flask_executor/__init__.py,sha256=DJgppjL0khD7BfQWEHtRPQmoYlOr25sHV1g7vaBw_CI,93
+flask_executor/executor.py,sha256=nfpyyCnxhvd4s-rVTGfEmvPM_cckgTW48_K0hnRQwmg,9899
+flask_executor/futures.py,sha256=erQevA8CR-yADkLHq0yhykcLFFR-Qkrc9InYZNHbTRI,4046
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/conftest.py,sha256=9XjpJv4vh2wN0Kjsq7zVm1axOftnVff8xi3gXWZHE08,307
+tests/test_executor.py,sha256=8PYHGwJ-IqAG4RxP5L0z22V8A7-OFpSVB_zkRLIh6yU,7711
+tests/test_futures.py,sha256=0A-1x2e0mvqyRhZorEawCnw4hFWjTEN4sQnfka5Y1wQ,2773
+Flask_Executor-0.8.2.dist-info/LICENSE,sha256=6wCK21C3pfNZOJJUGvAjrKBKtGhvqCxop5s1USzl2EE,1069
+Flask_Executor-0.8.2.dist-info/METADATA,sha256=mkIEZhu_x-fKY7GNTWXWYM1UiboNpo0Alevghn8nk6Q,3771
+Flask_Executor-0.8.2.dist-info/WHEEL,sha256=_NOXIqFgOaYmlm9RJLPQZ13BJuEIrp5jx5ptRD5uh3Y,92
+Flask_Executor-0.8.2.dist-info/top_level.txt,sha256=NFjU0yY-ziUFUY2U8HcmbgfwXxMfGOojLvut38JxmEc,21
+Flask_Executor-0.8.2.dist-info/RECORD,,
