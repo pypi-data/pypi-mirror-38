@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: tshistory
+Version: 0.5.0
+Summary: Store timeseries histories into postgres
+Home-page: https://bitbucket.org/pythonian/tshistory
+Author: Pythonian
+Author-email: aurelien.campeas@pythonian.fr, arnaud.campeas@pythonian.fr
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Database
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Software Development :: Version Control
+Requires-Dist: pandas (~=0.23.4)
+Requires-Dist: dateutils
+Requires-Dist: sqlalchemy
+Requires-Dist: click
+Requires-Dist: mock
+Requires-Dist: pytest-sa-pg
+Requires-Dist: inireader
+
+UNKNOWN
+
+
