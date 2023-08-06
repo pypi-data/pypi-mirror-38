@@ -1,0 +1,6 @@
+
+[:python_version < "3.8"]
+typing>=3.6
+
+[gevent]
+gevent>=1.2.2
