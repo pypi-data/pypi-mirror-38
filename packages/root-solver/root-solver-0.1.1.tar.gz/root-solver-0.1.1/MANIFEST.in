@@ -1,0 +1,25 @@
+exclude appveyor.yml
+exclude bors.toml
+include code_of_conduct.md
+include CONTRIBUTING.md
+include COPYING
+include .coveragerc
+include DESCRIPTION.rst
+include doc-requirements.txt
+include known_broken_constraints.txt
+include LICENSE.txt
+include pylintrc
+include pypi-intro.rst
+include pytest.ini
+include README.md
+include AUTHORS.md
+include test-requirements.txt
+include tox.ini
+include versioneer.py src/root_solver/_version.py
+recursive-exclude docs/_build *
+recursive-include ci_support *.sh
+recursive-include dev_hooks *.sh
+recursive-include docs *
+recursive-include tests *.out
+recursive-include tests *.png
+recursive-include tests *.py
