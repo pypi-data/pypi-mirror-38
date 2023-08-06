@@ -1,0 +1,15 @@
+README.rst
+setup.cfg
+setup.py
+bye_bye_shopify/__init__.py
+bye_bye_shopify/cli.py
+bye_bye_shopify/client.py
+bye_bye_shopify/config.py
+bye_bye_shopify/loaders.py
+bye_bye_shopify/models.py
+bye_bye_shopify.egg-info/PKG-INFO
+bye_bye_shopify.egg-info/SOURCES.txt
+bye_bye_shopify.egg-info/dependency_links.txt
+bye_bye_shopify.egg-info/entry_points.txt
+bye_bye_shopify.egg-info/requires.txt
+bye_bye_shopify.egg-info/top_level.txt

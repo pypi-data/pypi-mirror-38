@@ -1,0 +1,3 @@
+[console_scripts]
+bye-bye-shopify = bye_bye_shopify.cli:main
+
