@@ -1,0 +1,15 @@
+Metadata-Version: 1.2
+Name: qtpad
+Version: 0.1.2
+Summary: Modern and customizable sticky note application
+Home-page: https://gitlab.com/william.belanger/qtpad
+Author: William Belanger
+License: UNKNOWN
+Description: UNKNOWN
+Keywords: sticky note text editor note-taking
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.6
