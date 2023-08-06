@@ -1,0 +1,8 @@
+{% load i18n %}
+
+{% blocktrans with name=object.name created=object.created %}{{ name }} ha contactado a través de {{ DJTOOLS_CONTACT_SITE_DOMAIN }} el {{ created }}{% endblocktrans %}
+
+{% blocktrans %}Su mensaje es:{% endblocktrans %}
+{{ object.message }}
+
+{% blocktrans with contact_information=object.contact_information %}Quiere ser contactado a través de: {{ contact_information }}{% endblocktrans %}
