@@ -1,0 +1,83 @@
+# Hash Array Snapshot
+## Overview
+This project provides a solution to the following two problems:
+1. Dataset revisions are seldom tracked effectively but can be just as important to track as source code revisions
+2. Version control systems such as Git do not handle large files (i.e. > 1GB) efficiently and struggle to track revisions of large datasets
+
+Hash array snapshots solve these two problems because they are easily tracked by Git and provide a record of the data files associated with a specific source code revision.
+
+## Examples
+Suppose we have a dataset composed of images stored in folders.
+
+    -dataset
+        -square
+            square0.png
+            square1.png
+            square2.png
+        -triangle
+            triangle0.png
+            triangle1.png
+            triangle2.png
+
+*$ has snap -d dataset*
+
+Will create *snapshot.has* with the following contents:
+
+34dc214a2aea8d7c254a9d6dc351e0d3c0088ad998eed6053b78877785fcdff1:triangle/triangle0.png
+566f5fa0703f5c2877c38fb3aae0fabbc5f9cdb25499b4f03ca75a6eb3827961:square/square0.png
+67240c2cee6e9c77df1192890b1cf4deb265a5a6afdb4a5ecc03e93cc5889cef:triangle/triangle2.png
+dfb6352f5d42793b58ac74f2cacf5f1f82bdb1470a30941224a0f1e34766aeb4:square/square2.png
+e361db7913f495dafee06657ea67043a49c06fa1a3c57d3ed5b1a9048455de8f:square/square1.png
+f7994454bf5a880c5741b3af8e0ababf77f8c450fe47ed8b5c6f7b9d38c9115f:triangle/triangle1.png
+
+Sometime later, additional circle data is added to our dataset and the overall naming convention is changed.
+
+    -dataset
+        -square
+            square_a.png
+            square_b.png
+            square_c.png
+        -triangle
+            triangle_a.png
+            triangle_b.png
+            triangle_c.png
+        -circle
+            circle_a.png
+            circle_b.png
+            circle_c.png
+
+We can use *has check* to verify the dataset is different from what we recorded in our snapshot.
+
+*$ has check -d dataset*
+
+Files added/modified:  
+181210f8f9c779c26da1d9b2075bde0127302ee0e3fca38c9a83f5b1dd8e5d3b:circle/circle_c.png
+61b4c705859f4158d38090c1e38e8fdc4f3d29db007f012766276aa498835cf6:circle/circle_a.png
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855:circle/circle_b.png
+
+Even though the triangle and square images have been renamed, files are tracked according to hash value rather than filename so those files are not seen as being new.
+
+We can use our snapshot file *snapshot.has* to recover the older version of our dataset into an empty directory *tmp*.
+
+*$ has recover -b dataset -d tmp*
+
+    -tmp
+        -square
+            square0.png
+            square1.png
+            square2.png
+        -triangle
+            triangle0.png
+            triangle1.png
+            triangle2.png
+
+Folder *tmp* is now identical to our previous version of folder *dataset*.
+
+We can check the contents of *tmp* to ensure that all files have been copied successfully.
+
+*$ has check -d tmp*
+
+## Installation
+The easiest way to install *has* is with *pip install has*.
+
+Alternatively, checkout the latest release version of *has* (e.g. *git checkout v0.0.x*), and run *sudo ./install.sh*. Open a terminal and type *has --help* to verify installation. Uninstall *has* by running *sudo ./uninstall.sh*.
