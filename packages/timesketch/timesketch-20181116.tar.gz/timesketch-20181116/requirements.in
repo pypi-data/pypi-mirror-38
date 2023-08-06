@@ -1,0 +1,44 @@
+# requirements:
+Flask
+Flask-Login
+Flask-script
+Flask-SQLAlchemy
+Flask-Bcrypt
+Flask-RESTful
+Flask-WTF
+Flask-Migrate
+SQLAlchemy
+celery
+redis
+blinker
+elasticsearch
+neo4jrestclient
+python-dateutil
+gunicorn
+pycypher
+parameterized
+datasketch
+PyJWT
+requests
+cryptography
+PyYAML
+
+# dev-requirements:
+Flask-Testing
+nose
+mock
+pylint
+coverage
+BeautifulSoup
+
+# Remove the following when pip-sync finally stops deleting pkg_resources.
+# This is a hack that forces reinstall of setuptools and thus brings
+# pkg_resources back after being deleted by pip-sync.
+# For more information, see:
+# - https://github.com/jazzband/pip-tools/issues/422
+# - https://github.com/jazzband/pip-tools/issues/389
+# - https://github.com/jazzband/pip-tools/pull/368
+# - https://github.com/jazzband/pip-tools/issues/531
+# Root cause of this bug:
+# - https://bugs.launchpad.net/ubuntu/+source/python-pip/+bug/1635463
+setuptools==36.2.7
