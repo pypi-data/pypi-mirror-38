@@ -1,0 +1,62 @@
+Metadata-Version: 2.1
+Name: baldrick
+Version: 0.2
+Summary: baldrick: a cunning plan for GitHub bots
+Home-page: https://github.com/astrofrog/baldrick
+Author: Stuart Mumford and Thomas Robitaille
+Author-email: thomas.robitaille@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Provides-Extra: test
+Provides-Extra: docs
+Requires-Dist: flask
+Requires-Dist: pyjwt
+Requires-Dist: requests
+Requires-Dist: python-dateutil
+Requires-Dist: cryptography
+Requires-Dist: humanize
+Requires-Dist: towncrier
+Requires-Dist: toml
+Requires-Dist: ttldict
+Provides-Extra: docs
+Requires-Dist: sphinx; extra == 'docs'
+Requires-Dist: sphinx-automodapi; extra == 'docs'
+Provides-Extra: test
+Requires-Dist: pytest (<3.7,>=3.5); extra == 'test'
+Requires-Dist: pytest-flake8; extra == 'test'
+Requires-Dist: pytest-cov; extra == 'test'
+Requires-Dist: codecov; extra == 'test'
+Requires-Dist: towncrier; extra == 'test'
+
+.. image:: https://travis-ci.org/OpenAstronomy/baldrick.svg
+    :target: https://travis-ci.org/OpenAstronomy/baldrick
+
+.. image:: https://codecov.io/gh/OpenAstronomy/baldrick/branch/master/graph/badge.svg
+    :target: https://codecov.io/gh/OpenAstronomy/baldrick
+
+
+Baldrick: A cunning plan for GitHub bots
+----------------------------------------
+
+This is a (GitHub) bot framework which is designed to have a pluggable and
+configurable setup for responding to webhooks.
+
+Baldrick grew out of `astropy-bot <https://github.com/astropy/astropy-bot>`__
+but refactored to be generic and easy to configure.
+
+
+Usage
+-----
+
+Baldrick is designed to be imported and used to construct a Flask app. An
+example repository which could be deployed on
+`Dokku <http://dokku.viewdocs.io/>`__ or `Heroku <https://www.heroku.com/>`__
+can be found in the ``template`` directory.
+
+
+Licence
+-------
+
+This project is licensed under the MIT licence.
+
+

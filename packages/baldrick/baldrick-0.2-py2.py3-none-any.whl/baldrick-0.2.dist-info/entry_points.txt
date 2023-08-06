@@ -1,0 +1,4 @@
+[console_scripts]
+check-stale-issues = baldrick.scripts.stale_issues:main
+check-stale-pull-requests = baldrick.scripts.stale_pull_requests:main
+
