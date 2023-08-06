@@ -1,0 +1,21 @@
+Metadata-Version: 1.1
+Name: rddlgym
+Version: 0.4.1
+Summary: rddlgym: A toolkit for working with RDDL domains in Python3.
+Home-page: https://github.com/thiagopbueno/rddlgym
+Author: Thiago P. Bueno
+Author-email: thiago.pbueno@gmail.com
+License: GNU General Public License v3.0
+Description: # rddl-gym
+        A toolkit for working with RDDL domains in Python3.
+        
+Keywords: rddl,toolkit
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
