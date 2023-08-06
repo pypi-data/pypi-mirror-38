@@ -1,0 +1,99 @@
+Metadata-Version: 2.1
+Name: geomdl.cli
+Version: 0.4.1
+Summary: Run geomdl from the command line
+Home-page: https://github.com/orbingol/geomdl-cli
+Author: Onur Rauf Bingol
+Author-email: nurbs-python@googlegroups.com
+License: MIT
+Project-URL: Documentation, http://geomdl-cli.readthedocs.io/
+Project-URL: Source, https://github.com/orbingol/geomdl-cli
+Project-URL: Tracker, https://github.com/orbingol/geomdl-cli/issues
+Keywords: NURBS B-Spline curve surface CAD modeling visualization surface-generator
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Operating System :: OS Independent
+Classifier: Environment :: Console
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: geomdl (>=4.4.0)
+Requires-Dist: matplotlib
+Requires-Dist: Jinja2 (>=2.10)
+Requires-Dist: ruamel.yaml (>=0.15)
+Requires-Dist: libconf
+
+Run NURBS-Python (geomdl) from the command line
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+|RTD|_ |PYPI|_
+
+**geomdl.cli** module provides a set of commands for using `geomdl <https://pypi.org/project/geomdl>`_ library from
+the command line.
+
+Installation
+============
+
+From PyPI
+---------
+
+Installing via `pip <https://pip.pypa.io/en/stable/>`_ is the easiest and the recommended method
+
+``pip install geomdl.cli``
+
+From the repository
+-------------------
+
+* Clone the repository: ``git clone https://github.com/orbingol/geomdl-cli.git``
+* Inside the directory containing the cloned repository, run: ``pip install .``
+* The setup script will install all required dependencies
+
+Using geomdl-cli
+================
+
+``geomdl-cli {command} {options}``
+
+Available commands
+------------------
+
+* **help:** displays the package help text, e.g. available commands, how to use them, etc.
+* **version:** displays the package version
+* **config:** displays the configuration
+* **plot:** plots single or multiple NURBS curves and surfaces using matplotlib
+* **eval:** evaluates NURBS shapes and exports the evaluated points in various formats, e.g. csv, txt and vtk
+* **export:** exports NURBS shapes in common CAD exchange formats
+
+Individual command help
+-----------------------
+
+``geomdl-cli {command} --help``
+
+Documentation
+=============
+
+https://geomdl-cli.readthedocs.io/
+
+Author
+======
+
+* Onur Rauf Bingol (`@orbingol <https://github.com/orbingol>`_)
+
+License
+=======
+
+geomdl-cli is licensed under the MIT License.
+
+
+.. |RTD| image:: https://readthedocs.org/projects/geomdl-cli/badge/?version=latest
+.. _RTD: https://geomdl-cli.readthedocs.io/en/latest/?badge=latest
+
+.. |PYPI| image:: https://img.shields.io/pypi/v/geomdl.cli.svg
+.. _PYPI: https://pypi.org/project/geomdl.cli/
+
+
