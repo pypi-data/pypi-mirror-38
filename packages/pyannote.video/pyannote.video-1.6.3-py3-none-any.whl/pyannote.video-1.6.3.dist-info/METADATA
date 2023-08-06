@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: pyannote.video
+Version: 1.6.3
+Summary: Video processing (including face detection, tracking, and clustering)
+Home-page: http://herve.niderb.fr/
+Author: Herve Bredin
+Author-email: bredin@limsi.fr
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Scientific/Engineering
+Requires-Dist: pyannote.core (>=2.0)
+Requires-Dist: pyannote.algorithms (>=0.8)
+Requires-Dist: sortedcollections (>=1.0.1)
+Requires-Dist: numpy (>=1.8)
+Requires-Dist: docopt (>=0.6.2)
+Requires-Dist: tqdm (>=4.23.2)
+Requires-Dist: dlib (==19.12)
+Requires-Dist: opencv-python (==3.4.1.15)
+Requires-Dist: munkres (>=1.0.7)
+Requires-Dist: moviepy (==0.2.3.4)
+Requires-Dist: pandas (>=0.20.3)
+
+UNKNOWN
+
+
