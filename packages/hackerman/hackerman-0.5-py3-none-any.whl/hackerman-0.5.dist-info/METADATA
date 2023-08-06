@@ -1,0 +1,16 @@
+Metadata-Version: 2.0
+Name: hackerman
+Version: 0.5
+Summary: A python library for penetration testing, security, development, and fun.
+Home-page: https://github.com/AgeOfMarcus/hackerman
+Author: Marcus Weinberger
+Author-email: marcus@marcusweinberger.com
+License: GPL
+Platform: UNKNOWN
+Requires-Dist: flask
+Requires-Dist: pycrypto
+Requires-Dist: requests
+
+UNKNOWN
+
+
