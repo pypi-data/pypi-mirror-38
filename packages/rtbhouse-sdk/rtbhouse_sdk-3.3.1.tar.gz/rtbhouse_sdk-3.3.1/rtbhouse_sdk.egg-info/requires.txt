@@ -1,0 +1,4 @@
+requests>=2.18.4
+
+[dev]
+pytest==3.4.1
