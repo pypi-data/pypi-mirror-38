@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: mu-environment
+Version: 0.0.11
+Summary: Core Python code for environment and dependency management of MU projects
+Home-page: https://github.com/microsoft/mu_build
+Author: Max Knutsen
+Author-email: maknutse@microsoft.com
+License: BSD2
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: pyyaml
+Requires-Dist: mu-python-library
+
+# MU Build
+
+
