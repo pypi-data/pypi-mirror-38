@@ -1,0 +1,15 @@
+ratatoskr/__init__.py,sha256=K6iB-z2zyU73CjpidV4qx0W8W0R-cVJzhR1TCnwSULA,843
+ratatoskr/exceptions.py,sha256=6x1LlHaAloOns4Bne1AjN8USaGarc665Xu7Bw0hyysQ,612
+ratatoskr/internal_logger.py,sha256=m8fptNaaSFR_NG_BIXfc3jYZVEwmUsLbL5FgNLRsd_E,313
+ratatoskr/operation_registry.py,sha256=VjkZ5NQXoFDMsrxtPhVH6pBh-oIVWaxdn4gZbuuF_jY,3554
+ratatoskr/protectron.py,sha256=H8-3Pq_e5b0iqaaC0tA_ake8B8sK7Ns3s3Vgg-sDe3A,1367
+ratatoskr/schema.py,sha256=WUdUfuEu9VdnUUXDhCMEEyPECBvBfREFEXolrgBWa_o,766
+ratatoskr/utils.py,sha256=r7j5RfQwoy3BcrhsRe9F9JoIxDWpwU89lD59GGtYZsA,1404
+ratatoskr/operation_wrappers/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+ratatoskr/operation_wrappers/aws_lambda.py,sha256=so87Oxo0n_oFqHFQllFNt8RvWk4yuLRzpMaWYdY3b2w,1088
+ratatoskr/operation_wrappers/base_wrappers.py,sha256=TcGRMnWIsTSBUJjT6U-lhX4zoYQk6K7AQaXEHbKpcC4,1379
+ratatoskr-0.1.5.dist-info/LICENSE.txt,sha256=fbHdojnymKu-eJcPPlJJ3A6L73vgHkZikpLPxRp15uw,1055
+ratatoskr-0.1.5.dist-info/METADATA,sha256=dAZ0IsMaDU0kQP9FL8y5njkAXNs6Jco4FaHtKvyFCGw,867
+ratatoskr-0.1.5.dist-info/WHEEL,sha256=_wJFdOYk7i3xxT8ElOkUJvOdOvfNGbR9g-bf6UQT6sU,110
+ratatoskr-0.1.5.dist-info/top_level.txt,sha256=e2zeLnVlp5AXBicyJtQ2T7JX0WhSM4GERPLS-kXlWs0,10
+ratatoskr-0.1.5.dist-info/RECORD,,
