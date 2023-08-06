@@ -1,0 +1,3 @@
+
+[console_scripts]
+monitor_requests_server = monitor_requests.server:run_server
