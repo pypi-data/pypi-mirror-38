@@ -1,0 +1,9 @@
+
+[:python_version>="3.6"]
+multimethod>=0.7
+
+[docs]
+nbsphinx
+m2r
+jupyter
+aiohttp
