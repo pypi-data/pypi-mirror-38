@@ -1,0 +1,15 @@
+alppb/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+alppb/__main__.py,sha256=ErUAwj5yk0b73UERSOSPb8_OfBbAW0e1j6uvRfeeoDs,107
+alppb/__version__.py,sha256=Hz9hqlnehve1l3B0uhkko4gq3haSC1MwFHMRBO6BJhE,63
+alppb/alppb.py,sha256=Fybfwnerp2dHaF-jZQ0DucQKn9AkpDMuM5kaY1A-Kdo,5338
+alppb/codebuild.py,sha256=kxnW9ObRSd6jqBzdtMdXe6igbTonLJgw_Q0ZFpixUIY,6249
+alppb/iam.py,sha256=vvNsW0evvkUe2kfltaDN7O8wGwR9pNWGEq1XXZvKs_s,3970
+alppb/s3.py,sha256=GRXSYmugC0vl82aBhoqMXN2IM9ooIZAJt7bvctdZBa0,1931
+tests/integration/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/integration/test_create_package.py,sha256=A9ANHs-iNJmPhwyBl5ACZCw2NQm5t8ywK__fLj-cmA0,2390
+alppb-0.4.0.dist-info/LICENSE,sha256=IkV2nDwaJTaT1SLHd-DgMy_KQV68A04k-PLjheC21v4,1070
+alppb-0.4.0.dist-info/METADATA,sha256=Aj78MCH7e27vqBRunc310GHayqFz4PwSWDbnRMbeSbM,4956
+alppb-0.4.0.dist-info/WHEEL,sha256=_wJFdOYk7i3xxT8ElOkUJvOdOvfNGbR9g-bf6UQT6sU,110
+alppb-0.4.0.dist-info/entry_points.txt,sha256=Z1K1VduczBClXKdWThj_dUhrphSUuT3erz3p1EfCpZc,44
+alppb-0.4.0.dist-info/top_level.txt,sha256=52U0q1ezyQTreJGRggjfccL7uXlEACiWJnIWJzGzI1M,12
+alppb-0.4.0.dist-info/RECORD,,
