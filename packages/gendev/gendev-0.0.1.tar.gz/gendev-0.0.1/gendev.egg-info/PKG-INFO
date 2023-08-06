@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: gendev
+Version: 0.0.1
+Summary: AWS IoT device factory
+Home-page: https://github.com/pypa/sampleproject
+Author: James Whiteman
+Author-email: james.whiteman@genunity.co.nz
+License: UNKNOWN
+Description: This is a basic device factory for aws
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
