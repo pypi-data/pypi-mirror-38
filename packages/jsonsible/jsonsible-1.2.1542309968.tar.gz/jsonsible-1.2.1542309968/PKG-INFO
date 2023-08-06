@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: jsonsible
+Version: 1.2.1542309968
+Summary: Python Library to turn ansible playbook into a json
+Home-page: https://github.build.ge.com/Cloudpod/jsonsible
+Author: Thomas Yeomans
+Author-email: william.yeomans@ge.com
+License: UNKNOWN
+Description: Python Library for returning a json of information from an ansible playbook run.
+Platform: UNKNOWN
