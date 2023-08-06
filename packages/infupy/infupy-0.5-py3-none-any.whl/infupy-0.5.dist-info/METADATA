@@ -1,0 +1,16 @@
+Metadata-Version: 2.0
+Name: infupy
+Version: 0.5
+Summary: Syringe pump infusion
+Home-page: https://github.com/jaj42/infupy
+Author: Jona Joachim
+Author-email: jona@joachim.cc
+License: ISC
+Platform: UNKNOWN
+Requires-Dist: crcmod
+Requires-Dist: pyserial
+Requires-Dist: qtpy
+
+UNKNOWN
+
+
