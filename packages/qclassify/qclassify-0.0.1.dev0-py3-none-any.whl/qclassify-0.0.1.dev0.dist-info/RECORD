@@ -1,0 +1,15 @@
+qclassify/__init__.py,sha256=TtziqpPuc7fEWAtnl7yL_7cMj8_83t9X8yVKpBS2Wdc,511
+qclassify/_version.py,sha256=idRpgC06v-p6a-0vhNty_ue3BtCBFiUnDOOuMcdUiQU,27
+qclassify/encoder.py,sha256=tPzcPy2Qw9_Qb2iwjB51GMny-7GV9vqeFNQWmfy1-Y8,2388
+qclassify/encoding_circ.py,sha256=_Lu4Hu3XP50fzRYTdg_0OC7PYIfuowiFICCcYG9JXok,1489
+qclassify/postprocessing.py,sha256=sXSHRlwtfxYHuYyK1lKPK0jOpthOS1OckJTfjbjt6ds,1898
+qclassify/preprocessing.py,sha256=kIQtzhuHpHsUQtjrSkUxthHH7FSSYwuGOM0MCUlNctg,976
+qclassify/proc_circ.py,sha256=zaArXpjwu91RY6pBXLbm-I1Gzqoo1cjU7JpWYxLxA6o,3670
+qclassify/processor.py,sha256=gRzfFCGwxAj-JXAx0IJh4VyWuZ45jBwCXOhT7Lz0aKo,3017
+qclassify/qclassifier.py,sha256=elFKR2mUp1jjwPhw9kZV9ys2XFbWcwVac2ztvHD3lTQ,10536
+qclassify/training.py,sha256=-uxQqaoeO9CdhljbTKtn4QE-uy1SxJ9ZO11lY1cnDng,1735
+qclassify/xor_example.py,sha256=uSsAX3BQxJiP7bqtY2XCYDymsBNRTffvb9ffEQnS_qE,3162
+qclassify-0.0.1.dev0.dist-info/METADATA,sha256=Wgj88x79xcNREaK_09DS0yKQ3JH1GmAiDCjvdF2fXdI,4366
+qclassify-0.0.1.dev0.dist-info/WHEEL,sha256=-ZFxwj8mZJPIVcZGLrsQ8UGRcxVAOExzPLVBGR7u7bE,92
+qclassify-0.0.1.dev0.dist-info/top_level.txt,sha256=ZQQshf1qfdvzCZ0-keUnZUzorTioONI2O9jCeNIQheU,10
+qclassify-0.0.1.dev0.dist-info/RECORD,,
