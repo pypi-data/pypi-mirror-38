@@ -1,0 +1,78 @@
+Metadata-Version: 1.2
+Name: emojis
+Version: 0.3.0
+Summary: Emojis for Python
+Home-page: https://github.com/alexandrevicenzi/emojis
+Author: Alexandre Vicenzi
+Author-email: pypi@alxd.me
+Maintainer: Alexandre Vicenzi
+Maintainer-email: pypi@alxd.me
+License: MIT
+Description: Emojis |Build Status|
+        =====================
+        
+        Emojis for Python
+        
+        About
+        -----
+        
+        This library allows you to emojify content such as:
+        ``This is a message with emojis :smile: :heart:``
+        
+        See the `Emoji cheat sheet <http://www.emoji-cheat-sheet.com/>`__ for
+        more aliases.
+        
+        Emoji database based on `gemoji <https://github.com/github/gemoji>`__.
+        
+        Example
+        -------
+        
+        .. code:: python
+        
+            >>> import emojis
+        
+            >>>  emojis.encode('This is a message with emojis :smile: :heart:')
+            'This is a message with emojis 😄 ❤️'
+        
+            >>> emojis.decode('This is a message with emojis 😄 ❤️')
+            'This is a message with emojis :smile: :heart:'
+        
+            >>> emojis.get('Prefix 😄 ❤️ 😄 ❤️ Sufix')
+            {'😄', '❤️'}
+        
+            >> emojis.count('😄 ❤️ 😄 ❤️')
+            4
+        
+            >>> emojis.count('😄 ❤️ 😄 ❤️', unique=True)
+            2
+        
+        Installation
+        ------------
+        
+        Install ``emojis`` with ``pip``.
+        
+        ``pip3 install -U emojis``
+        
+        License
+        -------
+        
+        MIT
+        
+        .. |Build Status| image:: https://travis-ci.org/alexandrevicenzi/emojis.svg?branch=master
+           :target: https://travis-ci.org/alexandrevicenzi/emojis
+        
+Keywords: python,emoji,emojis,unicode
+Platform: 
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Microsoft
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Classifier: Topic :: Utilities
