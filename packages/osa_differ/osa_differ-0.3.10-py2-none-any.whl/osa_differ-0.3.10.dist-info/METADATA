@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: osa-differ
+Version: 0.3.10
+Summary: Find changes between OpenStack-Ansible versions
+Home-page: https://github.com/rcbops/osa_differ
+Author: Major Hayden
+Author-email: major@mhtx.net
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: GitPython
+Requires-Dist: jinja2
+Requires-Dist: PyYAML
+Requires-Dist: requests
+
+UNKNOWN
+
+
