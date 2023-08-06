@@ -1,0 +1,3 @@
+[console_scripts]
+diraas = diraas.server:main
+
