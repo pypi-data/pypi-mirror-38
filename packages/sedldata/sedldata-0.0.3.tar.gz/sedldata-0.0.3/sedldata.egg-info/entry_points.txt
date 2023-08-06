@@ -1,0 +1,4 @@
+
+        [console_scripts]
+        sedldata=sedldata.cli:cli
+    
