@@ -1,0 +1,61 @@
+Metadata-Version: 2.1
+Name: gfra
+Version: 0.1.0
+Summary: REST API framework for Google Serverless Functions
+Home-page: UNKNOWN
+License: MIT
+Author: German Ivanov
+Author-email: germivanov@gmail.com
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: flask (>=1.0,<2.0)
+Description-Content-Type: text/markdown
+
+# gfra [![image](https://img.shields.io/pypi/v/gfra.svg)](https://python.org/pypi/gfra) [![image](https://img.shields.io/pypi/l/gfra.svg)](https://python.org/pypi/gfra) [![image](https://img.shields.io/pypi/pyversions/gfra.svg)](https://python.org/pypi/gfra)
+
+> REST API framework for Google Serverless Functions 
+
+## Description
+
+**gfra** stands for **G**oogle **F**unctions **R**EST **A**PI
+
+## Usage
+
+We use [poetry](https://github.com/sdispater/poetry) for dependency management and publishing.
+
+
+### Installation
+```
+$ poetry add gcloud-functions-rest-api
+```
+
+### Development
+
+```
+WIP
+```
+
+### Production
+```
+WIP
+```
+
+### Testing
+```
+WIP
+```
+
+## Documentation
+WIP
+
+## Contributions
+
+Feel free to send some [pull request](https://github.com/Tasyp/gfra/pulls) or [issue](https://github.com/Tasyp/gfra/issues).
+
+## License
+MIT license
+
+© 2018 [German Ivanov](https://github.com/Tasyp)
