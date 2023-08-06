@@ -1,0 +1,5 @@
+[console_scripts]
+ebook-crawler = ebook_crawler:main
+ebook_crawler = ebook_crawler:main
+lightnovel-crawler = ebook_crawler:main
+

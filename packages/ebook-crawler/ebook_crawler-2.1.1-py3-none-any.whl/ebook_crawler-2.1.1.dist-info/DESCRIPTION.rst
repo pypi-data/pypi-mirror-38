@@ -1,0 +1,27 @@
+LightNovels To EBook
+-----------------------
+
+Crawls lightnovels from popular websites and converts to ebook format (only EPUB and MOBI are supported for now).
+
+# Installation
+
+To use this app, you need to have python3 and pip installed in your computer. Install it using:
+
+$ pip install --upgrade ebook-crawler
+
+Or,
+
+$ python3 -m pip install --user --upgrade ebook-crawler
+
+
+# Tutorial
+
+Open terminal and enter:
+
+$ ebook-crawler
+
+To enable verbose output mode:
+
+$ ebook-crawler -v
+
+
