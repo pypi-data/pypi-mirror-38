@@ -1,0 +1,221 @@
+#!python
+from __future__ import division
+from builtins import input
+
+import os
+import sys
+import shutil
+import argparse
+from tqdm import tqdm
+from datetime import datetime
+
+import abraia
+
+IMAGE_EXTS = ['.jpg', '.jpeg', '.png', '.gif', '.webp']
+
+
+def process_info():
+    print('Abraia CLI v0.3.5')
+
+
+def process_configure():
+    api_key, api_secret = abraia.config.load_auth()
+    key = input('Abraia Api Key [{}]: '.format(api_key))
+    api_key = api_key if key == '' else key
+    secret = input('Abraia Api Secret [{}]: '.format(api_secret))
+    api_secret = api_secret if secret == '' else secret
+    abraia.config.save_auth(api_key, api_secret)
+
+
+# def patterns_to_paths(input_pattern):
+#     input_files = []
+#     for pat in input_pattern:
+#         # Expand ~ to $HOME, then pass to glob
+#         input_files += glob.glob(os.path.expanduser(pat))
+#     return input_files
+
+
+def input_files(path):
+    filenames = []
+    if os.path.isfile(path):
+        filenames.append(path)
+    elif os.path.isdir(path):
+        for root, subdirs, files in os.walk(path):
+            filenames.extend([os.path.join(root, file) for file in files])
+    return filenames
+
+
+def process_optimize(args):
+    path = args['path']
+    dest = args.get('dest')
+    format = args.get('format')
+
+    filenames = input_files(path)
+    dirname = path.rstrip('/').rstrip('\\') if os.path.isdir(path) else None
+
+    if len(filenames):
+        for filename in tqdm(filenames, unit='file'):
+            path, name = os.path.split(filename)
+            nam, ext = os.path.splitext(name)
+            oext = format if format is not None else ext
+            fileout = os.path.join(path, nam+'_o'+oext)
+            if dirname:
+                relpath = os.path.relpath(path, dirname)
+                if not os.path.exists(os.path.join(dirname+'_o', relpath)):
+                    os.makedirs(os.path.join(dirname+'_o', relpath))
+                fileout = os.path.join(dirname+'_o', relpath, nam+oext)
+            if dest is not None:
+                fileout = dest
+                root, oext = os.path.splitext(fileout)
+            if ext.lower() in IMAGE_EXTS and oext.lower() in IMAGE_EXTS:
+                abraia.from_file(filename).resize(
+                    width=args.get('width'),
+                    height=args.get('height')).filter(args.get('filter')).to_file(fileout)
+                if ext == oext and os.path.getsize(fileout) > os.path.getsize(filename):
+                    shutil.copy2(filename, fileout)
+                sizein = os.path.getsize(filename) / 1024
+                sizeout = os.path.getsize(fileout) / 1024
+                tqdm.write('[{3:04.1f}%] {1:6.1f}KB -> {2:6.1f}KB ({0})'.format(
+                    os.path.split(fileout)[1], sizein, sizeout, 100 * (1 - sizeout / sizein)))
+            else:
+                shutil.copy2(filename, fileout)
+    else:
+        process_url(args)
+
+
+def process_url(args):
+    path = args['path']
+    dest = args.get('dest')
+    fileout = os.path.split(path) if dest is None else dest
+    try:
+        abraia.from_url(path).resize(
+            width=args.get('width'),
+            height=args.get('height')).to_file(fileout)
+        print('New image saved:', dest)
+    except:
+        print('Error to processing:', path)
+
+
+def process_analyze(args):
+    result = abraia.from_file(args['path']).analyze()
+    print(result)
+
+
+def process_aesthetics(args):
+    result = abraia.from_file(args['path']).aesthetics()
+    print(result)
+
+
+def process_list(path):
+    files, folders = abraia.list(path=path)
+    txt = '\n'.join(['{:>28}  {}/'.format(
+        '', f['name']) for f in folders]) + '\n'
+    txt += '\n'.join(['{}  {:>7}  {}'.format(
+        datetime.fromtimestamp(f['date']), f['size'], f['name']) for f in files])
+    txt += '\ntotal {}'.format(len(files))
+    print(txt)
+
+
+def process_remove(path):
+    print(abraia.remove_file(path))
+
+
+def add_parser_info(subparser):
+    parser_info = subparser.add_parser('info', help='show user account information')
+    return parser_info
+
+
+def add_parser_configure(subparser):
+    parser_configure = subparser.add_parser('configure', help='configure the access keys')
+    return parser_configure
+
+
+def add_parser_optimize(subparser):
+    parser_optimize = subparser.add_parser('optimize', help='optimize an image or a directory of images')
+    parser_optimize.add_argument('--width', type=int, help='resize to specified width')
+    parser_optimize.add_argument('--height', type=int, help='resize to specified height')
+    parser_optimize.add_argument('--format', type=str, help='convert to specified image format. Allowed output extensions: %s' % str(IMAGE_EXTS))
+    parser_optimize.add_argument('--filter', type=str, help='apply the specified filter')
+    parser_optimize.add_argument('path', nargs='?', help='image path or directory to process')
+    parser_optimize.add_argument('dest', nargs='?', help='destination directory or image path')
+    return parser_optimize
+
+
+def add_parser_analyze(subparser):
+    parser_analyze = subparser.add_parser('analyze', help='analyze an image or a diretory of images')
+    parser_analyze.add_argument('path', nargs='?', help='image path or directory to process')
+    return parser_analyze
+
+
+def add_parser_aesthetics(subparser):
+    parser_aesthetics = subparser.add_parser('aesthetics', help='predict aesthetics of an image or a diretory of images')
+    parser_aesthetics.add_argument('path', nargs='?', help='image path or directory to process')
+    return parser_aesthetics
+
+
+def parse_input():
+    parser = argparse.ArgumentParser(description='Abraia image optimization tool')
+    parser.add_argument('-V', '--version', action='version', version='0.3.5')
+    subparser = parser.add_subparsers(dest='command')
+    parser_info = add_parser_info(subparser)
+    parser_configure = add_parser_configure(subparser)
+    parser_optimize = add_parser_optimize(subparser)
+    # parser_analyze = add_parser_analyze(subparser)
+    # parser_aesthetics = add_parser_aesthetics)
+    parser_store = subparser.add_parser('store', help='work with the cloud stored files')
+    subparser_store = parser_store.add_subparsers(dest='subcommand')
+    parser_list = subparser_store.add_parser('ls', help='list stored files')
+    parser_list.add_argument('path', nargs='?', help='folder path to list')
+    parser_remove = subparser_store.add_parser('rm', help='remove a stored file')
+    parser_remove.add_argument('path', nargs='?', help='image path to remove')
+    args = vars(parser.parse_args())
+
+    if args['command'] is None:
+        parser.print_help()
+        sys.exit()
+    elif args['command'] == 'optimize':
+        if args['path'] is None:
+            parser_optimize.print_help()
+            sys.exit()
+    # elif args['command'] == 'analyze':
+    #     if args['path'] is None:
+    #         parser_analyze.print_help()
+    #         sys.exit()
+    # elif args['command'] == 'aesthetics':
+    #     if args['path'] is None:
+    #         parser_aesthetics.print_help()
+    #         sys.exit()
+    elif args['command'] == 'store':
+        if args['subcommand'] is None:
+            parser_store.print_help()
+            sys.exit()
+        elif args['subcommand'] == 'rm':
+            if args['path'] is None:
+                parser_remove.print_help()
+                sys.exit()
+    return args
+
+
+def process_input(args):
+    if args['command'] == 'info':
+        process_info()
+    if args['command'] == 'configure':
+        process_configure()
+    elif args['command'] == 'optimize':
+        process_optimize(args)
+    # elif args['command'] == 'analyze':
+    #     process_analyze(args)
+    # elif args['command'] == 'aesthetics':
+    #     process_aesthetics(args)
+    elif args['command'] == 'store':
+        if args['subcommand'] == 'ls':
+            path = args.get('path')
+            path = '' if path is None else path
+            process_list(path)
+        elif args['subcommand'] == 'rm':
+            process_remove(args['path'])
+
+
+if __name__ == "__main__":
+    args = parse_input()
+    process_input(args)
