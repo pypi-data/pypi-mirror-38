@@ -1,0 +1,78 @@
+Metadata-Version: 2.1
+Name: neuralnet
+Version: 0.2.0
+Summary: A high-level library on top of Theano.
+Home-page: https://github.com/justanhduc/neuralnet
+Author: Duc Nguyen
+Author-email: adnguyen@yonsei.ac.kr
+License: UNKNOWN
+Project-URL: Bug Reports, https://github.com/justanhduc/neuralnet/issues
+Project-URL: Source, https://github.com/justanhduc/neuralnet/
+Platform: Windows
+Platform: Linux
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.5
+Description-Content-Type: text/markdown
+Requires-Dist: theano
+Requires-Dist: matplotlib
+Requires-Dist: scipy
+Requires-Dist: numpy
+Requires-Dist: tqdm
+Requires-Dist: visdom
+
+# Neuralnet
+
+A high level framework for general purpose neural networks written in Theano.
+
+## Requirements
+
+[Theano](http://deeplearning.net/software/theano/)
+
+[Scipy](https://www.scipy.org/install.html) 
+
+[Numpy+mkl](http://www.lfd.uci.edu/~gohlke/pythonlibs/#numpy)
+
+[Matplotlib](https://matplotlib.org/)
+
+[tqdm](https://github.com/tqdm/tqdm)
+
+[visdom](https://github.com/facebookresearch/visdom)
+
+
+## Installation
+To install a stable version, use the following command
+
+```
+pip install neuralnet==0.1.0
+```
+
+The version in this repo tends to be newer since I am lazy to make a new version available on Pypi when the change is tiny. 
+To install the version in this repo execute
+
+```
+pip install git+git://github.com/justanhduc/neuralnet.git@master (--ignore-installed) (--no-deps)
+```
+
+## Pretrained Models
+[VGG16](https://s3.ap-northeast-2.amazonaws.com/pretrained-theano-models/vgg16_from_pytorch.npz)
+
+[VGG19](https://s3.ap-northeast-2.amazonaws.com/pretrained-theano-models/vgg19_from_pytorch.npz)
+
+[ResNet18](https://s3.ap-northeast-2.amazonaws.com/pretrained-theano-models/resnet18_from_pytorch.npz)
+
+[ResNet34](https://s3.ap-northeast-2.amazonaws.com/pretrained-theano-models/resnet34_from_pytorch.npz)
+
+[ResNet50](https://s3.ap-northeast-2.amazonaws.com/pretrained-theano-models/resnet50_from_pytorch.npz)
+
+[ResNet101](https://s3.ap-northeast-2.amazonaws.com/pretrained-theano-models/resnet101_from_pytorch.npz)
+
+[ResNet152](https://s3.ap-northeast-2.amazonaws.com/pretrained-theano-models/resnet152_from_pytorch.npz)
+
+All the tests for these models are available at [test.py](https://github.com/justanhduc/neuralnet/tree/master/neuralnet/test.py).
+Also, checkout the file for example usages.
+
+
