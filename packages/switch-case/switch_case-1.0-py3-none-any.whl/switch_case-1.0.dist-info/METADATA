@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: switch-case
+Version: 1.0
+Summary: UNKNOWN
+Home-page: https://github.com/nikitanovosibirsk/switch_case
+Author: Nikita Tsvetkov
+Author-email: nikitanovosibirsk@yandex.com
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Description-Content-Type: text/markdown
+
+# switch_case
+
+## Installation
+
+```bash
+pip3 install switch_case
+```
+
+## Usage
+
+```python
+from switch_case import *
+reason = (
+    switch
+        | case(_ == 200) >> 'OK'
+        | case(_ == 500) >> 'ERROR'
+        | default        >> 'UNKNOWN')
+```
+
+```python
+assert reason(200) == 'OK'
+assert reason(500) == 'ERROR'
+assert reason(400) == 'UNKNOWN'
+```
+
+
