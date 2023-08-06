@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: prsync
+Version: 0.0.6
+Summary: a GUI for rsync (linux servers)
+Home-page: https://github.com/itay-bardugo/prsync/
+Author: Itay Bardugo
+Author-email: itaybardugo91@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: paramiko
+
+a simple GUI for rsync usage (between linux servers)
+
+![ScreenShot](https://raw.githubusercontent.com/itay-bardugo/prsync/master/prsync/images/Screenshot.png)
+
