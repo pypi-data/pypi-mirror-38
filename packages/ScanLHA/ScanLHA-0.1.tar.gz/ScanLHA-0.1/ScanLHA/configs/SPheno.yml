@@ -1,0 +1,51 @@
+---
+runner:
+  binaries: []
+  tmpfs: '/dev/shm/slha/'
+  keep_log: False
+  logfile: False
+  remove_slha: True
+
+blocks:
+  - block: MODSEL
+    lines:
+      - {id: 1, value: 1}  # input at the high scale
+      - {id: 2, value: 1}  # boundary condition to choose
+      - {id: 6, value: 1}  # generation mixing
+  - block: SMINPUTS
+    lines:
+      - {id: 2, value: 1.166390E-05}  # G_F
+      - {id: 3, value: 1.172000E-01}  # alpha_s(MS)^MSbar
+      - {id: 4, value: 9.118760E+01}  # z pole mass
+      - {id: 5, value: 4.20000E+00}  # bottom mass (MSbar)
+      - {id: 6, value: 1.729000E+02}  # top pole mass
+      - {id: 7, value: 1.7770E+00}  # tau pole mass
+  - block: SPhenoInput
+    lines:
+      - {id: 1, value: -2}  # error level
+      - {id: 7, value: 0}  # 1/0 skips/includes two loop Higgs masses
+      - {id: 9, value: 1}  # two loop corrections in gaugeless limit
+      - {id: 11, value: 1}  # calculate branching ratios
+      - {id: 12, value: 1.0E-04}  # threshold for writing branching ratios
+      - {id: 13, value: 3}  # 3-Body decays: 0/1/2/3 none/fermions/scalars/both
+      - {id: 31, value: -1}  # -1 dynamical GUT scale
+      - {id: 38, value: 2}  # 1- or 2-Loop RGEs
+      - {id: 20, value: 1}  # mass uncreatanties
+      - {id: 51, value: 1}  # Write Output in CKM basis
+      - {id: 55, value: 1}  # Calculate loop corrected masses
+      - {id: 57, value: 1}  # Calculate low energy constraints
+      - {id: 66, value: 1}  # 1/0 turn Two-Scale Matching on/off
+      - {id: 67, value: 1}  # effective Higgs mass calculation: 1/2 auto/always
+      - {id: 75, value: 1}  # Write WHIZARD files
+      - {id: 76, value: 1}  # Write HiggsBounds file
+      - {id: 77, value: 1}  # Output for MicrOmegas
+      - {id: 78, value: 1}  # Output for MadGraph
+      - {id: 79, value: 1}  # Write WCXF files
+      - {id: 515, value: 1}  # write parameters at GUT scale
+      - {id: 520, value: 1}  # Write effective Higgs couplings
+      - {id: 530, value: 1}  # Write Blocks for Vevacious
+  - block: DECAYOPTIONS
+    lines:
+      - {id: 1, value: 1}  # Cha
+      - {id: 2, value: 1}  # Chi
+      - {id: 3, value: 1}  # Glu
