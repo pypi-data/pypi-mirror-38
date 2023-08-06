@@ -1,0 +1,12 @@
+Value NEIGHBOR (\d+.\d+.\d+.\d+)
+Value AS_NUMBER (\d+)
+Value LINK (\S*)
+Value PEER_GRP (\S+)
+Value ROUTER_ID (\S+)
+Value STATE (\S+)
+
+Start
+  ^BGP\s+neighbor\s+is\s+${NEIGHBOR},\s+remote\s+AS\s+${AS_NUMBER},\s+${LINK}\s+link
+  ^.*peer-group\s+${PEER_GRP}
+  ^.*ID\s+${ROUTER_ID}
+  ^.*state\s+=\s+${STATE} -> Record
