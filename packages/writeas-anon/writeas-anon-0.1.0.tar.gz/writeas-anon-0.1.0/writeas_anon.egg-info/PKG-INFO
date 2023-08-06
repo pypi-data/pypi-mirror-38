@@ -1,0 +1,58 @@
+Metadata-Version: 2.1
+Name: writeas-anon
+Version: 0.1.0
+Summary: Post anonymously to write.as
+Home-page: https://gitlab.com/chgrzegorz/writeas-anon
+Author: Grzegorz Chilczuk
+Author-email: chgrzegorz@pm.me
+License: MIT
+Description: # Write as anon
+        As simple as possible package to post on [write.as](https://write.as).
+        
+        At current version you can only post as anonymous, and retrieve posts. Update, delete and any other operation are not supported (yet).
+        
+        **Created to learn how to publish package on PyPi**
+        
+        ### Installation
+        As simple as:
+        ```bash
+        pip install writeas-anon
+        ```
+        
+        ### Usage
+        ```python
+        from writeas_anon import post, build_url
+        
+        text = '''# Hello world!
+        I've created a simple package called `writeas_anon`. You can find it [here](https://gitlab.com/chgrzegorz/writeas-anon)
+        I hope you will find this useful 😃'''
+        
+        post_id = post(text)
+        print(build_url(post_id))
+        ```
+        [https://write.as/1mky7cnx4ozq9.m](https://write.as/1mky7cnx4ozq9.md)
+        
+        # ——————
+        # Change log
+        
+        ## [0.1.0] - 2018-11-18
+        
+        ### Added
+        - `get` function
+        - `build_url` function
+        
+        ### Updated
+        - `post` function returns only post id
+        
+        ## [0.0.1] - 2018-11-13
+        
+        ### Added
+        - `post` function
+        
+Keywords: writeas anonymous
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
