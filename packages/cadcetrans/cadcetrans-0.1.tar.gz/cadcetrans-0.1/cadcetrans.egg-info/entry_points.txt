@@ -1,0 +1,3 @@
+[console_scripts]
+cadc-etrans = cadcetrans.etrans_core:main_app
+
