@@ -1,0 +1,21 @@
+Metadata-Version: 1.1
+Name: adnotatio_server
+Version: 0.1.1
+Summary: An example server implementation in Python for the Adnotatio annotation project.
+Home-page: UNKNOWN
+Author: Matthew Wardrop
+Author-email: mpwardrop@gmail.com
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
