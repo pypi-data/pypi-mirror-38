@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+mcmder/__init__.py
+mcmder/errors.py
+mcmder/mcmder.py
+mcmder/utils.py
+mcmder.egg-info/PKG-INFO
+mcmder.egg-info/SOURCES.txt
+mcmder.egg-info/dependency_links.txt
+mcmder.egg-info/requires.txt
+mcmder.egg-info/top_level.txt
