@@ -1,0 +1,10 @@
+README.md
+setup.py
+SlackBotter.egg-info/PKG-INFO
+SlackBotter.egg-info/SOURCES.txt
+SlackBotter.egg-info/dependency_links.txt
+SlackBotter.egg-info/top_level.txt
+bin/example.py
+slackbotter/__init__.py
+slackbotter/bot.py
+slackbotter/dictstore.py
