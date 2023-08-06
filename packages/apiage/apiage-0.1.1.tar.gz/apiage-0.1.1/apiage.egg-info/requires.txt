@@ -1,0 +1,9 @@
+requests
+progress
+furl
+goto-statement
+
+[test]
+coverage
+pytest
+pytest-cov
