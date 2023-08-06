@@ -1,0 +1,125 @@
+Metadata-Version: 1.1
+Name: intermake
+Version: 1.0.0.76
+Summary: Automated run-time generation of user interfaces from Python functions - command-line-args, CLI, python-interactive, python-scripted, graphical (Qt GUI)
+Home-page: https://bitbucket.org/mjr129/intermake
+Author: Martin Rusilowicz
+Author-email: UNKNOWN
+License: https://www.gnu.org/licenses/agpl-3.0.html
+Description: ====================================================================================================
+                                                     Intermake                                              
+        ====================================================================================================
+        
+        Automated application frontend.
+        
+        example/__init__.py::
+        
+            from intermake import Application 
+        
+            app = Application( "Example" )
+        
+            @app.command()
+            def say_hello(times : int):
+                print("hello " * times)
+        
+        example/__main__.py::
+        
+            import example
+            example.app.start()
+        
+        Usage::
+        
+              example say_hello 2
+            ⇝ hello hello
+        
+              example gui
+            ⇝ welcome to Example's graphical user interface
+              *click say hello*
+              *set times = 2*
+            ⇝ *message box: hello hello*
+              *click x*
+                
+              example pyi
+            ⇝ welcome to Example's python interactive shell
+              say_hello(2)
+            ⇝ hello hello
+              exit()
+        
+              example cli
+            ⇝ welcome to Example's command line interactive
+              say_hello 2
+            ⇝ hello hello
+              exit
+        
+              python
+              import example
+              example.say_hello(2)
+            ⇝ hello hello
+              exit()
+        
+        
+        .. attention::
+        
+            **Full documentation can be found `here<http://software.rusilowicz.com/intermake>`_.**
+        
+        .. contents::
+        
+        ----------------------------------------------------------------------------------------------------
+                                                 What is Intermake?                                         
+        ----------------------------------------------------------------------------------------------------
+        
+        `Intermake`:t: is a library that automatically provides multiple front-ends a `Python`:t: application.
+        Once an application is registered with `Intermake`:t:, the following interfaces are provided:
+        
+        * Command line arguments
+        * Command line interface (CLI)
+        * Python interactive shell
+        * Graphical user interface (GUI)
+        * Python library interface (DLL)
+        * Interactive Jupyter notebook
+        * ***Custom*** front-ends are also supported
+        
+        It is used by:
+        
+        * [Bio42](https://bitbucket.org/mjr129/bio42)
+        * [Neocommand](https://bitbucket.org/mjr129/neocommand)
+        * [Groot](https://bitbucket.org/mjr129/groot)
+        * [Faketree](https://bitbucket.org/mjr129/faketree)
+        
+        
+        ----------------------------------------------------------------------------------------------------
+                                                     Rationale                                              
+        ----------------------------------------------------------------------------------------------------
+        
+        Intermake aims to be *reflective*, requiring minimal setup to expose Python functions through
+        an applications command line.
+        
+        
+        ----------------------------------------------------------------------------------------------------
+                                                      License                                               
+        ----------------------------------------------------------------------------------------------------
+        
+        
+        `Intermake`:t: is licensed under the [GNU AGPLv3](https://www.gnu.org/licenses/agpl-3.0.html).
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Environment :: Win32 (MS Windows)
+Classifier: Environment :: X11 Applications :: Qt
+Classifier: Environment :: MacOS X
+Classifier: Operating System :: OS Independent
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Utilities
+Classifier: Topic :: Terminals
+Classifier: Topic :: Multimedia :: Graphics :: Presentation
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Other Scripting Engines
