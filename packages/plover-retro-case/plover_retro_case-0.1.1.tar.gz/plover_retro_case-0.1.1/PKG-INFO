@@ -1,0 +1,53 @@
+Metadata-Version: 1.1
+Name: plover_retro_case
+Version: 0.1.1
+Summary: Retroactively change the case of an already written word
+Home-page: https://github.com/LukeSilva/plover_retro_case
+Author: Luke Silva
+Author-email: luke@lukesilva.com
+License: GNU General Public License v3 or later (GPLv3+)
+Description-Content-Type: UNKNOWN
+Description: ################
+        Plover Retro Case
+        ################
+        
+        Retroactively change the case of an already written word
+        
+        Usage
+        =====
+        
+        Retro Case
+        -----------------------
+        
+        ``{:retro_case:capPrev:capThis:deliminater?}``
+        
+        -  **letter**: the letter or word to fingerspell
+        -  **capPrev**: whether to capitalise the previous word
+        -  **capThis**: whether to capitalise the current word
+        -  **delimiter** *(optional)*: the character or word to join stitched letters with, *defaults to ''*
+        
+        Examples
+        ^^^^^^^^
+        
+        - camelCase
+        
+          - camel case{:retro_case:false:true} → camelCase
+        
+        - PascalCase
+        
+          - pascal case{:retro_case:true:true} → PascalCase
+        
+        - snake_case
+        
+          - snake case{:retro_case:false:false:_} → snake_case
+        
+        
+Keywords: plover plover_plugin
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Plugins
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
