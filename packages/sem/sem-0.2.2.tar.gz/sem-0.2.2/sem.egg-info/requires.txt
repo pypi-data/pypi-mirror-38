@@ -1,0 +1,14 @@
+tinydb
+tqdm
+numpy
+xarray
+drmaa
+gitpython
+click
+scipy
+
+[dev]
+check-manifest
+
+[test]
+pytest
