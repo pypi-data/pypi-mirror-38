@@ -1,0 +1,14 @@
+README.md
+setup.py
+tgmsg/__init__.py
+tgmsg/errors.py
+tgmsg/tg_client.py
+tgmsg.egg-info/PKG-INFO
+tgmsg.egg-info/SOURCES.txt
+tgmsg.egg-info/dependency_links.txt
+tgmsg.egg-info/requires.txt
+tgmsg.egg-info/top_level.txt
+tgmsg/models/__init__.py
+tgmsg/models/keyboards.py
+tgmsg/models/messages.py
+tgmsg/models/requests.py
