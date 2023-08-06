@@ -1,0 +1,6 @@
+[console_scripts]
+metatab = metatab.cli:metatab
+
+[rowgenerators]
+.yaml = metatab.rowgenerators:YamlMetatabSource
+
