@@ -1,0 +1,3 @@
+[console_scripts]
+xbox-fo4-relay = xbox.auxiliary.scripts.fo4:main
+
