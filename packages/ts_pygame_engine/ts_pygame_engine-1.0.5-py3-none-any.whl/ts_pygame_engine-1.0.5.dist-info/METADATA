@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: ts-pygame-engine
+Version: 1.0.5
+Summary: Simple engine for pygame
+Home-page: https://gitlab.informatics.ru/TechnoStrife/pygame/
+Author: TechnoStrife
+Author-email: plotnikov7rodion@gmail.com
+License: Mozilla Public License 2.0
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Intended Audience :: Education
+Classifier: Topic :: Education
+Description-Content-Type: text/markdown
+Requires-Dist: pygame
+
+# TechnoStrife's pygame engine
+
+
+# Installation
+    pip install ts_pygame_engine
+
+
