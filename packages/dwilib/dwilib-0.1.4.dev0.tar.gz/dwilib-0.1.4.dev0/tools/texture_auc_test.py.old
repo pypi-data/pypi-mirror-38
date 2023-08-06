@@ -1,0 +1,190 @@
+#!/usr/bin/python3
+
+"""Lesion-wise AUC, apply the Wilcoxon signed-rank test."""
+
+# https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.wilcoxon.html
+
+from collections import OrderedDict
+import sys
+from itertools import product
+import json
+import logging
+
+from joblib import Memory, Parallel, delayed
+import numpy as np
+from scipy import stats
+from statsmodels.stats import descriptivestats
+
+import dwi.plot
+import dwi.stats
+import dwi.util
+
+memory = Memory(cachedir='cache', verbose=0)
+
+
+def valid_lines_from_stream(fp=sys.stdin):
+    """Read and yield lines that are neither empty nor comments."""
+    return filter(None, (dwi.files.sanitize_line(x) for x in fp))
+
+
+def parse_line(line):
+    try:
+        d = json.loads(line)
+        d['index'] = d['scan'][1]
+        assert d['index'] in 'ab', d
+        return d
+    except ValueError:
+        logging.error('Could not parse line: %s', line)
+        return None
+
+
+def parse_object(obj):
+    if 'auc' not in obj:
+        logging.warning('No AUC: %s', obj)
+        return None
+    if obj['param'].startswith('all-'):
+        logging.warning('Skipping feature: %s', obj)
+        return None
+    try:
+        key = obj['threshold'], obj['mode'], obj['param']
+        value = {(obj['case'], obj['index']): obj['auc']}
+        return key, value
+    except KeyError as e:
+        logging.error('Invalid mapping: %s', obj)
+        raise
+
+
+def slurp_objects(objs):
+    """Take a sequence of objects and build a dict of them."""
+    aucs = {}
+    for k, v in filter(None, (parse_object(x) for x in objs)):
+        aucs.setdefault(k, {}).update(v)
+    return aucs
+
+
+def read_input(lines):
+    return slurp_objects(filter(None, (parse_line(x) for x in lines)))
+
+
+def get_result(v):
+    cases = sorted(set(x[0] for x in v))
+    aucs = np.array([
+        [v[(x, 'a')] for x in cases],
+        [v[(x, 'b')] for x in cases]
+        ])
+    # auc_mn = np.mean(aucs, axis=1)
+    auc_md = np.median(aucs, axis=1)
+    diffs = aucs[0] - aucs[1]
+    # diff_mn = np.mean(diffs)
+    diff_md = np.median(diffs)
+    if np.all(aucs[0] == aucs[1]):
+        M = Mp = np.nan
+        U = Up = np.nan
+        W = Wp = np.nan
+    else:
+        M, Mp = descriptivestats.sign_test(diffs)
+        U, Up = stats.mannwhitneyu(aucs[0], aucs[1])
+        W, Wp = stats.wilcoxon(aucs[0], aucs[1])
+    r = dict(
+        data=dict(
+            n=len(cases),
+            aucs=aucs,
+            # auc_mn=tuple(np.around(auc_mn, 2)),
+            auc_md=tuple(np.around(auc_md, 2)),
+            # diff_mn=round(diff_mn, 2),
+            diff_md=round(diff_md, 2),
+            ),
+        test=dict(
+            M=M, Mp=round(Mp, 2),
+            U=U, Up=round(Up, 2),
+            W=W, Wp=round(Wp, 2),
+            ),
+        )
+    if not np.all(aucs[0] == aucs[1]):
+        try:
+            d = dwi.stats.wilcoxon_signed_rank_test(diffs)
+            r['test'].update(d)
+        except Exception as e:
+            logging.exception('Diffs: %s', diffs)
+    return r
+
+
+def each_result(aucs):
+    # for k, v in sorted(aucs.items()):
+    #     r = OrderedDict()
+    #     r['key'] = dict(threshold=k[0], mode=k[1], param=k[2])
+    #     r.update(get_result(v))
+    #     yield r
+    items = sorted(aucs.items())
+    it = Parallel(n_jobs=-1, verbose=0)(delayed(get_result)(v) for k, v in
+                                        items)
+    for (k, v), result in zip(items, it):
+        r = OrderedDict()
+        r['key'] = dict(threshold=k[0], mode=k[1], param=k[2])
+        r.update(result)
+        yield r
+
+
+
+# def sorted_by(seq, *keys, **kwargs):
+#     def key(item):
+#         return [item[x] for x in keys]
+#     return sorted(seq, key=key, **kwargs)
+
+
+# @memory.cache
+def get_aucs(results, t, m):
+    for x in results:
+        if (x['key']['threshold'], x['key']['mode']) == (t, m):
+            aucs = np.array(x['data']['aucs'])
+            assert aucs.shape[0] == 2, aucs.shape
+            return aucs
+
+
+def get_aucs_(results, t, m):
+    return get_aucs(results, t, m)
+
+
+def plot_aucs_param(results, path):
+    thresholds = sorted({x['key']['threshold'] for x in results})
+    modes = sorted({x['key']['mode'] for x in results})
+    plt_it = dwi.plot.generate_plots(nrows=len(thresholds), ncols=len(modes),
+                                     path=path)
+    logging.warning('## %s, %s, %s', thresholds, modes, path)
+    aucs_it = Parallel(n_jobs=-1, verbose=50)(
+        delayed(get_aucs_)(results, t, m) for t, m in product(thresholds,
+                                                              modes))
+    # for plt, (t, m) in zip(plt_it, product(thresholds, modes)):
+    #     aucs = get_aucs(results, t, m)
+    for plt, aucs in zip(plt_it, aucs_it):
+        # x = list(range(len(aucs[0])))
+        # plt.plot(x, aucs[0], x, aucs[1])
+        plt.hist([aucs[0], aucs[1]], bins=10, range=(0.5, 1), histtype='step')
+
+
+def plot_aucs(results):
+    for param in {x['key']['param'] for x in results}:
+        lst = [x for x in results if x['key']['param'] == param]
+        plot_aucs_param(lst, 'tmp/aucs_{}.png'.format(param))
+
+
+def write_output(aucs):
+    # s = '{n} {a:0.2f} {b:0.2f} {s} {p:0.2f} {k}'
+    results = list(each_result(aucs))
+    # for d in sorted(results, key=lambda x: x['t'], reverse=True):
+    # results = sorted_by(results, 'threshold', 'param')
+    # plot_aucs(results)
+    for d in results:
+        del d['data']['aucs']
+        print(dwi.util.dump_json(d, sort_keys=None))
+
+
+def main():
+    aucs = read_input(valid_lines_from_stream())
+    for k, v in sorted(aucs.items()):
+        pass
+    write_output(aucs)
+
+
+if __name__ == '__main__':
+    main()
