@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: scv
+Version: 1.0.4
+Summary: better package manager - python package manager
+Home-page: https://github.com/SmilingXinyi/scv
+Author: blaite
+Author-email: smilingxinyi@gmail.com
+License: MIT
+Keywords: package-manager requirements
+Platform: UNKNOWN
+Requires-Dist: enum34
+Requires-Dist: pyyaml
+Requires-Dist: virtualenv
+
+# SCV
+Python project manager
+
