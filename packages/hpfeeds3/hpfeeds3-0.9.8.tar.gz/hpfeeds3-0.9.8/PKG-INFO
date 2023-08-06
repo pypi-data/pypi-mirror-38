@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: hpfeeds3
+Version: 0.9.8
+Summary: Python implementation of the honeypot feeds broker
+Home-page: https://github.com/Jc2k/hpfeeds
+Author: John Carr
+Author-email: john.carr@unrouted.co.uk
+License: GPL
+Project-URL: Documentation, https://hpfeeds3.readthedocs.org/
+Project-URL: Code, https://github.com/Jc2k/hpfeeds3
+Project-URL: Issue tracker, https://github.com/Jc2k/hpfeeds3/issues
+Description: UNKNOWN
+Platform: UNKNOWN
+Provides-Extra: test
+Provides-Extra: broker

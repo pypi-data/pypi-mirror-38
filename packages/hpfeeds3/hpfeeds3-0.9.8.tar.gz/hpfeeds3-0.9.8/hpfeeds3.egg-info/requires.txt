@@ -1,0 +1,13 @@
+
+[broker]
+aiorun
+aiohttp
+prometheus_client
+wrapt
+
+[test]
+flake8
+flake8-isort
+pytest
+pytest-cov
+codecov
