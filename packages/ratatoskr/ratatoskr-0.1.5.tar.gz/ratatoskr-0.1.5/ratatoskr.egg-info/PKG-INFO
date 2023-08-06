@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: ratatoskr
+Version: 0.1.5
+Summary: 
+Ratatoskr is a library written in Python to make the development of AWS Lambdas easier and more secure.
+It supports implementing "singleshot" operations that can be reached from an AWS Lambda function and
+validating the input parameters to avoid unnecessary boilerplate for argument checking.
+
+Home-page: http://github.com/ngergo/ratatoskr
+Author: Gergo Nagy
+Author-email: contact@gergonagy.com
+License: MIT
+Download-URL: http://github.com/ngergo/ratatoskr/tarball/v0.1.5
+Description: UNKNOWN
+Keywords: aws lambda development ratatoskr microservice amazon
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.7
+Provides-Extra: dev
