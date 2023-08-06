@@ -1,0 +1,71 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup">
+
+  <genericsetup:upgradeSteps
+      source="*"
+      destination="4100"
+      profile="brasil.gov.tiles:default">
+
+    <genericsetup:upgradeStep
+        title="Use resources compiled from webpack"
+        handler=".update_static_resources"
+        />
+
+    <genericsetup:upgradeStep
+        title="Disable deprecated tiles"
+        handler=".disable_deprecated_tiles"
+        />
+
+    <genericsetup:upgradeStep
+        title="Add new tiles"
+        handler=".add_new_tiles"
+        />
+
+    <genericsetup:upgradeStep
+        title="Migrate deprecated tiles"
+        description="Tiles with a substitute will be migrated; tiles with no substitute will be removed."
+        handler=".migrate_deprecated_tiles"
+        />
+
+    <genericsetup:upgradeStep
+        title="Migrate data from tiles that have been removed"
+        description="The data of the tiles audiogallery, videogallery and collective.cover.list will be migrated."
+        handler=".migrate_tiles_data_removed"
+        />
+
+    <genericsetup:upgradeStep
+        title="Install sc.embedder"
+        handler=".install_embedder"
+        />
+
+    <genericsetup:upgradeStep
+        title="Make Embedder searchable at collective.cover"
+        handler=".make_embedder_searchable"
+        />
+
+    <genericsetup:upgradeStep
+        title="Cook CSS resources"
+        description="There were changes in the CSS files, so we need to cook the resources."
+        handler="..cook_css_resources"
+        />
+
+    <genericsetup:upgradeStep
+        title="Cook JavaScripts resources"
+        description="There were changes in the JS files, so we need to cook the resources."
+        handler="..cook_javascript_resources"
+        />
+
+    <genericsetup:upgradeStep
+        title="Install plone.app.imagecropping"
+        handler=".install_imagecropping_manager"
+        />
+
+    <genericsetup:upgradeStep
+        title="Avoid searchable_content_types duplication"
+        handler=".avoid_searchable_content_types_duplication"
+        />
+
+  </genericsetup:upgradeSteps>
+
+</configure>

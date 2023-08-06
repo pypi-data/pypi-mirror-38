@@ -1,0 +1,6 @@
+
+  <link rel="stylesheet" tal:attributes="href string:${view/site_url}/++resource++brasil.gov.tiles/brasilgovtiles-fadba58.css" />
+
+
+  <script defer tal:attributes="src string:${view/site_url}/++resource++brasil.gov.tiles/brasilgovtiles-fadba58.js"></script>
+
