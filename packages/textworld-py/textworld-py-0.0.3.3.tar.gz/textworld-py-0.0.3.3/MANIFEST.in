@@ -1,0 +1,23 @@
+include requirements.txt
+include setup.sh
+include glk_build.py
+include glk.abi3.so
+
+
+recursive-include src/ *
+
+include textworld/generator/data/logic/*.twl
+include textworld/generator/data/text_grammars/*.twg
+
+include textworld/logic/logic.ebnf
+include textworld/textgen/textgen.ebnf
+
+recursive-include textworld/render/tmpl *
+recursive-include textworld/thirdparty/glulx git-glulx-ml
+recursive-include textworld/thirdparty/inform7-6M62/bin *
+recursive-include textworld/thirdparty/inform7-6M62/share/inform7/Compilers *
+recursive-include textworld/thirdparty/inform7-6M62/share/inform7/Internal *
+recursive-include textworld/thirdparty/inform7-6M62/share/inform7/Interpreters *
+recursive-exclude textworld/thirdparty/inform7-6M62/share/inform7/Documentation *
+
+prune build
