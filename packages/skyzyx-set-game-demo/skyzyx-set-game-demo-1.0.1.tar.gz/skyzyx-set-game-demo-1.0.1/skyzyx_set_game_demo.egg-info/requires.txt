@@ -1,0 +1,5 @@
+autoflake<1.0,>=0.6.6
+autopep8<2.0,>=1.2.4
+prettytable<1.0,>=0.7.2
+pylint<2.0,>=1.6.4
+six<2.0,>=1.10.0
