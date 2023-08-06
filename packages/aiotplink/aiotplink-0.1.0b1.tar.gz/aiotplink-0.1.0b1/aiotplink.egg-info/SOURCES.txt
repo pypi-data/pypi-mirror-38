@@ -1,0 +1,12 @@
+README.md
+setup.cfg
+setup.py
+aiotplink/__init__.py
+aiotplink/__main__.py
+aiotplink/commands.py
+aiotplink/devices.py
+aiotplink/discover.py
+aiotplink.egg-info/PKG-INFO
+aiotplink.egg-info/SOURCES.txt
+aiotplink.egg-info/dependency_links.txt
+aiotplink.egg-info/top_level.txt
