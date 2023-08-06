@@ -1,0 +1,16 @@
+README.rst
+setup.py
+img2gb/__init__.py
+img2gb/__main__.py
+img2gb/cli.py
+img2gb/export.py
+img2gb/gbtile.py
+img2gb/gbtilemap.py
+img2gb/gbtileset.py
+img2gb/helpers.py
+img2gb.egg-info/PKG-INFO
+img2gb.egg-info/SOURCES.txt
+img2gb.egg-info/dependency_links.txt
+img2gb.egg-info/entry_points.txt
+img2gb.egg-info/requires.txt
+img2gb.egg-info/top_level.txt
