@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: typedtsv
+Version: 0.9.0
+Summary: A simple format for typing TSVs with an implementation in Python 3
+Home-page: None
+Author: jimmybot
+Author-email: jimmybot@jimmybot.com
+Requires-Python: >=3.6
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
