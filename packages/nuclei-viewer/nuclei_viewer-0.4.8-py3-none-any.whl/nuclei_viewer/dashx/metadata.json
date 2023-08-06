@@ -1,0 +1,470 @@
+{
+  "nuclei_viewer/dashx/src/components/Cropper.react.js": {
+    "description": "Cropper is a component that crop and resize image.",
+    "displayName": "Cropper",
+    "methods": [
+      {
+        "name": "animateLoading",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "ctx",
+            "type": null
+          },
+          {
+            "name": "width",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "updateCanvas",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      }
+    ],
+    "props": {
+      "src": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The image source url",
+        "defaultValue": {
+          "value": "''",
+          "computed": false
+        }
+      },
+      "width": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The image box render width/height",
+        "defaultValue": {
+          "value": "200",
+          "computed": false
+        }
+      },
+      "rect": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "number"
+          }
+        },
+        "required": false,
+        "description": "The rectangle of the nuclei. \nEg. [x0, y0, x1, y1]"
+      }
+    }
+  },
+  "nuclei_viewer/dashx/src/components/GraphObserver.react.js": {
+    "description": "GraphObserver is a component that handle event of graph figure.",
+    "displayName": "GraphObserver",
+    "methods": [
+      {
+        "name": "bindEvents",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "''",
+          "computed": false
+        }
+      },
+      "graph": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The id of graph figure",
+        "defaultValue": {
+          "value": "''",
+          "computed": false
+        }
+      },
+      "cell": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The target cell type",
+        "defaultValue": {
+          "value": "''",
+          "computed": false
+        }
+      },
+      "clickData": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Data from latest click event",
+        "defaultValue": {
+          "value": "null",
+          "computed": false
+        }
+      },
+      "color": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Color code"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that gets fired when the value changes."
+      }
+    }
+  },
+  "nuclei_viewer/dashx/src/components/ImageBox.react.js": {
+    "description": "ImageBox is a component that encapsulates several nuclei image items.",
+    "displayName": "ImageBox",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "''",
+          "computed": false
+        }
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The class of image box",
+        "defaultValue": {
+          "value": "''",
+          "computed": false
+        }
+      },
+      "data": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "src": {
+              "name": "string",
+              "description": "The image source url",
+              "required": false
+            },
+            "masks": {
+              "name": "arrayOf",
+              "value": {
+                "name": "shape",
+                "value": {
+                  "mask": {
+                    "name": "string",
+                    "description": "The nuclei's mask id",
+                    "required": false
+                  },
+                  "label": {
+                    "name": "string",
+                    "description": "The nuclei's label",
+                    "required": false
+                  },
+                  "rect": {
+                    "name": "arrayOf",
+                    "value": {
+                      "name": "number"
+                    },
+                    "description": "The rectangle of the nuclei. \nEg. [x0, y0, x1, y1]",
+                    "required": false
+                  },
+                  "prob": {
+                    "name": "number",
+                    "description": "Probability of CTC candidate",
+                    "required": false
+                  }
+                }
+              },
+              "description": "An array of masks",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "The data of nuclei",
+        "defaultValue": {
+          "value": "{src: '', masks: []}",
+          "computed": false
+        }
+      },
+      "prob": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The currently selected probability threshold",
+        "defaultValue": {
+          "value": "0",
+          "computed": false
+        }
+      },
+      "filter": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Filter by label or not",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "width": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The image box render width/height",
+        "defaultValue": {
+          "value": "200",
+          "computed": false
+        }
+      },
+      "channel": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "An array of options"
+      },
+      "cell": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "An array of options"
+      },
+      "enhance": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "An array of options"
+      },
+      "clickData": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Data from latest click event",
+        "defaultValue": {
+          "value": "null",
+          "computed": false
+        }
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that gets fired when the value changes."
+      }
+    }
+  },
+  "nuclei_viewer/dashx/src/components/RadioItemRows.react.js": {
+    "description": "RadioItemRows is a component that encapsulates several radio item inputs.\nThe values and labels of the RadioItemRows is specified in the `options`\nproperty and the seleced item is specified with the `value` property.\nEach radio item is rendered as an input with a surrounding label.",
+    "displayName": "RadioItemRows",
+    "methods": [
+      {
+        "name": "setValue",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "value",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "getValue",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "''",
+          "computed": false
+        }
+      },
+      "options": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "arrayOf",
+            "value": {
+              "name": "shape",
+              "value": {
+                "label": {
+                  "name": "string",
+                  "description": "The radio item's label",
+                  "required": false
+                },
+                "value": {
+                  "name": "string",
+                  "description": "The value of the radio item. This value\ncorresponds to the items specified in the\n`values` property.",
+                  "required": false
+                },
+                "disabled": {
+                  "name": "bool",
+                  "description": "If true, this radio item is disabled and can't be clicked on.",
+                  "required": false
+                }
+              }
+            }
+          }
+        },
+        "required": false,
+        "description": "An array of options",
+        "defaultValue": {
+          "value": "[[]]",
+          "computed": false
+        }
+      },
+      "value": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The currently selected value"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "The style of the container (div)"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The class of the container (div)",
+        "defaultValue": {
+          "value": "''",
+          "computed": false
+        }
+      },
+      "inputStyle": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "The style of the <input> radio element",
+        "defaultValue": {
+          "value": "{}",
+          "computed": false
+        }
+      },
+      "inputClassName": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The class of the <input> radio element",
+        "defaultValue": {
+          "value": "''",
+          "computed": false
+        }
+      },
+      "rowStyle": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "The class of the row container element"
+      },
+      "rowClassName": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The class of the row container element",
+        "defaultValue": {
+          "value": "''",
+          "computed": false
+        }
+      },
+      "labelStyle": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "The style of the <label> that wraps the radio input\n and the option's label",
+        "defaultValue": {
+          "value": "{}",
+          "computed": false
+        }
+      },
+      "labelClassName": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The class of the <label> that wraps the radio input\n and the option's label",
+        "defaultValue": {
+          "value": "''",
+          "computed": false
+        }
+      },
+      "onChange": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "react callback the get fired when the the value changes"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that gets fired when the value changes."
+      },
+      "rowlStyle": {
+        "defaultValue": {
+          "value": "{}",
+          "computed": false
+        },
+        "required": false
+      }
+    }
+  }
+}
