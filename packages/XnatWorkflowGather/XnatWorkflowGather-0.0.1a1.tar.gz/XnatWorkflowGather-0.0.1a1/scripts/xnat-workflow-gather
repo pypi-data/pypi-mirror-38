@@ -1,0 +1,30 @@
+#!/usr/bin/python
+import configargparse
+
+from XnatWorkflowGather import XnatWorkflowGather
+
+parser = configargparse.ArgumentParser(
+    default_config_files=['~/.xnatworkflowgather.cnf', './xnatworkflowgather.cnf', '/etc/xnatworkflowgather.cnf'],
+    description='Xnat workflow gather, gathers workflow metrics from xnat app and pushes to datadog.\n'
+)
+
+parser.add_argument('-c', '--config', is_config_file=True, help='Config file path')
+parser.add_argument('--dbhost', default='localhost',
+                    help='Database Host, required')
+parser.add_argument('--dbuser', default='xnat',
+                    help='Database User, required')
+parser.add_argument('--dbdatabase', default='xnat',
+                    help='Database name to connect to')
+parser.add_argument('--dbpass', default=None,
+                    help='Database password, if not set will use .pgpass for host, user, database (recommended)')
+parser.add_argument('-v', '--verbose', action='store_true',
+                    help='Produce verbose logging')
+parser.add_argument('-l', '--logfile',
+                    help='File to log to, if not set use stdout',
+                    default=None)
+
+args = parser.parse_args()
+mytool = XnatWorkflowGather(**vars(args))
+mytool.gather_workflow()
+mytool.process_workflow()
+mytool.push_datadog()
