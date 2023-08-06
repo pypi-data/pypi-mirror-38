@@ -1,0 +1,6 @@
+ERROR    eawag.datapool  JULIA: include("tests/data/failing_scripts/wrong_module_name.jl")
+ERROR    eawag.datapool  JULIA: wrong_module_name.convert("<tmpdir_from_tempfile_module>/tests__data__failing_scripts__wrong_module_name_jl/raw_data_1.txt", "<tmpdir_from_tempfile_module>/tests__data__failing_scripts__wrong_module_name_jl/out_data_1.txt")
+ERROR    eawag.datapool  JULIA: 
+ERROR    eawag.datapool  JULIA: UndefVarError: wrong_module_name not defined
+ERROR    eawag.datapool  JULIA: 
+running script failed. exit_code is 1.

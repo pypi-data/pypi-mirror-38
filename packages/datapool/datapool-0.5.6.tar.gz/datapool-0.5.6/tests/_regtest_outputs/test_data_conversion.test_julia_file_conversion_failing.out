@@ -1,0 +1,8 @@
+ERROR    eawag.datapool  JULIA: include("tests/data/failing_scripts/conversion_exceeds_dimensions.jl")
+ERROR    eawag.datapool  JULIA: conversion_exceeds_dimensions.convert("<tmpdir_from_tempfile_module>/tests__data__failing_scripts__conversion_exceeds_dimensions_jl/raw_data_1.txt", "<tmpdir_from_tempfile_module>/tests__data__failing_scripts__conversion_exceeds_dimensions_jl/out_data_1.txt")
+ERROR    eawag.datapool  JULIA: 
+ERROR    eawag.datapool  JULIA: BoundsError: attempt to access 10×5 Array{Any,2} at index [100, 1]
+ERROR    eawag.datapool  JULIA: getindex at array.jl:732 [inlined]
+ERROR    eawag.datapool  JULIA: convert(::String, ::String) at conversion_exceeds_dimensions.jl:22
+ERROR    eawag.datapool  JULIA: 
+running script failed. exit_code is 1.
