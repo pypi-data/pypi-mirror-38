@@ -1,0 +1,53 @@
+Metadata-Version: 2.1
+Name: PyBusiness
+Version: 0.0.9
+Summary: An easy way to use domesticated utilities for purposes such as business
+Home-page: https://saythanks-com-python-email.webnode.com
+Author: J. Nma
+Author-email: wooldoughnutspi@gmail.com
+License: MIT
+Project-URL: Documentation, https://packaging.python.org/tutorials/distributing-packages/
+Project-URL: Funding, https://donate.pypi.org
+Project-URL: Say Thanks!, https://saythanks-com-python-email.webnode.com
+Project-URL: Source, https://saythanks-com-python-email.webnode.com
+Keywords: personal_use business_use multi-purpose business
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3
+Description-Content-Type: text/markdown
+
+**Usage**
+============
+
+**Email**
+-------
+
+```
+
+from PyBusiness import email
+```
+
+**Syntax**
+
+```
+
+email(your_address, addressee, your_passwd, subject_of_email, message)
+```
+
+**Example**
+
+```
+
+email("johndoe@whatever.com", "friend@whatever.com", "password", "Greetings", "Hello")
+```
+
+-------------
+
+Now Enjoy this video named [crab rave](https://www.youtube.com/watch?v=LDU_Txk06tM) .
+
+**And please support [pypi.org](https://pypi.org) by [donating](https://donate.pypi.org) to them**
+
+
