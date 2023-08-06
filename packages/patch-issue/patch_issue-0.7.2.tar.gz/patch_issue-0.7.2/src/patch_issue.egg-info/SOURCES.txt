@@ -1,0 +1,11 @@
+README.md
+setup.cfg
+setup.py
+src/patch_issue/__init__.py
+src/patch_issue/patch_issue.py
+src/patch_issue.egg-info/PKG-INFO
+src/patch_issue.egg-info/SOURCES.txt
+src/patch_issue.egg-info/dependency_links.txt
+src/patch_issue.egg-info/not-zip-safe
+src/patch_issue.egg-info/requires.txt
+src/patch_issue.egg-info/top_level.txt
