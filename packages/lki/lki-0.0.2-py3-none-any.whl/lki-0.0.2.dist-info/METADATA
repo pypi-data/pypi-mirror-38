@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: lki
+Version: 0.0.2
+Summary: connect Lirian's useful commands
+Home-page: https://github.com/LKI/LKI
+Author: Lirian Su
+Author-email: liriansu@gmail.com
+License: MIT License
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: fire
+
+UNKNOWN
+
+
