@@ -1,0 +1,16 @@
+Metadata-Version: 1.0
+Name: sssmatch
+Version: 0.5.0
+Summary: Apply NREL Standard Scenario generation mixes to arbitrary transmission systems.
+Home-page: https://github.com/Smart-DS/sssmatch
+Author: Elaine T. Hale
+Author-email: elaine.hale@nrel.gov
+License: UNKNOWN
+Description: sssmatch
+        
+        Apply NREL Standard Scenario (https://www.nrel.gov/analysis/data-tech-baseline.html) 
+        generation mixes to arbitrary transmission systems.
+        
+        Please visit http://smart-ds.github.io/sssmatch for the latest documentation.
+        
+Platform: UNKNOWN
