@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+README.md
+pytest_litf.py
+setup.py
+bin/pytest-litf
+pytest_litf.egg-info/PKG-INFO
+pytest_litf.egg-info/SOURCES.txt
+pytest_litf.egg-info/dependency_links.txt
+pytest_litf.egg-info/entry_points.txt
+pytest_litf.egg-info/requires.txt
+pytest_litf.egg-info/top_level.txt
