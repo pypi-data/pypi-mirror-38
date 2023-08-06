@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: seletivo-lattes
+Version: 1.0
+Summary: A simple script to get LATTES CV from a list of candidates in the CNPq Database
+Home-page: http://github.com/storopoli/seletivo-lattes
+Author: Jose Eduardo Storopoli
+Author-email: thestoropoli@gmail.com
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: pandas
+Requires-Dist: requests
+Requires-Dist: bs4
+Requires-Dist: time
+
+UNKNOWN
+
+
