@@ -1,0 +1,17 @@
+================================================================================
+                                     BIO42                                      
+================================================================================
+
+`Bio42`:t: allows biological and genomic data to be managed as a
+graph-relational database stored in `Neo4j`:t:.
+
+It supports importing data from biological datasets (FASTA, BLAST, GenBank,
+etc.) into `Neo4j`:t: and embeds a variety of queries and applets to yield
+insight from that database.
+
+
+.. attention::
+
+    Documentation can be found here_.
+
+.. _here: http://software.rusilowicz.com/bio42

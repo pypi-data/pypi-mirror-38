@@ -1,0 +1,48 @@
+Metadata-Version: 1.1
+Name: bio42
+Version: 0.0.0.27
+Summary: Bio42. Analyser and database manager and for large biological networks stored in Neo4j.
+Home-page: https://bitbucket.org/mjr129/bio42
+Author: Martin Rusilowicz
+Author-email: UNKNOWN
+License: https://www.gnu.org/licenses/agpl-3.0.html
+Description: ================================================================================
+                                             BIO42                                      
+        ================================================================================
+        
+        `Bio42`:t: allows biological and genomic data to be managed as a
+        graph-relational database stored in `Neo4j`:t:.
+        
+        It supports importing data from biological datasets (FASTA, BLAST, GenBank,
+        etc.) into `Neo4j`:t: and embeds a variety of queries and applets to yield
+        insight from that database.
+        
+        
+        .. attention::
+        
+            Documentation can be found here_.
+        
+        .. _here: http://software.rusilowicz.com/bio42
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Environment :: Win32 (MS Windows)
+Classifier: Environment :: X11 Applications :: Qt
+Classifier: Environment :: MacOS X
+Classifier: Operating System :: OS Independent
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Database
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Topic :: Utilities
+Classifier: Topic :: Multimedia :: Graphics :: Presentation
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
