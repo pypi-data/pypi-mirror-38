@@ -1,0 +1,5 @@
+[console_scripts]
+IRIaltitudeProfile = AltitudeProfile:main
+IRIlatitudeProfile = LatitudeProfile:main
+IRItimeProfile = TimeProfile:main
+
