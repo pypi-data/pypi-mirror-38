@@ -1,0 +1,2 @@
+prune tests/htmlcov
+prune tests/regressiontests/outputs
