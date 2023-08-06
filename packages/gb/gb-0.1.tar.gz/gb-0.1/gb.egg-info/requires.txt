@@ -1,0 +1,8 @@
+click
+tornado
+
+[dev]
+black
+flake8
+nose
+pre-commit
