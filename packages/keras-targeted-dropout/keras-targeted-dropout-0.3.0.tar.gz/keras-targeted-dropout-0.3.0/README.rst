@@ -1,0 +1,44 @@
+
+Keras Targeted Dropout
+======================
+
+
+.. image:: https://travis-ci.org/CyberZHG/keras-targeted-dropout.svg
+   :target: https://travis-ci.org/CyberZHG/keras-targeted-dropout
+   :alt: Travis
+
+
+.. image:: https://coveralls.io/repos/github/CyberZHG/keras-targeted-dropout/badge.svg?branch=master
+   :target: https://coveralls.io/github/CyberZHG/keras-targeted-dropout
+   :alt: Coverage
+
+
+Implementation of `Targeted Dropout <https://openreview.net/pdf?id=HkghWScuoQ>`_ with tensorflow backend.
+
+Install
+-------
+
+.. code-block:: bash
+
+   pip install keras-targeted-dropout
+
+Usage
+-----
+
+.. code-block:: python
+
+   import keras
+   from keras_targeted_dropout import TargetedDropout
+
+   model = keras.models.Sequential()
+   model.add(TargetedDropout(input_shape=(None, None), drop_rate=0.4, target_rate=0.4))
+   model.compile(optimizer='adam', loss='mse')
+   model.summary()
+
+
+* ``drop_rate``\ : Dropout rate for each pixel.
+* ``target_rate``\ : The proportion of bottom weights selected as candidates per channel.
+
+The final dropout rate will be ``drop_rate`` times ``target_rate``.
+
+See `Fashion MNIST demo <https://github.com/CyberZHG/keras-targeted-dropout/blob/master/demo/mnist.py>`_.
