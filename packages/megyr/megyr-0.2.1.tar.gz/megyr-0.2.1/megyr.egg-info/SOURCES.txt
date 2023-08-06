@@ -1,0 +1,15 @@
+README.md
+setup.py
+megyr/__init__.py
+megyr/config_validation.py
+megyr/gyre.py
+megyr/mesa.py
+megyr/oscillations_summary.py
+megyr/parameters.py
+megyr/profile.py
+megyr/util.py
+megyr.egg-info/PKG-INFO
+megyr.egg-info/SOURCES.txt
+megyr.egg-info/dependency_links.txt
+megyr.egg-info/requires.txt
+megyr.egg-info/top_level.txt
