@@ -1,0 +1,3 @@
+[console_scripts]
+easygoogle_refreshapis = easygoogle.config:main
+
