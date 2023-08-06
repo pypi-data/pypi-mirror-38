@@ -1,0 +1,14 @@
+README.rst
+setup.py
+PennyLane_PQ.egg-info/PKG-INFO
+PennyLane_PQ.egg-info/SOURCES.txt
+PennyLane_PQ.egg-info/dependency_links.txt
+PennyLane_PQ.egg-info/entry_points.txt
+PennyLane_PQ.egg-info/requires.txt
+PennyLane_PQ.egg-info/top_level.txt
+pennylane_pq/__init__.py
+pennylane_pq/_version.py
+pennylane_pq/devices.py
+pennylane_pq/expval.py
+pennylane_pq/ops.py
+pennylane_pq/pqops.py
