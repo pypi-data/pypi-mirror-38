@@ -1,0 +1,3 @@
+[console_scripts]
+lambda-builders = lambda_builders.cli.main:cli
+
