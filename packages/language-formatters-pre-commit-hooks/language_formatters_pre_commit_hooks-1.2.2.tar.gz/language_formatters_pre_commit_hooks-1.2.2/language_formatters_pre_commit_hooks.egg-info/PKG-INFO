@@ -1,0 +1,19 @@
+Metadata-Version: 1.1
+Name: language-formatters-pre-commit-hooks
+Version: 1.2.2
+Summary: List of pre-commit hooks meant to format your source code.
+Home-page: https://github.com/macisamuele/language-formatters-pre-commit-hooks
+Author: Samuele Maci
+Author-email: macisamuele@gmail.com
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
