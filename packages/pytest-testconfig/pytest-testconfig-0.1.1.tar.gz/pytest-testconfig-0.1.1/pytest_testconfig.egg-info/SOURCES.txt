@@ -1,0 +1,11 @@
+LICENSE
+MANIFEST.in
+README.rst
+pytest_testconfig.py
+setup.py
+pytest_testconfig.egg-info/PKG-INFO
+pytest_testconfig.egg-info/SOURCES.txt
+pytest_testconfig.egg-info/dependency_links.txt
+pytest_testconfig.egg-info/entry_points.txt
+pytest_testconfig.egg-info/requires.txt
+pytest_testconfig.egg-info/top_level.txt
