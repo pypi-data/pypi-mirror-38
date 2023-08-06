@@ -1,0 +1,17 @@
+appdirs
+atomicfile
+blessed
+cached_property
+docopt
+fastnumbers
+logzero
+pendulum
+pybooru
+requests
+setuptools
+simplejson
+urllib3
+whratio
+
+[:python_version < "3.7"]
+dataclasses
