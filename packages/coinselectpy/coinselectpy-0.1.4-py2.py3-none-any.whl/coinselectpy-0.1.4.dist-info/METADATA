@@ -1,0 +1,73 @@
+Metadata-Version: 2.1
+Name: coinselectpy
+Version: 0.1.4
+Summary: A Python version of https://www.npmjs.com/package/coinselect
+Home-page: https://github.com/nextwallet-svr/coinselectpy
+Author: Haofu Han
+Author-email: gtxx3600@gmail.com
+License: MIT license
+Keywords: coinselectpy
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+
+============
+CoinSelectPy
+============
+
+
+.. image:: https://img.shields.io/pypi/v/coinselectpy.svg
+        :target: https://pypi.python.org/pypi/coinselectpy
+
+.. image:: https://img.shields.io/travis/nextwallet-svr/CoinSelectPy.svg
+        :target: https://travis-ci.org/nextwallet-svr/CoinSelectPy
+
+.. image:: https://readthedocs.org/projects/coinselectpy/badge/?version=latest
+        :target: https://coinselectpy.readthedocs.io/en/latest/?badge=latest
+        :alt: Documentation Status
+
+
+.. image:: https://pyup.io/repos/github/gtxx3600/coinselectpy/shield.svg
+     :target: https://pyup.io/repos/github/gtxx3600/coinselectpy/
+     :alt: Updates
+
+
+
+A Python version of https://www.npmjs.com/package/coinselect
+
+
+* Free software: MIT license
+* Documentation: https://coinselectpy.readthedocs.io.
+
+
+Features
+--------
+
+* TODO
+
+Credits
+-------
+
+This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+
+.. _Cookiecutter: https://github.com/audreyr/cookiecutter
+.. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+
+
+=======
+History
+=======
+
+0.1.0 (2018-11-15)
+------------------
+
+* First release on PyPI.
+
+
