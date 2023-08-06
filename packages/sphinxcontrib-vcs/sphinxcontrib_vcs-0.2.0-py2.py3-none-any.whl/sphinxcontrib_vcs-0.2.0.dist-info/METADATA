@@ -1,0 +1,73 @@
+Metadata-Version: 2.1
+Name: sphinxcontrib-vcs
+Version: 0.2.0
+Summary: Sphinx extension to show commit history in version control system
+Home-page: https://github.com/t2y/sphinxcontrib-vcs
+Author: Tetsuya Morimoto
+Author-email: tetsuya.morimoto@gmail.com
+License: BSD
+Platform: any
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Environment :: Console
+Classifier: Framework :: Sphinx :: Extension
+Classifier: Topic :: Documentation
+Classifier: Topic :: Documentation :: Sphinx
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
+Requires-Dist: GitPython
+Requires-Dist: Sphinx
+
+# sphinxcontrib-vcs
+
+[![Build Status](https://travis-ci.org/t2y/sphinxcontrib-vcs.svg?branch=master)](https://travis-ci.org/t2y/sphinxcontrib-vcs/)
+
+*sphinxcontrib-vcs* provides showing commit history in version control system.
+
+## Setup
+
+    $ pip install sphinxcontrib-vcs
+
+## Usage
+
+Add *'sphinxcontrib.vcs'* as extensions into conf.py.
+
+    $ vi conf.py
+    extensions = ['sphinxcontrib.vcs']
+
+Then, repository directives are available as follows.
+
+### Git
+
+    .. git::
+        :number_of_revisions: 20
+        :with_ref_url:
+        :include_diff:
+
+For more information have a look at [the documentation](https://pythonhosted.org/sphinxcontrib-vcs/).
+
+## Acknowledgments
+
+*sphinxcontrib-vcs* is inspired from the [sphinx-git](https://github.com/OddBloke/sphinx-git).
+
+## ChangeLog
+
+### 0.2.0 (2018-11-17)
+
+* drop Python 2.7 support and mercurial feature
+* support internal git repository such as GitHub Enterprise
+
+### 0.1.0 (2016-09-06)
+
+* first release
+
+
