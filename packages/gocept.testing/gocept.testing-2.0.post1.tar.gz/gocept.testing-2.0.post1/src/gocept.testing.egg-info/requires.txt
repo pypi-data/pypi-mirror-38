@@ -1,0 +1,11 @@
+setuptools
+
+[mock]
+
+[mock:python_version < "3.3"]
+mock
+
+[test]
+
+[test:python_version < "3.3"]
+mock

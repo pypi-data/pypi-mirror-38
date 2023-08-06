@@ -1,0 +1,15 @@
+[run]
+branch = True
+source = gocept.testing
+
+[report]
+precision = 2
+
+[html]
+directory = coverage-report
+
+[paths]
+source =
+   src/gocept/testing
+   .tox/*/lib/python*/site-packages/gocept/testing
+   .tox/pypy*/site-packages/gocept/testing

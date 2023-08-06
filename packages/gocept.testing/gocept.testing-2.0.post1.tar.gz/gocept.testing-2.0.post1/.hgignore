@@ -1,0 +1,10 @@
+syntax: glob
+*.pyc
+*.egg-info
+.cache
+.coverage
+.pytest_cache/
+.tox
+coverage-report
+coverage.xml
+testreport.xml
