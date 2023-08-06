@@ -1,0 +1,60 @@
+Metadata-Version: 1.1
+Name: solr2es
+Version: 0.3
+Summary: Python solr/elasticsearch migration script
+Home-page: https://github.com/ICIJ/solr2es
+Author: Anne L'Hôte, Bruno Thomas
+Author-email: alhote@icij.org, bthomas@icij.org
+License: GPL-3.0
+Description: solr2es
+        =======
+        
+        .. image:: https://circleci.com/gh/ICIJ/solr2es.png?style=shield&circle-token=846c844f540fb3746b80b8f12656ddde665b5037
+           :alt: Circle CI
+           :target: https://circleci.com/gh/ICIJ/solr2es
+        
+        Migration script from solr to elasticsearch
+        
+        Develop
+        -------
+        
+        To build and run tests you can make :
+        
+        ::
+        
+            virtualenv --python=python3.6 venv
+            source venv/bin/activate
+            python setup.py develop
+            python setup.py test
+        
+        To release :
+        
+        ::
+        
+            python setup.py  sdist bdist_egg upload
+        
+        Changes
+        =======
+        
+        
+        v. 0.3
+        ------
+        
+        * [solr2es] adds translation map for fields
+        * [solr2es] adds elasticsearch mapping for index creation
+        * [test] compatible with 6.6.0
+        
+        v. 0.2
+        ------
+        
+        * [log] adds logger and progression feedbacks
+        * [cli] exit if no args
+        
+        v. 0.1
+        ------
+        
+        * [solr2es] initial version
+Keywords: migration search engine solr elasticsearch
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
