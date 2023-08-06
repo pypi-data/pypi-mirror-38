@@ -1,0 +1,13 @@
+README.md
+setup.py
+canon/__init__.py
+canon/manifest_masks.py
+canon/type_masks.py
+canon.egg-info/PKG-INFO
+canon.egg-info/SOURCES.txt
+canon.egg-info/dependency_links.txt
+canon.egg-info/top_level.txt
+canon/data/__init__.py
+canon/data/launch.py
+canon/data/studio.py
+canon/exceptions/__init__.py
