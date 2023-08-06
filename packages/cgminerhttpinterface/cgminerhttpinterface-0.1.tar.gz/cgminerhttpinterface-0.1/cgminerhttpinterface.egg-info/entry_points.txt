@@ -1,0 +1,3 @@
+[console_scripts]
+chi-server = cgminerhttpinterface.command_line:start_server
+
