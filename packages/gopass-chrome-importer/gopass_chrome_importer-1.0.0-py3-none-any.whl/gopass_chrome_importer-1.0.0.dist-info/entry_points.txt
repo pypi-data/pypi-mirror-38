@@ -1,0 +1,3 @@
+[console_scripts]
+gopass-chrome-importer = gopass_chrome_importer.gopass_chrome_importer:cli
+
