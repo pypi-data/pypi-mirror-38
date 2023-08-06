@@ -1,0 +1,4 @@
+[console_scripts]
+pyfil=pyfil.pyfil:main
+rep=pyfil.pyfil:main
+
