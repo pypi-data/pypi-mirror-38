@@ -1,0 +1,67 @@
+Metadata-Version: 2.1
+Name: compressed-segmentation
+Version: 1.0.0
+Summary: Neuroglancer compressed_segmentation codec.
+Home-page: https://github.com/janelia-flyem/compressedseg
+Author: : Jeremy Maitin-Shepard, Stephen Plaza, and William Silversmith
+Author-email: : ws9@princeton.edu
+License: LICENSE.txt
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Utilities
+Requires-Dist: numpy
+Requires-Dist: pytest
+
+NOTE: This repository is the PyPI distribution repo but is based on work done by Jeremy Maitin-Shepard (Google), Stephen Plaza (Janelia Research Campus), and William Silversmith (Princeton) here: https://github.com/janelia-flyem/compressedseg
+
+# Compress Seg [![Picture](https://raw.github.com/janelia-flyem/janelia-flyem.github.com/master/images/HHMI_Janelia_Color_Alternate_180x40.png)](http://www.janelia.org)
+## Library for compressing and decompressing image segmentation (adapted from [neuroglancer](https://github.com/google/neuroglancer))
+
+This library contains routined to decompress and compress segmentation and to manipulate compressed segmentation data defined by the [neuroglancer project](https://github.com/google/neuroglancer/blob/master/src/neuroglancer/sliceview/compressed_segmentation/README.md).
+
+### Features
+
+* Compression and decompression
+* (TBD) Interface to relabel and manipulate segmentation from the compressed data
+* C++, Python, and Go interface (see original repo for Golang)
+
+### C++ Compilation
+
+Compiling as a shared library. Feel free to subsititute e.g. clang for the C++ compiler.
+
+```bash
+g++ -std=c++11 -O3 -fPIC -shared -I./include src/compress_segmentation.cc src/decompress_segmentation.cc -o compress_segmentation.so
+```
+
+### Python Installation
+
+_Requires a C++ compiler such as g++ or clang._
+
+Works with both Python 2 and 3. Encodes from / decodes to 3D or 4D numpy ndarrays.  
+
+```bash
+$ pip install -r requirements.txt
+$ python setup.py install
+
+$ python
+>>> import compressed_segmentation as cseg
+>>> help(cseg)
+```
+
+### License
+
+Please see the licenses in this repo.
+
+
+
