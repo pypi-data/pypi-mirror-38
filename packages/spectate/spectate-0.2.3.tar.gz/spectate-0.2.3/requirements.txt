@@ -1,0 +1,14 @@
+# -------------
+# Documentation
+# -------------
+
+sphinxcontrib-napoleon
+sphinx_materialdesign_theme
+
+# -------
+# Testing
+# -------
+
+pytest
+pytest-cov
+funcsigs
