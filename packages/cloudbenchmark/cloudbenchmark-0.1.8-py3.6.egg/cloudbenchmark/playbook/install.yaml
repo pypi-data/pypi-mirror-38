@@ -1,0 +1,20 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: install base software
+    yum:
+      name:
+        - git
+        - https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+      state: present
+
+  - name: install benchmark software
+    yum:
+      name:
+        - sysbench
+      state: present
+      enablerepo: epel
+
+  - name: run sysbench
+    shell: "sysbench --test=cpu run"
