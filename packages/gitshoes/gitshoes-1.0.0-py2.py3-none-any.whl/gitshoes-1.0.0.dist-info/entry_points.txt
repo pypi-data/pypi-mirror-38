@@ -1,0 +1,3 @@
+[console_scripts]
+gitshoes = gitshoes.reporter:run
+
