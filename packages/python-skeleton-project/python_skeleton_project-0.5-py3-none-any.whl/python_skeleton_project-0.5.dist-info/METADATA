@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: python-skeleton-project
+Version: 0.5
+Summary: Skeleton python application
+Home-page: https://github.com/aagnone3/python-skeleton-project
+Author: Anthony Agnone
+Author-email: anthonyagnone@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering
+Requires-Dist: pandas
+Requires-Dist: numpy
+
+Skeleton python application
+
+
