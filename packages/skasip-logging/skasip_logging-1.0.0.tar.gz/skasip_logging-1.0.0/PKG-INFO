@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: skasip_logging
+Version: 1.0.0
+Summary: SIP logging module.
+Home-page: https://github.com/SKA-ScienceDataProcessor/integration-prototype/tree/master/sip/execution_control/logging
+Author: SKA SDP SIP team.
+License: UNKNOWN
+Description: # SIP logging module
+        
+        Provides a function for initialising the SIP logger. This uses a custom
+        logging formatter class which prints log messages with microsecond timestamps. 
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Development Status :: 1 - Planning
+Classifier: License :: OSI Approved :: BSD License
+Description-Content-Type: text/markdown
