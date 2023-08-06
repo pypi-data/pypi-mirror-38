@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: avro-cwl
+Version: 1.8.6
+Summary: Avro is a serialization and RPC framework.
+Home-page: UNKNOWN
+Author: Common Workflow Langauge
+License: Apache License 2.0
+Description: UNKNOWN
+Keywords: avro serialization rpc
+Platform: UNKNOWN
+Provides-Extra: snappy
