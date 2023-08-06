@@ -1,0 +1,15 @@
+README.md
+setup.py
+debauto/__init__.py
+debauto/remessa.py
+debauto/retorno.py
+debauto/utils.py
+debauto/bancos/__init__.py
+debauto/bancos/bb.py
+debauto/bancos/caixa.py
+debauto/bancos/santander.py
+python_debauto_br.egg-info/PKG-INFO
+python_debauto_br.egg-info/SOURCES.txt
+python_debauto_br.egg-info/dependency_links.txt
+python_debauto_br.egg-info/requires.txt
+python_debauto_br.egg-info/top_level.txt
