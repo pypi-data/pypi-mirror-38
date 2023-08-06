@@ -1,0 +1,3 @@
+[console_scripts]
+bio2bel_hsdn = bio2bel_hsdn.cli:main
+
