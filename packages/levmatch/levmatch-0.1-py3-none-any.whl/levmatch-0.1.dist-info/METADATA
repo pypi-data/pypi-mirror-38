@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: levmatch
+Version: 0.1
+Summary: Levenstein distance command line tool
+Home-page: http://github.com/arthur-hav/levmatch
+Author: ArthurHavlicek
+Author-email: arthurhavlicek@gmail.com
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: fuzzywuzzy[speedup]
+
+UNKNOWN
+
+
