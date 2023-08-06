@@ -1,0 +1,33 @@
+Metadata-Version: 1.1
+Name: MailMe
+Version: 1.0.1
+Summary: Send e-mails with python.
+Home-page: http://github.com/otoru/mailme
+Author: Vitor Hugo de Olveira Vargas
+Author-email: vitor.hov@gmail.com
+License: MIT
+Project-URL: Documentation, http://github.com/otoru/mailme/README.md
+Project-URL: Source Code, http://github.com/otoru/mailme/mailme/
+Project-URL: Bug Tracker, http://github.com/otoru/mailme/issues
+Description: 
+        MailMe
+        ------
+        
+        Library created to abstract work with SMTP servers to
+        send e-mails. Its use is mainly in projects structured
+        as micro services, since it has can be integrated with
+        RabbitMQ servers, allowing the sending of many queued
+        emails.
+        
+Keywords: email,mail,python
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Telecommunications Industry
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: Portuguese (Brazilian)
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Communications :: Email
+Classifier: Topic :: Utilities
