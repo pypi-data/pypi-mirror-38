@@ -1,0 +1,12 @@
+numpy
+scipy
+xarray
+dask[dataframe]
+lxml
+pygdal<=2.3.2.999,>=2.3.2.0
+pandas
+python-dateutil
+matplotlib
+affine
+opencv-python
+NetCDF4

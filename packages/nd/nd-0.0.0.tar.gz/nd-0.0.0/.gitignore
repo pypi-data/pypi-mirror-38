@@ -1,0 +1,13 @@
+**/__pycache__
+dist
+build
+**/*.lprof
+**/*.pyc
+.vscode
+.ipynb_checkpoints
+**/*.nc
+**/*.so
+*.pdf
+*.dat
+*.json
+*.ipynb
