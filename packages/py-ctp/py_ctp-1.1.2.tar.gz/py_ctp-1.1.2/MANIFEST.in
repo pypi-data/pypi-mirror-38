@@ -1,0 +1,10 @@
+include *.in
+include *.ini
+include *.rst
+include *.txt
+include *.py
+include LICENSE
+
+recursive-include py_ctp/lib *.*
+
+global-exclude __pycache__ *.py[cod]
