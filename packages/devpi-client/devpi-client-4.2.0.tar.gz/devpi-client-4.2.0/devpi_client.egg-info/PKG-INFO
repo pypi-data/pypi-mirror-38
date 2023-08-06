@@ -1,0 +1,111 @@
+Metadata-Version: 1.2
+Name: devpi-client
+Version: 4.2.0
+Summary: devpi upload/install/... workflow commands for Python developers
+Home-page: https://github.com/devpi/devpi
+Maintainer: Holger Krekel
+Maintainer-email: holger@merlinux.eu
+License: UNKNOWN
+Description: ===============================================================
+        devpi-client: commands for python packaging and testing
+        ===============================================================
+        
+        The "devpi" command line tool is typically used in conjunction
+        with `devpi-server <https://pypi.org/project/devpi-server/>`_.
+        It allows to upload, test and install packages from devpi indexes.
+        See http://doc.devpi.net for quickstart and more documentation.
+        
+        * `issue tracker <https://github.com/devpi/devpi/issues>`_, `repo
+          <https://github.com/devpi/devpi>`_
+        
+        * IRC: #devpi on freenode, `mailing list
+          <https://mail.python.org/mm3/mailman3/lists/devpi-dev.python.org/>`_ 
+        
+        * compatibility: {win,unix}-py{27,34,35,36,py}
+        
+        
+        
+        
+        
+        =========
+        Changelog
+        =========
+        
+        
+        
+        .. towncrier release notes start
+        
+        4.2.0 (2018-11-16)
+        ==================
+        
+        Features
+        --------
+        
+        - Use server side operations for modifying indexes if the devpi-server version supports it. This prevents overwriting changes if two clients modify the same index concurrently.
+        
+        
+        4.1.0 (2018-09-09)
+        ==================
+        
+        Features
+        --------
+        
+        - implement #565: To show toxresults with ``devpi list`` the new ``-t/--toxresults`` option is now required, the toxresults aren't shown by default anymore.
+        
+        - implement #579: client can remove specific file with ``devpi remove url_to_file``. This requires at least devpi-server 4.6.0
+        
+        
+        Bug Fixes
+        ---------
+        
+        - fix #523: better error message when index does not support upload.
+        
+        
+        4.0.3 (2018-07-12)
+        ==================
+        
+        Bug Fixes
+        ---------
+        
+        - fix #557: enable exporting links to directories inside packages for
+          ``devpi upload``
+        
+        
+        4.0.2 (2018-05-04)
+        ==================
+        
+        Bug Fixes
+        ---------
+        
+        - fix #361: allow deletion of versions with no releases.
+        
+        - fix #524: require at least pkginfo 1.4.2 to support metadata 2.1.
+        
+        - fix #532: add missing pluggy dependency to setup.py.
+        
+        - Update default upload location to ``https://upload.pypi.org/legacy/`` for
+          external ``devpi push``.
+        
+        
+        4.0.1 (2018-02-02)
+        ==================
+        
+        Bug Fixes
+        ---------
+        
+        - fix #508: on macOS the ``__PYVENV_LAUNCHER__`` environment variable needs to
+          be removed when calling pip, otherwise the generated scripts use the wrong
+          Python executable.
+        
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
