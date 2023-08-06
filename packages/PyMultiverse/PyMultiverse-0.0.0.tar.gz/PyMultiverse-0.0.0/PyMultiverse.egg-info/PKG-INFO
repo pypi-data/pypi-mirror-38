@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: PyMultiverse
+Version: 0.0.0
+Summary: Multi-framework scaffolding tool
+Home-page: https://github.com/rognoni/Multiverse
+Author: Davide Rognoni
+License: UNKNOWN
+Description: # Multiverse - Multi-framework scaffolding tool
+        
+        This scaffolding tool is based on different technologies:
+        
+        - [YAML](http://yaml.org)
+        - [Python](https://www.python.org)
+          - [PyYAML](https://pyyaml.org)
+          - [Mako](https://www.makotemplates.org)
+        
+        and generates code for these frameworks:
+        
+        - [Laravel - The PHP Framework For Web Artisans](https://laravel.com)
+        
+        ## License
+        
+        Copyright (C) 2018 Davide Rognoni
+        
+        This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+        
+        This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+        
+        You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
