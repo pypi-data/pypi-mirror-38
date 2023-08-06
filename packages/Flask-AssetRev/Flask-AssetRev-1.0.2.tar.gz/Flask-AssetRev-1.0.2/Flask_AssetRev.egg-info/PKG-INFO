@@ -1,0 +1,12 @@
+Metadata-Version: 1.2
+Name: Flask-AssetRev
+Version: 1.0.2
+Summary: Flask-AssetRev is a Flask extension which adds support for mapping pre-built,
+content hashed static assets from the source form to the hashed version at
+runtime.
+Home-page: https://github.com/njoyce/flask-assetrev
+Maintainer: Nick Joyce
+Maintainer-email: nick.joyce@realkinetic.com
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN

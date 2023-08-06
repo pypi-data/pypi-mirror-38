@@ -1,0 +1,14 @@
+MANIFEST.in
+README.md
+requirements.txt
+requirements_dev.txt
+setup.cfg
+setup.py
+Flask_AssetRev.egg-info/PKG-INFO
+Flask_AssetRev.egg-info/SOURCES.txt
+Flask_AssetRev.egg-info/dependency_links.txt
+Flask_AssetRev.egg-info/requires.txt
+Flask_AssetRev.egg-info/top_level.txt
+flask_assetrev/__about__.py
+flask_assetrev/__init__.py
+test/test_assetrev.py
