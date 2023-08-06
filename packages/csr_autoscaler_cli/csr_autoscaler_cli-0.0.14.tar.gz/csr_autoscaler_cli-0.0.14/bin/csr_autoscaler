@@ -1,0 +1,429 @@
+#!/usr/bin/python
+"""
+Usage:
+    csr_autoscaler set aws <storage_name> [--profile <profile>] [--region <region>]
+    csr_autoscaler set azure storage_name <storage_name> storage_key <storage_key> fileshare <fileshare> [--region <region>]
+    csr_autoscaler save
+    csr_autoscaler upload
+    csr_autoscaler show settings
+    csr_autoscaler show status
+    csr_autoscaler show status raw
+    csr_autoscaler show config
+    csr_autoscaler show config raw
+    csr_autoscaler show actions
+    csr_autoscaler show watchers
+    csr_autoscaler show logs [minutes]
+    csr_autoscaler show logs all [<minutes>]
+    csr_autoscaler show logs spoke [<minutes>]
+    csr_autoscaler config logs rotate [bysize | bytime] <value>
+    csr_autoscaler config logs rotate [enabled | disabled]
+    csr_autoscaler config logs save_to_cloud [enabled | disabled]
+    csr_autoscaler config debug [Debug | Info | Warning | Error]
+    csr_autoscaler config ami <ami-id> [BYOL | LicenseIncluded]
+    csr_autoscaler config action <action> [enabled | disabled]
+    csr_autoscaler config action <action> debouncetime <debouncetime>
+    csr_autoscaler config action <action> minvalcnt <minvalcnt>
+    csr_autoscaler config watcher <watcher> [enabled | disabled]
+    csr_autoscaler config watcher <watcher> period <period>
+    csr_autoscaler config watcher <watcher> action <action> threshold <threshold>
+    csr_autoscaler config watcher <watcher> action <action> [enabled | disabled]
+    csr_autoscaler config watcher <watcher> action <action> basepct <basepct>
+    csr_autoscaler config watcher <watcher> action <action> triggerpct <triggerpct>
+    csr_autoscaler logs rotate by_size <size>
+    csr_autoscaler logs rotate by_time <time>
+    csr_autoscaler collect logs transit_network_hub
+    csr_autoscaler collect logs zip transit_network_hub
+"""
+import sys
+import json
+import os
+from datetime import datetime
+from docopt import docopt
+from shutil import copyfile
+import logging
+logger = logging.getLogger('autoscaler')
+if len(logger.handlers) == 0:
+    FORMAT = '%(module)15s:%(funcName)20s:%(lineno)4s - %(levelname)7s - %(message)s'
+    if __name__ == "__main__":
+        FORMAT = '%(asctime)20s:' + FORMAT
+    logging.basicConfig(format=FORMAT)
+    logger = logging.getLogger()
+    logger.setLevel(logging.INFO)
+
+def download_config_file(c):
+    try:
+        cfg = c.download_file_json(c.settings['storage_name'], "autoscale_config.json")
+    except Exception as e:
+        print("We had an exception getting cfg.")
+        cfg = None
+
+    return cfg
+
+def download_status_file(c):
+    try:
+        status = c.download_file_json(c.settings['storage_name'], "autoscale_status.json")
+    except Exception as e:
+        print("We had an exception getting status %s" % e)
+        status = None
+
+    return status
+
+
+def print_config(cfg, status):
+    print("Watcher Config:")
+    for watcher in cfg["Watchers"]:
+        print("-"*80)
+        print("%s -  %s Metric - %s Period - %s " % (watcher, cfg["Watchers"][watcher]["Enabled"],
+                                                     cfg["Watchers"][watcher]["Metric"],
+                                                     cfg["Watchers"][watcher]["Period"]))
+        if cfg["Watchers"][watcher]["Enabled"] == "Enabled":
+            print("\t%-20s %s/%s/%s" % ("Action", "Threshold", "BasePercent", "TriggerPercent"))
+            for action in cfg["Watchers"][watcher]["Actions"]:
+                if cfg["Actions"][action]["State"] == "Enabled":
+                    print("\t%-20s %s/%s/%s" % (action,
+                                                cfg["Watchers"][watcher]["Actions"][action]["Threshold"],
+                                                cfg["Watchers"][watcher]["Actions"][action]["BasePercent"],
+                                                cfg["Watchers"][watcher]["Actions"][action]["TriggerPercent"]))
+
+    print("-" * 80)
+    print("Action Config:")
+    print("-" * 40)
+    for action in cfg["Actions"]:
+        if "State" not in cfg["Actions"][action]:
+            continue
+        print("%s --> %s" % (action, cfg["Actions"][action]["State"]))
+        if cfg["Actions"][action]["State"] == "Enabled":
+            vals = [
+                "DebounceTime",
+                "MinValCnt",
+                "TriggerType",
+                "TimeStart",
+                "TimeEnd"]
+            c = cfg["Actions"][action]
+            sys.stdout.write("\t")
+            for val in vals:
+                sys.stdout.write("(%s - %s) " % (val, c[val]))
+
+            sys.stdout.write("\n")
+
+    sys.stdout.flush()
+
+def print_status(cfg, status):
+    print("-" * 80)
+    print("AutoScaler %s Details" % cfg["General"]["Controller"]["Group Name"])
+    print("-" * 80)
+
+    print("Group Name = %s" % cfg["General"]["Controller"]["Group Name"])
+    print("Current State = %s" % status["Current State"])
+    print("Current Action = %s" % status["Current Action"])
+    print("Debounce Time = %s" % status["Debounce Time"])
+
+    if "Upgrade Bin State" in status:
+        print("Upgrade Bin State = %s" % status["Upgrade Bin State"])
+        if "Upgrade Bin Instance" in status:
+            print("Upgrade Bin Instance = %s" % status["Upgrade Bin Instance"])
+
+    if "Upgrade Image State" in status:
+        print("Upgrade Image State = %s" % status["Upgrade Image State"])
+        if "Upgrade Image Instance" in status:
+            print("Upgrade Image Instance = %s" % status["Upgrade Image Instance"])
+
+    print("-" * 80)
+    print("Action Details")
+    print("-" * 80)
+    action = status["Current Action"]
+    print("Current Action is %s" % action)
+    print("Action History:")
+    for action in cfg["Actions"]:
+        if action in status:
+            print("-" * 80)
+            print("Action: %s" % action)
+            if "Denied Reason" in status[action]:
+                print("Last Action Result: %s" % status[action]["Denied Reason"])
+
+            if "Instance" in status[action]:
+                print("Instance = %s" % status[action]["Instance"])
+
+            if "Time" in status[action]:
+                print("Time = %s" % status[action]["Time"])
+            if "Debounce Time" in status[action]:
+                print("Debounce Time = %s" % status[action]["Debounce Time"])
+                print("Now = %s" % datetime.utcnow())
+            if "Metric" in status[action]:
+                print("Metric = %s" % status[action]["Metric"])
+                print("Watcher = %s" % status[action]["Watcher"])
+
+    print("-" * 80)
+    for inst in status["Instances"]:
+        if "state" in status["Instances"][inst]:
+            state = status["Instances"][inst]["state"]
+        else:
+            state = "unknown"
+        print("Instance (%d): %s - ip - %-16s status - %-10s state - %-10s" % \
+              (status["Instances"][inst]["Instance Number"],
+               inst, status["Instances"][inst]["Config"]["public_ip_address"],
+               status["Instances"][inst]["Status"], state))
+
+    print("-" * 80)
+
+    print("-" * 80)
+    print("%15s --> %3s   %-20s   %s" % ("Watcher", "", "Instance", "Min/Max/Avg"))
+    print("-" * 80)
+    for minmax in ["Min", "Max"]:
+        for watcher in status["Watchers"]:
+            if cfg["Watchers"][watcher]["Enabled"] == "Enabled":
+                print("%15s --> %3s - %-20s - %s/%s/%s" % \
+                      (watcher, minmax,
+                       status["Watchers"][watcher][minmax]["instance"],
+                       status["Watchers"][watcher][minmax]["minimum"],
+                       status["Watchers"][watcher][minmax]["maximum"],
+                       status["Watchers"][watcher][minmax]["average"]))
+        print("-" * 80)
+
+
+
+
+
+
+if __name__ == "__main__":
+    args = docopt(__doc__)
+    # print args
+
+    filename = "csr_autoscaler_settings.json"
+    file_path = os.path.expanduser("~") + '/' + filename
+    if args['set']:
+        if args['aws']:
+            from csr_as_cloud.aws_cli import cloud as cloud
+
+            c = cloud()
+            c.setup_settings(args)
+
+
+        elif args["azure"]:
+            from csr_as_cloud.azure_cli import cloud as cloud
+
+            c = cloud()
+            c.setup_settings(args)
+
+        with open(file_path, 'w') as json_file:
+            json.dump(c.settings, json_file, indent=4)
+
+        sys.exit()
+
+    try:
+        with open(file_path) as json_data:
+            settings=json.load(json_data)
+    except:
+        print("Please enter information using 'set'")
+        print("%s set [cloud] {params} " % __file__)
+        sys.exit()
+
+    if settings['cloud'] == "aws":
+        from csr_as_cloud.aws_cli import cloud as cloud
+        c = cloud()
+    elif settings['cloud'] == "azure":
+        from csr_as_cloud.azure_cli import cloud as cloud
+        c = cloud()
+
+    c.init_settings(settings)
+
+    files_changed = False
+
+    status = download_status_file(c)
+    cfg = download_config_file(c)
+
+    if cfg is None or status is None:
+        print("Problem in your bucket/storage_name.  Please check again.")
+        sys.exit()
+
+    if args['save']:
+        dest_dir = os.getcwd()
+        src_dir = "/tmp/"
+
+        filename = "autoscale_status"
+        extension = ".json"
+        from_file = src_dir + filename + extension
+        to_file = dest_dir + '/' + filename + '-' + \
+            cfg["General"]["Controller"]["Group Name"] + extension
+
+        copyfile(from_file, to_file)
+        print("Saved file to %s" % to_file)
+
+        filename = "autoscale_config"
+        extension = ".json"
+        from_file = src_dir + filename + extension
+        to_file = dest_dir + '/' + filename + '-' + \
+            cfg["General"]["Controller"]["Group Name"] + extension
+
+        copyfile(from_file, to_file)
+        print("Saved file to %s" % to_file)
+
+    if args['upload']:
+        src_dir = os.getcwd()
+        dest_dir = "/tmp/"
+        filename = "autoscale_config"
+        extension = ".json"
+        to_file = dest_dir + filename + extension
+        from_file = src_dir + '/' + filename + \
+            cfg["General"]["Controller"]["Group Name"] + extension
+
+        print("From: %s, To: %s" % (from_file, to_file))
+        ret = copyfile(from_file, to_file)
+        print(ret)
+        print("Upload to bucket: %s" % c.settings['storage_name'])
+
+        c.upload_file(c.settings['storage_name'], "autoscale_config.json")
+
+    if args['config']:
+        if args['watcher']:
+            watcher = args['<watcher>']
+            if watcher in cfg["Watchers"]:
+                files_changed = True
+                if args['enabled']:
+                    cfg["Watchers"][watcher]["Enabled"] = "Enabled"
+                elif args['disabled']:
+                    cfg["Watchers"][watcher]["Enabled"] = "Disabled"
+                elif args['threshold']:
+                    action = args['<action>']
+                    cfg["Watchers"][watcher][action]["threshold"] = args['threshold']
+                elif args['period']:
+                    cfg["Watchers"][watcher]["Period"] = args['period']
+                elif args["<minvalcnt>"]:
+                    action = args['<action>']
+                    if action in cfg["Actions"]:
+                        cfg["Watchers"][watcher]["Actions"][action]["MinValCnt"] = args["<minvalcnt>"]
+                elif args["<basepct>"]:
+                    action = args['<action>']
+                    if action in cfg["Actions"]:
+                        print("in!")
+                        cfg["Watchers"][watcher]["Actions"][action]["BasePercent"] = args["<basepct>"]
+                elif args["<triggerpct>"]:
+                    action = args['<action>']
+                    if action in cfg["Actions"]:
+                        cfg["Watchers"][watcher]["Actions"][action]["TriggerPercent"] = args["<triggerpct>"]
+            else:
+                print("watcher %s not found in config" % watcher)
+        elif args['action']:
+            print("config action")
+            if args['<action>']:
+                action = args['<action>']
+                if args['enabled']:
+                    print("action %s Enabled %s" % (action, args['enabled']))
+                    if action in cfg["Actions"]:
+                        cfg["Actions"][action]["State"] = "Enabled"
+
+                elif args['disabled']:
+                    print("action %s Disabled %s" % (args['<action>'], args['disabled']))
+                    if action in cfg["Actions"]:
+                        cfg["Actions"][action]["State"] = "Disabled"
+                elif args["<debouncetime>"]:
+                    if action in cfg["Actions"]:
+                        cfg["Actions"][action]["DebounceTime"] = args["<debouncetime>"]
+
+            files_changed = True
+
+
+        elif args['ami']:
+            ami_id = args['ami-id']
+            cfg["General"]["Instances"]["Hourly Image"] = ami_id
+            cfg["General"]["Instances"]["BYOL Image"] = ami_id
+            files_changed = True
+
+        elif args['debug']:
+            if args['Debug']:
+                cfg["General"]["Controller"] = "Debug"
+            elif args['Info']:
+                cfg["General"]["Controller"] = "Debug"
+            elif args['Warning']:
+                cfg["General"]["Controller"] = "Warning"
+            elif args['Error']:
+                cfg["General"]["Controller"] = "Error"
+        elif args['logs']:
+            files_changed = True
+
+            if args['rotate']:
+                if args['bysize']:
+                    cfg["General"]["Controller"]["Rotate by Size"] = "Enabled"
+                    cfg["General"]["Controller"]["Max Log File Size"] =  str(args['<value>'])
+                    files_changed = True
+                elif args['bytime']:
+                    if args['<value>']:
+                        cfg["General"]["Controller"]["Log Rotate Minutes"] = str(args['<value>'])
+                        cfg["General"]["Controller"]["Rotate by Time"] = "Enabled"
+                elif args['enabled']:
+                    cfg["General"]["Controller"]["Save Logs to File"] = "Enabled"
+                elif args['disabled']:
+                    cfg["General"]["Controller"]["Save Logs to File"] = "Disabled"
+            elif args['save_to_cloud']:
+                if args['enabled']:
+                    cfg["General"]["Controller"]["Backup Logs to Cloud"] = "Enabled"
+                else:
+                    cfg["General"]["Controller"]["Backup Logs to Cloud"] = "Disabled"
+    if args['show']:
+        if args['config']:
+            if args['raw']:
+                print(json.dumps(cfg, indent=4))
+            else:
+                print_config(cfg, status)
+        elif args['status']:
+            if args['raw']:
+                print(json.dumps(status, indent=4))
+            else:
+                print_status(cfg, status)
+        elif args['settings']:
+            print(json.dumps(c.settings, indent=4))
+        elif args['actions']:
+            for action in cfg["Actions"]:
+                if "State" not in cfg["Actions"][action]:
+                    continue
+                print("ACTION - %s" % action)
+                for value in cfg["Actions"][action]:
+                    print("%20s -- %s" % (value, cfg["Actions"][action][value]))
+        elif args['watchers']:
+             for watcher in cfg["Watchers"]:
+                print("Watcher - %s" % watcher)
+                for value in cfg["Watchers"][watcher]:
+                    if value == "Actions":
+                        for action in cfg["Watchers"][watcher]["Actions"]:
+                            print("%20s -- %s -- %s" % ("Action", action, cfg["Watchers"][watcher]["Actions"][action]))
+                    else:
+                        print("%20s -- %s" % (value, cfg["Watchers"][watcher][value]))
+        elif args['logs']:
+            if args['<minutes>']:
+                minutes = args['<minutes>']
+            else:
+                minutes = 60
+
+            print("minutes", minutes)
+            if args['all']:
+                lambda_arn = cfg["General"]["Lambda"]["ARN"]
+
+                function_split = lambda_arn.split("function:")
+                function_name = function_split[1]
+                stack_name_split = function_split[1].split("-autoscaler")
+                stack_name = stack_name_split[0]
+
+                c.print_all_logs(stack_name, args)
+                c.print_spoke_logs(args, function_name)
+            elif args['spoke']:
+                lambda_arn = cfg["General"]["Lambda"]["ARN"]
+                function_split = lambda_arn.split("function:")
+                function_name = function_split[1]
+
+                c.print_spoke_logs(args, function_name)
+            # elif args['autoscaler']:
+            #     print("need to add")
+
+    if args["collect"] and args["logs"]:
+        if args["transit_network_hub"]:
+            c.collect_all_logs()
+        if args["zip"]:
+            if args["transit_network_hub"]:
+                c.collect_all_logs_zip()
+
+    if files_changed:
+        print("Saving config file to S3 bucket")
+        if cfg is not None:
+            c.upload_file_json(cfg, c.settings['storage_name'], "autoscale_config.json")
+
+#
