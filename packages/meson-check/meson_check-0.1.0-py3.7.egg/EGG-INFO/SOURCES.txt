@@ -1,0 +1,9 @@
+README.md
+setup.cfg
+setup.py
+meson_check.egg-info/PKG-INFO
+meson_check.egg-info/SOURCES.txt
+meson_check.egg-info/dependency_links.txt
+meson_check.egg-info/requires.txt
+meson_check.egg-info/top_level.txt
+mesonbuild/modules/check.py
