@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: shortesttrack-sdk
+Version: 1.3.4
+Summary: SDK for work with ShortestTrack API
+Home-page: UNKNOWN
+Author: Shortest Track
+Author-email: mpyzhov@shtr.io
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: URLObject (==2.4.3)
+Requires-Dist: requests (==2.19.1)
+Requires-Dist: shortesttrack-tools (==0.1.9)
+Requires-Dist: Faker (==1.0.0)
+Requires-Dist: funcy (==1.11)
+
+UNKNOWN
+
+
