@@ -1,0 +1,17 @@
+Metadata-Version: 1.1
+Name: volatility-profile-builder
+Version: 0.0.5
+Summary: Helper to build volatility profiles.
+Home-page: https://github.com/bannsec/volatility_profile_builder
+Author: Michael Bann
+Author-email: self@bannsecurity.com
+License: MIT
+Description: See website for more info.
+Keywords: volatility profile build
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Environment :: Console
