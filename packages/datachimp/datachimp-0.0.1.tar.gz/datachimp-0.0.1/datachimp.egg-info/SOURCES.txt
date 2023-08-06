@@ -1,0 +1,16 @@
+README.md
+setup.cfg
+setup.py
+datachimp/__init__.py
+datachimp/cli.py
+datachimp/connection_thread.py
+datachimp/enums.py
+datachimp/log.py
+datachimp/settings.py
+datachimp/utils.py
+datachimp.egg-info/PKG-INFO
+datachimp.egg-info/SOURCES.txt
+datachimp.egg-info/dependency_links.txt
+datachimp.egg-info/entry_points.txt
+datachimp.egg-info/requires.txt
+datachimp.egg-info/top_level.txt

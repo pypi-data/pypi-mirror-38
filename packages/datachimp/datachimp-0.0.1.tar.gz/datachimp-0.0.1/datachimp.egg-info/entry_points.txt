@@ -1,0 +1,4 @@
+
+        [console_scripts]
+        datachimp=datachimp.cli:cli
+    
