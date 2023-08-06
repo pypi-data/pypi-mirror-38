@@ -1,0 +1,17 @@
+README.md
+setup.py
+pirev/__init__.py
+pirev/cpuinfo.py
+pirev/manufacturer.py
+pirev/memory.py
+pirev/newrev.py
+pirev/oldrev.py
+pirev/pirev.py
+pirev/processor.py
+pirev/revinfo.py
+pirev/type.py
+pirev.egg-info/PKG-INFO
+pirev.egg-info/SOURCES.txt
+pirev.egg-info/dependency_links.txt
+pirev.egg-info/top_level.txt
+test/test.py
