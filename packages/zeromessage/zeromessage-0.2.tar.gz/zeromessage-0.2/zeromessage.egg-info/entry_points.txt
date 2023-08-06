@@ -1,0 +1,3 @@
+[console_scripts]
+zerotopic = zeromessage.utils.zerotopic:main
+
