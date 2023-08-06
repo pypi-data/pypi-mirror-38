@@ -1,0 +1,3 @@
+[console_scripts]
+json2tb = json2tb.main:main
+
