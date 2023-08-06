@@ -1,0 +1,163 @@
+Metadata-Version: 2.1
+Name: sqlfluff
+Version: 0.0.7
+Summary: Modular SQL Linting for Humans
+Home-page: https://github.com/alanmcruickshank/sqlfluff
+Author: Alan Cruickshank
+Author-email: alan@designingoverload.com
+License: MIT License
+Description: # SqlFluff :scroll: :black_nib: :sparkles:
+        ## The SQL Linter for humans
+        
+        [![image](https://img.shields.io/pypi/v/sqlfluff.svg)](https://pypi.org/project/sqlfluff/)
+        [![image](https://img.shields.io/pypi/l/sqlfluff.svg)](https://pypi.org/project/sqlfluff/)
+        [![image](https://img.shields.io/pypi/pyversions/sqlfluff.svg)](https://pypi.org/project/sqlfluff/)
+        [![codecov](https://codecov.io/gh/alanmcruickshank/sqlfluff/branch/master/graph/badge.svg)](https://codecov.io/gh/alanmcruickshank/sqlfluff)
+        [![CircleCI](https://circleci.com/gh/alanmcruickshank/sqlfluff/tree/master.svg?style=svg)](https://circleci.com/gh/alanmcruickshank/sqlfluff/tree/master)
+        
+        
+        Bored of not having a good SQL linter that works with whichever dialiect you're
+        working with? Fluff is an extensible and modular linter designed to help you write
+        good SQL and catch errors and bad SQL before it hits your database.
+        
+        > **Sqlfluff** is still in an open alpha phase - expect the tool to change significantly
+        > over the coming months, and expect potentially non-backward compatable api changes
+        > to happen at any point.
+        
+        # Getting Started
+        
+        To get started just install the package, make a sql file and then run sqlfluff and point it at the file.
+        
+        ```shell
+        $ pip install sqlfluff
+        $ echo "  SELECT a  +  b FROM tbl;  " > test.sql
+        $ sqlfluff lint test.sql
+        == [test.sql] FAIL
+        L:   1 | P:   1 | L003 | Single indentation uses a number of spaces not a multiple of 4
+        L:   1 | P:  14 | L006 | Operators should be surrounded by a single space unless at the start/end of a line
+        L:   1 | P:  27 | L001 | Unnecessary trailing whitespace
+        ```
+        
+        # Usage
+        
+        For more details on usage see the docs on github [here](https://github.com/alanmcruickshank/sqlfluff/blob/master/DOCS.md).
+        
+        # Progress
+        
+        There's lots to do in this project, and we're just getting started.
+        
+        - [x] Command line interface
+          - [x] Basic linting, both of paths and files
+          - [x] Version information
+          - [x] Nicely formatted readout of linting success or fail
+          - [x] Exist codes which reflect linting success or fail
+          - [ ] Filtering to particular codes in the linting step
+          - [ ] Allow basic correction of some linting codes
+        - [ ] Basic ANSI linting
+          - [x] Simple whitespace testing
+          - [x] Whitespace around operators
+          - [x] Indentation (size and mix of tabs and spaces)
+          - [ ] Indentation between lines and when to indent
+          - [ ] Number of blank lines
+          - [ ] Indentation of comments
+        - [ ] Configurable linting
+          - [ ] Command line options for config
+          - [ ] Ability to read from config files
+          - [ ] Ignore particular rules
+          - [ ] Specifying particlar dialects to use
+          - [ ] Preconfiguring verbosity
+        - [ ] Dialects
+          - [ ] MySQL 
+          - [ ] Redshift
+          - [ ] Detecting dialect from a config file of some kind
+        
+        
+        ---
+        
+        # Changelog
+        All notable changes to this project will be documented in this file.
+        
+        The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+        and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+        
+        
+        ## [0.0.7] - 2018-11-19
+        ### Added
+        - Added a `sqlfluff fix` as a command to implement auto-fixing of linting
+          errors. For now only `L001` is implemented as a rule that can fix things.
+        - Added a `rules` command to introspec the available rules.
+        - Updated the cli table function to use the `testwrap` library and also
+          deal a lot better with longer values.
+        - Added a `--rules` argument to most of the commands to allow rule users
+          to focus their search on a specific subset of rules.
+        
+        ### Changed
+        - Refactor the cli tests to use the click CliRunner. Much faster
+        
+        ## [0.0.6] - 2018-11-15
+        ### Added
+        - Number matching
+        
+        ### Changed
+        - Fixed operator parsing and linting (including allowing the exception of `(*)`)
+        
+        ## [0.0.5] - 2018-11-15
+        ### Added
+        - Much better documentation including the DOCS.md
+        
+        ### Changed
+        - Fixed comma parsing and linting
+        
+        ## [0.0.4] - 2018-11-14
+        ### Added
+        - Added operator regexes
+        - Added a priority for matchers to resolve some abiguity
+        - Added tests for operator regexes
+        - Added ability to initialise the memory in rules
+        
+        ## [0.0.3] - 2018-11-14
+        ### Added
+        - Refactor of rules to allow rules with memory
+        - Adding comma linting rules (correcting the single character matchers)
+        - Adding mixed indentation linting rules
+        - Integration with CircleCI, CodeCov and lots of badges
+        
+        ### Changed
+        - Changed import of version information to fix bug with importing config.ini
+        - Added basic violations/file reporting for some verbosities
+        - Refactor of rules to simplify definition
+        - Refactor of color cli output to make it more reusable
+        
+        ## [0.0.2] - 2018-11-09
+        ### Added
+        - Longer project description
+        - Proper exit codes
+        - colorama for colored output
+        
+        ### Changed
+        - Significant CLI changes
+        - Much improved output from CLI
+        
+        ## [0.0.1] - 2018-11-07
+        ### Added
+        - Initial Commit! - VERY ALPHA
+        - Restructure into [package layout](https://blog.ionelmc.ro/2014/05/25/python-packaging/#the-structure)
+        - Adding Tox and Pytest so that they work
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Unix
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
