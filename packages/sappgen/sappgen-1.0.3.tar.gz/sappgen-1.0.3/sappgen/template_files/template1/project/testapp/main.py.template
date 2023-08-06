@@ -1,0 +1,14 @@
+import logging
+from .cfg import LOG_LEVEL
+from .util import set_root_logger_stdout
+
+# ==================================================================================================
+
+set_root_logger_stdout(LOG_LEVEL)
+
+def app(**kwargs):
+    logging.info("main:app")
+    logging.info(kwargs)
+    return 1
+
+# ==================================================================================================
