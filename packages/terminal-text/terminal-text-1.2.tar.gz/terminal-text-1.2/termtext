@@ -1,0 +1,53 @@
+#! /usr/bin/env python3
+"""termtext
+
+Usage:
+    termtext -m <text>
+    termtext -h --help for more info
+    FOR SMS GATEWAYS LOOK AT THE DOCS AT
+    https://github.com/mraza007/terminal-text/
+
+Options:
+  -h --help     Show this screen.
+  --version     Show version.
+  
+"""
+
+from docopt import docopt
+import os
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+
+ 
+
+def mail_server(email,sms_gateway,text):
+    email = os.environ["EMAIL"]
+    pas =  os.environ["PASS"]
+    smtp = os.environ["SMTP"]
+    port = int(os.environ['PORT'])
+    server = smtplib.SMTP(smtp,port)
+    server.starttls()
+    server.login(email,pas)
+    server.sendmail(email,sms_gateway,text)
+
+def send_text(text):
+    msg = MIMEMultipart()
+    email = os.environ["EMAIL"]
+    sms_gateway = os.environ["SMS_GATEWAY"]
+    msg['From'] = email
+    msg['To'] = sms_gateway
+    msg['Subject'] = "TEXT SENT FROM TERMINAL\n"
+    body = text
+    msg.attach(MIMEText(body, 'plain'))
+    sms = msg.as_string()
+    mail_server(email,sms_gateway,sms)
+
+
+
+if __name__ == '__main__':
+
+    arguments = docopt(__doc__,version='Terminal Text-1.0')
+    
+    if arguments['-m']:
+        send_text(arguments['<text>'])
