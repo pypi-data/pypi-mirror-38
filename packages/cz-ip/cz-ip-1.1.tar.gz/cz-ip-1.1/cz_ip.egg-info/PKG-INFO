@@ -1,0 +1,59 @@
+Metadata-Version: 2.1
+Name: cz-ip
+Version: 1.1
+Summary: Find the location of ip address
+Home-page: https://github.com/lwzm/cz-ip
+Author: lwzm
+Author-email: lwzm@qq.com
+License: UNKNOWN
+Description: # 查 ip 所在位置, 查找速度还行(微秒级), 数据来自纯真数据库.
+        
+        ### Install
+        ```
+        pip install cz-ip
+        ```
+        
+        ### Usage
+        
+        ```
+        >>> import cz_ip
+        >>> cz_ip.locate("8.8.8.8")
+        '美国 加利福尼亚州圣克拉拉县山景市谷歌公司DNS服务器'
+        ```
+        
+        ```
+        $ python -m cz_ip
+        114.114.114.114
+        114.114.114.114 江苏省南京市 南京信风网络科技有限公司GreatbitDNS服务器
+        ```
+        
+        ```
+        $ cat ips.txt 
+        114.114.114.114
+        172.16.16.16
+        10.0.0.1
+        10.0.0.2
+        
+        $ python -m cz_ip <ips.txt
+        114.114.114.114 江苏省南京市 南京信风网络科技有限公司GreatbitDNS服务器
+        172.16.16.16    局域网 对方和您在同一内部网
+        10.0.0.1        局域网 IP
+        10.0.0.2        局域网 IP
+        ```
+        
+Keywords: ip,address,chunzhen,cz88
+Platform: UNKNOWN
+Classifier: Environment :: Console
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: MIT License
+Description-Content-Type: text/markdown
