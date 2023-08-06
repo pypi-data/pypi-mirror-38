@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: rc.customcontent
+Version: 1.0a2
+Summary: An add-on for Plone that embeds the PDF in file view
+Home-page: https://pypi.python.org/pypi/rc.customcontent
+Author: Rogerio da Costa Dantas Luiz
+Author-email: rogeriocdluiz@gmail.com
+License: GPL version 2
+Description: This product embed the PDF in file view
+        
+        
+        
+        Contributors
+        ============
+        
+        - Rogério da Costa Dantas Luiz, rogeriocdluiz@gmail.com
+        
+        
+        Changelog
+        =========
+        
+        
+        1.0a2 (unreleased)
+        ------------------
+        
+        - Removed 'plone.api>=1.8.4' requirement
+          [rogeriocdluiz]
+        
+        
+        
+        1.0a1 (unreleased)
+        ------------------
+        
+        - Initial release.
+          [rogeriocdluiz]
+        
+        
+        
+Keywords: Python Plone
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Plone
+Classifier: Framework :: Plone :: 5.0
+Classifier: Framework :: Plone :: 5.1
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
+Provides-Extra: test
