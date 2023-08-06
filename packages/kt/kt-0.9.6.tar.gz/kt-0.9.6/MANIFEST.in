@@ -1,0 +1,11 @@
+include README.md
+include LICENSE
+include kt/_binary.c
+include kt/_binary.pyx
+include kt/scripts/*.lua
+include tests.py
+recursive-include docs *
+
+global-exclude *.pyc
+global-exclude *.o
+global-exclude *.so
