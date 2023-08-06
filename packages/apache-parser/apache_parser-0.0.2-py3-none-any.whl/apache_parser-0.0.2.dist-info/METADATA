@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: apache-parser
+Version: 0.0.2
+Summary: UNKNOWN
+Home-page: https://gitlab.com/lo4/apache_parser.git
+Author: Phuong Huynh
+Author-email: phuonghuynh.net@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+# Apache Config Parser
+
+Simple Apache configuration files parser
+
+## Getting Started
+
+```python
+import apache_parser
+
+
+conf = apache_parser.ApacheConfParser('/etc/apache2/apache.conf')
+print(conf.nodes)
+
+```
+
+
