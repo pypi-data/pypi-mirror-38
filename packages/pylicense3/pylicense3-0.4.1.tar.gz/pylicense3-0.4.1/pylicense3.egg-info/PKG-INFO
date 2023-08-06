@@ -1,0 +1,23 @@
+Metadata-Version: 1.1
+Name: pylicense3
+Version: 0.4.1
+Summary: Apply license information to a git project.
+Home-page: https://github.com/dune-community/pylicense
+Author: René Fritze
+Author-email: rene.fritze@wwu.de
+License: BSD
+Description: 
+        Apply license information to a git project.
+        
+Platform: any
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Unix
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
