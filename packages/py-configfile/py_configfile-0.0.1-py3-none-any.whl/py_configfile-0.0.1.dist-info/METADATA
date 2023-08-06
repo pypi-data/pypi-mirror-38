@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: py-configfile
+Version: 0.0.1
+Summary: python configuration file loading package
+Home-page: http://github.com/ztj1993/py_configfile
+Author: ZhangTianJie
+Author-email: ztj1993@gmail.com
+License: MIT
+Keywords: configfile config json yaml
+Platform: UNKNOWN
+Requires-Dist: pyyaml
+
+UNKNOWN
+
+
