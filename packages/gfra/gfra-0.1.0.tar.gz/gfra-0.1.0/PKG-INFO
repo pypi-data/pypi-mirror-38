@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: gfra
+Version: 0.1.0
+Summary: REST API framework for Google Serverless Functions
+Home-page: None
+Author: German Ivanov
+Author-email: germivanov@gmail.com
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: flask (>=1.0,<2.0)
