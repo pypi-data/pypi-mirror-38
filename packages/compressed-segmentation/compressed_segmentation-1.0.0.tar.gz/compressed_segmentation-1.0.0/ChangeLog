@@ -1,0 +1,19 @@
+CHANGES
+=======
+
+1.0.0
+-----
+
+* feat: added ability to specify memory order for decompress
+* test: add very basic test of correctness
+* chore: cleanup go files
+* chore: infrastructure for building packages
+* fix: memory leak in cython bindings
+* feat: add Cython bindings and compilation directives
+* Update README.md
+* adds go implementation; fixes bug in c++ decompression and modifies test
+* Update README.md
+* adds seg decompress and tests
+* cleans up more of the compress\_segmentation interface
+* simplifies interface for compress segmentation
+* initial commit (copies source code from neuroglancer project)
