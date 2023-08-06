@@ -1,0 +1,4 @@
+[console_scripts]
+se-cli = sysexpert:main_cli
+se-gui = sysexpert:main_gui
+
