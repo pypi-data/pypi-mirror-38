@@ -1,0 +1,149 @@
+version: '{build}'
+image: Visual Studio 2015
+configuration:
+  - Release
+platform:
+- x86
+#- x64
+environment:
+  global:
+    DISTUTILS_USE_SDK: 1
+    MSSdk: 1
+  matrix:
+  - PYTHON: 36
+    GENERATOR: Visual Studio 15 2017 Win64
+    #CONFIG: Release
+    ZLIB_ROOT: C:\projects\deploid-py\zlib\myinstall\
+  #- PYTHON: 27
+  #- CONDA: 27
+  #- CONDA: 36
+
+install:
+  - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
+  - "git submodule update --init --recursive"
+
+  - IF "%PLATFORM%" == "x86" ( SET CMAKE_GENERATOR="Visual Studio 14 2015")
+  - IF "%PLATFORM%" == "x64" ( SET CMAKE_GENERATOR="Visual Studio 14 2015 Win64")
+
+  - echo %PLATFORM%
+  - echo %CMAKE_GENERATOR%
+  - echo %configuration%
+  - echo %ZLIB_ROOT%
+
+  - echo %cd%
+
+  # zlib
+  # TODO check out http://stackoverflow.com/questions/10507893/libzip-with-visual-studio-2010
+  - cd C:\projects\deploid-py
+  - git clone https://github.com/madler/zlib
+  - cd zlib
+  - git checkout v1.2.8
+  - echo %cd%
+  - mkdir build
+  - mkdir myinstall
+  - cd build
+  - cmake -G %CMAKE_GENERATOR% -DCMAKE_INSTALL_PREFIX=%ZLIB_ROOT% ..
+  - cmake --build . --config %CONFIGURATION%
+  - cmake --build . --config %CONFIGURATION% --target install
+  - dir ..\myinstall\
+  - dir ..\myinstall\lib
+  - cd C:\projects\deploid-py
+
+  - cmd: '"%VS140COMNTOOLS%\..\..\VC\vcvarsall.bat" %PLATFORM%'
+  - ps: |
+      if ($env:PYTHON) {
+        if ($env:PLATFORM -eq "x64") { $env:PYTHON = "$env:PYTHON-x64" }
+        $env:PATH = "C:\Python$env:PYTHON\;C:\Python$env:PYTHON\Scripts\;$env:PATH"
+        pip install --disable-pip-version-check --user --upgrade pip setuptools
+      } elseif ($env:CONDA) {
+        if ($env:CONDA -eq "27") { $env:CONDA = "" }
+        if ($env:PLATFORM -eq "x64") { $env:CONDA = "$env:CONDA-x64" }
+        $env:PATH = "C:\Miniconda$env:CONDA\;C:\Miniconda$env:CONDA\Scripts\;$env:PATH"
+        conda config --set always_yes yes --set changeps1 no
+        conda config --add channels conda-forge
+        conda update -q conda
+        conda install -q conda-build
+      }
+build_script:
+#- ps: |
+    - "SET ZLIB_PREFIX=%ZLIB_ROOT%"
+    - echo %ZLIB_PREFIX%
+    - pip install -r requirements.txt
+    - python setup.py build_ext --inplace
+    #- if ($env:PYTHON) {
+      #pip install -r requirements.txt
+      #python setup.py build_ext --inplace
+      ##python setup.py sdist
+      ##pip install --verbose dist\python_example-0.0.1.tar.gz
+    #} else {
+      #conda build conda.recipe
+      #conda install --use-local python_example
+    #}
+test_script:
+#- ps: python tests\test.py
+  - "nosetests -vs"
+
+
+
+#environment:
+  #matrix:
+  #- APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
+    ##BUILD_SYSTEM: CMake
+    #GENERATOR: Visual Studio 15 2017 Win64
+    #CONFIG: Release
+    #ZLIB_ROOT: C:\projects\deploid-py\zlib\myinstall\
+    #PYTHON: "C:\\Python36-x64"
+    #PYTHON_VERSION: "3.6.x"
+    #PYTHON_ARCH: "64"
+
+#install:
+  #- IF "%ARCH%"=="i686" (
+      #SET "TOOLCHAIN=i686-6.3.0-posix-dwarf-rt_v5-rev1\mingw32"
+    #) ELSE (
+      #SET "TOOLCHAIN=x86_64-7.3.0-posix-seh-rt_v5-rev0\mingw64"
+    #)
+
+  #- "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
+  #- "git submodule update --init --recursive"
+
+  ##- IF "%PLATFORM%" == "x86" ( SET CMAKE_GENERATOR="Visual Studio 14 2015")
+  ##- IF "%PLATFORM%" == "x64" ( SET CMAKE_GENERATOR="Visual Studio 14 2015 Win64")
+
+  #- echo %PLATFORM%
+  #- echo %CMAKE_GENERATOR%
+  #- echo %configuration%
+  #- echo %APPVEYOR_BUILD_FOLDER%
+
+  #- echo %cd%
+
+  ## zlib
+  ## TODO check out http://stackoverflow.com/questions/10507893/libzip-with-visual-studio-2010
+  #- cd C:\projects\deploid-py
+  #- git clone https://github.com/madler/zlib
+  #- cd zlib
+  #- git checkout v1.2.8
+  #- echo %cd%
+  #- mkdir build
+  #- mkdir myinstall
+  #- cd build
+  #- cmake -G %GENERATOR% -DCMAKE_INSTALL_PREFIX=%ZLIB_ROOT% ..
+  #- cmake --build . --config %CONFIGURATION%
+  #- cmake --build . --config %CONFIGURATION% --target install
+  #- dir ..\myinstall\
+  #- cd C:\projects\deploid-py
+
+
+#build: false
+
+#test_script:
+  #- "conda config --add channels conda-forge"
+  #- "conda install --yes --file=requirements.txt"
+
+  ## There seems to be an issue here, where we're not using the correct
+  ## version of Python.
+  #- "SET ZLIB_PREFIX=%ZLIB_ROOT%"
+  #- "python setup.py build_ext --inplace"
+  #- "nosetests -vs"
+
+#after_test:
+  #- "python setup.py bdist_wheel"

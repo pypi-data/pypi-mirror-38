@@ -1,0 +1,4 @@
+include lib/src/*/*h
+include lib/src/*/*hpp
+include lib/src/*hpp
+include lib/src/lasso/src/*hpp
