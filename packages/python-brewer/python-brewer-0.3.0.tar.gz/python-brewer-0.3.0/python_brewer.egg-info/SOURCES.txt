@@ -1,0 +1,16 @@
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+python_brewer.egg-info/PKG-INFO
+python_brewer.egg-info/SOURCES.txt
+python_brewer.egg-info/dependency_links.txt
+python_brewer.egg-info/entry_points.txt
+python_brewer.egg-info/requires.txt
+python_brewer.egg-info/top_level.txt
+pythonbrewer/__init__.py
+pythonbrewer/brew.py
+pythonbrewer/cmdline.py
+pythonbrewer/deplist.py
+pythonbrewer/errors.py
+pythonbrewer/pypi.py
