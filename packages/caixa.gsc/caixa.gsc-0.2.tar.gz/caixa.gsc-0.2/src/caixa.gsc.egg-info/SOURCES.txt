@@ -1,0 +1,11 @@
+setup.py
+src/caixa/__init__.py
+src/caixa.gsc.egg-info/PKG-INFO
+src/caixa.gsc.egg-info/SOURCES.txt
+src/caixa.gsc.egg-info/dependency_links.txt
+src/caixa.gsc.egg-info/requires.txt
+src/caixa.gsc.egg-info/top_level.txt
+src/caixa/gsc/__init__.py
+src/caixa/gsc/chamado.py
+src/caixa/gsc/log_settings.py
+src/caixa/gsc/webservice.py
