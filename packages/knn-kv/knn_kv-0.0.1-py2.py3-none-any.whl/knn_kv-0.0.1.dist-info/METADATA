@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: knn-kv
+Version: 0.0.1
+Summary: k-nearest neighbors
+Home-page: https://github.com/kopylovvlad/knn_kv
+Author: Vladislav Kopylov
+Author-email: kopylov.vlad@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+
+## knn_kv
+
+Simple implementation of k-nearest neighbors algorithm.
+
+## Python version
+
+Python3.6
+
+## API
+
+See example_of_usage.py
+
+
