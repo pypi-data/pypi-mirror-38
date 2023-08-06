@@ -1,0 +1,3 @@
+[console_scripts]
+qsqrcode = qsqrcode.commandline:main
+
