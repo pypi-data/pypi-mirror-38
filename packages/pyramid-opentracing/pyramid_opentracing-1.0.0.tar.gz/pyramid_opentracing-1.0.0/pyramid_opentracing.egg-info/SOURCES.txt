@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.rst
+VERSION
+setup.cfg
+setup.py
+pyramid_opentracing/__init__.py
+pyramid_opentracing/_constants.py
+pyramid_opentracing/tests.py
+pyramid_opentracing/tracing.py
+pyramid_opentracing/tween_factory.py
+pyramid_opentracing.egg-info/PKG-INFO
+pyramid_opentracing.egg-info/SOURCES.txt
+pyramid_opentracing.egg-info/dependency_links.txt
+pyramid_opentracing.egg-info/requires.txt
+pyramid_opentracing.egg-info/top_level.txt
