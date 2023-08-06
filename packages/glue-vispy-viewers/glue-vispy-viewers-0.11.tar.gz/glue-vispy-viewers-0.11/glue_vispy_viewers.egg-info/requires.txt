@@ -1,0 +1,15 @@
+numpy
+pyopengl
+glue-core>=0.14
+qtpy
+scipy
+astropy>=1.1
+pillow
+
+[test]
+pytest<3.7,>=3.5
+pytest-cov
+pytest-qt
+pytest-faulthandler
+objgraph
+mock
