@@ -1,0 +1,6 @@
+[snakeless.providers]
+gcloud=snakeless_provider_gcloud:GCloudProvider
+
+[snakeless.schemas]
+gcloud=snakeless_provider_gcloud:GCLOUD_SCHEMA
+
