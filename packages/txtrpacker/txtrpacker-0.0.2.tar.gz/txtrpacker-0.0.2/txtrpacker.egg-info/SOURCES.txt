@@ -1,0 +1,11 @@
+README.md
+setup.cfg
+setup.py
+test/test_txtrpacker.py
+txtrpacker/__init__.py
+txtrpacker/rect.py
+txtrpacker/txtrpacker.py
+txtrpacker.egg-info/PKG-INFO
+txtrpacker.egg-info/SOURCES.txt
+txtrpacker.egg-info/dependency_links.txt
+txtrpacker.egg-info/top_level.txt
