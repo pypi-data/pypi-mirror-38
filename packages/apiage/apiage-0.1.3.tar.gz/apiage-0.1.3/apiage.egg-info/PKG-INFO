@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: apiage
+Version: 0.1.3
+Summary: Gets pages from API.
+Home-page: https://gitlab.com/mindey/apiage
+Author: Mindey
+Author-email: mindey@qq.com
+License: UNDEFINED
+Description: # apiage
+        
+        **pip install apiage**
+        
+        ```python
+        import apiage
+        data = apiage.get('<some api endpoint>', [next_key='next', count_key='count', results_key='results'])
+        ```
+        
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Provides-Extra: test
