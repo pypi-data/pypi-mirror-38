@@ -1,0 +1,16 @@
+LICENSE.txt
+MANIFEST.in
+README.rst
+requirements-dev.txt
+requirements.txt
+setup.py
+csv2arff/__init__.py
+csv2arff/csv2arff.py
+csv2arff.egg-info/PKG-INFO
+csv2arff.egg-info/SOURCES.txt
+csv2arff.egg-info/dependency_links.txt
+csv2arff.egg-info/entry_points.txt
+csv2arff.egg-info/requires.txt
+csv2arff.egg-info/top_level.txt
+tests/__init__.py
+tests/test_csv2arff.py
