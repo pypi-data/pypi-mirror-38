@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: pyexphys
+Version: 2.1.2
+Summary: Python framework for health/fitness calculations
+Home-page: https://dpfens.github.io/PyExPhys
+Author: Doug Fenstermacher
+Author-email: douglas.fenstermacher@gmail.com
+License: UNKNOWN
+Description: # PyExPhys
+        
+        PyExPhys is a Python library of exercise physiology and healthcare equations for transforming basic health data into insights at scale.  PyExPhys is a collection of bodybuilding competition formulas, aerobic performance and weightlifting performance models, and body composition equations.
+        
+        ## Installing
+        Install the library using `pip`:
+        ```
+        pip install pyexphys
+        ```
+        
+        ## Tests
+        To test the calculations of PyExPhys, run the `distutils` test:
+        ```
+        python setup.py test
+        ```
+        
+        ## Support
+        Please raise potential bugs on [Github](https://github.com/dpfens/PyExPhys/issues).
+        
+Keywords: health,physical fitness,cardio,heart rate,VO2Max,energy expenditure,resting metabolic rate,respiration,residual volume,body composition,metabolic equivalents,body surface area,strength,1-rm,jack daniels
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Healthcare Industry
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Topic :: Scientific/Engineering :: Medical Science Apps.
+Description-Content-Type: text/markdown
