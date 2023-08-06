@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: ioe
+Version: 0.0.25
+Summary: The Python Internet of Energy Library
+Home-page: https://gitlab.com/sergioalonso/ioe
+Author: Sergio Alonso
+Author-email: sergio@sergioalonso.es
+License: UNKNOWN
+Description: # The Python Internet of Energy Library
+        
+        ``` bash
+        python3 -m pip install --index-url https://test.pypi.org/simple/ ioe
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: Public Domain
+Classifier: Operating System :: POSIX :: Linux
+Description-Content-Type: text/markdown
