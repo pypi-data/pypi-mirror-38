@@ -1,0 +1,16 @@
+Metadata-Version: 1.1
+Name: hs110-exporter
+Version: 0.0.1
+Summary: HS110 client for the Prometheus monitoring system.
+Home-page: UNKNOWN
+Author: Michael Sauer
+Author-email: msa@rzetera.ch
+License: Apache Software License 2.0
+Description: HS110 client for energy monitoring of smart plug
+Keywords: prometheus exporter energy monitoring hs110
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: Topic :: System :: Networking :: Monitoring
+Classifier: License :: OSI Approved :: Apache Software License
