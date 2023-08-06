@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: mu-python-library
+Version: 0.2.0
+Summary: Python files describing miscellanious components (EDKII, TPM, etc.)
+Home-page: https://github.com/microsoft/mu_pip_python_library
+Author: Max Knutsen
+Author-email: maknutse@microsoft.com
+License: BSD2
+Description: =================
+        MU Python Library
+        =================
+        
+        About
+        ==============
+        
+        Python files describing various miscellaneous components from the TPM and EDKII specs.
+        
+        Version History
+        ==============
+        
+        0.2.0
+        -----------------
+        
+        Initial commit
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
