@@ -1,0 +1,22 @@
+Metadata-Version: 2.0
+Name: catenae
+Version: 0.1.2
+Summary: Python library for easy development of scalable stream processing topologies.
+Home-page: https://github.com/catenae
+Author: Rodrigo Martínez
+Author-email: dev@brunneis.com
+License: GNU General Public License v3.0
+Description-Content-Type: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+
+UNKNOWN
+
+
