@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: btcquant
+Version: 2.0.3
+Summary: BTC Quant for Digital Currency
+Home-page: https://www.cnblogs.com/fangbei
+Author: FangBei
+Author-email: UNKNOWN
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3
+Requires-Dist: numpy
+
+BTCQuant
+===============
+
+* Digital Currency Exchange Interface
+* Quant Trading
+
+Installation
+--------------
+    pip install btcquant
+
+Upgrade
+--------------
+    pip install --upgrade btcquant
+
+QQ Group
+---------------
+464579468
+
+Weixin Account
+--------------
+btcquant
+
+
+
