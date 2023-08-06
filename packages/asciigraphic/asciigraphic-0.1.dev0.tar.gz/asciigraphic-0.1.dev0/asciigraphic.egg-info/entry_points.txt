@@ -1,0 +1,3 @@
+[console_scripts]
+asciigraphic = asciigraphic.__main__:main
+
