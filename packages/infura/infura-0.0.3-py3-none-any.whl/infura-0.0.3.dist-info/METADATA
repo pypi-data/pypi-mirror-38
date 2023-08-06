@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: infura
+Version: 0.0.3
+Summary: Infura.io wrapper
+Home-page: https://github.com/neoctobers/infura
+Author: @neoctobers
+Author-email: neoctobers@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+# Infura.io wrapper
+
+## Installation
+```
+pip3 install infura
+```
+
+## Usage
+```python
+import infura
+
+ifr = infura.Client(
+    project_id='your-project-id',
+    project_secret='your-project-secret',
+    network='mainnet',
+)
+
+gas_price = ifr.eth_gas_price()
+balance = ifr.eth_get_balance(address, block)
+```
+
+
