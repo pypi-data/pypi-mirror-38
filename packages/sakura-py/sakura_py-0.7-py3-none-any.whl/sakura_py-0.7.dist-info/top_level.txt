@@ -1,0 +1,15 @@
+sakura/client
+sakura/client/apiobject
+sakura/common
+sakura/daemon
+sakura/daemon/db
+sakura/daemon/db/adapters
+sakura/daemon/db/drivers
+sakura/daemon/processing
+sakura/daemon/processing/plugs
+sakura/daemon/processing/sources
+sakura/hub
+sakura/hub/daemons
+sakura/hub/db
+sakura/hub/mixins
+sakura/hub/web
