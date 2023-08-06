@@ -1,0 +1,16 @@
+.gitignore
+LICENSE
+Makefile
+README.md
+build.sh
+setup.cfg
+setup.py
+upload.sh
+.svgbob/bin/svgbob
+pandoc_svgbob_filter/__init__.py
+pandoc_svgbob_filter.egg-info/PKG-INFO
+pandoc_svgbob_filter.egg-info/SOURCES.txt
+pandoc_svgbob_filter.egg-info/dependency_links.txt
+pandoc_svgbob_filter.egg-info/entry_points.txt
+pandoc_svgbob_filter.egg-info/requires.txt
+pandoc_svgbob_filter.egg-info/top_level.txt

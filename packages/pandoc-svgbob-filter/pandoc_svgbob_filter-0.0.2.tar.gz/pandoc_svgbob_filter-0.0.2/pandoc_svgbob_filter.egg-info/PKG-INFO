@@ -1,0 +1,57 @@
+Metadata-Version: 2.1
+Name: pandoc-svgbob-filter
+Version: 0.0.2
+Summary: pandoc filters to render svgbob diagrams
+Home-page: https://github.com/pandocker/pandoc-svgbob-filter
+Author: pandocker
+Author-email: pandocker@github.com
+License: UNKNOWN
+Project-URL: Source, https://github.com/pandocker/pandoc-svgbob-filter
+Description: # pandoc-svgbob-filter
+        Pandoc filter to render svgbob
+        
+        # Requirements
+        
+        This filter requires `svgbob` and `rsvg-convert` in `$PATH`
+        
+        # Install
+        
+        install by pip-git:
+        
+        `$ pip3 install git+https://github.com/pandocker/pandoc-svgbob-filter.git`
+        
+        # Samples
+        
+        ```markdown
+        [Example](bob.bob){.svgbob font-family="Source Code Pro" font-size=14 stroke-width=2 scale=3}
+        ```
+        
+        [Example](bob.bob){.svgbob}
+        
+        # Options
+        
+        | Option         | Description                                                               | default value |
+        |:---------------|:--------------------------------------------------------------------------|:-------------:|
+        | `font-family`  | Text will be rendered with this font                                      |    "Arial"    |
+        | `font-size`    | text will be rendered with this font size                                 |      14       |
+        | `scale`        | scale the entire svg (dimensions, font size, stroke width) by this factor |       1       |
+        | `stroke-width` | stroke width for all lines                                                |       2       |
+        
+        # Usage example
+        
+        ```bash
+        pandoc README.md -F pandoc-svgbob-filter -o README.html
+        ```
+        
+Keywords: pandoc filter svgbob
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown

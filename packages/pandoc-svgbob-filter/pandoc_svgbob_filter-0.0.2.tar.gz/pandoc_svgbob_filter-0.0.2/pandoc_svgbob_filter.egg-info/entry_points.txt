@@ -1,0 +1,3 @@
+[console_scripts]
+pandoc-svgbob-filter = pandoc_svgbob_filter:main
+
