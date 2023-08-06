@@ -1,0 +1,11 @@
+setup.py
+fakespark/__init__.py
+fakespark/creator.py
+fakespark/exception.py
+fakespark/sql.py
+fakespark.egg-info/PKG-INFO
+fakespark.egg-info/SOURCES.txt
+fakespark.egg-info/dependency_links.txt
+fakespark.egg-info/top_level.txt
+tools/__init__.py
+tools/prettytable.py
