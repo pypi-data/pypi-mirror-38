@@ -1,0 +1,7 @@
+google_auth
+google_auth_oauthlib
+pandas
+numpy
+google-api-python-client>=1.5.4
+six>=1.10.0
+httplib2!=0.10.2
