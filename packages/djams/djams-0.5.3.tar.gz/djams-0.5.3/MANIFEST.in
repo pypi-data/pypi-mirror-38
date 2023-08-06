@@ -1,0 +1,11 @@
+recursive-include djams/templates *.html
+recursive-include djams/static *.css
+recursive-include djams/static *.js
+recursive-include djams/static *.svg
+recursive-include djams/static *.jpg
+recursive-include djams/static *.eot
+recursive-include djams/static *.woff
+recursive-include djams/static *.woff2
+recursive-include djams/static *.ttf
+recursive-include djams/migrations *.py
+
