@@ -1,0 +1,7 @@
+[Mon Oct  1 19:17:44 2018] Default value overridden by environment variable APPOPTICS_SERVICE_KEY [oboe.c:1215] [AppOptics-lib-info p#41.41]
+[Mon Oct  1 19:17:44 2018] >> SSL Reporter using host='collector.appoptics.com' port='443' log='' clientid='53df...7d82:shuhai001' buf=1000 maxTransactions='200' flushMaxWaitTime='5000' eventsFlushInterval='2' eventsFlushBatchSize='2000' [reporter/ssl.cc:3654] [AppOptics-SSL_reporter-info p#41.41]
+OK
+[Mon Oct  1 19:17:44 2018] metricSender: Server responded: Invalid API key [reporter/ssl.cc:2448] [AppOptics-SSL_reporter-error p#41.43]
+[Mon Oct  1 19:17:45 2018] metricSender: Server responded: Invalid API key [reporter/ssl.cc:2605] [AppOptics-SSL_reporter-error p#41.43]
+[Mon Oct  1 19:17:49 2018] Failed to flush data before timeout of 5000 ms reached! [reporter/ssl.cc:303] [AppOptics-SSL_reporter-error p#41.41]
+[[ Testing no-op mode DONE ]]
