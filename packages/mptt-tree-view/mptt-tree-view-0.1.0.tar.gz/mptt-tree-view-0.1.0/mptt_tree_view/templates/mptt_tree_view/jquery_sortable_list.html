@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load mptt_tags %}
+{% load static %}
+
+{% block js %}
+    {{ block.super }}
+    <!--<script type='text/javascript' src="{% static 'js/jquery.js' %}"></script>-->
+    <!--<link rel="stylesheet" href="{% static 'tree.css'%}" type="text/css">-->
+    <script type='text/javascript' src="{% static 'js/jquery-ui.js' %}"></script>
+    <script type='text/javascript' src="{% static 'csrf.js' %}"></script>
+    <script type="text/javascript"
+            src="{% static 'js/jquery-sortable-lists/jquery-sortable-lists.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/checklist.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/jquery-sortable-lists.css' %}" />
+{% endblock %}
+
+{% block container %}
+<div class="cf nestable-lists">
+    <div class="tree-list">
+        <ul class="tree-root-ul" pk="{{root_pk}}">
+            {% recursetree nodes %}
+                <li pk="{{ node.pk }}" item-order="{{ node.get_order }}"
+                    parent="{{ node.parent.pk }}">
+                        <div class="dd3-handle handle-box">"Drag"</div>
+                        <div class="item-box no-drag">
+                            {% block item_box %}
+                                <a href="{{request.base_url}}?root={{node.pk}}" class="tagged-item no-drag">
+                                  {{ node }}
+                                </a>
+                            {% endblock %}
+                        </div>
+                    {% if not node.is_leaf_node %}
+                        <ul class="" pk="{{node.pk}}">
+                            {{ children }}
+                            {% block parent_node_extra %}
+                            {% endblock %}
+                        </ul>
+                    {% endif %}
+                </li>
+            {% endrecursetree %}
+            {% block root_extra %}
+            {% endblock %}
+        </ul>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="{% static 'js/mptt_ajax.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery_sortable_list_for_mptt_tree.js' %}"></script>
+  {% block register_drag_drop_handler %}
+    <script>
+      $(".tree-list").mpttTreeView({});
+    </script>
+  {% endblock %}
+{% endblock %}

@@ -1,0 +1,89 @@
+Metadata-Version: 1.1
+Name: mptt-tree-view
+Version: 0.1.0
+Summary: View tool for Django MPTT
+Home-page: https://github.com/weijia/mptt-tree-view
+Author: Richard
+Author-email: richardwangwang@gmail.com
+License: BSD
+Description: =============================
+        mptt-tree-view
+        =============================
+        
+        .. image:: https://badge.fury.io/py/mptt-tree-view.png
+            :target: https://badge.fury.io/py/mptt-tree-view
+        
+        .. image:: https://travis-ci.org/weijia/mptt-tree-view.png?branch=master
+            :target: https://travis-ci.org/weijia/mptt-tree-view
+        
+        "View tool for Django MPTT"
+        
+        Documentation
+        -------------
+        
+        The full documentation is at https://mptt-tree-view.readthedocs.org.
+        
+        Quickstart
+        ----------
+        
+        Install mptt-tree-view::
+        
+            pip install mptt-tree-view
+        
+        Then use it in a project::
+        
+            import mptt_tree_view
+        
+        Features
+        --------
+        
+        * TODO
+        
+        Running Tests
+        --------------
+        
+        Does the code actually work?
+        
+        ::
+        
+            source <YOURVIRTUALENV>/bin/activate
+            (myenv) $ pip install -r requirements-test.txt
+            (myenv) $ python runtests.py
+        
+        Credits
+        ---------
+        
+        Tools used in rendering this package:
+        
+        *  Cookiecutter_
+        *  `cookiecutter-pypackage`_
+        
+        .. _Cookiecutter: https://github.com/audreyr/cookiecutter
+        .. _`cookiecutter-djangopackage`: https://github.com/pydanny/cookiecutter-djangopackage
+        
+        
+        
+        
+        History
+        -------
+        
+        0.1.0 (2016-02-01)
+        ++++++++++++++++++
+        
+        * First release on PyPI.
+        
+Keywords: mptt-tree-view
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 1.8
+Classifier: Framework :: Django :: 1.9
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5

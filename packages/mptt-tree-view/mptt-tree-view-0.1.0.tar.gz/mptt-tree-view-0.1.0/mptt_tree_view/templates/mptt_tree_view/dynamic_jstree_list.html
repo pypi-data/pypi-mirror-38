@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load mptt_tags %}
+{% load static %}
+
+{% block js %}
+    {{ block.super }}
+    <!--<script type='text/javascript' src="{% static 'js/jquery.js' %}"></script>-->
+    <!--<link rel="stylesheet" href="{% static 'tree.css'%}" type="text/css">-->
+    <script type='text/javascript' src="{% static 'js/jquery-ui.js' %}"></script>
+    <script type='text/javascript' src="{% static 'csrf.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/checklist.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'js/jstree/dist/themes/default/style.css' %}" />
+    <script type="text/javascript" src="{% static 'js/jstree/dist/jstree.min.js' %}"></script>
+    <script>
+         var dynamicJsTreeUrl = "{{ dynamic_js_tree_url|safe }}";
+         var rootPk = "{{ root_pk|safe }}";
+        {% block get_node_text_script %}
+            function get_node_text(tastypie_json_node){
+                return tastypie_json_node.id;
+            }
+        {% endblock %}
+    </script>
+    <!--<script type="text/javascript" src="{% static 'js/jstree-table/jstreetable.js' %}"></script>-->
+{% endblock %}
+
+{% block container %}
+<div class="cf nestable-lists">
+    <div class="tree-list">
+    </div>
+</div>
+
+
+<script type="text/javascript" src="{% static 'js/mptt_ajax.js' %}"></script>
+  {% block tree_initiator %}
+      <script type="text/javascript" src="{% static 'js/dynamic_jstree_list.js' %}"></script>
+  {% endblock %}
+{% endblock %}

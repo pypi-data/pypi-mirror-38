@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load mptt_tags %}
+{% load get_item %}
+{% load static %}
+{% block container %}
+<script type="text/javascript" src="{% static 'js/jquery-ui.js' %}"></script>
+<script type="text/javascript" src="{% static 'csrf.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/Nestable/jquery.nestable.js' %}"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'css/nestable_tree.css' %}" />
+<div class="cf nestable-lists">
+    <div id="tree-list" class="dd">
+        <ol id="item-list" pk="{{root_pk}}" class="dd-list">
+            {% recursetree nodes %}
+                <li pk="{{node.pk}}" class="dd-item dd3-item" data-id="{{node.pk}}" item-order="{{node.item_order}}">
+                        <div class="dd-handle dd3-handle">Drag</div>
+                        <div class="dd3-content">
+                            <input type="checkbox" class="item-checkbox"/>
+                            <span class="item-content">
+                            {% block node_content %}
+                                {{node.content|truncatechars:60}}
+                                {{ mapping|get_node_state:node }}
+                            {% endblock %}
+                            <span class="add-child">+</span>
+                            <span class="delete-item">-</span>
+                            </span>
+                        </div>
+                    {% if not node.is_leaf_node %}
+                        <ol class="dd-list" pk="{{node.pk}}">
+                            {{ children }}
+                            <!--<li class="add-item">+</li>-->
+                        </ol>
+                    {% endif %}
+                </li>
+            {% endrecursetree %}
+            <li class="dd-item dd3-item" >
+                <div class="dd-handle dd3-handle">Drag</div>
+                <div class="dd3-content">
+                    <input type="checkbox" class="item-checkbox">
+                    <span class="item-content"></span>
+                    <span class="add-child">+</span>
+                    <span class="delete-item">-</span>
+                </div>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<script src="/static/js/tree_editor.js"></script>
+<script src="/static/js/checklist.js"></script>
+{% endblock %}

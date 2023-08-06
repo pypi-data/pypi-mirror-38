@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load mptt_tags %}
+{% load static %}
+
+{% block js %}
+    {{ block.super }}
+    <!--<script type='text/javascript' src="{% static 'js/jquery.js' %}"></script>-->
+    <!--<link rel="stylesheet" href="{% static 'tree.css'%}" type="text/css">-->
+    <script type='text/javascript' src="{% static 'js/jquery-ui.js' %}"></script>
+    <script type='text/javascript' src="{% static 'csrf.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/checklist.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'js/jstree/dist/themes/default/style.css' %}" />
+    <script type="text/javascript" src="{% static 'js/jstree/dist/jstree.min.js' %}"></script>
+    <!--<script type="text/javascript" src="{% static 'js/jstree-table/jstreetable.js' %}"></script>-->
+{% endblock %}
+
+{% block container %}
+<div class="cf nestable-lists">
+    {% block tree_list %}
+    <div class="tree-list">
+        {%if is_root_node_needed%}<ul><li>{%endif%}
+        <ul class="tree-root-ul" pk="{{root_pk}}">
+            {% recursetree nodes %}
+                <li pk="{{ node.pk }}" item-order="{{ node.get_order }}"
+                    parent="{{ node.parent.pk }}" test="true">{{ node|safe }}{% if not node.is_leaf_node %}<ul class="" pk="{{node.pk}}">{{ children }}</ul>{% endif %}</li>
+            {% endrecursetree %}
+            {% block root_extra %}
+            {% endblock %}
+        </ul>
+        {%if is_root_node_needed%}</li></ul>{%endif%}
+    </div>
+    {% endblock %}
+</div>
+
+
+<script type="text/javascript" src="{% static 'js/mptt_ajax.js' %}"></script>
+  {% block tree_initiator %}
+    <script type="text/javascript" src="{% static 'js/jstree_list.js' %}"></script>
+  {% endblock %}
+{% endblock %}
