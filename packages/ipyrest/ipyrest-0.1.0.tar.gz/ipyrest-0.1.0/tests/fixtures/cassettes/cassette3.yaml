@@ -1,0 +1,200 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.18.4]
+    method: GET
+    uri: http://localhost:5000/get_header
+  response:
+    body: {string: Foo bar baz}
+    headers:
+      Access-Control-Allow-Origin: ['*']
+      Content-Length: ['11']
+      Content-Type: [text/html; charset=utf-8]
+      Date: ['Fri, 23 Nov 2018 23:19:11 GMT']
+      Server: [Werkzeug/0.14.1 Python/3.6.3]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.18.4]
+    method: GET
+    uri: http://localhost:52573/get_header
+  response:
+    body: {string: Foo bar baz}
+    headers:
+      Access-Control-Allow-Origin: ['*']
+      Content-Length: ['11']
+      Content-Type: [text/html; charset=utf-8]
+      Date: ['Fri, 23 Nov 2018 23:30:17 GMT']
+      Server: [Werkzeug/0.14.1 Python/3.6.3]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.18.4]
+    method: GET
+    uri: http://localhost:52602/get_header
+  response:
+    body: {string: Foo bar baz}
+    headers:
+      Access-Control-Allow-Origin: ['*']
+      Content-Length: ['11']
+      Content-Type: [text/html; charset=utf-8]
+      Date: ['Fri, 23 Nov 2018 23:34:27 GMT']
+      Server: [Werkzeug/0.14.1 Python/3.6.3]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.18.4]
+    method: GET
+    uri: http://localhost:52613/get_header
+  response:
+    body: {string: Foo bar baz}
+    headers:
+      Access-Control-Allow-Origin: ['*']
+      Content-Length: ['11']
+      Content-Type: [text/html; charset=utf-8]
+      Date: ['Fri, 23 Nov 2018 23:35:14 GMT']
+      Server: [Werkzeug/0.14.1 Python/3.6.3]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.18.4]
+    method: GET
+    uri: http://localhost:52630/get_header
+  response:
+    body: {string: Foo bar baz}
+    headers:
+      Access-Control-Allow-Origin: ['*']
+      Content-Length: ['11']
+      Content-Type: [text/html; charset=utf-8]
+      Date: ['Fri, 23 Nov 2018 23:36:48 GMT']
+      Server: [Werkzeug/0.14.1 Python/3.6.3]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.18.4]
+    method: GET
+    uri: http://localhost:52643/get_header
+  response:
+    body: {string: Foo bar baz}
+    headers:
+      Access-Control-Allow-Origin: ['*']
+      Content-Length: ['11']
+      Content-Type: [text/html; charset=utf-8]
+      Date: ['Fri, 23 Nov 2018 23:38:51 GMT']
+      Server: [Werkzeug/0.14.1 Python/3.6.3]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.18.4]
+    method: GET
+    uri: http://localhost:52657/get_header
+  response:
+    body: {string: Foo bar baz}
+    headers:
+      Access-Control-Allow-Origin: ['*']
+      Content-Length: ['11']
+      Content-Type: [text/html; charset=utf-8]
+      Date: ['Fri, 23 Nov 2018 23:39:35 GMT']
+      Server: [Werkzeug/0.14.1 Python/3.6.3]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.18.4]
+    method: GET
+    uri: http://localhost:52669/get_header
+  response:
+    body: {string: Foo bar baz}
+    headers:
+      Access-Control-Allow-Origin: ['*']
+      Content-Length: ['11']
+      Content-Type: [text/html; charset=utf-8]
+      Date: ['Fri, 23 Nov 2018 23:40:15 GMT']
+      Server: [Werkzeug/0.14.1 Python/3.6.3]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.18.4]
+    method: GET
+    uri: http://localhost:52683/get_header
+  response:
+    body: {string: Foo bar baz}
+    headers:
+      Access-Control-Allow-Origin: ['*']
+      Content-Length: ['11']
+      Content-Type: [text/html; charset=utf-8]
+      Date: ['Fri, 23 Nov 2018 23:40:31 GMT']
+      Server: [Werkzeug/0.14.1 Python/3.6.3]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.18.4]
+    method: GET
+    uri: http://localhost:52708/get_header
+  response:
+    body: {string: Foo bar baz}
+    headers:
+      Access-Control-Allow-Origin: ['*']
+      Content-Length: ['11']
+      Content-Type: [text/html; charset=utf-8]
+      Date: ['Fri, 23 Nov 2018 23:41:09 GMT']
+      Server: [Werkzeug/0.14.1 Python/3.6.3]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.18.4]
+    method: GET
+    uri: http://localhost:52810/get_header
+  response:
+    body: {string: Foo bar baz}
+    headers:
+      Access-Control-Allow-Origin: ['*']
+      Content-Length: ['11']
+      Content-Type: [text/html; charset=utf-8]
+      Date: ['Fri, 23 Nov 2018 23:53:08 GMT']
+      Server: [Werkzeug/0.14.1 Python/3.6.3]
+    status: {code: 200, message: OK}
+version: 1
