@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: evfuncs
+Version: 0.1.1a1
+Summary: Functions for working with files created by the EvTAF program and the evsonganaly GUI
+Home-page: https://github.com/NickleDave/evfuncs
+Author: David Nicholson
+Author-email: nicholdav@gmail.com
+License: BSD
+Description: 
+        # evfuncs
+        Functions for working with files created by EvTAF and the evsonganaly GUI.
+        These functions are translations to Python of the original functions 
+        written for MATLAB(copyright Mathworks) by Evren Tumer.
+        
+        The functions can be used to work with Bengalese finch song 
+        in this data repository:  
+        <https://figshare.com/articles/Bengalese_Finch_song_repository/4805749>
+        
+        BSD License.
+        
+        [![Build Status](https://travis-ci.com/NickleDave/evfuncs.svg?branch=master)](https://travis-ci.com/NickleDave/evfuncs)
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown
