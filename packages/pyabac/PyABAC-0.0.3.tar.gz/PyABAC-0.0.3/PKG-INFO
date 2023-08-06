@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: pyabac
+Version: 0.0.3
+Summary: A simple ABAC library for Python.
+Home-page: None
+Author: Julian DeMille
+Author-email: julian.demille@demilletech.net
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Provides-Extra: aiohttp
+Provides-Extra: gremlin
+Provides-Extra: umongo
+Requires-Dist: aiohttp (>=3.4,<4.0); extra == "aiohttp"
+Requires-Dist: gremlinpython (>=3.3,<4.0); extra == "gremlin"
