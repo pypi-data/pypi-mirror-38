@@ -1,0 +1,42 @@
+Lightnovel Crawler
+-----------------------
+
+Crawls lightnovels from various websites and converts into epub, mobi and text.
+
+List of supported sites are given below.
+
+- https://lnmtl.com
+- https://www.webnovel.com
+- https://www.wuxiaworld.com
+- https://www.wuxiaworld.co
+- https://boxnovel.com
+- https://www.readlightnovel.org
+- https://novelplanet.com
+- https://lnindo.org
+- https://www.idqidian.us
+
+To request new site create an issue here: https://github.com/dipu-bd/site-to-epub/issues.
+
+
+To use this app, you need to have python3 and pip installed in your computer.
+Execute this command to set it up with pip:
+
+$ pip install --upgrade lightnovel-crawler
+
+Or,
+
+$ python3 -m pip install --user --upgrade lightnovel-crawler
+
+
+Next, open terminal and enter this command to run:
+
+$ lightnovel-crawler
+
+# Or
+$ lncrawl
+
+To enable verbose output mode:
+
+$ lncrawl -v
+
+
