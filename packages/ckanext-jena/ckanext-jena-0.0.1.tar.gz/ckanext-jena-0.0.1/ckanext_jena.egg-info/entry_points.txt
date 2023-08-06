@@ -1,0 +1,9 @@
+
+        [ckan.plugins]
+        jena=ckanext.jena.plugin:JenaPlugin
+        [paste.paster_command]
+        jena=ckanext.jena.commands:JenaCommand
+
+        [babel.extractors]
+        ckan = ckan.lib.extract:extract_ckan
+    
