@@ -1,0 +1,83 @@
+Metadata-Version: 1.1
+Name: keybind
+Version: 0.2.0
+Summary: Global key binding made easy
+Home-page: https://github.com/idlesign/keybind
+Author: Igor `idle sign` Starikov
+Author-email: idlesign@yandex.ru
+License: BSD 3-Clause License
+Description: keybind
+        =======
+        https://github.com/idlesign/keybind
+        
+        |release| |lic|
+        
+        .. |release| image:: https://img.shields.io/pypi/v/keybind.svg
+            :target: https://pypi.python.org/pypi/keybind
+        
+        .. |lic| image:: https://img.shields.io/pypi/l/keybind.svg
+            :target: https://pypi.python.org/pypi/keybind
+        
+        
+        Description
+        -----------
+        
+        *Global key binding made easy*
+        
+        **Requires X11 (X Window System). For UNIX-like systems, e.g. Linux.**
+        
+        Can be used both as a Python package and from CLI.
+        
+        Features:
+        
+        * Create some global key bindings to your functions.
+        * Use them in your GUI or CLI application.
+        * Bind arbitrary program run to a key using CLI.
+        
+        
+        From Python
+        ~~~~~~~~~~~
+        
+        .. code-block:: python
+        
+            from keybinder import KeyBinder
+        
+        
+            def do():
+                print('done')
+        
+            # The following will start key listening loop in a thread
+            # (useful if you don't want to block your main program).
+            KeyBinder.activate({
+        
+                'Ctrl-K': do,
+                'Shift-R': None,  # Do not run anything, just intercept.
+        
+            }, run_thread=True)
+        
+        
+        
+        From CLI
+        ~~~~~~~~
+        
+        .. code-block:: bash
+        
+            ; Listen to Ctrl-K, Ctrl-R and D (keycode 40).
+            ; Provide as many -k as you want.
+            $ keybind -k "Ctrl-K=ls -lah" -k "Ctrl-R=python run.py somearg --someopt" -k "40=date"
+        
+            ; All keys interception mode. Show keycodes.
+            ; Use wisely, keep your mouse ready.
+            $ keybind --sniff
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: License :: OSI Approved :: BSD License
