@@ -1,0 +1,68 @@
+{% extends 'djelmah/base.html' %}
+
+{% block content %}
+
+<table class="table table-bordered table-sm">
+    <thead class="thead-light">
+        <tr>
+            <th>Host</th>
+            <th>Code</th>
+            <th>Type</th>
+            <th>Error</th>
+            <th>User</th>
+            <th>Created</th>
+            <th></th>
+            <th class="text-center">
+                <a
+                    id="btn-test-log"
+                    title="Test"
+                    href="#"
+                >
+                    <i class="fas fa-plus"></i>
+                </a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for log in logs %}
+        <tr>
+            <td>{{ log.host }}</td>
+            <td>{{ log.status_code|default:"-" }}</td>
+            <td>{{ log.error_type }}</td>
+            <td>
+                {{ log.error_message|default:"-" }}
+            </td>
+            <td>{{ log.username|default:"-" }}</td>
+            <td>
+                {{ log.datetime|date:"m/d/Y" }}
+                {{ log.datetime|time:"h:i A" }}
+            </td>
+            <td class="text-center">
+            {% if log.raw_html %}
+                <a
+                    title="Details"
+                    href="/djelmah/logs/{{ log.id }}"
+                    target="_blank"
+                >
+                    <i class="far fa-file"></i>
+                </a>
+            {% else %}
+                -
+            {% endif %}
+            </td>
+            <td class="text-center">
+                <a
+                    class="btn-delete-log"
+                    data-id="{{ log.id }}"
+                    title="Delete"
+                    href="#"
+                >
+                    <i class="fas fa-times"></i>
+                </a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
