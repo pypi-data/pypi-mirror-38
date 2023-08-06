@@ -1,0 +1,14 @@
+HISTORY.rst
+MANIFEST.in
+README.rst
+requirements.txt
+setup.py
+DomotApiModbus/BoilerDedietrich.py
+DomotApiModbus/DomotApiModbus.py
+DomotApiModbus/VmcUnelvent.py
+DomotApiModbus/__init__.py
+DomotApiModbus.egg-info/PKG-INFO
+DomotApiModbus.egg-info/SOURCES.txt
+DomotApiModbus.egg-info/dependency_links.txt
+DomotApiModbus.egg-info/requires.txt
+DomotApiModbus.egg-info/top_level.txt
