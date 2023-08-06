@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+Makefile
+README.md
+setup.py
+kitsune/__init__.py
+kitsune/__main__.py
+kitsune/colors.py
+kitsune/file.py
+kitsune/tails.py
+python_kitsune.egg-info/PKG-INFO
+python_kitsune.egg-info/SOURCES.txt
+python_kitsune.egg-info/dependency_links.txt
+python_kitsune.egg-info/entry_points.txt
+python_kitsune.egg-info/top_level.txt
