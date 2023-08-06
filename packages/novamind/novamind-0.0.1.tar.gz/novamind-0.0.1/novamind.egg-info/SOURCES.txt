@@ -1,0 +1,13 @@
+README.md
+setup.py
+novamind/__init__.py
+novamind.egg-info/PKG-INFO
+novamind.egg-info/SOURCES.txt
+novamind.egg-info/dependency_links.txt
+novamind.egg-info/top_level.txt
+novamind/framework/__init__.py
+novamind/framework/cifar.py
+novamind/framework/framework.py
+novamind/framework/mnist.py
+novamind/framework/resnet_cifar.py
+novamind/framework/vgg.py

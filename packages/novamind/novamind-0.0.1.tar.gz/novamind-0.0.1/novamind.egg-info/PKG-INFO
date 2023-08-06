@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: novamind
+Version: 0.0.1
+Summary: Learning
+Home-page: https://github.com/duanyzhi/novamind
+Author: Nova Mind
+Author-email: duanyzhi@outlook.com
+License: UNKNOWN
+Description: # Envs
+        1. python 3.5
+        2. tensorflow 1.7.0
+        3. opencv3.2.0
+        
+        
+        # 
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
