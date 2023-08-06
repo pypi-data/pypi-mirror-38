@@ -1,0 +1,50 @@
+Metadata-Version: 1.1
+Name: neocommand
+Version: 0.0.0.41
+Summary: intermake extension for creating Neo4j driven applications.
+Home-page: https://bitbucket.org/mjr129/neocommand
+Author: Martin Rusilowicz
+Author-email: UNKNOWN
+License: https://www.gnu.org/licenses/agpl-3.0.html
+Description: NeoCommand
+        ==========
+        
+        `NeoCommand`:t: is an extension of `Intermake`:t: that provides manipulation of graph/network/tree data through the concept of Endpoints, through which Nodes, Edges, sub-graphs and arbitrary data are relayed.
+        
+        This library primarily supports the `Bio42`:t: application, which focuses on genomic data.
+        
+        The user is therefore directed to the `Bio42`:t: readme.
+        
+        Please see the source code documentation itself for specific `NeoCommand`:t: usage.
+        
+        Tutorial
+        --------
+        
+        Please navigate to the `neocommand_examples` folder to read the examples.
+        
+        The examples are Jupyter notebooks and can be opened with the following command from your terminal. e.g. to open `sample_cypher_statement.ipynb`::
+        
+            jupyter notebook sample_cypher_statement.ipynb
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Environment :: Win32 (MS Windows)
+Classifier: Environment :: X11 Applications :: Qt
+Classifier: Environment :: MacOS X
+Classifier: Operating System :: OS Independent
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Database
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Topic :: Utilities
+Classifier: Topic :: Multimedia :: Graphics :: Presentation
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only

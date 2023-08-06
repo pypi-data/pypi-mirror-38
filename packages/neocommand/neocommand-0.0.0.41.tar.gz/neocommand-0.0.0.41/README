@@ -1,0 +1,19 @@
+NeoCommand
+==========
+
+`NeoCommand`:t: is an extension of `Intermake`:t: that provides manipulation of graph/network/tree data through the concept of Endpoints, through which Nodes, Edges, sub-graphs and arbitrary data are relayed.
+
+This library primarily supports the `Bio42`:t: application, which focuses on genomic data.
+
+The user is therefore directed to the `Bio42`:t: readme.
+
+Please see the source code documentation itself for specific `NeoCommand`:t: usage.
+
+Tutorial
+--------
+
+Please navigate to the `neocommand_examples` folder to read the examples.
+
+The examples are Jupyter notebooks and can be opened with the following command from your terminal. e.g. to open `sample_cypher_statement.ipynb`::
+
+    jupyter notebook sample_cypher_statement.ipynb
