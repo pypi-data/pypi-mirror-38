@@ -1,0 +1,15 @@
+README.md
+setup.cfg
+setup.py
+adjunct/__init__.py
+adjunct/constants.py
+adjunct/exceptions.py
+adjunct/interpreter.py
+adjunct/parser.py
+adjunct/utils.py
+adjunct.egg-info/PKG-INFO
+adjunct.egg-info/SOURCES.txt
+adjunct.egg-info/dependency_links.txt
+adjunct.egg-info/top_level.txt
+adjunct/builtins/__init__.py
+adjunct/builtins/interrupts.py
