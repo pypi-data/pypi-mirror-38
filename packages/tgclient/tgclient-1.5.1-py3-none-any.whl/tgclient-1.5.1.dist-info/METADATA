@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: tgclient
+Version: 1.5.1
+Summary: Telegram Bot Api Client
+Home-page: https://github.com/amir1379/tgclient
+Author: Negative
+Author-email: negative.officiall@gmail.com
+License: GPL2
+Keywords: telegram bot api
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: urllib3
+
+UNKNOWN
+
+
