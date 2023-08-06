@@ -1,0 +1,7 @@
+pycryptodome
+rsa
+adb-homeassistant
+
+[firetv-server]
+Flask>=0.10.1
+PyYAML>=3.12
