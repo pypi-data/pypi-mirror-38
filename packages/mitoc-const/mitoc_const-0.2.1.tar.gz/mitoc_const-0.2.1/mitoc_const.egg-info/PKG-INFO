@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: mitoc-const
+Version: 0.2.1
+Summary: Constants for use across MIT Outing Club infrastructure
+Home-page: https://github.com/DavidCain/mitoc-const
+Author: David Cain
+Author-email: davidjosephcain@gmail.com
+License: UNKNOWN
+Description: # MITOC Constants
+        This is a set of constants for use across MIT Outing Club infrastructure.
+        
+        MITOC has a number of projects, many of which reference values used
+        in other databases or deployed projects. These projects may be deployed
+        separately, so there's value in having shared values at constants in an
+        external package.
+        
+        ### Releasing a new version
+        First, augment the version in `setup.py`. Then:
+        
+        ```bash
+        rm -rf dist/ build/ mitoc_const.egg-info/
+        pipenv run python setup.py sdist bdist_wheel
+        pipenv run twine upload dist/*
+        git push origin master
+        ```
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Education
+Classifier: Programming Language :: Python
+Classifier: License :: OSI Approved :: MIT License
+Description-Content-Type: text/markdown
