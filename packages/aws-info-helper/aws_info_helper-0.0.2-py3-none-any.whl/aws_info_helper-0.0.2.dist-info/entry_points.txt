@@ -1,0 +1,3 @@
+[console_scripts]
+ah-info-ec2 = aws_info_helper.scripts.ec2_info:main
+
