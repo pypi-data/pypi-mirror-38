@@ -1,0 +1,11 @@
+pycurl
+pyparsing
+future
+six
+configparser
+chardet
+
+[dev]
+mock
+netaddr
+pip-tools
