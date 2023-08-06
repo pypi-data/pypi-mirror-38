@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: bmpython
+Version: 0.111
+Summary: ARKDefence python client lib
+Home-page: https://teamcrunchy.visualstudio.com/_git/bmpython
+Author: Illarionov Yehor
+Author-email: egorliberty@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: grpcio
+Requires-Dist: googleapis-common-protos
+
+[This code's documentation lives on the grpc.io site.](https://grpc.io/docs/quickstart/python.html)
+
+
