@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: carly
+Version: 0.1.2
+Summary: A tool for putting messages into and collecting responses from Twisted servers using real networking
+Home-page: None
+Author: Chris Withers
+Author-email: chris@withers.org
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: Twisted (>=18.9,<19.0)
