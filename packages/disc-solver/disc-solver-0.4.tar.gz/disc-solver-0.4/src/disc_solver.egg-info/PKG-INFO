@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: disc-solver
+Version: 0.4
+Summary: Solver for jet solutions in PPDs
+Home-page: http://disc-solver.rtfd.org
+Author: James Tocknell
+Author-email: aragilar@gmail.com
+License: GPLv3+
+Description: Code for solving non-ideal MHD wind solutions as part of my PhD
+        
+        Email me for more details
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Scientific/Engineering :: Astronomy
+Classifier: Topic :: Scientific/Engineering :: Physics

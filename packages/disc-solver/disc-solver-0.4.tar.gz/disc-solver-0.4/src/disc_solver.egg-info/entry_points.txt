@@ -1,0 +1,19 @@
+[console_scripts]
+ds-acc-plot = disc_solver.analyse.acc_plot:acc_main
+ds-combine-plot = disc_solver.analyse.combine_plot:combine_main
+ds-compare-plot = disc_solver.analyse.compare_plot:plot_main
+ds-component-plot = disc_solver.analyse.component_plot:plot_main
+ds-conserve-plot = disc_solver.analyse.conserve_plot:conserve_main
+ds-derivs-plot = disc_solver.analyse.derivs_plot:derivs_main
+ds-diverge-plot = disc_solver.analyse.diverge_plot:diverge_main
+ds-hydro-check-plot = disc_solver.analyse.hydro_check_plot:hydro_check_plot_main
+ds-info = disc_solver.analyse.info:info_main
+ds-j-e-plot = disc_solver.analyse.j_e_plot:j_e_plot_main
+ds-params-plot = disc_solver.analyse.params_plot:params_main
+ds-plot = disc_solver.analyse.plot:plot_main
+ds-plot-taylor-space = disc_solver.solve.taylor_space:main
+ds-resoln = disc_solver.solve.resolve:main
+ds-soln = disc_solver.solve:main
+ds-taylor-plot = disc_solver.analyse.taylor_plot:taylor_main
+ds-validate-plot = disc_solver.analyse.validate_plot:validate_plot_main
+

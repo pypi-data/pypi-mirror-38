@@ -1,0 +1,13 @@
+numpy
+matplotlib>=2.2
+scikits.odes>=2.3.0dev0
+logbook
+arrow
+h5py>2.5
+h5preserve>=0.14
+stringtopy
+corner
+attrs
+emcee
+spaceplot
+root-solver
