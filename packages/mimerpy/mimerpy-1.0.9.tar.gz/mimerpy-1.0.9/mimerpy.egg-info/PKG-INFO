@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: mimerpy
+Version: 1.0.9
+Summary: Python database interface for MimerSQL
+Home-page: UNKNOWN
+Author: Erik Gunne & Magdalena Bostrom
+Author-email: erik.gunne@mimer.com
+Maintainer: Erik Gunne & Magdalena Bostrom
+Maintainer-email: oklart@mimer.com
+License: MIT
+Description: MimerPy - Python database interface for MimerSQL
+        =================================================
+        
+        MimerPy is an adapter for MimerSQL in Python which implements the PEP 249 specification.
+        It allows the user to access the powerful tools and advantages of MimerSQL through Python.
+        MimerPy is implemented as a Cpython wrapper of the MimerAPI.
+        
+Keywords: MimerSQL DB PEP249
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Requires-Python: >=3
+Description-Content-Type: text/markdown
