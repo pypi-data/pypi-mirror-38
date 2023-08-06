@@ -1,0 +1,45 @@
+Metadata-Version: 1.1
+Name: objfreeze
+Version: 0.1.0b0
+Summary: Function to convert data into freezed (immutable) version
+Home-page: https://gitlab.com/vitaly.burovoy/py-objfreeze
+Author: Vitaly Burovoy
+Author-email: vitaly.burovoy@gmail.com
+License: BSD
+Description: Short description
+        =================
+        
+        Function converts recursively an object of standard (im-)mutable types into
+        strictly immutable ones.
+        
+        
+        Long description
+        ================
+        
+        In Python sometimes it is useful to have a "static" struct to be shared across
+        functions and classes and to guarantee it can not be changed accidentally
+        by some code.
+        
+        In addition to standard immutable simple types (like int, str etc.), there are
+        two complex types: `frozenset` and `tuple`. Unfortunately years ago (2012-02)
+        there was PEP-0416[1] where a `frozendict` was rejected as hard to be
+        implemented.
+        
+        Unlike other wrappers implementation here works similar to a `copy.deepcopy`
+        function which immediately copies mutable objects into immutable analogues
+        instead of wrapping them at access time. Therefore if a code passes already
+        immutable object, there is almost no overhead, but the code do not need to pay
+        attention whether to deepcopy of incoming (or outgoing) data or not.
+        
+        [1] https://www.python.org/dev/peps/pep-0416/
+        
+Platform: OS-independent
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Software Development :: Libraries
