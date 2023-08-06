@@ -1,0 +1,13 @@
+mocp/__init__.py,sha256=ebR8Kva2PifC0OYIo6lkd0zeCYaQcMfU7SbAPlw-5Jo,23487
+mocp/exceptions.py,sha256=zqJbCRK3KisqEqhoQIMAO3IK40nol7EfdUux2kw6yYE,589
+mocp/bin/mocp-notify.py,sha256=_wAw8TIeXjnCWCuOp2V3WrCGPMvslWi0baN17nWut8k,2241
+mocp/protocol/__init__.py,sha256=nUkRrdZLYwX0EK_kWy7HgophWQLUk_NG7sIbTGDrOwI,102
+mocp/protocol/command.py,sha256=MjPIOJ09D5buck5UaxdlwMtt4va3SzJTfFntptGvtSw,2906
+mocp/protocol/event.py,sha256=wenBjRnSG55AxeVyY2XlsPgftvisA5QGnTk3Ja4cT3c,1553
+mocp/protocol/state.py,sha256=gFzBoQk4VcpJFhnuyClWE8-AiuSf0lIQ1wAbcnSActw,78
+py_mocp-0.1rc6.data/scripts/mocp-notify.py,sha256=T_tk8A9LKs2iKhFrPpHsqnw9YjrlfK7HXB9ZnlMCKNw,2227
+py_mocp-0.1rc6.dist-info/LICENSE,sha256=5hRG1BVhufUf4f8Xti9Jrt7qogjULSt40uxbDSX2nCQ,35051
+py_mocp-0.1rc6.dist-info/METADATA,sha256=_OwUU-PPnZKDsEXgnXO0-u3bcrYkUbk5593EczscYmY,1337
+py_mocp-0.1rc6.dist-info/WHEEL,sha256=MYFsq5fFBwF_oyJgrOoFmYYB1K6Sw7MxY-0897ZLbdM,92
+py_mocp-0.1rc6.dist-info/top_level.txt,sha256=vwVFzFwU2iMYRsshdUyR-lVqLW9O2_kxKEBYRDmJL_Y,5
+py_mocp-0.1rc6.dist-info/RECORD,,
