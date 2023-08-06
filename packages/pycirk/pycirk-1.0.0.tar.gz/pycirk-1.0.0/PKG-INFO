@@ -1,0 +1,41 @@
+Metadata-Version: 1.1
+Name: pycirk
+Version: 1.0.0
+Summary: A software to model Circular Economy policy andtechnological interventions in Environmentally Extended Input-Output Analysis (EXIOBASE V3.3)
+Home-page: https://bitbucket.org/CML-IE/pycirk/src/master/
+Author: Franco Donati
+Author-email: f.donati@cml.leidenuniv.nl
+License: GNU General Public License v3
+Description: A software to model Circular Economy policy and technological interventions in Environmentally Extended Input-Output Analysis starting from SUTs (EXIOBASE V3.3)
+        
+        [License: GPL v3]
+        
+        [Contributions welcome]
+        
+        DOI: 10.5281/zenodo.1492957 
+        
+        Documentation: https://cmlplatform.github.io/pycirk/
+        
+                       https://github.com/CMLPlatform/pycirk
+                       
+        
+        
+        
+        =======
+        History
+        =======
+        
+        0.1.0 (2018-05-11)
+        ------------------
+        
+        * First release on PyPI.
+        
+Keywords: pycirk
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3 :: Only
