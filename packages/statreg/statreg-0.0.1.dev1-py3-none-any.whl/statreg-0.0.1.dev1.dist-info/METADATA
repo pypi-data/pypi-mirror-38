@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: statreg
+Version: 0.0.1.dev1
+Summary: Implementation of Turchin's statistical regularization
+Home-page: http://npm.mipt.ru/
+Author: Nuclear Physics Methods
+Author-email: npm@mipt.ru
+License: Apache License 2.0
+Project-URL: Bug Tracker, https://github.com/mipt-npm/statreg-py
+Project-URL: Documentation, https://github.com/mipt-npm/statreg-py
+Project-URL: Source Code, https://github.com/mipt-npm/statreg-py
+Keywords: statreg deconvolution regularization
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
+Requires-Dist: numpy (>=1.8.2)
+Requires-Dist: scipy (>=0.13.3)
+
+# Statistical regularization
+
+Python implementation of Turchin's method of statistical regularization
+
+- Description of Turchin's method of statistical regularization, we could show [here]( 	https://doi.org/10.1051/epjconf/201817707005 ).
+
+- **[Website](npm.mipt.ru)**
+
+## Instalation
+
+```
+pip install statreg
+```
+
+## Examples
+
+See `example/01.BasicExample.ipynb` on [GitHub](https://github.com/mipt-npm/statreg-py)
+
+## Test
+
+For run all test use:
+
+```bash
+python setup.py test
+```
+
+
