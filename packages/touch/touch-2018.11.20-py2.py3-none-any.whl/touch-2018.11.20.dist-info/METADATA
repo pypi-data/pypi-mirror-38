@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: touch
+Version: 2018.11.20
+Summary: touch(path) - update the access and modification date of a path(s)
+Home-page: https://github.com/looking-for-a-job/touch.py
+License: UNKNOWN
+Keywords: touch file
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: System :: Filesystems
+Description-Content-Type: text/markdown
+Requires-Dist: public
+Requires-Dist: setuptools
+Requires-Dist: values
+
+[![](https://img.shields.io/pypi/pyversions/touch.svg?longCache=True)](https://pypi.org/pypi/touch/)
+
+#### Install
+```bash
+$ [sudo] pip install touch
+```
+
+#### Functions
+function|description
+-|-
+`touch.touch(path)`|mkdir + touch path(s)
+
+#### Examples
+```python
+>>> import touch
+>>> touch.touch("path/to/file")
+>>> touch.touch(["path/to/file1","path/to/file2"])
+```
+
+<p align="center"><a href="https://pypi.org/project/readme-md/">readme-md</a> - README.md generator</p>
+
