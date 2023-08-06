@@ -1,0 +1,15 @@
+Metadata-Version: 2.0
+Name: eventropy
+Version: 1.0.1
+Summary: Events Management
+Home-page: https://github.com/phenicle/eventropy
+Author: Phenicle
+Author-email: pheniclebeefheart@gmail.com
+License: Mozilla Public License 2.0 (MPL 2.0)
+Platform: UNKNOWN
+Requires-Dist: cfgpy
+Requires-Dist: psycopg2
+
+A configurable events registry for Python. It assumes that you will be using PostgreSQL as the backing store.
+
+
