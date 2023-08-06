@@ -1,0 +1,4 @@
+[console_scripts]
+ombt = ombt._main:main
+ombt2 = ombt._main:main
+
