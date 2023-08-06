@@ -1,0 +1,16 @@
+properties:
+  introns:
+    type: array
+    items:
+      type: integer
+  exons:
+    type: array
+    items:
+      type: integer
+  transcripts:
+    type: array
+    items:
+      type: string
+  gene:
+    type: string
+type: object
