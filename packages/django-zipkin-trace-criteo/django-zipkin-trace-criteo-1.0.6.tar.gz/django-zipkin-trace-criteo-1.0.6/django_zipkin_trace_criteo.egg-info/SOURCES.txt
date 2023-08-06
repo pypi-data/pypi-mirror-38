@@ -1,0 +1,14 @@
+README.md
+setup.py
+django_zipkin_trace_criteo.egg-info/PKG-INFO
+django_zipkin_trace_criteo.egg-info/SOURCES.txt
+django_zipkin_trace_criteo.egg-info/dependency_links.txt
+django_zipkin_trace_criteo.egg-info/requires.txt
+django_zipkin_trace_criteo.egg-info/top_level.txt
+zipkin_trace/__init__.py
+zipkin_trace/db_tracing.py
+zipkin_trace/middleware.py
+zipkin_trace/monkey_patch.py
+zipkin_trace/template_tracing.py
+zipkin_trace/urllib3_tracing.py
+zipkin_trace/utils.py
