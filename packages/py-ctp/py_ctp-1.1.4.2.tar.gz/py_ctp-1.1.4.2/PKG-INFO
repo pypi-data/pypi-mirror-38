@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: py_ctp
+Version: 1.1.4.2
+Summary: Python CTP futures api
+Home-page: https://gitee.com/haifengat/hf_ctp_py_proxy
+Author: HaiFeng
+Author-email: haifengat@vip.qq.com
+License: MIT
+Description: python CTP api
+        ==============
+        
+        上期技术期货交易api之python封装，实现接口调用。支持windows linux.
+        
+        环境需求
+        --------
+        
+        -  python 3.6+
+        -  64位
+        -  采用官方接口 6.3.11\_20180109
+        
+        使用说明
+        --------
+        
+        -  第一层封装接口测试
+        -  test\_api.py
+        
+        -  第二层封装交易接口测试
+        -  test\_trade
+        
+Keywords: haifeng,CTP,future,pyctp,hf_ctp
+Platform: UNKNOWN
+Requires-Python: >=3.4.0
+Description-Content-Type: text/x-rst
