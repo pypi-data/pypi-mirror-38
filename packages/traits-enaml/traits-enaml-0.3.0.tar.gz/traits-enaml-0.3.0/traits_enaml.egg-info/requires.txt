@@ -1,0 +1,13 @@
+enaml>=0.8.9
+six
+traits
+traitsui
+
+[enable]
+enable
+
+[mayavi]
+mayavi
+
+[opengl]
+pyopengl
