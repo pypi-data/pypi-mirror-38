@@ -1,0 +1,73 @@
+Metadata-Version: 2.0
+Name: EC-CMD-Wallet
+Version: 0.0.1
+Summary: simple tools
+Home-page: UNKNOWN
+Author: huangsizhe
+Author-email: UNKNOWN
+License: MIT
+Description-Content-Type: UNKNOWN
+Keywords: tools
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Documentation :: Sphinx
+Requires-Dist: autopep8 (==1.4.3)
+Requires-Dist: coverage (==4.5.2)
+Requires-Dist: lxml (==4.2.5)
+Requires-Dist: mypy (==0.641)
+Requires-Dist: mypy-extensions (==0.4.1)
+Requires-Dist: pep8 (==1.7.1)
+Requires-Dist: pycodestyle (==2.4.0)
+Requires-Dist: pydocstyle (==3.0.0)
+Requires-Dist: six (==1.11.0)
+Requires-Dist: snowballstemmer (==1.2.1)
+Requires-Dist: typed-ast (==1.1.0)
+Requires-Dist: voluptuous (==0.11.5)
+
+EC_CMD_Wallet
+===============================
+* version: 0.0.1
+* status: dev
+* author: hsz
+* email: hsz1273327@gmail.com
+
+
+Desc
+--------------------------------
+一个超简单的命令行加密货币钱包,支持btc和eth,硬分叉完后视情况添加bch的支持
+
+keywords: wallet
+
+
+Feature
+----------------------
+* 完全无状态,不保存任何用户信息,用户自己保存私钥地址这类信息
+* 支持查看balance,新建一个私钥地址对以及指定账户进行转账
+
+
+Example
+-------------------------------
+.. code:: shell
+
+    ecw -h
+
+Install
+--------------------------------
+- ``python -m pip install EC_CMD_Wallet``
+
+
+Documentation
+--------------------------------
+`Documentation on Readthedocs <https://finaceinfo.github.io/EC-CMD-Wallet/>`_.
+
+
+TODO
+-----------------------------------
+* 支持erc20代币
+* 视情况支持bch
+
+
