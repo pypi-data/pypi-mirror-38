@@ -1,0 +1,7 @@
+[
+  "interceptor_test.py::test_intercept__no_return",
+  "interceptor_test.py::test_intercept__bool_return",
+  "interceptor_test.py::test_multiple_interceptors__same_syscall",
+  "interceptor_test.py::test_multiple_interceptors__different_syscalls",
+  "interceptor_test.py::test_resuse_interceptor"
+]
