@@ -1,0 +1,10 @@
+README.md
+setup.py
+tensorspacejs/__init__.py
+tensorspacejs.egg-info/PKG-INFO
+tensorspacejs.egg-info/SOURCES.txt
+tensorspacejs.egg-info/dependency_links.txt
+tensorspacejs.egg-info/entry_points.txt
+tensorspacejs.egg-info/top_level.txt
+tensorspacejs/converters/__init__.py
+tensorspacejs/converters/hello_world.py
