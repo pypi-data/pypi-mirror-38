@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: povplot
+Version: 1.0b0
+Summary: A library for rendering triangular grids with Povray
+Home-page: https://github.com/evalf/povplot
+Author: Evalf
+Author-email: info@evalf.com
+License: MIT
+Download-URL: https://github.com/evalf/povplot/releases
+Description: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.5
+Provides-Extra: docs
