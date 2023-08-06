@@ -1,0 +1,218 @@
+{
+  "what's that": {
+    "name": "頻道名稱",
+    "rwd": "(bool) 是否有響應式設計",
+    "desktop": {
+      "prefix": "非 RWD 網站的桌面版網址開頭",
+      "title_node": "標題所在的 CSS selector",
+      "date_node": "日期時間所在的 CSS Selector",
+      "date_format": "日期時間的格式，會用 datetime.strptime 處理",
+      "author_node": "記者所在的 CSS selector，空字串表示記者姓名在內文中，程式會自動偵測",
+      "article_node": "內文所在的 CSS selector"
+    },
+    "mobile": {
+      "prefix": "非 RWD 網站的行動版網址開頭",
+      "title_node": "標題所在的 CSS selector",
+      "date_node": "日期時間所在的 CSS Selector",
+      "date_format": "日期時間的格式，會用 datetime.strptime 處理",
+      "author_node": "記者所在的 CSS selector，空字串表示記者姓名在內文中，程式會自動偵測",
+      "article_node": "內文所在的 CSS selector"
+    },
+    "search": {
+      "url": "搜尋網址形式",
+      "begin_date_format": "開始日期參數形式",
+      "end_date_format": "結束日期參數形式",
+      "result_node": "搜尋結果位置",
+      "title_node": "標題位置，相對於搜尋結果",
+      "link_node": "連結位置，相對於搜尋結果",
+      "date_node": "日期位置，相對於搜尋結果",
+      "date_format": "日期格式"
+    }
+  },
+  "appledaily": {
+    "name": "蘋果日報",
+    "rwd": true,
+    "desktop": {
+      "title_node": "article.ndArticle_leftColumn > hgroup > h1",
+      "date_node": "article.ndArticle_leftColumn > hgroup > div.ndArticle_creat",
+      "date_format": "出版時間：%Y/%m/%d %H:%M",
+      "author_node": "",
+      "article_node": "div.ndArticle_margin > p"
+    },
+    "mobile": {
+      "title_node": "article.nm-content > div.nm-article > header > h2",
+      "date_node": "article.nm-content > div.nm-article > header > div.time-and-share > time",
+      "date_format": "建立時間：%Y/%m/%d %H:%M",
+      "author_node": "",
+      "article_node": "article.nm-content > div.nm-article > div.nm-article-body > div.text"
+    },
+    "search": {
+      "url": "https://tw.appledaily.com/search/result/page/${PAGE}?querystrS=${KEYWORD}",
+      "begin_date_format": "&dateStart=%Y/%m/%d",
+      "end_date_format": "&dateEnd=%Y/%m/%d",
+      "result_node": "#result > li.item > div.content",
+      "title_node": "h2 > a",
+      "link_node": "h2 > a",
+      "date_node": "time",
+      "date_format": "%Y%m%d"
+    }
+  },
+  "chinatimes": {
+    "name": "中時電子報",
+    "rwd": true,
+    "desktop": {
+      "title_node": "#h1",
+      "date_node": "div.reporter > time",
+      "date_format": "%Y年%m月%d日 %H:%M",
+      "author_node": "div.reporter > div.rp_name",
+      "article_node": "article.arttext > p"
+    },
+    "mobile": {
+      "title_node": "#h1",
+      "date_node": "div.reporter > time",
+      "date_format": "%Y年%m月%d日 %H:%M",
+      "author_node": "div.reporter > div.rp_name",
+      "article_node": "article.arttext > p"
+    }
+  },
+  "cna": {
+    "name": "中央社",
+    "rwd": true,
+    "desktop": {
+      "title_node": "div.centralContent > h1",
+      "title_attr": "",
+      "date_node": "div.centralContent > div.timeBox > div.updatetime > span",
+      "date_format": "%Y/%m/%d %H:%M",
+      "author_node": "",
+      "article_node": "div.centralContent > div.paragraph > p"
+    },
+    "mobile": {
+      "title_node": "div.centralContent > h1",
+      "title_attr": "",
+      "date_node": "div.centralContent > div.timeBox > div.updatetime > span",
+      "date_format": "%Y/%m/%d %H:%M",
+      "author_node": "",
+      "article_node": "div.centralContent > div.paragraph > p"
+    },
+    "search": {
+      "url": "https://www.cna.com.tw/cna2018api/api/simplelist/searchkeyword/${KEYWORD}/pageidx/${PAGE}/",
+      "result_node": ["result", "SimpleItems"],
+      "link_node": "PageUrl",
+      "title_node": "HeadLine",
+      "date_node": "CreateTime",
+      "date_format": "%Y/%m/%d %H:%M"
+    }
+  },
+  "ettoday": {
+    "name": "東森新聞雲",
+    "rwd": true,
+    "desktop": {
+      "title_node": "div.subject_article > header > h1",
+      "date_node": "time.date",
+      "date_format": "%Y年%m月%d日 %H:%M",
+      "author_node": "",
+      "article_node": "div.subject_article > div.story > p"
+    },
+    "mobile": {
+      "title_node": "div.subject_news > header > h1",
+      "date_node": "span.date > time",
+      "date_format": "%Y年%m月%d日 %H:%M",
+      "author_node": "",
+      "article_node": "div.subject_news > div.story > p"
+    },
+    "search": {
+      "url": "https://www.ettoday.net/news_search/doSearch.php?keywords=${KEYWORD}&page=${PAGE}&daydiff=3&idx=1",
+      "result_node": "#result-list > div.archive",
+      "link_node": "div.box_2 > h2 > a",
+      "title_node": "div.box_2 > h2 > a",
+      "date_node": "div.box_2 > p.detail > span.date",
+      "date_pattern": "\\d{4}-\\d{2}-\\d{2}",
+      "date_format": "%Y-%m-%d"
+    }
+  },
+  "ltn": {
+    "name": "自由時報",
+    "rwd": false,
+    "desktop": {
+      "prefix": "https://news.ltn.com.tw",
+      "title_node": "div.articlebody > h1",
+      "date_node": "div.articlebody > div.text > span.viewtime",
+      "date_format": "%Y-%m-%d %H:%M",
+      "author_node": "",
+      "article_node": "div.articlebody > div.text > p"
+    },
+    "mobile": {
+      "prefix": "https://m.ltn.com.tw",
+      "title_node": "div.com > h2",
+      "date_node": "div.com > div.h2_else > div.time",
+      "date_format": "%Y-%m-%d %H:%M",
+      "author_node": "",
+      "article_node": "div.com > div.boxTitle > p"
+    },
+    "search": {
+      "url": "https://m.ltn.com.tw/search/${PAGE}?q=${KEYWORD}",
+      "begin_date_format": "&start=%Y-%m-%d",
+      "end_date_format": "&end=%Y-%m-%d",
+      "result_node": "ul.news > li",
+      "link_node": "a",
+      "title_node": "a > p",
+      "date_node": "a > span",
+      "date_format": "%Y-%m-%d"
+    }
+  },
+  "setn": {
+    "name": "三立新聞網",
+    "rwd": false,
+    "desktop": {
+      "prefix": "https://www.setn.com",
+      "title_node": "#contFix > div.row > div.contLeft > h1",
+      "date_node": "#contFix > div.row > div.contLeft > div.content > div.page-title-text > time.page-date",
+      "date_format": "%Y/%m/%d %H:%M:%S",
+      "author_node": "",
+      "article_node": "#Content1 > p"
+    },
+    "mobile": {
+      "prefix": "https://www.setn.com/m",
+      "title_node": "section.news-all-area > h1",
+      "date_node": "section.news-all-area > div.page-date > time",
+      "date_format": "%Y-%m-%d %H:%M",
+      "author_node": "",
+      "article_node": "#ckuse > article > p"
+    },
+    "search": {
+      "url": "https://www.setn.com/m/search.aspx?q=${KEYWORD}&p=${PAGE}",
+      "result_node": "div.news-area",
+      "link_node": "div.news-info > div.news-word > a",
+      "title_node": "div.news-info > div.news-word > a",
+      "date_node": "div.news-info > div.lable-date",
+      "date_format": "%Y/%m/%d %H:%M"
+    }
+  },
+  "udn": {
+    "name": "聯合新聞網",
+    "rwd": true,
+    "desktop": {
+      "title_node": "#story_body_content > h1",
+      "date_node": "#story_bady_info > div.story_bady_info_author > span",
+      "date_format": "%Y-%m-%d %H:%M",
+      "author_node": "#story_bady_info > div.story_bady_info_author > a",
+      "article_node": "#story_body_content > p"
+    },
+    "mobile": {
+      "title_node": "#story_body_content > h1",
+      "date_node": "#story_bady_info > div.story_bady_info_author > span",
+      "date_format": "%Y-%m-%d %H:%M",
+      "author_node": "#story_bady_info > div.story_bady_info_author > a",
+      "article_node": "#story_body_content > p"
+    },
+    "search": {
+      "url": "https://udn.com/search/result/2/${KEYWORD}/${PAGE}",
+      "result_node": "#search_content > dt",
+      "link_node": "a",
+      "title_node": "a > h2",
+      "date_node": "a > span.cat",
+      "date_pattern": "\\d{4}/\\d{2}/\\d{2}",
+      "date_format": "%Y/%m/%d"
+    }
+  }
+}
