@@ -1,0 +1,32 @@
+alembic
+arrow
+bleach
+click
+colander
+cornice>=3.1.0
+cryptography
+dogpile.cache
+fedmsg[consumers]
+feedgen
+iniparse
+jinja2
+kitchen
+markdown
+Pillow
+pylibravatar
+pyramid~=1.7
+pyramid_fas_openid
+pyramid_mako
+python-bugzilla
+python-fedora
+simplemediawiki
+six
+sqlalchemy
+waitress
+
+[:python_version <= "2.7"]
+packagedb-cli
+pyDNS
+
+[:python_version >= "3.0"]
+py3dns
