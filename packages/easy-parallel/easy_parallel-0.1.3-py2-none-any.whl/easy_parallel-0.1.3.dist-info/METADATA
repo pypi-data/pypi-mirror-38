@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: easy-parallel
+Version: 0.1.3
+Summary: Parallel wrapper for easy multi-threading.
+Home-page: https://github.com/raphtown/easy-parallel
+Author: Raphael Townshend
+Author-email: UNKNOWN
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: pathos
+
+# easy-parallel
+
+Parallel wrapper for easy multi-threading.
+
+## Installation
+
+From package root, run:
+
+`make requirements`
+
+## Usage
+
+```
+def foo(x, y):
+  return x + y
+
+num_threads = 10
+inputs = [(x * x, x) for x in range(10)]
+
+import parallel as par
+results = par.submit_jobs(foo, inputs, num_threads)
+print results
+```
+
+
