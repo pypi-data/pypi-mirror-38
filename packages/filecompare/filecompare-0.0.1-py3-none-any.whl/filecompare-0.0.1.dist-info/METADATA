@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: filecompare
+Version: 0.0.1
+Summary: commnad line utility for comparing files in directories
+Home-page: https://github.com/rascoro1/filecompare
+Author: rascoro1
+Author-email: andcope1995@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+# filecompare
+find duplicate files
+
+
