@@ -1,0 +1,8 @@
+language: python
+python:
+  - "3.6"
+install:
+  - ci/install.sh
+script:
+  - ci/run_tests.sh
+cache: pip
