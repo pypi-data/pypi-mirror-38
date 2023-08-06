@@ -1,0 +1,14 @@
+sqs_workers/__init__.py,sha256=-wwE5md9sg-db60ilHCsQ1hB6MkzjpgM9ntFiSp69Jk,159
+sqs_workers/__version__.py,sha256=NSL1x3JEIbv928o9QQqH7uZpv0edaPHRaLqkY9j8CA0,62
+sqs_workers/backoff_policies.py,sha256=fgJX8SUS7v-HC0JstnR7n7O2SH5pUT6XBn-4SEomdTU,1443
+sqs_workers/codecs.py,sha256=Yt5-KJl_qLOvxbR1J29aJQOgGJ35o7cSzgGAlM0-Qto,906
+sqs_workers/core.py,sha256=qLjuMwqgyMWTiWkohQqjRmokkHgmG_v2WQ_19vkA9Sc,18819
+sqs_workers/memory_env.py,sha256=SWhz4fp7cM2rpeImOrXVxnvwSHtAOXMEipVCgoaETDM,12994
+sqs_workers/processors.py,sha256=b54Q6yFfMjrmswfHCVDvwHK3jUOCyilYIxAcz7JmHOw,7725
+sqs_workers/shutdown_policies.py,sha256=xKKEqDRgaMwgoiuPBKVUz23B7-K-bqbQWAf5LAaOs88,2917
+sqs_workers/utils.py,sha256=gk_Sk1dpXhXWD3CgVSYyMGaxdbIQu6enDV9poP9H-AE,866
+sqs_workers-0.3.4.dist-info/LICENSE,sha256=1OZIwxZKTD8kBISAbKVYxwWCLIsADFQ9XgPsLXfUbPE,1062
+sqs_workers-0.3.4.dist-info/METADATA,sha256=UbU-4Azs07nfqANTmXstkr5wrwJqyypGBOf6S6lbekU,9582
+sqs_workers-0.3.4.dist-info/WHEEL,sha256=8T8fxefr_r-A79qbOJ9d_AaEgkpCGmEPHc-gpCq5BRg,110
+sqs_workers-0.3.4.dist-info/top_level.txt,sha256=y2ln1ldkoEnucOgv-MDIefyN-NDKBZG7iBTSOspdNi8,12
+sqs_workers-0.3.4.dist-info/RECORD,,
