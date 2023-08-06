@@ -1,0 +1,3 @@
+This project was moved to https://pypi.org/project/lightnovel-crawler/ 
+
+

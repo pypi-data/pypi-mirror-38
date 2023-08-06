@@ -1,0 +1,38 @@
+Metadata-Version: 2.0
+Name: ebook-crawler
+Version: 2.1.2
+Summary: This project was moved to https://pypi.org/project/lightnovel-crawler/ 
+Home-page: https://github.com/dipu-bd/site-to-epub
+Author: Sudipto Chandra
+Author-email: dipu.sudipta@gmail.com
+License: UNKNOWN
+Project-URL: Source, https://github.com/dipu-bd/site-to-epub/
+Project-URL: Bug Reports, https://github.com/dipu-bd/site-to-epub/issues
+Project-URL: Say Thanks!, https://saythanks.io/to/dipu-bd
+Keywords: lightnovel ebook epub mobi kindle crawl convert
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Education
+Classifier: Topic :: Text Processing
+Classifier: License :: Free For Home Use
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Description-Content-Type: text/markdown
+Requires-Dist: EbookLib (==0.17)
+Requires-Dist: PyInquirer (==1.0.2)
+Requires-Dist: beautifulsoup4 (==4.6.0)
+Requires-Dist: cfscrape (==1.9.5)
+Requires-Dist: ebook-crawler
+Requires-Dist: progress (==1.4)
+
+This project was moved to https://pypi.org/project/lightnovel-crawler/ 
+
+
