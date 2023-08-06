@@ -1,0 +1,106 @@
+LOCUS       pBP-BBa_B0034           2124 bp    ds-DNA  circular SYN 06-AUG-2018
+DEFINITION  Bba_B0034 iGEM RBS (5' GTAC/3' CATA fusion).
+ACCESSION   pBP-BBa_B0034
+VERSION     pBP-BBa_B0034
+KEYWORDS    pBP_BBa_B0034.
+SOURCE      synthetic DNA construct
+  ORGANISM  synthetic DNA construct
+            .
+REFERENCE   1
+  AUTHORS   Moore SJ, Lai HE, Kelwick RJ, Chee SM, Bell DJ, Polizzi KM, Freemont
+            PS.
+  TITLE     EcoFlex: A Multifunctional MoClo Kit for E. coli Synthetic Biology.
+  JOURNAL   ACS Synth Biol 2016;5:1059-1069.
+   PUBMED   27096716
+REFERENCE   2
+  AUTHORS   Larralde M
+  TITLE     Direct Submission
+  JOURNAL   Distributed with the MoClo Python library
+            https://github.com/althonos/moclo
+FEATURES             Location/Qualifiers
+     source          1..2124
+                     /organism="synthetic DNA construct"
+                     /mol_type="other DNA"
+     misc_feature    2..21
+                     /label="BioBrick prefix"
+                     /note="BioBrick prefix for parts that start with ATG"
+     RBS             51..62
+                     /note="strong bacterial ribosome binding site (Elowitz and
+                     Leibler, 2000)"
+     terminator      99..156
+                     /label="his operon terminator"
+                     /note="This putative transcriptin terminator from the E.
+                     coli his operon has a 2-bp deletion introduced during
+                     synthesis. Its efficiency has not been determined."
+     primer_bind     complement(180..197)
+                     /label="L4440"
+                     /note="L4440 vector, forward primer"
+     rep_origin      complement(351..939)
+                     /direction=LEFT
+                     /label="ori"
+                     /note="high-copy-number ColE1/pMB1/pBR322/pUC origin of
+                     replication"
+     primer_bind     complement(431..450)
+                     /label="pBR322ori-F"
+                     /note="pBR322 origin, forward primer"
+     terminator      1122..1216
+                     /label="lambda t0 terminator"
+                     /note="transcription terminator from phage lambda"
+     CDS             complement(1237..1896)
+                     /codon_start=1
+                     /gene="cat"
+                     /product="chloramphenicol acetyltransferase"
+                     /label="CmR"
+                     /note="confers resistance to chloramphenicol"
+                     /translation="MEKKITGYTTVDISQWHRKEHFEAFQSVAQCTYNQTVQLDITAFL
+                     KTVKKNKHKFYPAFIHILARLMNAHPEFRMAMKDGELVIWDSVHPCYTVFHEQTETFSS
+                     LWSEYHDDFRQFLHIYSQDVACYGENLAYFPKGFIENMFFVSANPWVSFTSFDLNVANM
+                     DNFFAPVFTMGKYYTQGDKVLMPLAIQVHHAVCDGFHVGRMLNELQQYCDEWQGGA"
+     primer_bind     1811..1830
+                     /label="CAT-R"
+                     /note="Chloramphenicol resistance gene, reverse primer"
+     primer_bind     2058..2076
+                     /label="pBRforEco"
+                     /note="pBR322 vectors, upsteam of EcoRI site, forward
+                     primer"
+     terminator      2080..2123
+                     /label="bacterial terminator"
+                     /note="putative bacterial transcription terminator"
+ORIGIN
+        1 ggaattcgcg gccgcttcta gaatctagag acgcataggt ctcagtacag aaagaggaga
+       61 aataccataa gagacccatg ccgtctcatt agctgcagtc cggcaaaaaa gggcaaggtg
+      121 tcaccaccct gccctttttc tttaaaaccg aaaagattac ttcgcgttat gcaggcttcc
+      181 tcgctcactg actcgctgcg ctcggtcgtt cggctgcggc gagcggtatc agctcactca
+      241 aaggcggtaa tacggttatc cacagaatca ggggataacg caggaaagaa catgtgagca
+      301 aaaggccagc aaaaggccag gaaccgtaaa aaggccgcgt tgctggcgtt tttccacagg
+      361 ctccgccccc ctgacgagca tcacaaaaat cgacgctcaa gtcagaggtg gcgaaacccg
+      421 acaggactat aaagatacca ggcgtttccc cctggaagct ccctcgtgcg ctctcctgtt
+      481 ccgaccctgc cgcttaccgg atacctgtcc gcctttctcc cttcgggaag cgtggcgctt
+      541 tctcatagct cacgctgtag gtatctcagt tcggtgtagg tcgttcgctc caagctgggc
+      601 tgtgtgcacg aaccccccgt tcagcccgac cgctgcgcct tatccggtaa ctatcgtctt
+      661 gagtccaacc cggtaagaca cgacttatcg ccactggcag cagccactgg taacaggatt
+      721 agcagagcga ggtatgtagg cggtgctaca gagttcttga agtggtggcc taactacggc
+      781 tacactagaa gaacagtatt tggtatctgc gctctgctga agccagttac cttcggaaaa
+      841 agagttggta gctcttgatc cggcaaacaa accaccgctg gtagcggtgg tttttttgtt
+      901 tgcaagcagc agattacgcg cagaaaaaaa ggatctcaag aagatccttt gatcttttct
+      961 acggggtctg acgctcagtg gaacgaaaac tcacgttaag ggattttggt catgagatta
+     1021 tcaaaaagga tcttcaccta gatcctttta aattaaaaat gaagttttaa atcaatctaa
+     1081 agtatatatg agtaaacttg gtctgacagc tcgaggcttg gattctcacc aataaaaaac
+     1141 gcccggcggc aaccgagcgt tctgaacaaa tccagatgga gttctgaggt cattactgga
+     1201 tctatcaaca ggagtccaag cgagctcgat atcaaattac gccccgccct gccactcatc
+     1261 gcagtactgt tgtaattcat taagcattct gccgacatgg aagccatcac aaacggcatg
+     1321 atgaacctga atcgccagcg gcatcagcac cttgtcgcct tgcgtataat atttgcccat
+     1381 ggtgaaaacg ggggcgaaga agttgtccat attggccacg tttaaatcaa aactggtgaa
+     1441 actcacccag ggattggctg acacgaaaaa catattctca ataaaccctt tagggaaata
+     1501 ggccaggttt tcaccgtaac acgccacatc ttgcgaatat atgtgtagaa actgccggaa
+     1561 atcgtcgtgg tattcactcc agagcgatga aaacgtttca gtttgctcat ggaaaacggt
+     1621 gtaacaaggg tgaacactat cccatatcac cagctcaccg tctttcattg ccatacgaaa
+     1681 ttccggatga gcattcatca ggcgggcaag aatgtgaata aaggccggat aaaacttgtg
+     1741 cttatttttc tttacggtct ttaaaaaggc cgtaatatcc agctgaacgg tctggttata
+     1801 ggtacattga gcaactgact gaaatgcctc aaaatgttct ttacgatgcc attgggatat
+     1861 atcaacggtg gtatatccag tgattttttt ctccatttta gcttccttag ctcctgaaaa
+     1921 tctcgataac tcaaaaaata cgcccggtag tgatcttatt tcattatggt gaaagttgga
+     1981 acctcttacg tgcccgatca actcgagtgc cacctgacgt ctaagaaacc attattatca
+     2041 tgacattaac ctataaaaat aggcgtatca cgaggcagaa tttcagataa aaaaaatcct
+     2101 tagctttcgc taaggatgat ttct
+//
