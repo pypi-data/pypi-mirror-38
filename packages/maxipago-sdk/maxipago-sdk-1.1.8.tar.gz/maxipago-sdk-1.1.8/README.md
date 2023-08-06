@@ -1,0 +1,1 @@
+pyOpenSSL - necessário para a biblioteca Requests.
