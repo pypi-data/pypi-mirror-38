@@ -1,0 +1,11 @@
+MANIFEST.in
+README.rst
+setup.py
+TemplateRex.egg-info/PKG-INFO
+TemplateRex.egg-info/SOURCES.txt
+TemplateRex.egg-info/dependency_links.txt
+TemplateRex.egg-info/requires.txt
+TemplateRex.egg-info/top_level.txt
+templaterex/__init__.py
+templaterex/functions.py
+templaterex/template.py
