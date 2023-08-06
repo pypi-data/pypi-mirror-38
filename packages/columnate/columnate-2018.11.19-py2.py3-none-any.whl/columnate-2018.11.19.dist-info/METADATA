@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: columnate
+Version: 2018.11.19
+Summary: columnate lists
+Home-page: https://github.com/looking-for-a-job/columnate.py
+License: UNKNOWN
+Keywords: columnate
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Software Development
+Description-Content-Type: text/markdown
+Requires-Dist: public
+Requires-Dist: setuptools
+
+[![](https://img.shields.io/pypi/pyversions/columnate.svg?longCache=True)](https://pypi.org/pypi/columnate/)
+
+#### Install
+```bash
+$ [sudo] pip install columnate
+```
+
+#### Functions
+function|description
+-|-
+`columnate.lists(matrix)`|columnate lists
+
+#### Examples
+```python
+>>> import columnate
+>>> matrix = [[308, 0, "com.apple.Finder"],[84509, 0, "com.apple.metadata.mdwrite"]]
+>>> columnate.lists(matrix)
+308    0  com.apple.Finder
+84509  0  com.apple.metadata.mdwrite
+```
+
+<p align="center"><a href="https://pypi.org/project/readme-md/">readme-md</a> - README.md generator</p>
+
