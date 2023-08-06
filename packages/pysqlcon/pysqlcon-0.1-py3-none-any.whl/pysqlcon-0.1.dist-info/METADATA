@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: pysqlcon
+Version: 0.1
+Summary: Easy execution of sql statements and stored procedures on MSSQL database
+Home-page: https://github.com/kudzaitsapo/pysqlcon
+Author: Kudzai Tsapo
+Author-email: kudzai@charteredsys.com
+License: MIT
+Platform: UNKNOWN
+
+# pysqlcon
+
+A library for object relational mapping using Microsoft SQL Server database.
+
+pysqlcon is a custom ORM specifically made for MSSQL database. It contains functions for connecting to the database, executing raw SQL queries, stored procedures and SQL queries stored in files.
+
+# Dependancies
+* pyodbc
+* ODBC driver 13 for SQL Server  
+
+
