@@ -1,0 +1,6 @@
+
+[pretix.plugin]
+prtx_faq=prtx_faq:PretixPluginMeta
+
+[pretalx.plugin]
+prtx_faq=prtx_faq:PretalxPluginMeta
