@@ -1,0 +1,9 @@
+aiohttp
+alembic
+bcrypt
+beautifulsoup4
+bleach
+html5lib
+jinja2
+sqlalchemy
+tornado>=5.0
