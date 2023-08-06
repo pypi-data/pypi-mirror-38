@@ -1,0 +1,7 @@
+include README.md
+include LICENSE
+include kipoi_veff/logging.conf
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
+
+recursive-include docs *.md *.rst conf.py Makefile make.bat *.jpg *.png *.gif
