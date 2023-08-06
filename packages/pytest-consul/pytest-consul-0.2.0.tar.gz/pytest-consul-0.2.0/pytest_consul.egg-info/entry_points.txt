@@ -1,0 +1,3 @@
+[pytest11]
+consul = pytest_consul.plugin
+
