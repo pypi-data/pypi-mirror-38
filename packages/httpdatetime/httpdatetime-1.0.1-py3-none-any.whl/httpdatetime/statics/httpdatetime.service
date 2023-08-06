@@ -1,0 +1,9 @@
+[Unit]
+Description=Launch httpdatetime to synchronize date and time online using HTTPS.
+
+[Service]
+Type=simple
+ExecStart=httpdatetime
+
+[Install]
+WantedBy=multi-user.target

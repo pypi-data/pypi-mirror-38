@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: httpdatetime
+Version: 1.0.1
+Summary: Tool to keep the date and time synchronized online using http or https.
+Home-page: https://linuxdevtips.blogspot.com/
+Author: Fernando Enzo Guarini
+Author-email: fernandoenzo@gmail.com
+Maintainer: 
+Maintainer-email: 
+License: GPLv3+
+Download-URL: https://bitbucket.org/fernandoenzo/httpdatetime/
+Keywords: clock date http https online sync time
+Platform: any
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Natural Language :: Spanish
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: System :: Installation/Setup
+
+With this tool you'll keep your system clock and date updated if you are unable to use ntp because of proxies.
+
+
