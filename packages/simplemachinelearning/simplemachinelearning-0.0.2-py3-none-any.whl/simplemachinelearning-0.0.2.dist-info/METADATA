@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: simplemachinelearning
+Version: 0.0.2
+Summary: Package to simplify machine learning
+Home-page: https://github.com/nickolastheodoulou/simplemachinelearning.git
+Author: nickolastheodoulou & DenJev
+Author-email: nickolastheodoulou@hotmail.com
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: pandas
+Requires-Dist: sklearn
+Requires-Dist: scipy
+Requires-Dist: seaborn
+Requires-Dist: numpy
+
+UNKNOWN
+
+
