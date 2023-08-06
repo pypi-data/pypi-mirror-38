@@ -1,0 +1,15 @@
+pybel<0.13.0,>=0.12.0
+bio2bel<0.3.0,>=0.2.0
+sqlalchemy
+click
+requests
+rdflib
+networkx
+tqdm
+
+[owl]
+owlready
+
+[web]
+flask
+flask-admin
