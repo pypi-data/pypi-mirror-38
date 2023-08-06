@@ -1,0 +1,3 @@
+[console_scripts]
+gendev = gendev.gendev:main
+
