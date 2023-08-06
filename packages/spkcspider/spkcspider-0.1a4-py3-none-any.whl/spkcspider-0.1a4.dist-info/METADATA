@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: spkcspider
+Version: 0.1a4
+Summary: UNKNOWN
+Home-page: UNKNOWN
+License: MIT
+Platform: Platform Independent
+Requires-Dist: django (>=2)
+Requires-Dist: django-simple-jsonfield
+Requires-Dist: certifi
+Requires-Dist: requests
+Requires-Dist: bleach
+Requires-Dist: rdflib
+Requires-Dist: html5lib
+Requires-Dist: django-widget-tweaks
+Provides-Extra: debug
+Requires-Dist: Werkzeug ; extra == 'debug'
+Requires-Dist: pyOpenSSL ; extra == 'debug'
+Requires-Dist: django-extensions ; extra == 'debug'
+Provides-Extra: fcgi
+Requires-Dist: flipflop ; extra == 'fcgi'
+
+UNKNOWN
+
+
