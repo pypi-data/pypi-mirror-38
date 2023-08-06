@@ -1,0 +1,19 @@
+Metadata-Version: 2.0
+Name: powerline-vcsh
+Version: 0.0.1
+Summary: A Powerline segment for showing the current VCSH repo
+Home-page: https://github.com/taintedkernel/powerline-vcsh
+Author: Anthony DeChiaro
+Author-email: taintedkernel@gmail.com
+License: MIT
+Keywords: powerline vcsh prompt
+Platform: UNKNOWN
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Terminals
+Requires-Dist: powerline-status
+
+UNKNOWN
+
+
