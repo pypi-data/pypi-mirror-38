@@ -1,0 +1,11 @@
+Metadata-Version: 1.0
+Name: brawlstats
+Version: 2.0.0
+Summary: An async Python API wrapper for the unofficial Brawl Stars API
+Home-page: https://github.com/SharpBit/brawlstats
+Author: SharpBit
+Author-email: sharpbit3618@gmail.com
+License: MIT
+Description: This package include an easy to use async Client to get Brawl Stars player and band statistics, and the leaderboard. Github: https://github.com/SharpBit/brawlstats
+Keywords: brawl stars, brawlstats, api-wrapper, async
+Platform: UNKNOWN
