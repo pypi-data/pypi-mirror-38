@@ -1,0 +1,81 @@
+Metadata-Version: 2.1
+Name: aiida-qeq
+Version: 0.1.0
+Summary: AiiDA plugin for computing electronic charges on atoms using equilibration-type models (QEq, EQEq, ...).
+Home-page: https://github.com/ltalirz/aiida-qeq
+Author: Leopold Talirz, Daniele Ongari
+Author-email: leopold.talirz@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Description-Content-Type: text/markdown
+Requires-Dist: aiida-core (<1.0.0,>=0.12.2)
+Requires-Dist: six
+Provides-Extra: docs
+Requires-Dist: sphinx ; extra == 'docs'
+Provides-Extra: pre-commit
+Requires-Dist: pre-commit (==1.11.0) ; extra == 'pre-commit'
+Requires-Dist: yapf (==0.24.0) ; extra == 'pre-commit'
+Requires-Dist: prospector (==0.12.11) ; extra == 'pre-commit'
+Requires-Dist: pylint (==1.9.3) ; extra == 'pre-commit'
+Provides-Extra: testing
+Requires-Dist: mock (==2.0.0) ; extra == 'testing'
+Requires-Dist: pgtest (==1.1.0) ; extra == 'testing'
+Requires-Dist: sqlalchemy-diff (==0.1.3) ; extra == 'testing'
+Requires-Dist: wheel (>=0.31) ; extra == 'testing'
+Requires-Dist: coverage ; extra == 'testing'
+
+[![Build Status](https://travis-ci.org/ltalirz/aiida-qeq.svg?branch=master)](https://travis-ci.org/ltalirz/aiida-qeq) 
+[![Coverage Status](https://coveralls.io/repos/github/ltalirz/aiida-qeq/badge.svg?branch=master)](https://coveralls.io/github/ltalirz/aiida-qeq?branch=master) 
+[![Docs status](https://readthedocs.org/projects/aiida-qeq/badge)](http://aiida-qeq.readthedocs.io/) 
+[![PyPI version](https://badge.fury.io/py/aiida-qeq.svg)](https://badge.fury.io/py/aiida-qeq)
+
+# aiida-qeq
+
+AiiDA plugin for computing electronic charges on atoms using equilibration-type models (QEq, EQEq, ...).
+
+Templated using the [AiiDA plugin cutter](https://github.com/aiidateam/aiida-plugin-cutter).
+
+## Installation
+
+```shell
+git clone https://github.com/ltalirz/aiida-qeq .
+cd aiida-qeq
+pip install -e .  # also installs aiida, if missing (but not postgres)
+#pip install -e .[pre-commit,testing] # install extras for more features
+verdi quicksetup  # better to set up a new profile
+verdi calculation plugins  # should now show your calclulation plugins
+```
+
+## Usage
+
+Here goes a complete example of how to submit a test calculation using this plugin.
+
+A quick demo of how to submit a calculation:
+```shell
+verdi daemon start         # make sure the daemon is running
+cd examples
+verdi run submit_qeq.py    # submit qeq test calculation
+verdi run submit_eqeq.py   # submit eqeq test calculation
+verdi calculation list -a  # check status of calculation
+```
+
+## Tests
+
+The following will discover and run all unit test:
+```shell
+pip install -e .[testing]
+python manage.py
+```
+
+## License
+
+MIT
+
+
+## Contact
+
+leopold.talirz@gmail.com
+
+
+
