@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: bhpq
+Version: 1.0.2
+Summary: Binary Heap Priority Queue
+Home-page: https://github.com/aayushuppal/bhpq
+Author: Aayush Uppal
+Author-email: aayuppal@gmail.com
+License: MIT
+Description: # BHPQ - Binary Heap Priority Queue
+        
+        A binary heap priority queue implementation
+        
+        ## Installation
+        
+        You can install bhpq from [PyPI](https://pypi.org/project/bhpq):
+        
+            pip install bhpq
+        
+        bhpq is supported on Python 2.7, as well as Python 3.4 and above.
+        
+        ## Usage
+        
+            from bhpq import BinaryHeapPriorityQueue
+        
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
