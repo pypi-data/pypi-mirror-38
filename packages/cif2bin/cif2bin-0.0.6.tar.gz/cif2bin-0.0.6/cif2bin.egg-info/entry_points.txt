@@ -1,0 +1,3 @@
+[console_scripts]
+cif2bin = cif2bin.main:main
+

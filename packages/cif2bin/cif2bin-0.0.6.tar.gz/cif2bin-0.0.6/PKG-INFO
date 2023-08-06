@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: cif2bin
+Version: 0.0.6
+Summary: Convert Amnis ImageStream cif-files to a binary format.
+Home-page: https://github.ugent.be/mlippeve/cif2bin
+Author: Maxim Lippeveld
+Author-email: lippeveld.maxim@gmail.com
+License: UNKNOWN
+Description: # cif2bin
+        ---
+        Cif2bin is a package that saves the images from the
+        proprietary Amnis ImageStream cif-file format to 
+        an easy to use binary file using bioformats.
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >3.6.1
+Description-Content-Type: text/markdown
