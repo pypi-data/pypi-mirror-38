@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: netapp-lib
+Version: 2018.11.13
+Summary: netapp-lib is required for OpenStack and Ansible deployments to interact with NetApp storage systems.
+Home-page: UNKNOWN
+Author: NetApp, Inc.
+Author-email: ng-openstack-pypi@netapp.com
+License: Proprietary::NetApp
+Keywords: openstack,netapp,cinder,manila,netapp_lib,ansible
+Platform: UNKNOWN
+Classifier: Environment :: OpenStack
+Requires-Dist: xmltodict
+Requires-Dist: lxml
+
+UNKNOWN
+
+
