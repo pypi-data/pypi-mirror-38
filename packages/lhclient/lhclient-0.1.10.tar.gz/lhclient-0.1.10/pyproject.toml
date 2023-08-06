@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "lhclient"
+version = "0.1.10"
+description = "The official client for the Logichub API"	
+
+license = "MIT"
+
+authors = [
+    "William Le Ferrand <william@logichub.com>"
+]
+
+readme = 'README.md'
+
+homepage = "https://logichub.com"
+
+keywords = ['security', 'automation', 'logichub']
+
+[tool.poetry.dependencies]
+python = "~2.7 || ^3.4"  
+click = "~7.0"
+# Dependencies with extras
+requests = { version = "~2.18.4", extras = [ "security" ] }
+
+
+[tool.poetry.scripts]
+lhclient = 'lhclient:cli' 
