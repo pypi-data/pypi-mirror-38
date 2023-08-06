@@ -1,0 +1,3 @@
+[console_scripts]
+EC_CMD_Wallet = EC_CMD_Wallet.scripts:main
+
