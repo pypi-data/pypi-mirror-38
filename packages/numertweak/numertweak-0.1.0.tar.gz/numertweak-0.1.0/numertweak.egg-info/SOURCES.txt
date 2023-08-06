@@ -1,0 +1,15 @@
+MANIFEST.in
+README.md
+setup.py
+numertweak/__init__.py
+numertweak/consistency.py
+numertweak/example_correlation.py
+numertweak/load_data_submit.py
+numertweak/load_data_train.py
+numertweak/scale_to_30_70.py
+numertweak.egg-info/PKG-INFO
+numertweak.egg-info/SOURCES.txt
+numertweak.egg-info/dependency_links.txt
+numertweak.egg-info/not-zip-safe
+numertweak.egg-info/requires.txt
+numertweak.egg-info/top_level.txt
