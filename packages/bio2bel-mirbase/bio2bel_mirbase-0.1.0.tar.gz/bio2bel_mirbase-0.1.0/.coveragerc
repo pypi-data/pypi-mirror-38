@@ -1,0 +1,20 @@
+[run]
+branch = True
+source = bio2bel_mirbase
+omit =
+    src/bio2bel_mirbase/__main__.py
+    src/bio2bel_mirbase/cli.py
+    tests/*
+    docs/*
+    scripts/*
+
+[paths]
+source =
+    src/bio2bel_mirbase
+    .tox/*/lib/python*/site-packages/bio2bel_mirbase
+
+[report]
+show_missing = True
+exclude_lines =
+    def __str__
+    def __repr__

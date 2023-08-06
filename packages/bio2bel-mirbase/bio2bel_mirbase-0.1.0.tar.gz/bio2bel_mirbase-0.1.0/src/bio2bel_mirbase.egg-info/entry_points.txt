@@ -1,0 +1,3 @@
+[console_scripts]
+bio2bel_mirbase = bio2bel_mirbase.cli:main
+
