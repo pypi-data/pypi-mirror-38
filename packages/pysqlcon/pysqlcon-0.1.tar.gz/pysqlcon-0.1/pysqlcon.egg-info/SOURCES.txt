@@ -1,0 +1,12 @@
+README.md
+setup.py
+pysqlcon/__init__.py
+pysqlcon/base.py
+pysqlcon/errors.py
+pysqlcon/orm.py
+pysqlcon/queryset.py
+pysqlcon.egg-info/PKG-INFO
+pysqlcon.egg-info/SOURCES.txt
+pysqlcon.egg-info/dependency_links.txt
+pysqlcon.egg-info/not-zip-safe
+pysqlcon.egg-info/top_level.txt
