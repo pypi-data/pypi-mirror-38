@@ -1,0 +1,21 @@
+Metadata-Version: 1.0
+Name: suggestsoda
+Version: 0.1.1
+Summary: UNKNOWN
+Home-page: UNKNOWN
+Author: Daniel J Brooks
+Author-email: daniel.brooks@alumni.caltech.edu
+License: Creative Commons Attribution-Noncommercial-Share Alike license
+Description: suggestsoda
+        
+        This package provides recommendations on which brand of soda to purchase.
+        
+        pip install suggestsoda
+        
+        usage:
+          import suggestsoda as soda
+        
+          soda.recommend()
+        
+          soda.avoid()
+Platform: UNKNOWN
