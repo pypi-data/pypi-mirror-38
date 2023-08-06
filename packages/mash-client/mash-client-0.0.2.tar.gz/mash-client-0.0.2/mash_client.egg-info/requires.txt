@@ -1,0 +1,11 @@
+Click
+requests
+PyYAML
+
+[dev]
+Click
+requests
+PyYAML
+bumpversion
+pip>=7.0.0
+click-man
