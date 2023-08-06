@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: stan-utility
+Version: 0.1.2
+Summary: Helper routines for pystan based off @betanalphas stan_utility
+Home-page: https://github.com/grburgess/stan_utility
+Author: J. Michael Burgess
+Author-email: jmichaelburgess@gmail.com
+License: BSD
+Description: 
+        # stan_utility
+        A combination of utilities for PyStan both from Michael Betancourt's and Sean Talts Stan_utility as well as a few of my own
+        
+Platform: UNKNOWN
+Requires-Python: >=2.7.0
+Description-Content-Type: text/markdown
