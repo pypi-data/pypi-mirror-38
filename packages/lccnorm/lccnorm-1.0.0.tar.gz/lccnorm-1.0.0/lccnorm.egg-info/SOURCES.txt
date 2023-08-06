@@ -1,0 +1,11 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+lccnorm/__init__.py
+lccnorm/__version__.py
+lccnorm/lccnorm.py
+lccnorm.egg-info/PKG-INFO
+lccnorm.egg-info/SOURCES.txt
+lccnorm.egg-info/dependency_links.txt
+lccnorm.egg-info/top_level.txt
