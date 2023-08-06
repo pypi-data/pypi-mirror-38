@@ -1,0 +1,13 @@
+cloudlaunch_cli/__init__.py,sha256=0StQzvHcHSFtp08taJlCyMx-m-R4zD4UrkvWqBsorfo,93
+cloudlaunch_cli/config.py,sha256=FpJd_FnostQ7Ald5yN5-0d-jSllAb-lU3pfLNsnE8EQ,2360
+cloudlaunch_cli/main.py,sha256=izUhUg6bPmTijgJt3qN8qBovXNGBeSZoQvlGf55uWUo,7389
+cloudlaunch_cli/api/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+cloudlaunch_cli/api/client.py,sha256=n3mPmAxHJ0AwvLqeoecX35QU_vcKukgrAf_HtBZTptA,3460
+cloudlaunch_cli/api/cloud_credentials.py,sha256=M-W_bJvbH_l_MMP4PvCe-U8tgjzKTrYpm6rEAX9oBZ4,10187
+cloudlaunch_cli/api/endpoints.py,sha256=4h7MKL6H9SDMqGxfqMFHUFDBHDuKPvX4r3j8bSma1Rg,7677
+cloudlaunch_cli/api/resources.py,sha256=wJnM2vQQ5hx7MV9T3_HjjCLj2BjlJ_34pCXKcvMWiI0,5251
+cloudlaunch_cli-0.2.0.dist-info/METADATA,sha256=boLLdtz9YdWsuJDGeOwsxJlfpQ5ZyPLBSk4NplPQfuY,4640
+cloudlaunch_cli-0.2.0.dist-info/RECORD,,
+cloudlaunch_cli-0.2.0.dist-info/WHEEL,sha256=FRuHuBX28RTgsOL603qIpbSc2WeDgbsFBWKj9XFOCpg,92
+cloudlaunch_cli-0.2.0.dist-info/entry_points.txt,sha256=b9lBKL4SHwf4SN3_7B25pZiCc6_y6siNpU0BazRLgEE,61
+cloudlaunch_cli-0.2.0.dist-info/top_level.txt,sha256=P7ZjYBKWTIE3t5HQcm3tbGNhLBitewP8ZgoSA_6sSGE,16
