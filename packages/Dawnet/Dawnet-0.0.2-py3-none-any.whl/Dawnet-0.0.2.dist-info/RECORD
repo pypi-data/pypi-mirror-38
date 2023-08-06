@@ -1,0 +1,17 @@
+Dawnet-0.0.2.dist-info/METADATA,sha256=Ppr23qcNSKnScRPo_JstrOc1tb8RAiRJUg27DuNI9IU,2683
+Dawnet-0.0.2.dist-info/RECORD,,
+Dawnet-0.0.2.dist-info/WHEEL,sha256=NzFAKnL7g-U64xnS1s5e3mJnxKpOTeOtlXdFwS9yNXI,92
+Dawnet-0.0.2.dist-info/top_level.txt,sha256=pkTqlX0IRirv6NFstKIC6JIBh3i-bdKsyc5Z2YJg6yo,7
+dawnet/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dawnet/data/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dawnet/data/image.py,sha256=cf6xgeTmBo_lCna3CGq3SufjEuy69I5Ds_w3hRNiNz8,24462
+dawnet/data/text.py,sha256=V49ROYvU4MXkgUosp-2ZQiPeUkB5ryufCB3XWtgDm0c,2221
+dawnet/models/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dawnet/models/base.py,sha256=mTDe1Aye2jbr8V0U-T83xoTNC0kfg2Leic1Xqvd0iAI,10145
+dawnet/models/convs.py,sha256=-Xf8Dy0l12ZtsNK42pyPik3JPEuTEEGiFvyJ_6j2aLo,17644
+dawnet/models/functions.py,sha256=VLBVS-15zYDObw5LdkNrdxwRnhkny7fyF3IqRKO_2DA,885
+dawnet/models/perceive.py,sha256=RdSHbR_zwauh7Emq3B5wR3fN7BtDEAJGQOXrob0nLq8,13028
+dawnet/training/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dawnet/training/hyper.py,sha256=vEa7lJEX7from1-UeSk1HDVcgzLvIVu-R6J3R0AM418,241
+dawnet/training/review.py,sha256=6do1PKuXtnURPeoFeJqL6eDOBODLx9MXaeMjsKtvr5E,643
+dawnet/training/train.py,sha256=kGQuX2LFtIQvmHqgrnumXe3wh88JRyyZfvbucOiovVY,4779
