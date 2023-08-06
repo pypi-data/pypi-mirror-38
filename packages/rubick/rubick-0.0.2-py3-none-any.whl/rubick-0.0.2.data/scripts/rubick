@@ -1,0 +1,10 @@
+#!python
+
+if __name__ == '__main__':
+    from rubick_pkg.rubick import cli, logger
+
+    try:
+        cli()
+    except Exception as e:
+        log = logger.create('rubick_bin')
+        log.error(e)
