@@ -1,0 +1,80 @@
+#!/usr/bin/env python3
+
+import argparse
+from datetime import datetime
+from machfs import Volume
+
+########################################################################
+
+def hfsdat(x):
+    if x.lower() == 'now':
+        x = datetime.now().isoformat()
+
+    if len(x) == 8 and all(c in '0123456789ABCDEF' for c in x.upper()):
+        try:
+            return int(x, base=16)
+        except ValueError:
+            pass
+
+    epoch = '19040101000000' # ISO8601 with the non-numerics stripped
+
+    # strip non-numerics and pad out using the epoch (cheeky)
+    stripped = ''.join(c for c in x if c in '0123456789')
+    stripped = stripped[:len(epoch)] + epoch[len(stripped):]
+
+    tformat = '%Y%m%d%H%M%S'
+
+    delta = datetime.strptime(stripped, tformat) - datetime.strptime(epoch, tformat)
+    delta = int(delta.total_seconds())
+
+    if not 0 <= delta <= 0xFFFFFFFF:
+        print('Warning: moving %r into the legacy MacOS date range (1904-2040)' % x)
+
+    delta = min(delta, 0xFFFFFFFF)
+    delta = max(delta, 0)
+
+    return delta
+
+def imgsize(x):
+    x = x.upper()
+    x = x.replace('B', '').replace('I', '')
+    if x.endswith('K'):
+        factor = 1024
+    elif x.endswith('M'):
+        factor = 1024*1024
+    elif x.endswith('G'):
+        factor = 1024*1024*1024
+    else:
+        factor = 1
+        x += 'b'
+    return int(x[:-1]) * factor
+
+def hfspathtpl(s):
+    return tuple(c for c in s.split(':') if c)
+
+args = argparse.ArgumentParser()
+
+args.add_argument('dest', metavar='OUTPUT', nargs=1, help='Destination file')
+args.add_argument('-n', '--name', default='untitled', action='store', help='volume name (default: untitled)')
+args.add_argument('-i', '--dir', action='store', help='folder to copy into the image')
+args.add_argument('-a', '--app', default=None, type=hfspathtpl, help='Path:To:Startup:App')
+args.add_argument('-s', '--size', default='800k', type=imgsize, action='store', help='volume size (default: size of OUTPUT)')
+args.add_argument('-d', '--date', default='1994', type=hfsdat, action='store', help='creation & mod date (ISO-8601 or "now")')
+args.add_argument('--mpw-dates', action='store_true', help='''
+    preserve the modification order of files by setting on-disk dates
+    that differ by 1-minute increments, so that MPW Make can decide
+    which files to rebuild
+''')
+
+args = args.parse_args()
+
+########################################################################
+
+vol = Volume()
+vol.name = args.name
+
+if args.dir: vol.read_folder(args.dir, date=args.date, mpw_dates=args.mpw_dates)
+
+image = vol.write(args.size, startapp=args.app)
+with open(args.dest[0], 'wb') as f:
+    f.write(image)
