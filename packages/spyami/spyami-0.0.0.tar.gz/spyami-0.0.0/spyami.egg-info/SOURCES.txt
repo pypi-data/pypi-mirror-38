@@ -1,0 +1,13 @@
+setup.py
+spyami/__init__.py
+spyami/cli.py
+spyami.egg-info/PKG-INFO
+spyami.egg-info/SOURCES.txt
+spyami.egg-info/dependency_links.txt
+spyami.egg-info/top_level.txt
+spyami/item/__init__.py
+spyami/mainloop/__init__.py
+spyami/pipeline/__init__.py
+spyami/selector/__init__.py
+spyami/selector/selector.py
+spyami/spider/__init__.py
