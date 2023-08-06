@@ -1,0 +1,27 @@
+Metadata-Version: 1.2
+Name: josephine
+Version: 0.0.1a2
+Summary: Maya Animation Studio Pipeline
+Home-page: https://gitlab.com/kabaretstudio/kabaret.josephine
+Author: Damien "dee" Coureau
+Author-email: dee909@gmail.com
+License: LGPLv3+
+Description-Content-Type: UNKNOWN
+Description: =========
+        Josephine
+        =========
+        
+        Josephine is an Maya open source CG Animation pipeline built with the kabaret framework.
+        
+        (Not yet available, this is just a project name reservation)
+Keywords: maya animation pipeline dataflow workflow asset manager
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Topic :: Desktop Environment :: File Managers
+Classifier: Topic :: Multimedia :: Graphics
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: Information Technology
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2.7
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)
+Requires-Python: ~=2.7
