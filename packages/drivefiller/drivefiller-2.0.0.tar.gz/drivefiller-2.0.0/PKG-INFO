@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: drivefiller
+Version: 2.0.0
+Summary: A Python 3 library that makes very large files very quickly. Can also return file size.
+Home-page: https://github.com/ConorMatthews/drivefiller
+Author: Conor Matthews
+Author-email: conor.matthews15@gmail.com
+License: UNKNOWN
+Description: # DriveFiller(dot)py
+        A python library that creates very large files very quickly.
+        
+        ## Examples
+        I can't be bothered to update this so figure it out yourself
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
