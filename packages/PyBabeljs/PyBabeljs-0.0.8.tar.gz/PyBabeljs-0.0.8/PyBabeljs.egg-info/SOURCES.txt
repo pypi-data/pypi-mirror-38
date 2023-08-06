@@ -1,0 +1,16 @@
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+PyBabeljs.egg-info/PKG-INFO
+PyBabeljs.egg-info/SOURCES.txt
+PyBabeljs.egg-info/dependency_links.txt
+PyBabeljs.egg-info/top_level.txt
+babeljs/__init__.py
+babeljs/jscontext.py
+babeljs/source.py
+babeljs/transformer.py
+babeljs/__pycache__/__init__.cpython-36.pyc
+babeljs/static/babeljs/babel-plugin-transform-vue-jsx.min.js
+babeljs/static/babeljs/browser.js
+babeljs/static/regenerator/runtime.js
