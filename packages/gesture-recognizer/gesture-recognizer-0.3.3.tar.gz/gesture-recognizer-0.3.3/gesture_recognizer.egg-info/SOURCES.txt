@@ -1,0 +1,13 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+setup.py
+gesture_recognizer/FistRecognizer.py
+gesture_recognizer/GestureRecognizer.py
+gesture_recognizer/__init__.py
+gesture_recognizer/test.py
+gesture_recognizer.egg-info/PKG-INFO
+gesture_recognizer.egg-info/SOURCES.txt
+gesture_recognizer.egg-info/dependency_links.txt
+gesture_recognizer.egg-info/requires.txt
+gesture_recognizer.egg-info/top_level.txt
