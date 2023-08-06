@@ -1,0 +1,4 @@
+
+[console_scripts]
+vcfy=vcfy.cli:cli
+ksnper=vcfy.ksnper:cli
