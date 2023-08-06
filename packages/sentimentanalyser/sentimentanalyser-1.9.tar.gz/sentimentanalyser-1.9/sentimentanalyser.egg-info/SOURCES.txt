@@ -1,0 +1,17 @@
+LICENSE.rst
+MANIFEST.in
+README.rst
+setup.py
+sentimentanalyser/__init__.py
+sentimentanalyser/preprocess.py
+sentimentanalyser/test.py
+sentimentanalyser/train.py
+sentimentanalyser.egg-info/PKG-INFO
+sentimentanalyser.egg-info/SOURCES.txt
+sentimentanalyser.egg-info/dependency_links.txt
+sentimentanalyser.egg-info/not-zip-safe
+sentimentanalyser.egg-info/requires.txt
+sentimentanalyser.egg-info/top_level.txt
+sentimentanalyser/tests/__init__.py
+sentimentanalyser/tests/test_trained_data.py
+sentimentanalyser/tests/test_training_data.py
