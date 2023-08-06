@@ -1,0 +1,403 @@
+Metadata-Version: 2.1
+Name: hdtable
+Version: 0.1a5
+Summary: Generate reStructuredText grid tables from hierarchical data
+Home-page: https://gitlab.com/yagehu/hdtable
+Author: Yage Hu
+Author-email: yagejhu@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.6
+Requires-Dist: anytree (==2.4.3)
+Requires-Dist: docutils (==0.14)
+Requires-Dist: pyyaml (==4.2b4)
+Requires-Dist: six (==1.11.0)
+
+=================================
+Hierarchical Data Table (HDTable)
+=================================
+
+This Python package generates grid tables that are
+`reStructuredText compliant
+<http://docutils.sourceforge.net/docs/user/rst/quickref.html#tables>`_
+from a data source and column specifications.
+An example of a rendered reStructuredText grid table is:
+
+.. table:: Students, teachers, and the mascot of a class
+    :name: example-class
+
+    +-----------+---------+------------------+--------------+-----------+--------------+--------------+
+    | Student # | Class # | Class Name       | Project Name | Teacher # | Teacher Name | Class Mascot |
+    +===========+=========+==================+==============+===========+==============+==============+
+    | 1         | 1       | math             | science fair | 1         | daniel       | wombat       |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           +---------+------------------+--------------+           |              |              |
+    |           | 2       | chinese          | yearbook     |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           +---------+------------------+--------------+           |              |              |
+    |           | 3       | computer science | robotics     |           |              |              |
+    |           |         |                  |              +-----------+--------------+              |
+    |           |         |                  |              | 2         | ethan        |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           +---------+------------------+--------------+           |              |              |
+    |           | 4       | physics          | esport       |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    +-----------+---------+------------------+--------------+           |              |              |
+    | 2         | 1       | math             | robotics     |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              +-----------+--------------+              |
+    |           |         |                  |              | 3         | frank        |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           +---------+------------------+              |           |              |              |
+    |           | 2       | chemistry        |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           +---------+------------------+              |           |              |              |
+    |           | 3       | physics          |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              +-----------+--------------+              |
+    |           |         |                  |              | 4         | greg         |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    +-----------+---------+------------------+--------------+           |              |              |
+    | 3         | 1       | english          | N/A          |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           +---------+------------------+              |           |              |              |
+    |           | 2       | chinese          |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              +-----------+--------------+              |
+    |           |         |                  |              | 5         | hank         |              |
+    |           +---------+------------------+              |           |              |              |
+    |           | 3       | chemistry        |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    +-----------+---------+------------------+--------------+           |              |              |
+    | 4         | N/A     | N/A              | N/A          |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    +-----------+---------+------------------+--------------+-----------+--------------+--------------+
+
+The source for this table can be generated by HDTable with
+
+.. code-block:: python
+
+    import os
+
+    import yaml
+
+    from hdtable.hdtable import Hdtable
+
+    data_source_file = os.path.join("tests", "test_data.yml")
+    specs_file = os.path.join("tests", "specs", "sample.yml")
+
+    with open(data_source_file, "r") as f:
+        d = yaml.safe_load(f)
+
+    with open(specs_file, "r") as f:
+        specs = yaml.safe_load(f)
+
+    hdtable = Hdtable(d, specs)
+    print(hdtable)
+
+which produces::
+
+    +-----------+---------+------------------+--------------+-----------+--------------+--------------+
+    | Student # | Class # | Class Name       | Project Name | Teacher # | Teacher Name | Class Mascot |
+    +===========+=========+==================+==============+===========+==============+==============+
+    | 1         | 1       | math             | science fair | 1         | daniel       | wombat       |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           +---------+------------------+--------------+           |              |              |
+    |           | 2       | chinese          | yearbook     |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           +---------+------------------+--------------+           |              |              |
+    |           | 3       | computer science | robotics     |           |              |              |
+    |           |         |                  |              +-----------+--------------+              |
+    |           |         |                  |              | 2         | ethan        |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           +---------+------------------+--------------+           |              |              |
+    |           | 4       | physics          | esport       |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    +-----------+---------+------------------+--------------+           |              |              |
+    | 2         | 1       | math             | robotics     |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              +-----------+--------------+              |
+    |           |         |                  |              | 3         | frank        |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           +---------+------------------+              |           |              |              |
+    |           | 2       | chemistry        |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           +---------+------------------+              |           |              |              |
+    |           | 3       | physics          |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              +-----------+--------------+              |
+    |           |         |                  |              | 4         | greg         |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    +-----------+---------+------------------+--------------+           |              |              |
+    | 3         | 1       | english          | N/A          |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           +---------+------------------+              |           |              |              |
+    |           | 2       | chinese          |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              +-----------+--------------+              |
+    |           |         |                  |              | 5         | hank         |              |
+    |           +---------+------------------+              |           |              |              |
+    |           | 3       | chemistry        |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    +-----------+---------+------------------+--------------+           |              |              |
+    | 4         | N/A     | N/A              | N/A          |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    |           |         |                  |              |           |              |              |
+    +-----------+---------+------------------+--------------+-----------+--------------+--------------+
+
+Install
+=======
+
+.. code:: console
+
+    $ pip install hdtable
+
+Explanation of columns
+======================
+
+The element of the specs specify the root object, you can use a dictionary
+with an empty ``keys`` array for HDTable to use the entire provided data
+object. This "column 0" is invisible and will not be printed.
+
+Each consecutive element in the specs list defines a column in the table,
+beginning with column 1. Each column respresents a domain of data.
+In the sample table, the domain of the first column is all the
+students in the class, which is a list.
+Each row in column 1 is the index of that student beginning with 1.
+The domain of the second column is each student's classes they are taking.
+No the student is not taking any class, the entry shows "N/A". Column 3
+represents the same data domain as column 2, which is the classes each student
+is taking, but it is in the form of string instead of index.
+
+The data domain of column 4 inherits not from column 1 but from the invisible
+column 0 (the root column). It lists all the teachers for that class in the
+form of indices.
+
+Data Source
+===========
+
+The data source can be a dictionary or list. All example data given here are
+in YAML format for readability.
+An example of a data source that contains information a class is in
+``tests/example_data.yml``.
+
+Column Specifications
+=====================
+
+Column specifications, or column specs,
+define the domain of data each column shows.
+Each spec is a Python dictionary that must contain a ``keys`` entry,
+and optionally, ``parent``,``dtype``, and ``header`` entries.
+The column specs that produced the sample table above is in
+``tests/specs/sample.yml``:
+
+.. code-block:: yaml
+
+    - keys: []
+    - keys: ["students"]
+      dtype: index
+      header: "Student #"
+    - keys: ["classes"]
+      dtype: index
+      parent: 1
+      header: "Class #"
+    - keys: []
+      parent: 2
+      header: Class Name
+    - keys: ["projects"]
+      parent: 1
+      dtype: key
+      header: Project Name
+    - keys: ["teachers"]
+      dtype: index
+      parent: 0
+      header: "Teacher #"
+    - keys: []
+      parent: 5
+      header: Teacher Name
+    - keys: ["mascot"]
+      header: Class Mascot
+
+
+.. table::
+
+    +-----------+----------+-------------------+--------------------------------------+
+    | Parameter | Required | Default           | Function                             |
+    +===========+==========+===================+======================================+
+    | keys      | Yes      | N/A               | The ``dict`` keys used to retrieve   |
+    |           |          |                   | data. A list of strings.             |
+    |           |          |                   | Can be empty.                        |
+    +-----------+----------+-------------------+--------------------------------------+
+    | parent    | No       | 0 (root)          | The parent column from which the     |
+    |           |          |                   | keys will be used to retrieve this   |
+    |           |          |                   | column's data                        |
+    +-----------+----------+-------------------+--------------------------------------+
+    | dtype     | No       | string            | The data type of that column.        |
+    |           |          |                   | Can be "index", "key", or "string".  |
+    +-----------+----------+-------------------+--------------------------------------+
+    | header    | No       | guessed from keys | The displayed header for that column |
+    +-----------+----------+-------------------+--------------------------------------+
+
+``dtype``
+---------
+
+``dtype`` defines the data format of a column.
+There are currently 3 possible types:
+
+- string: try to convert the object to a string
+- index: try to index the object if it is a dictionary or list.
+- key: displays the keys if the object is a dictionary.
+
+Anatomy
+=======
+
+::
+
+                               +--------+-------+
+                               | col 1  | col 2 | <─┬─ row height of ``col 2``
+                               +========+=======+ <─┘
+    row height of ``xyz`` ─┬─> | xyz    | abc   |
+                           ├─> |        +-------+
+                           ├─> |        | def   | <─── row 5 starting row of ``def``
+                           └─> +--------+-------+
+                                ││││││││
+                                └┴┴┼┴┴┴┘
+                                   width of column 0
+
+
