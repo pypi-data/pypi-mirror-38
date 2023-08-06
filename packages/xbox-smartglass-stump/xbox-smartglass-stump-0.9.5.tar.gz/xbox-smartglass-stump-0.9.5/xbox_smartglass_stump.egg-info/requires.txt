@@ -1,0 +1,10 @@
+xbox-smartglass-core>=1.0.12
+marshmallow-objects
+
+[dev]
+bumpversion
+watchdog
+coverage
+Sphinx
+wheel
+twine
