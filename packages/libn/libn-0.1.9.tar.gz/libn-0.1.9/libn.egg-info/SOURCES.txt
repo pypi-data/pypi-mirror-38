@@ -1,0 +1,10 @@
+README.md
+setup.py
+libn/__init__.py
+libn/ed25519_blake2b.py
+libn/work.c
+libn.egg-info/PKG-INFO
+libn.egg-info/SOURCES.txt
+libn.egg-info/dependency_links.txt
+libn.egg-info/requires.txt
+libn.egg-info/top_level.txt
