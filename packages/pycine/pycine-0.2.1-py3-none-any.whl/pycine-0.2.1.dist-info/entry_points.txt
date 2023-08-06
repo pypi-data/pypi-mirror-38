@@ -1,0 +1,4 @@
+[console_scripts]
+pfs_meta = pycine.cli.pfs_meta:cli
+pfs_raw = pycine.cli.pfs_raw:cli
+
