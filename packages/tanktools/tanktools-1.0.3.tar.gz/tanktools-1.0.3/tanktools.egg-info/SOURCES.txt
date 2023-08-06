@@ -1,0 +1,13 @@
+README.rst
+setup.cfg
+setup.py
+tanktools/__init__.py
+tanktools/_version.py
+tanktools/pcap2ammo.py
+tanktools/phout.py
+tanktools.egg-info/PKG-INFO
+tanktools.egg-info/SOURCES.txt
+tanktools.egg-info/dependency_links.txt
+tanktools.egg-info/entry_points.txt
+tanktools.egg-info/requires.txt
+tanktools.egg-info/top_level.txt
