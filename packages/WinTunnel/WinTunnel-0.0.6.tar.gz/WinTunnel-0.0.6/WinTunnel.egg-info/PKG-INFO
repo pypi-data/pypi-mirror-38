@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: WinTunnel
+Version: 0.0.6
+Summary: A tool for SMB file upload and WinRM command execution via an SSH tunnel.
+Home-page: https://github.com/shiftbreak/WinTunnel
+Author: ShiftBreak
+Author-email: shiftbreak.code@gmail.com
+License: MIT
+Description: 
+        # BastionProvisioner
+        A Python project to provision WinRM and SMB via an SSH tunnel
+        
+        ## Installation
+        To install from pip
+        > pip install wintunnel
+        
+        
+        
+        
+        
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Description-Content-Type: text/markdown
