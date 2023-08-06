@@ -1,0 +1,15 @@
+{
+    "get-package-id":{
+        "deviceIds":"",
+        "regionId":""
+    },
+    "get-large-screen-data":{
+        "region":"",
+        "industry":"",
+        "startDate":"",
+        "endDate":"",
+        "firstIndex":"",
+        "secondIndex":"",
+        "regionId":""
+    },
+}
