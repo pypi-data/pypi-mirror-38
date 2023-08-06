@@ -1,0 +1,3 @@
+[console_scripts]
+parse_http = pcaper.parse_http:main
+
