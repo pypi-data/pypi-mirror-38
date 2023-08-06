@@ -1,0 +1,3 @@
+[console_scripts]
+lunasync = lunasync.cli:main
+
