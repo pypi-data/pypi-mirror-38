@@ -1,0 +1,3 @@
+[gui_scripts]
+pyfgui = pyforms_generic_editor.__main__:start
+
