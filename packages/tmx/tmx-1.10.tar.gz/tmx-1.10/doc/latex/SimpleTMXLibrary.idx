@@ -1,0 +1,136 @@
+\indexentry{tmx (module)|hyperpage}{1}
+\indexentry{TileMap (class in tmx)|hyperpage}{3}
+\indexentry{version (tmx.TileMap attribute)|hyperpage}{3}
+\indexentry{orientation (tmx.TileMap attribute)|hyperpage}{3}
+\indexentry{renderorder (tmx.TileMap attribute)|hyperpage}{3}
+\indexentry{width (tmx.TileMap attribute)|hyperpage}{3}
+\indexentry{height (tmx.TileMap attribute)|hyperpage}{3}
+\indexentry{tilewidth (tmx.TileMap attribute)|hyperpage}{3}
+\indexentry{tileheight (tmx.TileMap attribute)|hyperpage}{3}
+\indexentry{staggeraxis (tmx.TileMap attribute)|hyperpage}{3}
+\indexentry{staggerindex (tmx.TileMap attribute)|hyperpage}{3}
+\indexentry{hexsidelength (tmx.TileMap attribute)|hyperpage}{3}
+\indexentry{backgroundcolor (tmx.TileMap attribute)|hyperpage}{3}
+\indexentry{nextobjectid (tmx.TileMap attribute)|hyperpage}{3}
+\indexentry{properties (tmx.TileMap attribute)|hyperpage}{3}
+\indexentry{tilesets (tmx.TileMap attribute)|hyperpage}{3}
+\indexentry{layers (tmx.TileMap attribute)|hyperpage}{3}
+\indexentry{layers\_list (tmx.TileMap attribute)|hyperpage}{4}
+\indexentry{load() (tmx.TileMap class method)|hyperpage}{4}
+\indexentry{save() (tmx.TileMap method)|hyperpage}{4}
+\indexentry{Color (class in tmx)|hyperpage}{5}
+\indexentry{red (tmx.Color attribute)|hyperpage}{5}
+\indexentry{green (tmx.Color attribute)|hyperpage}{5}
+\indexentry{blue (tmx.Color attribute)|hyperpage}{5}
+\indexentry{alpha (tmx.Color attribute)|hyperpage}{5}
+\indexentry{hex\_string (tmx.Color attribute)|hyperpage}{5}
+\indexentry{Image (class in tmx)|hyperpage}{5}
+\indexentry{format (tmx.Image attribute)|hyperpage}{5}
+\indexentry{source (tmx.Image attribute)|hyperpage}{5}
+\indexentry{trans (tmx.Image attribute)|hyperpage}{5}
+\indexentry{width (tmx.Image attribute)|hyperpage}{5}
+\indexentry{height (tmx.Image attribute)|hyperpage}{5}
+\indexentry{data (tmx.Image attribute)|hyperpage}{5}
+\indexentry{Text (class in tmx)|hyperpage}{5}
+\indexentry{text (tmx.Text attribute)|hyperpage}{6}
+\indexentry{fontfamily (tmx.Text attribute)|hyperpage}{6}
+\indexentry{pixelsize (tmx.Text attribute)|hyperpage}{6}
+\indexentry{wrap (tmx.Text attribute)|hyperpage}{6}
+\indexentry{color (tmx.Text attribute)|hyperpage}{6}
+\indexentry{bold (tmx.Text attribute)|hyperpage}{6}
+\indexentry{italic (tmx.Text attribute)|hyperpage}{6}
+\indexentry{underline (tmx.Text attribute)|hyperpage}{6}
+\indexentry{strikeout (tmx.Text attribute)|hyperpage}{6}
+\indexentry{kerning (tmx.Text attribute)|hyperpage}{6}
+\indexentry{halign (tmx.Text attribute)|hyperpage}{6}
+\indexentry{valign (tmx.Text attribute)|hyperpage}{6}
+\indexentry{ImageLayer (class in tmx)|hyperpage}{6}
+\indexentry{name (tmx.ImageLayer attribute)|hyperpage}{6}
+\indexentry{offsetx (tmx.ImageLayer attribute)|hyperpage}{6}
+\indexentry{offsety (tmx.ImageLayer attribute)|hyperpage}{6}
+\indexentry{opacity (tmx.ImageLayer attribute)|hyperpage}{6}
+\indexentry{visible (tmx.ImageLayer attribute)|hyperpage}{6}
+\indexentry{properties (tmx.ImageLayer attribute)|hyperpage}{6}
+\indexentry{image (tmx.ImageLayer attribute)|hyperpage}{6}
+\indexentry{Layer (class in tmx)|hyperpage}{6}
+\indexentry{name (tmx.Layer attribute)|hyperpage}{7}
+\indexentry{opacity (tmx.Layer attribute)|hyperpage}{7}
+\indexentry{visible (tmx.Layer attribute)|hyperpage}{7}
+\indexentry{offsetx (tmx.Layer attribute)|hyperpage}{7}
+\indexentry{offsety (tmx.Layer attribute)|hyperpage}{7}
+\indexentry{properties (tmx.Layer attribute)|hyperpage}{7}
+\indexentry{tiles (tmx.Layer attribute)|hyperpage}{7}
+\indexentry{LayerTile (class in tmx)|hyperpage}{7}
+\indexentry{gid (tmx.LayerTile attribute)|hyperpage}{7}
+\indexentry{hflip (tmx.LayerTile attribute)|hyperpage}{7}
+\indexentry{vflip (tmx.LayerTile attribute)|hyperpage}{7}
+\indexentry{dflip (tmx.LayerTile attribute)|hyperpage}{7}
+\indexentry{Object (class in tmx)|hyperpage}{7}
+\indexentry{id (tmx.Object attribute)|hyperpage}{7}
+\indexentry{name (tmx.Object attribute)|hyperpage}{7}
+\indexentry{type (tmx.Object attribute)|hyperpage}{7}
+\indexentry{x (tmx.Object attribute)|hyperpage}{7}
+\indexentry{y (tmx.Object attribute)|hyperpage}{7}
+\indexentry{width (tmx.Object attribute)|hyperpage}{7}
+\indexentry{height (tmx.Object attribute)|hyperpage}{7}
+\indexentry{rotation (tmx.Object attribute)|hyperpage}{8}
+\indexentry{gid (tmx.Object attribute)|hyperpage}{8}
+\indexentry{visible (tmx.Object attribute)|hyperpage}{8}
+\indexentry{properties (tmx.Object attribute)|hyperpage}{8}
+\indexentry{ellipse (tmx.Object attribute)|hyperpage}{8}
+\indexentry{polygon (tmx.Object attribute)|hyperpage}{8}
+\indexentry{polyline (tmx.Object attribute)|hyperpage}{8}
+\indexentry{text (tmx.Object attribute)|hyperpage}{8}
+\indexentry{ObjectGroup (class in tmx)|hyperpage}{8}
+\indexentry{name (tmx.ObjectGroup attribute)|hyperpage}{8}
+\indexentry{color (tmx.ObjectGroup attribute)|hyperpage}{8}
+\indexentry{opacity (tmx.ObjectGroup attribute)|hyperpage}{8}
+\indexentry{visible (tmx.ObjectGroup attribute)|hyperpage}{8}
+\indexentry{offsetx (tmx.ObjectGroup attribute)|hyperpage}{8}
+\indexentry{offsety (tmx.ObjectGroup attribute)|hyperpage}{8}
+\indexentry{draworder (tmx.ObjectGroup attribute)|hyperpage}{8}
+\indexentry{properties (tmx.ObjectGroup attribute)|hyperpage}{8}
+\indexentry{GroupLayer (class in tmx)|hyperpage}{8}
+\indexentry{name (tmx.GroupLayer attribute)|hyperpage}{8}
+\indexentry{offsetx (tmx.GroupLayer attribute)|hyperpage}{9}
+\indexentry{offsety (tmx.GroupLayer attribute)|hyperpage}{9}
+\indexentry{opacity (tmx.GroupLayer attribute)|hyperpage}{9}
+\indexentry{visible (tmx.GroupLayer attribute)|hyperpage}{9}
+\indexentry{properties (tmx.GroupLayer attribute)|hyperpage}{9}
+\indexentry{layers (tmx.GroupLayer attribute)|hyperpage}{9}
+\indexentry{Property (class in tmx)|hyperpage}{9}
+\indexentry{name (tmx.Property attribute)|hyperpage}{9}
+\indexentry{value (tmx.Property attribute)|hyperpage}{9}
+\indexentry{TerrainType (class in tmx)|hyperpage}{9}
+\indexentry{name (tmx.TerrainType attribute)|hyperpage}{9}
+\indexentry{tile (tmx.TerrainType attribute)|hyperpage}{9}
+\indexentry{properties (tmx.TerrainType attribute)|hyperpage}{9}
+\indexentry{Tile (class in tmx)|hyperpage}{9}
+\indexentry{id (tmx.Tile attribute)|hyperpage}{9}
+\indexentry{type (tmx.Tile attribute)|hyperpage}{9}
+\indexentry{terrain (tmx.Tile attribute)|hyperpage}{10}
+\indexentry{probability (tmx.Tile attribute)|hyperpage}{10}
+\indexentry{properties (tmx.Tile attribute)|hyperpage}{10}
+\indexentry{image (tmx.Tile attribute)|hyperpage}{10}
+\indexentry{animation (tmx.Tile attribute)|hyperpage}{10}
+\indexentry{Tileset (class in tmx)|hyperpage}{10}
+\indexentry{firstgid (tmx.Tileset attribute)|hyperpage}{10}
+\indexentry{name (tmx.Tileset attribute)|hyperpage}{10}
+\indexentry{tilewidth (tmx.Tileset attribute)|hyperpage}{10}
+\indexentry{tileheight (tmx.Tileset attribute)|hyperpage}{10}
+\indexentry{source (tmx.Tileset attribute)|hyperpage}{10}
+\indexentry{spacing (tmx.Tileset attribute)|hyperpage}{10}
+\indexentry{margin (tmx.Tileset attribute)|hyperpage}{10}
+\indexentry{xoffset (tmx.Tileset attribute)|hyperpage}{10}
+\indexentry{yoffset (tmx.Tileset attribute)|hyperpage}{10}
+\indexentry{tilecount (tmx.Tileset attribute)|hyperpage}{10}
+\indexentry{columns (tmx.Tileset attribute)|hyperpage}{10}
+\indexentry{properties (tmx.Tileset attribute)|hyperpage}{10}
+\indexentry{image (tmx.Tileset attribute)|hyperpage}{10}
+\indexentry{terraintypes (tmx.Tileset attribute)|hyperpage}{11}
+\indexentry{tiles (tmx.Tileset attribute)|hyperpage}{11}
+\indexentry{Frame (class in tmx)|hyperpage}{11}
+\indexentry{tileid (tmx.Frame attribute)|hyperpage}{11}
+\indexentry{duration (tmx.Frame attribute)|hyperpage}{11}
+\indexentry{data\_decode() (in module tmx)|hyperpage}{13}
+\indexentry{data\_encode() (in module tmx)|hyperpage}{13}
