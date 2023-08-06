@@ -1,0 +1,4 @@
+[console_scripts]
+pacifica-cart = pacifica.cartd.__main__:main
+pacifica-cart-cmd = pacifica.cartd.__main__:cmd
+
