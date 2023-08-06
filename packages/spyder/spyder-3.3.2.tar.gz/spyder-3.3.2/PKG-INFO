@@ -1,0 +1,48 @@
+Metadata-Version: 1.1
+Name: spyder
+Version: 3.3.2
+Summary: The Scientific Python Development Environment
+Home-page: https://www.spyder-ide.org/
+Author: The Spyder Project Contributors
+Author-email: spyderlib@googlegroups.com
+License: MIT
+Download-URL: https://www.spyder-ide.org/#fh5co-download
+Description: Spyder is a powerful scientific environment written in Python, for Python,
+        and designed by and for scientists, engineers and data analysts.
+        It features a unique combination of the advanced editing, analysis, debugging
+        and profiling functionality of a comprehensive development tool with the data
+        exploration, interactive execution, deep inspection and beautiful visualization
+        capabilities of a scientific package.
+        
+        Furthermore, Spyder offers built-in integration with many popular
+        scientific packages, including NumPy, SciPy, Pandas, IPython, QtConsole,
+        Matplotlib, SymPy, and more.
+        
+        Beyond its many built-in features, Spyder's abilities can be extended even
+        further via first- and third-party plugins.
+        
+        Spyder can also be used as a PyQt5 extension library, allowing you to build
+        upon its functionality and embed its components, such as the interactive
+        console or advanced editor, in your own software.
+        
+Keywords: PyQt5 editor console widgets IDE science data analysis IPython
+Platform: Windows
+Platform: Linux
+Platform: Mac OS-X
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Software Development :: Widget Sets
