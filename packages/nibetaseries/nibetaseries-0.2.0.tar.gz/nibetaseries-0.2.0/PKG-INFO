@@ -1,0 +1,143 @@
+Metadata-Version: 1.1
+Name: nibetaseries
+Version: 0.2.0
+Summary: BetaSeries Correlations implemented in Nipype
+Home-page: https://github.com/HBClab/NiBetaSeries
+Author: James Kent
+Author-email: james-kent@uiowa.edu
+License: MIT license
+Description: ============
+        NiBetaSeries
+        ============
+        
+        
+        
+        NiBetaSeries is `BIDS <http://bids.neuroimaging.io/>`_ compatible `application <https://bids-apps.neuroimaging.io/>`_
+        that calculates betaseries correlations.
+        In brief, a beta coefficient is calculated for each trial (or event) resulting in a series of betas
+        that can be used to correlate regions of interest with each other.
+        
+        NiBetaSeries takes preprocessed data as input that satisfy the
+        `BIDS deriviatives specification <http://bit.ly/2vKeKcp>`_.
+        In practical terms, NiBetaSeries uses the output of `fmriprep <http://fmriprep.readthedocs.io/en/latest/>`_,
+        a great BIDS compatible preprocessing tool.
+        NiBetaSeries requires the input and the atlas to already be in MNI space since currently no
+        transformations are applied to the data.
+        You can use any arbitrary atlas as long as it is in MNI space (the same space as the preprocessed data).
+        
+        With NiBetaSeries you can receive:
+        
+        * betaseries images (TODO)
+        * correlation matrices
+        
+        This is a very young project that still needs some tender loving care to grow.
+        That's where you fit in!
+        If you would like to contribute, please read our code of conduct and contributing page.
+        
+        This project heavily leverages `nipype <http://nipype.readthedocs.io/en/latest/>`_,
+        `nilearn <https://nilearn.github.io/>`_, `pybids <https://incf.github.io/pybids/>`_, and
+        `nistats <https://nistats.github.io/>`_ for development.
+        Please check out their pages and support the developers.
+        
+        
+        * Free software: MIT license
+        
+        Installation
+        ============
+        
+        ::
+        
+            pip install nibetaseries
+        
+        Documentation
+        =============
+        
+        https://NiBetaSeries.readthedocs.io/
+        
+        If you're interested in contributing to this project, here are some guidelines for `contributing <https://nibetaseries.readthedocs.io/en/latest/contributing.html>`_.
+        Another good place to start is by checking out the open `issues <https://github.com/HBClab/NiBetaSeries/issues>`_.
+        
+        Development
+        ===========
+        
+        To run the all tests run::
+        
+            tox
+        
+        Note, to combine the coverage data from all the tox environments run:
+        
+        .. list-table::
+            :widths: 10 90
+            :stub-columns: 1
+        
+            - - Windows
+              - ::
+        
+                    set PYTEST_ADDOPTS=--cov-append
+                    tox
+        
+            - - Other
+              - ::
+        
+                    PYTEST_ADDOPTS=--cov-append tox
+        
+        0.2.0 (November 13, 2018)
+        =========================
+        
+          * [MGT] simplify and create deployment (#79)
+          * [TST] Add more tests (#78)
+          * [ENH] Reword docs (#77)
+          * [ENH]: allow confounds to be none (#76)
+          * various fixes for a real dataset (#75)
+          * [FIX]: Find metadata (#74)
+          * [FIX] confound removal (#72)
+          * [WIP, FIX]: file logic (#71)
+          * [DOC] Added zenodo file (#70)
+          * [FIX]: ignore sourcedata and derivatives directories in layout (#69)
+          * Update CONTRIBUTING.rst (#66)
+          * Fix pull request template (#65)
+          * FIX: add CODEOWNERS file (#63)
+          * FIX: connect derivative outputs (#61)
+          * run versioneer install (#60)
+          * Fix issue #29: Add link to Zenodo DOI (#57)
+          * Fix issue #45: conform colors of labels (#56)
+          * fix links in readme.rst (#55)
+          * Added code of conduct (#53)
+          * Add link to contributing in README (#52)
+          * removed acknowledgments section of pull request template (#50)
+          * [TST]: Add functional test (#49)
+          * [FIX]: remove references to bootstrap (#48)
+          * FIX: test remove base .travis.yml (#47)
+          * removed data directory (#40)
+          * Add pull request template (#41)
+          * Update issue templates (#44)
+          * Update contributing (#43)
+          * README (where's the beef?) (#37)
+          * change jdkent to HBClab (#38)
+          * [FIX]: pass tests (#14)
+          * [ENH]: improve docs (#13)
+          * add documentation (#11)
+          * FIX: add graph (#10)
+          * Refactor NiBetaSeries (#9)
+          * Refactor (#2)
+        
+        
+        0.1.0 (2018-06-08)
+        ==================
+        
+        * First release on PyPI.
+        
+Keywords: bids,fmri,neuroimaging
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Unix
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Utilities
