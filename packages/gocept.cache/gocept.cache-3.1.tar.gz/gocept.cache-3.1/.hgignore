@@ -1,0 +1,25 @@
+syntax: glob
+
+*.cache
+*.egg-info
+*.pyc
+.Python
+.coverage
+.coverage.py*
+.installed.cfg
+.tox
+bin
+build
+coverage-report
+coverage.xml
+develop-eggs
+dist
+doc/_api
+eggs
+include/
+lib/
+local
+local.cfg
+parts
+report.xml
+testreport.xml
