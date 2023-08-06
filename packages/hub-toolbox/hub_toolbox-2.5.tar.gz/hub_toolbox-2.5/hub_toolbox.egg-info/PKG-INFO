@@ -1,0 +1,21 @@
+Metadata-Version: 1.2
+Name: hub-toolbox
+Version: 2.5
+Summary: Hubness reduction and analysis tools
+Home-page: https://github.com/OFAI/hub-toolbox-python3
+Author: Roman Feldbauer
+Author-email: roman.feldbauer@ofai.at
+Maintainer: Roman Feldbauer
+Maintainer-email: roman.feldbauer@ofai.at
+License: GNU GPLv3
+Description: UNKNOWN
+Keywords: machine learning,data science
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Scientific/Engineering
