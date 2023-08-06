@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: sappgen
+Version: 1.0.0
+Summary: sappgen
+Home-page: https://github.com/aayushuppal/sappgen
+Author: Aayush Uppal
+Author-email: aayuppal@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
+
+[![GitHub contributors](https://img.shields.io/github/contributors/aayushuppal/sappgen.svg)](https://github.com/aayushuppal/sappgen/graphs/contributors)
+[![Build Status](https://travis-ci.org/aayushuppal/sappgen.svg?branch=master)](https://travis-ci.org/aayushuppal/sappgen)
+
+# SAPPGEN
+
+Simple App Generator for Python
+
+Python `3.7`
+
+## Usage:
+    $ sappgen [options] <project_name> <app_name>
+    $ sappgen proj app
+
+## Available options are:
+    -h, --help         Show help
+
+## Contact
+
+- https://aayushuppal.github.io
+
+## Links
+
+- https://pypi.org/project/sappgen
+- https://github.com/aayushuppal/sappgen
+
+
