@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: digg7
+Version: 0.8
+Summary: Digital simulation library!
+Home-page: https://khanstark.github.io/DigiSim/
+Author: Kaif Khan,Pulak Sahoo,Tushar,Gaurav Singh
+Author-email: kaifkhan.khan0@gmail.com
+License: MIT
+Description: 
+        # Welcome to digisim!
+        
+        This is a minimalistic library for scalable simulation of complex combinational digital logic in python.
+        
+        For full python code visit [https://github.com/khanstark/DigiSim](https://github.com/khanstark/DigiSim).
+        
+        ## Prerequisites
+        
+        You need to install `tkinter` first to work with logic gates functionality of the library.
+        Install `tkinter` by using command below- 
+        
+        * `sudo apt-get install python-tk` - For ubuntu versions 16x and below.
+        * `sudo apt install python-tk` - For ubuntu versions 18x and above.
+        
+        To read documentation, visit [Homepage](https://khanstark.github.io/DigiSim/) of DigiSim.
+        
+Keywords: digital,electronics,logic gates,flip flops
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Description-Content-Type: text/markdown
