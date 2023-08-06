@@ -1,0 +1,13 @@
+README.md
+setup.cfg
+setup.py
+wagtail_clear_cache/__init__.py
+wagtail_clear_cache/apps.py
+wagtail_clear_cache/views.py
+wagtail_clear_cache/wagtail_hooks.py
+wagtail_clear_cache.egg-info/PKG-INFO
+wagtail_clear_cache.egg-info/SOURCES.txt
+wagtail_clear_cache.egg-info/dependency_links.txt
+wagtail_clear_cache.egg-info/requires.txt
+wagtail_clear_cache.egg-info/top_level.txt
+wagtail_clear_cache/migrations/__init__.py

@@ -1,0 +1,22 @@
+Metadata-Version: 1.1
+Name: wagtail_clear_cache
+Version: 0.0.1
+Summary: With the click of a button you can clear all Django Template Cache
+Home-page: https://github.com/KalobTaulien/wagtail_clear_cache
+Author: Kalob Taulien
+Author-email: kalob@kalob.io
+License: MIT
+Description: For installation instructions see https://github.com/KalobTaulien/wagtail_clear_cache
+Keywords: development
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Operating System :: OS Independent
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Wagtail
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
