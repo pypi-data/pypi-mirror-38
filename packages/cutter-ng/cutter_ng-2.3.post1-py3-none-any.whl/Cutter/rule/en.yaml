@@ -1,0 +1,116 @@
+# vim: expandtab shiftwidth=2 softtabstop=2
+#     ______________________________________ ______________________
+#     \                                     | (_)     (_)    (_)   \
+#      `.  http://pub.cl.uzh.ch/purl/cutter |  __________________   }
+#        `-.............................____|_(                  )_/
+#
+
+---
+en2:
+  - name: enclosing quotation marks (first level)
+    parts:
+      - \left
+      - ?<!: >-
+          [\pL\d‐-]
+      - enXqtA1: “
+      - \center: >-
+          [^”]+?
+      - +punct: >-
+          [.?!]+
+      - enXqtA2: ”
+      - ?!: >-
+          [\pL\d‐-]
+      - +EOS:
+      - _?
+      - \right
+
+  - name: enclosing quotation marks (first level)
+    parts:
+      - \left
+      - ?<!: >-
+          [\pL\d‐-]
+      - enXqtA1: “
+      - \center: >-
+          [^”]+?
+      - enXqtA2: ”
+      - ?!: >-
+          [\pL\d‐-]
+      - _?
+      - \right
+
+  - name: enclosing quotation marks (second level)
+    parts:
+      - \left
+      - ?<!: >-
+          [\pL\d‐-]
+      - enXqtB1: ‘
+      - \center: >-
+          [^’]+?
+      - +punct: >-
+          [.?!]+
+      - enXqtB2: ’
+      - ?!: >-
+          [\pL\d‐-]
+      - +EOS:
+      - _?
+      - \right
+
+  - name: enclosing quotation marks (second level)
+    parts:
+      - \left
+      - ?<!: >-
+          [\pL\d‐-]
+      - enXqtB1: ‘
+      - \center: >-
+          [^’]+?
+      - enXqtB2: ’
+      - ?!: >-
+          [\pL\d‐-]
+      - _?
+      - \right
+
+
+en4:
+  - name: contraction/elision
+    parts:
+      - \left
+      - ?<=: \pL
+      - enXct:
+        - "[’']s"
+        - "[’'][rv]e"
+        - "[’']d"
+        - "[’']e?m"
+        - "[’']ll"
+        - "n[’']t"
+        - >-
+          \pL+in[’']
+      - ?!: \pL
+      - _?
+      - \right
+
+  - name: possesive s (right)
+    parts:
+      - \left
+      - ?<=: '[\pL\d]'
+      - enXpo: "[’']s"
+      - ?!: \pL
+      - _?
+      - \right
+
+  - name: possesive s (left)
+    parts:
+      - \left
+      - ?<=: s
+      - enXps: "[’']"
+      - ?=: \p{Zs}
+      - _?
+      - \right
+
+  - name: parenthetical em-dash
+    parts:
+      - \left
+      - ?<=: \pL
+      - enXmd: —
+      - ?=: \pL
+      - \right
+

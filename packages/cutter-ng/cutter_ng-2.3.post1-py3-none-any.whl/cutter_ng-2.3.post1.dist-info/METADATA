@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: cutter-ng
+Version: 2.3.post1
+Summary: Cutter is rule-based multilingual tokenizer that can be adapted to particular text types.
+Home-page: http://pub.cl.uzh.ch/purl/cutter
+Author: Johannes Graën
+Author-email: graen@cl.uzh.ch
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU Library or Lesser General Public License (LGPL)
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+# Cutter
+
+see https://pub.cl.uzh.ch/wiki/public/cutter/
+
+
