@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: cpen
+Version: 0.1.2
+Summary: Hacky Downloader for Codepens
+Home-page: https://github.com/kajchang/CodePen-Downloader
+Author: Kai Chang
+Author-email: kaijchang@gmail.com
+License: MIT
+Description: # CodePen Downloader
+        
+        A hacky downloader for [codepen.io](https://codepen.io). Uses requests and bs4 to extract relevant data and jinja2 to construct local copies.
+        
+        Really basic, currently doesn't handle any compiling, preprocessing, etc.
+        
+        ## Usage
+        
+        `pip install cpen`
+        
+        `cpen <url> <target folder>`
+        
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Description-Content-Type: text/markdown
