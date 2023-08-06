@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: match-arrays
+Version: 0.0.1
+Summary: Matching of Numpy arrays
+Home-page: https://github.com/moi90/match_arrays
+Author: Simon-Martin Schröder
+Author-email: martin.schroeder@nerdluecht.de
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+
+# Match Arrays
+
+`match_arrays` lets you match the values of two NumPy arrays:
+
+```python
+a = np.arange(100)
+b = np.random.permutation(a)
+idx_a, idx_b = match_arrays(a, b)
+assert(np.all(a[idx_a] == b[idx_b]))
+```
+
+This allows you to perform a database-like join on NumPy arrays.
+
