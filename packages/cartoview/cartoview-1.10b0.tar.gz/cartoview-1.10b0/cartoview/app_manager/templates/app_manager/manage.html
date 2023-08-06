@@ -1,0 +1,182 @@
+{% extends "app_manager/app_install_base.html" %}
+{% load bootstrap_tags staticfiles%}
+{% load i18n avatar_tags cartoview_tags %}
+
+
+{% block title %} {% trans "Install App" %} - {{ block.super }} {% endblock %}
+
+{% block body_class %}appinstances appinstances-list explore{% endblock body_class %}
+{% block head %}
+
+    {{ block.super }}
+    <link href="{% static 'app_manager/css/manager.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+
+
+<div class="col-md-10 col-md-offset-1 manager-ct" ng-app="cartoview.appManager.manager">
+    <cartoview-app-manager></cartoview-app-manager>
+    <cartoview-app-installer></cartoview-app-installer>
+
+    <script type="text/ng-template" id="confirm-dialog.html">
+        <div class="modal-header">
+            <h4 class="modal-title">{% verbatim %}{{options.title}}{% endverbatim %}</h4>
+        </div>
+        <div class="modal-body">
+            <div dynamic-template template="options.template" context="options"></div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="ok()">{% verbatim %}{{options.okText}}{% endverbatim %}</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">{% trans 'Cancel' %}</button>
+        </div>
+    </script>
+    <script type="text/ng-template" id="app-installer.html">
+        <div>
+            <div class="alert alert-danger">
+                <h4><span class="fa fa-exclamation-triangle"></span> Warning!</h4>
+                Please note that the web server will be restarted after installing
+                or uninstalling any application.
+            </div>
+            <div class="restart-msg" ng-show="restarting">
+                <div class="centered alert alert-danger">
+                    <i class="fa fa-refresh rotating"></i> Restarting Server, Please Wait...
+                </div>
+
+            </div>
+            {% verbatim %}
+            <div ng-repeat="appMessage in appsErrors" ng-show="appsErrors.length > 0">
+                <div class="centered alert alert-{{appMessage.type}}">
+                    {{appMessage.msg}}
+                </div>
+            </div>
+            {% endverbatim %}
+            <div class="form-group" ng-show="stores.objects.length > 1">
+                <label>{% trans "Store" %}</label>
+                <select class="form-control"
+                        ng-model="selectedStoreId"
+                        ng-options="store.id as store.name for store in stores.objects">
+                </select>
+            </div>
+            <div ng-if="!loading && !storeError"  class="row manager-actions">
+                <a ng-click="restart()" class="btn btn-danger manager-actions-btn ">Restart Server</a>
+                <a ng-click="reorder()" class="btn btn-primary manager-actions-btn ">Reorder Installed Apps</a>
+            </div>
+            <div  class="input-group search-box">
+                <input type="text" ng-disabled="loading || storeError" class="form-control" ng-model="search_term" placeholder="Search for an App" aria-describedby="basic-addon2">
+                <span class="input-group-addon" id="basic-addon2">Search</span>
+            </div>
+            <div ng-if="loading && !storeError" class="row text-center loading-center ">
+                <div class="col-md-12 loading-center">
+                    <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+            <div ng-if="!loading && storeError" class="row text-center">
+                <div class="col-md-12">
+                    <h3 class="text-danger">Cannot Connect to App Market</h3>
+                </div>
+            </div>
+            <div class="cards-container">
+                    {% verbatim %}
+                    <div class="card-continer" ng-repeat="app in getSelectedStore().apps.objects | filter:{title:search_term}:strict">
+                    <div class="card card-app">
+                        <div class="card-img">
+                            <a href="#">
+                            <img ng-src="{{app.latest_version.logo}}" class="card-inner-img">
+                            <div class="card-caption">
+                                <span class="label label-warning">Status: {{app.status}}</span>
+                            </div>
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <div class="lead">{{ app.title }}</div>
+                            <a href="javascript:;" uib-popover="{{app.description}}" popover-trigger="'mouseenter'" popover-title="Description" popover-placement="bottom" class="details">
+                            {{app.description}}
+                            </a>
+                            <table class="table">
+                            <thead>
+                                <tr>
+                                    <th style="text-align:center" colspan="2">Details</th>
+                                </tr>
+                            </thead>
+                            <tr ng-show="app.installedApp"><td>Installed Version</td><td class="text-highlight">{{ app.installedApp.version }}</td></tr>
+                            <tr style="text-align:center" ng-show="!app.installedApp"><td colspan="2">Not Installed</td></tr>
+                            <tr><td>Latest Version</td><td class="text-highlight">{{ app.latest_version.version }}</td></tr>
+                            <tr><td>Downloads</td><td class="text-highlight">{{ app.downloads }}</td></tr>
+                            <tr><td>Rating</td><td class="text-highlight">{{ app.stars }}/5</td></tr>
+                            <tr style="text-align:center"><td colspan="2" class="note">{{app.type.join(', ')}}</td></tr>
+                            </table>
+                            <div class="card-actions">
+                                <button ng-disabled="!compatible(app.latest_version.cartoview_version)" ng-if="!app.installedApp" ng-click="install(app)" class="btn btn-sm btn-primary" ng-disabled="installing">
+                                        <div ng-if="compatible(app.latest_version.cartoview_version)">
+                                            <span class="fa fa-circle-o-notch rotating" ng-show="installing==app"></span>
+                                            Install<span ng-show="installing==app">ing</span>
+                                        </div>
+                                        <small ng-show="!compatible(app.latest_version.cartoview_version)">Incompatible</small>
+                                    </button>
+                                    <button ng-disabled="!compatible(app.latest_version.cartoview_version)"  ng-if="app.installedApp && upgradable(app.installedApp.version,app.latest_version.version)" ng-click="install(app, true)" class="btn btn-sm btn-primary" ng-disabled="installing">
+                                        <div ng-if="compatible(app.latest_version.cartoview_version)">
+                                            <span class="fa fa-circle-o-notch rotating" ng-show="installing==app"></span>
+                                            <span ng-show="installing!=app">Upgrade</span><span ng-show="installing==app">Upgrading</span>
+                                        </div>
+                                        <small ng-show="!compatible(app.latest_version.cartoview_version)">Incompatible</small>
+                                    </button>
+                                    <button ng-if="app.installedApp" ng-click="uninstall(app)" class="btn btn-sm btn-danger"  ng-disabled="installing">
+                                        <span class="fa fa-circle-o-notch rotating" ng-show="installing==app"></span>
+                                        UnInstall<span ng-show="installing==app">ing</span>
+                                    </button>
+                    
+                                    <button ng-if="app.installedApp" ng-click="toggleActive(app)" class="btn btn-sm btn-warning">
+                                        <span ng-show="app.installedApp.active">Suspend</span>
+                                        <span ng-show="!app.installedApp.active">Activate</span>
+                                    </button>
+                            </div>
+                        </div>
+                    </div>
+                    {% endverbatim %}
+            </div>
+        </div>
+
+    </script>
+    <script type="text/ng-template" id="apps-reorder.html">
+        <label>Drag and drop items to reorder</label>
+        <div class="apps-reorder-list">
+            <ul dnd-list="installedApps">
+                <li ng-repeat="app in installedApps"
+                    dnd-draggable="app"
+                    ng-if="app.active"
+                    dnd-moved="installedApps.splice($index, 1)"
+                    dnd-effect-allowed="move"
+                    dnd-selected="models.selected = app"
+                    ng-class="{'selected': models.selected === app}">
+                    {% verbatim %}{{app.title}}{% endverbatim %}
+                </li>
+            </ul>
+        </div>
+    </script>
+
+</div>
+
+<!-- load angularjs here before loading angular from geonode/assets.js-->
+<script type="text/javascript" src='{{ STATIC_URL }}app_manager/vendor/angular/angular.min.js'></script>
+{% endblock %}
+
+
+
+{% block extra_script %}
+    {{ block.super }}
+    <script>
+        const versionInfo={{version_info|dump_json}}
+    </script>
+    <script type="text/javascript" src="{{ STATIC_URL }}compare-versions/index.js"></script>
+    <script type="text/javascript" src="{% url 'check_version' %}"></script>
+    <script type="text/javascript" src='{{ STATIC_URL }}app_manager/vendor/angular-bootstrap/ui-bootstrap-tpls.min.js'></script>
+    <script type="text/javascript" src='{{ STATIC_URL }}app_manager/vendor/angular-aria/angular-aria.min.js'></script>
+    {% include "app_manager/dynamic_scripts.html" %}
+
+    <script src="{{ STATIC_URL }}app_manager/vendor/angular-resource/angular-resource.min.js"></script>
+    <script src="{{ STATIC_URL }}app_manager/vendor/angular-drag-and-drop-lists/angular-drag-and-drop-lists.min.js"></script>
+    <script src="{{ STATIC_URL }}app_manager/js/resources.js"></script>
+    <script src="{{ STATIC_URL }}app_manager/js/manager.js"></script>
+{% endblock %}
