@@ -1,0 +1,15 @@
+empatican/__init__.py,sha256=Qy8NGImYjekt5uxl34iWCB4HEHnI1ioMTfIrfzYBs3U,214
+empatican/cli.py,sha256=5zxKkx_rVFfI1B_G_HO_W-XRI6g_-Yvcq2S0DBNm2WI,3181
+empatican/interface/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+empatican/interface/connect.py,sha256=n43SXmzRvmS961vbscRaRILakdlqKHbjFol50naeFOA,14063
+empatican/physio/__init__.py,sha256=VBx9szyjRzRVOTrleeBrCt04-M5OvmRARC0hq0jBwwc,71
+empatican/physio/e4.py,sha256=49UXjGiXjSoPzm3wiNEG7EohAPMz6AgH0CwMm23TxU8,23911
+empatican-0.0.4.dist-info/METADATA,sha256=lsfAiCoPrxmSMYy6nnu_jRsCyUNIHiYAcUj9lOMfhTM,470
+empatican-0.0.4.dist-info/RECORD,,
+empatican-0.0.4.dist-info/WHEEL,sha256=NzFAKnL7g-U64xnS1s5e3mJnxKpOTeOtlXdFwS9yNXI,92
+empatican-0.0.4.dist-info/entry_points.txt,sha256=ge5G9xXp4nClT44WAy9Fut8Xs8N2DNAXFAz3uOO9mtg,50
+empatican-0.0.4.dist-info/top_level.txt,sha256=gJtm6DUVdNMqlLuHz58Qlb06_6slFDs7hnxw_05XHOU,15
+empatican-0.0.4.dist-info/zip-safe,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+test/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+test/test_connect.py,sha256=n1RY972mrg9wCEHgY7H7Y6eHKAnpp26Pa_oAQY0wHxQ,3465
+test/test_e4.py,sha256=1Ia-S5IQtadXlbCGx3Rcm3PjKEat4XcOgZYQZAyKnBQ,14437
