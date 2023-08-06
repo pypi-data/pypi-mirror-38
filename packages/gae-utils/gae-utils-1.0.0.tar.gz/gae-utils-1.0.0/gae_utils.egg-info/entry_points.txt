@@ -1,0 +1,3 @@
+[console_scripts]
+gae-link-libs = gae.link_libs.__main__:main
+
