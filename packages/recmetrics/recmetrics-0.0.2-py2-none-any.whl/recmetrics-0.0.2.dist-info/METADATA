@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: recmetrics
+Version: 0.0.2
+Summary: Evaluation metrics for recommender systems
+Home-page: https://github.com/statisticianinstilettos/recommender_metrics
+Author: Claire Longo
+Author-email: longoclaire@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: scikit-learn
+Requires-Dist: seaborn
+
+UNKNOWN
+
+
