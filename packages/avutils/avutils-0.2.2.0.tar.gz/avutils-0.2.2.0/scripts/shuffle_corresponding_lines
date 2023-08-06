@@ -1,0 +1,39 @@
+#!/usr/bin/env python
+from __future__ import division
+from __future__ import print_function
+from __future__ import absolute_import
+from avutils import file_processing as fp
+from avutils import util
+
+
+def shuffle_corresponding_lines(options):
+    import numpy as np
+    import random
+    np.random.seed(options.seed)
+    random.seed(options.seed)
+
+    arrays_of_lines = [fp.read_rows_into_arr(
+        fp.get_file_handle(file_name)) for file_name in options.file_names]
+    if (options.ignore_title):
+        titles = [[x[0]] for x in arrays_of_lines]
+        shuffled_arrays = util.shuffle_arrays(
+            [x[1:] for x in arrays_of_lines], copy_on_shuffle=False)
+        shuffled_arrays = [x+y for x,y in zip(titles, shuffled_arrays)]
+    else:
+        shuffled_arrays = util.shuffle_arrays(arrays_of_lines,
+                                           copy_on_shuffle=False)
+    for shuffled_array, file_name in zip(shuffled_arrays, options.file_names):
+        shuffled_file_name = util.get_file_name_parts(file_name)\
+                                .get_transformed_file_path(
+                                  transformation=lambda x: "shuffled_"+x)
+        fp.write_to_file(shuffled_file_name, "\n".join(shuffled_array)) 
+     
+
+if __name__ == "__main__":
+    import argparse;
+    parser = argparse.ArgumentParser("Shuffle lines of files correspondingly")
+    parser.add_argument("file_names", nargs="+") 
+    parser.add_argument("--ignore_title", action="store_true") 
+    parser.add_argument("--seed", type=int, default=1234) 
+    options = parser.parse_args()
+    shuffle_corresponding_lines(options)
