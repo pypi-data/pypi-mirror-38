@@ -1,0 +1,5 @@
+pytest-cov
+pytest
+simplejson
+SimpleSQLite>=0.33.1
+tox
