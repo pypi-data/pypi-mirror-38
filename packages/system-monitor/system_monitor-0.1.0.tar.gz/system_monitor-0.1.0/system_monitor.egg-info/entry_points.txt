@@ -1,0 +1,3 @@
+[console_scripts]
+system_monitor = system_monitor.cli:main
+
