@@ -1,0 +1,22 @@
+parser:
+  prog: 'Clifier Example'
+  description: Example for Clifier
+
+commands:
+   - keys: ['-v', '--version']
+     help: "show Clifier Example version"
+     action: show_version()
+     default: True
+
+subparsers:
+  play:
+    - keys: ['game']
+      help: Write a name of the gave, what you want to play
+
+    - keys: ['-c', '--count']
+      help: Put number how much times you want to play
+      default: 2
+
+  sleep:
+    - keys: ['-t', '--time']
+      help: Put how much second you want to sleep
