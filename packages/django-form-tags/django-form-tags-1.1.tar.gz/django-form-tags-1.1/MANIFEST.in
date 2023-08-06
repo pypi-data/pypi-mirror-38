@@ -1,0 +1,6 @@
+include LICENSE.txt
+include MANIFEST.in
+include README.rst
+graft form_tags
+global-exclude __pycache__
+global-exclude *.py[co]

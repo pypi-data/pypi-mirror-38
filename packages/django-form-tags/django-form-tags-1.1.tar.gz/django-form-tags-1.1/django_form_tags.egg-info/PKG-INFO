@@ -1,0 +1,60 @@
+Metadata-Version: 1.1
+Name: django-form-tags
+Version: 1.1
+Summary: Django templatetags to easily render fieldholders, fieldwrappers and fields.
+Home-page: https://gitlab.com/mediamoose/django-form-tags/tree/v1.1
+Author: Sven Groot (Mediamoose)
+Author-email: sven@mediamoose.nl
+License: MIT
+Download-URL: https://gitlab.com/mediamoose/django-form-tags/repository/v1.1/archive.tar.gz
+Description: Django form tags
+        ================
+        
+        .. image:: https://badge.fury.io/py/django-form-tags.png
+            :target: https://badge.fury.io/py/django-form-tags
+        
+        Django templatetags to easily render fieldholders, fieldwrappers and fields.
+        
+        Documentation
+        +++++++++++++
+        
+        The full documentation is at https://django-form-tags.readthedocs.org.
+        
+        Installation
+        ++++++++++++
+        
+        .. code-block:: sh
+        
+            pip install django-form-tags
+        
+        
+        Usage
+        +++++
+        
+        .. code-block:: python
+        
+                INSTALLED_APPS = (
+                    # ...
+                    'form_tags',
+                    # ...
+                )
+        
+        
+        .. code-block:: html
+        
+            {% load forms %}
+        
+Keywords: forms,templatetags,django
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 1.11
+Classifier: Framework :: Django :: 2.0
+Classifier: Framework :: Django :: 2.1
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
