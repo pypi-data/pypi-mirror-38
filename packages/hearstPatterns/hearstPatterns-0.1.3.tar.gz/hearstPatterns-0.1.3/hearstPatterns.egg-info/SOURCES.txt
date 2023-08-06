@@ -1,0 +1,11 @@
+README.md
+setup.py
+hearstPatterns/__init__.py
+hearstPatterns/hearstPatterns.py
+hearstPatterns.egg-info/PKG-INFO
+hearstPatterns.egg-info/SOURCES.txt
+hearstPatterns.egg-info/dependency_links.txt
+hearstPatterns.egg-info/requires.txt
+hearstPatterns.egg-info/top_level.txt
+hearstPatterns/test/__init__.py
+hearstPatterns/test/test_hearstPatterns.py
