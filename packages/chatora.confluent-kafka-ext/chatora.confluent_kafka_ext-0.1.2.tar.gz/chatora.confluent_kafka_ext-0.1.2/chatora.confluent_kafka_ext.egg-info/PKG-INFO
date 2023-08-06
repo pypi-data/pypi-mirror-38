@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: chatora.confluent-kafka-ext
+Version: 0.1.2
+Summary: Apache Kafka and Schema Registry client libraries for Python on top of confluent-kafka-python.
+Home-page: https://github.com/takaomag/chatora.confluent_kafka_ext
+Author: Takao Magoori
+Author-email: takaomag@users.noreply.github.com
+Maintainer: Takao Magoori
+Maintainer-email: takaomag@users.noreply.github.com
+License: MIT
+Download-URL: https://github.com/takaomag/chatora.confluent_kafka_ext/releases
+Project-URL: source code, https://github.com/takaomag/chatora.confluent_kafka_ext
+Project-URL: issues, https://github.com/takaomag/chatora.confluent_kafka_ext/issues
+Project-URL: documentation, https://github.com/takaomag/chatora.confluent_kafka_ext/blob/master/README.md
+Description: chatora.confluent_kafka_ext
+        ===========================
+        
+        Apache Kafka and Schema Registry client libraries for Python on top of confluent-kafka-python.
+        
+        
+        Changelog
+        =========
+        
+        0.1 (2018-11-07)
+        ------------------
+        - Birth!
+        
+        0.1.1 (2018-11-1)
+        ------------------
+        - fix loading file-like obj and add iter-loading multiple schema.
+        
+        0.1.2 (2018-11-1)
+        ------------------
+        - fix required urllib3 version.
+Keywords: Kafka,Confluent Platform,Schema Registry,Avro
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Other Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Provides-Extra: dev
