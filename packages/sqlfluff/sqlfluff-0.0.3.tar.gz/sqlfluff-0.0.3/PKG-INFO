@@ -1,0 +1,83 @@
+Metadata-Version: 1.1
+Name: sqlfluff
+Version: 0.0.3
+Summary: Modular SQL Linting for Humans
+Home-page: https://github.com/alanmcruickshank/sqlfluff
+Author: Alan Cruickshank
+Author-email: alan@designingoverload.com
+License: MIT License
+Description: # SqlFluff
+        ## The SQL Linter for humans
+        
+        [![image](https://img.shields.io/pypi/v/sqlfluff.svg)](https://pypi.org/project/sqlfluff/)
+        [![image](https://img.shields.io/pypi/l/sqlfluff.svg)](https://pypi.org/project/sqlfluff/)
+        [![image](https://img.shields.io/pypi/pyversions/sqlfluff.svg)](https://pypi.org/project/sqlfluff/)
+        [![codecov](https://codecov.io/gh/alanmcruickshank/sqlfluff/branch/master/graph/badge.svg)](https://codecov.io/gh/alanmcruickshank/sqlfluff)
+        [![CircleCI](https://circleci.com/gh/alanmcruickshank/sqlfluff/tree/master.svg?style=svg)](https://circleci.com/gh/alanmcruickshank/sqlfluff/tree/master)
+        
+        
+        Bored of not having a good SQL linter that works with whichever dialiect you're
+        working with? Fluff is an extensible and modular linter designed to help you write
+        good SQL and catch errors and bad SQL before it hits your database.
+        
+        # TODO
+        
+        - Basic ANSI linting
+        - MySQL 
+        - Redshift
+        - Detecting dialect from a config file of some kind
+        
+        
+        # Changelog
+        All notable changes to this project will be documented in this file.
+        
+        The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+        and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+        
+        ## [Unreleased]
+        
+        ## [0.0.3] - 2018-11-14
+        ### Added
+        - Refactor of rules to allow rules with memory
+        - Adding comma linting rules (correcting the single character matchers)
+        - Adding mixed indentation linting rules
+        - Integration with CircleCI, CodeCov and lots of badges
+        
+        ### Changed
+        - Changed import of version information to fix bug with importing config.ini
+        - Added basic violations/file reporting for some verbosities
+        - Refactor of rules to simplify definition
+        - Refactor of color cli output to make it more reusable
+        
+        ## [0.0.2] - 2018-11-09
+        ### Added
+        - Longer project description
+        - Proper exit codes
+        - colorama for colored output
+        
+        ### Changed
+        - Significant CLI changes
+        - Much improved output from CLI
+        
+        ## [0.0.1] - 2018-11-07
+        ### Added
+        - Initial Commit! - VERY ALPHA
+        - Restructure into [package layout](https://blog.ionelmc.ro/2014/05/25/python-packaging/#the-structure)
+        - Adding Tox and Pytest so that they work
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Unix
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Utilities
