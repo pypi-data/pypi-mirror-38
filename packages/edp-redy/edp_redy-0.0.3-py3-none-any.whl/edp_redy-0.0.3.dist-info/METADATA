@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: edp-redy
+Version: 0.0.3
+Summary: Unofficial python module for EDP re:dy
+Home-page: https://github.com/abmantis/edo_redy_py.git
+Author: Abílio Costa
+Author-email: amfcalt@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: aiohttp
+Requires-Dist: async-timeout
+Requires-Dist: datetime
+
+UNKNOWN
+
+
