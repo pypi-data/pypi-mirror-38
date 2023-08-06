@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: voctokey
+Version: 0.0.1
+Summary: Keyboard control for voctocore
+Home-page: http://github.com/mre/voctokey
+Author: Matthias Endler
+Author-email: matthias-endler@gmx.net
+License: Apache
+Keywords: keyboard shortcut
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Topic :: Utilities
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Requires-Dist: keyboard
+Requires-Dist: anyconfig
+Requires-Dist: toml
+
+UNKNOWN
+
+
