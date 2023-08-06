@@ -1,0 +1,9 @@
+from {{service}}.models.{{service}} import {{service|capitalize}}
+from reliabilly.settings import Settings
+from reliabilly.controllers.data_controller import DataController
+
+
+class {{service|capitalize}}Controller(DataController):
+    name = Settings.SERVICE_NAME
+    model = {{service|capitalize}}()
+
