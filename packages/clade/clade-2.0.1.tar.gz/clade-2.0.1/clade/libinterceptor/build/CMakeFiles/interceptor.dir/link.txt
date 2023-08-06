@@ -1,0 +1,1 @@
+/Library/Developer/CommandLineTools/usr/bin/cc  -dynamiclib -Wl,-headerpad_max_install_names  -o libinterceptor.dylib -install_name @rpath/libinterceptor.dylib CMakeFiles/interceptor.dir/interceptor.c.o libwhich.a libdata.a libenv.a libwhich.a 

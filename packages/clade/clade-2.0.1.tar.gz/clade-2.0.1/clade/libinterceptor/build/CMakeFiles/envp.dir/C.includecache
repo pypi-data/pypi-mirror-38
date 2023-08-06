@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/siddhartha/work/git/clade/clade/libinterceptor/envp.c
+sys/file.h
+-
+stdlib.h
+-
+string.h
+-
+stdio.h
+-
+envp.h
+/Users/siddhartha/work/git/clade/clade/libinterceptor/envp.h
+
+/Users/siddhartha/work/git/clade/clade/libinterceptor/envp.h
+

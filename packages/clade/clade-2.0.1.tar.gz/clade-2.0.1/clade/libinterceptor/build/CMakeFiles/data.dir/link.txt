@@ -1,0 +1,2 @@
+/Library/Developer/CommandLineTools/usr/bin/ar qc libdata.a  CMakeFiles/data.dir/data.c.o
+/Library/Developer/CommandLineTools/usr/bin/ranlib libdata.a

@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/siddhartha/work/git/clade/clade/libinterceptor/data.h
+
+/Users/siddhartha/work/git/clade/clade/libinterceptor/which.h
+
+/Users/siddhartha/work/git/clade/clade/libinterceptor/wrapper.c
+libgen.h
+-
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+unistd.h
+-
+data.h
+/Users/siddhartha/work/git/clade/clade/libinterceptor/data.h
+which.h
+/Users/siddhartha/work/git/clade/clade/libinterceptor/which.h
+

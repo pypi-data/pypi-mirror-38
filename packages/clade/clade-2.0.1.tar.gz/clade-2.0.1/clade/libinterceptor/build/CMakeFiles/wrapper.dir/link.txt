@@ -1,0 +1,1 @@
+/Library/Developer/CommandLineTools/usr/bin/cc  -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/wrapper.dir/wrapper.c.o  -o wrapper libwhich.a libdata.a libenv.a libwhich.a 
