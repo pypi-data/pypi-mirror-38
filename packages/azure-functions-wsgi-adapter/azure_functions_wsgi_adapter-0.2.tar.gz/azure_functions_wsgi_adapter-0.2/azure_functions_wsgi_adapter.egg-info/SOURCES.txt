@@ -1,0 +1,11 @@
+README.md
+setup.py
+azure_functions_wsgi_adapter.egg-info/PKG-INFO
+azure_functions_wsgi_adapter.egg-info/SOURCES.txt
+azure_functions_wsgi_adapter.egg-info/dependency_links.txt
+azure_functions_wsgi_adapter.egg-info/not-zip-safe
+azure_functions_wsgi_adapter.egg-info/top_level.txt
+wsgi_adapter/__init__.py
+wsgi_adapter/handler.py
+wsgi_adapter/request.py
+wsgi_adapter/response.py
