@@ -1,0 +1,3 @@
+[console_scripts]
+emopack = slack_emopack.bin:run
+
