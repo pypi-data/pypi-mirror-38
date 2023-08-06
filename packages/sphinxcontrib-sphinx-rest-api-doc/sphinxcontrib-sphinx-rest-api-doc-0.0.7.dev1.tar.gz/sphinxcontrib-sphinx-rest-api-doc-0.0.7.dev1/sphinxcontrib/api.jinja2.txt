@@ -1,0 +1,44 @@
+{{ context.title|safe }}
+------------------------
+
+{{ context.desc|safe }}
+
+{% for http_method,http_desc in context.method.items() %}
+.. http:{{ http_method |safe }}:: {{ http_desc.path|safe }}
+
+   {{http_desc.desc|indent(3)}}
+
+   **{{base.request_example_title}}**:
+
+   .. sourcecode:: http
+
+      {{http_method|upper}} {{ http_desc.path|safe }}  HTTP/1.1
+      Host: {{base.http_domain}}
+      Accept: application/json, text/javascript
+      {% if http_method.upper() == 'POST' or  http_method.upper() == 'PUT' %}
+      {{http_desc.request|indent(6)}}
+      {%endif%}
+
+    **{{base.response_example_title}}**:
+
+   .. sourcecode:: http
+
+      HTTP/1.1 200 OK
+      Vary: Accept
+      Content-Type: text/javascript
+
+      {{http_desc.response|indent(6)}}
+
+   {%for param_name,desc in http_desc.params.items() %}
+   :query {{param_name}}: {{desc|safe}}
+   {%endfor%}
+
+   {%for header_name,desc in http_desc.headers.items() %}
+   :reqheader {{header_name}}: {{desc|safe}}
+   {%endfor%}
+
+   {%for header_name,desc in http_desc.codes.items() %}
+   :statuscode {{header_name}}: {{desc|safe}}
+   {%endfor%}
+
+{% endfor %}
