@@ -1,0 +1,14 @@
+README.md
+setup.py
+repomate_plug/__init__.py
+repomate_plug/__version.py
+repomate_plug/corehooks.py
+repomate_plug/exception.py
+repomate_plug/exthooks.py
+repomate_plug/pluginmeta.py
+repomate_plug/util.py
+repomate_plug.egg-info/PKG-INFO
+repomate_plug.egg-info/SOURCES.txt
+repomate_plug.egg-info/dependency_links.txt
+repomate_plug.egg-info/requires.txt
+repomate_plug.egg-info/top_level.txt

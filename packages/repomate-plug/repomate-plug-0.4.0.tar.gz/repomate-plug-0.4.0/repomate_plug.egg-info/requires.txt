@@ -1,0 +1,6 @@
+pluggy
+
+[TEST]
+pytest
+pytest-cov
+codecov
