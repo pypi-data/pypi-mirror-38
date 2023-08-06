@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: indico-plugin-storage-s3
+Version: 2.0.3
+Summary: S3 storage backend for Indico
+Home-page: https://github.com/indico/indico-plugins
+Author: Indico Team
+Author-email: indico-team@cern.ch
+License: https://www.gnu.org/licenses/gpl-3.0.txt
+Platform: a
+Platform: n
+Platform: y
+Classifier: Environment :: Plugins
+Classifier: Environment :: Web Environment
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 2.7
+Requires-Dist: indico (>=2.1)
+Requires-Dist: boto3 (<2.0,>=1.9.35)
+
+UNKNOWN
+
+
