@@ -1,0 +1,66 @@
+CHANGES
+=======
+
+* first xpath plugin version
+* add more comment about xpath plugin
+* add xpath plugin
+
+0.1.4
+-----
+
+* update install method
+* update install part
+* add install test code
+* fix fps collect
+* update atx-agent version
+* fix if log bug in ext/info
+* 修改info插件调用模式 (#245)
+* add test info plugin (#240)
+* fix perf get data error (#239)
+* Update README.md
+* open python 3.7 support
+* 更改一处类型提示错误 (#229)
+* add beta method hooks\_register
+* fix #206, init gives 'inf' as serial <class 'float'> (#216)
+* 修改init不成功的问题 (#221)
+* update to new atx-agent
+* fix current\_app in sumsung, add tcp and udp in perf
+* add images
+* add fps
+* swipe duration default 0.1(old 0.5), add swipe ui
+* fix perf uiautomator in python2
+* update doc
+* fix perf d not exists bug
+* add traffic into perf plugin
+* update atx-agent version
+* catch AttributeError in UIAutomatorServer
+* add back implicitly wait
+* add perf doc
+* add perf plugin
+* runyaml fix
+* add plugin\_register and ocr plugin
+* add plugin support
+* let shell return namedtuple, remove outdated docs
+* use q|query instead of xpath in steps
+* add send\_action support
+* fix #200
+* add with into session, update oppo support
+* fix merge conflict
+* click add offset, support oppo install with browser
+* add oppo install method, not finished yet
+* fix str(err.data) encode error
+* Update \_\_init\_\_.py
+* add some comment
+* 1.修改截图定位线
+* raise error when error found in uiautomator2.cli install
+* catch NullPointerExceptionError on jsonrpc call
+* patch to catch UiAutomation not connect
+* use github-mirror for update-apk command
+* fix healthcheck
+* 增加init时对代理的支持
+* support install on emulator
+* suppress warning when uninstall error
+* rename examples/powerweb to webbattery
+* add webpower ^\_^
+* fix displayHeight error on Huawei
+* update atx\_agent version to 0.1.1
