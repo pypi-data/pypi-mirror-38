@@ -1,0 +1,15 @@
+Metadata-Version: 1.1
+Name: hsgconv
+Version: 1.0.9
+Summary: Pure Python converter for Highways England Local Grid to British National Grid - OSBG36, EPSG:27700
+Home-page: https://github.com/ccampanile/hsgconv/
+Author: Claudio Campanile
+Author-email: ccampanile@brydenwood.co.uk
+License: MIT
+Download-URL: https://github.com/ccampanile/hsgconv/
+Description-Content-Type: UNKNOWN
+Description: # hsgconv
+        Coordinate conversion methods between England's Highways Standards and British National Grid (OSBG36 or EPSG:27700)
+        
+Keywords: geographic,coordinates,highwaysengland,localgrid,osbg36
+Platform: UNKNOWN
