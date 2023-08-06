@@ -1,0 +1,10 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope">
+
+  <permission id="collective.ogtags.settings"
+              title="Collective OGTags: Settings">
+    <role name="Manager"/>
+    <role name="Site Administrator"/>
+  </permission>
+
+</configure>
