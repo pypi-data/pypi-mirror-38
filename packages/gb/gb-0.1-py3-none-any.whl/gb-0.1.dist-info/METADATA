@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: gb
+Version: 0.1
+Summary: A Python gopher server.
+Home-page: https://github.com/supakeen/gb
+Author: supakeen
+Author-email: cmdr@supakeen.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: click
+Requires-Dist: tornado
+Provides-Extra: dev
+Requires-Dist: black; extra == 'dev'
+Requires-Dist: flake8; extra == 'dev'
+Requires-Dist: nose; extra == 'dev'
+Requires-Dist: pre-commit; extra == 'dev'
+
+UNKNOWN
+
+
