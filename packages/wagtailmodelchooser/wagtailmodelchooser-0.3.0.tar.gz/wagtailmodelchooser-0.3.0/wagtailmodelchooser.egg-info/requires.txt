@@ -1,0 +1,12 @@
+Django>=1.11,<2.2
+wagtail>=2.2
+
+[docs]
+mkdocs==0.11.1
+
+[testing]
+pytest-django>=3.2,<3.5
+pytest>=3.6
+pytest-cov>=2.5
+flake8>=2.4.0
+wheel==0.24.0
