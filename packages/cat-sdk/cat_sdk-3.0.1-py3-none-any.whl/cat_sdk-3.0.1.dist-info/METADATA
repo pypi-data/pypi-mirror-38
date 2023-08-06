@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: cat-sdk
+Version: 3.0.1
+Summary: Python client for Cat
+Home-page: https://github.com/dianping/cat/
+Author: Cat Team and Contributors
+Author-email: cat@dianping.com
+License: Apache License 2.0
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: cffi (<2.0,>=1.11)
+
+
+Cat-Python - Cat SDK for Python
+===============================
+
+Please visit `Github <https://github.com/dianping/cat/>`_ for further information.
+
+
