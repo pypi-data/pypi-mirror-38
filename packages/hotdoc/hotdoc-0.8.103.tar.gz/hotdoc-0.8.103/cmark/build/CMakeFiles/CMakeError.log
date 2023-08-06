@@ -1,0 +1,16 @@
+Performing C SOURCE FILE Test HAVE_FLAG_ADDRESS_SANITIZER failed with the following output:
+Change Dir: /home/meh/devel/hotdoc/cmark/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_e1bf3/fast"
+/usr/bin/make -f CMakeFiles/cmTC_e1bf3.dir/build.make CMakeFiles/cmTC_e1bf3.dir/build
+make[1]: Entering directory '/home/meh/devel/hotdoc/cmark/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e1bf3.dir/src.c.o
+/usr/bin/cc   -DHAVE_FLAG_ADDRESS_SANITIZER -Werror -faddress-sanitizer   -faddress-sanitizer -o CMakeFiles/cmTC_e1bf3.dir/src.c.o   -c /home/meh/devel/hotdoc/cmark/build/CMakeFiles/CMakeTmp/src.c
+cc: error: unrecognized command line option '-faddress-sanitizer'
+cc: error: unrecognized command line option '-faddress-sanitizer'
+make[1]: *** [CMakeFiles/cmTC_e1bf3.dir/build.make:66: CMakeFiles/cmTC_e1bf3.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/meh/devel/hotdoc/cmark/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:126: cmTC_e1bf3/fast] Error 2
+
+Source file was:
+int main(void) { return 0; }
