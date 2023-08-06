@@ -1,0 +1,8 @@
+arrow
+cx_Oracle>=5.1.2
+pymarc>=2.8.4
+six
+sqlAlchemy
+
+[BatchCat]
+pywin32
