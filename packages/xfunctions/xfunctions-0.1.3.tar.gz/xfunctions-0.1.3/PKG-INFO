@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: xfunctions
+Version: 0.1.3
+Summary: Some useful functions.
+Home-page: https://github.com/neoctobers/xfunctions
+Author: @neoctobers
+Author-email: neoctobers@gmail.com
+License: UNKNOWN
+Description: # xfunctions
+        
+        ## Usage
+        ```python
+        import xfunctinos as xf
+        ```
+        
+        methods:
+        ```python
+        xf.sleep()
+        xf.get_dict_by_keys()
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
