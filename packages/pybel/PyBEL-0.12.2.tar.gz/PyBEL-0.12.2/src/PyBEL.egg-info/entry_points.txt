@@ -1,0 +1,23 @@
+[console_scripts]
+pybel = pybel.cli:main
+
+[pybel.file_exporter]
+bel = pybel.canonicalize:to_bel
+bytes = pybel.io:to_pickle
+nodelink = pybel.io:to_json_file
+
+[pybel.file_importer]
+bel = pybel:from_lines
+bytes = pybel.io:from_pickle
+nodelink = pybel.io:from_json_file
+
+[pybel.object_exporter]
+bel = pybel.canonicalize:to_bel_lines
+bytes = pybel.io:to_bytes
+nodelink = pybel.io:to_json
+
+[pybel.object_importer]
+bel = pybel:from_path
+bytes = pybel.io:from_bytes
+nodelink = pybel.io:from_json
+

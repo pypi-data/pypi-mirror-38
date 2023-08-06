@@ -1,0 +1,23 @@
+networkx>=2.1
+sqlalchemy
+click
+click-plugins
+requests
+requests_file
+pyparsing
+six
+tqdm
+
+[:python_version < "3"]
+configparser
+functools32
+funcsigs
+
+[docs]
+sphinx-click
+
+[indra]
+indra
+
+[neo4j]
+py2neo==3.1.2
