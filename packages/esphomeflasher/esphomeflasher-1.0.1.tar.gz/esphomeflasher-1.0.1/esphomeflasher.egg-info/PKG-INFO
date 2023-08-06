@@ -1,0 +1,13 @@
+Metadata-Version: 1.2
+Name: esphomeflasher
+Version: 1.0.1
+Summary: ESP8266/ESP32 firmware flasher for esphomelib
+Home-page: https://github.com/OttoWinter/esphomeflasher
+Author: Otto Winter
+Author-email: contact@otto-winter.com
+License: MIT
+Download-URL: https://github.com/OttoWinter/esphomeflasher/archive/1.0.1.zip
+Description: UNKNOWN
+Keywords: home,automation
+Platform: any
+Requires-Python: >=3.5
