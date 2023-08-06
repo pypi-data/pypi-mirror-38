@@ -1,0 +1,3 @@
+[console_scripts]
+nixpass = nixpass.nixpass:main
+
