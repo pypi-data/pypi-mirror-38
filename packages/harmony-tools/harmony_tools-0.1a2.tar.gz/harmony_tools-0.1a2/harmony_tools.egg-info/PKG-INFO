@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: harmony-tools
+Version: 0.1a2
+Summary: UNKNOWN
+Home-page: https://github.com/a1fred/harmony_tools
+Author: a1fred
+Author-email: demalf@gmail.com
+License: MIT
+Description: # Harmony tools
+        Library with musical harmony objects with basic cli
+        
+        # Modules
+        [guitar](docs/guitar.md) - Quick way to see gamma layout on guitar  
+        other coming...
+        
+        # Installation
+        Clone this repository and run
+        ```sh
+        $ python3 setup.py install
+        ```
+        Because i'm too lazy to upload to pypi
+        
+        # CONTRIBUTING
+        Feel free to create PR
+        
+        # LICENSE
+        MIT
+        
+Platform: UNKNOWN
+Classifier: Environment :: Console
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
