@@ -1,0 +1,15 @@
+appdirs
+docopt
+pyyaml
+Send2Trash
+clint
+colorama
+
+[:python_version < "3.4"]
+pathlib2==2.3.0
+
+[:python_version < "3.5"]
+typing
+
+[:python_version < "3.6"]
+pathlib2
