@@ -1,0 +1,14 @@
+.idea
+venv
+node_modules
+ghostdriver.log
+*.egg-info
+__pycache__
+.vscode
+.cache
+.eggs
+build
+dist
+package-lock.json
+webdriver-report
+webdriver_recorder/_version.py
