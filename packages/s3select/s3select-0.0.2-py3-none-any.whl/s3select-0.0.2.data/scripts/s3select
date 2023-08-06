@@ -1,0 +1,288 @@
+#!python
+
+from __future__ import print_function
+
+import argparse
+import boto3
+from six.moves.urllib import parse
+from six.moves import queue
+import threading
+
+import sys
+import time
+from botocore.exceptions import EndpointConnectionError, ClientError
+
+s3 = boto3.client('s3')
+
+
+class S3ListThread(threading.Thread):
+    def __init__(
+            self,
+            the_bucket,
+            the_prefix,
+            files_queue,
+            files_count,
+            matches_count,
+            the_args):
+        threading.Thread.__init__(self)
+        self.the_bucket = the_bucket
+        self.the_prefix = the_prefix
+        self.files_queue = files_queue
+        self.files_count = files_count
+        self.matches_count = matches_count
+        self.args = the_args
+
+    def run(self):
+        paginator = s3.get_paginator('list_objects_v2')
+        pages = paginator.paginate(
+            Bucket=self.the_bucket,
+            Prefix=self.the_prefix)
+
+        for page in pages:
+            if page['KeyCount'] == 0:
+                print('No files found for prefix {}'
+                      .format(self.the_prefix),
+                      file=sys.stderr)
+                break
+
+            if args.limit is not None \
+                    and self.matches_count.value() >= args.limit:
+                # limit reached. No more list results needed
+                return
+
+            if 'Contents' not in page:
+                return
+
+            for obj in page['Contents']:
+                # skip 0 bytes files as boto3 deserializer will throw exceptions
+                # for them
+                if obj['Size'] == 0:
+                    continue
+                self.files_queue.put(obj['Key'])
+                self.files_count.inc()
+
+
+class ScanOneKey(threading.Thread):
+    def __init__(
+            self,
+            the_bucket,
+            the_key,
+            the_args,
+            matches_count,
+            bytes_scanned,
+            bytes_returned,
+            files_processed,
+            total_files,
+            failed_requests
+    ):
+
+        threading.Thread.__init__(self)
+        self.the_bucket = the_bucket
+        self.the_key = the_key
+        self.matches_count = matches_count
+        self.the_args = the_args
+        self.bytes_scanned = bytes_scanned
+        self.bytes_returned = bytes_returned
+        self.files_processed = files_processed
+        self.total_files = total_files
+        self.failed_requests = failed_requests
+
+    def run(self):
+        if args.limit is not None and self.matches_count.value() >= args.limit:
+            return
+        key = self.the_key
+        input_ser = {'JSON': {"Type": "Document"}}
+        output_ser = {'JSON': {}}
+        if self.the_args.sep is not None:
+            input_ser = {'CSV': {"FieldDelimiter": self.the_args.sep,
+                                 "FileHeaderInfo": "NONE"}}
+            output_ser = {'CSV': {"FieldDelimiter": self.the_args.sep}}
+
+        if args.count:
+            # no need to parse JSON if we are only expecting the count of rows
+            output_ser = {'CSV': {"FieldDelimiter": " "}}
+
+        query = "SELECT "
+
+        if args.count:
+            query += "count(*) "
+        elif args.output_fields:
+            query += args.output_fields + " "
+        else:
+            query += "* "
+
+        query += "FROM s3object s "
+
+        if args.where is not None:
+            query += "WHERE " + args.where
+
+        if args.limit is not None:
+            query += " LIMIT " + str(args.limit)
+
+        if '.gz' == key.lower()[-3:]:
+            input_ser['CompressionType'] = 'GZIP'
+
+        while True:
+            try:
+                r = s3.select_object_content(
+                    Bucket=self.the_bucket,
+                    Key=self.the_key,
+                    ExpressionType='SQL',
+                    Expression=query,
+                    InputSerialization=input_ser,
+                    OutputSerialization=output_ser,
+                )
+                break
+            except (EndpointConnectionError, ClientError) as e:
+                self.failed_requests.inc()
+                print('Exception {} caught when querying {}'
+                      .format(str(e), self.the_key),
+                      file=sys.stderr)
+
+                time.sleep(0.4)
+
+        for event in r['Payload']:
+            if 'Records' in event:
+                records = event['Records']['Payload'].decode('utf-8')
+                if args.limit is not None:
+                    self.matches_count.print_and_inc(records, args.limit)
+                else:
+                    if args.count:
+                        self.matches_count.inc(int(records))
+                    else:
+                        print(records, end='')
+                        self.matches_count.inc(len(records.split("\n")) - 1)
+            elif 'Stats' in event:
+                self.bytes_scanned.inc(
+                    event['Stats']['Details']['BytesScanned'])
+                self.bytes_returned.inc(
+                    event['Stats']['Details']['BytesReturned'])
+
+        self.files_processed.inc()
+
+        if not (self.the_args.disable_progress
+                or (args.limit is not None
+                    and self.matches_count.value() >= args.limit)):
+            print('\rFiles processed: {}/{}  Records matched: {}  '
+                  'Failed requests: {}'
+                  .format(self.files_processed.value(),
+                          self.total_files.value(),
+                          self.matches_count.value(),
+                          self.failed_requests.value()),
+                  end="", file=sys.stderr)
+        sys.stdout.flush()
+
+
+class AtomicInteger:
+    def __init__(self, value=0):
+        self._value = value
+        self._lock = threading.Lock()
+
+    def inc(self, addition=1):
+        with self._lock:
+            self._value += addition
+
+    def print_and_inc(self, records, limit):
+        with self._lock:
+            for record in records.split("\n"):
+                if self.value() >= limit:
+                    return
+                print(record)
+                self._value += 1
+
+    def value(self):
+        return self._value
+
+
+def select(the_args):
+    url_parse = parse.urlparse(the_args.prefix)
+    bucket = url_parse.netloc
+    prefix = url_parse.path[1:]
+
+    files_queue = queue.Queue(20000)
+    total_files = AtomicInteger()
+    matches_count = AtomicInteger()
+    files_processed = AtomicInteger()
+    bytes_returned = AtomicInteger()
+    bytes_scanned = AtomicInteger()
+    failed_requests = AtomicInteger()
+
+    listing_thread = S3ListThread(bucket, prefix, files_queue, total_files,
+                                  matches_count, the_args)
+    listing_thread.start()
+    # issue all ScanOneKey requests
+    while (
+                (the_args.limit is None or matches_count.value() < args.limit)
+            and
+                (not files_queue.empty() or listing_thread.is_alive())
+    ):
+
+        if threading.active_count() > the_args.thread_count:
+            time.sleep(0.2)
+            continue
+        try:
+            ScanOneKey(bucket, files_queue.get(timeout=3), the_args,
+                       matches_count, bytes_scanned, bytes_returned,
+                       files_processed, total_files, failed_requests).start()
+        except queue.Empty:
+            # nothing. S3ListThread returned nothing. No keys with prefixes
+            # found
+            pass
+
+    # wait until we process all files
+    if the_args.limit is None:
+        while files_processed.value() != total_files.value():
+            time.sleep(0.1)
+
+    if not the_args.disable_progress:
+        print('\rFiles processed: {}/{}  Records matched: {}  '
+              'Failed requests: {}'
+              .format(files_processed.value(), total_files.value(),
+                      matches_count.value(), failed_requests.value()),
+              file=sys.stderr)
+
+    if args.verbose:
+        price_for_bytes_scanned = 0.002 * bytes_scanned.value() / (1024 ** 3)
+        price_for_bytes_returned = 0.0007 * bytes_returned.value() / (1024 ** 3)
+        price_for_requests = 0.0004 * total_files.value() / 1000
+
+        print("Cost for data scanned: ${0:.2f}"
+              .format(price_for_bytes_scanned), file=sys.stderr)
+        print("Cost for data returned: ${0:.2f}"
+              .format(price_for_bytes_returned), file=sys.stderr)
+        print("Cost for SELECT requests: ${0:.2f}"
+              .format(price_for_requests), file=sys.stderr)
+        print("Total cost: ${0:.2f}"
+              .format(price_for_bytes_scanned + price_for_bytes_returned +
+                      price_for_requests), file=sys.stderr)
+
+
+if __name__ == "__main__":
+    a = argparse.ArgumentParser(description='Run S3 Select')
+    a.add_argument("-w", "--where")
+    a.add_argument("-p", "--prefix")
+    a.add_argument("-s", "--sep", help="Separator to be used for CSV")
+    a.add_argument("-l", "--limit", type=int,
+                   help="Maximum number of results to return")
+    a.add_argument("-v", "--verbose", action='store_true',
+                   help="Be more verbose")
+    a.add_argument("-D", "--disable_progress", action='store_true',
+                   help="Turn off progress line")
+    a.add_argument("-c", "--count", action='store_true',
+                   help="Only count records without printing them to stdout")
+    a.add_argument("-o", "--output_fields",
+                   help="What fields to output")
+    a.add_argument("-t", "--thread_count", type=int, default=200,
+                   help="How many threads to use when executing s3_select api "
+                        "requests. Default of 200 seems to be max that doesn't "
+                        "cause throttling")
+    args = a.parse_args()
+
+    if args.prefix is None:
+        a.print_help()
+        sys.exit(1)
+
+    if args.sep is not None and "\\t" in args.sep:
+        args.sep = '\t'
+
+    select(args)
