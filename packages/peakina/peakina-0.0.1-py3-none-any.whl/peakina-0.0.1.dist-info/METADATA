@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: peakina
+Version: 0.0.1
+Summary: Pea Kina
+Home-page: https://github.com/ToucanToco/peakina
+Author: Toucan Toco
+Author-email: dev@toucantoco.com
+License: BSD
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: chardet
+Requires-Dist: pandas (==0.23.4)
+Requires-Dist: paramiko
+Requires-Dist: pydantic
+Requires-Dist: s3fs
+Requires-Dist: xlrd
+
+UNKNOWN
+
+
