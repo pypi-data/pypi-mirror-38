@@ -1,0 +1,160 @@
+Metadata-Version: 2.1
+Name: noted-cli
+Version: 0.1.7
+Summary: A VIM-inspired note manager for the console
+Home-page: https://bitbucket.org/zappen999/noted-cli
+Author: Johan Kanefur
+Author-email: johan.canefur@gmail.com
+License: GNU General Public License v2 (GPLv2)
+Platform: any
+Description-Content-Type: text/markdown
+Requires-Dist: pycrypto (==2.6.1)
+
+# Noted
+> A VIM-inspired note manager for the console
+
+Noted uses an encrypted SQLite database to store your notes.
+
+**Note that noted is not yet considered stable, and should not be used in an
+application where data integrity is important.**
+
+## Getting started
+**Noted requires Python 3**
+
+### Installation
+To install noted:
+
+```sh
+$ pip3 install noted-cli --user
+```
+
+## Usage
+Start noted. At first startup you will get prompted to setup an encryption
+passphrase used to encrypt your notes:
+
+```sh
+$ noted
+Setup your encrypted passphrase:
+```
+
+## Key reference
+Noted is using VIM-like key bindings to perform actions.
+
+### `NORMAL` mode
+|Key       | Action
+|----------|--------
+|`q`       |Exit
+|`j`       |Select next note
+|`k`       |Select previous note
+|`n`       |Create new note
+|`<Enter>` |Open the note for editing
+|`g`       |Go to first note
+|`G`       |Go to last note
+|`d`       |Delete note
+|`o`       |Toggle direction of ordering
+|`O`       |Cycle through ordering criterias (title, updated/created at, tags)
+|`l`       |Enter `TAG` mode
+|`A`       |Enter `ADD_TAG` mode
+|`/`       |Enter `SEARCH` mode
+
+### `TAG` mode
+|Key               | Action
+|------------------|--------
+|`<Escape>` or `t` |Back to `NORMAL` mode
+|`a`               |Enter `ADD_TAG` mode
+|`h`               |Select previous tag on current note
+|`l`               |Select next tag on current note
+|`x` or `d`        |Delete selected tag on current note
+|`j`               |Select next note
+|`k`               |Select previous note
+
+### `ADD_TAG` mode
+|Key               | Action
+|------------------|--------
+|`<Escape>`        |Back to `TAG` mode
+|`<Enter>`         |Add tag
+|`<Tab>`           |Fill tag name from auto complete
+
+### `SEARCH` mode
+|Key               | Action
+|------------------|--------
+|`<Escape>`        |Back to `NORMAL` mode, or clear search input if not changed
+|`<Enter>`         |Commit to search
+
+
+## Searching for notes
+When searching for notes, noted will look in the note content. To only search
+for notes with certain tags, you can use brackets to express that you want to
+match tags rather than content. Example:
+
+```
+/[home] stuff
+```
+
+This will match all notes that contain the text "stuff", and has a tag named
+"home".
+
+You can use the same pattern to exclude tags. Example:
+
+```
+/[home]![completed] stuff
+```
+
+This will match all notes that contain the text "stuff", has a tag named
+"home", but doesn't have a tag named "completed".
+
+
+## CLI
+You should be able to automate, import/export your notes as your wish. Noted
+provides `noted-cli` executable to manage notes from CLI as well\*. Example:
+
+```sh
+$ noted-cli --format json list-note --search stuff
+```
+\* *This feature is currently not a full 1:1 mapping of the capabilities of the
+TUI. Please refer [roadmap](#roadmap) for more information.*
+
+## Roadmap
+- Save search queries
+- Change encryption passphrase.
+- List and edit existing tags
+- Delete tag entity when removing last use of tag from note.
+- Tag auto complete when using tag object notation in search field.
+- Configure editor (using xdg-open?).
+- Safer way of opening database file to increase privacy/security.
+- Configure custom keymap
+- Utilize GnuPG for encryption of database and files?
+
+### Known bugs/issues
+- Cannot edit note on macOS. Issue due to tmpfs removing file before we get
+  the chance to read it?
+- Log file gets created in cwd.
+- Saving an empty note causes SQLite exception.
+- Curses doesn't restore terminal after VIM has been opened in some cases (may
+  be caused by some VIM plugin).
+
+## Contributing
+
+### Setup development environment
+
+1. Clone repository
+2. Setup virtual env and install dependencies:
+
+```sh
+cd noted-cli
+virtualenv env
+source env/bin/activate
+pip3 install -r requirements.txt
+
+LOGLEVEL=DEBUG python3 noted
+```
+
+## Debugging
+You can enable the debug log by launching noted with the environment variable
+`LOGLEVEL` set to `DEBUG`.
+
+Example: `LOGLEVEL=DEBUG noted`
+
+The default log level is set to `WARNING`.
+
+

@@ -1,0 +1,4 @@
+[console_scripts]
+noted = console:tui
+noted-cli = console:cli
+
