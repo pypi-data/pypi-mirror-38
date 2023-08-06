@@ -1,0 +1,3 @@
+[console_scripts]
+apache-replay = apache_replay.script:main
+
