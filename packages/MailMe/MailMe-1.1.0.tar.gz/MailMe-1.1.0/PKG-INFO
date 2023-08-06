@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: MailMe
+Version: 1.1.0
+Summary: Send e-mails with python.
+Home-page: http://github.com/otoru/mailme
+Author: Vitor Hugo de Olveira Vargas
+Author-email: vitor.hov@gmail.com
+License: MIT
+Project-URL: Documentation, http://github.com/otoru/mailme/README.md
+Project-URL: Source Code, http://github.com/otoru/mailme/mailme/
+Project-URL: Bug Tracker, http://github.com/otoru/mailme/issues
+Description: # MailMe
+        
+        Library created to abstract work with SMTP servers to send e-mails.
+        
+        ## Install
+        
+        To install the library use the command `pip install mailme`.
+        
+        
+        ## Comments
+        
+        - For a characteristic of the library, when informing when passing
+        'content' and 'html' as parameters of a message, both will be
+        inserted in the body of the same, being first displayed the content
+        and then the html, always in that order.
+        
+        - Attachments and recipients should always be informed in list form,
+        even if we only have one string inside it.
+        
+        - The library is in constant development. If you believe something
+        can improve, feel free to open an echo or do a poll request.
+        
+        - The library was developed over python 3.7 and can not guarantee 
+        its backward compatibility.
+Keywords: email,mail,python
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Telecommunications Industry
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: Portuguese (Brazilian)
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Communications :: Email
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
