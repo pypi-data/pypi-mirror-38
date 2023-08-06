@@ -1,0 +1,31 @@
+Metadata-Version: 1.1
+Name: gnuhealth_webdav3_server
+Version: 3.4rc4
+Summary: GNU Health WebDAV server for Python 3
+Home-page: http://health.gnu.org
+Author: GNU Solidario
+Author-email: health@gnusolidario.org
+License: GPL-3
+Download-URL: http://ftp.gnu.org/gnu/health/
+Description: WebDAV3 package for GNU Health
+        ==============================
+        
+        The package if the continuation of the CalDAV functionality
+        for GNU Health and Python 3
+        
+        It has been ported to be used with GNU Health.
+        
+Keywords: webdav GNUHealth
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Plugins
+Classifier: Framework :: Tryton
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Financial and Insurance Industry
+Classifier: Intended Audience :: Legal Industry
+Classifier: Intended Audience :: Manufacturing
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Topic :: Scientific/Engineering :: Medical Science Apps.
