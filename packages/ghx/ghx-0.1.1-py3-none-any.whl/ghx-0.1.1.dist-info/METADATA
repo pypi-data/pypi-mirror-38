@@ -1,0 +1,64 @@
+Metadata-Version: 2.1
+Name: ghx
+Version: 0.1.1
+Summary: Run scripts from Github on the fly
+Home-page: https://github.com/rshk/ghx
+Author: Samuele Santi
+Author-email: sam@reinventsoftware.io
+License: BSD License
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Dist: click
+
+ghx
+###
+
+Run scripts from GitHub, `npx`_-style.
+
+.. _npx: https://www.npmjs.com/package/npx
+
+
+Usage
+=====
+
+::
+
+    ghx rshk/ghx-example
+
+In its most basic form, it will make a shallow copy of the specified
+GitHub repository and run a script from it.
+
+By default, it will look for an executable named ``bin/run`` inside
+the repo folder.
+
+
+Run a different script::
+
+  ghx rshk/ghx-example/bin/two
+
+
+Or from a different branch::
+
+  ghx -b foobar rshk/ghx-example
+
+
+Installation
+============
+
+You need a Python 3 interpreter and pip installed.
+
+::
+
+    pip install ghx
+
+Or install in the user home directory (usually ``~/.local``)::
+
+  pip install --user ghx
+
+(Make sure you have ``~/.local/bin`` in your ``PATH``)
+
+
