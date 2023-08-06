@@ -1,0 +1,24 @@
+Metadata-Version: 1.1
+Name: Flask-JsonSchema-All
+Version: 0.1.1
+Summary: Flask extension for validating JSON requets
+Home-page: https://github.com/cfjhit/flask-jsonschema
+Author: jay.chen
+Author-email: cfjhit@gmail.com
+License: MIT
+Description: 
+        Flask-JsonSchema
+        ----------
+        
+        A Flask extension for validating JSON requets with jsonschema
+        
+        
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
