@@ -1,0 +1,3 @@
+include README.md
+include version.txt
+recursive-include prometheus_speedtest *
