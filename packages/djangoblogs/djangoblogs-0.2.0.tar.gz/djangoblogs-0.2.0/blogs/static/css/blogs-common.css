@@ -1,0 +1,38 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+  
+main {
+  flex: 1 0 auto;
+}
+
+.upvote-btn{
+  text-decoration: none;
+  color: red;
+  cursor: pointer;
+}
+
+.content {
+  margin: auto;
+  display: block;
+  max-width: 700px !important;
+  word-wrap: break-word;
+  word-break: break-word;
+  font-size: 21px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.content a, .content a:visited {
+  color: black;
+  text-decoration: none;
+  text-decoration-color: black;
+  text-decoration-line: underline;
+}
+
+@media (max-width: 767px){
+  .content {
+    font-size: 18px;
+  }
+}

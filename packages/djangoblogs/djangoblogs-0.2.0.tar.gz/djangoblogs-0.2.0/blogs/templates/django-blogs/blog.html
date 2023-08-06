@@ -1,0 +1,107 @@
+{% extends 'django-blogs/base.html' %}
+
+{% block dropdown_options %}
+{% if post.author == user.username %}
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="{% url 'blogs:edit' post.uuid %}">Edit</a>
+    <a class="dropdown-item text-danger" href="{% url 'blogs:delete' post.uuid %}" style="opacity: 0.7">Delete</a>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+
+<div class="position-fixed mt-5 ml-5 d-none d-lg-block">
+    <div class="upvote-btn text-center">
+        <p class="my-0 py-0"><i class="far fa-heart heart"></i></p>
+        <p class="upvote-count">{{upvote_count}}</p>
+    </div>
+    <p class="mt-5 text-center"><i class="far fa-bookmark"></i></p>
+    <p class="text-center"><i class="fas fa-share-alt"></i></p>
+</div>
+<div class="mt-5">
+    <div class="row" style="max-width: 700px !important;margin: auto">
+        <h1>{{ post.heading | safe }}</h1>
+    </div>
+    <div class="row mb-5" style="max-width: 700px !important;margin: auto">
+        <div class="col-6 col-md-3 px-0">
+            <i class="far fa-calendar-alt"></i> {{ post.published_on | date:"DATE_FORMAT" }}
+        </div>
+        <div class="col-6 col-md-3 px-0">
+            <i class="fa fa-user"></i></i> {{post.author}}
+        </div>
+    </div>
+    <div class="content">{{ post.content | safe }}</div>
+    <div class="position-fixed float-left">
+        Stick it somewhere
+    </div>
+    <div class="d-lg-none row mt-5 pt-2 border-top justify-content-center" style="max-width: 700px !important;margin: auto">
+        <div class="col">
+            <p class="upvote-btn"><i id="heart" class="far fa-heart heart"></i> <span class="upvote-count">{{upvote_count}}</span></p>
+        </div>
+        <div class="col">
+            <p class="float-right ml-3"><i class="far fa-bookmark"></i></p>
+            <p class="float-right ml-3"><i class="fas fa-share-alt"></i></p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fingerprintjs2/2.0.3/fingerprint2.js"></script>
+<script>
+var upvote_count = {{upvote_count}}
+var add_upvote = true
+$(".upvote-btn").click((event) => {
+    Fingerprint2.get(function(components) {
+        var fingerprint = Fingerprint2.x64hash128(components.map(function (pair) { return pair.value }).join(), 31)
+        $.ajax({
+            url: "{% url 'blogs:upvote' post.uuid %}",
+            method: "POST",
+            headers: {
+                'X-CSRFToken': "{{ csrf_token }}"
+            },
+            success: (response) => {
+                $(".heart").toggleClass('far').toggleClass('fas').html()
+                if(add_upvote){
+                    upvote_count += 1
+                    $(".upvote-count").html(upvote_count)
+                    add_upvote = false
+                }
+                else{
+                    upvote_count -= 1
+                    $(".upvote-count").html(upvote_count)
+                    add_upvote = true
+                }
+            },
+            data: {
+                'fingerprint': fingerprint,
+            }
+        })
+        return false
+    })
+})
+
+$('document').ready(() => {
+    Fingerprint2.get(function(components) {
+        var fingerprint = Fingerprint2.x64hash128(components.map(function (pair) { return pair.value }).join(), 31)
+        $.ajax({
+            url: "{% url 'blogs:upvote' post.uuid %}",
+            method: "GET",
+            headers: {
+                'X-CSRFToken': "{{ csrf_token }}"
+            },
+            success: (response) => {
+                if(response.is_upvoted){
+                    $(".heart").toggleClass('far').toggleClass('fas').html()
+                    add_upvote = false
+                }
+            },
+            data: {
+                'fingerprint': fingerprint,
+            }
+        })
+    })
+})
+</script>
+{% endblock %}
