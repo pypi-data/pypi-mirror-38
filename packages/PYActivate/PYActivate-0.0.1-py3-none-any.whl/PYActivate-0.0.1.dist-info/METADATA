@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: PYActivate
+Version: 0.0.1
+Summary: Python library for Marshall Activation Protocol
+Home-page: https://github.com/CodeNinja16/MAP
+Author: Ethan Marshall
+Author-email: UNKNOWN
+License: UNKNOWN
+Keywords: python,activation,monetisation
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+
+This is the official Python library for the Marshall Activation Protocol. For more information, visit github.com/CodeNinja16/MAP.
+
+NOTE: This is just a package published to reserve the package name. Please DO NOT install it. This message will be removed
+      when the actual package is published.
+
