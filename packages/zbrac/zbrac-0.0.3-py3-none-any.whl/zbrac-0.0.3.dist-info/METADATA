@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: zbrac
+Version: 0.0.3
+Summary: A language tool for zTree
+Home-page: https://github.com/seyhunsaral/zbrac
+Author: Ali Seyhun Saral, Anna Marie Schroeter
+Author-email: seyhunsaral@gmail.com, schroeter@coll.mpg.de
+License: GNU Public Licence
+Platform: UNKNOWN
+Requires-Dist: openpyxl (>=2.5.8)
+Requires-Dist: PyQt5 (>=5.11.3)
+Requires-Dist: PyQt5-sip (>=4.19.13)
+Requires-Dist: urllib3 (>=1.24.1)
+Requires-Dist: XlsxWriter (>=1.1.1)
+
+UNKNOWN
+
+
