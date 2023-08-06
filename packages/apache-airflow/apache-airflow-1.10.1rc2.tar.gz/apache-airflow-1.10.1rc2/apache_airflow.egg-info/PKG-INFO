@@ -1,0 +1,75 @@
+Metadata-Version: 2.1
+Name: apache-airflow
+Version: 1.10.1rc2
+Summary: Programmatically author, schedule and monitor data pipelines
+Home-page: http://airflow.incubator.apache.org/
+Author: Apache Software Foundation
+Author-email: dev@airflow.incubator.apache.org
+License: Apache License 2.0
+Download-URL: https://dist.apache.org/repos/dist/release/incubator/airflow/1.10.1rc2
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: System :: Monitoring
+Requires-Python: >=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*
+Provides-Extra: jira
+Provides-Extra: devel_ci
+Provides-Extra: all
+Provides-Extra: mongo
+Provides-Extra: redis
+Provides-Extra: databricks
+Provides-Extra: pinot
+Provides-Extra: dask
+Provides-Extra: azure_blob_storage
+Provides-Extra: mysql
+Provides-Extra: github_enterprise
+Provides-Extra: cassandra
+Provides-Extra: hdfs
+Provides-Extra: all_dbs
+Provides-Extra: jdbc
+Provides-Extra: cgroups
+Provides-Extra: kubernetes
+Provides-Extra: rabbitmq
+Provides-Extra: s3
+Provides-Extra: sendgrid
+Provides-Extra: winrm
+Provides-Extra: celery
+Provides-Extra: vertica
+Provides-Extra: gcp_api
+Provides-Extra: devel_hadoop
+Provides-Extra: ldap
+Provides-Extra: atlas
+Provides-Extra: snowflake
+Provides-Extra: statsd
+Provides-Extra: postgres
+Provides-Extra: cloudant
+Provides-Extra: datadog
+Provides-Extra: kerberos
+Provides-Extra: druid
+Provides-Extra: devel
+Provides-Extra: webhdfs
+Provides-Extra: samba
+Provides-Extra: qds
+Provides-Extra: password
+Provides-Extra: segment
+Provides-Extra: mssql
+Provides-Extra: salesforce
+Provides-Extra: slack
+Provides-Extra: doc
+Provides-Extra: crypto
+Provides-Extra: hive
+Provides-Extra: elasticsearch
+Provides-Extra: emr
+Provides-Extra: oracle
+Provides-Extra: async
+Provides-Extra: docker
+Provides-Extra: azure_data_lake
+Provides-Extra: ssh
