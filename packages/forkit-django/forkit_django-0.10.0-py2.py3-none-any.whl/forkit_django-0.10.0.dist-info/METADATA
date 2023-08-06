@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: forkit-django
+Version: 0.10.0
+Summary: Utility functions for forking, resetting and diffing model objects
+Home-page: UNKNOWN
+Author: Virtualstock
+Author-email: dev.admin@virtualstock.com
+License: BSD
+Keywords: fork deepcopy model abstract diff
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet :: WWW/HTTP
+
+UNKNOWN
+
+
