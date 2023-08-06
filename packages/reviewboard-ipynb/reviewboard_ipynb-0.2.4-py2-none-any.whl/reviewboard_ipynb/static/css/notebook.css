@@ -1,0 +1,793 @@
+/* CSS font colors for translated ANSI escape sequences */
+/* The color values are a mix of
+   http://www.xcolors.net/dl/baskerville-ivorylight and
+   http://www.xcolors.net/dl/euphrasia */
+div.review-ipynb div.cell {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border-radius: 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  width: 100%;
+  padding: 5px;
+  /* This acts as a spacer between cells, that is outside the border */
+  margin: 0px;
+  outline: none;
+  position: relative;
+  overflow: visible;
+}
+div.review-ipynb div.cell:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: transparent;
+}
+div.review-ipynb div.cell.jupyter-soft-selected {
+  border-left-color: #E3F2FD;
+  border-left-width: 1px;
+  padding-left: 5px;
+  border-right-color: #E3F2FD;
+  border-right-width: 1px;
+  background: #E3F2FD;
+}
+@media print {
+  div.review-ipynb div.cell.jupyter-soft-selected {
+    border-color: transparent;
+  }
+}
+div.review-ipynb div.cell.selected,
+div.review-ipynb div.cell.selected.jupyter-soft-selected {
+  border-color: #ababab;
+}
+div.review-ipynb div.cell.selected:before,
+div.review-ipynb div.cell.selected.jupyter-soft-selected:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: #42A5F5;
+}
+@media print {
+  div.review-ipynb div.cell.selected,
+  div.review-ipynb div.cell.selected.jupyter-soft-selected {
+    border-color: transparent;
+  }
+}
+div.review-ipynb .prompt {
+  /* This needs to be wide enough for 3 digit prompt numbers: In[100]: */
+  min-width: 14ex;
+  /* This padding is tuned to match the padding on the CodeMirror editor. */
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace;
+  text-align: right;
+  /* This has to match that of the the CodeMirror class line-height below */
+  line-height: 1.21429em;
+  /* Don't highlight prompt number selection */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* Use default cursor */
+  cursor: default;
+}
+@media (max-width: 540px) {
+  div.review-ipynb .prompt {
+    text-align: left;
+  }
+}
+div.review-ipynb div.inner_cell {
+  min-width: 0;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  /* Old browsers */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  /* Modern browsers */
+  flex: 1;
+}
+/* input_area and input_prompt must match in top border and margin for alignment */
+div.review-ipynb div.input_area {
+  border: 1px solid #cfcfcf;
+  border-radius: 2px;
+  background: #f7f7f7;
+  line-height: 1.21429em;
+}
+/* This is needed so that empty prompt areas can collapse to zero height when there
+   is no content in the output_subarea and the prompt. The main purpose of this is
+   to make sure that empty JavaScript output_subareas have no height. */
+div.review-ipynb div.prompt:empty {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+div.review-ipynb div.unrecognized_cell {
+  padding: 5px 5px 5px 0px;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+div.review-ipynb div.unrecognized_cell .inner_cell {
+  border-radius: 2px;
+  padding: 5px;
+  font-weight: bold;
+  color: red;
+  border: 1px solid #cfcfcf;
+  background: #eaeaea;
+}
+div.review-ipynb div.unrecognized_cell .inner_cell a {
+  color: inherit;
+  text-decoration: none;
+}
+div.review-ipynb div.unrecognized_cell .inner_cell a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+@media (max-width: 540px) {
+  div.review-ipynb div.unrecognized_cell > div.prompt {
+    display: none;
+  }
+}
+div.review-ipynb div.code_cell {
+  /* avoid page breaking on code cells when printing */
+}
+@media print {
+  div.review-ipynb div.code_cell {
+    page-break-inside: avoid;
+  }
+}
+/* any special styling for code cells that are currently running goes here */
+div.review-ipynb div.input {
+  page-break-inside: avoid;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.review-ipynb div.input {
+    /* Old browsers */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: vertical;
+    box-align: stretch;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+/* input_area and input_prompt must match in top border and margin for alignment */
+div.review-ipynb div.input_prompt {
+  color: #303F9F;
+  border-top: 1px solid transparent;
+}
+div.review-ipynb div.input_area > div.highlight {
+  margin: 0.4em;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+}
+div.review-ipynb div.input_area > div.highlight > pre {
+  margin: 0px;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+}
+/* The following gets added to the <head> if it is detected that the user has a
+ * monospace font with inconsistent normal/bold/italic height.  See
+ * notebookmain.js.  Such fonts will have keywords vertically offset with
+ * respect to the rest of the text.  The user should select a better font.
+ * See: https://github.com/ipython/ipython/issues/1503
+ *
+ * .CodeMirror span {
+ *      vertical-align: bottom;
+ * }
+ */
+div.review-ipynb .CodeMirror {
+  line-height: 1.21429em;
+  /* Changed from 1em to our global default */
+  font-size: 14px;
+  height: auto;
+  /* Changed to auto to autogrow */
+  background: none;
+  /* Changed from white to allow our bg to show through */
+}
+div.review-ipynb .CodeMirror-scroll {
+  /*  The CodeMirror docs are a bit fuzzy on if overflow-y should be hidden or visible.*/
+  /*  We have found that if it is visible, vertical scrollbars appear with font size changes.*/
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+div.review-ipynb .CodeMirror-lines {
+  /* In CM2, this used to be 0.4em, but in CM3 it went to 4px. We need the em value because */
+  /* we have set a different line-height and want this to scale with that. */
+  /* Note that this should set vertical padding only, since CodeMirror assumes
+       that horizontal padding will be set on CodeMirror pre */
+  padding: 0.4em 0;
+}
+div.review-ipynb .CodeMirror-linenumber {
+  padding: 0 8px 0 4px;
+}
+div.review-ipynb .CodeMirror-gutters {
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px;
+}
+div.review-ipynb .CodeMirror pre {
+  /* In CM3 this went to 4px from 0 in CM2. This sets horizontal padding only,
+    use .CodeMirror-lines for vertical */
+  padding: 0 0.4em;
+  border: 0;
+  border-radius: 0;
+}
+div.review-ipynb .CodeMirror-cursor {
+  border-left: 1.4px solid black;
+}
+@media screen and (min-width: 2138px) and (max-width: 4319px) {
+  div.review-ipynb .CodeMirror-cursor {
+    border-left: 2px solid black;
+  }
+}
+@media screen and (min-width: 4320px) {
+  div.review-ipynb .CodeMirror-cursor {
+    border-left: 4px solid black;
+  }
+}
+
+div.review-ipynb div.output_wrapper {
+  /* this position must be relative to enable descendents to be absolute within it */
+  position: relative;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  z-index: 1;
+}
+/* class for the output area when it should be height-limited */
+div.review-ipynb div.output_scroll {
+  /* ideally, this would be max-height, but FF barfs all over that */
+  height: 24em;
+  /* FF needs this *and the wrapper* to specify full width, or it will shrinkwrap */
+  width: 100%;
+  overflow: auto;
+  border-radius: 2px;
+  -webkit-box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+  display: block;
+}
+/* output div while it is collapsed */
+div.review-ipynb div.output_collapsed {
+  margin: 0px;
+  padding: 0px;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+div.review-ipynb div.out_prompt_overlay {
+  height: 100%;
+  padding: 0px 0.4em;
+  position: absolute;
+  border-radius: 2px;
+}
+div.review-ipynb div.out_prompt_overlay:hover {
+  /* use inner shadow to get border that is computed the same on WebKit/FF */
+  -webkit-box-shadow: inset 0 0 1px #000;
+  box-shadow: inset 0 0 1px #000;
+  background: rgba(240, 240, 240, 0.5);
+}
+div.review-ipynb div.output_prompt {
+  color: #D84315;
+}
+/* This class is the outer container of all output sections. */
+div.review-ipynb div.output_area {
+  padding: 0px;
+  page-break-inside: avoid;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+div.review-ipynb div.output_area .MathJax_Display {
+  text-align: left !important;
+}
+div.review-ipynb div.output_area .rendered_html table {
+  margin-left: 0;
+  margin-right: 0;
+}
+div.review-ipynb div.output_area .rendered_html img {
+  margin-left: 0;
+  margin-right: 0;
+}
+div.review-ipynb div.output_area img,
+div.review-ipynb div.output_area svg {
+  max-width: 100%;
+  height: auto;
+}
+div.review-ipynb div.output_area img.unconfined,
+div.review-ipynb div.output_area svg.unconfined {
+  max-width: none;
+}
+div.review-ipynb div.output_area .mglyph > img {
+  max-width: none;
+}
+/* This is needed to protect the pre formating from global settings such
+   as that of bootstrap */
+div.review-ipynb .output {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.review-ipynb div.output_area {
+    /* Old browsers */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: vertical;
+    box-align: stretch;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+div.review-ipynb div.output_area pre {
+  margin: 0;
+  padding: 1px 0 1px 0;
+  border: 0;
+  vertical-align: baseline;
+  color: black;
+  background-color: transparent;
+  border-radius: 0;
+}
+/* This class is for the output subarea inside the output_area and after
+   the prompt div. */
+div.review-ipynb div.output_subarea {
+  overflow-x: auto;
+  padding: 0.4em;
+  /* Old browsers */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  /* Modern browsers */
+  flex: 1;
+  max-width: calc(100% - 14ex);
+}
+div.review-ipynb div.output_scroll div.output_subarea {
+  overflow-x: visible;
+}
+/* The rest of the output_* classes are for special styling of the different
+   output types */
+/* all text output has this class: */
+div.review-ipynb div.output_text {
+  text-align: left;
+  color: #000;
+  /* This has to match that of the the CodeMirror class line-height below */
+  line-height: 1.21429em;
+}
+/* stdout/stderr are 'text' as well as 'stream', but execute_result/error are *not* streams */
+div.review-ipynb div.output_stderr {
+  background: #fdd;
+  /* very light red background for stderr */
+}
+div.review-ipynb div.output_latex {
+  text-align: left;
+}
+/* Empty output_javascript divs should have no height */
+div.review-ipynb div.output_javascript:empty {
+  padding: 0;
+}
+div.review-ipynb .js-error {
+  color: darkred;
+}
+/* raw_input styles */
+div.review-ipynb div.raw_input_container {
+  line-height: 1.21429em;
+  padding-top: 5px;
+}
+div.review-ipynb pre.raw_input_prompt {
+  /* nothing needed here. */
+}
+div.review-ipynb input.raw_input {
+  font-family: monospace;
+  font-size: inherit;
+  color: inherit;
+  width: auto;
+  /* make sure input baseline aligns with prompt */
+  vertical-align: baseline;
+  /* padding + margin = 0.5em between prompt and cursor */
+  padding: 0em 0.25em;
+  margin: 0em 0.25em;
+}
+div.review-ipynb input.raw_input:focus {
+  box-shadow: none;
+}
+div.review-ipynb p.p-space {
+  margin-bottom: 10px;
+}
+div.review-ipynb div.output_unrecognized {
+  padding: 5px;
+  font-weight: bold;
+  color: red;
+}
+div.review-ipynb div.output_unrecognized a {
+  color: inherit;
+  text-decoration: none;
+}
+div.review-ipynb div.output_unrecognized a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+div.review-ipynb .rendered_html {
+  color: #000;
+  /* any extras will just be numbers: */
+}
+div.review-ipynb .rendered_html em {
+  font-style: italic;
+}
+div.review-ipynb .rendered_html strong {
+  font-weight: bold;
+}
+div.review-ipynb .rendered_html u {
+  text-decoration: underline;
+}
+div.review-ipynb .rendered_html :link {
+  text-decoration: underline;
+}
+div.review-ipynb .rendered_html :visited {
+  text-decoration: underline;
+}
+div.review-ipynb .rendered_html h1 {
+  font-size: 185.7%;
+  margin: 1.08em 0 0 0;
+  font-weight: bold;
+  line-height: 1.0;
+}
+div.review-ipynb .rendered_html h2 {
+  font-size: 157.1%;
+  margin: 1.27em 0 0 0;
+  font-weight: bold;
+  line-height: 1.0;
+}
+div.review-ipynb .rendered_html h3 {
+  font-size: 128.6%;
+  margin: 1.55em 0 0 0;
+  font-weight: bold;
+  line-height: 1.0;
+}
+div.review-ipynb .rendered_html h4 {
+  font-size: 100%;
+  margin: 2em 0 0 0;
+  font-weight: bold;
+  line-height: 1.0;
+}
+div.review-ipynb .rendered_html h5 {
+  font-size: 100%;
+  margin: 2em 0 0 0;
+  font-weight: bold;
+  line-height: 1.0;
+  font-style: italic;
+}
+div.review-ipynb .rendered_html h6 {
+  font-size: 100%;
+  margin: 2em 0 0 0;
+  font-weight: bold;
+  line-height: 1.0;
+  font-style: italic;
+}
+div.review-ipynb .rendered_html h1:first-child {
+  margin-top: 0.538em;
+}
+div.review-ipynb .rendered_html h2:first-child {
+  margin-top: 0.636em;
+}
+div.review-ipynb .rendered_html h3:first-child {
+  margin-top: 0.777em;
+}
+div.review-ipynb .rendered_html h4:first-child {
+  margin-top: 1em;
+}
+div.review-ipynb .rendered_html h5:first-child {
+  margin-top: 1em;
+}
+div.review-ipynb .rendered_html h6:first-child {
+  margin-top: 1em;
+}
+div.review-ipynb .rendered_html ul:not(.list-inline),
+div.review-ipynb .rendered_html ol:not(.list-inline) {
+  padding-left: 2em;
+}
+div.review-ipynb .rendered_html ul {
+  list-style: disc;
+}
+div.review-ipynb .rendered_html ul ul {
+  list-style: square;
+  margin-top: 0;
+}
+div.review-ipynb .rendered_html ul ul ul {
+  list-style: circle;
+}
+div.review-ipynb .rendered_html ol {
+  list-style: decimal;
+}
+div.review-ipynb .rendered_html ol ol {
+  list-style: upper-alpha;
+  margin-top: 0;
+}
+div.review-ipynb .rendered_html ol ol ol {
+  list-style: lower-alpha;
+}
+div.review-ipynb .rendered_html ol ol ol ol {
+  list-style: lower-roman;
+}
+div.review-ipynb .rendered_html ol ol ol ol ol {
+  list-style: decimal;
+}
+div.review-ipynb .rendered_html * + ul {
+  margin-top: 1em;
+}
+div.review-ipynb .rendered_html * + ol {
+  margin-top: 1em;
+}
+div.review-ipynb .rendered_html hr {
+  color: black;
+  background-color: black;
+}
+div.review-ipynb .rendered_html pre {
+  margin: 1em 2em;
+  padding: 0px;
+  background-color: #fff;
+}
+div.review-ipynb .rendered_html code {
+  background-color: #eff0f1;
+}
+div.review-ipynb .rendered_html p code {
+  padding: 1px 5px;
+}
+div.review-ipynb .rendered_html pre code {
+  background-color: #fff;
+}
+div.review-ipynb .rendered_html pre,
+div.review-ipynb .rendered_html code {
+  border: 0;
+  color: #000;
+  font-size: 100%;
+}
+div.review-ipynb .rendered_html blockquote {
+  margin: 1em 2em;
+}
+div.review-ipynb .rendered_html table {
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.review-ipynb .rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.review-ipynb .rendered_html tr,
+div.review-ipynb .rendered_html th,
+div.review-ipynb .rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.review-ipynb .rendered_html th {
+  font-weight: bold;
+}
+div.review-ipynb .rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.review-ipynb .rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+div.review-ipynb .rendered_html * + table {
+  margin-top: 1em;
+}
+div.review-ipynb .rendered_html p {
+  text-align: left;
+}
+div.review-ipynb .rendered_html * + p {
+  margin-top: 1em;
+}
+div.review-ipynb .rendered_html img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+div.review-ipynb .rendered_html * + img {
+  margin-top: 1em;
+}
+div.review-ipynb .rendered_html img,
+div.review-ipynb .rendered_html svg {
+  max-width: 100%;
+  height: auto;
+}
+div.review-ipynb .rendered_html img.unconfined,
+div.review-ipynb .rendered_html svg.unconfined {
+  max-width: none;
+}
+div.review-ipynb .rendered_html .alert {
+  margin-bottom: initial;
+}
+div.review-ipynb .rendered_html * + .alert {
+  margin-top: 1em;
+}
+[dir="rtl"] div.review-ipynb .rendered_html p {
+  text-align: right;
+}
+div.review-ipynb div.text_cell {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.review-ipynb div.text_cell > div.prompt {
+    display: none;
+  }
+}
+div.review-ipynb div.text_cell_render {
+  /*font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;*/
+  outline: none;
+  resize: none;
+  width: inherit;
+  border-style: none;
+  padding: 0.5em 0.5em 0.5em 0.4em;
+  color: #000;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+div.review-ipynb div.review-ipynb a.anchor-link:link {
+  text-decoration: none;
+  padding: 0px 20px;
+  visibility: hidden;
+}
+div.review-ipynb .text_cell.rendered .input_area {
+  display: none;
+}
+div.review-ipynb .text_cell.rendered .rendered_html {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+div.review-ipynb .text_cell.rendered .rendered_html tr,
+div.review-ipynb .text_cell.rendered .rendered_html th,
+div.review-ipynb .text_cell.rendered .rendered_html td {
+  max-width: none;
+}
+div.review-ipynb .text_cell.unrendered .text_cell_render {
+  display: none;
+}
+div.review-ipynb .text_cell .dropzone .input_area {
+  border: 2px dashed #bababa;
+  margin: -1px;
+}
