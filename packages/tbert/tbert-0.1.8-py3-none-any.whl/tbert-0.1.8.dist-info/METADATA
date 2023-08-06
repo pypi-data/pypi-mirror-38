@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: tbert
+Version: 0.1.8
+Summary: BERT Neural Net module for pytorch
+Home-page: https://github.com/innodatalabs/tbert
+Author: Mike Kroutikov
+Author-email: mkroutikov@innodata.com
+License: MIT
+Keywords: nlp,neural networks,pytorch,tensorflow
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+
+See https://github.com/innodatalabs/tbert
+
+
