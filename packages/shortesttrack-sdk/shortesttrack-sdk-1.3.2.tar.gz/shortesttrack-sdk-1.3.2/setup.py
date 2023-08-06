@@ -1,0 +1,16 @@
+from setuptools import setup, find_packages
+
+setup(
+    name='shortesttrack-sdk',
+    version='1.3.2',
+    description='SDK for work with ShortestTrack API',
+    packages=find_packages(),
+    install_requires=[
+        'URLObject==2.4.3',
+        'requests==2.19.1',
+        'shortesttrack-tools==0.1.9'
+    ],
+    author='Shortest Track',
+    author_email='mpyzhov@shtr.io',
+    license='MIT'
+)
