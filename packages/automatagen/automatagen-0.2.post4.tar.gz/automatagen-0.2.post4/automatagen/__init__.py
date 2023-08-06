@@ -1,0 +1,1 @@
+from automatagen.automatagen import TerrainGenerator
