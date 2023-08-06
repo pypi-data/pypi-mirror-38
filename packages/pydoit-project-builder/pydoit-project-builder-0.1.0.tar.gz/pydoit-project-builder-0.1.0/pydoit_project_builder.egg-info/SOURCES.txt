@@ -1,0 +1,15 @@
+README.md
+setup.cfg
+setup.py
+pydoit_project_builder/__init__.py
+pydoit_project_builder/_os_utils.py
+pydoit_project_builder/_task_creator.py
+pydoit_project_builder/_task_instatiation.py
+pydoit_project_builder.egg-info/PKG-INFO
+pydoit_project_builder.egg-info/SOURCES.txt
+pydoit_project_builder.egg-info/dependency_links.txt
+pydoit_project_builder.egg-info/requires.txt
+pydoit_project_builder.egg-info/top_level.txt
+test/__init__.py
+test/test_os_utils.py
+test/test_task_creator.py

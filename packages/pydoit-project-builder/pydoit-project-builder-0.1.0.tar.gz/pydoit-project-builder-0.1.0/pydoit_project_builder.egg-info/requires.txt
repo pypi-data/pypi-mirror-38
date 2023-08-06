@@ -1,0 +1,11 @@
+
+[dev]
+wheel
+pylint
+flake8
+flake8-docstrings
+pytest
+pytest-cov
+pytest-html
+pytest-xdist
+coverage
