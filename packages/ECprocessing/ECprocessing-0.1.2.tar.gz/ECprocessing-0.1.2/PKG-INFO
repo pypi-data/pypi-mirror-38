@@ -1,0 +1,30 @@
+Metadata-Version: 1.0
+Name: ECprocessing
+Version: 0.1.2
+Summary: Useful preprocessing functions
+Home-page: http://pypi.python.org/pypi/ECprocessing/
+Author: Tim Johnson
+Author-email: tprjohnson@gmail.com
+License: LICENSE.txt
+Description: ===========
+        ECprocessing
+        ===========
+        
+        ECprocessing will provide a variety of useful functions involved in 
+        preprocessing. Currently there are only functions for text preprocessing.
+         
+        Typical usage often looks like this::
+        
+        
+        
+            from ecprocessing import text_preprocessing as txp
+        
+        
+            string_to_process = "This string<br> will be pr3processed to cha__nge '£lots of messy párts."
+            processed_string = txp.normalize_text(string_to_process)
+        
+        
+        
+        
+        
+Platform: UNKNOWN
