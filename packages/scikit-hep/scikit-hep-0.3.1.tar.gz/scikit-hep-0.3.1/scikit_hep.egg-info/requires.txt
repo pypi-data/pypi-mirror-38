@@ -1,0 +1,9 @@
+PyPDT>=0.7.4
+
+[:python_version == "3.4.*"]
+pandas<0.21
+
+[:python_version >= "2.7"]
+numpy>=1.11.0
+pandas
+matplotlib>2.0.0
