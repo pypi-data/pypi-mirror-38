@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: xconverter
+Version: 0.1.0
+Summary: Library to convert Érudit Article XML's to Érudit Publishing Schema (JATS), HTML and PDF. 
+Home-page: http://github.com/fabiobatalha/converter
+Author: Érudit
+Author-email: fabio.batalha@erudit.org
+Maintainer: Fabio Batalha
+Maintainer-email: fabio.batalha@erudit.org
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: lxml (>=4.0)
+Requires-Dist: weasyprint (>=0.42.3)
+
+UNKNOWN
+
+
