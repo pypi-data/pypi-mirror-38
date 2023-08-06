@@ -1,0 +1,43 @@
+{% extends '_layout.html' %}
+
+{% block main %}
+  <article id="{{ watcher.uuid }}">
+    <h2>{{ watcher.server.name }} − {{ watcher.description }}</h2>
+    <h3>Configuration</h3>
+    <dl>
+      <dt>Hours</dt>
+      <dd>Between {{ watcher.config['after'] }} and {{ watcher.config['before'] }}</dd>
+      <dt>Next check</dt>
+      <dd>
+        {{ '%i' % watcher.next_waiting_time }} seconds
+        (<a href="{{ reverse_url('CheckNow', watcher.uuid) }}">check now</a>)
+      </dd>
+    </dl>
+    <h3>Last Status</h3>
+    {% if watcher.last_check_result and watcher.last_check_result.get('response') %}
+      <dl>
+        <dt>Status</dt>
+        <dd class="status-{{ watcher.status or 'unknown' }}">{{ watcher.status }}</dd>
+        <dt>Is hard</dt>
+        <dd>{{ watcher.last_check_result['is_hard'] }}</dd>
+        <dt>Start</dt>
+        <dd>{{ watcher.last_check_result['start'] }}</dd>
+        <dt>End</dt>
+        <dd>{{ watcher.last_check_result['end'] }}</dd>
+        <dt>Duration</dt>
+        <dd>{{ watcher.last_check_result['end'] - watcher.last_check_result['start'] }}</dd>
+        <dt>Response</dt>
+        <dd>
+          <dl>
+            {% for key, value in watcher.last_check_result['response'].items() %}
+              <dt>{{ key }}</dt>
+              <dd>{{ value }}</dd>
+            {% end %}
+          </dl>
+        </dd>
+      </dl>
+    {% else %}
+      <p>No check has been done yet.</p>
+    {% end %}
+  </article>
+{% end %}
