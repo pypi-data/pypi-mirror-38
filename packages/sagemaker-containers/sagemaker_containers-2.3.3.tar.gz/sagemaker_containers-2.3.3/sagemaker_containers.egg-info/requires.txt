@@ -1,0 +1,17 @@
+boto3
+six
+pip
+flask
+gunicorn
+gevent
+werkzeug
+enum34>=1.1.6
+
+[test]
+tox
+flake8
+pytest
+pytest-cov
+mock
+sagemaker
+numpy
