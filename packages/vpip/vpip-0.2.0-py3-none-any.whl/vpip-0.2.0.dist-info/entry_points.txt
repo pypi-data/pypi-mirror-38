@@ -1,0 +1,3 @@
+[console_scripts]
+vpip = vpip.cli:cli
+
