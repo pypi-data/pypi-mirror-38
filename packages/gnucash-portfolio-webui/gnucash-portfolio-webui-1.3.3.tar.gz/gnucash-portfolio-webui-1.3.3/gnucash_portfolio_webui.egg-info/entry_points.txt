@@ -1,0 +1,3 @@
+[console_scripts]
+gpweb = gnucash_portfolio_webui.app:run_server
+
