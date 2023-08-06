@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: actorio
+Version: 0.0.0.dev0
+Summary: UNKNOWN
+Home-page: UNKNOWN
+Author: Jonathan GAYVALLET
+Author-email: jonathan.mael.gayvallet@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: POSIX :: BSD
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.5
+Requires-Dist: pytz (>=2018.7)
+Requires-Dist: decorator (>=4.2.0)
+
+UNKNOWN
+
+
