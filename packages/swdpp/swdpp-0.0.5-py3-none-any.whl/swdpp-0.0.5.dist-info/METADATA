@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: swdpp
+Version: 0.0.5
+Summary: sliding window DPP
+Home-page: UNKNOWN
+Author: ks_one
+Author-email: ks_one@163.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+# sliding window determinantal point process
+
+## usage
+
+```python3
+import numpy as np
+from swdpp.swdpp import swdpp
+
+n = 10
+r = np.arange(n * n).reshape(n, n) / (n * n)
+L = r @ r.T + np.eye(n)
+w = 5
+
+rank, determinants = swdpp(w, L)
+print(rank)
+print(determinants)
+```
+
+
