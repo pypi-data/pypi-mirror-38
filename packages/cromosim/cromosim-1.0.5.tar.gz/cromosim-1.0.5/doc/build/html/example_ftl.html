@@ -1,0 +1,270 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Understand one-dimensional microscopic models : the Follow-the-Leader model &#8212; cromosim  documentation</title>
+    
+    <link rel="stylesheet" href="_static/scrolls.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/print.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/theme_extras.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Try a cellular automata" href="example_ca.html" />
+    <link rel="prev" title="Build a domain" href="example_dom.html" /> 
+  </head><body>
+    <div id="content">
+      <div class="header">
+        <h1 class="heading"><a href="index.html"
+          title="back to the documentation overview"><span>Understand one-dimensional microscopic models : the Follow-the-Leader model</span></a></h1>
+      </div>
+      <div class="relnav" role="navigation" aria-label="related navigation">
+        <a href="example_dom.html">&laquo; Build a domain</a> |
+        <a href="#">Understand one-dimensional microscopic models : the Follow-the-Leader model</a>
+        | <a href="example_ca.html">Try a cellular automata &raquo;</a>
+      </div>
+      <div id="contentwrapper">
+        
+  <div class="section" id="understand-one-dimensional-microscopic-models-the-follow-the-leader-model">
+<h1>Understand one-dimensional microscopic models : the Follow-the-Leader model<a class="headerlink" href="#understand-one-dimensional-microscopic-models-the-follow-the-leader-model" title="Permalink to this headline">¶</a></h1>
+<p>The Follow-the-Leader (FTL) model presented here is a one-dimensional
+microscopic model. Pedestrians are assumed to walk on a line toward a
+common direction and the instantaneous velocity of an individual is a
+function of the distance to the next individual.</p>
+<p>We consider <span class="math notranslate nohighlight">\(N+1\)</span> individuals walking on a straight line in a
+non-periodic case or in a periodic case which means that the
+individual <span class="math notranslate nohighlight">\(N+1\)</span> is identified to the individual <span class="math notranslate nohighlight">\(1\)</span>.</p>
+<p>We can also consider an inertial version of the Follow-the-Leader
+model (an order <span class="math notranslate nohighlight">\(2\)</span> version) which can be seen as a one-dimensional version of the Social
+Force model with asymmetric forcing terms to take into account that
+pedestrians are influenced by their immediate neighbor in front of
+them.</p>
+<p>Reference : <a class="reference internal" href="index.html#mf2018" id="id1">[MF2018]</a> Chapter 2.</p>
+<p>Thanks to several json files given as inputs of the following script,
+we can combine periodic or non-periodic domain with inertial or
+non-inertial FTL model. Examples can be find in the directory</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">cromosim</span><span class="o">/</span><span class="n">examples</span><span class="o">/</span><span class="n">follow_the_leader</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>To run the <strong>non-inertial FTL model in non-periodic case</strong>:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="n">follow_the_leader</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">json</span> <span class="n">input_ftl_order1</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+<p>Results:</p>
+<br>
+<br>
+<video style="display:block; margin: 0 auto;" controls poster="_static/ftl_order1.png" width="60%" height="auto">
+   <source src="_static/ftl_order1.mp4" />
+   <source src="_static/ftl_order1.webm" />
+   <source src="_static/ftl_order1.theora.ogv" />
+</video>
+<br><p>To run the <strong>non-inertial FTL model in periodic case</strong>:</p>
+<blockquote>
+<div><div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="n">follow_the_leader</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">json</span> <span class="n">input_ftl_order1_periodic</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Results:</p>
+<br>
+<br>
+<video style="display:block; margin: 0 auto;" controls poster="_static/ftl_order1_periodic.png" width="60%" height="auto">
+   <source src="_static/ftl_order1_periodic.mp4" />
+   <source src="_static/ftl_order1_periodic.webm" />
+   <source src="_static/ftl_order1_periodic.theora.ogv" />
+</video>
+<br><p>To run the <strong>inertial FTL model in non-periodic case</strong>:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="n">follow_the_leader</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">json</span> <span class="n">input_ftl_order2</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+<p>Results:</p>
+<br>
+<br>
+<video style="display:block; margin: 0 auto;" controls poster="_static/ftl_order2.png" width="60%" height="auto">
+   <source src="_static/ftl_order2.mp4" />
+   <source src="_static/ftl_order2.webm" />
+   <source src="_static/ftl_order2.theora.ogv" />
+</video>
+<br><p>To run the <strong>inertial FTL model in periodic case</strong>:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="n">follow_the_leader</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">json</span> <span class="n">input_ftl_order2_periodic</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+<p>Results:</p>
+<br>
+<br>
+<video style="display:block; margin: 0 auto;" controls poster="_static/ftl_order2_periodic.png" width="60%" height="auto">
+   <source src="_static/ftl_order2_periodic.mp4" />
+   <source src="_static/ftl_order2_periodic.webm" />
+   <source src="_static/ftl_order2_periodic.theora.ogv" />
+</video>
+<br><p>Code:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">cromosim</span><span class="o">/</span><span class="n">examples</span><span class="o">/</span><span class="n">follow_the_leader</span><span class="o">/</span><span class="n">follow_the_leader</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Authors:</span>
+<span class="c1">#     Sylvain Faure &lt;sylvain.faure@math.u-psud.fr&gt;</span>
+<span class="c1">#     Bertrand Maury &lt;bertrand.maury@math.u-psud.fr&gt;</span>
+<span class="c1">#</span>
+<span class="c1">#     cromosim/examples/follow_the_leader/follow_the_leader.py</span>
+<span class="c1">#     python follow_the_leader.py --json input_ftl_order1.json</span>
+<span class="c1">#     python follow_the_leader.py --json input_ftl_order1_periodic.json</span>
+<span class="c1">#     python follow_the_leader.py --json input_ftl_order2.json</span>
+<span class="c1">#     python follow_the_leader.py --json input_ftl_order2_periodic.json</span>
+<span class="c1">#</span>
+<span class="c1"># License: GPL</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">optparse</span> <span class="k">import</span> <span class="n">OptionParser</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sp</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">cromosim.ftl</span> <span class="k">as</span> <span class="nn">ftl</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ion</span><span class="p">()</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd"> Follow The Leader model</span>
+<span class="sd"> Models :</span>
+<span class="sd"> - &quot;ftl_order1&quot;</span>
+<span class="sd"> - &quot;ftl_order2&quot; with inertia</span>
+<span class="sd"> Domain :</span>
+<span class="sd"> - periodic</span>
+<span class="sd"> - non-periodic</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd"> Read the input JSON file</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">parser</span> <span class="o">=</span> <span class="n">OptionParser</span><span class="p">(</span><span class="n">usage</span><span class="o">=</span><span class="s2">&quot;usage: %prog [options] filename&quot;</span><span class="p">,</span><span class="n">version</span><span class="o">=</span><span class="s2">&quot;%prog 1.0&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span><span class="s1">&#39;--json&#39;</span><span class="p">,</span><span class="n">dest</span><span class="o">=</span><span class="s2">&quot;jsonfilename&quot;</span><span class="p">,</span>
+                  <span class="n">default</span><span class="o">=</span><span class="s2">&quot;input.json&quot;</span><span class="p">,</span>
+                  <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+                  <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store&quot;</span><span class="p">,</span>
+                  <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Input json filename&quot;</span><span class="p">)</span>
+<span class="n">opt</span><span class="p">,</span> <span class="n">remainder</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">opt</span><span class="o">.</span><span class="n">jsonfilename</span><span class="p">)</span> <span class="k">as</span> <span class="n">json_file</span><span class="p">:</span>
+    <span class="nb">input</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">json_file</span><span class="p">)</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd"> Parameters obtained from the json file</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Prefix for the result path</span>
+<span class="n">model</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">]</span>
+<span class="c1"># tau :</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">model</span><span class="o">==</span><span class="s2">&quot;ftl_order_2&quot;</span><span class="p">):</span>
+    <span class="n">tau</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;tau&quot;</span><span class="p">]</span>
+<span class="n">prefix</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;prefix&quot;</span><span class="p">]</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">prefix</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">prefix</span><span class="p">)</span>
+<span class="c1"># Number of persons : 0, 1, ..., N-1</span>
+<span class="n">N</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;N&quot;</span><span class="p">]</span>
+<span class="c1"># Length of the way [0,L]</span>
+<span class="n">L</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;L&quot;</span><span class="p">]</span>
+<span class="c1"># Periodicity : True or False</span>
+<span class="c1"># If True : no Leader</span>
+<span class="c1"># If False : the last person (number N-1) is the leader</span>
+<span class="n">periodicity</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;periodicity&quot;</span><span class="p">]</span>
+<span class="c1"># Final time</span>
+<span class="n">T</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;T&quot;</span><span class="p">]</span>
+<span class="c1"># Timestep</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;dt&quot;</span><span class="p">]</span>
+<span class="c1"># The positions of the persons are drawn every &quot;drawper&quot; iterations</span>
+<span class="n">drawper</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;drawper&quot;</span><span class="p">]</span>
+<span class="c1"># Prescribed velocity for the Leader (only used in the non-periodic case)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">periodicity</span><span class="o">==</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">V_leader</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="nb">eval</span><span class="p">(</span><span class="nb">input</span><span class="p">[</span><span class="s2">&quot;V_leader&quot;</span><span class="p">])</span>
+<span class="c1"># Speed function</span>
+<span class="n">Phi</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">w</span><span class="p">:</span> <span class="nb">eval</span><span class="p">(</span><span class="nb">input</span><span class="p">[</span><span class="s2">&quot;speed_function&quot;</span><span class="p">])</span>
+<span class="c1"># To initialize the positions of the persons (regularly):</span>
+<span class="n">xmin_t0</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;xmin_t0&quot;</span><span class="p">]</span>
+<span class="n">xmax_t0</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;xmax_t0&quot;</span><span class="p">]</span>
+
+<span class="c1"># To build tgrid, Nt is the number of time iterations</span>
+<span class="n">Nt</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">T</span><span class="o">/</span><span class="n">dt</span><span class="p">))</span><span class="o">+</span><span class="mi">1</span>
+<span class="n">Nt</span> <span class="o">+=</span> <span class="p">(</span><span class="n">Nt</span><span class="o">*</span><span class="n">dt</span><span class="o">&lt;</span><span class="n">T</span><span class="p">)</span>
+<span class="n">tgrid</span> <span class="o">=</span> <span class="n">dt</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">Nt</span><span class="p">)</span>
+<span class="n">tgrid</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">tgrid</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="c1"># data : array where the positions and the velocities will be stored</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">Nt</span><span class="p">))</span>
+
+<span class="c1"># Iteration counter</span>
+<span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># Initialization</span>
+<span class="n">time</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">Xold</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">xmin_t0</span><span class="p">,</span> <span class="n">xmax_t0</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="n">Vold</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">Xold</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">,</span><span class="n">counter</span><span class="p">]</span> <span class="o">=</span> <span class="n">Xold</span>
+<span class="n">shift</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">Xold</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+
+<span class="c1"># Time loop</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">time</span> <span class="o">&lt;</span> <span class="n">T</span><span class="o">-</span><span class="mf">0.5</span><span class="o">*</span><span class="n">dt</span><span class="p">):</span>
+    <span class="n">dt</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span><span class="n">T</span><span class="o">-</span><span class="n">time</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">model</span><span class="o">==</span><span class="s2">&quot;ftl_order_1&quot;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">periodicity</span><span class="p">:</span>
+            <span class="n">X</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">ftl</span><span class="o">.</span><span class="n">update_positions_ftl_order_1</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">Xold</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">Phi</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">X</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">ftl</span><span class="o">.</span><span class="n">update_positions_ftl_order_1</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">Xold</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">Phi</span><span class="p">,</span>
+                                <span class="n">V_leader</span><span class="o">=</span><span class="n">V_leader</span><span class="p">,</span> <span class="n">periodicity</span><span class="o">=</span><span class="n">periodicity</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="p">(</span><span class="n">model</span><span class="o">==</span><span class="s2">&quot;ftl_order_2&quot;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">periodicity</span><span class="p">:</span>
+            <span class="n">X</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">ftl</span><span class="o">.</span><span class="n">update_positions_ftl_order_2</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">Xold</span><span class="p">,</span> <span class="n">Vold</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span>
+                                                    <span class="n">tau</span><span class="p">,</span> <span class="n">Phi</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">X</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">ftl</span><span class="o">.</span><span class="n">update_positions_ftl_order_2</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">Xold</span><span class="p">,</span> <span class="n">Vold</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span>
+                                <span class="n">tau</span><span class="p">,</span> <span class="n">Phi</span><span class="p">,</span> <span class="n">V_leader</span><span class="o">=</span><span class="n">V_leader</span><span class="p">,</span>
+                                <span class="n">periodicity</span><span class="o">=</span><span class="n">periodicity</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Bad model name... EXIT&quot;</span><span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+    <span class="n">ind</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">X</span><span class="o">-</span><span class="n">Xold</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">shift</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span> <span class="o">+=</span> <span class="n">L</span>
+    <span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">,</span><span class="n">counter</span><span class="p">]</span> <span class="o">=</span> <span class="n">X</span> <span class="o">+</span> <span class="n">shift</span>
+    <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">,</span><span class="n">counter</span><span class="p">]</span> <span class="o">=</span> <span class="n">V</span>
+    <span class="n">time</span> <span class="o">+=</span> <span class="n">dt</span>
+    <span class="n">Xold</span> <span class="o">=</span> <span class="n">X</span>
+    <span class="n">Vold</span> <span class="o">=</span> <span class="n">V</span>
+    <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">counter</span><span class="o">%</span><span class="n">drawper</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">periodicity</span><span class="p">:</span>
+            <span class="n">ftl</span><span class="o">.</span><span class="n">plot_people</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">tgrid</span><span class="p">,</span> <span class="n">speed_fct</span><span class="o">=</span><span class="n">Phi</span><span class="p">,</span>
+                            <span class="n">ifig</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">savefig</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                            <span class="n">filename</span><span class="o">=</span><span class="n">prefix</span><span class="o">+</span><span class="s2">&quot;fig_&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">counter</span><span class="p">)</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;.png&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ftl</span><span class="o">.</span><span class="n">plot_people</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">tgrid</span><span class="p">,</span> <span class="n">V_leader</span><span class="o">=</span><span class="n">V_leader</span><span class="p">,</span>
+                            <span class="n">periodicity</span><span class="o">=</span><span class="n">periodicity</span><span class="p">,</span> <span class="n">speed_fct</span><span class="o">=</span><span class="n">Phi</span><span class="p">,</span> <span class="n">ifig</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                            <span class="n">savefig</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                            <span class="n">filename</span><span class="o">=</span><span class="n">prefix</span><span class="o">+</span><span class="s2">&quot;fig_&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">counter</span><span class="p">)</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;.png&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">pause</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;==&gt; Time : &quot;</span><span class="p">,</span><span class="n">time</span><span class="p">,</span><span class="s2">&quot; s, dt = &quot;</span><span class="p">,</span><span class="n">dt</span><span class="p">,</span><span class="s2">&quot; counter = &quot;</span><span class="p">,</span><span class="n">counter</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">ioff</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+
+
+      </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Sylvain Faure, Bertrand Maury.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.2.
+    </div>
+  </body>
+</html>

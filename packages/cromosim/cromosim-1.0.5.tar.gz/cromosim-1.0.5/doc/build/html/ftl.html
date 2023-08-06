@@ -1,0 +1,200 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Module for the Follow-the-Leader model &#8212; cromosim  documentation</title>
+    
+    <link rel="stylesheet" href="_static/scrolls.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/print.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/theme_extras.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Cellular automata" href="ca.html" />
+    <link rel="prev" title="To plot the wall distance" href="cromosim.domain.Domain.plot_wall_dist.html" /> 
+  </head><body>
+    <div id="content">
+      <div class="header">
+        <h1 class="heading"><a href="index.html"
+          title="back to the documentation overview"><span>Module for the Follow-the-Leader model</span></a></h1>
+      </div>
+      <div class="relnav" role="navigation" aria-label="related navigation">
+        <a href="cromosim.domain.Domain.plot_wall_dist.html">&laquo; To plot the wall distance</a> |
+        <a href="#">Module for the Follow-the-Leader model</a>
+        | <a href="ca.html">Cellular automata &raquo;</a>
+      </div>
+      <div id="contentwrapper">
+        
+  <div class="section" id="module-cromosim.ftl">
+<span id="module-for-the-follow-the-leader-model"></span><h1>Module for the Follow-the-Leader model<a class="headerlink" href="#module-cromosim.ftl" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="cromosim.ftl.plot_people">
+<code class="descclassname">cromosim.ftl.</code><code class="descname">plot_people</code><span class="sig-paren">(</span><em>L</em>, <em>X</em>, <em>t</em>, <em>data</em>, <em>tgrid</em>, <em>periodicity=True</em>, <em>V_leader=None</em>, <em>speed_fct=None</em>, <em>savefig=False</em>, <em>filename='fig.png'</em>, <em>ifig=100</em>, <em>spheresize=300</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cromosim/ftl.html#plot_people"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cromosim.ftl.plot_people" title="Permalink to this definition">¶</a></dt>
+<dd><p>To plot people and their individual paths</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>L: float</strong></dt>
+<dd><p class="first last">width of the domain</p>
+</dd>
+<dt><strong>X: numpy array</strong></dt>
+<dd><p class="first last">positions of the individuals</p>
+</dd>
+<dt><strong>data: numpy array</strong></dt>
+<dd><p class="first last">coordinates of indviduals at each time</p>
+</dd>
+<dt><strong>tgrid: numpy array</strong></dt>
+<dd><p class="first last">temporal discretization</p>
+</dd>
+<dt><strong>periodicity: boolean</strong></dt>
+<dd><p class="first last">if true the domain is periodic</p>
+</dd>
+<dt><strong>V_leader: function</strong></dt>
+<dd><p class="first last">leader velocity as a function of the time</p>
+</dd>
+<dt><strong>speed_fct: function</strong></dt>
+<dd><p class="first last">speed as a function of the distance</p>
+</dd>
+<dt><strong>savefig: boolean</strong></dt>
+<dd><p class="first last">writes the figure as a png file if true</p>
+</dd>
+<dt><strong>filename: string</strong></dt>
+<dd><p class="first last">png filename used to write the figure</p>
+</dd>
+<dt><strong>ifig: int</strong></dt>
+<dd><p class="first last">figure number</p>
+</dd>
+<dt><strong>spheresize: int</strong></dt>
+<dd><p class="first last">size of the spheres used to represent the individuals</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="cromosim.ftl.update_positions_ftl_order_1">
+<code class="descclassname">cromosim.ftl.</code><code class="descname">update_positions_ftl_order_1</code><span class="sig-paren">(</span><em>L</em>, <em>X</em>, <em>t</em>, <em>dt</em>, <em>Phi</em>, <em>periodicity=True</em>, <em>V_leader=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cromosim/ftl.html#update_positions_ftl_order_1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cromosim.ftl.update_positions_ftl_order_1" title="Permalink to this definition">¶</a></dt>
+<dd><p>To update the positions according to the follow the leader model (order 1)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>L: float</strong></dt>
+<dd><p class="first last">width of the domain</p>
+</dd>
+<dt><strong>X: numpy array</strong></dt>
+<dd><p class="first last">coordinates of the individuals</p>
+</dd>
+<dt><strong>t: float</strong></dt>
+<dd><p class="first last">time</p>
+</dd>
+<dt><strong>dt: float</strong></dt>
+<dd><p class="first last">time step</p>
+</dd>
+<dt><strong>Phi: function</strong></dt>
+<dd><p class="first last">speed as a function of the distance</p>
+</dd>
+<dt><strong>periodicity: boolean</strong></dt>
+<dd><p class="first last">if true the domain is periodic</p>
+</dd>
+<dt><strong>V_leader: function</strong></dt>
+<dd><p class="first last">leader velocity as a function of the time</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>Xnew: numpy array</strong></dt>
+<dd><p class="first last">new coordinates of the individuals</p>
+</dd>
+<dt><strong>V: numpy array</strong></dt>
+<dd><p class="first last">new velocities of the individuals</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="cromosim.ftl.update_positions_ftl_order_2">
+<code class="descclassname">cromosim.ftl.</code><code class="descname">update_positions_ftl_order_2</code><span class="sig-paren">(</span><em>L</em>, <em>X</em>, <em>U</em>, <em>t</em>, <em>dt</em>, <em>tau</em>, <em>Phi</em>, <em>periodicity=True</em>, <em>V_leader=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cromosim/ftl.html#update_positions_ftl_order_2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cromosim.ftl.update_positions_ftl_order_2" title="Permalink to this definition">¶</a></dt>
+<dd><p>To update the positions according to the follow the leader model (order 2)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>L: float</strong></dt>
+<dd><p class="first last">width of the domain</p>
+</dd>
+<dt><strong>X: numpy array</strong></dt>
+<dd><p class="first last">coordinates of the individuals</p>
+</dd>
+<dt><strong>U: numpy array</strong></dt>
+<dd><p class="first last">velocities of the individuals</p>
+</dd>
+<dt><strong>t: float</strong></dt>
+<dd><p class="first last">time</p>
+</dd>
+<dt><strong>dt: float</strong></dt>
+<dd><p class="first last">time step</p>
+</dd>
+<dt><strong>tau: float</strong></dt>
+<dd><p class="first last">the actual velocity of an individual relaxes toward the velocity that         is associated to the current distance from the person in front of them         with a characteristic time tau</p>
+</dd>
+<dt><strong>Phi: function</strong></dt>
+<dd><p class="first last">speed as a function of the distance</p>
+</dd>
+<dt><strong>periodicity: boolean</strong></dt>
+<dd><p class="first last">if true the domain is periodic</p>
+</dd>
+<dt><strong>V_leader: function</strong></dt>
+<dd><p class="first last">leader velocity as a function of the time</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>Xnew: numpy array</strong></dt>
+<dd><p class="first last">new coordinates of the individuals</p>
+</dd>
+<dt><strong>Unew: numpy array</strong></dt>
+<dd><p class="first last">new velocities of the individuals</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+      </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Sylvain Faure, Bertrand Maury.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.2.
+    </div>
+  </body>
+</html>

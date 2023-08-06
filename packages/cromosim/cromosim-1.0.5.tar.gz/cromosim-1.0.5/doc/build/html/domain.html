@@ -1,0 +1,325 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Domain class used to build the computational domain &#8212; cromosim  documentation</title>
+    
+    <link rel="stylesheet" href="_static/scrolls.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/print.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/theme_extras.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="To add a door" href="cromosim.domain.Domain.add_door.html" />
+    <link rel="prev" title="Discover the compartment model" href="example_comp.html" /> 
+  </head><body>
+    <div id="content">
+      <div class="header">
+        <h1 class="heading"><a href="index.html"
+          title="back to the documentation overview"><span>Domain class used to build the computational domain</span></a></h1>
+      </div>
+      <div class="relnav" role="navigation" aria-label="related navigation">
+        <a href="example_comp.html">&laquo; Discover the compartment model</a> |
+        <a href="#">Domain class used to build the computational domain</a>
+        | <a href="cromosim.domain.Domain.add_door.html">To add a door &raquo;</a>
+      </div>
+      <div id="contentwrapper">
+        
+  <div class="section" id="domain-class-used-to-build-the-computational-domain">
+<h1>Domain class used to build the computational domain<a class="headerlink" href="#domain-class-used-to-build-the-computational-domain" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="cromosim.domain.Domain">
+<em class="property">class </em><code class="descclassname">cromosim.domain.</code><code class="descname">Domain</code><span class="sig-paren">(</span><em>name='Domain'</em>, <em>background='White'</em>, <em>pixel_size=1.0</em>, <em>xmin=0.0</em>, <em>width=100</em>, <em>ymin=0.0</em>, <em>height=100</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cromosim/domain.html#Domain"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cromosim.domain.Domain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="docutils">
+<dt>To define the computational domain :</dt>
+<dd><ul class="first last simple">
+<li>a background : empty (white) or a PNG image which only         contains the colors white, red (for the doors) and black         (for the walls)</li>
+<li>supplementary doors represented by matplotlib shapes :         line2D</li>
+<li>supplementary walls represented by matplotlib shapes :         line2D, circle, ellipse, rectangle or polygon</li>
+</ul>
+</dd>
+</dl>
+<p>To compute the obstacle distances and the desired velocities</p>
+<p class="rubric">Examples</p>
+<ul class="simple">
+<li>An example with a domain built using only shape elements :
+cromosim/examples/domain_manually_computed.py</li>
+<li>An example with a domain built using an image and shape elements :
+cromosim/examples/domain_auto_computed.py</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Attributes:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>pixel_size</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">size of a pixel in meters</p>
+</dd>
+<dt><strong>width</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd><p class="first last">width of the background image (number of pixels)</p>
+</dd>
+<dt><strong>height</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd><p class="first last">height of the background image (number of pixels)</p>
+</dd>
+<dt><strong>xmin</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">x coordinate of the origin (bottom left corner)</p>
+</dd>
+<dt><strong>xmax</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">xmax = xmin + width*pixel_size</p>
+</dd>
+<dt><strong>ymin</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">y coordinate of the origin (bottom left corner)</p>
+</dd>
+<dt><strong>ymax</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">ymax = ymin + height*pixel_size</p>
+</dd>
+<dt><strong>X</strong> <span class="classifier-delimiter">:</span> <span class="classifier">numpy array</span></dt>
+<dd><p class="first last">x coordinates (meshgrid)</p>
+</dd>
+<dt><strong>Y</strong> <span class="classifier-delimiter">:</span> <span class="classifier">numpy array</span></dt>
+<dd><p class="first last">y coordinates (meshgrid)</p>
+</dd>
+<dt><strong>image</strong> <span class="classifier-delimiter">:</span> <span class="classifier">numpy array</span></dt>
+<dd><p class="first last">pixel array (r,g,b,a)
+The Pillow image is converted to a numpy arrays, then         using flipud
+the origin of the image is put it down left instead the         top left</p>
+</dd>
+<dt><strong>image_red</strong> <span class="classifier-delimiter">:</span> <span class="classifier">numpy array</span></dt>
+<dd><p class="first last">red values of the image (r,g,b,a)</p>
+</dd>
+<dt><strong>image_green</strong> <span class="classifier-delimiter">:</span> <span class="classifier">numpy array</span></dt>
+<dd><p class="first last">green values of the image (r,g,b,a)</p>
+</dd>
+<dt><strong>image_blue</strong> <span class="classifier-delimiter">:</span> <span class="classifier">numpy array</span></dt>
+<dd><p class="first last">blue values of the image (r,g,b,a)</p>
+</dd>
+<dt><strong>mask</strong> <span class="classifier-delimiter">:</span> <span class="classifier">numpy array</span></dt>
+<dd><p class="first last">boolean array : true for black pixels</p>
+</dd>
+<dt><strong>mask_id</strong> <span class="classifier-delimiter">:</span> <span class="classifier">numpy array</span></dt>
+<dd><p class="first last">black pixel indices</p>
+</dd>
+<dt><strong>wall_distance</strong> <span class="classifier-delimiter">:</span> <span class="classifier">numpy array</span></dt>
+<dd><p class="first last">distance (m) to the wall</p>
+</dd>
+<dt><strong>wall_grad_X</strong> <span class="classifier-delimiter">:</span> <span class="classifier">numpy array</span></dt>
+<dd><p class="first last">gradient of the distance to the wall (first component)</p>
+</dd>
+<dt><strong>wall_grad_Y</strong> <span class="classifier-delimiter">:</span> <span class="classifier">numpy array</span></dt>
+<dd><p class="first last">gradient of the distance to the wall (second component)</p>
+</dd>
+<dt><strong>door_distance</strong> <span class="classifier-delimiter">:</span> <span class="classifier">numpy array</span></dt>
+<dd><p class="first last">distance (m) to the door</p>
+</dd>
+<dt><strong>desired_velocity_X</strong> <span class="classifier-delimiter">:</span> <span class="classifier">numpy array</span></dt>
+<dd><p class="first last">opposite of the gradient of the distance to the door : desired velocity          (first component)</p>
+</dd>
+<dt><strong>desired_velocity_Y</strong> <span class="classifier-delimiter">:</span> <span class="classifier">numpy array</span></dt>
+<dd><p class="first last">opposite of the gradient of the distance to the door : desired velocity         (second component)</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#cromosim.domain.Domain.add_door" title="cromosim.domain.Domain.add_door"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_door</span></code></a>(shape)</td>
+<td>To add a door represented by a matplotlib shapes :         line2D (only)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cromosim.domain.Domain.add_wall" title="cromosim.domain.Domain.add_wall"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_wall</span></code></a>(shape)</td>
+<td>To add a wall represented by matplotlib shapes :         line2D, circle, ellipse, rectangle or polygon</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cromosim.domain.Domain.build_domain" title="cromosim.domain.Domain.build_domain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">build_domain</span></code></a>()</td>
+<td>To build the domain : reads the background image (if supplied)         and initializes all the color arrrays</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cromosim.domain.Domain.compute_desired_velocity" title="cromosim.domain.Domain.compute_desired_velocity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_desired_velocity</span></code></a>()</td>
+<td>To compute the geodesic distance to the doors in using         a fast-marching method.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cromosim.domain.Domain.compute_wall_distance" title="cromosim.domain.Domain.compute_wall_distance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_wall_distance</span></code></a>()</td>
+<td>To compute the geodesic distance to the walls in using         a fast-marching method</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cromosim.domain.Domain.plot" title="cromosim.domain.Domain.plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot</span></code></a>([id,&nbsp;dpi])</td>
+<td>To plot the computational domain</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cromosim.domain.Domain.plot_desired_velocity" title="cromosim.domain.Domain.plot_desired_velocity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_desired_velocity</span></code></a>([id,&nbsp;dpi])</td>
+<td>To plot the desired velocity</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cromosim.domain.Domain.plot_wall_dist" title="cromosim.domain.Domain.plot_wall_dist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_wall_dist</span></code></a>([id,&nbsp;dpi])</td>
+<td>To plot the wall distances</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="cromosim.domain.Domain.add_door">
+<code class="descname">add_door</code><span class="sig-paren">(</span><em>shape</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cromosim/domain.html#Domain.add_door"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cromosim.domain.Domain.add_door" title="Permalink to this definition">¶</a></dt>
+<dd><p>To add a door represented by a matplotlib shapes :         line2D (only)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>shape</strong> <span class="classifier-delimiter">:</span> <span class="classifier">matplotlib shape</span></dt>
+<dd><p class="first last">line2D</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cromosim.domain.Domain.add_wall">
+<code class="descname">add_wall</code><span class="sig-paren">(</span><em>shape</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cromosim/domain.html#Domain.add_wall"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cromosim.domain.Domain.add_wall" title="Permalink to this definition">¶</a></dt>
+<dd><p>To add a wall represented by matplotlib shapes :         line2D, circle, ellipse, rectangle or polygon</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>shape</strong> <span class="classifier-delimiter">:</span> <span class="classifier">matplotlib shape</span></dt>
+<dd><p class="first last">line2D, circle, ellipse, rectangle or polygon</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cromosim.domain.Domain.build_domain">
+<code class="descname">build_domain</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cromosim/domain.html#Domain.build_domain"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cromosim.domain.Domain.build_domain" title="Permalink to this definition">¶</a></dt>
+<dd><p>To build the domain : reads the background image (if supplied)         and initializes all the color arrrays</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cromosim.domain.Domain.compute_desired_velocity">
+<code class="descname">compute_desired_velocity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cromosim/domain.html#Domain.compute_desired_velocity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cromosim.domain.Domain.compute_desired_velocity" title="Permalink to this definition">¶</a></dt>
+<dd><p>To compute the geodesic distance to the doors in using         a fast-marching method. The opposite of the gradient of this distance
+corresponds to the desired velocity which permits to reach the closest
+door</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>door_distance</strong> <span class="classifier-delimiter">:</span> <span class="classifier">numpy array</span></dt>
+<dd><p class="first last">distance to the closest door</p>
+</dd>
+<dt><strong>desired_velocity_X</strong> <span class="classifier-delimiter">:</span> <span class="classifier">numpy array</span></dt>
+<dd><p class="first last">opposite of the gradient of the door distance, x component</p>
+</dd>
+<dt><strong>desired_velocity_Y</strong> <span class="classifier-delimiter">:</span> <span class="classifier">numpy array</span></dt>
+<dd><p class="first last">opposite of the gradient of the door distance, y component</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cromosim.domain.Domain.compute_wall_distance">
+<code class="descname">compute_wall_distance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cromosim/domain.html#Domain.compute_wall_distance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cromosim.domain.Domain.compute_wall_distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>To compute the geodesic distance to the walls in using         a fast-marching method</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cromosim.domain.Domain.plot">
+<code class="descname">plot</code><span class="sig-paren">(</span><em>id=1</em>, <em>dpi=150</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cromosim/domain.html#Domain.plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cromosim.domain.Domain.plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>To plot the computational domain</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>id</strong> <span class="classifier-delimiter">:</span> <span class="classifier">integer</span></dt>
+<dd><p class="first last">Figure id (number)</p>
+</dd>
+<dt><strong>dpi</strong> <span class="classifier-delimiter">:</span> <span class="classifier">integer</span></dt>
+<dd><p class="first last">Figure resolution</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cromosim.domain.Domain.plot_desired_velocity">
+<code class="descname">plot_desired_velocity</code><span class="sig-paren">(</span><em>id=1</em>, <em>dpi=150</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cromosim/domain.html#Domain.plot_desired_velocity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cromosim.domain.Domain.plot_desired_velocity" title="Permalink to this definition">¶</a></dt>
+<dd><p>To plot the desired velocity</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>id</strong> <span class="classifier-delimiter">:</span> <span class="classifier">integer</span></dt>
+<dd><p class="first last">Figure id (number)</p>
+</dd>
+<dt><strong>dpi</strong> <span class="classifier-delimiter">:</span> <span class="classifier">integer</span></dt>
+<dd><p class="first last">Figure resolution</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cromosim.domain.Domain.plot_wall_dist">
+<code class="descname">plot_wall_dist</code><span class="sig-paren">(</span><em>id=1</em>, <em>dpi=150</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cromosim/domain.html#Domain.plot_wall_dist"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cromosim.domain.Domain.plot_wall_dist" title="Permalink to this definition">¶</a></dt>
+<dd><p>To plot the wall distances</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>id</strong> <span class="classifier-delimiter">:</span> <span class="classifier">integer</span></dt>
+<dd><p class="first last">Figure id (number)</p>
+</dd>
+<dt><strong>dpi</strong> <span class="classifier-delimiter">:</span> <span class="classifier">integer</span></dt>
+<dd><p class="first last">Figure resolution</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+      </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Sylvain Faure, Bertrand Maury.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.2.
+    </div>
+  </body>
+</html>

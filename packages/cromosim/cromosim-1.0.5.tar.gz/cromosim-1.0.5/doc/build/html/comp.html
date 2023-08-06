@@ -1,0 +1,173 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Compartments &#8212; cromosim  documentation</title>
+    
+    <link rel="stylesheet" href="_static/scrolls.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/print.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/theme_extras.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Microscopic models : granular and social force model" href="micro.html" /> 
+  </head><body>
+    <div id="content">
+      <div class="header">
+        <h1 class="heading"><a href="index.html"
+          title="back to the documentation overview"><span>Compartments</span></a></h1>
+      </div>
+      <div class="relnav" role="navigation" aria-label="related navigation">
+        <a href="micro.html">&laquo; Microscopic models : granular and social force model</a> |
+        <a href="#">Compartments</a>
+      </div>
+      <div id="contentwrapper">
+        
+  <div class="section" id="module-cromosim.comp">
+<span id="compartments"></span><h1>Compartments<a class="headerlink" href="#module-cromosim.comp" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="cromosim.comp.iteration">
+<code class="descclassname">cromosim.comp.</code><code class="descname">iteration</code><span class="sig-paren">(</span><em>it</em>, <em>Nrooms</em>, <em>DoorRoomCapacity</em>, <em>NPir</em>, <em>NPrir</em>, <em>NPwir</em>, <em>Nior</em>, <em>List_iOr</em>, <em>T_iOr</em>, <em>Flux</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cromosim/comp.html#iteration"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cromosim.comp.iteration" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>To run one iteration (which corresponds to 1 second) of the compartment         model. The compartments shall be identified to nodes of a network, those         nodes are connected by edges, which corresponds to paths between nodesself.</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>it: integer</strong></dt>
+<dd><p class="first last">iteration number</p>
+</dd>
+<dt><strong>Nrooms: int</strong></dt>
+<dd><p class="first last">number of rooms</p>
+</dd>
+<dt><strong>DoorRoomCapacity: numpy array</strong></dt>
+<dd><p class="first last">capacities of each door (number of persons per second)</p>
+</dd>
+<dt><strong>NPir: numpy array</strong></dt>
+<dd><p class="first last">numbers of persons for each room</p>
+</dd>
+<dt><strong>NPrir: numpy array</strong></dt>
+<dd><p class="first last">inlets for each room</p>
+</dd>
+<dt><strong>NPwir: numpy array</strong></dt>
+<dd><p class="first last">numbers of persons who’s waiting to leave each room</p>
+</dd>
+<dt><strong>Nior: numpy array</strong></dt>
+<dd><p class="first last">numbers of inlets for each room</p>
+</dd>
+<dt><strong>List_iOr: numpy array</strong></dt>
+<dd><p class="first last">room numbers associate to the inlets for each room</p>
+</dd>
+<dt><strong>T_iOr: numpy array</strong></dt>
+<dd><p class="first last">travel times to cross each room</p>
+</dd>
+<dt><strong>Flux: numpy array</strong></dt>
+<dd><p class="first last">numbers of persons upstream the exits</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>Flux: numpy array</strong></dt>
+<dd><p class="first last">new numbers of persons upstream the exits</p>
+</dd>
+<dt><strong>NPir: numpy array</strong></dt>
+<dd><p class="first last">new numbers of persons for each room</p>
+</dd>
+<dt><strong>NPwir: numpy array</strong></dt>
+<dd><p class="first last">new numbers of persons who’s waiting to leave each room</p>
+</dd>
+<dt><strong>NPrir: numpy array</strong></dt>
+<dd><p class="first last">new inlets for each room</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="cromosim.comp.plot_compt">
+<code class="descclassname">cromosim.comp.</code><code class="descname">plot_compt</code><span class="sig-paren">(</span><em>ifig</em>, <em>RoomNames</em>, <em>RoomCenters</em>, <em>DoorCenters</em>, <em>CircAngles</em>, <em>NPir</em>, <em>NPrir</em>, <em>NPwir</em>, <em>Nior</em>, <em>List_iOr</em>, <em>dom</em>, <em>area</em>, <em>savefig=False</em>, <em>filename='fig.png'</em>, <em>title=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cromosim/comp.html#plot_compt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cromosim.comp.plot_compt" title="Permalink to this definition">¶</a></dt>
+<dd><p>To draw</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>ifig</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd><p class="first last">figure number</p>
+</dd>
+<dt><strong>RoomNames: list</strong></dt>
+<dd><p class="first last">number of rooms</p>
+</dd>
+<dt><strong>RoomCenters: numpy array</strong></dt>
+<dd><p class="first last">coordinates of the centers of rooms</p>
+</dd>
+<dt><strong>DoorCenters: numpy array</strong></dt>
+<dd><p class="first last">coordinates of the centers of doors</p>
+</dd>
+<dt><strong>CircAngles: numpy array</strong></dt>
+<dd><p class="first last">rotational angles of the half-disks localized at each door</p>
+</dd>
+<dt><strong>NPir: numpy array</strong></dt>
+<dd><p class="first last">numbers of persons for each room</p>
+</dd>
+<dt><strong>NPrir: numpy array</strong></dt>
+<dd><p class="first last">inlets for each room</p>
+</dd>
+<dt><strong>NPwir: numpy array</strong></dt>
+<dd><p class="first last">numbers of persons who’s waiting to leave each room</p>
+</dd>
+<dt><strong>Nior: numpy array</strong></dt>
+<dd><p class="first last">numbers of inlets for each room</p>
+</dd>
+<dt><strong>List_iOr: numpy array</strong></dt>
+<dd><p class="first last">room numbers associate to the inlets for each room</p>
+</dd>
+<dt><strong>dom: Domain</strong></dt>
+<dd><p class="first last">contains everything for managing the domain</p>
+</dd>
+<dt><strong>area: float</strong></dt>
+<dd><p class="first last">typical area size in m^2 of one individual</p>
+</dd>
+<dt><strong>savefig: boolean</strong></dt>
+<dd><p class="first last">writes the figure as a png file if true</p>
+</dd>
+<dt><strong>filename: string</strong></dt>
+<dd><p class="first last">png filename used to write the figure</p>
+</dd>
+<dt><strong>title: string</strong></dt>
+<dd><p class="first last">title of the figure</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+      </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Sylvain Faure, Bertrand Maury.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.2.
+    </div>
+  </body>
+</html>

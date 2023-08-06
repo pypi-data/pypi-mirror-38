@@ -1,0 +1,692 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Make a microscopic simulation &#8212; cromosim  documentation</title>
+    
+    <link rel="stylesheet" href="_static/scrolls.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/print.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/theme_extras.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Discover the compartment model" href="example_comp.html" />
+    <link rel="prev" title="Try a cellular automata" href="example_ca.html" /> 
+  </head><body>
+    <div id="content">
+      <div class="header">
+        <h1 class="heading"><a href="index.html"
+          title="back to the documentation overview"><span>Make a microscopic simulation</span></a></h1>
+      </div>
+      <div class="relnav" role="navigation" aria-label="related navigation">
+        <a href="example_ca.html">&laquo; Try a cellular automata</a> |
+        <a href="#">Make a microscopic simulation</a>
+        | <a href="example_comp.html">Discover the compartment model &raquo;</a>
+      </div>
+      <div id="contentwrapper">
+        <div id="toc" role="navigation" aria-label="table of contents navigation">
+          <h3>Table of Contents</h3>
+          <ul>
+<li><a class="reference internal" href="#">Make a microscopic simulation</a><ul>
+<li><a class="reference internal" href="#social-force-model">Social force model</a></li>
+<li><a class="reference internal" href="#granular-model">Granular model</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+        
+  <div class="section" id="make-a-microscopic-simulation">
+<h1>Make a microscopic simulation<a class="headerlink" href="#make-a-microscopic-simulation" title="Permalink to this headline">¶</a></h1>
+<p>In the two following models, individuals are seen as spherical particles. They
+move at a desired velocity to reach a goal (typically a door). Doing nothing more
+would lead to many overlaps between individuals. Hence the two families of
+models below can prevent these overlaps through two different approaches. For
+the Social Force models, and, for some forces are added to act against overlaps, and for
+the Granular model the velocities are projected into a permissible velocity
+space which ensures the absence of overlaps.</p>
+<p>The domain used for both models is obtained by using the following background
+image:</p>
+<br>
+<img src="_static/event.png" alt="Computational domain" style="margin:0px auto;display:block" width="50%" height="auto"/>
+<br><div class="section" id="social-force-model">
+<h2>Social force model<a class="headerlink" href="#social-force-model" title="Permalink to this headline">¶</a></h2>
+<p>The Social Force model has been introduced in the 90’s. Pedestrians are identified
+with inertial particles submitted to a forcing term which implements the
+individual tendencies and extra forces which account for interactions with
+other pedestrians (typically the tendency to preserve a certain distance
+with neighbors).</p>
+<p>Reference : <a class="reference internal" href="index.html#mf2018" id="id1">[MF2018]</a> Chapter 3.</p>
+<p>An example can be found in the directory</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">cromosim</span><span class="o">/</span><span class="n">examples</span><span class="o">/</span><span class="n">micro</span><span class="o">/</span><span class="n">social</span>
+</pre></div>
+</div>
+<p>and can be launched with</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="n">micro_social</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">json</span> <span class="nb">input</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+<br>
+<br>
+<video style="display:block; margin: 0 auto;" controls poster="_static/micro_social.png" width="50%" height="auto">
+  <source src="_static/micro_social.mp4" />
+  <source src="_static/micro_social.webm" />
+  <source src="_static/micro_social.theora.ogv" />
+</video>
+<br>
+<div align=center>
+  <i>Social force model : an evacuation in complex geometry</i>
+</div>
+<br>
+<br>
+<img src="_static/micro_social_sensor_0_5929.png" alt="Results of sensor 1" style="margin:0px auto;display:block" width="50%" height="auto"/>
+<br>
+<div align=center>
+  <i>Sensor 1</i>
+</div>
+<br>
+<img src="_static/micro_social_sensor_1_5929.png" alt="Results of sensor 2" style="margin:0px auto;display:block" width="50%" height="auto"/>
+<br>
+<div align=center>
+  <i>Sensor 2</i>
+</div>
+<br>
+<br><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Authors:</span>
+<span class="c1">#     Sylvain Faure &lt;sylvain.faure@math.u-psud.fr&gt;</span>
+<span class="c1">#     Bertrand Maury &lt;bertrand.maury@math.u-psud.fr&gt;</span>
+<span class="c1">#</span>
+<span class="c1">#      cromosim/examples/micro/social/micro_social.py</span>
+<span class="c1">#      python micro_social.py --json input.json</span>
+<span class="c1">#</span>
+<span class="c1"># License: GPL</span>
+
+
+<span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">cromosim</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">cromosim.micro</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">optparse</span> <span class="k">import</span> <span class="n">OptionParser</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ion</span><span class="p">()</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    python3 micro_granular.py --json input.json</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="n">parser</span> <span class="o">=</span> <span class="n">OptionParser</span><span class="p">(</span><span class="n">usage</span><span class="o">=</span><span class="s2">&quot;usage: %prog [options] filename&quot;</span><span class="p">,</span><span class="n">version</span><span class="o">=</span><span class="s2">&quot;%prog 1.0&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span><span class="s1">&#39;--json&#39;</span><span class="p">,</span><span class="n">dest</span><span class="o">=</span><span class="s2">&quot;jsonfilename&quot;</span><span class="p">,</span><span class="n">default</span><span class="o">=</span><span class="s2">&quot;input.json&quot;</span><span class="p">,</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+                  <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store&quot;</span><span class="p">,</span><span class="n">help</span><span class="o">=</span><span class="s2">&quot;Input json filename&quot;</span><span class="p">)</span>
+<span class="n">opt</span><span class="p">,</span> <span class="n">remainder</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;===&gt; JSON filename = &quot;</span><span class="p">,</span><span class="n">opt</span><span class="o">.</span><span class="n">jsonfilename</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">opt</span><span class="o">.</span><span class="n">jsonfilename</span><span class="p">)</span> <span class="k">as</span> <span class="n">json_file</span><span class="p">:</span>
+    <span class="nb">input</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">json_file</span><span class="p">)</span>
+
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get parameters from json file :</span>
+
+<span class="sd">    name: string</span>
+<span class="sd">        Domain name</span>
+<span class="sd">    prefix: string</span>
+<span class="sd">        Folder name to store the results</span>
+<span class="sd">    background: string</span>
+<span class="sd">        Image file used as background</span>
+<span class="sd">    px: float</span>
+<span class="sd">        Pixel size in meters (also called space step)</span>
+<span class="sd">    width: integer</span>
+<span class="sd">        Domain width (equal to the width of the background image)</span>
+<span class="sd">    height: integer</span>
+<span class="sd">        Domain height (equal to the height of the background image)</span>
+<span class="sd">    wall_lines : list of numpy arrays</span>
+<span class="sd">        Polylines used to build walls, [ [[x0,x1,x2,...],[y0,y1,y2,...]],... ]</span>
+<span class="sd">    wall_ellipses : list of numpy arrays</span>
+<span class="sd">        Ellipses used to build walls, [ [x_center,y_center, width, height, angle_in_degrees_anti-clockwise],... ]</span>
+<span class="sd">    wall_polygons : list of numpy arrays</span>
+<span class="sd">        Polygons used to build walls, [ [[x0,x1,x2,...],[y0,y1,y2,...]],... ]</span>
+<span class="sd">    wall_lines : list of numpy arrays</span>
+<span class="sd">        Polylines used to build walls, [ [[x0,x1,x2,...],[y0,y1,y2,...]],... ]</span>
+<span class="sd">    door_lines: list of numpy arrays</span>
+<span class="sd">        Polylines used to build doors, [ [[x0,x1,x2,...],[y0,y1,y2,...]],... ]</span>
+<span class="sd">    seed: integer</span>
+<span class="sd">        Random seed which can be used to reproduce a random selection if &gt;0</span>
+<span class="sd">    rmin: float</span>
+<span class="sd">        Minimum radius for people</span>
+<span class="sd">    rmax: float</span>
+<span class="sd">        Maximum radius for people</span>
+<span class="sd">    mass: float</span>
+<span class="sd">        Mass of one person (typically 80 kg)</span>
+<span class="sd">    tau: float</span>
+<span class="sd">        (typically 0.5 s)</span>
+<span class="sd">    F: float</span>
+<span class="sd">        Coefficient for the repulsion force between individuals (typically 2000 N)</span>
+<span class="sd">    kappa: float</span>
+<span class="sd">        Stiffness constant to handle overlapping (typically 120000 kg s^-2)</span>
+<span class="sd">    delta: float</span>
+<span class="sd">        To maintain a certain distance from neighbors (typically 0.08 m)</span>
+<span class="sd">    Fwall: float</span>
+<span class="sd">        Coefficient for the repulsion force between individual and walls (typically 2000 N, like for F)</span>
+<span class="sd">    lambda: float</span>
+<span class="sd">        Directional dependence (between 0 and 1 = fully isotropic case)</span>
+<span class="sd">    eta: float</span>
+<span class="sd">        Friction coefficient (typically 240000 kg m^-1 s^-1)</span>
+<span class="sd">    N: list</span>
+<span class="sd">        Number of persons in each boxes</span>
+<span class="sd">    init_people_box: list</span>
+<span class="sd">        List of boxes to randomly position people at initialization, \</span>
+<span class="sd">        [[xmin,xmax,ymin,ymax],...]</span>
+<span class="sd">    exit_people_box:</span>
+<span class="sd">        People outside this box will be deleted, [xmin,xmax,ymin,ymax]</span>
+<span class="sd">    Tf: float</span>
+<span class="sd">        Final time</span>
+<span class="sd">    dt: float</span>
+<span class="sd">        Time step</span>
+<span class="sd">    drawper: integer</span>
+<span class="sd">        The results will be displayed every &quot;drawper&quot; iterations</span>
+<span class="sd">    dmax: float</span>
+<span class="sd">        Maximum distance used to detect neighbors</span>
+<span class="sd">    dmin: float</span>
+<span class="sd">        Minimum distance allowed between individuals</span>
+<span class="sd">    sensors: list of numpy array</span>
+<span class="sd">        Segments through which incoming and outgoing flows are measured</span>
+<span class="sd">        [ [x0,y0,x1,y1],... ]</span>
+<span class="sd">    plot_people: boolean</span>
+<span class="sd">        If true, people are drawn</span>
+<span class="sd">    plot_contacts: boolean</span>
+<span class="sd">        If true, active contacts between people are drawn</span>
+<span class="sd">    plot_velocities: boolean</span>
+<span class="sd">        If true, people velocities are drawn</span>
+<span class="sd">    plot_paths: boolean</span>
+<span class="sd">        If true, people paths are drawn</span>
+<span class="sd">    plot_sensors: boolean</span>
+<span class="sd">        If true, plot sensor lines on people graph and sensor data graph</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+<span class="n">prefix</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;prefix&quot;</span><span class="p">]</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">prefix</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">prefix</span><span class="p">)</span>
+<span class="n">background</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;background&quot;</span><span class="p">]</span>
+<span class="n">px</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;px&quot;</span><span class="p">]</span>
+<span class="n">width</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;width&quot;</span><span class="p">]</span>
+<span class="n">height</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;height&quot;</span><span class="p">]</span>
+<span class="n">wall_lines</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;wall_lines&quot;</span><span class="p">]</span>
+<span class="n">wall_ellipses</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;wall_ellipses&quot;</span><span class="p">]</span>
+<span class="n">wall_polygons</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;wall_polygons&quot;</span><span class="p">]</span>
+<span class="n">door_lines</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;door_lines&quot;</span><span class="p">]</span>
+<span class="n">seed</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;seed&quot;</span><span class="p">]</span>
+<span class="n">N</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">input</span><span class="p">[</span><span class="s2">&quot;N&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;N = &quot;</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+<span class="n">Np</span> <span class="o">=</span> <span class="n">N</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">rmin</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;rmin&quot;</span><span class="p">]</span>
+<span class="n">rmax</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;rmax&quot;</span><span class="p">]</span>
+<span class="n">mass</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;mass&quot;</span><span class="p">]</span>
+<span class="n">tau</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;tau&quot;</span><span class="p">]</span>
+<span class="n">F</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;F&quot;</span><span class="p">]</span>
+<span class="n">kappa</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;kappa&quot;</span><span class="p">]</span>
+<span class="n">delta</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;delta&quot;</span><span class="p">]</span>
+<span class="n">Fwall</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;Fwall&quot;</span><span class="p">]</span>
+<span class="n">lambda_</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;lambda&quot;</span><span class="p">]</span>
+<span class="n">eta</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;eta&quot;</span><span class="p">]</span>
+<span class="n">init_people_box</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;init_people_box&quot;</span><span class="p">]</span>
+<span class="n">exit_people_box</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;exit_people_box&quot;</span><span class="p">]</span>
+<span class="n">Tf</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;Tf&quot;</span><span class="p">]</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;dt&quot;</span><span class="p">]</span>
+<span class="n">drawper</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;drawper&quot;</span><span class="p">]</span>
+<span class="n">dmax</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;dmax&quot;</span><span class="p">]</span>
+<span class="n">dmin</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;dmin&quot;</span><span class="p">]</span>
+<span class="n">sensors</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;sensors&quot;</span><span class="p">]</span>
+<span class="n">plot_p</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;plot_people&quot;</span><span class="p">]</span>
+<span class="n">plot_c</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;plot_contacts&quot;</span><span class="p">]</span>
+<span class="n">plot_v</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;plot_velocities&quot;</span><span class="p">]</span>
+<span class="n">plot_pa</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;plot_paths&quot;</span><span class="p">]</span>
+<span class="n">plot_s</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;plot_sensors&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;===&gt; Number of persons = &quot;</span><span class="p">,</span><span class="n">Np</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;===&gt; Final time, Tf = &quot;</span><span class="p">,</span><span class="n">Tf</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;===&gt; Time step, dt = &quot;</span><span class="p">,</span><span class="n">dt</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;===&gt; To draw the results each drawper iterations, drawper = &quot;</span><span class="p">,</span><span class="n">drawper</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;===&gt; Maximal distance to find neighbors, dmax = &quot;</span><span class="p">,</span><span class="n">dmax</span><span class="p">,</span><span class="s2">&quot;, example : 2*dt&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;===&gt; Minimal distance between persons, dmin = &quot;</span><span class="p">,</span><span class="n">dmin</span><span class="p">)</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Build the Domain</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1">## To create an Domain object</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">background</span><span class="o">==</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+    <span class="n">dom</span> <span class="o">=</span> <span class="n">Domain</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">pixel_size</span><span class="o">=</span><span class="n">px</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="n">height</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">dom</span> <span class="o">=</span> <span class="n">Domain</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="n">background</span><span class="p">,</span> <span class="n">pixel_size</span><span class="o">=</span><span class="n">px</span><span class="p">)</span>
+<span class="c1">## To add lines : Line2D(xdata, ydata, linewidth)</span>
+<span class="k">for</span> <span class="n">xy</span> <span class="ow">in</span> <span class="n">wall_lines</span><span class="p">:</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">Line2D</span><span class="p">(</span> <span class="n">xy</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">xy</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+    <span class="n">dom</span><span class="o">.</span><span class="n">add_wall</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+<span class="c1">## To add ellipses : Ellipse( (x_center,y_center), width, height, angle_in_degrees_anti-clockwise )</span>
+<span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">wall_ellipses</span><span class="p">:</span>
+    <span class="n">ellipse</span> <span class="o">=</span> <span class="n">Ellipse</span><span class="p">(</span> <span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">e</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">e</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">e</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+    <span class="n">dom</span><span class="o">.</span><span class="n">add_wall</span><span class="p">(</span><span class="n">ellipse</span><span class="p">)</span>
+<span class="c1">## To add polygons : Polygon( xy )</span>
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">wall_polygons</span><span class="p">:</span>
+    <span class="n">polygon</span> <span class="o">=</span> <span class="n">Polygon</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+    <span class="n">dom</span><span class="o">.</span><span class="n">add_wall</span><span class="p">(</span><span class="n">polygon</span><span class="p">)</span>
+<span class="c1">## To add doors :</span>
+<span class="k">for</span> <span class="n">xy</span> <span class="ow">in</span> <span class="n">door_lines</span><span class="p">:</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">Line2D</span><span class="p">(</span> <span class="n">xy</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">xy</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+    <span class="n">dom</span><span class="o">.</span><span class="n">add_door</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+<span class="c1">## To build the domain : background + shapes</span>
+<span class="n">dom</span><span class="o">.</span><span class="n">build_domain</span><span class="p">()</span>
+<span class="c1">## To compute the distance to the walls</span>
+<span class="n">dom</span><span class="o">.</span><span class="n">compute_wall_distance</span><span class="p">()</span>
+<span class="c1">## To compute the desired velocity</span>
+<span class="n">dom</span><span class="o">.</span><span class="n">compute_desired_velocity</span><span class="p">()</span>
+<span class="c1">## To show the domain dimensions</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;===&gt; Domain : &quot;</span><span class="p">,</span><span class="n">dom</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;===&gt; Wall lines : &quot;</span><span class="p">,</span><span class="n">wall_lines</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;===&gt; Door lines : &quot;</span><span class="p">,</span><span class="n">door_lines</span><span class="p">)</span>
+
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Initialization</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1">## Current time</span>
+<span class="n">t</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">people</span><span class="p">,</span> <span class="n">people_init_box_id</span><span class="p">,</span> <span class="n">rng</span> <span class="o">=</span> <span class="n">people_initialization</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">init_people_box</span><span class="p">,</span> <span class="n">dom</span><span class="p">,</span>
+                                                        <span class="n">dt</span><span class="p">,</span> <span class="n">rmin</span><span class="p">,</span> <span class="n">rmax</span><span class="p">,</span> <span class="n">dmin</span><span class="o">=</span><span class="n">dmin</span><span class="p">,</span>
+                                                        <span class="n">seed</span><span class="o">=</span><span class="n">seed</span><span class="p">)</span>
+
+<span class="c1">## Array to store the results : all the people coordinates for all times</span>
+<span class="n">Np</span> <span class="o">=</span> <span class="n">people</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">Uold</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">Np</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">Np_init</span> <span class="o">=</span> <span class="n">Np</span>
+<span class="n">people_id</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">Np</span><span class="p">)</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">people</span><span class="p">[:,:</span><span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">Np</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="c1">## Array to store sensor data : time dir pts[2] for each sensor line</span>
+<span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sensors</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+    <span class="n">sensor_data</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">Np</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">sensors</span><span class="p">)))</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Main loop</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">cc</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">t</span><span class="o">&lt;</span><span class="n">Tf</span><span class="p">):</span>
+    <span class="n">contacts</span> <span class="o">=</span> <span class="n">compute_contacts</span><span class="p">(</span><span class="n">dom</span><span class="p">,</span> <span class="n">people</span><span class="p">,</span> <span class="n">dmax</span><span class="p">)</span>
+    <span class="n">I</span><span class="p">,</span> <span class="n">J</span><span class="p">,</span> <span class="n">Vd</span> <span class="o">=</span> <span class="n">compute_desired_velocity</span><span class="p">(</span><span class="n">dom</span><span class="p">,</span> <span class="n">people</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">((</span><span class="n">cc</span><span class="o">&gt;=</span><span class="n">drawper</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">counter</span><span class="o">==</span><span class="mi">0</span><span class="p">)):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;===&gt; time = &quot;</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="s2">&quot; number of persons = &quot;</span><span class="p">,</span><span class="n">Np</span><span class="p">)</span>
+        <span class="n">plot_people</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">dom</span><span class="p">,</span> <span class="n">people</span><span class="p">,</span> <span class="n">contacts</span><span class="p">,</span> <span class="n">Vd</span><span class="p">,</span> <span class="n">people</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">time</span><span class="o">=</span><span class="n">t</span><span class="p">,</span>
+                        <span class="n">plot_people</span><span class="o">=</span><span class="n">plot_p</span><span class="p">,</span> <span class="n">plot_contacts</span><span class="o">=</span><span class="n">plot_c</span><span class="p">,</span>
+                        <span class="n">plot_velocities</span><span class="o">=</span><span class="n">plot_v</span><span class="p">,</span> <span class="n">plot_paths</span><span class="o">=</span><span class="n">plot_pa</span><span class="p">,</span><span class="n">paths</span><span class="o">=</span><span class="n">results</span><span class="p">,</span>
+                        <span class="n">plot_sensors</span><span class="o">=</span><span class="n">plot_s</span><span class="p">,</span> <span class="n">sensors</span><span class="o">=</span><span class="n">sensors</span><span class="p">,</span>
+                        <span class="n">savefig</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">prefix</span><span class="o">+</span><span class="s1">&#39;fig_&#39;</span><span class="o">+</span> \
+                        <span class="nb">str</span><span class="p">(</span><span class="n">counter</span><span class="p">)</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;.png&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">pause</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+        <span class="c1"># if (t&gt;0):</span>
+        <span class="c1">#     for i, s in enumerate(sensors):</span>
+        <span class="c1">#         plot_sensor_data(30+i, sensor_data[:,:,i], t, savefig=True,</span>
+        <span class="c1">#                 filename=prefix+&#39;sensor_&#39;+str(i)+&#39;_&#39;+str(counter)+&#39;.png&#39;)</span>
+        <span class="c1">#         plt.pause(0.01)</span>
+        <span class="n">cc</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">Forces</span> <span class="o">=</span> <span class="n">compute_forces</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">Fwall</span><span class="p">,</span> <span class="n">people</span><span class="p">,</span> <span class="n">contacts</span><span class="p">,</span> <span class="n">Uold</span><span class="p">,</span> <span class="n">Vd</span><span class="p">,</span> <span class="n">lambda_</span><span class="p">,</span> <span class="n">delta</span><span class="p">,</span> <span class="n">kappa</span><span class="p">,</span> <span class="n">eta</span><span class="p">)</span>
+    <span class="n">U</span> <span class="o">=</span> <span class="n">dt</span><span class="o">*</span><span class="p">(</span><span class="n">Vd</span><span class="o">-</span><span class="n">Uold</span><span class="p">)</span><span class="o">/</span><span class="n">tau</span> <span class="o">+</span> <span class="n">Uold</span> <span class="o">+</span> <span class="n">dt</span><span class="o">*</span><span class="n">Forces</span><span class="o">/</span><span class="n">mass</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sensors</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+        <span class="n">people</span><span class="p">,</span> <span class="n">io_id</span><span class="p">,</span> <span class="n">io_times</span><span class="p">,</span> <span class="n">io_dir</span><span class="p">,</span> <span class="n">io_pts</span> <span class="o">=</span> <span class="n">move_people</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">people</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">crosslines</span><span class="o">=</span><span class="n">sensors</span><span class="p">)</span>
+        <span class="c1">## Store sensor data</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">s</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">io_id</span><span class="p">):</span>
+            <span class="n">ss</span> <span class="o">=</span> <span class="n">people_id</span><span class="p">[</span><span class="n">s</span><span class="p">]</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+                <span class="n">sensor_data</span><span class="p">[</span><span class="n">ss</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">io_times</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="n">sensor_data</span><span class="p">[</span><span class="n">ss</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">io_dir</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="n">sensor_data</span><span class="p">[</span><span class="n">ss</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">io_pts</span><span class="p">[</span><span class="n">i</span><span class="p">][:,</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">sensor_data</span><span class="p">[</span><span class="n">ss</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">io_pts</span><span class="p">[</span><span class="n">i</span><span class="p">][:,</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">people</span> <span class="o">=</span> <span class="n">move_people</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">people</span><span class="p">,</span> <span class="n">U</span><span class="p">)</span>
+    <span class="n">people</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="p">[</span><span class="n">people_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">exit_door</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">dom</span><span class="o">.</span><span class="n">pixel_size</span><span class="p">,</span> <span class="n">dom</span><span class="p">,</span> <span class="n">people</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">arrays</span><span class="o">=</span><span class="p">[</span> <span class="n">people_id</span><span class="p">])</span>
+    <span class="n">Np</span> <span class="o">=</span> <span class="n">people</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">Np</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;END... Nobody here !&quot;</span><span class="p">)</span>
+        <span class="k">break</span>
+    <span class="c1">## Store people positions in the result array (used to draw people paths)</span>
+    <span class="n">tmp</span> <span class="o">=</span> <span class="mf">1e99</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">Np_init</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">tmp</span><span class="p">[</span><span class="n">people_id</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">people</span><span class="p">[:,:</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">results</span><span class="p">,</span><span class="n">tmp</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">Np_init</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">))),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="n">t</span> <span class="o">+=</span> <span class="n">dt</span>
+    <span class="n">Uold</span> <span class="o">=</span> <span class="n">U</span>
+    <span class="n">cc</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sensors</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sensors</span><span class="p">):</span>
+        <span class="n">plot_sensor_data</span><span class="p">(</span><span class="mi">30</span><span class="o">+</span><span class="n">i</span><span class="p">,</span> <span class="n">sensor_data</span><span class="p">[:,:,</span><span class="n">i</span><span class="p">],</span> <span class="n">t</span><span class="p">,</span> <span class="n">savefig</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                    <span class="n">filename</span><span class="o">=</span><span class="n">prefix</span><span class="o">+</span><span class="s1">&#39;sensor_&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;_&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">counter</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;.png&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">pause</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">ioff</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="granular-model">
+<h2>Granular model<a class="headerlink" href="#granular-model" title="Permalink to this headline">¶</a></h2>
+<p>The Granular model comes from crowd motion models of the granular type : each
+individual is identified to a hard disk of a prescribed size, subject to a
+non-overlapping constraint with their neighbors. The approach relies on a
+desired velocity for each individual (the velocity they would take if they were
+alone), and the global velocity field shall be defined as the closest to the
+desired one among all those feasible fields (fields which do not lead to
+overlapping of disks).</p>
+<p>Reference : <a class="reference internal" href="index.html#mf2018" id="id2">[MF2018]</a> Chapter 4.</p>
+<p>An example can be find in the directory</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">cromosim</span><span class="o">/</span><span class="n">examples</span><span class="o">/</span><span class="n">micro</span><span class="o">/</span><span class="n">granular</span>
+</pre></div>
+</div>
+<p>and can be launched with</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="n">micro_granular</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">json</span> <span class="nb">input</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+<br>
+<br>
+<video style="display:block; margin: 0 auto;" controls poster="_static/micro_granular.png" width="50%" height="auto">
+  <source src="_static/micro_granular.mp4" />
+  <source src="_static/micro_granular.webm" />
+  <source src="_static/micro_granular.theora.ogv" />
+</video>
+<br>
+<div align=center>
+  <i>Granular model : an evacuation in complex geometry</i>
+</div>
+<br>
+<br>
+<img src="_static/micro_granular_sensor_0_4097.png" alt="Results of sensor 1" style="margin:0px auto;display:block" width="50%" height="auto"/>
+<br>
+<div align=center>
+  <i>Sensor 1</i>
+</div>
+<br>
+<img src="_static/micro_granular_sensor_1_4097.png" alt="Results of sensor 2" style="margin:0px auto;display:block" width="50%" height="auto"/>
+<br>
+<div align=center>
+  <i>Sensor 2</i>
+</div>
+<br>
+<br><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Authors:</span>
+<span class="c1">#     Sylvain Faure &lt;sylvain.faure@math.u-psud.fr&gt;</span>
+<span class="c1">#     Bertrand Maury &lt;bertrand.maury@math.u-psud.fr&gt;</span>
+<span class="c1">#</span>
+<span class="c1">#     cromosim/examples/micro/granular/micro_granular.py</span>
+<span class="c1">#     python micro_granular.py --json input.json</span>
+<span class="c1">#</span>
+<span class="c1"># License: GPL</span>
+
+
+<span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">cromosim</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">cromosim.micro</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">optparse</span> <span class="k">import</span> <span class="n">OptionParser</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ion</span><span class="p">()</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    python3 micro_granular.py --json input.json</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="n">parser</span> <span class="o">=</span> <span class="n">OptionParser</span><span class="p">(</span><span class="n">usage</span><span class="o">=</span><span class="s2">&quot;usage: %prog [options] filename&quot;</span><span class="p">,</span><span class="n">version</span><span class="o">=</span><span class="s2">&quot;%prog 1.0&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span><span class="s1">&#39;--json&#39;</span><span class="p">,</span><span class="n">dest</span><span class="o">=</span><span class="s2">&quot;jsonfilename&quot;</span><span class="p">,</span><span class="n">default</span><span class="o">=</span><span class="s2">&quot;input.json&quot;</span><span class="p">,</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+                  <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store&quot;</span><span class="p">,</span><span class="n">help</span><span class="o">=</span><span class="s2">&quot;Input json filename&quot;</span><span class="p">)</span>
+<span class="n">opt</span><span class="p">,</span> <span class="n">remainder</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;===&gt; JSON filename = &quot;</span><span class="p">,</span><span class="n">opt</span><span class="o">.</span><span class="n">jsonfilename</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">opt</span><span class="o">.</span><span class="n">jsonfilename</span><span class="p">)</span> <span class="k">as</span> <span class="n">json_file</span><span class="p">:</span>
+    <span class="nb">input</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">json_file</span><span class="p">)</span>
+
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get parameters from json file :</span>
+
+<span class="sd">    name: string</span>
+<span class="sd">        Domain name</span>
+<span class="sd">    prefix: string</span>
+<span class="sd">        Folder name to store the results</span>
+<span class="sd">    background: string</span>
+<span class="sd">        Image file used as background</span>
+<span class="sd">    px: float</span>
+<span class="sd">        Pixel size in meters (also called space step)</span>
+<span class="sd">    width: integer</span>
+<span class="sd">        Domain width (equal to the width of the background image)</span>
+<span class="sd">    height: integer</span>
+<span class="sd">        Domain height (equal to the height of the background image)</span>
+<span class="sd">    wall_lines : list of numpy arrays</span>
+<span class="sd">        Polylines used to build walls, [ [[x0,x1,x2,...],[y0,y1,y2,...]],... ]</span>
+<span class="sd">    wall_ellipses : list of numpy arrays</span>
+<span class="sd">        Ellipses used to build walls, [ [x_center,y_center, width, height, \</span>
+<span class="sd">        angle_in_degrees_anti-clockwise],... ]</span>
+<span class="sd">    wall_polygons : list of numpy arrays</span>
+<span class="sd">        Polygons used to build walls, [ [[x0,x1,x2,...],[y0,y1,y2,...]],... ]</span>
+<span class="sd">    wall_lines : list of numpy arrays</span>
+<span class="sd">        Polylines used to build walls, [ [[x0,x1,x2,...],[y0,y1,y2,...]],... ]</span>
+<span class="sd">    door_lines: list of numpy arrays</span>
+<span class="sd">        Polylines used to build doors, [ [[x0,x1,x2,...],[y0,y1,y2,...]],... ]</span>
+<span class="sd">    seed: integer</span>
+<span class="sd">        Random seed which can be used to reproduce a random selection if &gt;0</span>
+<span class="sd">    rmin: float</span>
+<span class="sd">        Minimum radius for people</span>
+<span class="sd">    rmax: float</span>
+<span class="sd">        Maximum radius for people</span>
+<span class="sd">    N: list</span>
+<span class="sd">        Number of persons in each boxes</span>
+<span class="sd">    init_people_box: list</span>
+<span class="sd">        List of boxes to randomly position people at initialization, \</span>
+<span class="sd">        [[xmin,xmax,ymin,ymax],...]</span>
+<span class="sd">    exit_people_box:</span>
+<span class="sd">        People outside this box will be deleted, [xmin,xmax,ymin,ymax]</span>
+<span class="sd">    Tf: float</span>
+<span class="sd">        Final time</span>
+<span class="sd">    dt: float</span>
+<span class="sd">        Time step</span>
+<span class="sd">    drawper: integer</span>
+<span class="sd">        The results will be displayed every &quot;drawper&quot; iterations</span>
+<span class="sd">    dmax: float</span>
+<span class="sd">        Maximum distance used to detect neighbors</span>
+<span class="sd">    dmin: float</span>
+<span class="sd">        Minimum distance allowed between individuals</span>
+<span class="sd">    sensors: list of numpy array</span>
+<span class="sd">        Segments through which incoming and outgoing flows are measured</span>
+<span class="sd">        [ [x0,y0,x1,y1],... ]</span>
+<span class="sd">    plot_people: boolean</span>
+<span class="sd">        If true, people are drawn</span>
+<span class="sd">    plot_contacts: boolean</span>
+<span class="sd">        If true, active contacts between people are drawn</span>
+<span class="sd">    plot_velocities: boolean</span>
+<span class="sd">        If true, people velocities are drawn</span>
+<span class="sd">    plot_paths: boolean</span>
+<span class="sd">        If true, people paths are drawn</span>
+<span class="sd">    plot_sensors: boolean</span>
+<span class="sd">        If true, plot sensor lines on people graph and sensor data graph</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+<span class="n">prefix</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;prefix&quot;</span><span class="p">]</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">prefix</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">prefix</span><span class="p">)</span>
+<span class="n">background</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;background&quot;</span><span class="p">]</span>
+<span class="n">px</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;px&quot;</span><span class="p">]</span>
+<span class="n">width</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;width&quot;</span><span class="p">]</span>
+<span class="n">height</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;height&quot;</span><span class="p">]</span>
+<span class="n">wall_lines</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;wall_lines&quot;</span><span class="p">]</span>
+<span class="n">wall_ellipses</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;wall_ellipses&quot;</span><span class="p">]</span>
+<span class="n">wall_polygons</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;wall_polygons&quot;</span><span class="p">]</span>
+<span class="n">door_lines</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;door_lines&quot;</span><span class="p">]</span>
+<span class="n">seed</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;seed&quot;</span><span class="p">]</span>
+<span class="n">N</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">input</span><span class="p">[</span><span class="s2">&quot;N&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;N = &quot;</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+<span class="n">Np</span> <span class="o">=</span> <span class="n">N</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">rmin</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;rmin&quot;</span><span class="p">]</span>
+<span class="n">rmax</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;rmax&quot;</span><span class="p">]</span>
+<span class="n">init_people_box</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">input</span><span class="p">[</span><span class="s2">&quot;init_people_box&quot;</span><span class="p">])</span>
+<span class="n">exit_people_box</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;exit_people_box&quot;</span><span class="p">]</span>
+<span class="n">Tf</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;Tf&quot;</span><span class="p">]</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;dt&quot;</span><span class="p">]</span>
+<span class="n">drawper</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;drawper&quot;</span><span class="p">]</span>
+<span class="n">dmax</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;dmax&quot;</span><span class="p">]</span>
+<span class="n">dmin</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;dmin&quot;</span><span class="p">]</span>
+<span class="n">sensors</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;sensors&quot;</span><span class="p">]</span>
+<span class="n">plot_p</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;plot_people&quot;</span><span class="p">]</span>
+<span class="n">plot_c</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;plot_contacts&quot;</span><span class="p">]</span>
+<span class="n">plot_v</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;plot_velocities&quot;</span><span class="p">]</span>
+<span class="n">plot_pa</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;plot_paths&quot;</span><span class="p">]</span>
+<span class="n">plot_s</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;plot_sensors&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;===&gt; Number of persons = &quot;</span><span class="p">,</span><span class="n">Np</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;===&gt; Final time, Tf = &quot;</span><span class="p">,</span><span class="n">Tf</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;===&gt; Time step, dt = &quot;</span><span class="p">,</span><span class="n">dt</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;===&gt; To draw the results each drawper iterations, drawper = &quot;</span><span class="p">,</span><span class="n">drawper</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;===&gt; Maximal distance to find neighbors, dmax = &quot;</span><span class="p">,</span><span class="n">dmax</span><span class="p">,</span><span class="s2">&quot;, example : 2*dt&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;===&gt; Minimal distance between persons, dmin = &quot;</span><span class="p">,</span><span class="n">dmin</span><span class="p">)</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Build the Domain</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1">## To create an Domain object</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">background</span><span class="o">==</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+    <span class="n">dom</span> <span class="o">=</span> <span class="n">Domain</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">pixel_size</span><span class="o">=</span><span class="n">px</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="n">height</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">dom</span> <span class="o">=</span> <span class="n">Domain</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="n">background</span><span class="p">,</span> <span class="n">pixel_size</span><span class="o">=</span><span class="n">px</span><span class="p">)</span>
+<span class="c1">## To add lines : Line2D(xdata, ydata, linewidth)</span>
+<span class="k">for</span> <span class="n">xy</span> <span class="ow">in</span> <span class="n">wall_lines</span><span class="p">:</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">Line2D</span><span class="p">(</span> <span class="n">xy</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">xy</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+    <span class="n">dom</span><span class="o">.</span><span class="n">add_wall</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+<span class="c1">## To add ellipses : Ellipse( (x_center,y_center), width, height,</span>
+<span class="c1">##                            angle_in_degrees_anti-clockwise )</span>
+<span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">wall_ellipses</span><span class="p">:</span>
+    <span class="n">ellipse</span> <span class="o">=</span> <span class="n">Ellipse</span><span class="p">(</span> <span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">e</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">e</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">e</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+    <span class="n">dom</span><span class="o">.</span><span class="n">add_wall</span><span class="p">(</span><span class="n">ellipse</span><span class="p">)</span>
+<span class="c1">## To add polygons : Polygon( xy )</span>
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">wall_polygons</span><span class="p">:</span>
+    <span class="n">polygon</span> <span class="o">=</span> <span class="n">Polygon</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+    <span class="n">dom</span><span class="o">.</span><span class="n">add_wall</span><span class="p">(</span><span class="n">polygon</span><span class="p">)</span>
+<span class="c1">## To add doors :</span>
+<span class="k">for</span> <span class="n">xy</span> <span class="ow">in</span> <span class="n">door_lines</span><span class="p">:</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">Line2D</span><span class="p">(</span> <span class="n">xy</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">xy</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+    <span class="n">dom</span><span class="o">.</span><span class="n">add_door</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+<span class="c1">## To build the domain : background + shapes</span>
+<span class="n">dom</span><span class="o">.</span><span class="n">build_domain</span><span class="p">()</span>
+<span class="c1">## To compute the distance to the walls</span>
+<span class="n">dom</span><span class="o">.</span><span class="n">compute_wall_distance</span><span class="p">()</span>
+<span class="c1">## To compute the desired velocity</span>
+<span class="n">dom</span><span class="o">.</span><span class="n">compute_desired_velocity</span><span class="p">()</span>
+<span class="c1">## To show the domain dimensions</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;===&gt; Domain : &quot;</span><span class="p">,</span><span class="n">dom</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;===&gt; Wall lines : &quot;</span><span class="p">,</span><span class="n">wall_lines</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;===&gt; Door lines : &quot;</span><span class="p">,</span><span class="n">door_lines</span><span class="p">)</span>
+
+<span class="c1">#plt.ioff()</span>
+<span class="c1">#dom.plot(id=1)</span>
+<span class="c1">#dom.plot_desired_velocity(id=2)</span>
+<span class="c1">#plt.show()</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Initialization</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1">## Current time</span>
+<span class="n">t</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">people</span><span class="p">,</span> <span class="n">people_init_box_id</span><span class="p">,</span> <span class="n">rng</span> <span class="o">=</span> <span class="n">people_initialization</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">init_people_box</span><span class="p">,</span> <span class="n">dom</span><span class="p">,</span>
+                                                        <span class="n">dt</span><span class="p">,</span> <span class="n">rmin</span><span class="p">,</span> <span class="n">rmax</span><span class="p">,</span> <span class="n">dmin</span><span class="o">=</span><span class="n">dmin</span><span class="p">,</span>
+                                                        <span class="n">seed</span><span class="o">=</span><span class="n">seed</span><span class="p">)</span>
+
+<span class="c1">## Array to store the results : all the people coordinates for all times</span>
+<span class="n">Np</span> <span class="o">=</span> <span class="n">people</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">Np_init</span> <span class="o">=</span> <span class="n">Np</span>
+<span class="n">people_id</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">Np</span><span class="p">)</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">people</span><span class="p">[:,:</span><span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">Np</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="c1">## Array to store sensor data : time dir pts[2] for each sensor line</span>
+<span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sensors</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+    <span class="n">sensor_data</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">Np</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">sensors</span><span class="p">)))</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Main loop</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">cc</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">t</span><span class="o">&lt;</span><span class="n">Tf</span><span class="p">):</span>
+    <span class="n">contacts</span> <span class="o">=</span> <span class="n">compute_contacts</span><span class="p">(</span><span class="n">dom</span><span class="p">,</span> <span class="n">people</span><span class="p">,</span> <span class="n">dmax</span><span class="p">)</span>
+    <span class="n">I</span><span class="p">,</span> <span class="n">J</span><span class="p">,</span> <span class="n">Vd</span> <span class="o">=</span> <span class="n">compute_desired_velocity</span><span class="p">(</span><span class="n">dom</span><span class="p">,</span> <span class="n">people</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">((</span><span class="n">cc</span><span class="o">&gt;=</span><span class="n">drawper</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">counter</span><span class="o">==</span><span class="mi">0</span><span class="p">)):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;===&gt; time = &quot;</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="s2">&quot; number of persons = &quot;</span><span class="p">,</span><span class="n">Np</span><span class="p">)</span>
+        <span class="n">plot_people</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">dom</span><span class="p">,</span> <span class="n">people</span><span class="p">,</span> <span class="n">contacts</span><span class="p">,</span> <span class="n">Vd</span><span class="p">,</span> <span class="n">people</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">time</span><span class="o">=</span><span class="n">t</span><span class="p">,</span>
+                        <span class="n">plot_people</span><span class="o">=</span><span class="n">plot_p</span><span class="p">,</span> <span class="n">plot_contacts</span><span class="o">=</span><span class="n">plot_c</span><span class="p">,</span>
+                        <span class="n">plot_velocities</span><span class="o">=</span><span class="n">plot_v</span><span class="p">,</span> <span class="n">plot_paths</span><span class="o">=</span><span class="n">plot_pa</span><span class="p">,</span><span class="n">paths</span><span class="o">=</span><span class="n">results</span><span class="p">,</span>
+                        <span class="n">plot_sensors</span><span class="o">=</span><span class="n">plot_s</span><span class="p">,</span> <span class="n">sensors</span><span class="o">=</span><span class="n">sensors</span><span class="p">,</span>
+                        <span class="n">savefig</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">prefix</span><span class="o">+</span><span class="s1">&#39;fig_&#39;</span><span class="o">+</span> \
+                        <span class="nb">str</span><span class="p">(</span><span class="n">counter</span><span class="p">)</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;.png&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">pause</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+        <span class="c1"># if (t&gt;0):</span>
+        <span class="c1">#     for i, s in enumerate(sensors):</span>
+        <span class="c1">#         plot_sensor_data(30+i, sensor_data[:,:,i], t, savefig=True,</span>
+        <span class="c1">#                 filename=prefix+&#39;sensor_&#39;+str(i)+&#39;_&#39;+str(counter)+&#39;.png&#39;)</span>
+        <span class="c1">#         plt.pause(0.01)</span>
+        <span class="n">cc</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">info</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">P</span> <span class="o">=</span> <span class="n">projection_uzawa</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="n">people</span><span class="p">,</span> <span class="n">contacts</span><span class="p">,</span> <span class="n">Vd</span><span class="p">,</span> <span class="n">dmin</span> <span class="o">=</span> <span class="n">dmin</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sensors</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+        <span class="n">people</span><span class="p">,</span> <span class="n">io_id</span><span class="p">,</span> <span class="n">io_times</span><span class="p">,</span> <span class="n">io_dir</span><span class="p">,</span> <span class="n">io_pts</span> <span class="o">=</span> <span class="n">move_people</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">people</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span>
+                                                              <span class="n">crosslines</span><span class="o">=</span><span class="n">sensors</span><span class="p">)</span>
+        <span class="c1">## Store sensor data</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">s</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">io_id</span><span class="p">):</span>
+            <span class="n">ss</span> <span class="o">=</span> <span class="n">people_id</span><span class="p">[</span><span class="n">s</span><span class="p">]</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+                <span class="n">sensor_data</span><span class="p">[</span><span class="n">ss</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">io_times</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="n">sensor_data</span><span class="p">[</span><span class="n">ss</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">io_dir</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="n">sensor_data</span><span class="p">[</span><span class="n">ss</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">io_pts</span><span class="p">[</span><span class="n">i</span><span class="p">][:,</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">sensor_data</span><span class="p">[</span><span class="n">ss</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">io_pts</span><span class="p">[</span><span class="n">i</span><span class="p">][:,</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">people</span> <span class="o">=</span> <span class="n">move_people</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">people</span><span class="p">,</span> <span class="n">U</span><span class="p">)</span>
+    <span class="n">people</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="p">[</span><span class="n">people_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">exit_door</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">dom</span><span class="o">.</span><span class="n">pixel_size</span><span class="p">,</span> <span class="n">dom</span><span class="p">,</span> <span class="n">people</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span>
+                                       <span class="n">arrays</span><span class="o">=</span><span class="p">[</span> <span class="n">people_id</span><span class="p">])</span>
+    <span class="n">Np</span> <span class="o">=</span> <span class="n">people</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">Np</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;END... Nobody here !&quot;</span><span class="p">)</span>
+        <span class="k">break</span>
+    <span class="c1">## Store people positions in the result array (used to draw people paths)</span>
+    <span class="n">tmp</span> <span class="o">=</span> <span class="mf">1e99</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">Np_init</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">tmp</span><span class="p">[</span><span class="n">people_id</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">people</span><span class="p">[:,:</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">results</span><span class="p">,</span><span class="n">tmp</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">Np_init</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">))),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="n">t</span> <span class="o">+=</span> <span class="n">dt</span>
+    <span class="n">cc</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sensors</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sensors</span><span class="p">):</span>
+        <span class="n">plot_sensor_data</span><span class="p">(</span><span class="mi">30</span><span class="o">+</span><span class="n">i</span><span class="p">,</span> <span class="n">sensor_data</span><span class="p">[:,:,</span><span class="n">i</span><span class="p">],</span> <span class="n">t</span><span class="p">,</span> <span class="n">savefig</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                    <span class="n">filename</span><span class="o">=</span><span class="n">prefix</span><span class="o">+</span><span class="s1">&#39;sensor_&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;_&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">counter</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;.png&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">pause</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">ioff</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+      </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Sylvain Faure, Bertrand Maury.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.2.
+    </div>
+  </body>
+</html>

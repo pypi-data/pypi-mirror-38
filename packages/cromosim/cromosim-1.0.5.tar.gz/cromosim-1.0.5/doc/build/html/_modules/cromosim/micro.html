@@ -1,0 +1,1149 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>cromosim.micro &#8212; cromosim  documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/scrolls.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/print.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../_static/theme_extras.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+  </head><body>
+    <div id="content">
+      <div class="header">
+        <h1 class="heading"><a href="../../index.html"
+          title="back to the documentation overview"><span>cromosim.micro</span></a></h1>
+      </div>
+      <div class="relnav" role="navigation" aria-label="related navigation">
+        <a href="#">cromosim.micro</a>
+      </div>
+      <div id="contentwrapper">
+        
+  <h1>Source code for cromosim.micro</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Authors:</span>
+<span class="c1">#     Sylvain Faure &lt;sylvain.faure@math.u-psud.fr&gt;</span>
+<span class="c1">#     Bertrand Maury &lt;bertrand.maury@math.u-psud.fr&gt;</span>
+<span class="c1"># License: GPL</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sp</span>
+<span class="kn">from</span> <span class="nn">scipy.misc</span> <span class="k">import</span> <span class="n">imread</span>
+<span class="kn">from</span> <span class="nn">scipy.spatial</span> <span class="k">import</span> <span class="n">KDTree</span>
+<span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="k">import</span> <span class="n">csr_matrix</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib.patches</span> <span class="k">import</span> <span class="n">Ellipse</span><span class="p">,</span> <span class="n">Circle</span><span class="p">,</span> <span class="n">Rectangle</span><span class="p">,</span> <span class="n">Polygon</span><span class="p">,</span> <span class="n">Arrow</span>
+<span class="kn">from</span> <span class="nn">matplotlib.lines</span> <span class="k">import</span> <span class="n">Line2D</span>
+<span class="kn">from</span> <span class="nn">matplotlib.collections</span> <span class="k">import</span> <span class="n">EllipseCollection</span><span class="p">,</span> <span class="n">LineCollection</span>
+
+
+<div class="viewcode-block" id="compute_contacts"><a class="viewcode-back" href="../../micro.html#cromosim.micro.compute_contacts">[docs]</a><span class="k">def</span> <span class="nf">compute_contacts</span><span class="p">(</span><span class="n">dom</span><span class="p">,</span> <span class="n">people</span><span class="p">,</span> <span class="n">dmax</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function uses a KDTree method to find the contacts \</span>
+<span class="sd">    between individuals. Moreover the contacts with the walls \</span>
+<span class="sd">    are also determined from the wall distance (obtained by the \</span>
+<span class="sd">    fast-marching method).</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    dom: Domain</span>
+<span class="sd">        contains everything for managing the domain</span>
+<span class="sd">    people: numpy array</span>
+<span class="sd">        people coordinates and radius : x,y,r</span>
+<span class="sd">    dmax: float</span>
+<span class="sd">        threshold value used to consider a contact as \</span>
+<span class="sd">        active (dij&lt;dmax)</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    contacts: numpy array</span>
+<span class="sd">        all the contacts i,j,dij,eij_x,eij_y such that dij&lt;dmax \</span>
+<span class="sd">        and i&lt;j (no duplication)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># lf : the number of points at which the algorithm</span>
+    <span class="c1"># switches over to brute-force. Has to be positive.</span>
+    <span class="n">lf</span> <span class="o">=</span> <span class="mi">100</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">lf</span><span class="o">&gt;</span><span class="n">sys</span><span class="o">.</span><span class="n">getrecursionlimit</span><span class="p">()):</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">setrecursionlimit</span><span class="p">(</span><span class="n">lf</span><span class="p">)</span>
+    <span class="n">kd</span> <span class="o">=</span> <span class="n">KDTree</span><span class="p">(</span><span class="n">people</span><span class="p">[:,:</span><span class="mi">2</span><span class="p">],</span><span class="n">leafsize</span> <span class="o">=</span> <span class="n">lf</span><span class="p">)</span>
+    <span class="c1">## Find all pairs of points whose distance is at most dmax+2*rmax</span>
+    <span class="n">rmax</span> <span class="o">=</span> <span class="n">people</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    <span class="n">neighbors</span> <span class="o">=</span> <span class="n">kd</span><span class="o">.</span><span class="n">query_ball_tree</span><span class="p">(</span><span class="n">kd</span><span class="p">,</span><span class="n">dmax</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">rmax</span><span class="p">)</span>
+    <span class="c1"># ## OR</span>
+    <span class="c1"># ## Query the kd-tree for k=10 nearest neighbors</span>
+    <span class="c1"># neighbors = []</span>
+    <span class="c1"># for xy in people[:,:2]:</span>
+    <span class="c1">#     #print(xy)</span>
+    <span class="c1">#     v = kd.query(xy,k=10)</span>
+    <span class="c1">#     neighbors.append(v[1])</span>
+    <span class="n">contacts</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">l</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">neighbors</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
+            <span class="n">dij</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="p">(</span><span class="n">people</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">people</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="p">(</span><span class="n">people</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">people</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="p">)</span> <span class="o">-</span> <span class="n">people</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="n">people</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+            <span class="c1"># i&lt;j : to avoid duplication</span>
+            <span class="c1"># dij&lt;dmax : according to the threshold value</span>
+            <span class="k">if</span> <span class="p">((</span><span class="n">i</span><span class="o">&lt;</span><span class="n">j</span><span class="p">)</span><span class="ow">and</span><span class="p">(</span><span class="n">dij</span><span class="o">&lt;</span><span class="n">dmax</span><span class="p">)):</span>
+                <span class="n">eij_x</span> <span class="o">=</span> <span class="n">people</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">people</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">eij_y</span> <span class="o">=</span> <span class="n">people</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">people</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+                <span class="n">norm</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="n">eij_x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">eij_y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+                <span class="n">eij_x</span> <span class="o">/=</span> <span class="n">norm</span><span class="p">;</span> <span class="n">eij_y</span> <span class="o">/=</span> <span class="n">norm</span>
+                <span class="c1"># Add a new contact</span>
+                <span class="n">contacts</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">dij</span><span class="p">,</span><span class="n">eij_x</span><span class="p">,</span><span class="n">eij_y</span><span class="p">])</span>
+    <span class="c1"># Add contacts with the walls</span>
+    <span class="n">I</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">floor</span><span class="p">((</span><span class="n">people</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">dom</span><span class="o">.</span><span class="n">ymin</span><span class="o">-</span><span class="mf">0.5</span><span class="o">*</span><span class="n">dom</span><span class="o">.</span><span class="n">pixel_size</span><span class="p">)</span><span class="o">/</span><span class="n">dom</span><span class="o">.</span><span class="n">pixel_size</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">J</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">floor</span><span class="p">((</span><span class="n">people</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">dom</span><span class="o">.</span><span class="n">xmin</span><span class="o">-</span><span class="mf">0.5</span><span class="o">*</span><span class="n">dom</span><span class="o">.</span><span class="n">pixel_size</span><span class="p">)</span><span class="o">/</span><span class="n">dom</span><span class="o">.</span><span class="n">pixel_size</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="n">dom</span><span class="o">.</span><span class="n">wall_distance</span><span class="p">[</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">]</span>
+    <span class="n">ind</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">D</span><span class="o">&lt;</span><span class="n">dmax</span><span class="o">+</span><span class="n">rmax</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ind</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">people</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">&lt;</span><span class="n">dmax</span><span class="p">):</span>
+            <span class="n">contacts</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">i</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">D</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">people</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="n">dom</span><span class="o">.</span><span class="n">wall_grad_X</span><span class="p">[</span><span class="n">I</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">J</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span>
+                             <span class="n">dom</span><span class="o">.</span><span class="n">wall_grad_Y</span><span class="p">[</span><span class="n">I</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">J</span><span class="p">[</span><span class="n">i</span><span class="p">]]])</span>
+    <span class="k">return</span> <span class="n">sp</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">contacts</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="compute_desired_velocity"><a class="viewcode-back" href="../../micro.html#cromosim.micro.compute_desired_velocity">[docs]</a><span class="k">def</span> <span class="nf">compute_desired_velocity</span><span class="p">(</span><span class="n">dom</span><span class="p">,</span> <span class="n">people</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function determines people desired velocities from the desired \</span>
+<span class="sd">    velocity array computed by Domain thanks to a fast-marching method.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    dom: Domain</span>
+<span class="sd">        contains everything for managing the domain</span>
+<span class="sd">    people: numpy array</span>
+<span class="sd">        people coordinates and radius : x,y,r</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    I : numpy array</span>
+<span class="sd">        people index i</span>
+<span class="sd">    J : numpy array</span>
+<span class="sd">        people index j</span>
+<span class="sd">    Vd : numpy array</span>
+<span class="sd">        people desired velocity</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">I</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">floor</span><span class="p">((</span><span class="n">people</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">dom</span><span class="o">.</span><span class="n">ymin</span><span class="o">-</span><span class="mf">0.5</span><span class="o">*</span><span class="n">dom</span><span class="o">.</span><span class="n">pixel_size</span><span class="p">)</span><span class="o">/</span><span class="n">dom</span><span class="o">.</span><span class="n">pixel_size</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">J</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">floor</span><span class="p">((</span><span class="n">people</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">dom</span><span class="o">.</span><span class="n">xmin</span><span class="o">-</span><span class="mf">0.5</span><span class="o">*</span><span class="n">dom</span><span class="o">.</span><span class="n">pixel_size</span><span class="p">)</span><span class="o">/</span><span class="n">dom</span><span class="o">.</span><span class="n">pixel_size</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">Vd</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span> <span class="p">(</span><span class="n">people</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">2</span><span class="p">)</span> <span class="p">)</span>
+    <span class="n">Vd</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">dom</span><span class="o">.</span><span class="n">desired_velocity_X</span><span class="p">[</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">]</span>
+    <span class="n">Vd</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">dom</span><span class="o">.</span><span class="n">desired_velocity_Y</span><span class="p">[</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">,</span><span class="n">Vd</span></div>
+
+<div class="viewcode-block" id="compute_forces"><a class="viewcode-back" href="../../micro.html#cromosim.micro.compute_forces">[docs]</a><span class="k">def</span> <span class="nf">compute_forces</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">Fwall</span><span class="p">,</span> <span class="n">people</span><span class="p">,</span> <span class="n">contacts</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">Vd</span><span class="p">,</span> <span class="n">lambda_</span><span class="p">,</span> <span class="n">delta</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">eta</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function computes all the forces (isentropic interaction and \</span>
+<span class="sd">    friction) and sums them. The correcting pre-factor due to the vision \</span>
+<span class="sd">    angle is also used into the social force term.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    F: float</span>
+<span class="sd">        social trend of an individual to keep apart from \</span>
+<span class="sd">        another (homogeneous to a force)</span>
+<span class="sd">    Fwall: float</span>
+<span class="sd">        social trend of an individual to keep apart from \</span>
+<span class="sd">        a wall (homogeneous to a force)</span>
+<span class="sd">    people: numpy array</span>
+<span class="sd">        people coordinates and radius : x,y,r</span>
+<span class="sd">    contacts: numpy array</span>
+<span class="sd">        all the contacts : i,j,dij,eij_x,eij_y</span>
+<span class="sd">    U: numpy array</span>
+<span class="sd">        people velocities</span>
+<span class="sd">    Vd: numpy array</span>
+<span class="sd">        people desired velocities</span>
+<span class="sd">    lambda_: float</span>
+<span class="sd">        quantifies the directional dependence when the vision angle \</span>
+<span class="sd">        is considered (between [0,1], if equal to 1 the fully isotropic \</span>
+<span class="sd">        case is recovered)</span>
+<span class="sd">    delta: float</span>
+<span class="sd">        maintains a certain distance between neighbors</span>
+<span class="sd">    k: float</span>
+<span class="sd">        used when there is overlapping, k is a stiffness constant \</span>
+<span class="sd">        of individuals seen as deformable bodies</span>
+<span class="sd">    eta: float</span>
+<span class="sd">        friction coefficient</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Forces: numpy array</span>
+<span class="sd">        sum of all forces for each individual</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">Np</span> <span class="o">=</span> <span class="n">people</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">Nc</span> <span class="o">=</span> <span class="n">contacts</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">Forces</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">Np</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+    <span class="c1">## Social forces, friction,...</span>
+    <span class="k">for</span> <span class="n">ic</span> <span class="ow">in</span> <span class="n">sp</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">Nc</span><span class="p">):</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">contacts</span><span class="p">[</span><span class="n">ic</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">contacts</span><span class="p">[</span><span class="n">ic</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">dij</span> <span class="o">=</span> <span class="n">contacts</span><span class="p">[</span><span class="n">ic</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">dij_moins</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">dij</span><span class="p">,</span><span class="mf">0.0</span><span class="p">)</span>
+        <span class="n">eij_x</span> <span class="o">=</span> <span class="n">contacts</span><span class="p">[</span><span class="n">ic</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+        <span class="n">eij_y</span> <span class="o">=</span> <span class="n">contacts</span><span class="p">[</span><span class="n">ic</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">j</span><span class="o">&gt;-</span><span class="mi">1</span><span class="p">):</span> <span class="c1">## contact person/person</span>
+            <span class="c1"># Angular dependence</span>
+            <span class="n">norm_Vdi</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="n">Vd</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">Vd</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">norm_Vdi</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="n">theta_ij</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span>  <span class="p">(</span><span class="n">Vd</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">eij_x</span><span class="o">+</span><span class="n">Vd</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">eij_y</span><span class="p">)</span><span class="o">/</span><span class="n">norm_Vdi</span> <span class="p">)</span>
+                <span class="n">omega_ij</span> <span class="o">=</span> <span class="n">lambda_</span><span class="o">+</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">lambda_</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">sp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta_ij</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">omega_ij</span><span class="o">=</span> <span class="mi">1</span>
+            <span class="n">norm_Vdj</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="n">Vd</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">Vd</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">norm_Vdj</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="n">theta_ji</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span> <span class="o">-</span><span class="p">(</span><span class="n">Vd</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">eij_x</span><span class="o">+</span><span class="n">Vd</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">eij_y</span><span class="p">)</span><span class="o">/</span><span class="n">norm_Vdj</span> <span class="p">)</span>
+                <span class="n">omega_ji</span> <span class="o">=</span> <span class="n">lambda_</span><span class="o">+</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">lambda_</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">sp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta_ji</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">omega_ji</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="c1"># Social force + force to handle overlapping</span>
+            <span class="n">fij</span> <span class="o">=</span> <span class="o">-</span><span class="n">omega_ij</span><span class="o">*</span><span class="n">F</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">dij</span><span class="o">/</span><span class="n">delta</span><span class="p">)</span> <span class="o">+</span> <span class="n">k</span><span class="o">*</span><span class="n">dij_moins</span>
+            <span class="n">fji</span> <span class="o">=</span> <span class="o">-</span><span class="n">omega_ji</span><span class="o">*</span><span class="n">F</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">dij</span><span class="o">/</span><span class="n">delta</span><span class="p">)</span> <span class="o">+</span> <span class="n">k</span><span class="o">*</span><span class="n">dij_moins</span>
+            <span class="n">Forces</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="n">fij</span><span class="o">*</span><span class="n">eij_x</span>
+            <span class="n">Forces</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">fij</span><span class="o">*</span><span class="n">eij_y</span>
+            <span class="n">Forces</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">-=</span> <span class="n">fji</span><span class="o">*</span><span class="n">eij_x</span>
+            <span class="n">Forces</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">-=</span> <span class="n">fji</span><span class="o">*</span><span class="n">eij_y</span>
+            <span class="c1"># Friction</span>
+            <span class="n">fij_friction</span> <span class="o">=</span> <span class="n">eta</span><span class="o">*</span><span class="n">dij_moins</span><span class="o">*</span><span class="p">(</span> <span class="o">-</span><span class="p">(</span><span class="n">U</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">U</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span><span class="o">*</span><span class="n">eij_y</span> <span class="o">+</span> \
+                <span class="p">(</span><span class="n">U</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">U</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span><span class="o">*</span><span class="n">eij_x</span> <span class="p">)</span>
+            <span class="n">Forces</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">-=</span> <span class="n">fij_friction</span><span class="o">*</span><span class="n">eij_y</span>
+            <span class="n">Forces</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">fij_friction</span><span class="o">*</span><span class="n">eij_x</span>
+            <span class="n">Forces</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="n">fij_friction</span><span class="o">*</span><span class="n">eij_y</span>
+            <span class="n">Forces</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">-=</span> <span class="n">fij_friction</span><span class="o">*</span><span class="n">eij_x</span>
+        <span class="k">else</span><span class="p">:</span> <span class="c1">## contact person/walls</span>
+            <span class="n">fij</span> <span class="o">=</span> <span class="o">-</span><span class="n">Fwall</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">dij</span><span class="o">/</span><span class="n">delta</span><span class="p">)</span> <span class="o">+</span> <span class="n">k</span><span class="o">*</span><span class="n">dij_moins</span>
+            <span class="n">Forces</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">-=</span> <span class="n">fij</span><span class="o">*</span><span class="n">eij_x</span>
+            <span class="n">Forces</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">-=</span> <span class="n">fij</span><span class="o">*</span><span class="n">eij_y</span>
+    <span class="k">return</span> <span class="n">Forces</span></div>
+
+
+<div class="viewcode-block" id="projection_uzawa"><a class="viewcode-back" href="../../micro.html#cromosim.micro.projection_uzawa">[docs]</a><span class="k">def</span> <span class="nf">projection_uzawa</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="n">people</span><span class="p">,</span> <span class="n">contacts</span><span class="p">,</span> <span class="n">Vd</span><span class="p">,</span> <span class="n">dmin</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> \
+                     <span class="n">nb_iter_max</span> <span class="o">=</span> <span class="mi">100000</span><span class="p">,</span> <span class="n">rho</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">tol</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">,</span> <span class="n">log</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    From the desired velocities Vd, this projection step consists to compute \</span>
+<span class="sd">    the global velocity field which shall be defined as the closest to the \</span>
+<span class="sd">    desired one among all those feasible fields (i.e. fields which do not lead \</span>
+<span class="sd">    to overlapping of disks).</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    dt: float</span>
+<span class="sd">        time step</span>
+<span class="sd">    people: numpy array</span>
+<span class="sd">        people coordinates and radius : x,y,r</span>
+<span class="sd">    contacts: numpy array</span>
+<span class="sd">        all the contacts : i,j,dij,eij_x,eij_y</span>
+<span class="sd">    Vd: numpy array</span>
+<span class="sd">        people desired velocities</span>
+<span class="sd">    dmin: float</span>
+<span class="sd">        minimum distance guaranteed between individuals</span>
+<span class="sd">    nb_iter_max: integer</span>
+<span class="sd">        maximum number of iterations allowed</span>
+<span class="sd">    rho: float</span>
+<span class="sd">        parameter of the Uzawa method</span>
+<span class="sd">    tol: float</span>
+<span class="sd">        tolerance wished</span>
+<span class="sd">    log: boolean</span>
+<span class="sd">        to print the final accurancy, number of iterations,...</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    B: numpy array</span>
+<span class="sd">        constraint matrix</span>
+<span class="sd">    U: numpy array</span>
+<span class="sd">        new people velocities ensuring there is no overlap \</span>
+<span class="sd">        between individuals</span>
+<span class="sd">    L: numpy array</span>
+<span class="sd">        Lagrange multipliers</span>
+<span class="sd">    P: numpy array</span>
+<span class="sd">        pressure on each individual</span>
+<span class="sd">    info: integer</span>
+<span class="sd">        number of iterations needed</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">info</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">row</span> <span class="o">=</span> <span class="p">[];</span> <span class="n">col</span> <span class="o">=</span> <span class="p">[];</span> <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">Np</span> <span class="o">=</span> <span class="n">people</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">Nc</span> <span class="o">=</span> <span class="n">contacts</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">Nc</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="n">info</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">info</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">Vd</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+    <span class="k">for</span> <span class="n">ic</span> <span class="ow">in</span> <span class="n">sp</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">Nc</span><span class="p">):</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">contacts</span><span class="p">[</span><span class="n">ic</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">contacts</span><span class="p">[</span><span class="n">ic</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">j</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">):</span>
+            <span class="n">row</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ic</span><span class="p">);</span> <span class="n">col</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="p">);</span> <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">contacts</span><span class="p">[</span><span class="n">ic</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+            <span class="n">row</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ic</span><span class="p">);</span> <span class="n">col</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span> <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">contacts</span><span class="p">[</span><span class="n">ic</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+            <span class="n">row</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ic</span><span class="p">);</span> <span class="n">col</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">j</span><span class="p">);</span> <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="o">-</span><span class="n">contacts</span><span class="p">[</span><span class="n">ic</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+            <span class="n">row</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ic</span><span class="p">);</span> <span class="n">col</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span> <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="o">-</span><span class="n">contacts</span><span class="p">[</span><span class="n">ic</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">row</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ic</span><span class="p">);</span> <span class="n">col</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="p">);</span> <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="o">-</span><span class="n">contacts</span><span class="p">[</span><span class="n">ic</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+            <span class="n">row</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ic</span><span class="p">);</span> <span class="n">col</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span> <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="o">-</span><span class="n">contacts</span><span class="p">[</span><span class="n">ic</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="n">csr_matrix</span><span class="p">((</span><span class="n">data</span><span class="p">,</span> <span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">)),</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">Nc</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">Np</span><span class="p">))</span><span class="c1">#.toarray()</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">Nc</span><span class="p">,))</span>
+    <span class="n">R</span> <span class="o">=</span> <span class="mi">99</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">Nc</span><span class="p">,))</span>
+    <span class="n">U</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="o">*</span><span class="n">Np</span><span class="p">,))</span>
+    <span class="n">V</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="o">*</span><span class="n">Np</span><span class="p">,))</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="n">contacts</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">V</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">Vd</span><span class="p">[:,</span><span class="mi">0</span><span class="p">];</span> <span class="n">V</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">Vd</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="p">((</span> <span class="n">dt</span><span class="o">*</span><span class="n">R</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">&gt;</span><span class="n">tol</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">people</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span> <span class="ow">and</span> <span class="p">(</span><span class="n">k</span><span class="o">&lt;</span><span class="n">nb_iter_max</span><span class="p">)):</span>
+        <span class="n">U</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">V</span><span class="p">[:]</span> <span class="o">-</span> <span class="n">B</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="nd">@L</span><span class="p">[:]</span>
+        <span class="n">R</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">B</span><span class="nd">@U</span><span class="p">[:]</span> <span class="o">-</span> <span class="p">(</span><span class="n">D</span><span class="p">[:]</span><span class="o">-</span><span class="n">dmin</span><span class="p">)</span><span class="o">/</span><span class="n">dt</span>
+        <span class="n">L</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">L</span><span class="p">[:]</span> <span class="o">+</span> <span class="n">rho</span><span class="o">*</span><span class="n">R</span><span class="p">[:],</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">k</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">P</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">Np</span><span class="p">)</span> <span class="c1">## Pressure</span>
+    <span class="k">for</span> <span class="n">ic</span> <span class="ow">in</span> <span class="n">sp</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">Nc</span><span class="p">):</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">contacts</span><span class="p">[</span><span class="n">ic</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># contacts : [i,j,dij,eij_x,eij_y]</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">contacts</span><span class="p">[</span><span class="n">ic</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">j</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">):</span>
+            <span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">3</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">people</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">L</span><span class="p">[</span><span class="n">ic</span><span class="p">]</span> <span class="c1">## Equiplanar spheres</span>
+            <span class="n">P</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">3</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">people</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">L</span><span class="p">[</span><span class="n">ic</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">3</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">people</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">L</span><span class="p">[</span><span class="n">ic</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">log</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    projection_uzawa : nb of contacts = &quot;</span><span class="p">,</span><span class="n">Nc</span><span class="p">,</span><span class="s2">&quot;, nb of iterations = &quot;</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="s2">&quot;, min = &quot;</span><span class="p">,</span><span class="n">R</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span><span class="s2">&quot;, max = &quot;</span><span class="p">,</span><span class="n">R</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span><span class="s2">&quot;, tol = &quot;</span><span class="p">,</span><span class="n">tol</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">k</span><span class="o">==</span><span class="n">nb_iter_max</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;** WARNING : Method projection_uzawa **&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;** WARNING : you have reached the maximum number of iterations,&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;** WARNING : it remains unsatisfied constraints !! &quot;</span><span class="p">)</span>
+        <span class="n">info</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">info</span> <span class="o">=</span> <span class="n">k</span>
+    <span class="k">return</span> <span class="n">info</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">U</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">Np</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span> <span class="n">L</span><span class="p">,</span> <span class="n">P</span></div>
+
+
+<div class="viewcode-block" id="move_people"><a class="viewcode-back" href="../../micro.html#cromosim.micro.move_people">[docs]</a><span class="k">def</span> <span class="nf">move_people</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">people</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">crosslines</span><span class="o">=</span><span class="p">[]):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Updates the people positions according to the new velocities U. \</span>
+<span class="sd">    If there exits crosslines (i.e. sensors), computes also the id, time, direction and \</span>
+<span class="sd">    impact points for the individuals who cross the lines.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    time: float</span>
+<span class="sd">        current time</span>
+<span class="sd">    dt: float</span>
+<span class="sd">        time step</span>
+<span class="sd">    people: numpy array</span>
+<span class="sd">        people coordinates and radius : x,y,r</span>
+<span class="sd">    U: numpy array</span>
+<span class="sd">        people velocities</span>
+<span class="sd">    crosslines: list of numpy array</span>
+<span class="sd">        list of lines [[x0,y0,x1,y1], [x0,y0,x1,y1], ...]</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    people: numpy array</span>
+<span class="sd">        new people positions after moving</span>
+<span class="sd">    io_id: list of integers</span>
+<span class="sd">        indices of people who cross the lines (sensors)</span>
+<span class="sd">    io_times: list of floats</span>
+<span class="sd">        times when people cross the lines (sensors)</span>
+<span class="sd">    io_pts: list of floats</span>
+<span class="sd">        impact points for people crossing the lines (sensors)</span>
+<span class="sd">    io_dir: list of floats</span>
+<span class="sd">        directions for people crossing the lines (sensors), i.e. entry or exit</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">crosslines</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+        <span class="n">people_old</span> <span class="o">=</span> <span class="n">people</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="c1">## Update people coordinates</span>
+    <span class="n">people</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dt</span><span class="o">*</span><span class="n">U</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">people</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dt</span><span class="o">*</span><span class="n">U</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">io_id</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">io_times</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">io_pts</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">io_dir</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">crosslines</span><span class="p">:</span>
+        <span class="c1"># line [x0,y0,x1,y1],</span>
+        <span class="nb">id</span><span class="p">,</span> <span class="n">pts</span><span class="p">,</span> <span class="nb">dir</span><span class="p">,</span> <span class="n">times</span><span class="p">,</span> <span class="n">entries</span><span class="p">,</span> <span class="n">exits</span> <span class="o">=</span> <span class="n">sensor</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">people_old</span><span class="p">[:,</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span>
+                    <span class="n">people</span><span class="p">[:,</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span> <span class="n">time</span><span class="p">,</span> <span class="n">time</span><span class="o">+</span><span class="n">dt</span><span class="p">)</span>
+        <span class="n">io_id</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+        <span class="n">io_times</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">times</span><span class="p">)</span>
+        <span class="n">io_pts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pts</span><span class="p">)</span>
+        <span class="n">io_dir</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">crosslines</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">people</span><span class="p">,</span> <span class="n">io_id</span><span class="p">,</span> <span class="n">io_times</span><span class="p">,</span> <span class="n">io_dir</span><span class="p">,</span> <span class="n">io_pts</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">people</span></div>
+
+
+<div class="viewcode-block" id="exit_door"><a class="viewcode-back" href="../../micro.html#cromosim.micro.exit_door">[docs]</a><span class="k">def</span> <span class="nf">exit_door</span><span class="p">(</span><span class="n">sexit</span><span class="p">,</span> <span class="n">dom</span><span class="p">,</span> <span class="n">people</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">arrays</span><span class="o">=</span><span class="p">[]):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Removes individuals who are at a distance less than sexit \</span>
+<span class="sd">    to the closest door</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    sexit: float</span>
+<span class="sd">        threshold value used to remove individuals close to the exit</span>
+<span class="sd">    dom: Domain</span>
+<span class="sd">        contains everything for managing the domain</span>
+<span class="sd">    people: numpy array</span>
+<span class="sd">        people coordinates and radius : x,y,r</span>
+<span class="sd">    U: numpy array</span>
+<span class="sd">        people velocities</span>
+<span class="sd">    arrays: list of numpy array</span>
+<span class="sd">        other arrays to resize similarly as people and U arrays</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    people: numpy array</span>
+<span class="sd">        new people positions (outside individuals had been removed)</span>
+<span class="sd">    U: numpy array</span>
+<span class="sd">        new poeple velocities (outside individuals had been removed)</span>
+<span class="sd">    arrays: list of numpy array</span>
+<span class="sd">        new array resized</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">I</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">floor</span><span class="p">((</span><span class="n">people</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">dom</span><span class="o">.</span><span class="n">ymin</span><span class="o">-</span><span class="mf">0.5</span><span class="o">*</span><span class="n">dom</span><span class="o">.</span><span class="n">pixel_size</span><span class="p">)</span><span class="o">/</span><span class="n">dom</span><span class="o">.</span><span class="n">pixel_size</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">J</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">floor</span><span class="p">((</span><span class="n">people</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">dom</span><span class="o">.</span><span class="n">xmin</span><span class="o">-</span><span class="mf">0.5</span><span class="o">*</span><span class="n">dom</span><span class="o">.</span><span class="n">pixel_size</span><span class="p">)</span><span class="o">/</span><span class="n">dom</span><span class="o">.</span><span class="n">pixel_size</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="n">dom</span><span class="o">.</span><span class="n">door_distance</span><span class="p">[</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">]</span>
+    <span class="n">ind</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">D</span><span class="o">&gt;</span><span class="n">sexit</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">arrays</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">people</span><span class="p">[</span><span class="n">ind</span><span class="p">[</span><span class="mi">0</span><span class="p">],:],</span> <span class="n">U</span><span class="p">[</span><span class="n">ind</span><span class="p">[</span><span class="mi">0</span><span class="p">],:],</span> <span class="p">[</span> <span class="n">a</span><span class="p">[</span><span class="n">ind</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">arrays</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">people</span><span class="p">[</span><span class="n">ind</span><span class="p">[</span><span class="mi">0</span><span class="p">],:],</span> <span class="n">U</span><span class="p">[</span><span class="n">ind</span><span class="p">[</span><span class="mi">0</span><span class="p">],:]</span></div>
+
+
+<div class="viewcode-block" id="exit_out_of_domain"><a class="viewcode-back" href="../../micro.html#cromosim.micro.exit_out_of_domain">[docs]</a><span class="k">def</span> <span class="nf">exit_out_of_domain</span><span class="p">(</span><span class="n">dom</span><span class="p">,</span> <span class="n">people</span><span class="p">,</span> <span class="n">arrays</span><span class="o">=</span><span class="p">[],</span> <span class="n">box</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Removes individuals who are outside the domain or outside a given box</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    dom: Domain</span>
+<span class="sd">        contains everything for managing the domain</span>
+<span class="sd">    people: numpy array</span>
+<span class="sd">        people coordinates and radius : x,y,r</span>
+<span class="sd">    arrays: list of numpy array</span>
+<span class="sd">        other arrays to resize similarly as people and U</span>
+<span class="sd">    box: numpy array</span>
+<span class="sd">        box coordinates [xmin,xmax,ymin,ymax] which replace the \</span>
+<span class="sd">        domain minimum and maximum coordinates</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    people: numpy array</span>
+<span class="sd">        new people array (outside individuals had been removed)</span>
+<span class="sd">    arrays: list of numpy array</span>
+<span class="sd">        new arrays resized similarly as people array</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">box</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1">## Remove people who are outside the domain</span>
+        <span class="n">S</span> <span class="o">=</span> <span class="p">(</span><span class="n">people</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">people</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span><span class="o">&lt;=</span><span class="n">dom</span><span class="o">.</span><span class="n">xmin</span><span class="o">+</span><span class="n">dom</span><span class="o">.</span><span class="n">pixel_size</span><span class="p">)</span> <span class="o">+</span> \
+            <span class="p">(</span><span class="n">people</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">people</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span><span class="o">&gt;=</span><span class="n">dom</span><span class="o">.</span><span class="n">xmax</span><span class="o">-</span><span class="n">dom</span><span class="o">.</span><span class="n">pixel_size</span><span class="p">)</span> <span class="o">+</span> \
+            <span class="p">(</span><span class="n">people</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">people</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span><span class="o">&lt;=</span><span class="n">dom</span><span class="o">.</span><span class="n">ymin</span><span class="o">+</span><span class="n">dom</span><span class="o">.</span><span class="n">pixel_size</span><span class="p">)</span> <span class="o">+</span> \
+            <span class="p">(</span><span class="n">people</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">people</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span><span class="o">&gt;=</span><span class="n">dom</span><span class="o">.</span><span class="n">ymax</span><span class="o">-</span><span class="n">dom</span><span class="o">.</span><span class="n">pixel_size</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1">## Remove people who are outside the given box</span>
+        <span class="n">S</span> <span class="o">=</span> <span class="p">(</span><span class="n">people</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">people</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span><span class="o">&lt;=</span><span class="n">box</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">dom</span><span class="o">.</span><span class="n">pixel_size</span><span class="p">)</span> <span class="o">+</span> \
+            <span class="p">(</span><span class="n">people</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">people</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span><span class="o">&gt;=</span><span class="n">box</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">dom</span><span class="o">.</span><span class="n">pixel_size</span><span class="p">)</span> <span class="o">+</span> \
+            <span class="p">(</span><span class="n">people</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">people</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span><span class="o">&lt;=</span><span class="n">box</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="n">dom</span><span class="o">.</span><span class="n">pixel_size</span><span class="p">)</span> <span class="o">+</span> \
+            <span class="p">(</span><span class="n">people</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">people</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span><span class="o">&gt;=</span><span class="n">box</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">-</span><span class="n">dom</span><span class="o">.</span><span class="n">pixel_size</span><span class="p">)</span>
+    <span class="n">ind</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">S</span><span class="o">==</span><span class="kc">False</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">people</span> <span class="o">=</span> <span class="n">people</span><span class="p">[</span><span class="n">ind</span><span class="p">,:]</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">arrays</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">arrays</span><span class="p">:</span>
+            <span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span>
+    <span class="c1">## Remove people who are too close to walls or with a masked door distance</span>
+    <span class="n">I</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">floor</span><span class="p">((</span><span class="n">people</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">dom</span><span class="o">.</span><span class="n">ymin</span><span class="o">-</span><span class="mf">0.5</span><span class="o">*</span><span class="n">dom</span><span class="o">.</span><span class="n">pixel_size</span><span class="p">)</span><span class="o">/</span><span class="n">dom</span><span class="o">.</span><span class="n">pixel_size</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">J</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">floor</span><span class="p">((</span><span class="n">people</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">dom</span><span class="o">.</span><span class="n">xmin</span><span class="o">-</span><span class="mf">0.5</span><span class="o">*</span><span class="n">dom</span><span class="o">.</span><span class="n">pixel_size</span><span class="p">)</span><span class="o">/</span><span class="n">dom</span><span class="o">.</span><span class="n">pixel_size</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">Dwall</span> <span class="o">=</span> <span class="n">dom</span><span class="o">.</span><span class="n">wall_distance</span><span class="p">[</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">]</span><span class="o">-</span><span class="n">people</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">Ddoor</span> <span class="o">=</span> <span class="n">dom</span><span class="o">.</span><span class="n">door_distance</span><span class="p">[</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">]</span>
+    <span class="n">indDwall</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">Dwall</span><span class="o">&lt;=</span><span class="n">dom</span><span class="o">.</span><span class="n">pixel_size</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">indDdoor</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">Ddoor</span><span class="o">.</span><span class="n">mask</span><span class="o">==</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">ind</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">indDwall</span><span class="p">,</span><span class="n">indDdoor</span><span class="p">)))</span>
+    <span class="n">comp_ind</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">setdiff1d</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">people</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">ind</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">arrays</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">people</span><span class="p">[</span><span class="n">comp_ind</span><span class="p">,:],</span> <span class="p">[</span> <span class="n">a</span><span class="p">[</span><span class="n">comp_ind</span><span class="p">]</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">arrays</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">people</span><span class="p">[</span><span class="n">comp_ind</span><span class="p">,:]</span></div>
+
+
+<div class="viewcode-block" id="exit_box"><a class="viewcode-back" href="../../micro.html#cromosim.micro.exit_box">[docs]</a><span class="k">def</span> <span class="nf">exit_box</span><span class="p">(</span><span class="n">box</span><span class="p">,</span> <span class="n">sexit</span><span class="p">,</span> <span class="n">people</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">arrays</span><span class="o">=</span><span class="p">[]):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Removes individuals outside the box according to a threshold value.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    box: numpy array</span>
+<span class="sd">        box vertice coordinates [xmin, xmax, ymin, ymax]</span>
+<span class="sd">    sexit: float</span>
+<span class="sd">        threshold value used to remove individuals close to the exit</span>
+<span class="sd">    people : numpy array</span>
+<span class="sd">        people coordinates and radius : x,y,r</span>
+<span class="sd">    U: numpy array</span>
+<span class="sd">        people velocities</span>
+<span class="sd">    arrays: list of numpy array</span>
+<span class="sd">        other arrays to resize similarly as people and U</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    people: numpy array</span>
+<span class="sd">        new people coordinates (outside individuals had been removed)</span>
+<span class="sd">    U: numpy array</span>
+<span class="sd">        new people velocities (outside individuals had been removed)</span>
+<span class="sd">    arrays: list of numpy array</span>
+<span class="sd">        new resized arrays taking into account deleted individuals</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">S</span> <span class="o">=</span> <span class="p">(</span><span class="n">people</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">people</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span><span class="o">&lt;=</span><span class="n">box</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">sexit</span><span class="p">)</span> <span class="o">+</span> \
+        <span class="p">(</span><span class="n">people</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">people</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span><span class="o">&gt;=</span><span class="n">box</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">sexit</span><span class="p">)</span> <span class="o">+</span> \
+        <span class="p">(</span><span class="n">people</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">people</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span><span class="o">&lt;=</span><span class="n">box</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="n">sexit</span><span class="p">)</span> <span class="o">+</span> \
+        <span class="p">(</span><span class="n">people</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">people</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span><span class="o">&gt;=</span><span class="n">box</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">-</span><span class="n">sexit</span><span class="p">)</span>
+    <span class="n">ind</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">S</span><span class="o">==</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">arrays</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">people</span><span class="p">[</span><span class="n">ind</span><span class="p">[</span><span class="mi">0</span><span class="p">],:],</span> <span class="n">U</span><span class="p">[</span><span class="n">ind</span><span class="p">[</span><span class="mi">0</span><span class="p">],:],</span> <span class="p">[</span> <span class="n">a</span><span class="p">[</span><span class="n">ind</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">arrays</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">people</span><span class="p">[</span><span class="n">ind</span><span class="p">[</span><span class="mi">0</span><span class="p">],:],</span> <span class="n">U</span><span class="p">[</span><span class="n">ind</span><span class="p">[</span><span class="mi">0</span><span class="p">],:]</span></div>
+
+
+<div class="viewcode-block" id="periodic_bc_vertical"><a class="viewcode-back" href="../../micro.html#cromosim.micro.periodic_bc_vertical">[docs]</a><span class="k">def</span> <span class="nf">periodic_bc_vertical</span><span class="p">(</span><span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">,</span> <span class="n">people</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">rng</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Does not exactly correspond to periodic boundary conditions (in the</span>
+<span class="sd">    mathematical sense): the persons having an y-coordinate y less than ymin</span>
+<span class="sd">    (respectively greater than ymax) are reinjected at y+(ymax-ymin) (respectively</span>
+<span class="sd">    at y-(ymax-ymin)) with (optionally) random x-coordinates (between xmin and xmax,</span>
+<span class="sd">    and with velocities equal to 0.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ymin: float</span>
+<span class="sd">        minimal ordinate of the box</span>
+<span class="sd">    ymax: float</span>
+<span class="sd">        maximal ordinate of the box</span>
+<span class="sd">    people: numpy array</span>
+<span class="sd">        people coordinates and radius : x,y,r</span>
+<span class="sd">    U: numpy array</span>
+<span class="sd">        people velocities</span>
+<span class="sd">    xmin: float</span>
+<span class="sd">        minimal abscissa of the box</span>
+<span class="sd">    xmax: float</span>
+<span class="sd">        maximal abscissa of the box</span>
+<span class="sd">    rng: RandomState</span>
+<span class="sd">        scipy random state object (see scipy.random.RandomState)</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    people: numpy array</span>
+<span class="sd">        new people coordinates (outside individuals had been moved)</span>
+<span class="sd">    U: numpy array</span>
+<span class="sd">        new people velocities</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">Smin</span> <span class="o">=</span> <span class="p">(</span><span class="n">people</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">&lt;</span><span class="n">ymin</span><span class="p">)</span>
+    <span class="n">Smax</span> <span class="o">=</span> <span class="p">(</span><span class="n">people</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">&gt;</span><span class="n">ymax</span><span class="p">)</span>
+    <span class="n">indmin</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">Smin</span><span class="o">==</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">indmax</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">Smax</span><span class="o">==</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">people</span><span class="p">[</span><span class="n">indmin</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span><span class="n">ymax</span><span class="o">-</span><span class="n">ymin</span><span class="p">)</span>
+    <span class="n">people</span><span class="p">[</span><span class="n">indmax</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">-=</span> <span class="p">(</span><span class="n">ymax</span><span class="o">-</span><span class="n">ymin</span><span class="p">)</span>
+    <span class="n">U</span><span class="p">[</span><span class="n">indmin</span><span class="p">,:]</span><span class="o">=</span><span class="mi">0</span>
+    <span class="n">U</span><span class="p">[</span><span class="n">indmax</span><span class="p">,:]</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">if</span> <span class="n">xmin</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">xmax</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">rng</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">rng</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">()</span>
+            <span class="n">x_indmin</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">indmin</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">people</span><span class="p">[</span><span class="n">indmin</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x_indmin</span>
+            <span class="n">x_indmax</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">indmax</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">people</span><span class="p">[</span><span class="n">indmax</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x_indmax</span>
+    <span class="k">return</span> <span class="n">people</span><span class="p">,</span> <span class="n">U</span></div>
+
+
+<div class="viewcode-block" id="create_people_in_box"><a class="viewcode-back" href="../../micro.html#cromosim.micro.create_people_in_box">[docs]</a><span class="k">def</span> <span class="nf">create_people_in_box</span><span class="p">(</span><span class="n">np</span><span class="p">,</span> <span class="n">box</span><span class="p">,</span> <span class="n">rmin</span><span class="p">,</span> <span class="n">rmax</span><span class="p">,</span> <span class="n">dom</span><span class="p">,</span> <span class="n">rng</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    To create np persons in a given box. The overvalps are not treated for \</span>
+<span class="sd">    the moment but we check that the individuals are located in an area where \</span>
+<span class="sd">    the desired velocity is well defined (outside inaccessible areas or \</span>
+<span class="sd">    obstacles). If it is not the case, we change their coordinates in consequence.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    np: integer</span>
+<span class="sd">        number of individuals to create</span>
+<span class="sd">    box: list</span>
+<span class="sd">        coordinates of the box [xmin, xmax, ymin, ymax]</span>
+<span class="sd">    rmin: float</span>
+<span class="sd">        people minimal radius</span>
+<span class="sd">    rmax: float</span>
+<span class="sd">        people maximal radius</span>
+<span class="sd">    dom: Domain</span>
+<span class="sd">        contains everything for managing the domain</span>
+<span class="sd">    rng: RandomState</span>
+<span class="sd">        scipy random state object (see scipy.random.RandomState)</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    p: numpy array</span>
+<span class="sd">        new people coordinates x y r</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;------ create_people_in_box --&gt; Create &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="p">)</span><span class="o">+</span> \
+          <span class="s2">&quot; individuals in the box &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">box</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;, overlaps can be occured...&quot;</span><span class="p">)</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">np</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>  <span class="c1"># x y r</span>
+    <span class="n">p</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">rmin</span><span class="p">,</span> <span class="n">rmax</span><span class="p">,</span> <span class="n">np</span><span class="p">)</span>
+    <span class="n">p_rmax</span> <span class="o">=</span> <span class="n">p</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    <span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span> <span class="o">=</span> <span class="n">box</span>
+    <span class="n">p</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">xmin</span><span class="o">+</span><span class="n">p_rmax</span><span class="p">,</span> <span class="n">xmax</span><span class="o">-</span><span class="n">p_rmax</span><span class="p">,</span> <span class="n">np</span><span class="p">)</span>
+    <span class="n">p</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">ymin</span><span class="o">+</span><span class="n">p_rmax</span><span class="p">,</span> <span class="n">ymax</span><span class="o">-</span><span class="n">p_rmax</span><span class="p">,</span> <span class="n">np</span><span class="p">)</span>
+    <span class="c1">## To check if people are well localized in the domain</span>
+    <span class="c1">## i.e. where a desired velocity is defined</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">I</span><span class="p">,</span> <span class="n">J</span><span class="p">,</span> <span class="n">Vd</span> <span class="o">=</span> <span class="n">compute_desired_velocity</span><span class="p">(</span><span class="n">dom</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+        <span class="n">normVd</span> <span class="o">=</span> <span class="n">Vd</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">Vd</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span>
+        <span class="n">ind</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">normVd</span><span class="o">==</span><span class="mi">0</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">ind</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+            <span class="n">p</span><span class="p">[</span><span class="n">ind</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">xmin</span><span class="o">+</span><span class="n">p_rmax</span><span class="p">,</span> <span class="n">xmax</span><span class="o">-</span><span class="n">p_rmax</span><span class="p">,</span> <span class="n">ind</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">p</span><span class="p">[</span><span class="n">ind</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">ymin</span><span class="o">+</span><span class="n">p_rmax</span><span class="p">,</span> <span class="n">ymax</span><span class="o">-</span><span class="n">p_rmax</span><span class="p">,</span> <span class="n">ind</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">break</span>
+    <span class="k">return</span> <span class="n">p</span></div>
+
+
+<div class="viewcode-block" id="check_people_in_box"><a class="viewcode-back" href="../../micro.html#cromosim.micro.check_people_in_box">[docs]</a><span class="k">def</span> <span class="nf">check_people_in_box</span><span class="p">(</span><span class="n">dom</span><span class="p">,</span> <span class="n">box</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">rng</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    To check that people coordinates are in the given box (test 1) and in an \</span>
+<span class="sd">    usable space i.e. in an area accessible and not concerned by obstacles \</span>
+<span class="sd">    (test 2). On the other hand, we move the individual which do not satisfy \</span>
+<span class="sd">    these two tests.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    dom: Domain</span>
+<span class="sd">        contains everything for managing the domain</span>
+<span class="sd">    box: list</span>
+<span class="sd">        coordinates of the box [xmin, xmax, ymin, ymax]</span>
+<span class="sd">    p: numpy array</span>
+<span class="sd">        people coordinates x y r</span>
+<span class="sd">    rng: RandomState</span>
+<span class="sd">        scipy random state object (see scipy.random.RandomState)</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    p: numpy array</span>
+<span class="sd">        new people coordinates x y r</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;------ check_people_in_box --&gt; To verify that &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">+</span> \
+          <span class="s2">&quot; individuals are in the domain, in the box and with a defined&quot;</span><span class="o">+</span> \
+          <span class="s2">&quot; desired velocity&quot;</span><span class="p">)</span>
+    <span class="n">p_rmax</span> <span class="o">=</span> <span class="n">p</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    <span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span> <span class="o">=</span> <span class="n">box</span>
+    <span class="n">info</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="c1">## test 1</span>
+        <span class="n">I</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">floor</span><span class="p">((</span><span class="n">p</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">dom</span><span class="o">.</span><span class="n">ymin</span><span class="o">-</span><span class="mf">0.5</span><span class="o">*</span><span class="n">dom</span><span class="o">.</span><span class="n">pixel_size</span><span class="p">)</span><span class="o">/</span><span class="n">dom</span><span class="o">.</span><span class="n">pixel_size</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+        <span class="n">J</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">floor</span><span class="p">((</span><span class="n">p</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">dom</span><span class="o">.</span><span class="n">xmin</span><span class="o">-</span><span class="mf">0.5</span><span class="o">*</span><span class="n">dom</span><span class="o">.</span><span class="n">pixel_size</span><span class="p">)</span><span class="o">/</span><span class="n">dom</span><span class="o">.</span><span class="n">pixel_size</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+        <span class="n">test1</span> <span class="o">=</span> <span class="p">(</span><span class="n">I</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">I</span><span class="o">&lt;</span><span class="n">dom</span><span class="o">.</span><span class="n">height</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">J</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">J</span><span class="o">&lt;</span><span class="n">dom</span><span class="o">.</span><span class="n">width</span><span class="p">)</span>
+        <span class="n">ind1</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">test1</span><span class="o">==</span><span class="mi">0</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">ind1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;------ check_people_in_box --&gt; &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">ind1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">+</span> \
+                  <span class="s2">&quot; individuals outside the domain&quot;</span><span class="p">)</span>
+            <span class="n">info</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">p</span><span class="p">[</span><span class="n">ind1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">xmin</span><span class="o">+</span><span class="n">p_rmax</span><span class="p">,</span> <span class="n">xmax</span><span class="o">-</span><span class="n">p_rmax</span><span class="p">,</span> <span class="n">ind1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">p</span><span class="p">[</span><span class="n">ind1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">ymin</span><span class="o">+</span><span class="n">p_rmax</span><span class="p">,</span> <span class="n">ymax</span><span class="o">-</span><span class="n">p_rmax</span><span class="p">,</span> <span class="n">ind1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1">## test 2</span>
+            <span class="n">I</span><span class="p">,</span> <span class="n">J</span><span class="p">,</span> <span class="n">Vd</span> <span class="o">=</span> <span class="n">compute_desired_velocity</span><span class="p">(</span><span class="n">dom</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+            <span class="n">normVd</span> <span class="o">=</span> <span class="n">Vd</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">Vd</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span>
+            <span class="n">test2</span> <span class="o">=</span> <span class="p">(</span><span class="n">p</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">&gt;</span><span class="n">xmin</span><span class="o">+</span><span class="n">p_rmax</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">p</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">&lt;</span><span class="n">xmax</span><span class="o">-</span><span class="n">p_rmax</span><span class="p">)</span> \
+                  <span class="o">*</span><span class="p">(</span><span class="n">p</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">&gt;</span><span class="n">ymin</span><span class="o">+</span><span class="n">p_rmax</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">p</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">&lt;</span><span class="n">ymax</span><span class="o">-</span><span class="n">p_rmax</span><span class="p">)</span> \
+                  <span class="o">*</span><span class="p">(</span><span class="n">normVd</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">ind2</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">test2</span><span class="o">==</span><span class="mi">0</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">ind2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;------ check_people_in_box --&gt; &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">ind2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">+</span> \
+                      <span class="s2">&quot; individuals with an undefined desired velocity &quot;</span><span class="p">)</span>
+                <span class="n">info</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="n">p</span><span class="p">[</span><span class="n">ind2</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">xmin</span><span class="o">+</span><span class="n">p_rmax</span><span class="p">,</span> <span class="n">xmax</span><span class="o">-</span><span class="n">p_rmax</span><span class="p">,</span> <span class="n">ind2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="n">p</span><span class="p">[</span><span class="n">ind2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">ymin</span><span class="o">+</span><span class="n">p_rmax</span><span class="p">,</span> <span class="n">ymax</span><span class="o">-</span><span class="n">p_rmax</span><span class="p">,</span> <span class="n">ind2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;------ check_people_in_box --&gt; OK !&quot;</span><span class="p">)</span>
+                <span class="k">break</span>
+    <span class="k">return</span> <span class="n">info</span><span class="p">,</span> <span class="n">p</span></div>
+
+<div class="viewcode-block" id="remove_overlaps_in_box"><a class="viewcode-back" href="../../micro.html#cromosim.micro.remove_overlaps_in_box">[docs]</a><span class="k">def</span> <span class="nf">remove_overlaps_in_box</span><span class="p">(</span><span class="n">dom</span><span class="p">,</span> <span class="n">box</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">rng</span><span class="p">,</span> <span class="n">dmin</span><span class="p">,</span> <span class="n">itermax</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    To remove the overlaps between individuals (spheres) in the given box. \</span>
+<span class="sd">    Several Uzawa projections are used to give a better robustness to this \</span>
+<span class="sd">    process when the number of overlaps is very high like during the \</span>
+<span class="sd">    initialization when the individuals have random positions.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    dom: Domain</span>
+<span class="sd">        contains everything for managing the domain</span>
+<span class="sd">    box: list</span>
+<span class="sd">        coordinates of the box [xmin, xmax, ymin, ymax]</span>
+<span class="sd">    p: numpy array</span>
+<span class="sd">        people coordinates x y r</span>
+<span class="sd">    dt: float</span>
+<span class="sd">        time step</span>
+<span class="sd">    rng: RandomState</span>
+<span class="sd">        scipy random state object (see scipy.random.RandomState)</span>
+<span class="sd">    dmin: float</span>
+<span class="sd">        minimal distance allowed between individuals</span>
+<span class="sd">    itermax: integer</span>
+<span class="sd">        maximal number of Uzawa projections (10 by default)</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    p: numpy array</span>
+<span class="sd">        new people coordinates x y r</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;------ remove_overlaps_in_box --&gt; Remove overlaps...&quot;</span><span class="p">)</span>
+    <span class="n">dmax_init</span> <span class="o">=</span> <span class="n">p</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    <span class="n">it1</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="p">(</span><span class="kc">True</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;------ remove_overlaps_in_box --&gt; Remove overlaps in box &quot;</span><span class="o">+</span> \
+              <span class="nb">str</span><span class="p">(</span><span class="n">box</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;: iteration &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">it1</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot; / &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">itermax</span><span class="p">))</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">compute_contacts</span><span class="p">(</span><span class="n">dom</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">dmax_init</span><span class="p">)</span>
+        <span class="n">I</span><span class="p">,</span> <span class="n">J</span><span class="p">,</span> <span class="n">Vd</span> <span class="o">=</span> <span class="n">compute_desired_velocity</span><span class="p">(</span><span class="n">dom</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+        <span class="n">info1</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">P</span> <span class="o">=</span> <span class="n">projection_uzawa</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">Vd</span><span class="p">,</span> <span class="n">dmin</span> <span class="o">=</span> <span class="n">dmin</span><span class="p">,</span> \
+                                             <span class="n">nb_iter_max</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">,</span> <span class="n">log</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">move_people</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">U</span><span class="p">)</span>
+        <span class="n">it1</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">info2</span><span class="p">,</span> <span class="n">people</span> <span class="o">=</span> <span class="n">check_people_in_box</span><span class="p">(</span><span class="n">dom</span><span class="p">,</span> <span class="n">box</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">rng</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">((</span><span class="n">info1</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">info2</span><span class="o">==</span><span class="kc">False</span><span class="p">)):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;------ remove_overlaps_in_box --&gt; Successful... No overlaps&quot;</span><span class="p">)</span>
+            <span class="k">break</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">it1</span><span class="o">&gt;=</span><span class="n">itermax</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;------ remove_overlaps_in_box --&gt; ** WARNING : Unsuccessful initialization **&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;------ remove_overlaps_in_box --&gt; ** WARNING : Let us continue...&quot;</span><span class="p">)</span>
+            <span class="k">break</span>
+    <span class="k">return</span> <span class="n">p</span></div>
+
+
+<div class="viewcode-block" id="people_initialization"><a class="viewcode-back" href="../../micro.html#cromosim.micro.people_initialization">[docs]</a><span class="k">def</span> <span class="nf">people_initialization</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">init_people_box</span><span class="p">,</span> <span class="n">dom</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">rmin</span><span class="p">,</span> <span class="n">rmax</span><span class="p">,</span> <span class="n">dmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                          <span class="n">seed</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">itermax</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    To initialize people array (xyr) with coordinates in several boxes and \</span>
+<span class="sd">    without overlaps between them.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    N: list</span>
+<span class="sd">        list of the numbers of persons to add in each box</span>
+<span class="sd">    init_people_box: list</span>
+<span class="sd">        list of the boxes [[xmin, xmax, ymin, ymax],...]</span>
+<span class="sd">    dom: Domain</span>
+<span class="sd">        contains everything for managing the domain</span>
+<span class="sd">    dt: float</span>
+<span class="sd">        time step</span>
+<span class="sd">    rmin: float</span>
+<span class="sd">        people minimal radius</span>
+<span class="sd">    rmax: float</span>
+<span class="sd">        people maximal radius</span>
+<span class="sd">    dmin: float</span>
+<span class="sd">        minimal distance allowed between individuals (0 by default)</span>
+<span class="sd">    seed: integer</span>
+<span class="sd">        seed to initialize the RandomState (0 by default means different seed \</span>
+<span class="sd">        at each run)</span>
+<span class="sd">    itermax: integer</span>
+<span class="sd">        maximal number of Uzawa projections (10 by default)</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    people: numpy array</span>
+<span class="sd">        new people coordinates x y r</span>
+<span class="sd">    people_init_box_id: numpy array</span>
+<span class="sd">        box number for each individual</span>
+<span class="sd">    rng: RandomState</span>
+<span class="sd">        scipy random state object (see scipy.random.RandomState)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> =================&gt; INITIALIZATION : PEOPLE POSITIONS&quot;</span><span class="p">)</span>
+    <span class="c1">## To initialize people positions</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">()</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">seed</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+        <span class="n">rng</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=================&gt; INITIALIZATION : SEED = &quot;</span><span class="p">,</span><span class="n">rng</span><span class="o">.</span><span class="n">get_state</span><span class="p">()[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+    <span class="c1">## People properties : radius and initial random coordinates</span>
+    <span class="c1">## overlaps can be occured...</span>
+    <span class="n">people</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span><span class="mi">3</span><span class="p">))</span>  <span class="c1"># x y r</span>
+    <span class="n">people_init_box_id</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="o">.</span><span class="n">sum</span><span class="p">(),),</span><span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">pos</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="c1">## Loop over all the boxes where we are supposed to put individuals at</span>
+    <span class="c1">## the initializations</span>
+    <span class="k">for</span> <span class="n">ip</span><span class="p">,</span><span class="n">np</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=================&gt; INITIALIZATION : &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot; IN BOX &quot;</span><span class="o">+</span> \
+              <span class="nb">str</span><span class="p">(</span><span class="n">init_people_box</span><span class="p">[</span><span class="n">ip</span><span class="p">]))</span>
+        <span class="n">pp</span> <span class="o">=</span> <span class="n">create_people_in_box</span><span class="p">(</span><span class="n">np</span><span class="p">,</span> <span class="n">init_people_box</span><span class="p">[</span><span class="n">ip</span><span class="p">],</span> <span class="n">rmin</span><span class="p">,</span> <span class="n">rmax</span><span class="p">,</span> <span class="n">dom</span><span class="p">,</span> <span class="n">rng</span><span class="p">)</span>
+        <span class="n">pp</span> <span class="o">=</span> <span class="n">remove_overlaps_in_box</span><span class="p">(</span><span class="n">dom</span><span class="p">,</span> <span class="n">init_people_box</span><span class="p">[</span><span class="n">ip</span><span class="p">],</span> <span class="n">pp</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">rng</span><span class="p">,</span>
+                                    <span class="n">dmin</span><span class="p">,</span> <span class="n">itermax</span><span class="o">=</span><span class="n">itermax</span><span class="p">)</span>
+        <span class="n">people</span><span class="p">[</span><span class="n">pos</span><span class="p">:</span><span class="n">pos</span><span class="o">+</span><span class="n">np</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">pp</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">people</span><span class="p">[</span><span class="n">pos</span><span class="p">:</span><span class="n">pos</span><span class="o">+</span><span class="n">np</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">pp</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">people</span><span class="p">[</span><span class="n">pos</span><span class="p">:</span><span class="n">pos</span><span class="o">+</span><span class="n">np</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">pp</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">people_init_box_id</span><span class="p">[</span><span class="n">pos</span><span class="p">:</span><span class="n">pos</span><span class="o">+</span><span class="n">np</span><span class="p">]</span> <span class="o">=</span> <span class="n">ip</span>
+        <span class="n">pos</span> <span class="o">+=</span> <span class="n">np</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=================&gt; INITIALIZATION : LAST STEP (remove the overlaps&quot;</span><span class="o">+</span> \
+          <span class="s2">&quot; between individuals in different boxes...)&quot;</span><span class="p">)</span>
+    <span class="n">people</span> <span class="o">=</span> <span class="n">remove_overlaps_in_box</span><span class="p">(</span><span class="n">dom</span><span class="p">,</span> <span class="p">[</span><span class="n">dom</span><span class="o">.</span><span class="n">xmin</span><span class="p">,</span> <span class="n">dom</span><span class="o">.</span><span class="n">xmax</span><span class="p">,</span> <span class="n">dom</span><span class="o">.</span><span class="n">ymin</span><span class="p">,</span> <span class="n">dom</span><span class="o">.</span><span class="n">ymax</span><span class="p">],</span>
+                                    <span class="n">people</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">rng</span><span class="p">,</span> <span class="n">dmin</span><span class="p">,</span> <span class="n">itermax</span><span class="o">=</span><span class="n">itermax</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=================&gt; INITIALIZATION : END ! </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">people</span><span class="p">,</span> <span class="n">people_init_box_id</span><span class="p">,</span> <span class="n">rng</span></div>
+
+
+<div class="viewcode-block" id="sensor"><a class="viewcode-back" href="../../micro.html#cromosim.micro.sensor">[docs]</a><span class="k">def</span> <span class="nf">sensor</span><span class="p">(</span><span class="n">door</span><span class="p">,</span> <span class="n">xy0</span><span class="p">,</span> <span class="n">xy1</span><span class="p">,</span> <span class="n">t0</span><span class="p">,</span> <span class="n">t1</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute the number of entries/exits through a door as a pedestrian</span>
+<span class="sd">    sensor could do</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    door: numpy array</span>
+<span class="sd">        door coordinates [x0,y0,x1,y1]</span>
+<span class="sd">    t0: float</span>
+<span class="sd">        time</span>
+<span class="sd">    t1: float</span>
+<span class="sd">        time</span>
+<span class="sd">    xy0: numpy array</span>
+<span class="sd">        people coordinates at time t0</span>
+<span class="sd">    xy1: numpy array</span>
+<span class="sd">        people coordinates at time t1</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    id: numpy array</span>
+<span class="sd">        index of persons who go through the door</span>
+<span class="sd">    p: numpy array</span>
+<span class="sd">        coordinates of intersection points between the door and people trajectories</span>
+<span class="sd">    io: numpy array</span>
+<span class="sd">        the exit direction is the normal direction, 1 = exit, -1 = entry</span>
+<span class="sd">    times: numpy array</span>
+<span class="sd">        exit or entry times</span>
+<span class="sd">    entries: int</span>
+<span class="sd">        number of entries</span>
+<span class="sd">    exits: int</span>
+<span class="sd">        number of exits</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1">#</span>
+    <span class="c1">#   trajectories :</span>
+    <span class="c1">#               xy0</span>
+    <span class="c1">#                |</span>
+    <span class="c1">#                 |</span>
+    <span class="c1">#   door :     d0--p--d1</span>
+    <span class="c1">#                   |</span>
+    <span class="c1">#                   xy1</span>
+    <span class="n">d0</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">xy0</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">d0</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">door</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">d0</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">door</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">d1</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">xy1</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">d1</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">door</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">d1</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">door</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+    <span class="n">vdoor</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">(</span><span class="n">d1</span> <span class="o">-</span> <span class="n">d0</span><span class="p">)</span>
+    <span class="n">vtraj</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">(</span><span class="n">xy1</span> <span class="o">-</span> <span class="n">xy0</span><span class="p">)</span>
+    <span class="n">v0</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">(</span><span class="n">d0</span> <span class="o">-</span> <span class="n">xy0</span><span class="p">)</span>
+    <span class="n">dot_vdoor_T</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">vdoor</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span>
+    <span class="n">denom</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dot_vdoor_T</span> <span class="o">*</span> <span class="n">vtraj</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dot_vdoor_T</span> <span class="o">*</span> <span class="n">v0</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="c1"># Intersection points</span>
+    <span class="c1"># can be inf or nan if parallel lines...</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">(</span><span class="n">num</span> <span class="o">/</span> <span class="n">denom</span><span class="p">)</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="n">vtraj</span> <span class="o">+</span> <span class="n">xy0</span>
+    <span class="c1"># Test if the intersection point is on the door segment</span>
+    <span class="n">vp0</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="n">d0</span><span class="p">)</span>
+    <span class="n">norm_vdoor_2</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">vdoor</span><span class="o">*</span><span class="n">vdoor</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">dot_vdoor_vp0</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">vdoor</span><span class="o">*</span><span class="n">vp0</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">is_p_in_door</span> <span class="o">=</span> <span class="p">(</span><span class="n">dot_vdoor_vp0</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">dot_vdoor_vp0</span><span class="o">&lt;=</span><span class="n">norm_vdoor_2</span><span class="p">)</span>
+    <span class="c1"># Test if the intersection point is on the person trajectory</span>
+    <span class="n">vpxy0</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="n">xy0</span><span class="p">)</span>
+    <span class="n">norm_vtraj_2</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">vtraj</span><span class="o">*</span><span class="n">vtraj</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">dot_vtraj_vpxy0</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">vtraj</span><span class="o">*</span><span class="n">vpxy0</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">is_p_in_traj</span> <span class="o">=</span> <span class="p">(</span><span class="n">dot_vtraj_vpxy0</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">dot_vtraj_vpxy0</span><span class="o">&lt;=</span><span class="n">norm_vtraj_2</span><span class="p">)</span>
+    <span class="c1"># Keep only points on the door and on the trajectory</span>
+    <span class="n">is_p_intersect</span> <span class="o">=</span> <span class="n">is_p_in_door</span><span class="o">*</span><span class="n">is_p_in_traj</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">is_p_intersect</span><span class="o">==</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="c1"># Test if the direction is the output normal : (d1-d0)_y , (d1-d0)_x</span>
+    <span class="n">vn</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">vdoor</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">vn</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">vdoor</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">vn</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">vdoor</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">dot_vn_vtraj</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">vn</span><span class="o">*</span><span class="n">vtraj</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">is_normal_dir</span> <span class="o">=</span> <span class="p">(</span><span class="n">dot_vn_vtraj</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">io</span> <span class="o">=</span> <span class="p">(</span><span class="n">is_normal_dir</span><span class="p">[</span><span class="nb">id</span><span class="p">]</span><span class="o">==</span><span class="kc">True</span><span class="p">)</span><span class="o">*</span><span class="mi">1</span><span class="o">+</span><span class="p">(</span><span class="n">is_normal_dir</span><span class="p">[</span><span class="nb">id</span><span class="p">]</span><span class="o">==</span><span class="kc">False</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">exits</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">io</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">entries</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">io</span><span class="o">==-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="c1"># Compute the distance from the intersection point p to xy0</span>
+    <span class="n">norm_vpxy0_2</span><span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">vpxy0</span> <span class="o">*</span> <span class="n">vpxy0</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+    <span class="c1"># Compute the distance from the intersection point p to xy1</span>
+    <span class="n">vpxy1</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="n">xy1</span><span class="p">)</span>
+    <span class="n">norm_vpxy1_2</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">vpxy1</span> <span class="o">*</span> <span class="n">vpxy1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+    <span class="c1"># Compute the intersection time</span>
+    <span class="n">norm_vtraj</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">norm_vtraj_2</span><span class="p">)</span>
+    <span class="n">dt</span> <span class="o">=</span> <span class="n">t1</span><span class="o">-</span><span class="n">t0</span>
+    <span class="n">times</span> <span class="o">=</span> <span class="n">t0</span> <span class="o">+</span> <span class="p">(</span><span class="n">is_normal_dir</span><span class="o">==</span><span class="kc">True</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">norm_vpxy0_2</span><span class="o">*</span><span class="n">dt</span><span class="o">/</span><span class="n">norm_vtraj</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">is_normal_dir</span><span class="o">==</span><span class="kc">False</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">norm_vpxy1_2</span><span class="o">*</span><span class="n">dt</span><span class="o">/</span><span class="n">norm_vtraj</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">id</span><span class="p">,</span> <span class="n">p</span><span class="p">[</span><span class="nb">id</span><span class="p">,:],</span> <span class="n">io</span><span class="p">,</span> <span class="n">times</span><span class="p">[</span><span class="nb">id</span><span class="p">],</span> <span class="n">entries</span><span class="p">,</span> <span class="n">exits</span></div>
+
+<div class="viewcode-block" id="add_people_in_box"><a class="viewcode-back" href="../../micro.html#cromosim.micro.add_people_in_box">[docs]</a><span class="k">def</span> <span class="nf">add_people_in_box</span><span class="p">(</span><span class="n">Np</span><span class="p">,</span> <span class="n">dom</span><span class="p">,</span> <span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">,</span> <span class="n">rmin</span><span class="p">,</span> <span class="n">rmax</span><span class="p">,</span> <span class="n">rng</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Adds new persons in the box [xmin,xmax]x[ymin,ymax]</span>
+<span class="sd">    Be careful : overlaps can be occured...</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Np: int</span>
+<span class="sd">        Number of persons</span>
+<span class="sd">    dom: Domain</span>
+<span class="sd">        contains everything for managing the domain</span>
+<span class="sd">    xmin: float</span>
+<span class="sd">        minimal abscissa of the box</span>
+<span class="sd">    xmax : float</span>
+<span class="sd">        maximal abscissa of the box</span>
+<span class="sd">    ymin: float</span>
+<span class="sd">        minimal ordinate of the box</span>
+<span class="sd">    ymax: float</span>
+<span class="sd">        maximal ordinate of the box</span>
+<span class="sd">    rmin: float</span>
+<span class="sd">        minimum radius for the individuals</span>
+<span class="sd">    rmax: float</span>
+<span class="sd">        maximum radius for the individuals</span>
+<span class="sd">    rng: scipy.random.RandomState</span>
+<span class="sd">        container for the Mersenne Twister pseudo-random number generator</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    people : numpy array</span>
+<span class="sd">        people coordinates and radius</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">px</span> <span class="o">=</span> <span class="n">dom</span><span class="o">.</span><span class="n">pixel_size</span>
+    <span class="n">people</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">Np</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>  <span class="c1"># x y r</span>
+    <span class="n">people</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">Np</span><span class="p">)</span>
+    <span class="n">people</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">,</span> <span class="n">Np</span><span class="p">)</span>
+    <span class="n">people</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">rmin</span><span class="p">,</span> <span class="n">rmax</span><span class="p">,</span> <span class="n">Np</span><span class="p">)</span>
+    <span class="n">I</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">floor</span><span class="p">((</span><span class="n">people</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">dom</span><span class="o">.</span><span class="n">ymin</span><span class="o">-</span><span class="mf">0.5</span><span class="o">*</span><span class="n">px</span><span class="p">)</span><span class="o">/</span><span class="n">px</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">J</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">floor</span><span class="p">((</span><span class="n">people</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">dom</span><span class="o">.</span><span class="n">xmin</span><span class="o">-</span><span class="mf">0.5</span><span class="o">*</span><span class="n">px</span><span class="p">)</span><span class="o">/</span><span class="n">px</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+    <span class="n">D</span> <span class="o">=</span> <span class="n">dom</span><span class="o">.</span><span class="n">wall_distance</span><span class="p">[</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">]</span><span class="o">-</span><span class="n">people</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">ind</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">D</span><span class="o">&lt;=</span><span class="n">px</span><span class="p">)</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">ind</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+        <span class="n">people</span><span class="p">[</span><span class="n">ind</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">ind</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">people</span><span class="p">[</span><span class="n">ind</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">,</span> <span class="n">ind</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">I</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">floor</span><span class="p">((</span><span class="n">people</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">dom</span><span class="o">.</span><span class="n">ymin</span><span class="o">-</span><span class="mf">0.5</span><span class="o">*</span><span class="n">px</span><span class="p">)</span><span class="o">/</span><span class="n">px</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+        <span class="n">J</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">floor</span><span class="p">((</span><span class="n">people</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">dom</span><span class="o">.</span><span class="n">xmin</span><span class="o">-</span><span class="mf">0.5</span><span class="o">*</span><span class="n">px</span><span class="p">)</span><span class="o">/</span><span class="n">px</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+        <span class="n">D</span> <span class="o">=</span> <span class="n">dom</span><span class="o">.</span><span class="n">wall_distance</span><span class="p">[</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">]</span><span class="o">-</span><span class="n">people</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">ind</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">D</span><span class="o">&lt;=</span><span class="n">px</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">people</span></div>
+
+
+<div class="viewcode-block" id="plot_people"><a class="viewcode-back" href="../../micro.html#cromosim.micro.plot_people">[docs]</a><span class="k">def</span> <span class="nf">plot_people</span><span class="p">(</span><span class="n">ifig</span><span class="p">,</span> <span class="n">dom</span><span class="p">,</span> <span class="n">people</span><span class="p">,</span> <span class="n">contacts</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">colors</span><span class="p">,</span> <span class="n">time</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="n">plot_people</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">plot_contacts</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">plot_velocities</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">plot_paths</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">paths</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">plot_sensors</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">sensors</span><span class="o">=</span><span class="p">[],</span>
+                <span class="n">savefig</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;fig.png&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;winter&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function draws spheres for the individuals, \</span>
+<span class="sd">    lines for the active contacts and arrows for the \</span>
+<span class="sd">    (desired or real) velocities.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ifig: int</span>
+<span class="sd">        figure number</span>
+<span class="sd">    dom: Domain</span>
+<span class="sd">        contains everything for managing the domain</span>
+<span class="sd">    people: numpy array</span>
+<span class="sd">        people coordinates and radius : x,y,r</span>
+<span class="sd">    contacts: numpy array</span>
+<span class="sd">        all the contacts : i,j,dij,eij_x,eij_y</span>
+<span class="sd">    U: numpy array</span>
+<span class="sd">        people velocities</span>
+<span class="sd">    colors: numpy array</span>
+<span class="sd">        scalar field used to define people colors</span>
+<span class="sd">    time: float</span>
+<span class="sd">        time in seconds</span>
+<span class="sd">    axis: numpy array</span>
+<span class="sd">        matplotlib axis : [xmin, xmax, ymin, ymax]</span>
+<span class="sd">    plot_people: boolean</span>
+<span class="sd">        draws spheres for people if true</span>
+<span class="sd">    plot_paths: boolean</span>
+<span class="sd">        draws people paths if true</span>
+<span class="sd">    paths: numpy array</span>
+<span class="sd">        coordinates of the people paths</span>
+<span class="sd">    plot_sensors: boolean</span>
+<span class="sd">        draws sensor lines if true</span>
+<span class="sd">    sensors: numpy array</span>
+<span class="sd">        sensor line coordinates (see also the sensor function below)</span>
+<span class="sd">    savefig: boolean</span>
+<span class="sd">        writes the figure as a png file if true</span>
+<span class="sd">    filename: string</span>
+<span class="sd">        png filename used to write the figure</span>
+<span class="sd">    cmap: string</span>
+<span class="sd">        matplotlib colormap name</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">ifig</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+    <span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+    <span class="c1"># Domain</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dom</span><span class="o">.</span><span class="n">image</span><span class="p">,</span><span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">,</span>
+               <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="n">dom</span><span class="o">.</span><span class="n">xmin</span><span class="p">,</span><span class="n">dom</span><span class="o">.</span><span class="n">xmax</span><span class="p">,</span><span class="n">dom</span><span class="o">.</span><span class="n">ymin</span><span class="p">,</span><span class="n">dom</span><span class="o">.</span><span class="n">ymax</span><span class="p">],</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">plot_people</span><span class="p">):</span>
+        <span class="c1"># People</span>
+        <span class="c1">#offsets = list(zip(people[:,:2])) ## for older versions of matplotlib...</span>
+        <span class="n">offsets</span> <span class="o">=</span> <span class="n">people</span><span class="p">[:,:</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">ec</span> <span class="o">=</span> <span class="n">EllipseCollection</span><span class="p">(</span><span class="n">widths</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">people</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">heights</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">people</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span>
+                               <span class="n">angles</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="n">cmap</span><span class="p">),</span>
+                               <span class="n">offsets</span><span class="o">=</span><span class="n">offsets</span><span class="p">,</span> <span class="n">transOffset</span><span class="o">=</span><span class="n">ax1</span><span class="o">.</span><span class="n">transData</span><span class="p">)</span>
+        <span class="n">ec</span><span class="o">.</span><span class="n">set_array</span><span class="p">(</span><span class="n">colors</span><span class="p">)</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">add_collection</span><span class="p">(</span><span class="n">ec</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">plot_contacts</span><span class="p">):</span>
+        <span class="c1"># Contacts</span>
+        <span class="n">Nc</span> <span class="o">=</span> <span class="n">contacts</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">Nc</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">ic</span> <span class="ow">in</span> <span class="n">sp</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">Nc</span><span class="p">):</span>
+                <span class="n">i</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">int64</span><span class="p">(</span><span class="n">contacts</span><span class="p">[</span><span class="n">ic</span><span class="p">,</span><span class="mi">0</span><span class="p">]);</span> <span class="n">j</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">int64</span><span class="p">(</span><span class="n">contacts</span><span class="p">[</span><span class="n">ic</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">j</span><span class="o">!=-</span><span class="mi">1</span><span class="p">):</span>
+                    <span class="n">line</span> <span class="o">=</span> <span class="n">Line2D</span><span class="p">([</span> <span class="n">people</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">people</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="p">],</span>
+                              <span class="p">[</span> <span class="n">people</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="n">people</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="p">],</span>
+                              <span class="n">lw</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">line</span> <span class="o">=</span> <span class="n">Line2D</span><span class="p">([</span> <span class="n">people</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+                        <span class="n">people</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="p">(</span><span class="n">people</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="n">contacts</span><span class="p">[</span><span class="n">ic</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span><span class="o">*</span><span class="n">contacts</span><span class="p">[</span><span class="n">ic</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="p">],</span>
+                        <span class="p">[</span> <span class="n">people</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
+                        <span class="n">people</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="p">(</span><span class="n">people</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="n">contacts</span><span class="p">[</span><span class="n">ic</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span><span class="o">*</span><span class="n">contacts</span><span class="p">[</span><span class="n">ic</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span> <span class="p">],</span>
+                              <span class="n">lw</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+                <span class="n">ax1</span><span class="o">.</span><span class="n">add_line</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">plot_velocities</span><span class="p">):</span>
+        <span class="c1"># Velocities</span>
+        <span class="n">Np</span> <span class="o">=</span> <span class="n">people</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">ip</span> <span class="ow">in</span> <span class="n">sp</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">Np</span><span class="p">):</span>
+            <span class="n">arrow</span> <span class="o">=</span> <span class="n">Arrow</span><span class="p">(</span><span class="n">people</span><span class="p">[</span><span class="n">ip</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">people</span><span class="p">[</span><span class="n">ip</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">U</span><span class="p">[</span><span class="n">ip</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">U</span><span class="p">[</span><span class="n">ip</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+            <span class="n">ax1</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">arrow</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">((</span><span class="n">plot_paths</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">paths</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)):</span>
+        <span class="n">mpaths</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_values</span><span class="p">(</span><span class="n">paths</span><span class="p">,</span> <span class="mf">1e99</span><span class="p">)</span>
+        <span class="n">pathlines</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="nb">id</span> <span class="ow">in</span> <span class="n">sp</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">paths</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+            <span class="n">pathlines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">swapaxes</span><span class="p">(</span><span class="n">mpaths</span><span class="p">[</span><span class="nb">id</span><span class="p">,:,:],</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+        <span class="n">pathlinecoll</span> <span class="o">=</span> <span class="n">LineCollection</span><span class="p">(</span><span class="n">pathlines</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;solid&quot;</span><span class="p">,</span>
+                       <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="n">cmap</span><span class="p">))</span>
+        <span class="n">pathlinecoll</span><span class="o">.</span><span class="n">set_array</span><span class="p">(</span><span class="n">colors</span><span class="p">)</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">add_collection</span><span class="p">(</span><span class="n">pathlinecoll</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">plot_sensors</span><span class="p">):</span>
+        <span class="c1"># Sensors</span>
+        <span class="k">for</span> <span class="n">ss</span> <span class="ow">in</span> <span class="n">sensors</span><span class="p">:</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="n">Line2D</span><span class="p">([</span><span class="n">ss</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">ss</span><span class="p">[</span><span class="mi">2</span><span class="p">]],</span> <span class="p">[</span><span class="n">ss</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">ss</span><span class="p">[</span><span class="mi">3</span><span class="p">]],</span><span class="n">lw</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
+            <span class="n">ax1</span><span class="o">.</span><span class="n">add_line</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">axis</span><span class="p">):</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">axis</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">axis</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">axis</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">axis</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">time</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;time = </span><span class="si">{:.2F}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; s&#39;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">savefig</span><span class="p">):</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="n">dpi</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span><span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">,</span><span class="n">pad_inches</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="plot_sensor_data"><a class="viewcode-back" href="../../micro.html#cromosim.micro.plot_sensor_data">[docs]</a><span class="k">def</span> <span class="nf">plot_sensor_data</span><span class="p">(</span><span class="n">ifig</span><span class="p">,</span> <span class="n">sensor_data</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">initial_door_dist</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> \
+                     <span class="n">flux_timestep</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> \
+                     <span class="n">savefig</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;fig.png&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;winter&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    When a sensor line is defined this function allows to draw the \</span>
+<span class="sd">    repartition of the people exit times.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+
+<span class="sd">    ifig: int</span>
+<span class="sd">        figure number</span>
+<span class="sd">    sensor_data : numpy array</span>
+<span class="sd">        [time, direction, intersection_point[2]] for each individual</span>
+<span class="sd">    time: float</span>
+<span class="sd">        time in seconds</span>
+<span class="sd">    initial_door_dist: numpy array</span>
+<span class="sd">        people initial distance to the door</span>
+<span class="sd">    axis: numpy array</span>
+<span class="sd">        matplotlib axis : [xmin, xmax, ymin, ymax]</span>
+<span class="sd">    flux_timestep: float</span>
+<span class="sd">        timestep for the fluxes : number of persons per flux_timestep seconds</span>
+<span class="sd">    savefig: boolean</span>
+<span class="sd">        writes the figure as a png file if true</span>
+<span class="sd">    filename: string</span>
+<span class="sd">        png filename used to write the figure</span>
+<span class="sd">    cmap: string</span>
+<span class="sd">        matplotlib colormap name</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">Np</span> <span class="o">=</span> <span class="n">sensor_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">tmin</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">tmax</span> <span class="o">=</span> <span class="n">time</span>
+
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">ifig</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+
+    <span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">initial_door_dist</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">Np</span><span class="p">),</span><span class="n">sensor_data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="s1">&#39;b+&#39;</span><span class="p">)</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Crossing time (s) vs people id&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">initial_door_dist</span><span class="p">,</span><span class="n">sensor_data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="s1">&#39;b+&#39;</span><span class="p">)</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Crossing time (s) vs initial door distance (m)&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">axis</span><span class="p">):</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">axis</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">axis</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">axis</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">axis</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+    <span class="c1">#ax1.set_xticks([])</span>
+    <span class="c1">#ax1.set_yticks([])</span>
+    <span class="c1">#ax1.axis(&#39;off&#39;)</span>
+
+    <span class="n">tgrid</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">tmin</span><span class="p">,</span> <span class="n">tmax</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="n">flux_timestep</span><span class="p">)</span>
+    <span class="n">tgrid</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tgrid</span><span class="p">,</span> <span class="n">tgrid</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">flux_timestep</span><span class="p">)</span>
+    <span class="n">flux_exits</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">tgrid</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">flux_entries</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">tgrid</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">exits</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">sensor_data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">entries</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">sensor_data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">==-</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">t_exits</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">ceil</span><span class="p">((</span><span class="n">sensor_data</span><span class="p">[</span><span class="n">exits</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">tmin</span><span class="p">)</span><span class="o">/</span><span class="n">flux_timestep</span><span class="p">)</span>
+    <span class="n">t_entries</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">ceil</span><span class="p">((</span><span class="n">sensor_data</span><span class="p">[</span><span class="n">entries</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">tmin</span><span class="p">)</span><span class="o">/</span><span class="n">flux_timestep</span><span class="p">)</span>
+    <span class="c1">#t_exits = sp.floor((sensor_data[exits,0]-tmin)/flux_timestep)</span>
+    <span class="c1">#t_entries = sp.floor((sensor_data[entries,0]-tmin)/flux_timestep)</span>
+    <span class="n">unique_exits</span><span class="p">,</span> <span class="n">counts_exits</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">t_exits</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">unique_entries</span><span class="p">,</span> <span class="n">counts_entries</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">t_entries</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">flux_exits</span><span class="p">[</span><span class="n">unique_exits</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)]</span> <span class="o">=</span> <span class="n">counts_exits</span>
+    <span class="n">flux_entries</span><span class="p">[</span><span class="n">unique_entries</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)]</span> <span class="o">=</span> <span class="n">counts_entries</span>
+
+    <span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">212</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tgrid</span><span class="p">,</span> <span class="n">flux_entries</span><span class="p">,</span><span class="s1">&#39;:og&#39;</span><span class="p">,</span>
+             <span class="n">tgrid</span><span class="p">,</span> <span class="n">flux_exits</span><span class="p">,</span> <span class="s1">&#39;:or&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Entries (green) and exits (red) per &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">flux_timestep</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot; s&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">axis</span><span class="p">):</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">axis</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">axis</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">axis</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">axis</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+    <span class="c1">#ax2.set_xticks([])</span>
+    <span class="c1">#ax2.set_yticks([])</span>
+    <span class="c1">#ax2.axis(&#39;off&#39;)</span>
+    <span class="c1"># Optionally : adds some histograms</span>
+    <span class="c1"># if (exits.shape[0]&gt;0):</span>
+    <span class="c1">#     ax3 = fig.add_subplot(413)</span>
+    <span class="c1">#     t_exits_sorted = sp.sort(sensor_data[exits,0])</span>
+    <span class="c1">#     #print(&quot;t_exits_sorted = &quot;,t_exits_sorted)</span>
+    <span class="c1">#     tmp = sp.concatenate(([0],t_exits_sorted))</span>
+    <span class="c1">#     bins = 0.5*(tmp[:-1]+tmp[1:])</span>
+    <span class="c1">#     widths = tmp[1:]-tmp[:-1]</span>
+    <span class="c1">#     heights = 1/widths</span>
+    <span class="c1">#     ax3.bar(bins, heights, width=widths,color=&#39;r&#39;,align=&#39;center&#39;)</span>
+    <span class="c1">#</span>
+    <span class="c1"># if (entries.shape[0]&gt;0):</span>
+    <span class="c1">#     ax4 = fig.add_subplot(414)</span>
+    <span class="c1">#     t_entries_sorted = sp.sort(sensor_data[entries,0])</span>
+    <span class="c1">#     tmp = sp.concatenate(([0],t_entries_sorted))</span>
+    <span class="c1">#     bins = 0.5*(tmp[:-1]+tmp[1:])</span>
+    <span class="c1">#     widths = tmp[1:]-tmp[:-1]</span>
+    <span class="c1">#     heights = 1/widths</span>
+    <span class="c1">#     ax4.bar(bins, heights, width=widths,color=&#39;r&#39;,align=&#39;center&#39;)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">set_tight_layout</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">savefig</span><span class="p">):</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span></div>
+</pre></div>
+
+      </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Sylvain Faure, Bertrand Maury.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.2.
+    </div>
+  </body>
+</html>

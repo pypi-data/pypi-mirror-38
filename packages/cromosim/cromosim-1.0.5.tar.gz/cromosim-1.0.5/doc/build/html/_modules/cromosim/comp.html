@@ -1,0 +1,209 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>cromosim.comp &#8212; cromosim  documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/scrolls.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/print.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../_static/theme_extras.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+  </head><body>
+    <div id="content">
+      <div class="header">
+        <h1 class="heading"><a href="../../index.html"
+          title="back to the documentation overview"><span>cromosim.comp</span></a></h1>
+      </div>
+      <div class="relnav" role="navigation" aria-label="related navigation">
+        <a href="#">cromosim.comp</a>
+      </div>
+      <div id="contentwrapper">
+        
+  <h1>Source code for cromosim.comp</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Authors:</span>
+<span class="c1">#     Sylvain Faure &lt;sylvain.faure@math.u-psud.fr&gt;</span>
+<span class="c1">#     Bertrand Maury &lt;bertrand.maury@math.u-psud.fr&gt;</span>
+<span class="c1"># License: GPL</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sp</span>
+<span class="kn">from</span> <span class="nn">scipy.misc</span> <span class="k">import</span> <span class="n">imread</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib.lines</span> <span class="k">import</span> <span class="n">Line2D</span>
+<span class="kn">from</span> <span class="nn">matplotlib.patches</span> <span class="k">import</span> <span class="n">Circle</span><span class="p">,</span> <span class="n">Arc</span><span class="p">,</span> <span class="n">Polygon</span><span class="p">,</span> <span class="n">Wedge</span>
+<span class="kn">from</span> <span class="nn">matplotlib.collections</span> <span class="k">import</span> <span class="n">LineCollection</span><span class="p">,</span> <span class="n">PatchCollection</span>
+
+<div class="viewcode-block" id="iteration"><a class="viewcode-back" href="../../comp.html#cromosim.comp.iteration">[docs]</a><span class="k">def</span> <span class="nf">iteration</span><span class="p">(</span><span class="n">it</span><span class="p">,</span><span class="n">Nrooms</span><span class="p">,</span><span class="n">DoorRoomCapacity</span><span class="p">,</span><span class="n">NPir</span><span class="p">,</span><span class="n">NPrir</span><span class="p">,</span><span class="n">NPwir</span><span class="p">,</span><span class="n">Nior</span><span class="p">,</span><span class="n">List_iOr</span><span class="p">,</span><span class="n">T_iOr</span><span class="p">,</span><span class="n">Flux</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        To run one iteration (which corresponds to 1 second) of the compartment \</span>
+<span class="sd">        model. The compartments shall be identified to nodes of a network, those \</span>
+<span class="sd">        nodes are connected by edges, which corresponds to paths between nodesself.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    it: integer</span>
+<span class="sd">        iteration number</span>
+<span class="sd">    Nrooms: int</span>
+<span class="sd">        number of rooms</span>
+<span class="sd">    DoorRoomCapacity: numpy array</span>
+<span class="sd">        capacities of each door (number of persons per second)</span>
+<span class="sd">    NPir: numpy array</span>
+<span class="sd">        numbers of persons for each room</span>
+<span class="sd">    NPrir: numpy array</span>
+<span class="sd">        inlets for each room</span>
+<span class="sd">    NPwir: numpy array</span>
+<span class="sd">        numbers of persons who&#39;s waiting to leave each room</span>
+<span class="sd">    Nior: numpy array</span>
+<span class="sd">        numbers of inlets for each room</span>
+<span class="sd">    List_iOr: numpy array</span>
+<span class="sd">        room numbers associate to the inlets for each room</span>
+<span class="sd">    T_iOr: numpy array</span>
+<span class="sd">        travel times to cross each room</span>
+<span class="sd">    Flux: numpy array</span>
+<span class="sd">        numbers of persons upstream the exits</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Flux: numpy array</span>
+<span class="sd">        new numbers of persons upstream the exits</span>
+<span class="sd">    NPir: numpy array</span>
+<span class="sd">        new numbers of persons for each room</span>
+<span class="sd">    NPwir: numpy array</span>
+<span class="sd">        new numbers of persons who&#39;s waiting to leave each room</span>
+<span class="sd">    NPrir: numpy array</span>
+<span class="sd">        new inlets for each room</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">ir</span> <span class="ow">in</span> <span class="n">sp</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">Nrooms</span><span class="p">):</span>
+        <span class="n">Flux</span><span class="p">[</span><span class="n">it</span><span class="p">,</span><span class="n">ir</span><span class="p">]</span><span class="o">=</span><span class="nb">min</span><span class="p">(</span><span class="n">DoorRoomCapacity</span><span class="p">[</span><span class="n">ir</span><span class="p">],</span><span class="n">NPwir</span><span class="p">[</span><span class="n">it</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">ir</span><span class="p">])</span>
+
+    <span class="k">for</span> <span class="n">ir</span> <span class="ow">in</span> <span class="n">sp</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">Nrooms</span><span class="p">):</span>
+        <span class="n">NPir</span><span class="p">[</span><span class="n">it</span><span class="p">,</span><span class="n">ir</span><span class="p">]</span>  <span class="o">=</span>  <span class="n">NPir</span><span class="p">[</span><span class="n">it</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">ir</span><span class="p">]</span><span class="o">-</span><span class="n">Flux</span><span class="p">[</span><span class="n">it</span><span class="p">,</span><span class="n">ir</span><span class="p">]</span>
+        <span class="n">NPwir</span><span class="p">[</span><span class="n">it</span><span class="p">,</span><span class="n">ir</span><span class="p">]</span> <span class="o">=</span>  <span class="n">NPwir</span><span class="p">[</span><span class="n">it</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">ir</span><span class="p">]</span><span class="o">-</span><span class="n">Flux</span><span class="p">[</span><span class="n">it</span><span class="p">,</span><span class="n">ir</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">sp</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">Nior</span><span class="p">[</span><span class="n">ir</span><span class="p">]):</span>
+            <span class="n">NPir</span><span class="p">[</span><span class="n">it</span><span class="p">,</span><span class="n">ir</span><span class="p">]</span> <span class="o">+=</span> <span class="n">Flux</span><span class="p">[</span><span class="n">it</span><span class="p">,</span><span class="nb">int</span><span class="p">(</span><span class="n">List_iOr</span><span class="p">[</span><span class="n">ir</span><span class="p">,</span><span class="n">k</span><span class="p">])]</span>
+            <span class="n">timelag</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">T_iOr</span><span class="p">[</span><span class="n">ir</span><span class="p">,</span><span class="n">k</span><span class="p">])</span>
+            <span class="k">if</span> <span class="n">timelag</span> <span class="o">&lt;</span> <span class="n">it</span> <span class="p">:</span>
+                <span class="n">NPwir</span><span class="p">[</span><span class="n">it</span><span class="p">,</span><span class="n">ir</span><span class="p">]</span><span class="o">+=</span><span class="n">Flux</span><span class="p">[</span><span class="n">it</span><span class="o">-</span><span class="n">timelag</span><span class="p">,</span><span class="nb">int</span><span class="p">(</span><span class="n">List_iOr</span><span class="p">[</span><span class="n">ir</span><span class="p">,</span><span class="n">k</span><span class="p">])]</span>
+            <span class="n">NPrir</span><span class="p">[</span><span class="n">ir</span><span class="p">,</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">sp</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">it</span><span class="p">,</span><span class="n">timelag</span><span class="p">)):</span>
+                <span class="n">NPrir</span><span class="p">[</span><span class="n">ir</span><span class="p">,</span><span class="n">k</span><span class="p">]</span> <span class="o">+=</span> <span class="n">Flux</span><span class="p">[</span><span class="n">it</span><span class="o">-</span><span class="n">i</span><span class="p">,</span><span class="nb">int</span><span class="p">(</span><span class="n">List_iOr</span><span class="p">[</span><span class="n">ir</span><span class="p">,</span><span class="n">k</span><span class="p">])]</span>
+    <span class="k">return</span> <span class="n">Flux</span><span class="p">,</span><span class="n">NPir</span><span class="p">,</span><span class="n">NPwir</span><span class="p">,</span><span class="n">NPrir</span></div>
+
+
+<div class="viewcode-block" id="plot_compt"><a class="viewcode-back" href="../../comp.html#cromosim.comp.plot_compt">[docs]</a><span class="k">def</span> <span class="nf">plot_compt</span><span class="p">(</span><span class="n">ifig</span><span class="p">,</span> <span class="n">RoomNames</span><span class="p">,</span> <span class="n">RoomCenters</span><span class="p">,</span> <span class="n">DoorCenters</span><span class="p">,</span> <span class="n">CircAngles</span><span class="p">,</span> <span class="n">NPir</span><span class="p">,</span>
+               <span class="n">NPrir</span><span class="p">,</span> <span class="n">NPwir</span><span class="p">,</span> <span class="n">Nior</span><span class="p">,</span><span class="n">List_iOr</span><span class="p">,</span> <span class="n">dom</span><span class="p">,</span> <span class="n">area</span><span class="p">,</span> <span class="n">savefig</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+               <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;fig.png&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    To draw</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ifig : int</span>
+<span class="sd">        figure number</span>
+<span class="sd">    RoomNames: list</span>
+<span class="sd">        number of rooms</span>
+<span class="sd">    RoomCenters: numpy array</span>
+<span class="sd">        coordinates of the centers of rooms</span>
+<span class="sd">    DoorCenters: numpy array</span>
+<span class="sd">        coordinates of the centers of doors</span>
+<span class="sd">    CircAngles: numpy array</span>
+<span class="sd">        rotational angles of the half-disks localized at each door</span>
+<span class="sd">    NPir: numpy array</span>
+<span class="sd">        numbers of persons for each room</span>
+<span class="sd">    NPrir: numpy array</span>
+<span class="sd">        inlets for each room</span>
+<span class="sd">    NPwir: numpy array</span>
+<span class="sd">        numbers of persons who&#39;s waiting to leave each room</span>
+<span class="sd">    Nior: numpy array</span>
+<span class="sd">        numbers of inlets for each room</span>
+<span class="sd">    List_iOr: numpy array</span>
+<span class="sd">        room numbers associate to the inlets for each room</span>
+<span class="sd">    dom: Domain</span>
+<span class="sd">        contains everything for managing the domain</span>
+<span class="sd">    area: float</span>
+<span class="sd">        typical area size in m^2 of one individual</span>
+<span class="sd">    savefig: boolean</span>
+<span class="sd">        writes the figure as a png file if true</span>
+<span class="sd">    filename: string</span>
+<span class="sd">        png filename used to write the figure</span>
+<span class="sd">    title: string</span>
+<span class="sd">        title of the figure</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">Nr</span> <span class="o">=</span> <span class="n">DoorCenters</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">ifig</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+    <span class="n">ax0</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+    <span class="n">cf0</span> <span class="o">=</span> <span class="n">ax0</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dom</span><span class="o">.</span><span class="n">image</span><span class="p">,</span><span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">,</span>
+               <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="n">dom</span><span class="o">.</span><span class="n">xmin</span><span class="p">,</span><span class="n">dom</span><span class="o">.</span><span class="n">xmax</span><span class="p">,</span><span class="n">dom</span><span class="o">.</span><span class="n">ymin</span><span class="p">,</span><span class="n">dom</span><span class="o">.</span><span class="n">ymax</span><span class="p">],</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+
+    <span class="n">circles0</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="n">colors0</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="n">m2</span> <span class="o">=</span> <span class="n">NPir</span><span class="o">*</span><span class="n">area</span> <span class="c1">## surface demi-cercle = pi*R^2/2 = m2 =&gt; R = sqrt(2*m2/pi)</span>
+    <span class="n">R</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m2</span><span class="o">/</span><span class="n">sp</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+    <span class="n">scale</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="nb">id</span><span class="p">,</span><span class="n">name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">RoomNames</span><span class="p">):</span>
+        <span class="n">wedge</span> <span class="o">=</span> <span class="n">Wedge</span><span class="p">((</span><span class="n">DoorCenters</span><span class="p">[</span><span class="nb">id</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">DoorCenters</span><span class="p">[</span><span class="nb">id</span><span class="p">,</span><span class="mi">1</span><span class="p">]),</span> <span class="n">R</span><span class="p">[</span><span class="nb">id</span><span class="p">],</span>
+                <span class="mi">0</span><span class="o">+</span><span class="n">CircAngles</span><span class="p">[</span><span class="nb">id</span><span class="p">],</span> <span class="mi">180</span><span class="o">+</span><span class="n">CircAngles</span><span class="p">[</span><span class="nb">id</span><span class="p">],</span> <span class="n">ec</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">)</span>
+        <span class="n">circles0</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">wedge</span><span class="p">)</span>
+        <span class="n">ax0</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">RoomCenters</span><span class="p">[</span><span class="nb">id</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">RoomCenters</span><span class="p">[</span><span class="nb">id</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
+                 <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">NPir</span><span class="p">[</span><span class="nb">id</span><span class="p">])),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+        <span class="c1">#arc = Arc((DoorCenters[id,0], DoorCenters[id,1]),  \</span>
+        <span class="c1">#                             R[id],  R[id], theta1=0, theta2=180, \</span>
+        <span class="c1">#                             angle=CircAngles[id], color=&#39;k&#39;)</span>
+        <span class="c1">#circles0.append(arc)</span>
+        <span class="n">colors0</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">ir</span> <span class="ow">in</span> <span class="n">sp</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">Nr</span><span class="p">):</span>
+        <span class="k">for</span> <span class="nb">id</span> <span class="ow">in</span> <span class="n">sp</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">Nior</span><span class="p">[</span><span class="n">ir</span><span class="p">]):</span>
+            <span class="n">jr</span> <span class="o">=</span> <span class="n">List_iOr</span><span class="p">[</span><span class="n">ir</span><span class="p">,</span><span class="nb">id</span><span class="p">]</span>
+            <span class="n">xx0</span> <span class="o">=</span> <span class="n">DoorCenters</span><span class="p">[</span><span class="n">ir</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">yy0</span> <span class="o">=</span> <span class="n">DoorCenters</span><span class="p">[</span><span class="n">ir</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">xx1</span> <span class="o">=</span> <span class="n">DoorCenters</span><span class="p">[</span><span class="n">jr</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">yy1</span> <span class="o">=</span> <span class="n">DoorCenters</span><span class="p">[</span><span class="n">jr</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+            <span class="c1">## line : [xx0, yy0, xx1, yy1]</span>
+            <span class="nb">len</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="p">(</span><span class="n">xx0</span><span class="o">-</span><span class="n">xx1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="p">(</span><span class="n">yy0</span><span class="o">-</span><span class="n">yy1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="p">)</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">NPrir</span><span class="p">[</span><span class="n">ir</span><span class="p">,</span><span class="nb">id</span><span class="p">]</span><span class="o">*</span><span class="n">area</span><span class="o">/</span><span class="nb">len</span>
+            <span class="n">circles0</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Polygon</span><span class="p">(</span> <span class="n">sp</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">xx0</span><span class="o">-</span><span class="n">s</span><span class="p">,</span><span class="n">yy0</span><span class="p">],[</span><span class="n">xx0</span><span class="o">+</span><span class="n">s</span><span class="p">,</span><span class="n">yy0</span><span class="p">],</span> \
+                                               <span class="p">[</span><span class="n">xx1</span><span class="o">+</span><span class="n">s</span><span class="p">,</span><span class="n">yy1</span><span class="p">],[</span><span class="n">xx1</span><span class="o">-</span><span class="n">s</span><span class="p">,</span><span class="n">yy1</span><span class="p">]]),</span> \
+                                     <span class="n">closed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+            <span class="n">colors0</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+    <span class="c1"># for line in Lines:</span>
+    <span class="c1">#     ##l : [xx0, yy0, xx1, yy1]</span>
+    <span class="c1">#     s = l[]</span>
+    <span class="c1">#     circles0.append(Polygon(sp.array([[],[]]), True)</span>
+
+    <span class="n">patches0</span> <span class="o">=</span> <span class="n">PatchCollection</span><span class="p">(</span><span class="n">circles0</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">prism</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span>
+                               <span class="n">linewidth</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">patches0</span><span class="o">.</span><span class="n">set_array</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">colors0</span><span class="p">))</span>
+    <span class="n">ax0</span><span class="o">.</span><span class="n">add_collection</span><span class="p">(</span><span class="n">patches0</span><span class="p">)</span>
+    <span class="n">ax0</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
+    <span class="n">ax0</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
+    <span class="n">ax0</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+    <span class="n">ax0</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span> 
+    <span class="n">plt</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">savefig</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">pause</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span></div>
+</pre></div>
+
+      </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Sylvain Faure, Bertrand Maury.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.2.
+    </div>
+  </body>
+</html>

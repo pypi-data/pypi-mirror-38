@@ -1,0 +1,306 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Try a cellular automata &#8212; cromosim  documentation</title>
+    
+    <link rel="stylesheet" href="_static/scrolls.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/print.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/theme_extras.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Make a microscopic simulation" href="example_micro.html" />
+    <link rel="prev" title="Understand one-dimensional microscopic models : the Follow-the-Leader model" href="example_ftl.html" /> 
+  </head><body>
+    <div id="content">
+      <div class="header">
+        <h1 class="heading"><a href="index.html"
+          title="back to the documentation overview"><span>Try a cellular automata</span></a></h1>
+      </div>
+      <div class="relnav" role="navigation" aria-label="related navigation">
+        <a href="example_ftl.html">&laquo; Understand one-dimensional microscopic models : the Follow-the-Leader model</a> |
+        <a href="#">Try a cellular automata</a>
+        | <a href="example_micro.html">Make a microscopic simulation &raquo;</a>
+      </div>
+      <div id="contentwrapper">
+        
+  <div class="section" id="try-a-cellular-automata">
+<h1>Try a cellular automata<a class="headerlink" href="#try-a-cellular-automata" title="Permalink to this headline">¶</a></h1>
+<p>Cellular Automata models are microscopic in the sense that agents are
+represented individually, but they are also natively discrete in both
+space and time. In space, agents are identified to particles located in
+cells of a fixed cartesian grid, with an exclusion rule (one particle at
+most in each cell). In time, the evolution consists of a succession of steps,
+i.e. positions of particles are updated one after the other, in a stochastic
+manner.</p>
+<p>Reference : <a class="reference internal" href="index.html#mf2018" id="id1">[MF2018]</a> Chapter 5.</p>
+<p>A cellular automata example can be found in the directory</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">cromosim</span><span class="o">/</span><span class="n">examples</span><span class="o">/</span><span class="n">cellular_automata</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>and can be run with:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="n">cellular_automata</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">json</span> <span class="nb">input</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+<p>Results:</p>
+<br>
+<br>
+<video style="display:block; margin: 0 auto;" controls poster="_static/cellular_automata.png" width="50%" height="auto">
+   <source src="_static/cellular_automata.mp4" />
+   <source src="_static/cellular_automata.webm" />
+   <source src="_static/cellular_automata.theora.ogv" />
+</video>
+<br>
+<div align=center>
+  <i>Cellular automata : simple example, an evacuation</i>
+</div>
+<br>
+<br>
+<img src="_static/cellular_automata_paths.png" alt="cellular automata : paths of all individuals" style="margin:0px auto;display:block" width="50%" height="auto"/>
+<br>
+<div align=center>
+  <i>The lines represent the paths of all the individuals</i>
+</div>
+<br>
+<br><p>Code:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">cromosim</span><span class="o">/</span><span class="n">examples</span><span class="o">/</span><span class="n">cellular_automata</span><span class="o">/</span><span class="n">cellular_automata</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Authors:</span>
+<span class="c1">#     Sylvain Faure &lt;sylvain.faure@math.u-psud.fr&gt;</span>
+<span class="c1">#     Bertrand Maury &lt;bertrand.maury@math.u-psud.fr&gt;</span>
+<span class="c1">#</span>
+<span class="c1">#      cromosim/examples/cellular_automata/cellular_automata.py</span>
+<span class="c1">#      python cellular_automata.py --json input.json</span>
+<span class="c1">#</span>
+<span class="c1"># License: GPL</span>
+
+<span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">cromosim</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">cromosim.ca</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">optparse</span> <span class="k">import</span> <span class="n">OptionParser</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    python3 cellular_automata.py --json input.json</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="n">parser</span> <span class="o">=</span> <span class="n">OptionParser</span><span class="p">(</span><span class="n">usage</span><span class="o">=</span><span class="s2">&quot;usage: %prog [options] filename&quot;</span><span class="p">,</span><span class="n">version</span><span class="o">=</span><span class="s2">&quot;%prog 1.0&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span><span class="s1">&#39;--json&#39;</span><span class="p">,</span><span class="n">dest</span><span class="o">=</span><span class="s2">&quot;jsonfilename&quot;</span><span class="p">,</span><span class="n">default</span><span class="o">=</span><span class="s2">&quot;input.json&quot;</span><span class="p">,</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+                  <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store&quot;</span><span class="p">,</span><span class="n">help</span><span class="o">=</span><span class="s2">&quot;Input json filename&quot;</span><span class="p">)</span>
+<span class="n">opt</span><span class="p">,</span> <span class="n">remainder</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;===&gt; JSON filename = &quot;</span><span class="p">,</span><span class="n">opt</span><span class="o">.</span><span class="n">jsonfilename</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">opt</span><span class="o">.</span><span class="n">jsonfilename</span><span class="p">)</span> <span class="k">as</span> <span class="n">json_file</span><span class="p">:</span>
+    <span class="nb">input</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">json_file</span><span class="p">)</span>
+
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get parameters from json file :</span>
+
+<span class="sd">    name: string</span>
+<span class="sd">        Domain name</span>
+<span class="sd">    prefix: string</span>
+<span class="sd">        Folder name to store the results</span>
+<span class="sd">    background: string</span>
+<span class="sd">        Image file used as background</span>
+<span class="sd">    px: float</span>
+<span class="sd">        Pixel size in meters (also called space step)</span>
+<span class="sd">    width: integer</span>
+<span class="sd">        Domain width (equal to the width of the background image)</span>
+<span class="sd">    height: integer</span>
+<span class="sd">        Domain height (equal to the height of the background image)</span>
+<span class="sd">    wall_lines : list of numpy arrays</span>
+<span class="sd">        Polylines used to build walls, [ [[x0,x1,x2,...],[y0,y1,y2,...]],... ]</span>
+<span class="sd">    wall_ellipses : list of numpy arrays</span>
+<span class="sd">        Ellipses used to build walls, [ [x_center,y_center, width, height, \</span>
+<span class="sd">        angle_in_degrees_anti-clockwise],... ]</span>
+<span class="sd">    wall_polygons : list of numpy arrays</span>
+<span class="sd">        Polygons used to build walls, [ [[x0,x1,x2,...],[y0,y1,y2,...]],... ]</span>
+<span class="sd">    wall_lines : list of numpy arrays</span>
+<span class="sd">        Polylines used to build walls, [ [[x0,x1,x2,...],[y0,y1,y2,...]],... ]</span>
+<span class="sd">    door_lines: list of numpy arrays</span>
+<span class="sd">        Polylines used to build doors, [ [[x0,x1,x2,...],[y0,y1,y2,...]],... ]</span>
+<span class="sd">    update_strategy: string</span>
+<span class="sd">            Rules used to move the individuals : &#39;sequential&#39; or &#39;parallel&#39;</span>
+<span class="sd">    seed: integer</span>
+<span class="sd">        Random seed which can be used to reproduce a random selection if &gt;0</span>
+<span class="sd">    Np: integer</span>
+<span class="sd">        Number of persons</span>
+<span class="sd">    kappa: float</span>
+<span class="sd">        Parameter for Static Floor Field</span>
+<span class="sd">    Tf: float</span>
+<span class="sd">        Final time</span>
+<span class="sd">    dt: float</span>
+<span class="sd">        Time step</span>
+<span class="sd">    drawper: integer</span>
+<span class="sd">        The results will be displayed every &quot;drawper&quot; iterations</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+<span class="n">prefix</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;prefix&quot;</span><span class="p">]</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">prefix</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">prefix</span><span class="p">)</span>
+<span class="n">background</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;background&quot;</span><span class="p">]</span>
+<span class="n">px</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;px&quot;</span><span class="p">]</span>
+<span class="n">width</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;width&quot;</span><span class="p">]</span>
+<span class="n">height</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;height&quot;</span><span class="p">]</span>
+<span class="n">wall_lines</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;wall_lines&quot;</span><span class="p">]</span>
+<span class="n">wall_ellipses</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;wall_ellipses&quot;</span><span class="p">]</span>
+<span class="n">wall_polygons</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;wall_polygons&quot;</span><span class="p">]</span>
+<span class="n">door_lines</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;door_lines&quot;</span><span class="p">]</span>
+<span class="n">seed</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;seed&quot;</span><span class="p">]</span>
+<span class="n">Np</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;Np&quot;</span><span class="p">]</span>
+<span class="n">update_strategy</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;update_strategy&quot;</span><span class="p">]</span>
+<span class="n">kappa</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;kappa&quot;</span><span class="p">]</span>
+<span class="n">Tf</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;Tf&quot;</span><span class="p">]</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;dt&quot;</span><span class="p">]</span>
+<span class="n">drawper</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="s2">&quot;drawper&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;===&gt; Number of persons = &quot;</span><span class="p">,</span><span class="n">Np</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;===&gt; Final time, Tf = &quot;</span><span class="p">,</span><span class="n">Tf</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;===&gt; Time step, dt = &quot;</span><span class="p">,</span><span class="n">dt</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;===&gt; To draw the results each drawper iterations, drawper = &quot;</span><span class="p">,</span><span class="n">drawper</span><span class="p">)</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Build the Domain</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1">## To create an Domain object</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">background</span><span class="o">==</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+    <span class="n">dom</span> <span class="o">=</span> <span class="n">Domain</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">pixel_size</span><span class="o">=</span><span class="n">px</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="n">height</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">dom</span> <span class="o">=</span> <span class="n">Domain</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="n">background</span><span class="p">,</span> <span class="n">pixel_size</span><span class="o">=</span><span class="n">px</span><span class="p">)</span>
+<span class="c1">## To add lines : Line2D(xdata, ydata, linewidth)</span>
+<span class="k">for</span> <span class="n">xy</span> <span class="ow">in</span> <span class="n">wall_lines</span><span class="p">:</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">Line2D</span><span class="p">(</span> <span class="n">xy</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">xy</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">dom</span><span class="o">.</span><span class="n">add_wall</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+<span class="c1">## To add ellipses : Ellipse( (x_center,y_center), width, height,</span>
+<span class="c1">##                             angle_in_degrees_anti-clockwise )</span>
+<span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">wall_ellipses</span><span class="p">:</span>
+    <span class="n">ellipse</span> <span class="o">=</span> <span class="n">Ellipse</span><span class="p">(</span> <span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">e</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">e</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">e</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+    <span class="n">dom</span><span class="o">.</span><span class="n">add_wall</span><span class="p">(</span><span class="n">ellipse</span><span class="p">)</span>
+<span class="c1">## To add polygons : Polygon( xy )</span>
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">wall_polygons</span><span class="p">:</span>
+    <span class="n">polygon</span> <span class="o">=</span> <span class="n">Polygon</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+    <span class="n">dom</span><span class="o">.</span><span class="n">add_wall</span><span class="p">(</span><span class="n">polygon</span><span class="p">)</span>
+<span class="c1">## To add doors :</span>
+<span class="k">for</span> <span class="n">xy</span> <span class="ow">in</span> <span class="n">door_lines</span><span class="p">:</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">Line2D</span><span class="p">(</span> <span class="n">xy</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">xy</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">dom</span><span class="o">.</span><span class="n">add_door</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+<span class="c1">## To build the domain : background + shapes</span>
+<span class="n">dom</span><span class="o">.</span><span class="n">build_domain</span><span class="p">()</span>
+<span class="c1">## To compute the distance to the walls</span>
+<span class="n">dom</span><span class="o">.</span><span class="n">compute_wall_distance</span><span class="p">()</span>
+<span class="c1">## To compute the desired velocity</span>
+<span class="n">dom</span><span class="o">.</span><span class="n">compute_desired_velocity</span><span class="p">()</span>
+<span class="c1">## To show the domain dimensions</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;===&gt; Domain : &quot;</span><span class="p">,</span><span class="n">dom</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;===&gt; Wall lines : &quot;</span><span class="p">,</span><span class="n">wall_lines</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;===&gt; Door lines : &quot;</span><span class="p">,</span><span class="n">door_lines</span><span class="p">)</span>
+
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Initialization</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1">## Current time</span>
+<span class="n">t</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">people</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">MaskedArray</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">height</span><span class="p">,</span><span class="n">width</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">),</span> <span class="n">mask</span><span class="o">=</span><span class="n">dom</span><span class="o">.</span><span class="n">mask</span><span class="p">)</span>
+
+<span class="c1">## Number of cells</span>
+<span class="n">Nc</span> <span class="o">=</span> <span class="n">height</span><span class="o">*</span><span class="n">width</span> <span class="o">-</span> <span class="n">dom</span><span class="o">.</span><span class="n">mask_id</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;===&gt; Number of cells = &quot;</span><span class="p">,</span><span class="n">Nc</span><span class="p">)</span>
+
+<span class="c1">## People initialisation taking to account masked positions</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">()</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">seed</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;===&gt; seed  = &quot;</span><span class="p">,</span><span class="n">rng</span><span class="o">.</span><span class="n">get_state</span><span class="p">()[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">Nc</span><span class="o">&lt;</span><span class="n">height</span><span class="o">*</span><span class="n">width</span><span class="p">):</span>
+    <span class="n">imin</span> <span class="o">=</span> <span class="n">dom</span><span class="o">.</span><span class="n">mask_id</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span>
+    <span class="n">imax</span> <span class="o">=</span> <span class="n">dom</span><span class="o">.</span><span class="n">mask_id</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span>
+    <span class="n">jmin</span> <span class="o">=</span> <span class="n">dom</span><span class="o">.</span><span class="n">mask_id</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span>
+    <span class="n">jmax</span> <span class="o">=</span> <span class="n">dom</span><span class="o">.</span><span class="n">mask_id</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">imin</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">imax</span> <span class="o">=</span> <span class="n">height</span>
+    <span class="n">jmin</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">jmax</span> <span class="o">=</span> <span class="n">width</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">s</span> <span class="o">!=</span> <span class="n">Np</span><span class="p">):</span>
+    <span class="c1">#people.data[rng.randint(imin,imax+1,Np-s),</span>
+    <span class="c1">#            rng.randint(jmin+int(0.25*(jmax-jmin)),</span>
+    <span class="c1">#                        jmax-int(0.25*(jmax-jmin))+1,Np-s)] = 1</span>
+    <span class="n">people</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">rng</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">imin</span><span class="p">,</span><span class="n">imax</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">Np</span><span class="o">-</span><span class="n">s</span><span class="p">),</span><span class="n">rng</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">jmin</span><span class="p">,</span><span class="n">jmax</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">Np</span><span class="o">-</span><span class="n">s</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">people</span><span class="p">)</span>
+<span class="n">ind</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">people</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">people_ij</span> <span class="o">=</span> <span class="o">-</span><span class="n">sp</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">Np</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span><span class="c1"># i(0&lt;=i&lt;=height-1) j(0&lt;=j&lt;=width-1)</span>
+<span class="n">people_ij</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">ind</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">people_ij</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">ind</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="c1">#print(&quot;===&gt; Init : people_ij = &quot;,people_ij)</span>
+
+<span class="c1">## Array to store the results</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">people_ij</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">Np</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="c1">## Static Floor Field</span>
+<span class="n">weight</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">kappa</span><span class="o">*</span><span class="n">dom</span><span class="o">.</span><span class="n">door_distance</span><span class="p">)</span>
+
+<span class="n">cc</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="nb">iter</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">plot_people_according_to_current_door_distance</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">people</span><span class="p">,</span> <span class="n">dom</span><span class="p">,</span>
+    <span class="n">savefig</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">prefix</span><span class="o">+</span><span class="s1">&#39;/cellular_automata_&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="nb">iter</span><span class="p">)</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;.png&#39;</span><span class="p">)</span>
+<span class="c1">#plot_people_according_to_initial_door_distance(2, people, dom, results)</span>
+
+<span class="k">while</span> <span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">people</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">update_strategy</span> <span class="o">==</span> <span class="s2">&quot;parallel&quot;</span><span class="p">):</span>
+        <span class="n">people</span><span class="p">,</span> <span class="n">people_ij</span> <span class="o">=</span> <span class="n">parallel_update</span><span class="p">(</span><span class="n">people</span><span class="p">,</span> <span class="n">people_ij</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span>
+                                            <span class="n">friction</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="p">(</span><span class="n">update_strategy</span> <span class="o">==</span> <span class="s2">&quot;sequential&quot;</span><span class="p">):</span>
+        <span class="n">people</span><span class="p">,</span> <span class="n">people_ij</span> <span class="o">=</span> <span class="n">sequential_update</span><span class="p">(</span><span class="n">people</span><span class="p">,</span> <span class="n">people_ij</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span>
+                                              <span class="n">shuffle</span><span class="o">=</span><span class="s1">&#39;random&#39;</span><span class="p">,</span> <span class="n">randomstate</span> <span class="o">=</span> <span class="n">rng</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Bad value for update strategy... EXIT&quot;</span><span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+    <span class="n">people</span><span class="p">,</span> <span class="n">people_ij</span> <span class="o">=</span> <span class="n">exit</span><span class="p">(</span><span class="n">dom</span><span class="p">,</span> <span class="n">people</span><span class="p">,</span> <span class="n">people_ij</span><span class="p">)</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">results</span><span class="p">,</span><span class="n">people_ij</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">Np</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">))),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">t</span> <span class="o">+=</span> <span class="n">dt</span>
+    <span class="n">cc</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="nb">iter</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;========&gt; time = &quot;</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="s2">&quot; number of persons = &quot;</span><span class="p">,</span><span class="n">sp</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">people</span><span class="p">))</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">cc</span><span class="o">&gt;=</span><span class="n">drawper</span><span class="p">):</span>
+        <span class="n">plot_people_according_to_current_door_distance</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">people</span><span class="p">,</span> <span class="n">dom</span><span class="p">,</span>
+            <span class="n">savefig</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">prefix</span><span class="o">+</span><span class="s1">&#39;/cellular_automata_&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="nb">iter</span><span class="p">)</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;.png&#39;</span><span class="p">)</span>
+        <span class="c1">#plot_people_according_to_initial_door_distance(2, people, dom, results)</span>
+        <span class="n">cc</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1">#plot_people_according_to_current_door_distance(1, people, dom)</span>
+<span class="c1">#plot_people_according_to_initial_door_distance(2, people, dom, results)</span>
+<span class="c1">#plot_people_according_to_exit_times(3, dt, people, dom, results)</span>
+<span class="n">plot_people_paths</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">px</span><span class="p">,</span> <span class="n">people</span><span class="p">,</span> <span class="n">dom</span><span class="p">,</span> <span class="n">results</span><span class="p">,</span>
+                  <span class="n">savefig</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">prefix</span><span class="o">+</span><span class="s1">&#39;/cellular_automata_paths.png&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+
+
+      </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Sylvain Faure, Bertrand Maury.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.2.
+    </div>
+  </body>
+</html>

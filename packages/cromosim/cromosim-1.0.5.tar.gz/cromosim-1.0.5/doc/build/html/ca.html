@@ -1,0 +1,350 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Cellular automata &#8212; cromosim  documentation</title>
+    
+    <link rel="stylesheet" href="_static/scrolls.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/print.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/theme_extras.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Microscopic models : granular and social force model" href="micro.html" />
+    <link rel="prev" title="Module for the Follow the Leader model" href="ftl.html" /> 
+  </head><body>
+    <div id="content">
+      <div class="header">
+        <h1 class="heading"><a href="index.html"
+          title="back to the documentation overview"><span>Cellular automata</span></a></h1>
+      </div>
+      <div class="relnav" role="navigation" aria-label="related navigation">
+        <a href="ftl.html">&laquo; Module for the Follow the Leader model</a> |
+        <a href="#">Cellular automata</a>
+        | <a href="micro.html">Microscopic models : granular and social force model &raquo;</a>
+      </div>
+      <div id="contentwrapper">
+        
+  <div class="section" id="module-cromosim.ca">
+<span id="cellular-automata"></span><h1>Cellular automata<a class="headerlink" href="#module-cromosim.ca" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="cromosim.ca.compute_exit_times">
+<code class="descclassname">cromosim.ca.</code><code class="descname">compute_exit_times</code><span class="sig-paren">(</span><em>dt</em>, <em>people</em>, <em>results</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cromosim/ca.html#compute_exit_times"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cromosim.ca.compute_exit_times" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute exit times for all the individuals from the results array</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>dt: float</strong></dt>
+<dd><p class="first last">time step</p>
+</dd>
+<dt><strong>people: numpy masked arrays</strong></dt>
+<dd><p class="first last">equal to 1 if the cell (i,j) is occupied, 0 elsewhere</p>
+</dd>
+<dt><strong>results: numpy array</strong></dt>
+<dd><p class="first last">positions at each time</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>exit_times</strong> <span class="classifier-delimiter">:</span> <span class="classifier">all the exit times</span></dt>
+<dd></dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="cromosim.ca.exit">
+<code class="descclassname">cromosim.ca.</code><code class="descname">exit</code><span class="sig-paren">(</span><em>domain</em>, <em>people</em>, <em>people_ij</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cromosim/ca.html#exit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cromosim.ca.exit" title="Permalink to this definition">¶</a></dt>
+<dd><p>To update people and people_ij arrays in removing individuals who have     leaved the domain</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>domain: Domain</strong></dt>
+<dd><p class="first last">contains everything for managing the domain</p>
+</dd>
+<dt><strong>people: numpy masked arrays</strong></dt>
+<dd><p class="first last">equal to 1 if the cell (i,j) is occupied, 0 elsewhere</p>
+</dd>
+<dt><strong>people_ij: numpy array</strong></dt>
+<dd><p class="first last">(i,j) for each individual</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>people: numpy masked arrays</strong></dt>
+<dd><p class="first last">new positions equal to 1 if the cell (i,j) is occupied, 0 elsewhere</p>
+</dd>
+<dt><strong>people_id: numpy masked arrays</strong></dt>
+<dd><p class="first last">new people index (i,j)</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="cromosim.ca.parallel_update">
+<code class="descclassname">cromosim.ca.</code><code class="descname">parallel_update</code><span class="sig-paren">(</span><em>people</em>, <em>people_ij</em>, <em>weight</em>, <em>friction=0</em>, <em>randomstate=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cromosim/ca.html#parallel_update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cromosim.ca.parallel_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>To move all individuals in parallel according to the following rule:&nbsp;    first, desired moves are precomputed and then the conflicts (two individuals     at the same position) are resolved</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>people: numpy masked arrays</strong></dt>
+<dd><p class="first last">equal to 1 if the cell (i,j) is occupied, 0 elsewhere</p>
+</dd>
+<dt><strong>people_ij: numpy array</strong></dt>
+<dd><p class="first last">(i,j) for each individual</p>
+</dd>
+<dt><strong>weight: numpy array</strong></dt>
+<dd><p class="first last">weight for the probabilities in order to move in such a way like to         reach the door</p>
+</dd>
+<dt><strong>friction: float</strong></dt>
+<dd><p class="first last">to designate the effect induced by a modified handling of conflicts,         friction is the probability that a conflict remains unresolved (no one         moves)</p>
+</dd>
+<dt><strong>randomstate: numpy randomstate</strong></dt>
+<dd><p class="first last">create a new one or reuse the given random state</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>people: numpy masked arrays</strong></dt>
+<dd><p class="first last">new positions equal to 1 if the cell (i,j) is occupied, 0 elsewhere</p>
+</dd>
+<dt><strong>people_id: numpy masked arrays</strong></dt>
+<dd><p class="first last">new people index (i,j)</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="cromosim.ca.plot_people_according_to_current_door_distance">
+<code class="descclassname">cromosim.ca.</code><code class="descname">plot_people_according_to_current_door_distance</code><span class="sig-paren">(</span><em>ifig</em>, <em>people</em>, <em>domain</em>, <em>axis=None</em>, <em>savefig=False</em>, <em>filename='fig.png'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cromosim/ca.html#plot_people_according_to_current_door_distance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cromosim.ca.plot_people_according_to_current_door_distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>To draw occupied cells with colors depend to current door distances</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>ifig: int</strong></dt>
+<dd><p class="first last">figure number</p>
+</dd>
+<dt><strong>people: numpy masked arrays</strong></dt>
+<dd><p class="first last">equal to 1 if the cell (i,j) is occupied, 0 elsewhere</p>
+</dd>
+<dt><strong>domain: Domain</strong></dt>
+<dd><p class="first last">contains everything for managing the domain</p>
+</dd>
+<dt><strong>axis: list</strong></dt>
+<dd><p class="first last">matplotlib axis</p>
+</dd>
+<dt><strong>savefig: boolean</strong></dt>
+<dd><p class="first last">writes the figure as a png file if true</p>
+</dd>
+<dt><strong>filename: string</strong></dt>
+<dd><p class="first last">png filename used to write the figure</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="cromosim.ca.plot_people_according_to_exit_times">
+<code class="descclassname">cromosim.ca.</code><code class="descname">plot_people_according_to_exit_times</code><span class="sig-paren">(</span><em>ifig</em>, <em>dt</em>, <em>people</em>, <em>domain</em>, <em>results</em>, <em>axis=None</em>, <em>savefig=False</em>, <em>filename='fig.png'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cromosim/ca.html#plot_people_according_to_exit_times"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cromosim.ca.plot_people_according_to_exit_times" title="Permalink to this definition">¶</a></dt>
+<dd><p>To draw occupied cells with colors depend to the exit times</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>ifig: int</strong></dt>
+<dd><p class="first last">figure number</p>
+</dd>
+<dt><strong>dt: float</strong></dt>
+<dd><p class="first last">time step</p>
+</dd>
+<dt><strong>people: numpy masked arrays</strong></dt>
+<dd><p class="first last">equal to 1 if the cell (i,j) is occupied, 0 elsewhere</p>
+</dd>
+<dt><strong>domain: Domain</strong></dt>
+<dd><p class="first last">contains everything for managing the domain</p>
+</dd>
+<dt><strong>results: numpy array</strong></dt>
+<dd><p class="first last">positions at each time</p>
+</dd>
+<dt><strong>axis: list</strong></dt>
+<dd><p class="first last">matplotlib axis</p>
+</dd>
+<dt><strong>savefig: boolean</strong></dt>
+<dd><p class="first last">writes the figure as a png file if true</p>
+</dd>
+<dt><strong>filename: string</strong></dt>
+<dd><p class="first last">png filename used to write the figure</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="cromosim.ca.plot_people_according_to_initial_door_distance">
+<code class="descclassname">cromosim.ca.</code><code class="descname">plot_people_according_to_initial_door_distance</code><span class="sig-paren">(</span><em>ifig</em>, <em>people</em>, <em>domain</em>, <em>results</em>, <em>axis=None</em>, <em>savefig=False</em>, <em>filename='fig.png'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cromosim/ca.html#plot_people_according_to_initial_door_distance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cromosim.ca.plot_people_according_to_initial_door_distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>To draw occupied cells with colors depend to initial (time=0) door distances</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>ifig: int</strong></dt>
+<dd><p class="first last">figure number</p>
+</dd>
+<dt><strong>people: numpy masked arrays</strong></dt>
+<dd><p class="first last">equal to 1 if the cell (i,j) is occupied, 0 elsewhere</p>
+</dd>
+<dt><strong>domain: Domain</strong></dt>
+<dd><p class="first last">contains everything for managing the domain</p>
+</dd>
+<dt><strong>axis: list</strong></dt>
+<dd><p class="first last">matplotlib axis</p>
+</dd>
+<dt><strong>savefig: boolean</strong></dt>
+<dd><p class="first last">writes the figure as a png file if true</p>
+</dd>
+<dt><strong>filename: string</strong></dt>
+<dd><p class="first last">png filename used to write the figure</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="cromosim.ca.plot_people_paths">
+<code class="descclassname">cromosim.ca.</code><code class="descname">plot_people_paths</code><span class="sig-paren">(</span><em>ifig</em>, <em>dt</em>, <em>pixel_size</em>, <em>people</em>, <em>domain</em>, <em>results</em>, <em>axis=None</em>, <em>savefig=False</em>, <em>filename='fig.png'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cromosim/ca.html#plot_people_paths"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cromosim.ca.plot_people_paths" title="Permalink to this definition">¶</a></dt>
+<dd><p>To draw all the individual paths from intial time to final time</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>ifig: int</strong></dt>
+<dd><p class="first last">figure number</p>
+</dd>
+<dt><strong>dt: float</strong></dt>
+<dd><p class="first last">time step</p>
+</dd>
+<dt><strong>pixel_size: float</strong></dt>
+<dd><p class="first last">size of one pixel in meters</p>
+</dd>
+<dt><strong>people: numpy masked arrays</strong></dt>
+<dd><p class="first last">equal to 1 if the cell (i,j) is occupied, 0 elsewhere</p>
+</dd>
+<dt><strong>domain: Domain</strong></dt>
+<dd><p class="first last">contains everything for managing the domain</p>
+</dd>
+<dt><strong>results: numpy array</strong></dt>
+<dd><p class="first last">positions at each time</p>
+</dd>
+<dt><strong>axis: list</strong></dt>
+<dd><p class="first last">matplotlib axis</p>
+</dd>
+<dt><strong>savefig: boolean</strong></dt>
+<dd><p class="first last">writes the figure as a png file if true</p>
+</dd>
+<dt><strong>filename: string</strong></dt>
+<dd><p class="first last">png filename used to write the figure</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="cromosim.ca.sequential_update">
+<code class="descclassname">cromosim.ca.</code><code class="descname">sequential_update</code><span class="sig-paren">(</span><em>people</em>, <em>people_ij</em>, <em>weight</em>, <em>shuffle=None</em>, <em>randomstate=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cromosim/ca.html#sequential_update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cromosim.ca.sequential_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>To move all individuals sequentially according to the following rule:&nbsp;    the update of individual i is determined in a stochastic way by computing     transition probabilities on neighboring cells (including the current     position of i).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>people: numpy masked arrays</strong></dt>
+<dd><p class="first last">equal to 1 if the cell (i,j) is occupied, 0 elsewhere</p>
+</dd>
+<dt><strong>people_ij: numpy array</strong></dt>
+<dd><p class="first last">(i,j) for each individual</p>
+</dd>
+<dt><strong>weight: numpy array</strong></dt>
+<dd><p class="first last">weight for the probabilities in order to move in such a way like to         reach the door</p>
+</dd>
+<dt><strong>shuffle: string</strong></dt>
+<dd><p class="first last">shuffle kind (‘random’ or ‘random_frozen’): if the sequential order         change or not at each time</p>
+</dd>
+<dt><strong>randomstate: numpy randomstate</strong></dt>
+<dd><p class="first last">create a new one or reuse the given random state</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>people: numpy masked arrays</strong></dt>
+<dd><p class="first last">new positions equal to 1 if the cell (i,j) is occupied, 0 elsewhere</p>
+</dd>
+<dt><strong>people_id: numpy masked arrays</strong></dt>
+<dd><p class="first last">new people index (i,j)</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+      </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Sylvain Faure, Bertrand Maury.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.2.
+    </div>
+  </body>
+</html>
