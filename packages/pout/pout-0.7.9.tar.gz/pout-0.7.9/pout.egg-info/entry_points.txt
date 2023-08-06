@@ -1,0 +1,3 @@
+[console_scripts]
+pout = pout.__main__:main
+
