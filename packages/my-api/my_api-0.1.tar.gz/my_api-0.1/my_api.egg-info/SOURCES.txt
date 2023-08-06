@@ -1,0 +1,17 @@
+MANIFEST.in
+README.rst
+setup.py
+demo/__init__.py
+demo/domain_analysis.py
+demo/domain_query.py
+demo/email_query.py
+demo/fetch_file_legal_ca.py
+demo/file.py
+demo/ioc.py
+demo/ip_analysis.py
+demo/ip_reputation.py
+my_api.egg-info/PKG-INFO
+my_api.egg-info/SOURCES.txt
+my_api.egg-info/dependency_links.txt
+my_api.egg-info/requires.txt
+my_api.egg-info/top_level.txt
