@@ -1,0 +1,24 @@
+language: python
+python:
+  - '3.5'
+  - '3.6'
+
+git:
+  depth: false
+
+install:
+  - pip install -U pip setuptools
+  - pip install -r requirements.setup.txt
+  - pip install -e .
+  - pip install -r requirements.test.txt
+
+script:
+  - py.test -vv wools --cov wools --doctest-modules
+
+deploy:
+  provider: pypi
+  user: advaoptical
+  password:
+    secure: "JgCbkkPODdCNhwRlnhHq22vC9njeaX2Ke61ELIqE1lxgfjhsDB9JXwbJPZynBHa2lmavcI7/9WtwgekY24yuAxTUyE5wz12ZDLsieS4uQsLHpMW1dly3MsAcSFl4wF4YBC4R5oIQklvf6x2siyH4s+R1Oo9IQHLt/uBdhRFWbk9KK3quyf4yps6i3JWcqqxwnv8pFTie3aysm/yTlGYN58xocOBUIQYMIV+IbOYAmPyDw9gTG9RapDjOB82goUuzMhKBEx9iBw3fEDQgJKjqX7nZIMRjaUjQX+rNzuf20+0XZqT04vZcaMIcTr1mNlG7F9qNMbtqNMS8ZQvpIqro4BIW5DfJQdbBzujPbv8zaNbaAVRESQnh8VBp+Wz+6hLehSGX7BErFtSJhKmPJmEeGS4suP9f/7Mgo+7uFr6+Pj4gH1iCweHVlViYhx6MWqzoNtfPnOssnvKpM+9kDG2xruBz6AS+rcLfc4PKrOin1h7iVVOolvt+Qx7h7IynNIGJ1kghF2VkUsX9W6IMmGY3OmDQ3Hovki+Ldt7ciVftGDW2XHICV2oPKGsU1lM2fBejQiZvPvFLn1OMfcFzFr9I/TPcdc/PpsRkVPJmj8NOXL/j4V9US28N5E4s23Um6wevJKfEURDJK4Iv/tx+OiGPadYhanbasACSz5CLU6+b4pw="
+  on:
+    python: '3.5'
