@@ -1,0 +1,6 @@
+recursive-include mailme
+include README.md
+include setup.py
+include setup.cfg
+include LICENSE
+include requirements.txt

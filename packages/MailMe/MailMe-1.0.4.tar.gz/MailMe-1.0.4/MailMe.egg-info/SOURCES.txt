@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.cfg
+setup.py
+MailMe.egg-info/PKG-INFO
+MailMe.egg-info/SOURCES.txt
+MailMe.egg-info/dependency_links.txt
+MailMe.egg-info/not-zip-safe
+MailMe.egg-info/top_level.txt
+mailme/__init__.py
+mailme/mail.py
