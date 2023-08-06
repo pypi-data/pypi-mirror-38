@@ -1,0 +1,9 @@
+#!python
+
+import json
+import sys
+from pydocless import pydocless
+
+if __name__ == '__main__':
+    with open(sys.argv[1]) as f:
+        print(pydocless(json.loads(f.read())))
