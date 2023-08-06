@@ -1,0 +1,15 @@
+Metadata-Version: 1.1
+Name: py_hydropi
+Version: 0.0.10.post1542197129
+Summary: Hydroponics controller for RaspberryPi
+Home-page: https://github.com/chestm007/py_hydropi
+Author: max
+Author-email: chestm007@hotmail.com
+License: GPL-2.0
+Description: UNKNOWN
+Platform: UNKNOWN
+Requires: PyYAML
+Requires: cherrypy
+Requires: systemd
+Requires: pep8
+Requires: requests
