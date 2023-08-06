@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: drivefiller
+Version: 2.1.1
+Summary: A Python 3 library that makes very large files very quickly. Can also return file size.
+Home-page: https://github.com/ConorMatthews/drivefiller
+Author: Conor Matthews
+Author-email: conor.matthews15@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+# DriveFiller(dot)py
+A python library that creates very large files very quickly.
+Please DO NOT use in any malicious form. This has been made for the sole purpose of testing on systems you have the
+permission to break. We (Conor and Ben) accept no responsibility for any consequences you may recieve or damage you
+may cause.
+
+## Examples
+To write 500 lines in the file 'text.txt' stored in 'C:\Documents\' with the text 'Hello World!' and check size in bytes:
+```
+import drivefiller as df
+Filler_Object = df.filler('C:\Documents\', 'text', 'Hello World!', 500)
+Filler_Object.fill()
+print(Filler_Object.checkSize())
+```
+
