@@ -1,0 +1,168 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file '/home/ppepiot/src/hgview/hgviewlib/qt4/hgqv.ui'
+#
+# Created by: PyQt4 UI code generator 4.11.4
+#
+# WARNING! All changes made in this file will be lost!
+
+from PyQt4 import QtCore, QtGui
+
+try:
+    _fromUtf8 = QtCore.QString.fromUtf8
+except AttributeError:
+    def _fromUtf8(s):
+        return s
+
+try:
+    _encoding = QtGui.QApplication.UnicodeUTF8
+    def _translate(context, text, disambig):
+        return QtGui.QApplication.translate(context, text, disambig, _encoding)
+except AttributeError:
+    def _translate(context, text, disambig):
+        return QtGui.QApplication.translate(context, text, disambig)
+
+class Ui_MainWindow(object):
+    def setupUi(self, MainWindow):
+        MainWindow.setObjectName(_fromUtf8("MainWindow"))
+        MainWindow.resize(730, 646)
+        self.centralwidget = QtGui.QWidget(MainWindow)
+        self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
+        self.verticalLayout_3 = QtGui.QVBoxLayout(self.centralwidget)
+        self.verticalLayout_3.setMargin(0)
+        self.verticalLayout_3.setSpacing(0)
+        self.verticalLayout_3.setObjectName(_fromUtf8("verticalLayout_3"))
+        self.splitter_3 = QtGui.QSplitter(self.centralwidget)
+        self.splitter_3.setOrientation(QtCore.Qt.Vertical)
+        self.splitter_3.setObjectName(_fromUtf8("splitter_3"))
+        self.tableView_revisions = RevisionsTableView(self.splitter_3)
+        self.tableView_revisions.setFrameShape(QtGui.QFrame.StyledPanel)
+        self.tableView_revisions.setObjectName(_fromUtf8("tableView_revisions"))
+        self.frame_maincontent = QtGui.QFrame(self.splitter_3)
+        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.frame_maincontent.sizePolicy().hasHeightForWidth())
+        self.frame_maincontent.setSizePolicy(sizePolicy)
+        self.frame_maincontent.setFrameShape(QtGui.QFrame.NoFrame)
+        self.frame_maincontent.setFrameShadow(QtGui.QFrame.Plain)
+        self.frame_maincontent.setObjectName(_fromUtf8("frame_maincontent"))
+        self.verticalLayout = QtGui.QVBoxLayout(self.frame_maincontent)
+        self.verticalLayout.setMargin(0)
+        self.verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
+        self.splitter_2 = QtGui.QSplitter(self.frame_maincontent)
+        self.splitter_2.setOrientation(QtCore.Qt.Horizontal)
+        self.splitter_2.setObjectName(_fromUtf8("splitter_2"))
+        self.splitter = QtGui.QSplitter(self.splitter_2)
+        self.splitter.setOrientation(QtCore.Qt.Vertical)
+        self.splitter.setObjectName(_fromUtf8("splitter"))
+        self.textview_header = RevisionDescriptionView(self.splitter)
+        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(1)
+        sizePolicy.setHeightForWidth(self.textview_header.sizePolicy().hasHeightForWidth())
+        self.textview_header.setSizePolicy(sizePolicy)
+        self.textview_header.setObjectName(_fromUtf8("textview_header"))
+        self.textview_status = HgFileView(self.splitter)
+        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(2)
+        sizePolicy.setHeightForWidth(self.textview_status.sizePolicy().hasHeightForWidth())
+        self.textview_status.setSizePolicy(sizePolicy)
+        self.textview_status.setObjectName(_fromUtf8("textview_status"))
+        self.tableView_filelist = HgFileListView(self.splitter_2)
+        self.tableView_filelist.setObjectName(_fromUtf8("tableView_filelist"))
+        self.verticalLayout.addWidget(self.splitter_2)
+        self.verticalLayout_3.addWidget(self.splitter_3)
+        MainWindow.setCentralWidget(self.centralwidget)
+        self.menubar = QtGui.QMenuBar(MainWindow)
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 730, 26))
+        self.menubar.setObjectName(_fromUtf8("menubar"))
+        self.menuFile = QtGui.QMenu(self.menubar)
+        self.menuFile.setObjectName(_fromUtf8("menuFile"))
+        self.menuHelp = QtGui.QMenu(self.menubar)
+        self.menuHelp.setObjectName(_fromUtf8("menuHelp"))
+        self.menu_Edit = QtGui.QMenu(self.menubar)
+        self.menu_Edit.setObjectName(_fromUtf8("menu_Edit"))
+        MainWindow.setMenuBar(self.menubar)
+        self.statusbar = QtGui.QStatusBar(MainWindow)
+        self.statusbar.setObjectName(_fromUtf8("statusbar"))
+        MainWindow.setStatusBar(self.statusbar)
+        self.toolBar_file = QtGui.QToolBar(MainWindow)
+        self.toolBar_file.setObjectName(_fromUtf8("toolBar_file"))
+        MainWindow.addToolBar(QtCore.Qt.TopToolBarArea, self.toolBar_file)
+        self.toolBar_quickopen = QtGui.QToolBar(MainWindow)
+        self.toolBar_quickopen.setEnabled(True)
+        self.toolBar_quickopen.setObjectName(_fromUtf8("toolBar_quickopen"))
+        MainWindow.addToolBar(QtCore.Qt.TopToolBarArea, self.toolBar_quickopen)
+        self.toolBar_edit = QtGui.QToolBar(MainWindow)
+        self.toolBar_edit.setEnabled(True)
+        self.toolBar_edit.setObjectName(_fromUtf8("toolBar_edit"))
+        MainWindow.addToolBar(QtCore.Qt.TopToolBarArea, self.toolBar_edit)
+        self.toolBar_treefilters = QtGui.QToolBar(MainWindow)
+        self.toolBar_treefilters.setEnabled(True)
+        self.toolBar_treefilters.setObjectName(_fromUtf8("toolBar_treefilters"))
+        MainWindow.addToolBar(QtCore.Qt.TopToolBarArea, self.toolBar_treefilters)
+        self.toolBar_diff = QtGui.QToolBar(MainWindow)
+        self.toolBar_diff.setObjectName(_fromUtf8("toolBar_diff"))
+        MainWindow.addToolBar(QtCore.Qt.TopToolBarArea, self.toolBar_diff)
+        self.toolBar_rev = QtGui.QToolBar(MainWindow)
+        self.toolBar_rev.setObjectName(_fromUtf8("toolBar_rev"))
+        MainWindow.addToolBar(QtCore.Qt.TopToolBarArea, self.toolBar_rev)
+        self.toolBar_help = QtGui.QToolBar(MainWindow)
+        self.toolBar_help.setObjectName(_fromUtf8("toolBar_help"))
+        MainWindow.addToolBar(QtCore.Qt.TopToolBarArea, self.toolBar_help)
+        self.actionOpen_repository = QtGui.QAction(MainWindow)
+        self.actionOpen_repository.setObjectName(_fromUtf8("actionOpen_repository"))
+        self.actionRefresh = QtGui.QAction(MainWindow)
+        self.actionRefresh.setObjectName(_fromUtf8("actionRefresh"))
+        self.actionQuit = QtGui.QAction(MainWindow)
+        self.actionQuit.setObjectName(_fromUtf8("actionQuit"))
+        self.actionAbout = QtGui.QAction(MainWindow)
+        self.actionAbout.setObjectName(_fromUtf8("actionAbout"))
+        self.actionDisplayAllBranches = QtGui.QAction(MainWindow)
+        self.actionDisplayAllBranches.setObjectName(_fromUtf8("actionDisplayAllBranches"))
+        self.actionHelp = QtGui.QAction(MainWindow)
+        self.actionHelp.setObjectName(_fromUtf8("actionHelp"))
+        self.menuFile.addAction(self.actionOpen_repository)
+        self.menuFile.addAction(self.actionRefresh)
+        self.menuFile.addSeparator()
+        self.menuFile.addAction(self.actionQuit)
+        self.menuHelp.addAction(self.actionAbout)
+        self.menuHelp.addAction(self.actionHelp)
+        self.menubar.addAction(self.menuFile.menuAction())
+        self.menubar.addAction(self.menu_Edit.menuAction())
+        self.menubar.addAction(self.menuHelp.menuAction())
+        self.toolBar_file.addAction(self.actionRefresh)
+        self.toolBar_help.addAction(self.actionHelp)
+
+        self.retranslateUi(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+    def retranslateUi(self, MainWindow):
+        MainWindow.setWindowTitle(_translate("MainWindow", "hgview", None))
+        self.menuFile.setTitle(_translate("MainWindow", "&File", None))
+        self.menuHelp.setTitle(_translate("MainWindow", "&Help", None))
+        self.menu_Edit.setTitle(_translate("MainWindow", "&Edit", None))
+        self.toolBar_file.setWindowTitle(_translate("MainWindow", "Window toolbar", None))
+        self.toolBar_quickopen.setWindowTitle(_translate("MainWindow", "QuickOpen toolbar", None))
+        self.toolBar_edit.setWindowTitle(_translate("MainWindow", "Navigation toolbar", None))
+        self.toolBar_treefilters.setWindowTitle(_translate("MainWindow", "Filter toolbar", None))
+        self.toolBar_diff.setWindowTitle(_translate("MainWindow", "Diff toolbar", None))
+        self.toolBar_rev.setWindowTitle(_translate("MainWindow", "Revision toolbar", None))
+        self.toolBar_help.setWindowTitle(_translate("MainWindow", "Help toolbar", None))
+        self.actionOpen_repository.setText(_translate("MainWindow", "&Open repository", None))
+        self.actionOpen_repository.setShortcut(_translate("MainWindow", "Ctrl+O", None))
+        self.actionRefresh.setText(_translate("MainWindow", "&Refresh", None))
+        self.actionRefresh.setShortcut(_translate("MainWindow", "Ctrl+R", None))
+        self.actionQuit.setText(_translate("MainWindow", "&Quit", None))
+        self.actionQuit.setToolTip(_translate("MainWindow", "Quit", None))
+        self.actionQuit.setShortcut(_translate("MainWindow", "Ctrl+Q", None))
+        self.actionAbout.setText(_translate("MainWindow", "About", None))
+        self.actionDisplayAllBranches.setText(_translate("MainWindow", "displayAllBranches", None))
+        self.actionHelp.setText(_translate("MainWindow", "Help", None))
+
+from hgfileview import HgFileListView, HgFileView
+from revision_description import RevisionDescriptionView
+from revisions_table import RevisionsTableView
+import hgqv_rc
