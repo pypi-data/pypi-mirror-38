@@ -1,0 +1,34 @@
+Metadata-Version: 1.1
+Name: miniscule
+Version: 0.2.0
+Summary: A YAML based, pluggable configuration library inspired by Aeson
+Home-page: https://gitlab.com/bartfrenk/miniscule/
+Author: Bart Frenk
+Author-email: bart.frenk@gmail.com
+License: UNKNOWN
+Description: # yaml-conf
+        
+        Miniscule library for flexible YAML configuration files, inspired by
+        [Aero](https://github.com/juxt/aero).
+        
+        ## Example
+        
+        Loading this configuration with `config.load` expands the `!or` and `!env` tags
+        in the expected way.
+        
+        ```yaml
+        server:
+          host: !or [!env HOST, localhost]
+          port: !or [!env PORT, 8000]
+        debug: !env DEBUG
+        database:
+          name: my_database
+          user: my_user
+          password: !env DB_PASSWORD
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3

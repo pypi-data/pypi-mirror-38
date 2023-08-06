@@ -1,0 +1,9 @@
+README.md
+setup.py
+miniscule.egg-info/PKG-INFO
+miniscule.egg-info/SOURCES.txt
+miniscule.egg-info/dependency_links.txt
+miniscule.egg-info/requires.txt
+miniscule.egg-info/top_level.txt
+src/miniscule/__init__.py
+test/test_config.py
