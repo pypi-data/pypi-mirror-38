@@ -1,0 +1,3 @@
+[pytest11]
+pytest-docker-py = pytest_docker_py.plugin
+

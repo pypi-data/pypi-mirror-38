@@ -1,0 +1,56 @@
+Metadata-Version: 2.1
+Name: pytest-docker-py
+Version: 1.1.2
+Summary: Easy to use, simple to extend, pytest plugin that minimally leverages docker-py.
+Home-page: https://github.com/jameshnsears/pytest-docker-py
+Author: James Sears
+Author-email: james.hn.sears@gmail.com
+License: Apache 2.0
+Keywords: pytest plugin docker-py
+Platform: UNKNOWN
+Classifier: Framework :: Pytest
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Software Development :: Testing
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Description-Content-Type: text/markdown
+Requires-Dist: pytest (==4.0.0)
+Requires-Dist: docker (==3.5.1)
+
+# pytest-docker-py [![Build Status](https://travis-ci.org/jameshnsears/pytest-docker-py.svg?branch=master)](https://travis-ci.org/jameshnsears/pytest-docker-py) [![Coverage Status](https://coveralls.io/repos/github/jameshnsears/pytest-docker-py/badge.svg?branch=master)](https://coveralls.io/github/jameshnsears/pytest-docker-py?branch=master)
+* Easy to use, simple to extend, external [pytest](https://docs.pytest.org/en/latest/) plugin that minimally leverages [docker-py](https://github.com/docker/docker-py).
+
+## 1. Introduction
+* A plugin that keeps it simple and lets you:
+    * pull images - if not already pulled.
+    * start containers - with various, optional, parameters - i.e. ports; networks; volumes; commands.
+    * stop containers.
+
+* See [test/integration/test_plugin.py](https://github.com/jameshnsears/pytest-docker-py/blob/master/test/integration/test_plugin.py) for a working example.
+
+## 2. Installation
+* pip install pytest-docker-py
+
+or
+
+* pip install git+https://github.com/jameshnsears/pytest-docker-py@master
+
+then
+* create a test, similar to [test/integration/test_plugin.py](https://github.com/jameshnsears/pytest-docker-py/blob/master/test/integration/test_plugin.py)
+* run pytest -s 
+
+## 3. Development / PR - on Ubuntu 18.04
+* sudo apt-get install -y build-essential python3-pip python3-venv
+* git clone https://github.com/jameshnsears/pytest-docker-py.git 
+* cd pytest-docker-py
+
+### 3.1. Create Virtual Environment
+* ./create-venv.sh
+
+### 3.2. Unit Tests
+* ./run-unit-tests.sh
+
+### 3.3. Integration Tests
+* ./run-integration-tests.sh
+
+
