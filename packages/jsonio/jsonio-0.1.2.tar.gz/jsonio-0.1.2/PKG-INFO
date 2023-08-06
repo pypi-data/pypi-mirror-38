@@ -1,0 +1,171 @@
+Metadata-Version: 2.1
+Name: jsonio
+Version: 0.1.2
+Summary: JSON Helpers
+Home-page: https://github.com/ylathouris/jsonio
+Author: Yani Lathouris
+Author-email: ylathouris@gmail.com
+License: MIT
+Project-URL: Source, https://github.com/ylathouris/jsonio
+Project-URL: Tracker, https://github.com/ylathouris/jsonio/issues
+Project-URL: Say Thanks!, http://saythanks.io/to/ylathouris
+Description: 
+        [![CircleCI](https://circleci.com/gh/ylathouris/jsonlib.svg?style=shield)](https://circleci.com/gh/ylathouris/jsonlib)  ![Coverage](coverage.svg)
+        
+        ---
+        
+        # jsonlib
+        
+        The `jsonlib` package provides utility functions for reading and writing JSON data. It supports the following features:
+        
+        * [Easy Read/Write](#readwrite)
+        * [Works Just Like The `json` Library](#json)
+        * [Supports `datetime/date` Objects](#datetime)
+        * [Supports `dataclasses` (Python 3.7+)](#dataclass)
+        * [Preserve Ordering](#ordereddict)
+        
+        </br>
+        
+        ## Installation
+        
+        ```
+        pip install jsonlib
+        ```
+        
+        </br>
+        
+        ### <a name="readwrite"></a>Easy Read/Write
+        
+        **Read**
+        
+        ```python
+        import jsonlib
+        
+        data = jsonlib.read('/foo/bar.json')
+        ```
+        
+        **Write**
+        
+        ```python
+        import jsonlib
+        
+        jsonlib.write({'foo': 'bar'}, '/foo/bar.json')
+        ```
+        
+        </br>
+        
+        
+        ### <a name="json"></a>Works Just Like The `json` Library
+        
+        **Load**
+        
+        ```python
+        import jsonlib
+        
+        with open('/foo/bar.json', 'r') as jsonfile:
+            data = jsonlib.load(jsonfile)
+        ```
+        
+        **Loads**
+        
+        ```python
+        import jsonlib
+        
+        data = jsonlib.loads('{"foo": "bar"}')
+        ```
+        
+        **Dump**
+        
+        ```python
+        import jsonlib
+        
+        with open('/foo/bar.json', 'w') as jsonfile:
+            jsonlib.dump({'foo': 'bar'}, jsonfile)
+        ```
+        
+        **Dumps**
+        
+        ```python
+        import jsonlib
+        
+        data = {
+            'apple': 'crumble',
+            'banana': 'split',
+        }
+        
+        # Use standard options.
+        text = jsonlib.dumps(data, jsonfile, indent=2, sort_keys=True)
+        ```
+        
+        </br>
+        
+        
+        ### <a name="datetime"></a>Supports `date/datetime` Objects
+        
+        
+        ```python
+        import datetime
+        import jsonlib
+        
+        before = {
+            'date': datetime.date.today(),
+            'timestamp': datetime.datetime.now(),
+        }
+        
+        jsonlib.write(before, '/foo/bar.json')
+        after = jsonlib.read('/foo/bar.json')
+        assert before == after  # True
+        ```
+        
+        </br>
+        
+        
+        ### <a name="dataclasses"></a>Supports `dataclasses` (Python 3.7+)
+        
+        ```python
+        from dataclasses import dataclass
+        import jsonlib
+        
+        
+        @dataclass
+        class Fruit:
+            apple: str
+            banana: str
+        
+        
+        before = Fruit(apple='Fuji', banana='Lady Finger')
+        
+        jsonlib.write(before, '/foo/bar.json')
+        after = jsonlib.read('/foo/bar.json')
+        assert before == after  # True
+        ```
+        
+        </br>
+        
+        ### <a name="ordereddict"></a>Preserve Ordering - i.e. `OrderedDict` Objects
+        
+        ```python
+        import collections
+        import jsonlib
+        
+        before = collections.OrderedDict([('banana', 'split'), ('apple', 'crumble')])
+        
+        text = jsonlib.dumps(before, indent=2)
+        after = jsonlib.loads(text, ordered=True)
+        assert before == after  # True
+        ```
+        
+Keywords: jsonio,json,utils
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=2.6, !=3.0.*, !=3.1.*, !=3.2.*, <4
+Description-Content-Type: text/markdown
