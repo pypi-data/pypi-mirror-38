@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+admin_auto_filters/__init__.py
+admin_auto_filters/apps.py
+admin_auto_filters/filters.py
+admin_auto_filters/static/css/autocomplete-fix.css
+admin_auto_filters/static/js/autocomplete_filter_qs.js
+admin_auto_filters/templates/autocomplete-filter.html
+django_admin_autocomplete_filter.egg-info/PKG-INFO
+django_admin_autocomplete_filter.egg-info/SOURCES.txt
+django_admin_autocomplete_filter.egg-info/dependency_links.txt
+django_admin_autocomplete_filter.egg-info/requires.txt
+django_admin_autocomplete_filter.egg-info/top_level.txt
