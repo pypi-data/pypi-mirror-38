@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: cocktail-model-lib
+Version: 0.0.2
+Summary: Library of tools for managing a database on cocktails.
+Home-page: https://github.com/brandonPurvis/CocktailModelLib
+Author: Brandon Purvis
+Author-email: bpurvis.career@gmail.com
+License: MIT
+Keywords: cocktail sqlalchemy database
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: SQLAlchemy
+Requires-Dist: marshmallow
+
+UNKNOWN
+
+
