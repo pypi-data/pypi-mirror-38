@@ -1,0 +1,57 @@
+Metadata-Version: 2.1
+Name: mona_client
+Version: 0.0.1
+Summary: Client code for python Mona instrumentation
+Home-page: https://gitlab.com/itai4/mona-python-client
+Author: MonaLabs
+Author-email: itai@monalabs.io
+License: UNKNOWN
+Description: # Python Client
+        
+        ## Using Mona's wrapper for the "requests" package
+        
+        instead of importing "requests", import the requests object from mona_requests:
+        `from mona_requests import requests`
+        
+        After that, use requests as usual. The only difference in behavior is that any
+        request or session will always have a header "mona_id" added to it, with the
+        current context's complete id.
+        
+        ## Concurrency
+        
+        Mona saves the ARC's id on a special variable, which is local to the thread and
+        to greenlets. This means that if you start a new thread/greenlet, by default the
+        new thread will have an empty context.
+        
+        This is usually the preffered behavior, as a new thread usually means a new
+        received request (on servers) or a completely new run of an algorithm.
+        
+        If by any chance you'd like to continue with the same context on a new thread,
+        just use the child class MonaThread under mona_thread.py. This class takes
+        care of transferring the full context id to the newly started thread.
+        
+        ## Using Mona's GCP pubusb support
+        
+        We provide support for transferring Mona context data via pubsub using our
+        class MonaPublisherClient (child of PublisherClient). This class extends the
+        functionaliy of the publish() method, by adding the current context id via the
+        message attributes.
+        
+        On the other side, if you subscribe to a pubsub topic and wish to have your mona
+        context change according to the publisher's context, just send any message to
+        our init_mona_from_pubsub_message(msg) method. That's it.
+        
+        ## Testing the client code
+        
+        The client's tests are written using the pytest framework, so in order to run
+        the tests (assuming you have pytest installed on your environment), you just
+        need to type "pytest" to your shell.
+        
+        The only caveat is in pubsub_test.py, which you need to use a pubsub emulator to
+        activate. Please refer to that file for explanations.
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
