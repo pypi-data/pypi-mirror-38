@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: cgatshowcase
+Version: 0.1.2
+Summary: cgatshowcase : the Computational Genomics Analysis Toolkit example pipeline/workflow
+Home-page: https://github.com/cgat-developers/cgat-showcase
+Author: Adam Cribbs
+Author-email: adam.cribbs@imm.ox.ac.uk
+License: MIT
+Keywords: computational genomics
+Platform: any
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development
+Classifier: Topic :: Scientific/Engineering
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS
+
+# cgat-showcase
+
+This repository will contain two pipelines to demonstrate a how to build a simple workflow and a more complex set of workflows.
+
+
+
