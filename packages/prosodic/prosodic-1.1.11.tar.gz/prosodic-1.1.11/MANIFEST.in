@@ -1,0 +1,6 @@
+include requirements.txt
+include prosodic/dicts/*
+include prosodic/meters/*
+include metricaltree/*
+include README.md
+include LICENSE.md
