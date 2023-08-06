@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: pyphantom
+Version: 0.2.4
+Summary: Phantom® highspeed camera control
+Home-page: https://github.com/ottomatic-io/pyphantom
+Author: Ben Hagen
+Author-email: ben@ottomatic.io
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: psutil
+Requires-Dist: PyYAML
+Requires-Dist: netifaces
+Requires-Dist: cached-property
+Requires-Dist: click
+Requires-Dist: colorama
+Requires-Dist: timeout-decorator
+
+# pyphantom
+
+Communicate with Vision Research Phantom® cameras with python
+
+
+## Installation
+
+### Release Version
+
+```
+pip install pyphantom
+```
+
+
+### Development version
+
+```
+pip install git+https://github.com/ottomatic-io/pyphantom.git
+```
+
+
+
