@@ -1,0 +1,11 @@
+README.md
+setup.cfg
+setup.py
+WhatsParser.egg-info/PKG-INFO
+WhatsParser.egg-info/SOURCES.txt
+WhatsParser.egg-info/dependency_links.txt
+WhatsParser.egg-info/top_level.txt
+tests/__init__.py
+tests/test_whatsparser.py
+whatsparser/__init__.py
+whatsparser/whatsparser.py
