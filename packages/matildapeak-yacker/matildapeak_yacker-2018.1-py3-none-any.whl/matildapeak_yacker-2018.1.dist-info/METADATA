@@ -1,0 +1,69 @@
+Metadata-Version: 2.1
+Name: matildapeak-yacker
+Version: 2018.1
+Summary: A YAML packer-wrapper tool
+Home-page: https://gitlab.com/matilda.peak/yacker
+Author: Alan Christie
+Author-email: alan.christie@matildapeak.com
+License: MIT
+Keywords: configuration
+Platform: any
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: System :: Installation/Setup
+Classifier: Operating System :: POSIX :: Linux
+Requires-Dist: PyYAML (==3.13)
+
+A YAML wrapper for Packer
+=========================
+
+.. image:: https://gitlab.com/matilda.peak/yacker/badges/master/pipeline.svg
+   :target: https://gitlab.com/matilda.peak/yacker
+   :alt: Pipeline Status (yacker)
+
+.. image:: https://badge.fury.io/py/matildapeak-yacker.svg
+   :target: https://badge.fury.io/py/matildapeak-yacker
+   :alt: PyPI package (latest)
+
+.. image:: //readthedocs.org/projects/yacker/badge/?version=latest
+   :target: https://yacker.readthedocs.io/en/latest/?badge=latest
+   :alt: Documentation Status (yacker)
+
+``yacker`` is utility that wraps `Packer`_ with the ability to define
+template files in YAML. Sadly, Packer (at the moment) only supports
+template definitions in JSON, which (for me) isn't a particularly
+human-friendly file format (I like to add comments and break lines to make
+them easier to read). So, here's a utility that allows you to define your
+template files in a much more friendly format.
+
+.. _Packer: https://www.packer.io
+
+Installation
+------------
+
+``yacker`` is published on `PyPI`_ and can be installed from there::
+
+    pip install matildapeak-yacker
+
+.. _PyPI: https://pypi.org/project/matildapeak-yacker
+
+Documentation
+-------------
+
+LabLabel documentation is available on `Read The Docs`_.
+
+.. _Read The Docs: https://yacker.readthedocs.io/en/latest/
+
+Get in touch
+------------
+
+- Report bugs, suggest features or view the source code `on GitLab`_.
+
+.. _on GitLab: https://gitlab.com/matilda.peak/yacker.git
+
+
