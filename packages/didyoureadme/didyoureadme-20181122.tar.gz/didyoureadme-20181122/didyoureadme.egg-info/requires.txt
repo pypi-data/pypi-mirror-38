@@ -1,0 +1,7 @@
+setuptools
+psycopg2
+pytz
+
+[:platform_system == "Windows"]
+PyQt5
+pywin32
