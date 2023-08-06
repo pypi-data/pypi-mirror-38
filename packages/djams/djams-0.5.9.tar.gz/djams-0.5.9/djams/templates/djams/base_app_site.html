@@ -1,0 +1,69 @@
+<html lang="en">
+
+<head>
+    {% load static %}
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Ed Burmicz.">
+  <meta name="author" content="Edward Burmicz">
+  
+  <title>Ed Burmicz · Proj. Management</title>
+
+  {% block vendor_stylesheets %}
+  <link rel="stylesheet" href="{% static 'djams/css/bootstrap.min.css'%}" type="text/css" />
+  <style class="anchorjs"></style>
+  <link rel="stylesheet" href="{% static 'djams/css/all.min.css' %}" />
+  <link rel="stylesheet" href="{% static 'djams/css/bootstrap_docs.min.css'%}" type="text/css" />
+  {% endblock vendor_stylesheets %}
+  
+  {% block custom_css %}
+  <link rel="stylesheet" href="{% static 'djams/css/standardized.css'%}" type="text/css" />
+  {% endblock custom_css %}
+  
+
+  <!-- Favicons -->
+  <!-- <link rel="apple-touch-icon" href="/docs/4.1/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" href="/docs/4.1/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="/docs/4.1/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+  <link rel="manifest" href="/docs/4.1/assets/img/favicons/manifest.json">
+  <link rel="mask-icon" href="/docs/4.1/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
+  <link rel="icon" href="/favicon.ico">
+  <meta name="msapplication-config" content="/docs/4.1/assets/img/favicons/browserconfig.xml">
+  <meta name="theme-color" content="#563d7c"> -->
+
+
+</head>
+
+<body>
+
+  {% block main_content_holder %}
+  <div class="container-fluid">
+    <div class="row flex-xl-nowrap">
+     
+      <main id='main-area' class="col-12 col-md-9 col-xl-10 py-md-3" role="main">
+
+  <div id='main-content-holder' class='col-md-12'>
+        {% block content %}
+
+        {% endblock content %}
+        </div>
+      </main>
+    </div>
+  </div>
+
+  {% endblock main_content_holder %}
+
+
+  {% block javascripts %}
+
+  <script src="{% static 'djams/js/jquery-3.1.1.min.js' %}"></script>
+  <script src="{% static 'djams/js/popper.min.js' %}"></script>
+  <script src="{% static 'djams/js/bootstrap.min.js' %}"></script>
+
+  {% endblock javascripts %}
+
+
+</body>
+
+</html>

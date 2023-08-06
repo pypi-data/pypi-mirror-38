@@ -1,0 +1,646 @@
+/* Contents */
+
+/* html, body, nav-bars */
+
+#main-area{
+
+    background-color: #F7F7F7;
+    padding:0 !important;
+}
+
+#main-content-holder{
+    padding: 40px;
+}
+
+#topnav-burger-bar{
+    color:black!important;
+}
+
+#topnav-burger-bar:hover{
+    color:  #00b4d9 !important;
+}
+
+#topnav-burger-bar:focus{
+    color:  #00b4d9 !important;
+}
+
+
+.nav-btn-hov{
+transition: all 0.2s;
+padding:1px;
+}
+
+.nav-btn-hov:hover {
+    color: #00b4d9 !important;
+    background: #fff !important;
+    transition: all 0.3s;
+}
+
+.a-btn-hov{
+    transition: all 0.2s;
+    text-decoration: none !important;
+    }
+    
+
+.a-btn-hov:hover {
+    color: #00b4d9 !important;
+    transition: all 0.3s;
+}
+
+.line-divider{
+    margin-top: 20px;
+    margin-bottom:20px;
+    border-bottom: 2px solid #00b4d9;
+}
+
+
+/* Fonts */
+
+body {
+    font-family: "Helvetica Neue", Roboto, Arial, "Droid Sans", sans-serif;
+    color: #73879C;
+}
+
+h1, .h1, h2, .h2, h3, .h3 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+   
+}
+
+
+.white-font{
+    color:white;
+}
+.black-font{
+    color:#212121 !important;
+}
+
+a {
+    color: #5A738E;
+    text-decoration: none
+}
+
+.panel_toolbox>li>a {
+    padding: 5px;
+    color: #C5C7CB;
+    font-size: 14px
+}
+.panel_toolbox>li>a:hover {
+    background: #F5F7FA
+}
+.line_30 {
+    line-height: 30px
+}
+
+@media (max-width: 1200px) {
+    .x_title h2 {
+        width: 62%;
+        font-size: 17px
+    }
+    .tile,
+
+}
+@media (max-width: 1270px) and (min-width: 192px) {
+    .x_title h2 small {
+        display: none
+    }
+}
+
+.tile_count .tile_stats_count:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    height: 65px;
+    border-left: 2px solid #ADB2B5;
+    margin-top: 10px
+}
+@media (min-width: 992px) {
+    .tile_count .tile_stats_count:first-child:before {
+        border-left: 0
+    }
+}
+.tile_count .tile_stats_count .count {
+    font-size: 30px;
+    line-height: 47px;
+    font-weight: 600
+}
+@media (min-width: 768px) {
+    .tile_count .tile_stats_count .count {
+        font-size: 40px
+    }
+}
+@media (min-width: 992px) and (max-width: 1100px) {
+    .tile_count .tile_stats_count .count {
+        font-size: 30px
+    }
+}
+.tile_count .tile_stats_count span {
+    font-size: 12px
+}
+@media (min-width: 768px) {
+    .tile_count .tile_stats_count span {
+        font-size: 13px
+    }
+}
+.tile_count .tile_stats_count .count_bottom i {
+    width: 12px
+}
+
+
+ul.to_do p {
+    margin: 0
+}
+
+/* ----------------- 1. Fixed heights, general padding and margin options -----------------  */
+
+.fixed_height_320 {
+    height: 320px
+}
+.fixed_height_390 {
+    height: 390px
+}
+.fixed_height_200 {
+    height: 200px
+}
+.overflow_hidden {
+    overflow: hidden
+}
+
+.center-margin {
+    margin: 0 auto;
+    float: none !important
+}
+
+.no-padding {
+    padding: 0 !important
+}
+
+.top_80{
+  margin-top:80px;
+}
+
+.top_90{
+  margin-top:90px;
+}
+
+.full-width {
+     width:100%;
+ }
+
+.full-height{
+ height:100%;
+ }
+.left_250{
+    margin-left:250px !important;
+}
+
+.pad_l_300{
+    padding-left:300px !important;
+}
+
+.pad_l_275{
+    padding-left:275px !important;
+}
+
+.pad_l_0{
+    padding-left:0px !important;
+}
+
+.auto_marg{
+    margin:auto !important;
+}
+
+.help-text{
+    margin-top:8px;
+    margin-bottom:8px;
+}
+
+.vspacer_15{
+    margin-bottom:15px;
+}
+
+.vspacer_30{
+    margin-bottom:30px;
+}
+
+.vspacer_50{
+    margin-bottom:50px;
+}
+
+
+.maxw_100 {
+    max-width:100% !important;
+}
+
+.bottom_10 {
+    margin-bottom:10px !important;
+}
+
+
+.top_15 {
+    margin-top:15px !important;
+}
+
+.top_50 {
+    margin-top:50px !important;
+}
+
+.bottom_15 {
+    margin-bottom:15px !important;
+}
+
+.pad_l_15 {
+    padding-left:15px !important;
+}
+
+.pad_l_290 {
+    padding-left:290px !important;
+}
+
+.pad_r_25 {
+    padding-right:25px !important;
+}
+
+.pad_r_40 {
+    padding-right:40px !important;
+}
+
+.pad_r_15 {
+    padding-left:15px !important;
+}
+
+.pad_r_5{
+    padding-right:5px;
+}
+
+.pad_l_5{
+    padding-left:5px;
+}
+.pad_l_8pct {
+    padding-left: 8%;
+}
+
+.left_50{
+    margin-left:50px !important;
+}
+
+.pad_0{
+padding:0 !important;
+
+} 
+
+.pad_20{
+    padding:20px !important;
+    
+    } 
+
+.pad_10{
+    padding:10px !important;
+}
+
+.width_100_pct {
+    width:100% !important;
+}
+
+.marg_r_10{
+    margin-right:10px;
+}
+/*  ----------------- 2. Tiles and Panels  ----------------- */
+
+
+/*  Table Tiles */
+
+
+.x_panel {
+    position: relative;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px 17px;
+    display: inline-block;
+    background: #fff;
+    border: 1px solid #E6E9ED;
+    -webkit-column-break-inside: avoid;
+    -moz-column-break-inside: avoid;
+    column-break-inside: avoid;
+    opacity: 1;
+    transition: all .2s ease
+}
+.x_title {
+    border-bottom: 2px solid #00b4d9;
+    padding: 1px 5px 6px;
+    margin-bottom: 10px
+}
+.x_title .filter {
+    width: 40%;
+    float: right
+}
+.x_title h2 {
+    margin: 5px 0 6px;
+    float: left;
+    display: block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap
+}
+.x_title h2 small {
+    margin-left: 10px
+}
+.x_title span {
+    color: #BDBDBD
+}
+.x_content {
+    padding: 0 5px 6px;
+    position: relative;
+    width: 100%;
+    float: left;
+    clear: both;
+    margin-top: 5px
+}
+.x_content h4 {
+    font-size: 16px;
+    font-weight: 500
+}
+
+
+.x_title {
+    padding: 1px 5px 6px;
+    margin-bottom: 10px
+}
+.x_title .filter {
+    width: 40%;
+    float: right
+}
+.x_title h2 {
+    margin: 5px 0 6px;
+    float: left;
+    display: block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap
+}
+.x_title h2 small {
+    margin-left: 10px
+}
+.x_title span {
+    color: #BDBDBD
+}
+.x_content {
+    padding: 0 5px 6px;
+    position: relative;
+    width: 100%;
+    float: left;
+    clear: both;
+    margin-top: 5px
+}
+.x_content h4 {
+    font-size: 16px;
+    font-weight: 500
+}
+
+.tile-stats.sparkline {
+    padding: 10px;
+    text-align: center
+}
+.jqstooltip {
+    background: #34495E !important;
+    width: 30px !important;
+    height: 22px !important;
+    text-decoration: none
+}
+.tooltip {
+    display: block !important
+}
+
+.longText{
+height:100%}
+
+.top_tiles .tile h2 {
+    font-size: 30px;
+    line-height: 30px;
+    /* margin: 3px 0 7px; */
+    font-weight: bold;
+    margin-bottom: 0
+}
+
+
+.tiles {
+    border-top: 1px solid #ccc;
+    margin-top: 15px;
+    padding-top: 5px;
+    margin-bottom: 0
+}
+.tile {
+    overflow: hidden
+}
+
+
+.x_panel {
+    position: relative;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px 17px;
+    display: inline-block;
+    background: #fff;
+    border: 1px solid #E6E9ED;
+    -webkit-column-break-inside: avoid;
+    -moz-column-break-inside: avoid;
+    column-break-inside: avoid;
+    opacity: 1;
+    transition: all .2s ease
+}
+
+.main_content {
+    padding: 10px 20px
+}
+
+.panel_toolbox {
+    float: right;
+    min-width: 70px
+}
+.panel_toolbox>li {
+    float: left;
+    cursor: pointer
+}
+
+.dashboard_divider{
+    margin-top:30px;
+}
+
+ul.to_do {
+    padding: 0
+}
+ul.to_do li {
+    background: #f3f3f3;
+    border-radius: 3px;
+    position: relative;
+    padding: 7px;
+    margin-bottom: 5px;
+    list-style: none
+}
+
+ul.quick-list {
+    width: 45%;
+    padding-left: 0;
+    display: inline-block
+}
+ul.quick-list li {
+    padding-left: 10px;
+    list-style: none;
+    margin: 0;
+    padding-bottom: 6px;
+    padding-top: 4px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden
+}
+ul.quick-list li i {
+    padding-right: 10px;
+    color: #757679
+}
+
+/*  ----------------- 3. Grids and Bootstrap overrides  ----------------- */
+
+
+@media (min-width: 1500px) {
+    .widescreen_expand {
+      width:100% !important;
+      flex: 0 0 100% !important;
+          max-width: 100% !important;
+    }
+}
+
+@media (max-width: 1499px) {
+    .smallscreen_expand {
+        width:100% !important;
+        flex: 0 0 100% !important;
+            max-width: 100% !important;
+    }
+
+    .vmin_645{
+        height:645px !important;
+    }
+}
+
+
+
+
+/* ----------------- 5. Buttons  ----------------- */
+
+.std-button-1{
+    background-color: #95cb89;
+    /* #c2f9fc; */
+    color:white;
+    border-color:white;
+    border:none !important;
+    /* margin-bottom: 10px !important; */
+    min-height:30px;
+    /* #7fd1d6; */
+    }
+   
+.std-button-1:hover {
+    background-color: #5fa84f;
+    color: white;
+    
+}
+
+.std-button-2{
+    background-color: #336699;
+    /* #c2f9fc; */
+    color:white;
+    border-color:white;
+    border:none !important;
+    /* margin-bottom: 10px !important; */
+    min-height:30px;
+}
+
+.std-button-2:hover {
+    background-color: #154472;
+    color: white;
+}
+
+.std-button-3{
+    background-color: #7fd1d6;
+    /* #c2f9fc; */
+    color:white;
+    border-color:white;
+    border:none !important;
+    /* margin-bottom: 10px !important; */
+    min-height:30px;
+}
+
+.std-button-3:hover {
+    background-color: #66a6aa;
+    color: white;
+}
+
+.std-button-4{
+    background-color: #f04e3e;
+    /* #c2f9fc; */
+    color:white;
+    border-color:white;
+    border:none !important;
+    /* margin-bottom: 10px !important; */
+    min-height:30px;
+}
+
+.std-button-4:hover {
+    background-color: #b7362a;
+    color: white;
+}
+
+.std-button-5{
+    background-color: #ffc107;
+    /* #c2f9fc; */
+    color:white;
+    border-color:white;
+    border:none !important;
+    /* margin-bottom: 10px !important; */
+    min-height:30px;
+    }
+
+.std-button-5:hover {
+    color: white;
+    background-color: #e0a800;
+    border-color: #d39e00;
+}
+
+.std-button-5:focus {
+    box-shadow: 0 0 0 3px rgba(255,193,7,.5);
+}
+
+
+   .std-button-1, .std-button-2, .std-button-3, .std-button-4, .std-button-5  {
+       -webkit-transition-duration: 0.3s; /* Safari */
+       transition-duration: 0.3s;
+   }
+   
+   .active {
+       color:black;
+   }
+   
+   
+   
+   
+   
+   
+   /* ----------------- 6. Select2 Widgets  ----------------- */
+   .django-select2 {
+         width: 100%;
+         height:35px;
+   }
+   
+   
+   .select2-container {
+   width: 100% !important;
+   padding: 0;
+   }
+
+   
+.no_lr_pad{
+    padding-left:0 !important;
+    padding-right:0 !important;
+}
+
+.full_width{
+    width:100% !important;
+}

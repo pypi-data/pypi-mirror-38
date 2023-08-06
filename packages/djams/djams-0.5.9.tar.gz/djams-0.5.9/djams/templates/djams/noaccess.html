@@ -1,0 +1,43 @@
+{% extends "djams/base_app_site.html" %}
+{% load static %}
+
+{% block main_content_holder %}
+{% block content %}
+
+<style>
+    body{
+        background: url("{% static 'djams/images/balloons.jpg' %}") no-repeat center center fixed; 
+
+ -webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+	background-color: black;
+    }
+
+
+.panel-default {
+ opacity: 0.9;
+ margin-top:30px;
+}
+.form-group.last {
+ margin-bottom:0px;
+}
+
+</style>
+
+<div class="container h-100">
+        <div class="row h-100 justify-content-center align-items-center">
+                <form class="form-horizontal" style='background-color: #dae1ed; border-radius: 15px; min-width:30%; opacity:0.9;' method='POST'>
+
+                        <div class='vspacer_15'></div>
+                        <div class="form-group">
+                         Your username and password combination was incorrect, or you are not authorized to view this page.
+                        <div class='vspacer_15'></div>
+
+                    </form>
+        </div>
+      </div>
+
+    {% endblock content %}
+    {% endblock main_content_holder %}
