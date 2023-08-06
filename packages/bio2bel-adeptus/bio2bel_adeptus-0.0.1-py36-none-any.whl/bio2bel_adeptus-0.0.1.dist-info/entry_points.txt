@@ -1,0 +1,3 @@
+[console_scripts]
+bio2bel_adeptus = bio2bel_adeptus.cli:main
+
