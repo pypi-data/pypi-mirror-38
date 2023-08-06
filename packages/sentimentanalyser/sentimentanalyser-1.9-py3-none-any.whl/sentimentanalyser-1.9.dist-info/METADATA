@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: sentimentanalyser
+Version: 1.9
+Summary: UNKNOWN
+Home-page: UNKNOWN
+Author: UNKNOWN
+Author-email: UNKNOWN
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: et-xmlfile
+Requires-Dist: jdcal
+Requires-Dist: nltk
+Requires-Dist: numpy
+Requires-Dist: openpyxl
+Requires-Dist: pandas
+Requires-Dist: psycopg2
+Requires-Dist: python-dateutil
+Requires-Dist: pytz
+Requires-Dist: scikit-learn
+Requires-Dist: scipy
+Requires-Dist: six
+Requires-Dist: whitenoise
+
+UNKNOWN
+
+
