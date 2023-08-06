@@ -1,0 +1,4 @@
+[console_scripts]
+sentry-msg = sentry_msg:execute
+sentry-wrapper = sentry_wrapper:execute
+
