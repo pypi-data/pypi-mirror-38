@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: badger-robot-connect
+Version: 0.0.3
+Summary: Wireless Control Client for BADGER Robot
+Home-page: UNKNOWN
+Author: Tommy Vandermolen
+Author-email: tommy.vandermolen@gmail.com
+License: UNKNOWN
+Description: # BADGER Robot Connect
+        A GUI client for controlling the BADGER robot remotely, currently via WiFi.
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
