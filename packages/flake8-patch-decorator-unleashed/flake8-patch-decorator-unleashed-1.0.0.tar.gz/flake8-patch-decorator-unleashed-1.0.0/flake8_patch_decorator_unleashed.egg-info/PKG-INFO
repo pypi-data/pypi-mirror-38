@@ -1,0 +1,46 @@
+Metadata-Version: 1.1
+Name: flake8-patch-decorator-unleashed
+Version: 1.0.0
+Summary: @patch checker plugin for flake8
+Home-page: https://github.com/vikingco/flake8-patch-decorator
+Author: Unleashed NV
+Author-email: technology@unleashed.com
+License: MIT
+Description: Flake8 @patch plugin
+        ======================
+        
+        Check for uses of @patch (instead of using it as a context manager).
+        
+        This module provides a plugin for ``flake8``, the Python code checker.
+        
+        
+        Installation
+        ------------
+        
+        You can install or upgrade ``flake8-patch-decorator-unleashed`` with these commands::
+        
+          $ pip install flake8-patch-decorator-unleashed
+          $ pip install --upgrade flake8-patch-decorator-unleashed
+        
+        
+          Plugin for Flake8
+          -----------------
+        
+          When both ``flake8`` and ``flake8-patch-decorator-unleashed`` are installed, the plugin is
+          available in ``flake8``::
+        
+          $ flake8 --version
+          2.0 (pep8: 1.4.5, flake8-patch-decorator: 1.0, pyflakes: 0.6.1)
+        
+Keywords: flake8 @patch
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development :: Quality Assurance
