@@ -1,0 +1,3 @@
+[console_scripts]
+tagsnag = tagsnag.__main__:main
+
