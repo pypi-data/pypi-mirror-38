@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: s3select
+Version: 0.0.1
+Summary: S3 select utility package
+Home-page: https://github.com/marko-bast/s3select
+Author: Marko Baštovanović
+Author-email: marko.bast@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.7
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: requests[security] (>=2.18.3)
+Requires-Dist: pyasn1 (>=0.4.2)
+Requires-Dist: boto3 (>=1.7.79)
+
+## S3 select
+
+### License
+
+Distributed under the MIT license. See `LICENSE` for more information.
+
+
