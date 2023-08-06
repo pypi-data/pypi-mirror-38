@@ -1,0 +1,17 @@
+fs_watcher/__init__.py,sha256=Th6FPUfmw3s94879QiaD_OgzmQyEFPOnYrMVoQqee8Y,22
+fs_watcher/__main__.py,sha256=X7UtQCzvk-mVxiEZF6E2TqtbzrwxDn2_kH74aVtdveA,129
+fs_watcher/cli.py,sha256=dgGsgFK4CUx0Om9i70m35GfrrORFcNSBRS0zd06-qjI,5306
+fs_watcher/daemonrunner.py,sha256=XSOvcweDeWRh9eM8AHvgI5zhe1rbuJPCH4fUgHc1dow,5987
+fs_watcher/eventhandler.py,sha256=KoX8DODfhP594a-QLIMKHNUYw6LO1Xr47cmiEcV_dGw,7683
+fs_watcher/watcher.py,sha256=YPePRoOGP2AFh2GoVdxVkifhxYvTD8cdLvLMyZoZDMI,6704
+fs_watcher-1.0.7.data/data/share/fs-watcher/etc/watcher.ini,sha256=QVSjVnvA9yfnc4ZLiLc8vlszyKJUeUBtMCVx0QXsX2I,4485
+fs_watcher-1.0.7.data/data/share/fs-watcher/init/fs-watcher.openrc,sha256=dUALTbsKxzvLNQ729hBXOR0j0JHTWqtqiYc582PLbA0,681
+fs_watcher-1.0.7.data/data/share/fs-watcher/init/fs-watcher.service,sha256=tmNsT_lovifYsyHAeDGLM5vx_k_GhxwAN4IFRMVHMfs,252
+fs_watcher-1.0.7.data/data/share/fs-watcher/init/fs-watcher.sysvinit,sha256=8_-WuFDLO_2WcuzACgUyHHH7hvfLI1L0R6_GzFFDnIY,988
+fs_watcher-1.0.7.dist-info/DESCRIPTION.rst,sha256=lpiTvLcoGmG2zOHVTmAvhHrPx0l9qx49zmrwiRfheu8,6545
+fs_watcher-1.0.7.dist-info/METADATA,sha256=s-PozGQRBwALnp2rhhg5sHoAddA3YApPnSD594YNLsc,7638
+fs_watcher-1.0.7.dist-info/RECORD,,
+fs_watcher-1.0.7.dist-info/WHEEL,sha256=o2k-Qa-RMNIJmUdIc7KU6VWR_ErNRbWNlxDIpl7lm34,110
+fs_watcher-1.0.7.dist-info/entry_points.txt,sha256=28iIIiopqbeUlijKYRbecsM8_8JjBkm_lc3bSqabXLI,49
+fs_watcher-1.0.7.dist-info/metadata.json,sha256=KYrhs83aFXXY9UhwtyJM6sCl-GZSgUrhHY8sbxGMfN0,1368
+fs_watcher-1.0.7.dist-info/top_level.txt,sha256=3tJ9YLYNIjb0RWCeFBuJA6Xwcv5VQ_cyG6RwXAMFXMc,11
