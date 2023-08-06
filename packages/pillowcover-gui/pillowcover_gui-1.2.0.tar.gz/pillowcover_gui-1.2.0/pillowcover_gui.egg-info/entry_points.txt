@@ -1,0 +1,4 @@
+[console_scripts]
+pillowcover-gui = pillowcover_gui.pillowcover_gui:main
+plc-gui = pillowcover_gui.pillowcover_gui:main
+

@@ -1,0 +1,12 @@
+MANIFEST.in
+README.md
+setup.py
+pillowcover_gui/__init__.py
+pillowcover_gui/pillowcover_gui.py
+pillowcover_gui.egg-info/PKG-INFO
+pillowcover_gui.egg-info/SOURCES.txt
+pillowcover_gui.egg-info/dependency_links.txt
+pillowcover_gui.egg-info/entry_points.txt
+pillowcover_gui.egg-info/not-zip-safe
+pillowcover_gui.egg-info/requires.txt
+pillowcover_gui.egg-info/top_level.txt
