@@ -1,0 +1,18 @@
+Metadata-Version: 1.0
+Name: pydanmaku
+Version: 0.0.1a2
+Summary: A Danmaku engine written in python
+Home-page: https://github.com/hanss314/PyDanmaku
+Author: hanss314
+Author-email: UNKNOWN
+License: MIT
+Description: # PyDanmaku
+        A danmaku engine in python
+        
+        This has not been updated on PyPI
+        
+        I have reworked the engine and it is not ready yet. setup.py doesn't work
+        
+        Basic bullet creation and rendering has been implemented
+        
+Platform: UNKNOWN
