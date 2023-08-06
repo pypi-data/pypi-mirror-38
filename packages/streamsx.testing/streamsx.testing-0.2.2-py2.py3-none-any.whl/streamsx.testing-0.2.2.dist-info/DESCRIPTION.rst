@@ -1,0 +1,15 @@
+Overview
+========
+
+Testing framework for IBM Streams SPL and Python applications.
+
+Includes nose plugins to control the tests when run with nosetests.
+
+Documentation
+=============
+
+* `streamsx.testing package documentation <http://streamsxtesting.readthedocs.io/>`_
+
+
+
+
