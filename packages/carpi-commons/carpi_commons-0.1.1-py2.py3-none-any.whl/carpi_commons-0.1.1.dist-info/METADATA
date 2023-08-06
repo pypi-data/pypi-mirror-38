@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: carpi-commons
+Version: 0.1.1
+Summary: A library providing utilities for writing CarPi programs and services.
+Home-page: https://github.com/rGunti/CarPi-Commons
+Author: Raphael "rGunti" Guntersweiler
+Author-email: raphael@rgunti.ch
+License: MIT
+Keywords: carpi commons
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Requires-Dist: wheel
+
+# CarPi-Commons
+A library providing utilities for writing CarPi programs and services.
+
+
