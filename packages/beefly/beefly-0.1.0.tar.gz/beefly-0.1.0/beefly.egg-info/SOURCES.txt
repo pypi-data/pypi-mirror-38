@@ -1,0 +1,13 @@
+README.md
+setup.cfg
+setup.py
+beefly/__init__.py
+beefly/general_plot.py
+beefly/keras_callbacks_PlotMetricsOnBatch.py
+beefly/keras_callbacks_PlotMetricsOnEpoch.py
+beefly.egg-info/PKG-INFO
+beefly.egg-info/SOURCES.txt
+beefly.egg-info/dependency_links.txt
+beefly.egg-info/not-zip-safe
+beefly.egg-info/requires.txt
+beefly.egg-info/top_level.txt
