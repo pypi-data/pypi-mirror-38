@@ -1,0 +1,6 @@
+[console_scripts]
+tweetynet-cli = tweetynet.__main__:main
+
+[songdeck.network]
+TweetyNet = tweetynet:TweetyNet
+
