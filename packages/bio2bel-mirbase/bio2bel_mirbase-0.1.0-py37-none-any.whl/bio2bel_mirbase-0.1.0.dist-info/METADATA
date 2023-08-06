@@ -1,0 +1,65 @@
+Metadata-Version: 2.1
+Name: bio2bel-mirbase
+Version: 0.1.0
+Summary: Convert miRBase to BEL
+Home-page: https://github.com/bio2bel/mirbase
+Author: Charles Tapley Hoyt
+Author-email: charles.hoyt@scai.fraunhofer.de
+Maintainer: charles.hoyt@scai.fraunhofer.de
+Maintainer-email: charles.hoyt@scai.fraunhofer.de
+License: MIT
+Download-URL: https://github.com/bio2bel/mirbase/releases
+Project-URL: Bug Tracker, https://github.com/bio2bel/mirbase/issues
+Project-URL: Documentation, https://flagman.readthedocs.io/en/latest/
+Project-URL: Source Code, https://github.com/bio2bel/mirbase
+Keywords: microRNA,bioinformatics,systems biology,networks biology,biological expression language
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Requires-Python: >=3.6
+Requires-Dist: click
+Requires-Dist: tqdm
+Requires-Dist: bio2bel (<0.3.0,>=0.2.0)
+Requires-Dist: pybel (<0.13.0,>=0.12.0)
+Provides-Extra: docs
+Requires-Dist: flask; extra == 'docs'
+Requires-Dist: flask-admin; extra == 'docs'
+Requires-Dist: sphinx; extra == 'docs'
+Requires-Dist: sphinx-rtd-theme; extra == 'docs'
+Requires-Dist: sphinx-click; extra == 'docs'
+Requires-Dist: sphinx-autodoc-typehints; extra == 'docs'
+Provides-Extra: web
+Requires-Dist: flask; extra == 'web'
+Requires-Dist: flask-admin; extra == 'web'
+
+Bio2BEL miRBase |build|
+=======================
+Enumerate miRBase namespace, produce equivalency table, and predicted MTI relationships
+
+Installation
+------------
+``bio2bel_mirbase`` can be installed from the latest code on `GitHub <https://github.com/bio2bel/mirbase>`_ with:
+
+.. code-block:: sh
+
+    $ python3 -m pip install git+https://github.com/bio2bel/mirbase.git@master
+
+References
+----------
+- http://www.mirbase.org/
+- http://identifiers.org/mirbase/ and http://identifiers.org/mirbase.mature/
+- Ana Kozomara, Sam Griffiths-Jones; `miRBase: annotating high confidence microRNAs using deep sequencing data
+  <https://www.ncbi.nlm.nih.gov/pubmed/24275495>`_. Nucleic Acids Res 2014; 42 (D1): D68-D73.
+
+.. |build| image:: https://travis-ci.com/bio2bel/mirbase.svg?branch=master
+    :target: https://travis-ci.com/bio2bel/mirbase
+    :alt: Build Status
+
+
