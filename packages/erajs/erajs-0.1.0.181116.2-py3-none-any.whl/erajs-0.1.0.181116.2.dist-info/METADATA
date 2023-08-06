@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: erajs
+Version: 0.1.0.181116.2
+Summary: A game script engine for Era.js.
+Home-page: https://github.com/miswanting/erajs
+Author: Miswanting
+Author-email: 453542772@qq.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Natural Language :: Chinese (Simplified)
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: Programming Language :: JavaScript
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Communications
+Classifier: Topic :: Database
+Classifier: Topic :: Games/Entertainment
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Scientific/Engineering :: Human Machine Interfaces
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Classifier: Topic :: Software Development :: Localization
+Classifier: Topic :: Software Development :: User Interfaces
+Classifier: Topic :: Text Processing
+Description-Content-Type: text/markdown
+
+# erajs
+The back-end of Era.js.
+
+
