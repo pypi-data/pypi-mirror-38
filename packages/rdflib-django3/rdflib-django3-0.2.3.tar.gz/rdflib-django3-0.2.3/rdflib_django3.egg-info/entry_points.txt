@@ -1,0 +1,3 @@
+[rdf.plugins.store]
+Django = rdflib_django.store:DjangoStore
+
