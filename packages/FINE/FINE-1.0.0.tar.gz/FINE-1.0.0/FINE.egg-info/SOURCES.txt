@@ -1,0 +1,289 @@
+.gitignore
+LICENSE.txt
+README.md
+requirements.txt
+setup.py
+FINE/__init__.py
+FINE/component.py
+FINE/conversion.py
+FINE/energySystemModel.py
+FINE/sourceSink.py
+FINE/storage.py
+FINE/transmission.py
+FINE/utils.py
+FINE.egg-info/PKG-INFO
+FINE.egg-info/SOURCES.txt
+FINE.egg-info/dependency_links.txt
+FINE.egg-info/requires.txt
+FINE.egg-info/top_level.txt
+FINE/IOManagement/__init__.py
+FINE/IOManagement/standardIO.py
+FINE/subclasses/__init__.py
+FINE/subclasses/lopf.py
+FINE/subclasses/storageExt.py
+docs/GeneralDetailedInstallationInstructions.txt
+docs/Makefile
+docs/make.bat
+docs/make.html
+docs/build/doctrees/aboutUsDoc.doctree
+docs/build/doctrees/acknowledgementDoc.doctree
+docs/build/doctrees/componentClassDoc.doctree
+docs/build/doctrees/componentsDoc.doctree
+docs/build/doctrees/conversionClassDoc.doctree
+docs/build/doctrees/coreComponentsDoc.doctree
+docs/build/doctrees/energySystemModelDoc.doctree
+docs/build/doctrees/environment.pickle
+docs/build/doctrees/examplesDoc.doctree
+docs/build/doctrees/index.doctree
+docs/build/doctrees/installationDoc.doctree
+docs/build/doctrees/licenseDoc.doctree
+docs/build/doctrees/lopfClassDoc.doctree
+docs/build/doctrees/outputManagerDoc.doctree
+docs/build/doctrees/packageDoc.doctree
+docs/build/doctrees/sourceSinkClassDoc.doctree
+docs/build/doctrees/storageClassDoc.doctree
+docs/build/doctrees/subclassComponentsDoc.doctree
+docs/build/doctrees/transmissionClassDoc.doctree
+docs/build/html/.buildinfo
+docs/build/html/.nojekyll
+docs/build/html/aboutUsDoc.html
+docs/build/html/acknowledgementDoc.html
+docs/build/html/componentClassDoc.html
+docs/build/html/componentsDoc.html
+docs/build/html/conversionClassDoc.html
+docs/build/html/coreComponentsDoc.html
+docs/build/html/energySystemModelDoc.html
+docs/build/html/examplesDoc.html
+docs/build/html/genindex.html
+docs/build/html/index.html
+docs/build/html/installationDoc.html
+docs/build/html/licenseDoc.html
+docs/build/html/lopfClassDoc.html
+docs/build/html/objects.inv
+docs/build/html/outputManagerDoc.html
+docs/build/html/packageDoc.html
+docs/build/html/py-modindex.html
+docs/build/html/search.html
+docs/build/html/searchindex.js
+docs/build/html/sourceSinkClassDoc.html
+docs/build/html/storageClassDoc.html
+docs/build/html/subclassComponentsDoc.html
+docs/build/html/transmissionClassDoc.html
+docs/build/html/_images/inheritance-0765c6997f4804edf95beb115844d24e1df075a2.png
+docs/build/html/_images/inheritance-0765c6997f4804edf95beb115844d24e1df075a2.png.map
+docs/build/html/_images/inheritance-0c148ffe5e9339b065400a13f326f27ed4b5b555.png
+docs/build/html/_images/inheritance-0c148ffe5e9339b065400a13f326f27ed4b5b555.png.map
+docs/build/html/_images/inheritance-0ccdd2f3670c5c49f946b2416e05663e7a6df616.png
+docs/build/html/_images/inheritance-0ccdd2f3670c5c49f946b2416e05663e7a6df616.png.map
+docs/build/html/_images/inheritance-30556797a0d8f967180d8b56e2aed826c845cf1d.png
+docs/build/html/_images/inheritance-30556797a0d8f967180d8b56e2aed826c845cf1d.png.map
+docs/build/html/_images/inheritance-46c56003f1e1ef102b8bdde6c2008cc1047d8fb2.png
+docs/build/html/_images/inheritance-46c56003f1e1ef102b8bdde6c2008cc1047d8fb2.png.map
+docs/build/html/_images/inheritance-6f74e409eb10a1b27c77c202296ac68b9c36fae0.png
+docs/build/html/_images/inheritance-6f74e409eb10a1b27c77c202296ac68b9c36fae0.png.map
+docs/build/html/_images/inheritance-74b85982d38de1b075642b9329feb21b1678fc0d.png
+docs/build/html/_images/inheritance-74b85982d38de1b075642b9329feb21b1678fc0d.png.map
+docs/build/html/_images/inheritance-75b3263fc475a4eb3ee67e873667736a5e457f0f.png
+docs/build/html/_images/inheritance-75b3263fc475a4eb3ee67e873667736a5e457f0f.png.map
+docs/build/html/_images/inheritance-75bde440aa6a77c3ca9aa2fc316073d4c1d3aac2.png
+docs/build/html/_images/inheritance-75bde440aa6a77c3ca9aa2fc316073d4c1d3aac2.png.map
+docs/build/html/_images/inheritance-a574f956d66530cff465117d1f6c731b94f3318c.png
+docs/build/html/_images/inheritance-a574f956d66530cff465117d1f6c731b94f3318c.png.map
+docs/build/html/_images/inheritance-ac72b1b5abe5338676094191e281f01a78ff2199.png
+docs/build/html/_images/inheritance-ac72b1b5abe5338676094191e281f01a78ff2199.png.map
+docs/build/html/_images/inheritance-be0532b576bcf317ad7f8dea2a0cb9ce1c5fb95d.png
+docs/build/html/_images/inheritance-be0532b576bcf317ad7f8dea2a0cb9ce1c5fb95d.png.map
+docs/build/html/_images/inheritance-cee69fb600a2ecd07bf55d4cc88edf8bbd51067e.png
+docs/build/html/_images/inheritance-cee69fb600a2ecd07bf55d4cc88edf8bbd51067e.png.map
+docs/build/html/_images/inheritance-dc18e1a2a3e6b9170827395c9c431ac9d7f233e8.png
+docs/build/html/_images/inheritance-dc18e1a2a3e6b9170827395c9c431ac9d7f233e8.png.map
+docs/build/html/_images/inheritance-de779a97d23c3744563abd1ef7de26962e1eff18.png
+docs/build/html/_images/inheritance-de779a97d23c3744563abd1ef7de26962e1eff18.png.map
+docs/build/html/_images/inheritance-e4032cac4258c845bdde0345df0ead23405a16dd.png
+docs/build/html/_images/inheritance-e4032cac4258c845bdde0345df0ead23405a16dd.png.map
+docs/build/html/_images/inheritance-f4286af1fe1005bd498907507404a7fcd0deccf4.png
+docs/build/html/_images/inheritance-f4286af1fe1005bd498907507404a7fcd0deccf4.png.map
+docs/build/html/_images/inheritance-f7f11ef86413b6fa78cf064ac9ef5d6bb0f09615.png
+docs/build/html/_images/inheritance-f7f11ef86413b6fa78cf064ac9ef5d6bb0f09615.png.map
+docs/build/html/_images/inheritance-ff3610f8038e56b4cd5ee7c2b95affd8f1896088.png
+docs/build/html/_images/inheritance-ff3610f8038e56b4cd5ee7c2b95affd8f1896088.png.map
+docs/build/html/_modules/component.html
+docs/build/html/_modules/conversion.html
+docs/build/html/_modules/energySystemModel.html
+docs/build/html/_modules/index.html
+docs/build/html/_modules/lopf.html
+docs/build/html/_modules/sourceSink.html
+docs/build/html/_modules/standardIO.html
+docs/build/html/_modules/storage.html
+docs/build/html/_modules/transmission.html
+docs/build/html/_sources/aboutUsDoc.rst.txt
+docs/build/html/_sources/acknowledgementDoc.rst.txt
+docs/build/html/_sources/componentClassDoc.rst.txt
+docs/build/html/_sources/componentsDoc.rst.txt
+docs/build/html/_sources/conversionClassDoc.rst.txt
+docs/build/html/_sources/coreComponentsDoc.rst.txt
+docs/build/html/_sources/energySystemModelDoc.rst.txt
+docs/build/html/_sources/examplesDoc.rst.txt
+docs/build/html/_sources/index.rst.txt
+docs/build/html/_sources/installationDoc.rst.txt
+docs/build/html/_sources/licenseDoc.rst.txt
+docs/build/html/_sources/lopfClassDoc.rst.txt
+docs/build/html/_sources/outputManagerDoc.rst.txt
+docs/build/html/_sources/packageDoc.rst.txt
+docs/build/html/_sources/sourceSinkClassDoc.rst.txt
+docs/build/html/_sources/storageClassDoc.rst.txt
+docs/build/html/_sources/subclassComponentsDoc.rst.txt
+docs/build/html/_sources/transmissionClassDoc.rst.txt
+docs/build/html/_static/ajax-loader.gif
+docs/build/html/_static/basic.css
+docs/build/html/_static/comment-bright.png
+docs/build/html/_static/comment-close.png
+docs/build/html/_static/comment.png
+docs/build/html/_static/doctools.js
+docs/build/html/_static/documentation_options.js
+docs/build/html/_static/down-pressed.png
+docs/build/html/_static/down.png
+docs/build/html/_static/file.png
+docs/build/html/_static/graphviz.css
+docs/build/html/_static/jquery-3.2.1.js
+docs/build/html/_static/jquery.js
+docs/build/html/_static/minus.png
+docs/build/html/_static/plus.png
+docs/build/html/_static/pygments.css
+docs/build/html/_static/searchtools.js
+docs/build/html/_static/underscore-1.3.1.js
+docs/build/html/_static/underscore.js
+docs/build/html/_static/up-pressed.png
+docs/build/html/_static/up.png
+docs/build/html/_static/websupport.js
+docs/build/html/_static/css/badge_only.css
+docs/build/html/_static/css/theme.css
+docs/build/html/_static/fonts/Inconsolata-Bold.ttf
+docs/build/html/_static/fonts/Inconsolata-Regular.ttf
+docs/build/html/_static/fonts/Inconsolata.ttf
+docs/build/html/_static/fonts/Lato-Bold.ttf
+docs/build/html/_static/fonts/Lato-Regular.ttf
+docs/build/html/_static/fonts/RobotoSlab-Bold.ttf
+docs/build/html/_static/fonts/RobotoSlab-Regular.ttf
+docs/build/html/_static/fonts/fontawesome-webfont.eot
+docs/build/html/_static/fonts/fontawesome-webfont.svg
+docs/build/html/_static/fonts/fontawesome-webfont.ttf
+docs/build/html/_static/fonts/fontawesome-webfont.woff
+docs/build/html/_static/fonts/fontawesome-webfont.woff2
+docs/build/html/_static/fonts/Lato/lato-bold.eot
+docs/build/html/_static/fonts/Lato/lato-bold.ttf
+docs/build/html/_static/fonts/Lato/lato-bold.woff
+docs/build/html/_static/fonts/Lato/lato-bold.woff2
+docs/build/html/_static/fonts/Lato/lato-bolditalic.eot
+docs/build/html/_static/fonts/Lato/lato-bolditalic.ttf
+docs/build/html/_static/fonts/Lato/lato-bolditalic.woff
+docs/build/html/_static/fonts/Lato/lato-bolditalic.woff2
+docs/build/html/_static/fonts/Lato/lato-italic.eot
+docs/build/html/_static/fonts/Lato/lato-italic.ttf
+docs/build/html/_static/fonts/Lato/lato-italic.woff
+docs/build/html/_static/fonts/Lato/lato-italic.woff2
+docs/build/html/_static/fonts/Lato/lato-regular.eot
+docs/build/html/_static/fonts/Lato/lato-regular.ttf
+docs/build/html/_static/fonts/Lato/lato-regular.woff
+docs/build/html/_static/fonts/Lato/lato-regular.woff2
+docs/build/html/_static/fonts/RobotoSlab/roboto-slab-v7-bold.eot
+docs/build/html/_static/fonts/RobotoSlab/roboto-slab-v7-bold.ttf
+docs/build/html/_static/fonts/RobotoSlab/roboto-slab-v7-bold.woff
+docs/build/html/_static/fonts/RobotoSlab/roboto-slab-v7-bold.woff2
+docs/build/html/_static/fonts/RobotoSlab/roboto-slab-v7-regular.eot
+docs/build/html/_static/fonts/RobotoSlab/roboto-slab-v7-regular.ttf
+docs/build/html/_static/fonts/RobotoSlab/roboto-slab-v7-regular.woff
+docs/build/html/_static/fonts/RobotoSlab/roboto-slab-v7-regular.woff2
+docs/build/html/_static/js/modernizr.min.js
+docs/build/html/_static/js/theme.js
+docs/source/aboutUsDoc.rst
+docs/source/acknowledgementDoc.rst
+docs/source/componentClassDoc.rst
+docs/source/componentsDoc.rst
+docs/source/conf.py
+docs/source/conversionClassDoc.rst
+docs/source/energySystemModelDoc.rst
+docs/source/examplesDoc.rst
+docs/source/index.html
+docs/source/index.rst
+docs/source/installationDoc.rst
+docs/source/licenseDoc.rst
+docs/source/lopfClassDoc.rst
+docs/source/outputManagerDoc.rst
+docs/source/packageDoc.rst
+docs/source/sourceSinkClassDoc.rst
+docs/source/storageClassDoc.rst
+docs/source/transmissionClassDoc.rst
+examples/Class and function descriptions.ipynb
+examples/District optimization/Urban District Optimization Workflow.ipynb
+examples/District optimization/getData.py
+examples/District optimization/InputData/E_Demand.xlsx
+examples/District optimization/InputData/Heat_Demand.xlsx
+examples/District optimization/InputData/Locations.xlsx
+examples/District optimization/InputData/PV_Capacity.xlsx
+examples/District optimization/InputData/PV_Generation.xlsx
+examples/District optimization/InputData/Storage_capacities.xlsx
+examples/District optimization/InputData/grid_capacity_matrix.xlsx
+examples/District optimization/InputData/grid_length_matrix.xlsx
+examples/District optimization/InputData/purchaseElectricity.xlsx
+examples/District optimization/InputData/purchaseNaturalGas.xlsx
+examples/Model Run from Excel/Model Run from Excel.ipynb
+examples/Model Run from Excel/run.bat
+examples/Model Run from Excel/scenarioInput.xlsx
+examples/Model Run from Excel/scenarioInputWithMacro.xlsm
+examples/Model Run from Excel/scenarioResults.xlsx
+examples/Multi-regional Energy System Workflow/Multi-regional Energy System Workflow.ipynb
+examples/Multi-regional Energy System Workflow/getData.py
+examples/Multi-regional Energy System Workflow/job
+examples/Multi-regional Energy System Workflow/InputData/Locations.png
+examples/Multi-regional Energy System Workflow/InputData/SpatialData/Biogas/biogasPotential_GWh_biogas.xlsx
+examples/Multi-regional Energy System Workflow/InputData/SpatialData/Demands/electricityDemand_GWh_el.xlsx
+examples/Multi-regional Energy System Workflow/InputData/SpatialData/Demands/hydrogenDemand_GWh_hydrogen.xlsx
+examples/Multi-regional Energy System Workflow/InputData/SpatialData/ElectricGrid/ACcableExistingCapacity_GW_el.xlsx
+examples/Multi-regional Energy System Workflow/InputData/SpatialData/ElectricGrid/ACcableIncidence.xlsx
+examples/Multi-regional Energy System Workflow/InputData/SpatialData/ElectricGrid/ACcableReactance.xlsx
+examples/Multi-regional Energy System Workflow/InputData/SpatialData/ElectricGrid/DCcableExistingCapacity_GW_el.xlsx
+examples/Multi-regional Energy System Workflow/InputData/SpatialData/ElectricGrid/DCcableLength_km.xlsx
+examples/Multi-regional Energy System Workflow/InputData/SpatialData/ElectricGrid/DCcableLosses.xlsx
+examples/Multi-regional Energy System Workflow/InputData/SpatialData/GeologicalStorage/existingSaltCavernsCapacity_GWh_methane.xlsx
+examples/Multi-regional Energy System Workflow/InputData/SpatialData/HydroPower/fixCapacityPHS_storage_GWh_energyPHS.xlsx
+examples/Multi-regional Energy System Workflow/InputData/SpatialData/HydroPower/fixCapacityROR_GW_el.xlsx
+examples/Multi-regional Energy System Workflow/InputData/SpatialData/HydroPower/fixInflowPHS_GWh_energyPHS.xlsx
+examples/Multi-regional Energy System Workflow/InputData/SpatialData/HydroPower/fixOperationRateROR_GW_el.xlsx
+examples/Multi-regional Energy System Workflow/InputData/SpatialData/NaturalGasPlants/existingCombinedCycleGasTurbinePlantsCapacity_GW_el.xlsx
+examples/Multi-regional Energy System Workflow/InputData/SpatialData/NaturalGasPlants/newCombinedCycleGasTurbinePlantsCapacity_GW_el.xlsx
+examples/Multi-regional Energy System Workflow/InputData/SpatialData/PV/maxCapacityPV_GW_el.xlsx
+examples/Multi-regional Energy System Workflow/InputData/SpatialData/PV/maxOperationRatePV_el.xlsx
+examples/Multi-regional Energy System Workflow/InputData/SpatialData/Pipelines/pipelineIncidence.xlsx
+examples/Multi-regional Energy System Workflow/InputData/SpatialData/Pipelines/pipelineLength.xlsx
+examples/Multi-regional Energy System Workflow/InputData/SpatialData/ShapeFiles/AClines.cpg
+examples/Multi-regional Energy System Workflow/InputData/SpatialData/ShapeFiles/AClines.dbf
+examples/Multi-regional Energy System Workflow/InputData/SpatialData/ShapeFiles/AClines.prj
+examples/Multi-regional Energy System Workflow/InputData/SpatialData/ShapeFiles/AClines.shp
+examples/Multi-regional Energy System Workflow/InputData/SpatialData/ShapeFiles/AClines.shx
+examples/Multi-regional Energy System Workflow/InputData/SpatialData/ShapeFiles/DClines.cpg
+examples/Multi-regional Energy System Workflow/InputData/SpatialData/ShapeFiles/DClines.dbf
+examples/Multi-regional Energy System Workflow/InputData/SpatialData/ShapeFiles/DClines.prj
+examples/Multi-regional Energy System Workflow/InputData/SpatialData/ShapeFiles/DClines.shp
+examples/Multi-regional Energy System Workflow/InputData/SpatialData/ShapeFiles/DClines.shx
+examples/Multi-regional Energy System Workflow/InputData/SpatialData/ShapeFiles/buses.cpg
+examples/Multi-regional Energy System Workflow/InputData/SpatialData/ShapeFiles/buses.dbf
+examples/Multi-regional Energy System Workflow/InputData/SpatialData/ShapeFiles/buses.prj
+examples/Multi-regional Energy System Workflow/InputData/SpatialData/ShapeFiles/buses.shp
+examples/Multi-regional Energy System Workflow/InputData/SpatialData/ShapeFiles/buses.shx
+examples/Multi-regional Energy System Workflow/InputData/SpatialData/ShapeFiles/clusteredRegions.cpg
+examples/Multi-regional Energy System Workflow/InputData/SpatialData/ShapeFiles/clusteredRegions.dbf
+examples/Multi-regional Energy System Workflow/InputData/SpatialData/ShapeFiles/clusteredRegions.prj
+examples/Multi-regional Energy System Workflow/InputData/SpatialData/ShapeFiles/clusteredRegions.shp
+examples/Multi-regional Energy System Workflow/InputData/SpatialData/ShapeFiles/clusteredRegions.shx
+examples/Multi-regional Energy System Workflow/InputData/SpatialData/ShapeFiles/transmissionPipeline.cpg
+examples/Multi-regional Energy System Workflow/InputData/SpatialData/ShapeFiles/transmissionPipeline.dbf
+examples/Multi-regional Energy System Workflow/InputData/SpatialData/ShapeFiles/transmissionPipeline.prj
+examples/Multi-regional Energy System Workflow/InputData/SpatialData/ShapeFiles/transmissionPipeline.shp
+examples/Multi-regional Energy System Workflow/InputData/SpatialData/ShapeFiles/transmissionPipeline.shx
+examples/Multi-regional Energy System Workflow/InputData/SpatialData/Wind/maxCapacityOffshore_GW_el.xlsx
+examples/Multi-regional Energy System Workflow/InputData/SpatialData/Wind/maxCapacityOnshore_GW_el.xlsx
+examples/Multi-regional Energy System Workflow/InputData/SpatialData/Wind/maxOperationRateOffshore_el.xlsx
+examples/Multi-regional Energy System Workflow/InputData/SpatialData/Wind/maxOperationRateOnshore_el.xlsx
+examples/Water Supply System/MountainVillage.png
+examples/Water Supply System/Water Supply System.ipynb
