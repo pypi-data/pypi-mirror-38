@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: pywifimotius
+Version: 1.2
+Summary: A cross-platform module for manipulating WiFi devices.
+Home-page: https://github.com/motius/pywifi
+Author: Shiyue Liu
+Author-email: shiyue.liu@motius.de
+License: MIT
+Download-URL: https://github.com/motius/pywifi/archive/master.zip
+Keywords: wifi,wireless,Linux,Windows
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Utilities
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 2.7
+Requires-Dist: comtypes
+
+UNKNOWN
+
+
