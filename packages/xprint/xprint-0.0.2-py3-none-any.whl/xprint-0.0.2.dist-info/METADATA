@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: xprint
+Version: 0.0.2
+Summary: xprint
+Home-page: https://github.com/neoctobers/xprint
+Author: neoctobers
+Author-email: neoctobers@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+# xprint
+
+## Development Requirement
+
+1. Python 3.7.0
+
+## Installation
+
+```
+$ pip3 install xprint
+```
+
+
