@@ -1,0 +1,16 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+VERSION
+setup.py
+hitchexamplefiles/__init__.py
+hitchexamplefiles/jpeg_large.jpg
+hitchexamplefiles/jpeg_small.jpg
+hitchexamplefiles/pdf_one_page.pdf
+hitchexamplefiles/png_large.png
+hitchexamplefiles.egg-info/PKG-INFO
+hitchexamplefiles.egg-info/SOURCES.txt
+hitchexamplefiles.egg-info/dependency_links.txt
+hitchexamplefiles.egg-info/not-zip-safe
+hitchexamplefiles.egg-info/requires.txt
+hitchexamplefiles.egg-info/top_level.txt
