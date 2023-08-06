@@ -1,0 +1,31 @@
+Metadata-Version: 2.0
+Name: exoctk
+Version: 0.2.1
+Summary: Observation reduction and planning tools for exoplanet science
+Home-page: https://github.com/ExoCTK/exoctk
+Author: The ExoCTK Group
+Author-email: exoctk@gmail.com
+License: MIT
+Description-Content-Type: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: astropy
+Requires-Dist: batman-package
+Requires-Dist: bibtexparser
+Requires-Dist: bokeh
+Requires-Dist: cython
+Requires-Dist: flask
+Requires-Dist: lmfit
+Requires-Dist: matplotlib
+Requires-Dist: numba
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: pysynphot
+Requires-Dist: scipy
+Requires-Dist: sphinx-astropy
+Requires-Dist: sphinx-automodapi
+Requires-Dist: sphinx-rtd-theme
+Requires-Dist: svo-filters
+
+UNKNOWN
+
+
