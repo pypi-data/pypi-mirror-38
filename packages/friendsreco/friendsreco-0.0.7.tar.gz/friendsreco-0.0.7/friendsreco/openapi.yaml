@@ -1,0 +1,52 @@
+swagger: "2.0"
+info:
+  version: 0.0.4
+  title: Friends Recommendations
+paths:
+  /recommendations:
+    get:
+      operationId: friendsreco.run.api.c.get_recommendations
+      responses:
+        200:
+          description: Get recommendations for all people registered
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Recommendations"
+    post:
+      operationId: friendsreco.run.api.c.compute_recommendations
+      responses:
+        201:
+          description: Compute recommendations
+
+  /recommendations/{person_name}:
+    parameters:
+      - name: person_name
+        in: path
+        type: string
+        required: True
+    get:
+      operationId: friendsreco.run.api.c.get_person_recommendations
+      responses:
+        200:
+          description: Get recommendations for all people registered
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Recommendations"
+
+definitions:
+  Recommendations:
+    type: object
+    properties:
+      person:
+        $ref: "#/definitions/Person"
+      suggested_friends:
+        type: array
+        items:
+          $ref: "#/definitions/Person"
+  Person:
+    type: object
+    properties:
+      name:
+        type: string

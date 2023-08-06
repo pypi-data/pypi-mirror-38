@@ -1,0 +1,26 @@
+Metadata-Version: 1.1
+Name: friendsreco
+Version: 0.0.7
+Summary: A simple HTTP friends recommendations service.
+Home-page: https://github.com/dutradda/friendsreco
+Author: Diogo Dutra
+Author-email: diogodutradamata@gmail.com
+License: MIT
+Description: [![Build Status](https://circleci.com/gh/dutradda/friendsreco.svg?style=svg)](https://circleci.com/gh/dutradda/friendsreco)
+        [![Coverage Status](https://coveralls.io/repos/github/dutradda/friendsreco/badge.svg?branch=master)](https://coveralls.io/github/dutradda/friendsreco?branch=master)
+        [![PyPi Last Version](https://img.shields.io/pypi/v/friendsreco.svg)](https://pypi.python.org/pypi/friendsreco)
+        [![PyPi Develop Status](https://img.shields.io/pypi/status/friendsreco.svg)](https://pypi.python.org/pypi/friendsreco)
+        [![Python Versions](https://img.shields.io/pypi/pyversions/friendsreco.svg)](https://pypi.python.org/pypi/friendsreco)
+        [![License](https://img.shields.io/pypi/l/friendsreco.svg)](https://github.com/dutradda/friendsreco/blob/master/LICENSE)
+        
+        # friendsreco
+        A simple HTTP friends recommendations service
+        
+Keywords: recomendations service graph neo4j
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Internet :: WWW/HTTP
