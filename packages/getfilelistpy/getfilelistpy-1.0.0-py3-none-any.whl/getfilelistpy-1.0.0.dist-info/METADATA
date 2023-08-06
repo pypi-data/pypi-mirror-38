@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: getfilelistpy
+Version: 1.0.0
+Summary: This is a python library to retrieve the file list with the folder tree from the specific folder of Google Drive.
+Home-page: https://github.com/tanaikech/getfilelistpy
+Author: Kanshi TANAIKE
+Author-email: tanaike@hotmail.com
+License: MIT License
+Keywords: google drive,drive api,folder structure,folder tree,folder hierarchy,file list
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.5
+Requires-Dist: google-api-python-client
+
+UNKNOWN
+
+
