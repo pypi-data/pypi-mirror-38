@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: ssrviz
+Version: 1.0.1
+Summary: Protein subfamily specific residue (SSR) detection and visualization toolbox
+Home-page: http://phabi.de/
+Author: Paul Zierep
+Author-email: Paul.Zierep@googlemail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: biopython (>=1.70)
+Requires-Dist: numpy (>=1.14.3)
+Requires-Dist: scipy (>=1.1.0)
+Requires-Dist: matplotlib (>=2.2.2)
+Requires-Dist: natsort (>=5.3.0)
+Requires-Dist: Gooey (==1.0.0)
+Requires-Dist: pandas (>=0.21.0)
+
+Abstract
+=====================
+
+Homologous proteins can be classified into protein families. The members of a family share a similar structure and sequence. Despite their inherent similarity, individual members of the same family can adopt very specific functions, leading to a further division into subfamilies. These functional differences can often be assigned to specific residues. This information can be used for various applications, such as function-based subfamily classification, rational site-directed mutagenesis and general elucidation of mechanisms of action. Here we introduce a novel user-friendly open-source software which allows for the identification and visualization of these residues.
+
+Documentation
+=====================
+
+The documentation can be found in the repo: SSR-viz_doku.pdf
+
