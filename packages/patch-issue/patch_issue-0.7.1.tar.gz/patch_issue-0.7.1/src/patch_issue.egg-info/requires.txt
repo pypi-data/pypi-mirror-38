@@ -1,0 +1,9 @@
+colored
+
+[dev]
+property-manager
+attrdict
+mock
+flake8
+pytest
+pytest-cov
