@@ -1,0 +1,50 @@
+Metadata-Version: 2.1
+Name: hanna
+Version: 0.2.2
+Summary: Turns your configurations into actions
+Home-page: https://gitlab.com/Dominik1123/Hanna
+Author: Dominik Vilsmeier
+Author-email: dominik.vilsmeier1123@gmail.com
+License: BSD-3-Clause
+Keywords: configuration,framework
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Software Development
+Requires-Python: >=3.6
+Description-Content-Type: text/x-rst
+Requires-Dist: pyhocon
+
+Turning your configurations into actions - Declaring constructive configuration
+===============================================================================
+
+Using a strong configuration backend, such as `pyhocon <https://pypi.org/project/pyhocon/>`__,
+relieves you from dealing with configuration sources, however, as a developer, you're still left
+with the task of turning these sources into action. This may involve further processing of specified
+values, checking for constraints, define exceptions or generally getting things in the right place.
+This package helps you doing so.
+
+My main motivation for creating this package was dealing with physical quantities.
+As a developer you adhere to a specific set of units that are used throughout your application,
+but for a user it might be just convenient to specify these values in different units.
+Say your program uses the SI unit system for its internal calculations and therefore you declare
+the length of some object in units of meter. But your users might specify objects of various
+magnitudes and therefore, for the sake of convenience, use different units such as centimeter or
+millimeter. Having a mechanism that automatically converts the specified values such that they meet
+the declaration is one of the many features of this package.
+
+`This package <https://dominik1123.gitbook.io/hanna>`__ separates the configuration process into
+two stages: declaration and specification.
+Declaration is performed by the developer while specification is done by the user.
+This package focuses on the declaration part and also builds a bridge between the two worlds by
+making sure that the specified values arrive exactly where you want them to be.
+
+
+Helpful links
+-------------
+
+* `Documentation <https://dominik1123.gitbook.io/hanna>`__
+* `Features under construction <https://gitlab.com/Dominik1123/Hanna/issues?scope=all&utf8=%E2%9C%93&state=opened&label_name[]=feature-proposal>`__
+
+
