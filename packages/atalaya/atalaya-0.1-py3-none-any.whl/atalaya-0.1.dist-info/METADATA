@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: atalaya
+Version: 0.1
+Summary: Atalaya is a logger for pytorch.
+Home-page: https://bitbucket.org/dmmlgeneva/frameworks/src/master/atalaya/
+Author: jacr
+Author-email: joao.candido@hesge.ch
+License: MIT
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Requires-Dist: torch
+Requires-Dist: visdom (>=0.1.8.5)
+Requires-Dist: tensorboardX (>=1.4)
+
+UNKNOWN
+
+
