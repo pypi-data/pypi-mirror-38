@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: sputil
+Version: 0.3.7
+Summary: Splunk Utility
+Home-page: https://github.com/GamjaPower/splunk-util
+Author: Jason Shim
+Author-email: sst9696@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Dist: requests (>=2.0.0)
+Requires-Dist: splunk-sdk (>=1.6.0)
+Requires-Dist: pyutil (>=3.0.0)
+
+# splunk-util version 0.3.3
+
+splunk util is a program that allows splunk engineers to easily carry out projects using the basic sdk of splunk.
+
+This program includes the following features.
+# 1. Simple Index
+When you index, only the data file and the index name are automatically indexed and the index is entered into the file.
+# 2. Simple Search
+This is the ability to use SPL in environments where web browsers are not available.
+# 3. Simple Diag
+It automatically checks the items to be checked by default during periodic inspection and saves the problematic part in the system.
+# 4. Simple StressTest
+
+
