@@ -1,0 +1,40 @@
+# Maintainer: peippo <christoph.fink@gmail.com>
+
+pkgname=python-webis
+pkgver=0.0.9
+pkgrel=0
+
+pkgdesc="Python wrapper for the webis Twitter sentiment identification tool"
+url="https://gitlab.com/christoph.fink/python-webis"
+license=("GPLv2")
+
+arch=("any")
+makedepends=(
+    "java-environment"
+    "java-runtime"
+    "python-gitpython"
+    "python-setuptools"
+)
+depends=(
+    "java-runtime"
+    "python-emojientities"
+    "python-pyjnius"
+)
+
+source=("")
+sha256sums=("")
+
+prepare() {
+   rm -Rf "${srcdir}/*/*.egg-info"
+}
+
+build() {
+   cd "${srcdir}/webis-${pkgver}"
+   python setup.py build
+}
+
+package() {
+   cd "${srcdir}/webis-${pkgver}"
+   python setup.py install --root="${pkgdir}" --optimize=1 --skip-build
+
+}
