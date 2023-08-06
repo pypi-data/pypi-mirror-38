@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: dretools
+Version: 0.0.1.20
+Summary: A software package for finding differential RNA editing.
+Home-page: https://bitbucket.org/dretools/dretools
+Author: Tyler Weirick
+Author-email: tyler.weirick@gmail.com
+License: CC BY 4.0
+Platform: any
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Dist: numpy (>=1.9.2)
+Requires-Dist: rpy2 (>=2.9.3)
+Requires-Dist: scipy (>=0.16.0)
+Requires-Dist: statsmodels (>=0.8.0)
+Requires-Dist: intervaltree (>=2.1.0)
+Requires-Dist: pysam (>=0.13)
+Requires-Dist: behave
+
+# DRETools
+
+DRETools is a command-line tools set for finding differential RNA editing and realted fuctions.
+See the DRETools homepage at https://dretools.bitbucket.io/ for more information. 
+
+
+### Installation
+
+Installing DRETools requires two steps. 
+
+1) Installing python packages with pip. This can be done with the command "pip3 install dretools". This will handle all python-based dependencies. 
+
+2) Additionally R version 3.4.1 or greater is needed.   
+
+
+### Usage
+
+To view functions available in DRETools simply type "dretools --help". 
+
+
