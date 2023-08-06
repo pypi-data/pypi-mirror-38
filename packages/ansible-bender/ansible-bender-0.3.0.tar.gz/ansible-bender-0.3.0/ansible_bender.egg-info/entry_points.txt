@@ -1,0 +1,4 @@
+
+        [console_scripts]
+        ab=ansible_bender.cli:main
+    
