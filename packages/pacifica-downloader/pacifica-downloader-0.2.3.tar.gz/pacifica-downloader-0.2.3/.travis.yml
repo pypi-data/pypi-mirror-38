@@ -1,0 +1,67 @@
+language: python
+services:
+- rabbitmq
+stages:
+- lint
+- test
+- deploy
+".before_script": &2
+- export CARTD_CPCONFIG="$PWD/travis/cartd/server.conf"
+- export ARCHIVEINTERFACE_CPCONFIG="$PWD/travis/archive/server.conf"
+- export ARCHIVEINTERFACE_CONFIG="$PWD/travis/archive/config.cfg"
+- pacifica-archiveinterface & echo $! > archive.pid
+- pacifica-cartd-cmd dbsync
+- pacifica-cartd & echo $! > cartd.pid
+- celery -A pacifica.cartd.tasks worker -l info -P solo -c 1 & echo $! > celery.pid
+- sleep 4
+- python test_files/archiveinterfacepreload.py
+".script": &1
+- pip install .
+- cd tests
+- coverage run --include '*/site-packages/pacifica/downloader/*' -m pytest -xv
+- coverage report -m --fail-under 100
+jobs:
+  include:
+  - stage: lint
+    python: 3.6
+    script: pre-commit run -a
+  - python: 2.7
+    script: pre-commit run -a
+  - stage: test
+    script: *1
+    before_script: *2
+    python: 3.6
+  - script: *1
+    before_script: *2
+    python: 2.7
+  - stage: deploy
+    services: []
+    language: python
+    before_install: skip
+    script: skip
+    python: 3.6
+    deploy:
+      skip_cleanup: true
+      provider: pypi
+      user: dmlb2000
+      distributions: sdist bdist_wheel
+      password:
+        secure: atBJ8Qm8DUAfGBarfjOqt49Sdjcz0Cn4a6vYsT3zR5tY9KUISeZppIzvTTDoKyeUlHrc/djaIxV57CjPP24oDIktHdS8VoZZ/zJVa0CQabQrbmGi6JPhfcQuo388qnhFoJgT3rXE1ZxOc/Zjo2fIoM2w/2h4aIwiibO9EWVifRynDyUxpCjYuJ+T3shUYg4+cLfpxhy20/+s8RJkT/bZwihyfwrbBmayYl2uxWDVrZwsz1S3cW6LOjHlYh/gJQur9oW9d99ed9jmL15abJZkFCUOQx0gdVp0WLysMUON7vYYm0pSZXZ7+vn8hqejdEOTK5qr1N9pKAOEORSxQ4r35oZSk+KF88OZBnuGmbjAo93V6aDR+9rKvH5jk16ArviWp5MbdYprhvW+yPVxdh8mwHOnYAbLqRnGfbglSJqTJZ1kXTyjrezVipfH2O+8JO5zxWXHABidG8BIqA649Rw2GPWgov7Ri8dv5qfDLbvdsRkC2Yj47OFCoeNQacTnsLS0z1h+bvuREiXx953duOHLFfi1YhRxl85Ch6QqarL078wlCAVRFPPaiVrP8qFYqFifb9ex71lKEpFJwhEv/gwfr0NcAaOhXJ6IFhX74k3kOUze39BA2Y9rBul8x1KuJ7C8MRLquFceOdiY5iUvdxgS+/036du5JOhcov3fuQe/6UM=
+      on:
+        tags: true
+  - services: []
+    language: python
+    before_install: skip
+    script: skip
+    python: 2.7
+    deploy:
+      skip_cleanup: true
+      provider: pypi
+      user: dmlb2000
+      distributions: bdist_wheel
+      password:
+        secure: atBJ8Qm8DUAfGBarfjOqt49Sdjcz0Cn4a6vYsT3zR5tY9KUISeZppIzvTTDoKyeUlHrc/djaIxV57CjPP24oDIktHdS8VoZZ/zJVa0CQabQrbmGi6JPhfcQuo388qnhFoJgT3rXE1ZxOc/Zjo2fIoM2w/2h4aIwiibO9EWVifRynDyUxpCjYuJ+T3shUYg4+cLfpxhy20/+s8RJkT/bZwihyfwrbBmayYl2uxWDVrZwsz1S3cW6LOjHlYh/gJQur9oW9d99ed9jmL15abJZkFCUOQx0gdVp0WLysMUON7vYYm0pSZXZ7+vn8hqejdEOTK5qr1N9pKAOEORSxQ4r35oZSk+KF88OZBnuGmbjAo93V6aDR+9rKvH5jk16ArviWp5MbdYprhvW+yPVxdh8mwHOnYAbLqRnGfbglSJqTJZ1kXTyjrezVipfH2O+8JO5zxWXHABidG8BIqA649Rw2GPWgov7Ri8dv5qfDLbvdsRkC2Yj47OFCoeNQacTnsLS0z1h+bvuREiXx953duOHLFfi1YhRxl85Ch6QqarL078wlCAVRFPPaiVrP8qFYqFifb9ex71lKEpFJwhEv/gwfr0NcAaOhXJ6IFhX74k3kOUze39BA2Y9rBul8x1KuJ7C8MRLquFceOdiY5iUvdxgS+/036du5JOhcov3fuQe/6UM=
+      on:
+        tags: true
+install:
+- pip install -r requirements-dev.txt
