@@ -1,0 +1,12 @@
+.gitignore
+LICENSE
+README.md
+acpi-backlight-eval
+setup.py
+acpi_backlight/__init__.py
+acpi_backlight/evaluate.py
+acpi_backlight/evaluate_test.py
+acpi_backlight.egg-info/PKG-INFO
+acpi_backlight.egg-info/SOURCES.txt
+acpi_backlight.egg-info/dependency_links.txt
+acpi_backlight.egg-info/top_level.txt
