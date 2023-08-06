@@ -1,0 +1,83 @@
+Metadata-Version: 2.1
+Name: noted-cli
+Version: 0.1.5
+Summary: A VIM-inspired note manager for the console
+Home-page: https://bitbucket.org/zappen999/noted-cli
+Author: Johan Kanefur
+Author-email: johan.canefur@gmail.com
+License: GNU General Public License v2 (GPLv2)
+Platform: any
+Description-Content-Type: text/markdown
+Requires-Dist: pycrypto (==2.6.1)
+
+# Noted
+Keep your notes to yourself.
+
+## Vision
+Free, simple, encrypted note-taking in markdown
+
+## Dependencies
+- pycrypto
+
+## Roadmap
+* Package for distribution
+* Unopinionated key mappings (non-vim, arrow keys etc.)
+* Handle graceful shutdown on SIGTERM
+* Save search queries
+* List and edit existing tags
+
+## Contributing
+### Setup development environment
+
+1. Clone repository
+2. Setup virtual env and install dependencies:
+
+```
+cd noted-cli
+virtualenv env
+source env/bin/activate
+pip3 install -r requirements.txt
+
+LOGLEVEL=DEBUG python3 noted
+```
+
+### Build for distribution
+Run `./pack-dist` in the base directory. Built file/files will be located in
+`dist/`
+
+
+## Debugging
+You can enable the debug log by launching noted with the environment variable
+`LOGLEVEL` set to `DEBUG`.
+
+Example: `LOGLEVEL=DEBUG noted`
+
+By default, if `LOGFILE` environment variable is not specified, the logging
+data will be written to `noted.log` in the storage directory `$HOME/.noted`.
+
+The default log level is set to `WARNING`.
+
+## TODO
+- Change encryption passphrase.
+- Delete tag entity when removing last use of tag from note.
+- Rename tags.
+- Delete tags.
+- Be able to store a search query.
+- Be able to initiate the TUI with arguments.
+- Tag auto complete when using tag object notation in search field.
+- Configure editor (xdg-open?).
+- Safer way of opening database/files to increase privacy/security.
+
+## Considerations
+- Utilize GnuPG for encryption of database and files.
+- Break out CLI/TUI version to own project/s
+
+## Known bugs/issues
+- Cannot edit note on macOS. Issue due to tmpfs removing file before we get
+  the chance to read?
+- Log file gets created in cwd.
+- Saving an empty note causes SQLite exception.
+- Curses doesn't restore terminal after VIM has been opened in some cases (may
+  be caused by some VIM plugin).
+
+
