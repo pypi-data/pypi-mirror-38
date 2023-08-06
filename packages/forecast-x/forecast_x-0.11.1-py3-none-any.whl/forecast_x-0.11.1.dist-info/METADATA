@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: forecast-x
+Version: 0.11.1
+Summary: Forecasting Model package based on naive models
+Home-page: https://github.com/alejandrodbn/forecast
+Author: Alejandro De Barros
+Author-email: alejandrodbn@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+# Forecast_x
+> Toolkit with Naive models for time series.
+
+Forecast_x provides different models for fitting applying a naive approach to time series.
+
+
+
+## Installation
+
+```sh
+pip install -U forecast-x
+```
+
+
+## Release History
+
+* 0.11.1
+    * FIX: Missing installation file.
+* 0.10
+    * The first proper release
+* 0.1
+    * Work in progress
+
+## Meta
+
+Alejandro De Barros â€“ (https://twitter.com/alejandrodbn) â€“ alejandrodbn@gmail.com
+
+Distributed under the MIT license. See ``LICENSE`` for more information.
+
+[https://github.com/alejandrodbn/forecast](https://github.com/alejandrodbn/)
+
+
+
