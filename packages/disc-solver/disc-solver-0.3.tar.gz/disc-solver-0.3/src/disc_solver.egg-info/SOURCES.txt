@@ -1,0 +1,205 @@
+.coveragerc
+COPYING
+DESCRIPTION.rst
+LICENSE.txt
+MANIFEST.in
+known_broken_constraints.txt
+pylintrc
+pytest.ini
+setup.cfg
+setup.py
+tox.ini
+versioneer.py
+ci_support/ensure_sundials_installed.sh
+ci_support/install_sundials.sh
+dev_hooks/pre-commit.sh
+dev_hooks/run_tests.sh
+src/disc_solver/__init__.py
+src/disc_solver/_version.py
+src/disc_solver/_version_.py
+src/disc_solver/constants.py
+src/disc_solver/float_handling.py
+src/disc_solver/logging.py
+src/disc_solver/utils.py
+src/disc_solver.egg-info/PKG-INFO
+src/disc_solver.egg-info/SOURCES.txt
+src/disc_solver.egg-info/dependency_links.txt
+src/disc_solver.egg-info/entry_points.txt
+src/disc_solver.egg-info/requires.txt
+src/disc_solver.egg-info/top_level.txt
+src/disc_solver/analyse/__init__.py
+src/disc_solver/analyse/acc_plot.py
+src/disc_solver/analyse/combine_plot.py
+src/disc_solver/analyse/compare_plot.py
+src/disc_solver/analyse/component_plot.py
+src/disc_solver/analyse/conserve_plot.py
+src/disc_solver/analyse/derivs_plot.py
+src/disc_solver/analyse/diverge_plot.py
+src/disc_solver/analyse/hydro_check_plot.py
+src/disc_solver/analyse/info.py
+src/disc_solver/analyse/j_e_plot.py
+src/disc_solver/analyse/params_plot.py
+src/disc_solver/analyse/plot.py
+src/disc_solver/analyse/taylor_plot.py
+src/disc_solver/analyse/utils.py
+src/disc_solver/analyse/validate_plot.py
+src/disc_solver/file_format/__init__.py
+src/disc_solver/file_format/_containers.py
+src/disc_solver/file_format/_dumpers.py
+src/disc_solver/file_format/_loaders.py
+src/disc_solver/file_format/_old_dict_loading.py
+src/disc_solver/file_format/_utils.py
+src/disc_solver/solve/__init__.py
+src/disc_solver/solve/config.py
+src/disc_solver/solve/deriv_funcs.py
+src/disc_solver/solve/hydrostatic.py
+src/disc_solver/solve/j_e_funcs.py
+src/disc_solver/solve/mcmc.py
+src/disc_solver/solve/mod_hydro.py
+src/disc_solver/solve/resolve.py
+src/disc_solver/solve/single.py
+src/disc_solver/solve/solution.py
+src/disc_solver/solve/sonic_root.py
+src/disc_solver/solve/stepper.py
+src/disc_solver/solve/taylor_space.py
+src/disc_solver/solve/utils.py
+tests/conftest.py
+tests/test_hydrostatic.py
+tests/test_mod_hydro.py
+tests/test_odes.py
+tests/test_odes_sonic.py
+tests/test_run.py
+tests/test_utils.py
+tests/_regtest_outputs/test_hydrostatic.test_E_φ__<Function 'test_E_φ'><class 'float'>.out
+tests/_regtest_outputs/test_hydrostatic.test_E_φ__<Function 'test_E_φ'><class 'numpy.binary128'>.out
+tests/_regtest_outputs/test_hydrostatic.test_E_φ__<Function 'test_E_φ'><class 'numpy.float64'>.out
+tests/_regtest_outputs/test_hydrostatic.test_azimuthal_induction_numeric__<Function 'test_azimuthal_induction_numeric'><class 'float'>.out
+tests/_regtest_outputs/test_hydrostatic.test_azimuthal_induction_numeric__<Function 'test_azimuthal_induction_numeric'><class 'numpy.binary128'>.out
+tests/_regtest_outputs/test_hydrostatic.test_azimuthal_induction_numeric__<Function 'test_azimuthal_induction_numeric'><class 'numpy.float64'>.out
+tests/_regtest_outputs/test_hydrostatic.test_continuity__<Function 'test_continuity'><class 'float'>.out
+tests/_regtest_outputs/test_hydrostatic.test_continuity__<Function 'test_continuity'><class 'numpy.binary128'>.out
+tests/_regtest_outputs/test_hydrostatic.test_continuity__<Function 'test_continuity'><class 'numpy.float64'>.out
+tests/_regtest_outputs/test_hydrostatic.test_polar_induction__<Function 'test_polar_induction'><class 'float'>.out
+tests/_regtest_outputs/test_hydrostatic.test_polar_induction__<Function 'test_polar_induction'><class 'numpy.binary128'>.out
+tests/_regtest_outputs/test_hydrostatic.test_polar_induction__<Function 'test_polar_induction'><class 'numpy.float64'>.out
+tests/_regtest_outputs/test_hydrostatic.test_polar_momentum__<Function 'test_polar_momentum'><class 'float'>.out
+tests/_regtest_outputs/test_hydrostatic.test_polar_momentum__<Function 'test_polar_momentum'><class 'numpy.binary128'>.out
+tests/_regtest_outputs/test_hydrostatic.test_polar_momentum__<Function 'test_polar_momentum'><class 'numpy.float64'>.out
+tests/_regtest_outputs/test_hydrostatic.test_solenoid__<Function 'test_solenoid'><class 'float'>.out
+tests/_regtest_outputs/test_hydrostatic.test_solenoid__<Function 'test_solenoid'><class 'numpy.binary128'>.out
+tests/_regtest_outputs/test_hydrostatic.test_solenoid__<Function 'test_solenoid'><class 'numpy.float64'>.out
+tests/_regtest_outputs/test_mod_hydro.test_E_φ__<Function 'test_E_φ'><class 'float'>.out
+tests/_regtest_outputs/test_mod_hydro.test_E_φ__<Function 'test_E_φ'><class 'numpy.binary128'>.out
+tests/_regtest_outputs/test_mod_hydro.test_E_φ__<Function 'test_E_φ'><class 'numpy.float64'>.out
+tests/_regtest_outputs/test_mod_hydro.test_azimuthal_induction_numeric__<Function 'test_azimuthal_induction_numeric'><class 'float'>.out
+tests/_regtest_outputs/test_mod_hydro.test_azimuthal_induction_numeric__<Function 'test_azimuthal_induction_numeric'><class 'numpy.binary128'>.out
+tests/_regtest_outputs/test_mod_hydro.test_azimuthal_induction_numeric__<Function 'test_azimuthal_induction_numeric'><class 'numpy.float64'>.out
+tests/_regtest_outputs/test_mod_hydro.test_continuity__<Function 'test_continuity'><class 'float'>.out
+tests/_regtest_outputs/test_mod_hydro.test_continuity__<Function 'test_continuity'><class 'numpy.binary128'>.out
+tests/_regtest_outputs/test_mod_hydro.test_continuity__<Function 'test_continuity'><class 'numpy.float64'>.out
+tests/_regtest_outputs/test_mod_hydro.test_polar_induction__<Function 'test_polar_induction'><class 'float'>.out
+tests/_regtest_outputs/test_mod_hydro.test_polar_induction__<Function 'test_polar_induction'><class 'numpy.binary128'>.out
+tests/_regtest_outputs/test_mod_hydro.test_polar_induction__<Function 'test_polar_induction'><class 'numpy.float64'>.out
+tests/_regtest_outputs/test_mod_hydro.test_polar_momentum__<Function 'test_polar_momentum'><class 'float'>.out
+tests/_regtest_outputs/test_mod_hydro.test_polar_momentum__<Function 'test_polar_momentum'><class 'numpy.binary128'>.out
+tests/_regtest_outputs/test_mod_hydro.test_polar_momentum__<Function 'test_polar_momentum'><class 'numpy.float64'>.out
+tests/_regtest_outputs/test_mod_hydro.test_solenoid__<Function 'test_solenoid'><class 'float'>.out
+tests/_regtest_outputs/test_mod_hydro.test_solenoid__<Function 'test_solenoid'><class 'numpy.binary128'>.out
+tests/_regtest_outputs/test_mod_hydro.test_solenoid__<Function 'test_solenoid'><class 'numpy.float64'>.out
+tests/_regtest_outputs/test_odes.test_E_φ__<Function 'test_E_φ'><class 'float'>.out
+tests/_regtest_outputs/test_odes.test_E_φ__<Function 'test_E_φ'><class 'numpy.binary128'>.out
+tests/_regtest_outputs/test_odes.test_E_φ__<Function 'test_E_φ'><class 'numpy.float64'>.out
+tests/_regtest_outputs/test_odes.test_azimuthal_induction_numeric__<Function 'test_azimuthal_induction_numeric'><class 'float'>.out
+tests/_regtest_outputs/test_odes.test_azimuthal_induction_numeric__<Function 'test_azimuthal_induction_numeric'><class 'numpy.binary128'>.out
+tests/_regtest_outputs/test_odes.test_azimuthal_induction_numeric__<Function 'test_azimuthal_induction_numeric'><class 'numpy.float64'>.out
+tests/_regtest_outputs/test_odes.test_azimuthal_mometum__<Function 'test_azimuthal_mometum'><class 'float'>.out
+tests/_regtest_outputs/test_odes.test_azimuthal_mometum__<Function 'test_azimuthal_mometum'><class 'numpy.binary128'>.out
+tests/_regtest_outputs/test_odes.test_azimuthal_mometum__<Function 'test_azimuthal_mometum'><class 'numpy.float64'>.out
+tests/_regtest_outputs/test_odes.test_continuity__<Function 'test_continuity'><class 'float'>.out
+tests/_regtest_outputs/test_odes.test_continuity__<Function 'test_continuity'><class 'numpy.binary128'>.out
+tests/_regtest_outputs/test_odes.test_continuity__<Function 'test_continuity'><class 'numpy.float64'>.out
+tests/_regtest_outputs/test_odes.test_polar_induction__<Function 'test_polar_induction'><class 'float'>.out
+tests/_regtest_outputs/test_odes.test_polar_induction__<Function 'test_polar_induction'><class 'numpy.binary128'>.out
+tests/_regtest_outputs/test_odes.test_polar_induction__<Function 'test_polar_induction'><class 'numpy.float64'>.out
+tests/_regtest_outputs/test_odes.test_polar_momentum__<Function 'test_polar_momentum'><class 'float'>.out
+tests/_regtest_outputs/test_odes.test_polar_momentum__<Function 'test_polar_momentum'><class 'numpy.binary128'>.out
+tests/_regtest_outputs/test_odes.test_polar_momentum__<Function 'test_polar_momentum'><class 'numpy.float64'>.out
+tests/_regtest_outputs/test_odes.test_radial_momentum__<Function 'test_radial_momentum'><class 'float'>.out
+tests/_regtest_outputs/test_odes.test_radial_momentum__<Function 'test_radial_momentum'><class 'numpy.binary128'>.out
+tests/_regtest_outputs/test_odes.test_radial_momentum__<Function 'test_radial_momentum'><class 'numpy.float64'>.out
+tests/_regtest_outputs/test_odes.test_solenoid__<Function 'test_solenoid'><class 'float'>.out
+tests/_regtest_outputs/test_odes.test_solenoid__<Function 'test_solenoid'><class 'numpy.binary128'>.out
+tests/_regtest_outputs/test_odes.test_solenoid__<Function 'test_solenoid'><class 'numpy.float64'>.out
+tests/_regtest_outputs/test_odes_sonic.test_E_φ__<Function 'test_E_φ'><class 'float'>.out
+tests/_regtest_outputs/test_odes_sonic.test_E_φ__<Function 'test_E_φ'><class 'numpy.binary128'>.out
+tests/_regtest_outputs/test_odes_sonic.test_E_φ__<Function 'test_E_φ'><class 'numpy.float64'>.out
+tests/_regtest_outputs/test_odes_sonic.test_azimuthal_induction_numeric__<Function 'test_azimuthal_induction_numeric'><class 'float'>.out
+tests/_regtest_outputs/test_odes_sonic.test_azimuthal_induction_numeric__<Function 'test_azimuthal_induction_numeric'><class 'numpy.binary128'>.out
+tests/_regtest_outputs/test_odes_sonic.test_azimuthal_induction_numeric__<Function 'test_azimuthal_induction_numeric'><class 'numpy.float64'>.out
+tests/_regtest_outputs/test_odes_sonic.test_azimuthal_mometum__<Function 'test_azimuthal_mometum'><class 'float'>.out
+tests/_regtest_outputs/test_odes_sonic.test_azimuthal_mometum__<Function 'test_azimuthal_mometum'><class 'numpy.binary128'>.out
+tests/_regtest_outputs/test_odes_sonic.test_azimuthal_mometum__<Function 'test_azimuthal_mometum'><class 'numpy.float64'>.out
+tests/_regtest_outputs/test_odes_sonic.test_continuity__<Function 'test_continuity'><class 'float'>.out
+tests/_regtest_outputs/test_odes_sonic.test_continuity__<Function 'test_continuity'><class 'numpy.binary128'>.out
+tests/_regtest_outputs/test_odes_sonic.test_continuity__<Function 'test_continuity'><class 'numpy.float64'>.out
+tests/_regtest_outputs/test_odes_sonic.test_polar_induction__<Function 'test_polar_induction'><class 'float'>.out
+tests/_regtest_outputs/test_odes_sonic.test_polar_induction__<Function 'test_polar_induction'><class 'numpy.binary128'>.out
+tests/_regtest_outputs/test_odes_sonic.test_polar_induction__<Function 'test_polar_induction'><class 'numpy.float64'>.out
+tests/_regtest_outputs/test_odes_sonic.test_polar_momentum__<Function 'test_polar_momentum'><class 'float'>.out
+tests/_regtest_outputs/test_odes_sonic.test_polar_momentum__<Function 'test_polar_momentum'><class 'numpy.binary128'>.out
+tests/_regtest_outputs/test_odes_sonic.test_polar_momentum__<Function 'test_polar_momentum'><class 'numpy.float64'>.out
+tests/_regtest_outputs/test_odes_sonic.test_radial_momentum__<Function 'test_radial_momentum'><class 'float'>.out
+tests/_regtest_outputs/test_odes_sonic.test_radial_momentum__<Function 'test_radial_momentum'><class 'numpy.binary128'>.out
+tests/_regtest_outputs/test_odes_sonic.test_radial_momentum__<Function 'test_radial_momentum'><class 'numpy.float64'>.out
+tests/_regtest_outputs/test_odes_sonic.test_solenoid__<Function 'test_solenoid'><class 'float'>.out
+tests/_regtest_outputs/test_odes_sonic.test_solenoid__<Function 'test_solenoid'><class 'numpy.binary128'>.out
+tests/_regtest_outputs/test_odes_sonic.test_solenoid__<Function 'test_solenoid'><class 'numpy.float64'>.out
+tests/images/test_acc_file_hydrostatic_solution_default.png
+tests/images/test_acc_file_hydrostatic_solution_no_internal.png
+tests/images/test_acc_file_single_solution_default.png
+tests/images/test_acc_file_single_solution_no_internal.png
+tests/images/test_acc_file_sonic_root_solution_default.png
+tests/images/test_acc_file_sonic_root_solution_no_internal.png
+tests/images/test_acc_file_step_solution_default.png
+tests/images/test_combine_file_hydrostatic_solution_default.png
+tests/images/test_combine_file_hydrostatic_solution_no_internal.png
+tests/images/test_combine_file_single_solution_default.png
+tests/images/test_combine_file_single_solution_no_internal.png
+tests/images/test_combine_file_sonic_root_solution_default.png
+tests/images/test_combine_file_sonic_root_solution_no_internal.png
+tests/images/test_combine_file_step_solution_default.png
+tests/images/test_derivs_file_single_solution_default.png
+tests/images/test_derivs_file_sonic_root_solution_default.png
+tests/images/test_derivs_file_step_solution_default.png
+tests/images/test_j_e_plot_file_hydrostatic_solution_default.png
+tests/images/test_j_e_plot_file_hydrostatic_solution_no_internal.png
+tests/images/test_j_e_plot_file_single_solution_default.png
+tests/images/test_j_e_plot_file_single_solution_no_internal.png
+tests/images/test_j_e_plot_file_sonic_root_solution_default.png
+tests/images/test_j_e_plot_file_sonic_root_solution_no_internal.png
+tests/images/test_j_e_plot_file_step_solution_default.png
+tests/images/test_jacobian_file_hydrostatic_solution_default.png
+tests/images/test_jacobian_file_hydrostatic_solution_no_internal.png
+tests/images/test_jacobian_file_single_solution_default.png
+tests/images/test_jacobian_file_single_solution_no_internal.png
+tests/images/test_jacobian_file_sonic_root_solution_default.png
+tests/images/test_jacobian_file_sonic_root_solution_no_internal.png
+tests/images/test_jacobian_file_step_solution_default.png
+tests/images/test_params_file_hydrostatic_solution_default.png
+tests/images/test_params_file_single_solution_default.png
+tests/images/test_params_file_sonic_root_solution_default.png
+tests/images/test_params_file_step_solution_default.png
+tests/images/test_plot_file_hydrostatic_solution_default.png
+tests/images/test_plot_file_hydrostatic_solution_no_internal.png
+tests/images/test_plot_file_single_solution_default.png
+tests/images/test_plot_file_single_solution_no_internal.png
+tests/images/test_plot_file_sonic_root_solution_default.png
+tests/images/test_plot_file_sonic_root_solution_no_internal.png
+tests/images/test_plot_file_step_solution_default.png
+tests/images/test_taylor_file_single_solution_default.png
+tests/images/test_taylor_file_sonic_root_solution_default.png
+tests/images/test_taylor_file_step_solution_default.png
+tests/images/test_validate_file_hydrostatic_solution_default.png
+tests/images/test_validate_file_single_solution_default.png
+tests/images/test_validate_file_sonic_root_solution_default.png
+tests/images/test_validate_file_step_solution_default.png
