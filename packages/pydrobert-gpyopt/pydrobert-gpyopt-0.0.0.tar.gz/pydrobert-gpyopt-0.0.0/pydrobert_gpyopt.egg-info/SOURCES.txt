@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.cfg
+setup.py
+pydrobert/__init__.py
+pydrobert/gpyopt/__init__.py
+pydrobert_gpyopt.egg-info/PKG-INFO
+pydrobert_gpyopt.egg-info/SOURCES.txt
+pydrobert_gpyopt.egg-info/dependency_links.txt
+pydrobert_gpyopt.egg-info/not-zip-safe
+pydrobert_gpyopt.egg-info/requires.txt
+pydrobert_gpyopt.egg-info/top_level.txt
