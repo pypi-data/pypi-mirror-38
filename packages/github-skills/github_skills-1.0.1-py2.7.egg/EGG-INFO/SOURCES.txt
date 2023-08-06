@@ -1,0 +1,15 @@
+README.md
+setup.py
+github_skills/__init__.py
+github_skills/bin.py
+github_skills/exceptions.py
+github_skills/github.py
+github_skills.egg-info/PKG-INFO
+github_skills.egg-info/SOURCES.txt
+github_skills.egg-info/dependency_links.txt
+github_skills.egg-info/entry_points.txt
+github_skills.egg-info/requires.txt
+github_skills.egg-info/top_level.txt
+github_skills/tests/__init__.py
+github_skills/tests/conftest.py
+github_skills/tests/test_get_skills.py

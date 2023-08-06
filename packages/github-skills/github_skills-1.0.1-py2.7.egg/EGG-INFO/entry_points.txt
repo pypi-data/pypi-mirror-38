@@ -1,0 +1,3 @@
+[console_scripts]
+github-skills = github_skills.bin:run
+
