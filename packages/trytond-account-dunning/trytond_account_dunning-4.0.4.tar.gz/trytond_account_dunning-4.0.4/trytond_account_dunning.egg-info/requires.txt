@@ -1,0 +1,5 @@
+python-sql>=0.4
+trytond_account<4.1,>=4.0
+trytond_company<4.1,>=4.0
+trytond_party<4.1,>=4.0
+trytond<4.1,>=4.0
