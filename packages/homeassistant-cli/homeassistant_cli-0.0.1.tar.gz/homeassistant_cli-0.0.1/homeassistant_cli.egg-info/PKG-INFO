@@ -1,0 +1,19 @@
+Metadata-Version: 1.1
+Name: homeassistant-cli
+Version: 0.0.1
+Summary: Command-line tool for Home Assistant.
+Home-page: https://github.com/home-assistant/home-assistant-cli
+Author: Fabian Affolter
+Author-email: fabian@affolter-engineering.ch
+License: Apache License 2.0
+Download-URL: https://github.com/home-assistant/home-assistant-cli/archive/0.0.1.zip
+Description: UNKNOWN
+Keywords: home,automation
+Platform: any
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Home Automation
