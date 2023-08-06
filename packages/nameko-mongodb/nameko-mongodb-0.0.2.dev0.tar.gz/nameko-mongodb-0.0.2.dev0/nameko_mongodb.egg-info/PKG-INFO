@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: nameko-mongodb
+Version: 0.0.2.dev0
+Summary: Simple MongoDb dependency for nameko (microservices framework). Based on https://github.com/saiqi/nameko-mongodb
+Home-page: https://github.com/alexshin/nameko-mongodb
+Author: Alex Shinkevich
+Author-email: alex.shinkevich@gmail.com
+License: Apache License, Version 2.0
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Internet
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Intended Audience :: Developers
