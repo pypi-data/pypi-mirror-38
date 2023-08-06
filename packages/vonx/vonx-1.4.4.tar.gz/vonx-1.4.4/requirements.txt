@@ -1,0 +1,7 @@
+aiohttp~=3.3.0
+aiohttp_jinja2~=1.0.0
+PyYAML>=3.12
+# part of von-image
+#python3-indy==1.6.2-dev-711
+#von-anchor==1.6.36
+#didauth==1.2.2
