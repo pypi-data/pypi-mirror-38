@@ -1,0 +1,15 @@
+seaborn
+pandas
+numpy
+matplotlib
+future
+xgboost
+rep>0.7.0
+hep_ml>=0.5.0
+
+[all]
+root_numpy
+rootpy
+rep>=0.6.6
+scikit-learn>=0.18.1
+hep_ml>=0.4
