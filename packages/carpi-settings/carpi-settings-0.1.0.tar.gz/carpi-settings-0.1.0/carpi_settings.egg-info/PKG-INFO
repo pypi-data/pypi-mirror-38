@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: carpi-settings
+Version: 0.1.0
+Summary: A library providing utilities for storing settings in a CarPi application.
+Home-page: https://github.com/rGunti/CarPi-Settings
+Author: Raphael "rGunti" Guntersweiler
+Author-email: raphael@rgunti.ch
+License: MIT
+Description: # CarPi-Settings
+        A library providing utilities for storing settings in a CarPi application.
+        
+Keywords: carpi app settings
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Provides-Extra: redis
