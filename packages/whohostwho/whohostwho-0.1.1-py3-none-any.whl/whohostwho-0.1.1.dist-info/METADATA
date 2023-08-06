@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: whohostwho
+Version: 0.1.1
+Summary: Project to fetch information about host and nameservers of a domain.
+Home-page: https://gitlab.com/Oprax/whohostwho
+Author: Oprax
+Author-email: oprax@me.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Description-Content-Type: text/markdown
+Requires-Dist: dnspython3
+Requires-Dist: progressbar2
+
+WhoHostWho
+==========
+
+
+Project to fetch information about host and nameservers of a domain.
+
+
