@@ -1,0 +1,8 @@
+psutil
+argparse
+
+[:python_version < "3.0"]
+pysqlite
+
+[:python_version > "3.0"]
+pysqlite3
