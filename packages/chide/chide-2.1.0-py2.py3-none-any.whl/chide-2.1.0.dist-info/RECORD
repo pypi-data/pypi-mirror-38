@@ -1,0 +1,14 @@
+chide/__init__.py,sha256=vZ6XNGHIFlpnQxEJGVj0k71U5yVDn_qOnJiVxaFYM8U,56
+chide/collection.py,sha256=W9caUy0-8wD26X_WcTlkykQP9GCmVEeTqKzPGb3e4Ig,1445
+chide/set.py,sha256=ttTbAwKWAQvQD6AxfdoHcN_nmPbDoHm1fpCmbwHH0LY,2216
+chide/sqlalchemy.py,sha256=-FQl-46k41fgSAqFkRuNNZbME1-UP5ufIvJRyTc6Xmk,948
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/helpers.py,sha256=kQno0QAvo-gMvnO-Xcv_Ftp3WKQQeIj1Qf_LCl_-rNE,531
+tests/test_collection.py,sha256=vYBWVUJH1K9O7lLbYaQKKGeLuPjdHxokpqbBXfaDHT8,2413
+tests/test_docs.py,sha256=8KLwA6TnKyruiosP2vXzNOB8QCz9E67fY05Yh7GBuzs,477
+tests/test_set.py,sha256=k7kWFF89G6RByAzsMOjm6OSuzSvNBFgyuG9xqSowIss,2228
+tests/test_sqlalchemy_collection.py,sha256=cHLqz01oJf_vqKVgoBW2wAwd9Lx66BXdKywXkbnmGzE,6491
+chide-2.1.0.dist-info/METADATA,sha256=K25kggYGoA7IwDVup2dRbGClNB3DPpm1FqMhj4BycXw,1414
+chide-2.1.0.dist-info/WHEEL,sha256=_wJFdOYk7i3xxT8ElOkUJvOdOvfNGbR9g-bf6UQT6sU,110
+chide-2.1.0.dist-info/top_level.txt,sha256=bEmuyIYU-oJ-8lFy_4vcPR-b6uRd4ks6Qe92i5roFw8,12
+chide-2.1.0.dist-info/RECORD,,
