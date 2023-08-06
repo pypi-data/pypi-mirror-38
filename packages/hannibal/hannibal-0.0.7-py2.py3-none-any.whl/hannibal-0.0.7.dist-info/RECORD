@@ -1,0 +1,15 @@
+hannibal/__init__.py,sha256=2aJ7tShqWv-Q5Dwlxe_Mb1DZzjisYFsd96pfi_GEFc8,242
+hannibal/parser/__init__.py,sha256=9BEEoNulezNlY6jTNYBmvcvMgQ5RkBfKTq8Ps8O7gDg,64
+hannibal/parser/parser.py,sha256=hV77_QAHaa5CjkmvLIxAhAp0VPGKE_VTb3M60Z8vpEM,4470
+hannibal/spider/__init__.py,sha256=OLFJCse6TS5iMmRvvdnai3kzESoUlvdreFh3qEhi3bo,128
+hannibal/spider/distribute_collector.py,sha256=Brqm_ScZLVngaZrrpqmnfyp_NrrZaueqkZXzbTIOgEY,4266
+hannibal/spider/local_collector.py,sha256=zLrmR4alPCXn_vXJULM4IFqLIq05XhkpLuJSrr5e89Y,4399
+hannibal/util/__init__.py,sha256=VdYEF45_Dl-Mp3R97yCx0checgMCuouy2FxSu2s-A-Q,233
+hannibal/util/common_utils.py,sha256=IPwGwDreTc3YLzS1LGKXH9RHqhuy3yIbg-DZ60mxuWw,1390
+hannibal/util/href_pool.py,sha256=JC7E9EtE2y-wQlbO8BR6q_-dPxn9vE6-7FOSND4HAtY,1974
+hannibal/util/queues.py,sha256=gXKoyfD7yPEFZHfDrzyP77O2plZU69ceakSm_r-wzJg,2988
+hannibal/util/tricks.py,sha256=kOPNBrOFTFNrOmUROMuodnMCwT776Vb4YWfluCo9vQQ,4168
+hannibal-0.0.7.dist-info/METADATA,sha256=_-t9n_gVYkpmSPOZblf2FXC-zfNSxoUxRLX-Kb31B6Q,780
+hannibal-0.0.7.dist-info/RECORD,,
+hannibal-0.0.7.dist-info/WHEEL,sha256=gduuPyBvFJQSQ0zdyxF7k0zynDXbIbvg5ZBHoXum5uk,110
+hannibal-0.0.7.dist-info/top_level.txt,sha256=DRntfkCFb02b1Yh5-lTecWcjLlsFqAOKMmXqCSFU5rs,9
