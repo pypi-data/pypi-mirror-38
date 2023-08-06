@@ -1,0 +1,16 @@
+caryocar/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+caryocar/cleaning/__init__.py,sha256=aZFihDOq0ffvXLCE6v7-8DABYMeY2m3HwpxukY8dwko,290
+caryocar/cleaning/misc.py,sha256=b39W-D-1qat4_P__XCKXVoJb0RJorCVqWhLrjlSFq_Q,6960
+caryocar/cleaning/namesatomizer.py,sha256=nLMDOo_5WwIZXo7lEG1fN8xjqJgLp8zt7vfsxefTDdw,5337
+caryocar/cleaning/namesmap.py,sha256=Eo__QU-KmTIqJzqI0MIBZZY6jwKPUbstCf5Q8JcOnWM,9027
+caryocar/cleaning/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+caryocar/cleaning/tests/test_cleaning.py,sha256=qwN-FoGSYB448rMMigV91OczN0jHtnTSOXQQZ4KKAw8,2965
+caryocar/models/__init__.py,sha256=4SeFgmr5_J6oPMkQN8I85vVmkwNiK2LSH2NaXFT_VkU,41
+caryocar/models/cwn.py,sha256=7rdqYxFFv78ZxWouUDuxAb9SKycnQzMDKGJxHXHDtPo,6127
+caryocar/models/scn.py,sha256=Oc3Ik9BzlPRHWpzC0dmdmvmgqIDse2aL8EcRElojQ0o,18646
+caryocar/models/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+caryocar/models/tests/test_cwn.py,sha256=b2tJMQzmCDOqB3ij1KqYXP7M_ASLjYPWUGBpsL5vJs8,4349
+caryocar-0.0.1.dist-info/METADATA,sha256=62iJI9l8PfSHPjFVJBO0eKEtX1wti6USvV735trriNo,3804
+caryocar-0.0.1.dist-info/RECORD,,
+caryocar-0.0.1.dist-info/WHEEL,sha256=NzFAKnL7g-U64xnS1s5e3mJnxKpOTeOtlXdFwS9yNXI,92
+caryocar-0.0.1.dist-info/top_level.txt,sha256=DC9L_6XuYAfZ2GoRtvQt9UBW7JU5mCQqgSjg2S4bcCk,9
