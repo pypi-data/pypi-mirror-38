@@ -1,0 +1,25 @@
+Metadata-Version: 1.0
+Name: aiohug_swagger
+Version: 0.1
+Summary: aiohug_swagger
+Home-page: https://github.com/nonamenix/aiohug_swagger
+Author: nonamenix
+Author-email: nonamenix@gmail.com
+License: UNKNOWN
+Description: aiohug_swagger
+        ==============
+        
+        |pipeline status| |coverage report|
+        
+        .. |pipeline status| image:: https://gitlab.com/nonamenix/aiohug_swagger/badges/master/pipeline.svg
+           :target: https://gitlab.com/nonamenix/aiohug_swagger/commits/master
+        .. |coverage report| image:: https://gitlab.com/nonamenix/aiohug_swagger/badges/master/coverage.svg
+           :target: https://gitlab.com/nonamenix/aiohug_swagger/commits/master
+        
+        Goal:
+        ======
+        
+        Generate swagger annotation for docs generation
+        
+        
+Platform: UNKNOWN
