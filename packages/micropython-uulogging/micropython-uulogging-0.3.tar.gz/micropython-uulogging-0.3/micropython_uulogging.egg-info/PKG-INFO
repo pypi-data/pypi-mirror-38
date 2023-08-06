@@ -1,0 +1,12 @@
+Metadata-Version: 1.2
+Name: micropython-uulogging
+Version: 0.3
+Summary: uulogging module for MicroPython
+Home-page: https://github.com/pfalcon/micropython-lib
+Author: Paul Sokolovsky
+Author-email: micropython-lib@googlegroups.com
+Maintainer: Paul Sokolovsky
+Maintainer-email: micropython-lib@googlegroups.com
+License: MIT
+Description: Minimal version of 'logging' module for low-memory systems.
+Platform: UNKNOWN
