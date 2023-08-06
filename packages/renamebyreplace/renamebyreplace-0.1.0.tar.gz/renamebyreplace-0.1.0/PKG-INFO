@@ -1,0 +1,57 @@
+Metadata-Version: 2.1
+Name: renamebyreplace
+Version: 0.1.0
+Summary: Rename files searching substrings in filenames
+Home-page: https://github.com/Turulomio/renamebyreplace
+Author: Turulomio
+Author-email: turulomio@yahoo.es
+License: GPL-3
+Description: Usage
+        =====
+        
+        Here you have a console video example:
+        
+        ![English howto](https://raw.githubusercontent.com/Turulomio/recpermissions/master/doc/ttyrec/renamebyreplace_howto_en.gif)
+        
+        Once installed, you can see man documentation with
+        
+        `man renamebyreplace`
+        
+        Links
+        =====
+        
+        Source code & Development:
+            https://github.com/Turulomio/renamebyreplace
+        
+        Doxygen documentation:
+            http://turulomio.users.sourceforge.net/doxygen/renamebyreplace/
+        
+        Main developer web page:
+            http://turulomio.users.sourceforge.net/en/proyectos.html
+            https://github.com/Turulomio
+        
+        Pypi web page:
+            https://pypi.org/project/renamebyreplace/
+        
+        Gentoo ebuild
+            You can find a Gentoo ebuild in https://github.com/Turulomio/myportage/app-admin/renamebyreplace/
+        
+        
+        Dependencies
+        ============
+        * https://www.python.org/, as the main programming language.
+        
+        Changelog
+        =========
+        0.1.0
+        -----
+          * Creating infrastructure
+        
+Keywords: rename replace filenames
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: System Administrators
+Classifier: Topic :: System :: Systems Administration
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
