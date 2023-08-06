@@ -1,0 +1,3 @@
+[console_scripts]
+update-route53 = update_route53:main_func
+
