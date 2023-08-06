@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: py3adb
+Version: 3.0.4
+Summary: Simple python module to interact with Android Debug Bridge tool
+Home-page: https://github.com/mgeiger/py3adb
+Author: Matthew Geiger
+Author-email: matthew.j.geiger@gmail.com
+License: BSD
+Keywords: python android adb
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+
+# py3adb
+Simple python module to interact with Android Debug Bridge (ADB) tool
+
+
