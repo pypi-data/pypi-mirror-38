@@ -1,0 +1,12 @@
+README.md
+setup.cfg
+setup.py
+src/mockwebserver/__init__.py
+src/mockwebserver/mockwebserver.py
+src/mockwebserver.egg-info/PKG-INFO
+src/mockwebserver.egg-info/SOURCES.txt
+src/mockwebserver.egg-info/dependency_links.txt
+src/mockwebserver.egg-info/requires.txt
+src/mockwebserver.egg-info/top_level.txt
+src/tests/__init__.py
+src/tests/test_mockwebserver.py
