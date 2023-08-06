@@ -1,0 +1,13 @@
+django_lockdown-1.6.0.dist-info/DESCRIPTION.rst,sha256=naNQFqCsi3iN1sXWZLtzL4Ye_O4_KNgrO8qGktpe5Qg,10711
+django_lockdown-1.6.0.dist-info/METADATA,sha256=qO5peYpr_B932v9mLp8Rq4lpZsT6-rVa4Pfo-YgPZpg,11939
+django_lockdown-1.6.0.dist-info/RECORD,,
+django_lockdown-1.6.0.dist-info/WHEEL,sha256=kdsN-5OJAZIiHN-iO4Rhl82KyS0bDWf4uBwMbkNafr8,110
+django_lockdown-1.6.0.dist-info/metadata.json,sha256=Ufn-TSfy7g0z0u4Ioev7sW0vVtmMs3rWvgVLPGBPfH0,1352
+django_lockdown-1.6.0.dist-info/top_level.txt,sha256=Z9fMGPN8YOLxs5NfRJvgKJBvUoDycwZl7OAcjjeyb-k,9
+lockdown/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+lockdown/decorators.py,sha256=AGEYYlQpmqPiBXnHkOdj5Q2D5-xPsf6q9Mx7bweoMlM,499
+lockdown/forms.py,sha256=-8vEteE1f8uw86l2fD7yMPLMkV2YZiLM0js85AseLEw,3947
+lockdown/middleware.py,sha256=DOjeuyrsUl7z4ZGaoOh8vZ8gkRiDLwgx9uFlhkNDfS0,6657
+lockdown/settings.py,sha256=yDNamoutJZUXNfHNkw5Pyvrd2HGC1g0rRfHZhX6gmRk,751
+lockdown/templates/lockdown/base.html,sha256=Gg73RI5sPLR9T2W2qS6c3jjW4WK6V6b-BsOV0YAVkrs,153
+lockdown/templates/lockdown/form.html,sha256=yL2T2V3ial4vO3ha69TE6aSKJycLsjoc43BajhIXP8Q,384
