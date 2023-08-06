@@ -1,0 +1,10 @@
+
+[develop]
+coverage
+flake8-import-order
+pylama
+pytest-asyncio
+pytest-cov
+pytest
+tox
+twine
