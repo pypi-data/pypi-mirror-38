@@ -1,0 +1,11 @@
+README.rst
+setup.cfg
+setup.py
+awsevents/__init__.py
+awsevents/parse.py
+awsevents.egg-info/PKG-INFO
+awsevents.egg-info/SOURCES.txt
+awsevents.egg-info/dependency_links.txt
+awsevents.egg-info/entry_points.txt
+awsevents.egg-info/requires.txt
+awsevents.egg-info/top_level.txt

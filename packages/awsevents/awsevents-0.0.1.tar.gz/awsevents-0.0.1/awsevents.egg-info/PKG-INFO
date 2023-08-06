@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: awsevents
+Version: 0.0.1
+Summary: awsevents is a tiny utility that parses AWS events like SNS, S3, Kinesis Stream, DynamoDB Stream and returns a Python object with no effort on your side
+Home-page: https://github.com/canassa/awsevents
+Author: Cesar Canassa
+Author-email: cesar.canassa@gmail.com
+License: UNKNOWN
+Description: Minibar
+        ========
+        
+        awsevents is a tiny utility that parses AWS events like SNS, S3, Kinesis Stream, DynamoDB Stream and returns a Python object with no effort on your side
+        
+        .. image:: https://travis-ci.org/canassa/minibar.svg?branch=master
+          :alt: Travis CI build status
+          :target: https://travis-ci.org/canassa/minibar
+        
+        
+        Installing
+        ----------
+        
+        .. code-block:: python
+        
+            pip install awsevents
+Keywords: aws,lambda
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Utilities
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Requires-Python: >= 3.6
+Description-Content-Type: text/rst
+Provides-Extra: tests
