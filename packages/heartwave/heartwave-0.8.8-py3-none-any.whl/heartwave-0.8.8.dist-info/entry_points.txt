@@ -1,0 +1,3 @@
+[console_scripts]
+heartwave = heartwave.app:main
+

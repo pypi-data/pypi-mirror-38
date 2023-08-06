@@ -1,0 +1,74 @@
+Metadata-Version: 2.1
+Name: heartwave
+Version: 0.8.8
+Summary: Heart rate measurement from webcam or video
+Home-page: https://github.com/erdewit/heartwave
+Author: Ewald R. de Wit
+Author-email: ewald.de.wit@gmail.com
+License: BSD
+Keywords: PPG photoplethysmogram heart rate webcam
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Healthcare Industry
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Dist: PyQt5
+Requires-Dist: PyQtChart
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: opencv-contrib-python
+
+|PyVersion| |Status| |PyPiVersion| |License|
+
+Introduction
+------------
+
+
+Face detection and tracking are used to observe the tiny variations
+in skin tone that result from the increased bloodflow after a heart beat.
+By averaging, filtering and Fourier-transforming these variations the heart
+rate is estimated and graphed.
+
+Multiple persons in the scene can be analysed simultanuously.
+
+Installation
+------------
+
+::
+
+    pip3 install heartwave
+
+Usage
+-----
+
+::
+
+    heartwave [optional filename, URL or camera ID]
+
+Links
+-----
+
+`webcam-pulse-detector <https://github.com/thearn/webcam-pulse-detector`_:
+Python program similar to this one.
+
+.. |PyPiVersion| image:: https://img.shields.io/pypi/v/heartwave.svg
+   :alt: PyPi
+   :target: https://pypi.python.org/pypi/heartwave
+
+.. |PyVersion| image:: https://img.shields.io/badge/python-3.6+-blue.svg
+   :alt:
+
+.. |Status| image:: https://img.shields.io/badge/status-beta-green.svg
+   :alt:
+
+.. |License| image:: https://img.shields.io/badge/license-BSD-blue.svg
+   :alt:
+
+
+
+
+
