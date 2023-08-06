@@ -1,0 +1,49 @@
+Metadata-Version: 1.1
+Name: CheKnife
+Version: 0.0.7
+Summary: Python Utilities
+Home-page: https://git.herrerosolis.com/Misc/CheKnife
+Author: Rafael Herrero Solis
+Author-email: rafahsolis@hotmail.com
+License: MIT license
+Download-URL: https://git.herrerosolis.com/Misc/CheKnife/-/archive/v0.0.7/CheKnife-v0.0.7.tar.gz
+Description: CheKnife
+        ========
+        
+        Python utilities compilation.
+        
+        -  Free software: MIT license
+        
+        Install
+        =======
+        
+        ::
+        
+            pip install CheKnife
+        
+        Packages
+        ========
+        
+        | `CheKnife.pki <docs/CheKnife.choiceutils.md>`__
+        | `CheKnife.hashing <docs/CheKnife.files.md>`__
+        
+        Tests
+        =====
+        
+        .. code:: bash
+        
+            nosetests --with-coverage --cover-inclusive --cover-package=CheKnife --cover-html
+        
+        Upload to PyPi
+        ==============
+        
+        .. code:: bash
+        
+            python setup.py sdist upload -r pypi
+        
+Keywords: CheKnife,Swiss,Army,Knife,Swiss Army Knife
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3.6
