@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: demo-egg
+Version: 0.0.1
+Summary: A small example package
+Home-page: https://github.com/pypa/sampleproject
+Author: z6x
+Author-email: info@z6x.org
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+### Demo Egg
+```
+    https://packaging.python.org/tutorials/packaging-projects/
+```
+
