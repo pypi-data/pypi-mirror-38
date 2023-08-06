@@ -1,0 +1,17 @@
+Metadata-Version: 2.0
+Name: jinjaform
+Version: 0.1.0
+Summary: Jinja2 Terraform wrapper
+Home-page: https://github.com/claranet/jinjaform
+Author: Raymond Butcher
+Author-email: ray.butcher@claranet.uk
+License: MIT License
+Platform: UNKNOWN
+Requires-Dist: Jinja2
+Requires-Dist: boto3
+Requires-Dist: botocore (>=1.8.14)
+Requires-Dist: colorama
+
+UNKNOWN
+
+
