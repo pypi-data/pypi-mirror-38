@@ -1,0 +1,3 @@
+[console_scripts]
+wiki_dataset = nlp_data_py.dataset.command_line:wiki_dataset
+
