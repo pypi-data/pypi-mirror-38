@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: pyUnderLX
+Version: 1.0.1
+Summary: Python library to retrieve information from UnderLX
+Home-page: https://github.com/dpjrodrigues/pyUnderLX
+Author: Diogo Rodrigues
+Author-email: dpjrodrigues@gmail.com
+License: MIT License
+Platform: any
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Description-Content-Type: text/markdown
+Requires-Dist: aiohttp
+
+[![PyPI version](https://badge.fury.io/py/pyUnderLX.svg)](https://badge.fury.io/py/pyUnderLX)
+
+# pyUnderLX
+Python library to retrieve information from [UnderLX](https://github.com/underlx/disturbancesmlx)
+
+## Requirements
+- aiohttp
+
+## Changelog
+
+1.0.1 First Version
+
+## Credits
+Values are obtained from [UnderLX](https://github.com/underlx/disturbancesmlx)
+
+## Copyright
+
+(C) 2018 Diogo Rodrigues <dpjrodrigues@gmail.com> 
+
+
