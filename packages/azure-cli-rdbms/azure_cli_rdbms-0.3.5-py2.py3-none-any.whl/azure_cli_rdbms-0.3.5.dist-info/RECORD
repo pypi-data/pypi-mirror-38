@@ -1,0 +1,15 @@
+azure/__init__.py,sha256=jwUpEftyp-71KJZRiDO8VY0bF3pPg2gQauDzBT8mzRc,409
+azure/cli/__init__.py,sha256=jwUpEftyp-71KJZRiDO8VY0bF3pPg2gQauDzBT8mzRc,409
+azure/cli/command_modules/__init__.py,sha256=jwUpEftyp-71KJZRiDO8VY0bF3pPg2gQauDzBT8mzRc,409
+azure/cli/command_modules/rdbms/__init__.py,sha256=HAmUuxgJq0qK3QuVgHvnOniUPnpYinVKbnDZjhDwoRY,1702
+azure/cli/command_modules/rdbms/_client_factory.py,sha256=K4Tm91TJ_shZGLc3mHeBL-y7cJBvtvailZV8mUsUTPs,6025
+azure/cli/command_modules/rdbms/_help.py,sha256=g_tA1EtxcnQ5YAAzYCG2WMh21-cZP6QrmhscKWh7Nhc,14505
+azure/cli/command_modules/rdbms/_params.py,sha256=yQyUUx1RRIhppbJlBu5WEq27SkN0BgsHr_uYTesvs9s,9331
+azure/cli/command_modules/rdbms/_util.py,sha256=Kgiop_hB23wqqjvVPoGu6GLaRamldZQEuIvl5i9RY6U,1658
+azure/cli/command_modules/rdbms/commands.py,sha256=qrfldaYq4hAA1mPx0cemeaXKMUwssfXgyBYn-FpyCwI,12987
+azure/cli/command_modules/rdbms/custom.py,sha256=SEW0y0ClfxXPUFF_frGTDa2NJSSbcol6d7HsQJWqazA,18090
+azure/cli/command_modules/rdbms/validators.py,sha256=EReDfd__ZD7yW5QSUjcodhbq29g3Qmm1-_zSl2TjDWY,2506
+azure_cli_rdbms-0.3.5.dist-info/METADATA,sha256=BxxOaOELp15BSLggFcf2B1LXTt8l5DR4wEarNee6G7c,2844
+azure_cli_rdbms-0.3.5.dist-info/WHEEL,sha256=CihQvCnsGZQBGAHLEUMf0IdA4fRduS_NBUTMgCTtvPM,110
+azure_cli_rdbms-0.3.5.dist-info/top_level.txt,sha256=S7DhWV9m80TBzAhOFjxDUiNbKszzoThbnrSz5MpbHSQ,6
+azure_cli_rdbms-0.3.5.dist-info/RECORD,,
