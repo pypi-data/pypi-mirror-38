@@ -1,0 +1,27 @@
+# BijoyToUnicode
+
+It is a utility to convert bijoy encoded text to unicode.
+
+## Installation
+
+```bash
+pip install bijoytounicode
+```
+
+## Usage
+
+```python
+from bijoytounicode import bijoy2unicode
+TEST_TEXT = "‡Kv‡bv †Kv‡bv w`b, AvKvk‡Rvov †gN K‡i, Kv‡R gb e‡m bv| †W‡¯‹i mvg‡bi Rvbvjvi c`©v Zz‡j w`B| w¯Œ‡b ZvKvB, †`wL bv, `‚ieZ©x AvKvk I Bgvi‡Z wKQz †LvuR _v‡K| Ggb me w`‡bi bvg †KvgjMvÜvi|"
+bijoy2unicode(TEST_TEXT)
+```
+
+## Testing And Development
+
+Run test by issuing this command:
+
+```bash
+python3 setup.py test
+```
+
+Any kind of development is welcome. Send Pull Request with proper description.
