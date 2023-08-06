@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: zuzuvibhu
+Version: 1.0.4
+Summary: Zuzu Package of Vibhu Agarwal
+Home-page: https://github.com/Vibhu-Agarwal/zuzuvibhu
+Author: Vibhu Agarwal
+Author-email: vibhu4agarwal@gmail.com
+License: MIT
+Keywords: zuzu vibhu agarwal vibhuagarwal
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: Click (==7.0)
+Requires-Dist: Flask (==1.0.2)
+Requires-Dist: itsdangerous (==1.1.0)
+Requires-Dist: Jinja2 (==2.10)
+Requires-Dist: MarkupSafe (==1.1.0)
+Requires-Dist: Werkzeug (==0.14.1)
+
+# ZuzuVibhu
+
+The module provides the zuzu package for Vibhu Agarwal.\
+Zuzu is a unique language defined by Vibhu Agarwal himself.\
+The language is in no way related to other standard languages understood in public which is not specifically defined by Vibhu Agarwal.
+
+Happy Go Zuzus!
+
+## Installing the package
+```
+pip install zuzuvibhu
+```
+
+## Using the package
+```
+>>> import zuzuvibhu
+>>> zuzuvibhu.get_zuzus()
+```
+
+Go to http://localhost:5000/ to get the response in HTML\
+or you may visit http://localhost:5000/api to get the text in JSON format.
+
+
