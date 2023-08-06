@@ -1,0 +1,10 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+ELO_utils.egg-info/PKG-INFO
+ELO_utils.egg-info/SOURCES.txt
+ELO_utils.egg-info/dependency_links.txt
+ELO_utils.egg-info/top_level.txt
+ELOutils/ELO.py
+ELOutils/__init__.py
