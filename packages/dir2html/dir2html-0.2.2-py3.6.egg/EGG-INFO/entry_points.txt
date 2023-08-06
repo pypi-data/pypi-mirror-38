@@ -1,0 +1,3 @@
+[console_scripts]
+dir2html = dir2html.__main__:main
+
