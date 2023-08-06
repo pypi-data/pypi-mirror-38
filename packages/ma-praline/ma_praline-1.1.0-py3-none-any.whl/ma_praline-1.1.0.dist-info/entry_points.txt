@@ -1,0 +1,7 @@
+[console_scripts]
+mapraline = mapraline.cmd:main
+mapraline_scores = mapraline.scores:main
+
+[praline.type]
+PrositePatternAnnotator = mapraline.component:PrositePatternAnnotator
+
