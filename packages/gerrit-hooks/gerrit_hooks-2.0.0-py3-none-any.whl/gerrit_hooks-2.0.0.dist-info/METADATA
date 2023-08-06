@@ -1,0 +1,84 @@
+Metadata-Version: 2.1
+Name: gerrit-hooks
+Version: 2.0.0
+Summary: Utility for writing Gerrit Hooks in python
+Home-page: UNKNOWN
+Author: Nils Diefenbach
+Author-email: nlsdfnbch.foss@kolabnow.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Code Generators
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Topic :: Software Development :: Version Control
+Classifier: License :: OSI Approved :: MIT License
+
+# Gerrit Hooks Argument Parsers
+
+This library provides pre-built `argparse.ArgumentParser` instances, which
+return `argpase.NameSpace` object for gerrit's hooks (linked in the [Resources](#resources) section below).
+
+
+It allows developers to get started with gerrit hooks faster, by 
+getting the parsing of command-line arguments for the various hook types
+ out of the way.
+
+All hooks are supported.
+
+# Installation
+
+```
+pip install gerrit-hooks
+```
+
+# Usage
+
+Writing hooks using gerrit-hooks' argparsers is easy:
+
+```python
+> gerrit/hooks/comment-added
+
+#!/usr/bin/env/python3
+import gerrit_hooks
+
+options = gerrit_hooks.parse_options()
+
+print("Change ID: {}".format(options.change))
+
+...
+
+```
+
+Custom approval categories are supported as well - these must be added
+before calling `gerrit_hooks.parse_options()`:
+
+```python
+> gerrit/hooks/comment-added
+
+#!/usr/bin/env/python3
+import gerrit_hooks
+
+# Let's assume you have a approval category with label 'level-of-amazingness
+# We need to add this to the Hook Flag Definitions class
+gerrit_hooks.add_custom_approval_category('level-of-amazingness')
+
+options = gerrit_hooks.parse_options()
+
+# The approval category can be accessed by the following attributes:
+print("Level of Amazingness is: {}".format(options.level_of_amazingness))
+print("Level of Amazingness was: {}".format(options.level_of_amazingness_oldValue))
+
+...
+
+```
+
+# Resources
+
+[Gerrit-Hooks Plugin](https://gerrit-review.googlesource.com/admin/repos/plugins%2Fhooks)
+
+
