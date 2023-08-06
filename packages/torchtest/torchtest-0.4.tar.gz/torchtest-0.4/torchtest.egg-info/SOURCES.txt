@@ -1,0 +1,10 @@
+MANIFEST.in
+README.adoc
+setup.py
+torchtest/__init__.py
+torchtest/torchtest.py
+torchtest.egg-info/PKG-INFO
+torchtest.egg-info/SOURCES.txt
+torchtest.egg-info/dependency_links.txt
+torchtest.egg-info/requires.txt
+torchtest.egg-info/top_level.txt
