@@ -1,0 +1,3 @@
+[console_scripts]
+ticket-universe = ticket_universe.cli:main
+
