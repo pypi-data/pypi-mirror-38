@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: pydrobert-pytorch
+Version: 0.0.0
+Summary: PyTorch utilities for ML, specifically speech
+Home-page: https://github.com/sdrobert/pydrobert-pytorch
+Author: Sean Robertson
+Author-email: sdrobert@cs.toronto.edu
+License: Apache 2.0
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: numpy
+Requires-Dist: future
+Requires-Dist: torch
+Requires-Dist: param
+
+# pydrobert-pytorch
+PyTorch utilities for ML, specifically speech.
+
+## Installation
+
+``pydrobert-pytorch`` is available through both Conda and PyPI.
+
+``` bash
+conda install -c sdrobert pydrobert-pytorch
+pip install pydrobert-pytorch
+```
+
+
