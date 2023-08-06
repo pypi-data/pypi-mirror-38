@@ -1,0 +1,11 @@
+include *.rst
+include *.txt
+include *.py
+include tox.ini
+include .coveragerc
+include .travis.yml
+include .coveralls.yml
+
+recursive-include src *
+
+global-exclude *.pyc
