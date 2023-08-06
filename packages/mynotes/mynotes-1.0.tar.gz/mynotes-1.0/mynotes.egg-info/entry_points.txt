@@ -1,0 +1,4 @@
+[console_scripts]
+mynotes-build = mynotes.cli:build_index
+mynotes-genhtml = mynotes.cli:generate_html
+
