@@ -1,0 +1,45 @@
+<!--AI==========================================================
+	This template displays the chat room list in every page
+	that inherits in. The rooms_list variable is universal
+	as it is created by chat/context_processors.py file.
+===========================================================AI-->
+
+
+{% load static %}
+<link rel = "stylesheet" href = "{% static 'css/chatroom-list.css' %}">
+
+<!--AI==========================================================
+	The following div describes the Search bar to search
+	for users.
+	===========================================================AI-->
+	<div class="row">
+	<div class = "col-3 search">
+		{% csrf_token %}
+		<input id = "searchbar" placeholder = "username"></input>
+		<button id = "user-selected">Go</button><br />
+	</div>
+	<div class="col-5 room-name">
+		<b>{{room_name}}</b>
+	</div>
+</div>
+
+<!--AI==========================================================
+	The following block represents the list of chatrooms at the left
+===========================================================AI-->
+<div class = "chatroom-list">
+
+	{% for room in rooms_list %}
+		<a class="chat-link" href="/chat/{{room.id}}/">
+			{% if room.id in rooms_with_unread %}
+			<div style='font-weight: bold;' class = 'chat-list-item' id = '{{room.id}}'>
+			{% else %}
+			<div class='chat-list-item' id='{{room.id}}'>
+			{% endif %}
+				{%for member in room.members.all %}
+					{{member.username}},
+				{% endfor %}
+			</div>
+		</a>
+		
+	{% endfor %}
+</div>
