@@ -1,0 +1,17 @@
+Metadata-Version: 2.0
+Name: stickybar
+Version: 1.0b1
+Summary: Stdout wrapper that prints a status bar below the cursor
+Home-page: https://github.com/evalf/stickybar
+Author: Evalf
+Author-email: info@evalf.com
+License: MIT
+Platform: UNKNOWN
+Requires-Python: >=3.5
+Provides-Extra: test
+Provides-Extra: test
+Requires-Dist: pyte; extra == 'test'
+
+UNKNOWN
+
+
