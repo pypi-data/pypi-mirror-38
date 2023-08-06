@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: taggedunion
+Version: 0.0.1
+Summary: A package for enabling modelling tagged unions along with 'case matching' utilities
+Home-page: https://github.com/panyam/taggedunion
+Author: Sri Panyam
+Author-email: sri.panyam@gmail.com
+License: UNKNOWN
+Keywords: languages,schemas,unions,type system,types,tagged unions
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Provides-Extra: docs
+Provides-Extra: docs
+Requires-Dist: Sphinx (>=1.1); extra == 'docs'
+
+
+Tagged Unions
+=============
+
+This package allows one to model tagged union data types in python.
+
+
