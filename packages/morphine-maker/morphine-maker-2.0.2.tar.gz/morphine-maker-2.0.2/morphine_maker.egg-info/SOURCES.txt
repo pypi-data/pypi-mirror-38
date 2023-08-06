@@ -1,0 +1,15 @@
+README.md
+setup.py
+morphine/__init__.py
+morphine/globals.py
+morphine/minimal.py
+morphine/minimal_deps.py
+morphine/minimal_exec.py
+morphine/minimal_exec_deps.py
+morphine/startup.py
+morphine/template.py
+morphine_maker.egg-info/PKG-INFO
+morphine_maker.egg-info/SOURCES.txt
+morphine_maker.egg-info/dependency_links.txt
+morphine_maker.egg-info/entry_points.txt
+morphine_maker.egg-info/top_level.txt
