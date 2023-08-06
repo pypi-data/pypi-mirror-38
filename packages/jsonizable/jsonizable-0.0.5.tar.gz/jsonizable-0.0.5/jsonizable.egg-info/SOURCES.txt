@@ -1,0 +1,12 @@
+README.md
+setup.py
+jsonipy/__init__.py
+jsonipy/common.py
+jsonipy/exceptions.py
+jsonipy/jsonizable.py
+jsonipy/read.py
+jsonipy/write.py
+jsonizable.egg-info/PKG-INFO
+jsonizable.egg-info/SOURCES.txt
+jsonizable.egg-info/dependency_links.txt
+jsonizable.egg-info/top_level.txt
