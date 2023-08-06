@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: matlab_connection
+Version: 0.0.1
+Summary: Package to streamline reading from and writing data to MATLAB from python
+Home-page: https://github.com/pckosek/matlab_connection
+Author: Paul Kosek
+Author-email: pckosek@fcps.edu
+License: UNKNOWN
+Description: # matlab_connection
+        
+        ### this package is designed to streamline reading from and writing data to MATLAB from python
+        
+        ### _Purpose_:<br>
+        The matlab.engine library from Mathworks is impressive in that it allows python to connect to a MATLAB session, but can become a little long winded when interacting with numpy and calling functions.
+        <br><br>
+        The **matlab_connection** module contains a class that allows get and put variables, as well as call functions and run m-files in a straightforward, extensible manner.
+        
+        ### _Features_:<br>
+        - get matlab variables into python
+        - put python variables into MATLAB
+        - run an script (not as a function) from python
+        - call a MATLAB function from python
+Keywords: MATLAB python
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
