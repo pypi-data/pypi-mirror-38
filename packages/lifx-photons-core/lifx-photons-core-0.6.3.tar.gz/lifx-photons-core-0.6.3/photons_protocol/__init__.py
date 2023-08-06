@@ -1,0 +1,26 @@
+__doc__ = """
+Here we have the core logic for creating LIFX binary protocol messages.
+
+Tasks
+-----
+
+See :ref:`tasks`.
+
+.. photons_module_tasks::
+
+LIFX Packet Protocol
+--------------------
+
+.. automodule:: photons_protocol.packets
+
+
+Defining Messages
+-----------------
+
+.. automodule:: photons_protocol.messages
+
+Types for message fields
+------------------------
+
+.. automodule:: photons_protocol.types
+"""
