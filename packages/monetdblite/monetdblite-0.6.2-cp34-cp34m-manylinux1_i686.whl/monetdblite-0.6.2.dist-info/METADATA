@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: monetdblite
+Version: 0.6.2
+Summary: Embedded MonetDB Python Database.
+Home-page: https://github.com/hannesmuehleisen/MonetDBLite-Python
+Author: Mark Raasveldt, Hannes Mühleisen
+Author-email: m.raasveldt@cwi.nl
+License: UNKNOWN
+Keywords: MonetDB MonetDBLite Database SQL OLAP
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: C
+Classifier: Topic :: Database
+Classifier: Topic :: Database :: Database Engines/Servers
+Classifier: Intended Audience :: Developers
+Classifier: Development Status :: 3 - Alpha
+Requires-Dist: numpy (>=1.7)
+Requires-Dist: pandas (>=0.20)
+
+UNKNOWN
+
+
