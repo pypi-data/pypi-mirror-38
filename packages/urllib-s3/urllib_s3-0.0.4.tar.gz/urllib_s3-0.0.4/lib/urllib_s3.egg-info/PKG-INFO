@@ -1,0 +1,53 @@
+Metadata-Version: 1.1
+Name: urllib-s3
+Version: 0.0.4
+Summary: S3 handler for urllib
+Home-page: https://github.com/WaYdotNET/urllib_s3
+Author: Carlo Bertini
+Author-email: waydotnet@gmail.com
+License: MIT License
+Description: # urllib_s3
+        
+        urllib_s3 is a urllib handler for s3 protocol
+        
+        
+        ## Usage
+        
+        install library
+        
+        ```bash
+        pip install urllib_s3
+        
+        ```
+        
+        ```python
+        from six.moves.urllib.request import urlopen
+        import urllib_s3
+        
+        server_settings = {
+            'server-url': {
+                'access_key': 'xx',
+                'secret_key': 'xxx',
+                'secure': True
+            }
+        }
+        
+        urllib_s3.setup(server_settings)
+        
+        # now you use s3 protocol
+        urlopen('s3://server-url/bucket/foo.png')
+        
+        ```
+        
+        
+Keywords: urllib,s3,urllib handler,minio,aws,boto3
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules

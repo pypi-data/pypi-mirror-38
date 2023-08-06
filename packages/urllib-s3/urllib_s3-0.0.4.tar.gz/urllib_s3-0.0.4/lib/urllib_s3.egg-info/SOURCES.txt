@@ -1,0 +1,12 @@
+README.md
+setup.cfg
+setup.py
+lib/urllib_s3/__init__.py
+lib/urllib_s3/error.py
+lib/urllib_s3/handler.py
+lib/urllib_s3.egg-info/PKG-INFO
+lib/urllib_s3.egg-info/SOURCES.txt
+lib/urllib_s3.egg-info/dependency_links.txt
+lib/urllib_s3.egg-info/requires.txt
+lib/urllib_s3.egg-info/top_level.txt
+test/test_lib.py
