@@ -1,0 +1,27 @@
+Metadata-Version: 2.0
+Name: bxl
+Version: 0.3.2
+Summary: Basic library for interacting with the REST interface of XNAT.
+Home-page: https://gitlab.com/bbrc/xnat/bxl
+Author: Jordi Huguet
+Author-email: jhuguetn@gmail.com
+License: MIT License
+Description-Content-Type: text/markdown
+Keywords: xnat restful api neuroimaging
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Topic :: Scientific/Engineering :: Medical Science Apps.
+Requires-Dist: dateparser (>=0.7.0)
+Requires-Dist: requests (>=2.0.0)
+Requires-Dist: urllib3 (>=1.2)
+
+UNKNOWN
+
+
