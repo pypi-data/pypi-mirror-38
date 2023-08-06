@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: xfer-ml
+Version: 0.3.5
+Summary: Lightweight deep transfer learning library built on MXNet
+Home-page: https://github.com/amzn/xfer
+License: Apache License 2.0
+Description: Xfer is a library that allows quick and easy transfer of knowledge stored in deep neural networks implemented in MXNet. Xfer can be used with data of arbitrary numeric format, and can be applied to the common cases of image or text data.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3
+Description-Content-Type: text/markdown
