@@ -1,0 +1,10 @@
+
+[:python_version == "3.4"]
+pathlib2>=2.3.2
+subprocess32>=3.5.3
+
+[pipdeptree]
+pipdeptree
+
+[ptyng]
+ptyng
