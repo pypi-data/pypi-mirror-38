@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: typesvalidator
+Version: 0.0.2
+Summary: Validador de tipos
+Home-page: https://github.com/gustavoghioldi/types-validator
+Author: Gustavo Ghioldi
+Author-email: gustavoghioldi@gmail.com
+License: UNKNOWN
+Description: TypesValidator
+        ==============
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3
+Description-Content-Type: text/markdown
