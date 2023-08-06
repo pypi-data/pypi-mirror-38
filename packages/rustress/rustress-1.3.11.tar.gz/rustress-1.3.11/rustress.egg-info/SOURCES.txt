@@ -1,0 +1,14 @@
+MANIFEST.in
+README.md
+ruwiktionary.py
+setup.cfg
+setup.py
+rustress/__init__.py
+rustress/back.json
+rustress/c2id.json
+rustress/model.h5
+rustress.egg-info/PKG-INFO
+rustress.egg-info/SOURCES.txt
+rustress.egg-info/dependency_links.txt
+rustress.egg-info/requires.txt
+rustress.egg-info/top_level.txt
