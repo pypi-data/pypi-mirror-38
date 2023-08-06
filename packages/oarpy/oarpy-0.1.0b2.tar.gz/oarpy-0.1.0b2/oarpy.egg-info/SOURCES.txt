@@ -1,0 +1,17 @@
+README.rst
+setup.py
+./oarpy/__init__.py
+./oarpy/oarjob.py
+./oarpy/oarresource.py
+./oarpy/oarshell.py
+./oarpy/timeutils.py
+./oarpy/tests/__init__.py
+./oarpy/tests/test_all.py
+./oarpy/tests/test_oarjob.py
+./oarpy/tests/test_oarresource.py
+./oarpy/tests/test_oarshell.py
+oarpy.egg-info/PKG-INFO
+oarpy.egg-info/SOURCES.txt
+oarpy.egg-info/dependency_links.txt
+oarpy.egg-info/not-zip-safe
+oarpy.egg-info/top_level.txt
