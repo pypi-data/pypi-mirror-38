@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: splinterpy
+Version: 4.0.4
+Summary: SPLINTER is a library for multivariate function approximation using splines
+Home-page: http://github.com/bgrimstad/splinter
+Author: Bjarne Grimstad and others
+Author-email: bjarne.grimstad@gmail.com
+License: MPL 2.0
+Description: UNKNOWN
+Keywords: spline,interpolation,b-spline,approximation
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
