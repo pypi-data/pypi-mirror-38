@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>bluemax</title>
+        <link rel="stylesheet" href="site.css">
+    </head>
+    <body>
+        <h1>
+            <img src="favicon.ico" alt="spddo" width="40" height="40">
+            Welcome!
+        </h1>
+        <hr/>
+        <div class="row">
+          <div class="column">
+              <form id="add" onsubmit="return do_add();">
+                  <div class="title">Add</div>
+                  <div class="field">
+                      <label>a:</label>
+                      <input type="text" name="a" value="2">
+                  </div>
+                  <div class="field">
+                      <label>b:</label>
+                      <input type="text" name="b" value="6">
+                  </div>
+                  <div class="field">
+                      <label></label>
+                      <input type="submit" name="submit" value="Add">
+                  </div>
+                  <div class="field result">
+                      <label>result:</label>
+                      <pre id="add_result"></pre>
+                  </div>
+              </form>
+          </div>
+          <div class="column"><div id="output"></div></div>
+        </div>
+    </body>
+    <script type="module" src="app.js"></script>
+</html>
