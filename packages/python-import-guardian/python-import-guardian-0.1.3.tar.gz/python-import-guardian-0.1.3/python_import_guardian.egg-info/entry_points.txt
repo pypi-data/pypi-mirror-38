@@ -1,0 +1,3 @@
+[console_scripts]
+import-guardian = importguardian.importguardian:main
+

@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+importguardian/__init__.py
+importguardian/__main__.py
+importguardian/importguardian.py
+python_import_guardian.egg-info/PKG-INFO
+python_import_guardian.egg-info/SOURCES.txt
+python_import_guardian.egg-info/dependency_links.txt
+python_import_guardian.egg-info/entry_points.txt
+python_import_guardian.egg-info/top_level.txt
