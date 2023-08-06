@@ -1,0 +1,16 @@
+Metadata-Version: 1.2
+Name: l2tscaffolder
+Version: 20181121
+Summary: Scaffolder project for l2t, helping to bootstrap l2t development.
+Home-page: https://github.com/log2timeline/PlasoScaffolder
+Maintainer: Log2Timeline maintainers
+Maintainer-email: log2timeline-maintainers@googlegroups.com
+License: Apache License, Version 2.0
+Description: UNKNOWN
+Keywords: plaso l2t scaffolder log2timeline turbinia timesketch
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Requires-Python: >=3
