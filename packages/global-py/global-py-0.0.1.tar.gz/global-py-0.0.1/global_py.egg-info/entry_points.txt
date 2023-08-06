@@ -1,0 +1,3 @@
+[console_scripts]
+globalpy = globalpy.global_setup:main
+
