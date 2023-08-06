@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: kutils4pygame
+Version: 0.1
+Summary: Thin wrapper on pygame for the creation of simple animations and games.
+Home-page: https://github.com/ku-wolf/kutils4pygame
+Author: Kevin Wolf
+Author-email: kevinuwolf@gmail.com
+License: gplv3.txt
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Requires-Dist: pygame
+
+UNKNOWN
+
+
