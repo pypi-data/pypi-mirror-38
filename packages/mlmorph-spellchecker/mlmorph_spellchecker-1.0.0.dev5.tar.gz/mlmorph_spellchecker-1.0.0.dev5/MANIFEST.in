@@ -1,0 +1,7 @@
+include mlmorph_spellchecker/strategies/*.py
+include LICENSE.txt
+include setup.cfg
+include setup.py
+include MANIFEST.in
+include README.md
+
