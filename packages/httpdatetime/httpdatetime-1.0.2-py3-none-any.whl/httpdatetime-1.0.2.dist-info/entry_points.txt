@@ -1,0 +1,3 @@
+[console_scripts]
+httpdatetime = httpdatetime.__main__:main
+
