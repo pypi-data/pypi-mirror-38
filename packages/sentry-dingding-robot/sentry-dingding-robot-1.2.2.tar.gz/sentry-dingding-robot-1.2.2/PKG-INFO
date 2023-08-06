@@ -1,0 +1,19 @@
+Metadata-Version: 1.1
+Name: sentry-dingding-robot
+Version: 1.2.2
+Summary: Sentry的钉钉插件
+Home-page: https://github.com/wangnan0610/sentry-dingding
+Author: wangnan0610
+Author-email: 375584419@qq.com
+License: UNKNOWN
+Description: 
+        sentry-dingding-robot
+        ==============
+        sentry 钉钉机器人通知插件
+        
+Platform: UNKNOWN
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development
