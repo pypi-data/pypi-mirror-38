@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		
+		<link rel='stylesheet' href='ext/bootstrap3/css/bootstrap.min.css'>
+		<link rel='stylesheet' href='ext/bootstrap3/css/bootstrap-theme.min.css'>
+		<!-- link rel='stylesheet' href='/main.css' -->
+
+		<script src='ext/jquery/jquery.js'></script>
+		
+		<script src='green_tiger.js'></script>
+		<script src='navbar.js'></script>
+		<script src='diag.js'></script>
+		<script src='alarms.js'></script>
+		
+		<title>Диагностика</title>
+	</head>
+
+	<body>
+		
+		<div class='container'>
+			<div class='row'>
+				<div class='col-md-12'>
+					<form class="form-horizontal">
+						<div class="form-group">
+							<label class="col-sm-6 control-label">Управление посредством Web-интерфейса</label>
+							<div class="col-sm-6">
+								<p class="form-control-static" id="control-mode"></p>
+							</div>
+						</div>
+					</form>
+					<hr>
+					
+					<div class="list-group" id="alarms">
+					</div>
+					
+					<!-- div class="btn-group" role="group" aria-label="...">
+						<button onclick="showLog('err')" type="button" class="btn btn-warning">Error</button>
+						<button onclick="showLog('all')" type="button" class="btn btn-default">All</button>
+					</div>
+					<pre id="preview"></pre -->
+				</div>
+			</div>
+		</div>
+
+	</body>
+
+</html>
