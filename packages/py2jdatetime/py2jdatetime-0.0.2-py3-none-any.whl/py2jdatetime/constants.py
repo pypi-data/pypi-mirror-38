@@ -1,0 +1,50 @@
+class JavaStandard:
+    DAY_OF_MONTH = 'd'
+    YEAR = 'y'
+    MONTH_OF_YEAR = 'M'
+    HOUR_OF_DAY = 'H'
+    SECOND_OF_MINUTE = 's'
+    DAY_OF_WEEK = 'e'
+    CLOCK_HOUR_OF_AM_PM = 'h'
+    AM_PM_OF_DAY = 'a'
+    TIME_ZONE_NAME = 'z'
+    DAY_OF_YEAR = 'D'
+    WEEK_OF_YEAR = 'w'
+    MINUTE_OF_HOUR = 'm'
+
+    TEXT_SHORT_FORM = 3
+    TEXT_FULL_FORM = 4
+    TEXT_NARROW_FORM = 5
+    NUMBER_NO_PADDING = 1
+    NUMBER_TWO_PADDING = 2
+    NUMBER_THREE_PADDING = 3
+    NUMBER_FOUR_PADDING = 4
+    NUMBER_OR_TEXT_TEXT_FORM = 3
+    NUMBER_OR_TEXT_NUMBER_FORM = 2
+    YEAR_REDUCED_FORM = 2
+    YEAR_FULL_FORM = 4
+    ZONE_NAME_SHORT_FORM = 3
+    ZONE_NAME_FULL_FORM = 4
+
+
+class CStandard:
+    DAY_OF_MONTH = '%d'
+    DAY_OF_WEEK_SHORT_FORM = '%a'
+    DAY_OF_WEEK_FULL_FORM = '%A'
+    DAY_OF_WEEK_NUMBER_FORM = '%w'
+    MONTH_SHORT_FORM = '%b'
+    MONTH_FULL_FORM = '%B'
+    MONTH_NUMBER_FROM = '%m'
+    YEAR_SHORT_FROM = '%y'
+    YEAR_FULL_FORM = '%Y'
+    HOUR_OF_DAY = '%H'
+    CLOCK_HOUR_OF_AM_PM = '%I'
+    AM_PM_OF_DAY = '%p'
+    MINUTE_OF_HOUR = '%M'
+    SECOND_OF_MINUTE = '%S'
+    MILLISECOND = '%f'
+    UTC_OFFSET = '%z'
+    TIMEZONE_NAME = '%Z'
+    DAY_OF_YEAR = '%j'
+    WEEK_OF_YEAR = '%U'
+    WEEK_OF_YEAR_MONDAY = '%W'
