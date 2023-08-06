@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: osumix
+Version: 0.1.0
+Summary: 
+Home-page: None
+Author: Justin
+Author-email: jbtcao@gmail.com
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: click (>=7.0,<8.0)
+Requires-Dist: pydub (>=0.23.0,<0.24.0)
+Requires-Dist: slider (>=0.1.0,<0.2.0)
