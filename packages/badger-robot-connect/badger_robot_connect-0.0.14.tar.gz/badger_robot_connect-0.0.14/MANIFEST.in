@@ -1,0 +1,4 @@
+include *.md
+recursive-include data *
+recursive-include images *
+recursive-include routes *

@@ -1,0 +1,14 @@
+MANIFEST.in
+README.md
+setup.py
+badger_robot_connect/__init__.py
+badger_robot_connect/badger_robot_connect.py
+badger_robot_connect/gamepad_handler.py
+badger_robot_connect/gui.py
+badger_robot_connect/websocket_client.py
+badger_robot_connect.egg-info/PKG-INFO
+badger_robot_connect.egg-info/SOURCES.txt
+badger_robot_connect.egg-info/dependency_links.txt
+badger_robot_connect.egg-info/entry_points.txt
+badger_robot_connect.egg-info/requires.txt
+badger_robot_connect.egg-info/top_level.txt
