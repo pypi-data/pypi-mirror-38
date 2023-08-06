@@ -1,0 +1,11 @@
+MANIFEST.in
+README.md
+setup.py
+src/flower_oauth_azure/__init__.py
+src/flower_oauth_azure/tenant.py
+src/flower_oauth_azure.egg-info/PKG-INFO
+src/flower_oauth_azure.egg-info/SOURCES.txt
+src/flower_oauth_azure.egg-info/dependency_links.txt
+src/flower_oauth_azure.egg-info/not-zip-safe
+src/flower_oauth_azure.egg-info/requires.txt
+src/flower_oauth_azure.egg-info/top_level.txt
