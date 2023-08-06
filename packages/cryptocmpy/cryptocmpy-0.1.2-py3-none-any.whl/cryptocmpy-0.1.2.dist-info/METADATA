@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: cryptocmpy
+Version: 0.1.2
+Summary: 
+Requires-Dist: requests
+
+CryptoCmpy
+
+Python 3 "CryptoCompare" site API wrapper.
+
+Home-page: https://github.com/havocesp/cryptocmpy
+Author: Daniel J. Umpierrez
+Author-email: umpierrez@pm.me
+License: UNLICENSE
+Description: 
+        CryptoCmpy
+        
+        Python 3 "CryptoCompare" site API wrapper.
+        
+Keywords: altcoins,altcoin,exchange,mining,cryptocompare,crypto,compare,api,wrapper
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
