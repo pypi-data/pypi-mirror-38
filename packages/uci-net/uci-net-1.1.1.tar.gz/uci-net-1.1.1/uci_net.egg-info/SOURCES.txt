@@ -1,0 +1,17 @@
+MANIFEST.in
+README
+__init__.py
+engine.py
+setup.py
+tcp_client.py
+tcp_server.py
+tcp_server_on_wine.py
+uci_driver.py
+uci_driver_over_tcp.py
+about/CONTACT
+about/LICENCE
+samples/driver.py
+uci_net.egg-info/PKG-INFO
+uci_net.egg-info/SOURCES.txt
+uci_net.egg-info/dependency_links.txt
+uci_net.egg-info/top_level.txt

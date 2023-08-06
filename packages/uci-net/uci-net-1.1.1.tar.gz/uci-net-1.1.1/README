@@ -1,0 +1,52 @@
+===============================
+Universal Chess Interface (UCI)
+===============================
+
+.. contents::
+
+
+Description
+===========
+
+This package provides a pure Python client-server `Universal Chess Interface`_.
+
+
+Installation Instructions
+=========================
+
+Usually this package will be installed by installing `ChessTab`_.
+
+Install the package by typing
+
+   python setup.py install
+
+at the command prompt with setup.py in the current directory.
+
+You may need to give the path and version of Python depending on your system's configuration:
+
+   <path to python>/python<version> setup.py install
+
+   For example
+
+      C:\\Python36\\python setup.py install
+
+         on Microsoft Windows or
+
+      python3.6 setup.py install
+
+         on Unix-like systems.
+
+Use `Python`_ 3.6 or later.
+
+
+Notes
+=====
+
+Project name and package name changed from 'uci' to 'uci-chess' prior to upload to PyPI.
+
+The version numbers of uci-chess continue on from uci.
+
+
+.. _`Python`: https://python.org
+.. _`Universal Chess Interface`: https://en.wikipedia.org/wiki/Universal_Chess_Interface
+.. _`ChessTab`: http://www.solentware.co.uk/download.html
