@@ -1,0 +1,9 @@
+pyyaml
+hepdata_validator
+matplotlib<3.0.0
+
+[docs]
+Sphinx>=1.4.2
+mock
+
+[all]
