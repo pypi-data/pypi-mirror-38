@@ -1,0 +1,15 @@
+sanic_transmute/__init__.py,sha256=lHN4K2vdf47RTNjMd_Gne1oc9l9WIs4zsj5V0DpWe-M,185
+sanic_transmute/handler.py,sha256=GTSFG6A20WIHZ83YMB4UipACjjyTIbJpWddBQFREsJc,2457
+sanic_transmute/route.py,sha256=JXSj6PC3hr7I2dIvvN-jtLlalvjVF-2KppQRSwhpHWk,829
+sanic_transmute/swagger.py,sha256=sDNdaPlEdwOHpHyp2dEvgKJUGoLJdWZrG2Bg97d0yU0,2548
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/conftest.py,sha256=lN1dOdI8b5mLxlWPT5tYja9IOI037_k15V0WVuCxEn8,3210
+tests/test_parsing.py,sha256=F1uD-5_F6XsH0l2M1Xz110h5fb9B9W7Rw-nXzOWa7eI,1255
+tests/test_route.py,sha256=Z-9bpYoHguMVdNP-9T6SCW_0NpTajeHq3JY-i_EqUww,2070
+tests/test_swagger.py,sha256=INFTryERI8-jtRzPwRt8TtUN49CoReo9Kh0kdZ5Z1qU,1024
+tests/utils.py,sha256=gx8pIvDqLpCcHgZCNxxK-byzl8YpObYtKTkApxWnPJU,62
+sanic_transmute-0.1.3.dist-info/LICENSE,sha256=FwsjXXyMD60ItOF0lE12zD0BNlcE8a_7O4X3yiR8HcI,1058
+sanic_transmute-0.1.3.dist-info/METADATA,sha256=6OOYyEHDp4kbdLKq-Fr8xnfIqpDRPdU4I6sInMdpyGs,8288
+sanic_transmute-0.1.3.dist-info/WHEEL,sha256=8T8fxefr_r-A79qbOJ9d_AaEgkpCGmEPHc-gpCq5BRg,110
+sanic_transmute-0.1.3.dist-info/top_level.txt,sha256=S_P7FRtbIzht4Uw4UTjrCw1nomeEf3CplhhAGiMc8fU,22
+sanic_transmute-0.1.3.dist-info/RECORD,,
