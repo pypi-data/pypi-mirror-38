@@ -1,0 +1,15 @@
+.gitignore
+CHANGELOG.md
+COPYING
+README.md
+setup.cfg
+setup.py
+src/gitshoes/__init__.py
+src/gitshoes/reporter.py
+src/gitshoes.egg-info/PKG-INFO
+src/gitshoes.egg-info/SOURCES.txt
+src/gitshoes.egg-info/dependency_links.txt
+src/gitshoes.egg-info/entry_points.txt
+src/gitshoes.egg-info/not-zip-safe
+src/gitshoes.egg-info/requires.txt
+src/gitshoes.egg-info/top_level.txt
