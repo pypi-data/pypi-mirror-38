@@ -1,0 +1,122 @@
+Metadata-Version: 2.1
+Name: xanity
+Version: 0.1b3
+Summary: Package for managing experiments and analyses
+Home-page: http://gitlab.com/bjmuld/xanity/
+Author: Barry Muldrey
+Author-email: barry@muldrey.net
+License: GPLv3
+Project-URL: Bug Tracker, https://gitlab.com/bjmuld/xanity/issues
+Project-URL: Documentation, https://gitlab.com/bjmuld/xanity
+Keywords: scientific experiements analysis data management
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: dill
+
+#  xanity is a tool for experimentation
+
+Xanity is meant to allow easy and free creation of multiple experiments which
+share some codebase similarity.
+
+Xanity helps manage the following:
+ - experiment source code
+ - analysis source code
+ - experiment parameters
+ - experiment data
+
+Usage:
+1. initialize $PWD (or create a new xanity directory) with:
+
+    `xanity init [new_directory]`
+
+    this will create a skeleton directory tree for your experiments and analyses.
+
+2. find the conda-environment.yaml file and tweak its contents to suit your requiremnts.
+3. resolve these requirements (create/update a conda env) with: 
+
+    `xanity setup`
+
+4. create/edit experiments inside xanity-project-root/experiments (see below for experiment file skeleton):
+
+    `nano experiments/myfaveexp.py`
+
+5. run experiments (individually or collectively):
+    * `xanity run`  this will run everything
+    * `xanity run myfaveexp`  this will run the exp found inside experiments/myfaveexp.py
+    * `xanity run myfaveexp experiment1` this will run the two experiments given
+    * `python -m experiment/myfaveexp` this is an example of running an experiment directly
+    * `python experiment/myfaveexp` this is another example of running an experiment directly
+
+6. you will find all the experimental data organized under the data/runs directory tree.
+   Source-code snapshots are tarred and kept with the data they produced. Logs are kept too.
+
+7. you can run an analysis script on a completed run:
+
+    `xanity [analyze|anal] myfaveexp [-d run_data_root_dir]`
+
+   this will look for the most recent (or specified) dir of run data, and run the analysis found
+   at analyses/myfaveexp on that data.
+
+8. relax. collect Nobel.
+
+# Experiment file skeleton:
+## (xanity-proj-root/experiments/*.py)
+
+a. Each experiment module must have a main() function defined:
+  - (xanity will look for and invoke the main() function in each experiment).
+  - Any parameters to the experiment should be arguments to the main().
+  (leaving the experiment exposed in the module makes your code more portable.. I think.
+  an alternative would be to define an experiment class inside xanity and make each experiment an instance)
+
+b. The `xanity.experiment.parameters()` call registers the parameter permutations to use when running the experiment.
+
+c. Include the `xanity.metadata_hook()` and `xanity.run_hook()` function calls.
+    - The metadata_hook will return relevant xanity metadata (loggers, data paths, etc)
+    - The run_hook will run the experiment if it's invoked directly as a script or as a module:
+
+```python
+# experiments/example_experiment.py
+
+import xanity.experiment
+
+xanity.experiment.parameters({
+        'iterations': [5, 6, 7],
+        'max_headroom': [98, 99, 100],
+})
+
+def main(iterations=5, max_headroom=99):
+    metadata = xanity.experiment.metadata_hook()
+    do_my_experiment(iterations, max_headroom)
+
+xanity.experiment.run_hook()
+```
+
+# Analysis file skeleton:
+## (xanity-proj-root/analyses/*.py)
+
+a. Each analysis module must have a main() function defined:
+  - (xanity will look for and invoke the main() function in each analysis).
+  - The only parameter to the analysis is the path to the root of a run (or set of runs).
+  (leaving the experiment exposed in the module makes your code more portable.. I think.
+  an alternative would be to define an experiment class inside xanity and make each experiment an instance)
+
+b. The call to xanity.analysis.link_experiments() registers the names of experiments to associate with this analysis.
+
+c. Include the `xanity.analysis.metadata_hook()` and `xanity.analysis.run_hook()` function calls.
+    - The metadata_hook will return relevant xanity metadata (loggers, data paths, etc)
+    - The run_hook will run the analysis if it's invoked directly as a script or as a module
+
+```python
+# analyses/example_analysis.py
+
+import xanity.analysis
+
+xanity.analysis.link_experiments(['myfaveexp','experiment1'])
+
+def main(data_root=None):
+    metadata=xanity.analysis.metadata_hook()
+    do_my_analysis(data_root)
+
+xanity.analysis.run_hook()
+```
+
