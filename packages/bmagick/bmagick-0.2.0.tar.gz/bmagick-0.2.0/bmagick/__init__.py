@@ -1,0 +1,1 @@
+from .magick import Magick
