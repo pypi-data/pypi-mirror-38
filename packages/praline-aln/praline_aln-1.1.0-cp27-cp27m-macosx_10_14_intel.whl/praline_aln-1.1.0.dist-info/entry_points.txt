@@ -1,0 +1,18 @@
+[console_scripts]
+praline = praline.cmd:main
+pralined = praline.daemon:main
+
+[praline.type]
+AdHocMultipleSequenceAligner = praline.component:AdHocMultipleSequenceAligner
+BlastPlusSequenceFinder = praline.component:BlastPlusSequenceFinder
+DummyMasterSlaveAligner = praline.component:DummyMasterSlaveAligner
+GlobalMasterSlaveAligner = praline.component:GlobalMasterSlaveAligner
+GuideTreeBuilder = praline.component:GuideTreeBuilder
+LocalMasterSlaveAligner = praline.component:LocalMasterSlaveAligner
+PairwiseAligner = praline.component:PairwiseAligner
+PralineMultipleSequenceAlignmentWorkflow = praline.component:PralineMultipleSequenceAlignmentWorkflow
+ProfileBuilder = praline.component:ProfileBuilder
+PsiBlastPlusSequenceFinder = praline.component:PsiBlastPlusSequenceFinder
+RawPairwiseAligner = praline.component:RawPairwiseAligner
+TreeMultipleSequenceAligner = praline.component:TreeMultipleSequenceAligner
+
