@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: rafi
+Version: 0.1.0
+Summary: A tiny route dispatcher for Google Cloud Functions.
+Home-page: None
+Author: Danilo Braband
+Author-email: None
+Requires-Python: >=3.7,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
