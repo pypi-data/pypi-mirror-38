@@ -1,0 +1,7 @@
+demyst-common>=0.7.4
+click
+boto3
+botocore
+tabulate
+halo
+glom
