@@ -1,0 +1,36 @@
+Metadata-Version: 1.1
+Name: MachineLearningForTextcategory
+Version: 1.0.0
+Summary: Machine learning for text category
+Home-page: https://github.com/
+Author: leo
+Author-email: liyaowang518@gmail.com
+License: Apache License 2.0
+Description: machine learning for category text file
+        ==================
+        
+        this library used for deal with text and category it by automation
+        
+        Requirements
+        ============
+        
+        * Python 2.7.x
+        * setuptools >= 2.1
+        * pip >= 1.5
+        
+        
+        installation
+        =============================
+        
+        | pip install -U MachineLearningForTextcategory
+        
+        
+        
+Keywords: machine learning for dealing with plain text logs
+Platform: any
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
