@@ -1,0 +1,17 @@
+MANIFEST.in
+README.md
+VERSION
+setup.py
+hitchqs/__init__.py
+hitchqs/quickstart.py
+hitchqs.egg-info/PKG-INFO
+hitchqs.egg-info/SOURCES.txt
+hitchqs.egg-info/dependency_links.txt
+hitchqs.egg-info/entry_points.txt
+hitchqs.egg-info/not-zip-safe
+hitchqs.egg-info/requires.txt
+hitchqs.egg-info/top_level.txt
+hitchqs/templates/explainkey/hitchreqs.in
+hitchqs/templates/explainkey/key.py
+hitchqs/templates/simplekey/hitchreqs.in
+hitchqs/templates/simplekey/key.py
