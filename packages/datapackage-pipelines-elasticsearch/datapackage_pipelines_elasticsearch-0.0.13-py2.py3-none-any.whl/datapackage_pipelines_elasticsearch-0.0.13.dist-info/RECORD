@@ -1,0 +1,10 @@
+datapackage_pipelines_elasticsearch/VERSION,sha256=Tiz9mfYBcFUTj07phTS-PQor-2hyoCPfJ3D-pIMTW3M,7
+datapackage_pipelines_elasticsearch/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+datapackage_pipelines_elasticsearch/processors/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+datapackage_pipelines_elasticsearch/processors/dump/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+datapackage_pipelines_elasticsearch/processors/dump/to_index.py,sha256=dCOiPaSE0-1DTFGFmXdo0jj-AGiSxnqYoKop7JrGKCo,3295
+datapackage_pipelines_elasticsearch-0.0.13.dist-info/LICENSE.md,sha256=VjR5OLAsjEOPg-iOhvDicdHV2qUcSkmqaAnpNLyGChI,1095
+datapackage_pipelines_elasticsearch-0.0.13.dist-info/METADATA,sha256=UM0hHPtX6das3Zl3WCI_P40CtJPAWszPN-hi6yUrKGA,2496
+datapackage_pipelines_elasticsearch-0.0.13.dist-info/WHEEL,sha256=_wJFdOYk7i3xxT8ElOkUJvOdOvfNGbR9g-bf6UQT6sU,110
+datapackage_pipelines_elasticsearch-0.0.13.dist-info/top_level.txt,sha256=iJCS82XUI9Va5gpFvS3vIOJSXYM5E-2zOxbSBW1z1VE,36
+datapackage_pipelines_elasticsearch-0.0.13.dist-info/RECORD,,
