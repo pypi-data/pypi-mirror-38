@@ -1,0 +1,32 @@
+# Note: Some official OpenStack wide jobs are still defined in the
+#       project-config repository
+- project:
+    templates:
+      - check-requirements
+      - publish-openstack-docs-pti
+      - tempest-plugin-jobs
+    check:
+      jobs:
+        - octavia-v2-dsvm-noop-api
+        - octavia-v2-dsvm-noop-api-stable-rocky
+        - octavia-v2-dsvm-noop-api-stable-queens
+        - octavia-v2-dsvm-noop-py35-api
+        - octavia-v2-dsvm-scenario
+        - octavia-v2-dsvm-scenario-stable-rocky
+        - octavia-v2-dsvm-scenario-stable-queens
+        - octavia-v2-dsvm-py35-scenario
+        - octavia-v2-dsvm-scenario-centos-7
+        - octavia-v2-dsvm-scenario-ubuntu-bionic:
+            voting: false
+    gate:
+      queue: octavia
+      jobs:
+        - octavia-v2-dsvm-noop-api
+        - octavia-v2-dsvm-noop-api-stable-rocky
+        - octavia-v2-dsvm-noop-api-stable-queens
+        - octavia-v2-dsvm-noop-py35-api
+        - octavia-v2-dsvm-scenario
+        - octavia-v2-dsvm-scenario-stable-rocky
+        - octavia-v2-dsvm-scenario-stable-queens
+        - octavia-v2-dsvm-py35-scenario
+        - octavia-v2-dsvm-scenario-centos-7
