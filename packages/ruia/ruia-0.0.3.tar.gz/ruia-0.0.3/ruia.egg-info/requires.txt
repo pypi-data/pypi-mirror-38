@@ -1,0 +1,7 @@
+aiohttp
+cchardet
+cssselect
+lxml
+
+[uvloop]
+uvloop
