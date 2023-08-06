@@ -1,0 +1,28 @@
+Metadata-Version: 2.0
+Name: swiftace
+Version: 0.1.25
+Summary: SwiftAce Python SDK
+Home-page: https://swiftace.ai/
+Author: Aakash N S (SwiftAce)
+Author-email: opensource@swiftace.ai
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Dist: requests
+Requires-Dist: tqdm
+Requires-Dist: tuspy
+
+# SwiftAce
+
+You can use this tool to reproduce Anaconda environments with easy.
+
+Installation:
+
+```
+pip install swiftace
+```
+
+
+
