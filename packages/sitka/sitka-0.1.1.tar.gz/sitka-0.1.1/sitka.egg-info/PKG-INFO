@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: sitka
+Version: 0.1.1
+Summary: A built environment analysis and modeling library for Python.
+Home-page: https://github.com/mcneillj/sitka
+Author: James McNeill
+License: UNKNOWN
+Description: # A library for built environment modeling and simulation
+                                directly in Python.
+Keywords: simulation setuptools development
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
