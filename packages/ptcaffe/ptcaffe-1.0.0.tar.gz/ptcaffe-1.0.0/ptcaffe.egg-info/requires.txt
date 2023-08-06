@@ -1,0 +1,8 @@
+easydict
+nose
+packaging
+torch>=0.4.0
+torchvision>=0.2.1
+protobuf
+tqdm
+setuptools>=16.0
