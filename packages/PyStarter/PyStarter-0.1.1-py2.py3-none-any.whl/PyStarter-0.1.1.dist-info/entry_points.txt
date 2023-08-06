@@ -1,0 +1,3 @@
+[console_scripts]
+pystarter-version = pystarter.command_line:version
+
