@@ -1,0 +1,7 @@
+requests>=2.20
+lxml>=4.2
+xmltodict>=0.11
+cuid>=0.3
+validator-collection>=1.2
+pytz>=2018
+exrex>=0.10

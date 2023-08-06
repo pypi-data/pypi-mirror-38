@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: S3MPython
+Version: 3.1.0.4
+Summary: Python implementation of the S3Model https://datainsights.tech/S3Model/ specifications version: 3.1.0
+Home-page: https://datainsights.tech/
+Author: Timothy W. Cook
+Author-email: tim@datainsights.tech
+License: UNKNOWN
+Download-URL: https://github.com/DataInsightsInc/S3MPython/archive/3.1.0.4.tar.gz
+Project-URL: Bug Reports, https://github.com/DataInsightsInc/S3MPython/issues
+Project-URL: Training, https://DataInsights.tech/training
+Project-URL: Source, https://github.com/DataInsightsInc/S3MPython/
+Description: # S3MPython
+        A Python library for creating S3Model data models.
+        
+        Install with:
+        
+        ```
+          pip install S3MPython
+        ```
+        
+        For S3Model training courses see the [Data Insights](https://datainsights.tech/training) website.
+        
+Keywords: context rdf xml machine learning data-centric semantic interoperability semantics agi
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Customer Service
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: Financial and Insurance Industry
+Classifier: Intended Audience :: Healthcare Industry
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Legal Industry
+Classifier: Intended Audience :: Manufacturing
+Classifier: Intended Audience :: Other Audience
+Classifier: Intended Audience :: Religion
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: System Administrators
+Classifier: Intended Audience :: Telecommunications Industry
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown

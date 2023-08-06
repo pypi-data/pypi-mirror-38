@@ -1,0 +1,25 @@
+README.md
+S3MPython.conf
+acs.txt
+setup.cfg
+setup.py
+S3MPython/ __init__.py
+S3MPython/dm.py
+S3MPython/errors.py
+S3MPython/ev.py
+S3MPython/meta.py
+S3MPython/ontology.py
+S3MPython/settings.py
+S3MPython/struct.py
+S3MPython/utils.py
+S3MPython/xdt.py
+S3MPython.egg-info/PKG-INFO
+S3MPython.egg-info/SOURCES.txt
+S3MPython.egg-info/dependency_links.txt
+S3MPython.egg-info/requires.txt
+S3MPython.egg-info/top_level.txt
+s3model/dm-description.xsl
+s3model/s3model.owl
+s3model/s3model_3_1_0.rdf
+s3model/s3model_3_1_0.xsd
+s3model/s3model_3_1_0.xsl
