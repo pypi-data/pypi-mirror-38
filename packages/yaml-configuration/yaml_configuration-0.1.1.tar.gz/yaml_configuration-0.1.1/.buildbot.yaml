@@ -1,0 +1,10 @@
+arch:
+  - 'osl42-x86_64'
+
+doc:
+  - echo "No documentation to build"
+
+doc_dir: ''
+
+test:
+  - python setup.py test
