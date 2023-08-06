@@ -1,0 +1,10 @@
+README.rst
+setup.py
+kfilter/__init__.py
+kfilter/kalman.py
+kfilter/simplify.py
+kfilter.egg-info/PKG-INFO
+kfilter.egg-info/SOURCES.txt
+kfilter.egg-info/dependency_links.txt
+kfilter.egg-info/requires.txt
+kfilter.egg-info/top_level.txt
