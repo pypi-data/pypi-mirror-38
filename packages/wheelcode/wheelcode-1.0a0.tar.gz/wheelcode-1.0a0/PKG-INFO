@@ -1,0 +1,23 @@
+Metadata-Version: 1.1
+Name: wheelcode
+Version: 1.0a0
+Summary: Web applications deployment and maintenance library
+Home-page: https://github.com/kosarev/wheelcode
+Author: Ivan Kosarev
+Author-email: ivan@kosarev.info
+License: MIT
+Description: UNKNOWN
+Keywords: web server application deployment maintenance
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Internet
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Site Management
