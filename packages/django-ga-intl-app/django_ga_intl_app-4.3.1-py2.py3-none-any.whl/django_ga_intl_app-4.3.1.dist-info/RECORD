@@ -1,0 +1,17 @@
+django_ga_intl_app-4.3.1.dist-info/LICENSE.txt,sha256=HCyC8JK5C72SnOB2XqnQe3dvr-4CJuWT85WY7oWXbbs,1560
+django_ga_intl_app-4.3.1.dist-info/METADATA,sha256=_L-r43YHWSfLv3ewwjq4DjMMzoDhviPThYiwmn6mSAQ,2865
+django_ga_intl_app-4.3.1.dist-info/RECORD,,
+django_ga_intl_app-4.3.1.dist-info/WHEEL,sha256=gduuPyBvFJQSQ0zdyxF7k0zynDXbIbvg5ZBHoXum5uk,110
+django_ga_intl_app-4.3.1.dist-info/top_level.txt,sha256=mmyKxaFWwCFbCuOvamWpG-V4wMJ2aO0a4mp9nfId31w,17
+google_analytics/__init__.py,sha256=b0G2cnyn9QiRAEmSib5X8oA88UAhqg1bQ-iFCrkm18M,122
+google_analytics/middleware.py,sha256=qxdswl4RSkKcZ2cq1HuhwOd5wrNxexmJxk8ZYscY2cQ,1213
+google_analytics/models.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+google_analytics/tasks.py,sha256=kTAr23m488VMXLHtwxr-NIBUumc7XH9Z1FL94VVDMg4,334
+google_analytics/urls.py,sha256=k8ioEO5p6lQ5j_v11MKgfs_PrHhti0FkxCIPiwz-r_o,270
+google_analytics/utils.py,sha256=-tsLevzVphJMTiAUx6PzsnYRCoSEjMvz8Aj9USUZArk,4225
+google_analytics/views.py,sha256=i1109JNlhNCxoRk9cw4LXvBGLwdoVJmQRxJUKnTSJbk,2062
+google_analytics/templatetags/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+google_analytics/templatetags/google_analytics_tags.py,sha256=BbEBEVB0nAHKPQ1Neph2NHnJNKaL4lF3eMKlDlJHuQI,1837
+google_analytics/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+google_analytics/tests/test_ga.py,sha256=CA23zpArf1S172IxTfa5V07xmFioSfokyAcaW04c7hw,9369
+google_analytics/tests/test_templatetags_google_analytics_tags.py,sha256=xE73cn9b4wWcYyRPapLznT9lqhc_hoNzEC9PBNx9ZXs,1186
