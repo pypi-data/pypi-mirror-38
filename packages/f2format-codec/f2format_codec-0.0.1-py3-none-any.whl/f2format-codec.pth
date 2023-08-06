@@ -1,0 +1,6 @@
+import contextlib
+
+with contextlib.suppress(ImportError):
+    import f2format_codec
+    f2format_codec.register()
+

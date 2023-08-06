@@ -1,0 +1,61 @@
+Metadata-Version: 2.1
+Name: f2format-codec
+Version: 0.0.1
+Summary: Codec registry for f2format
+Home-page: https://github.com/JarryShaw/f2format-codec
+Author: Jarry Shaw
+Author-email: jarryshaw@icloud.com
+License: MIT License
+Keywords: fstring f2format codec
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Environment :: Console
+Classifier: Environment :: MacOS X
+Classifier: Environment :: Win32 (MS Windows)
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Software Development
+Classifier: Topic :: Utilities
+Requires-Python: >=3.3
+Description-Content-Type: text/markdown
+Requires-Dist: f2format
+
+# f2format-codec
+
+Codec registry for [`f2format`](https://github.com/JarryShaw/f2format),
+a back-port compiler for Python 3.6 f-string literals.
+
+## Installation
+
+```sh
+pip install f2format-codec
+```
+
+## Usage
+
+Include the following encoding cookie at the top of your file (this replaces
+the `UTF-8` cookie if you already have it):
+
+```python
+# -*- coding: f2format -*-
+```
+
+And then write Python 3.6 f-string literals as usual :beer:
+
+## Acknowledgement
+
+This project levergas APIs provided by
+[`f2format`](https://github.com/JarryShaw/f2format), and concepts inspired from
+[`future-fstrings`](https://github.com/asottile/future-fstrings).
+
+
