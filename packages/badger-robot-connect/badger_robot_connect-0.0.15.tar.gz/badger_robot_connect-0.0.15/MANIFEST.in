@@ -1,0 +1,4 @@
+include *.md
+recursive-include badger_robot_connect/data *
+recursive-include badger_robot_connect/images *
+recursive-include badger_robot_connect/routes *
