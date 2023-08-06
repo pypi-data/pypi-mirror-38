@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: py-fdl
+Version: 1.0.2
+Summary: Python client for Firebase Dynamic Links
+Home-page: https://github.com/heykarimoff/py-fdl
+Author: Mukhammad Karimov
+Author-email: hey@karimoff.me
+Maintainer: Mukhammad Karimov
+Maintainer-email: hey@karimoff.me
+License: MIT
+Project-URL: Bug Reports, https://github.com/heykarimoff/py-fdl/issues
+Project-URL: Funding, https://www.karimoff.me
+Project-URL: Say Thanks!, https://saythanks.io/to/heykarimoff
+Project-URL: Source, https://github.com/heykarimoff/py-fdl
+Description: [![Build Status](https://travis-ci.org/heykarimoff/firebase_dynamic_links.svg?branch=master)](https://travis-ci.org/heykarimoff/firebase_dynamic_links)
+        [![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/heykarimoff)
+        # py-fdl
+        Python client for Firebase Dynamic Links
+        
+        ## Usage
+        
+        ```python
+        
+        from firebase_dynamic_links.client import FirebaseClient
+        from firebase_dynamic_links.builder import DynamicLinkBuilder
+        
+        dynamic_link_builder = DynamicLinkBuilder(client=FirebaseClient(api_key='your_secret_key'))
+        
+        long_link = dynamic_link_builder.generate_long_link(app_code='your_app_code', isi='com.example.app')
+        short_link = dynamic_link_builder.generate_short_link(app_code='your_app_code', isi='com.example.app')
+        
+        ```
+Keywords: firebase dynamic links super links
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Description-Content-Type: text/markdown
+Provides-Extra: dev
