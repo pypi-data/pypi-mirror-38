@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: rpc-differ
+Version: 0.3.10
+Summary: Find changes between RPC-OpenStack revisions
+Home-page: https://github.com/rcbops/rpc_differ
+Author: Major Hayden
+Author-email: major@mhtx.net
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: GitPython
+Requires-Dist: jinja2
+Requires-Dist: osa-differ (>=0.3.10)
+Requires-Dist: requests
+
+UNKNOWN
+
+
