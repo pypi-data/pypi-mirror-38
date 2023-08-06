@@ -1,0 +1,14 @@
+# directories
+FINE.egg-info
+.idea/
+__pycache__/
+example/.ipynb_checkpoints/
+local/
+*.eggs/
+*.testing/
+
+# file types to ignore
+*.pyc
+*.egg-info
+*.log
+*.lp
