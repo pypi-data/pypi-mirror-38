@@ -1,0 +1,83 @@
+Metadata-Version: 2.1
+Name: toomanyfiles
+Version: 0.5.0
+Summary: Remove files and directories with date and time patterns
+Home-page: https://too-many-files.sourceforge.io/
+Author: Turulomio
+Author-email: turulomio@yahoo.es
+License: GPL-3
+Description: Source code & Development:
+            https://github.com/Turulomio/toomanyfiles
+        Doxygen documentation:
+            http://turulomio.users.sourceforge.net/doxygen/too-many-files/
+        Main developer web page:
+            http://turulomio.users.sourceforge.net/en/proyectos.html
+        Gentoo ebuild
+            You can find a Gentoo ebuild in https://sourceforge.net/p/xulpymoney/code/HEAD/tree/myportage/app-admin/toomanyfiles/
+        
+        Description
+        ===========
+        Removes files which name has date and time patterns
+        
+        License
+        =======
+        GPL-3
+        
+        Dependencies
+        ============
+        * https://www.python.org/, as the main programming language.
+        * https://pypi.org/project/colorama/, to give console colors.
+        * https://pypi.org/project/mangenerator/, to generate man files.
+        * https://pypi.org/project/ttyrecgenerator/, to generate animated gifs.
+        
+        Usage
+        =====
+        You can see this animated gif to learn how to use it:
+        
+        .. image:: https://sourceforge.net/p/too-many-files/code/HEAD/tree/doc/ttyrec/toomanyfiles_howto_en.gif?format=raw
+           :height: 800px
+           :width: 600px
+           :scale: 100 %
+           :align: center
+        
+        Changelog
+        =========
+        0.5.0
+          * Migrated repository from Sourceforge to Github
+          * Removed innecesary dependencies in setup.py
+        
+        0.4.0
+          * [#11] Print different filename roots in the same directory 
+          * [#12] Create static class ExitCodes
+          * [#13] Added parameters to main function
+          * [#14] Solved bug with directories named with pattern YYYYMMDD HHMM only
+          * [#15] Put colored letter output line in a single function
+          * Improved --create_examples
+          * Added --remove_examples
+        
+        0.3.0
+          * Improved output
+        
+        0.2.0
+          * Code adapted to ttyrecgenerator-0.6.0
+        
+        0.1.1
+          * Corrected image link in README.rst
+        
+        0.1.0
+          * Catching exception in gettext
+          * Added catalog translations to package
+          * Added dependencies to setup.py
+          * Removed Makefile.py. Now I'm using setuptools
+          * Stable version
+          * First version, full functional.
+          * Creating infrastructure
+        
+Keywords: remove files datetime patterns
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
