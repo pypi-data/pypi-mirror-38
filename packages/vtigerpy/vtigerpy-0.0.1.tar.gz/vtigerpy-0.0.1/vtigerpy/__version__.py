@@ -1,0 +1,12 @@
+"""Version details for vtigerpy"""
+
+__title__ = "vtigerpy"
+__description__ = "A basic VTiger interface"
+__url__ = ""
+__version__ = "0.0.1"
+__author__ = "Rodrigo Maluf"
+__author_email__ = "rodrigo1793@gmail.com"
+__license__ = "None"
+__maintainer__ = "Rodrigo Maluf"
+__maintainer_email__ = "rodrigo1793@gmail.com"
+__keywords__ = "python vtiger"
