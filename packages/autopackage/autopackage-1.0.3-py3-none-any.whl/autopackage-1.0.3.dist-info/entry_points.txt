@@ -1,0 +1,3 @@
+[console_scripts]
+autopackage = autopackage.__main__:main
+

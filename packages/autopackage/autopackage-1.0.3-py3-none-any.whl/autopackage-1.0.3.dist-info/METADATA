@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: autopackage
+Version: 1.0.3
+Summary: Tool for easy and fast packaging in Python wheels.
+Home-page: https://linuxdevtips.blogspot.com/
+Author: Fernando Enzo Guarini
+Author-email: fernandoenzo@gmail.com
+Maintainer: 
+Maintainer-email: 
+License: GPLv3+
+Download-URL: https://bitbucket.org/fernandoenzo/autopackage/
+Keywords: autopackage wheel setuptools portable installable
+Platform: any
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: System :: Installation/Setup
+Requires-Dist: setuptools (>=36)
+
+Tool with which you can package a code quickly and have it ready for distribution either in the form of installable wheel or portable program.
+
+
