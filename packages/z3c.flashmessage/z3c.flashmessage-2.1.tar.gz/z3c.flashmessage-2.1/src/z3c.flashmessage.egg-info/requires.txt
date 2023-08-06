@@ -1,0 +1,13 @@
+setuptools
+ZODB
+zope.interface
+zope.schema
+zope.session
+
+[test]
+zope.publisher
+zope.component
+zope.security
+zope.testrunner
+zope.app.wsgi[testlayer]>=4.0
+Webtest
