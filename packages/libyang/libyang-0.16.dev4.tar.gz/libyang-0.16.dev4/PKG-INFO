@@ -1,0 +1,21 @@
+Metadata-Version: 1.2
+Name: libyang
+Version: 0.16.dev4
+Summary: CFFI bindings to libyang
+Home-page: https://github.com/rjarry/libyang-python
+Author: Robin Jarry
+Author-email: robin@jarry.cc
+License: MIT
+Description: # libyang-python
+        
+        Python CFFI bindings to libyang
+        
+Keywords: libyang,cffi
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >= 3.3
