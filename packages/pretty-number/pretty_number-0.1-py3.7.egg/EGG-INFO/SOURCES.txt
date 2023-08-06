@@ -1,0 +1,9 @@
+setup.cfg
+setup.py
+src/pretty_number/__init__.py
+src/pretty_number/_pretty_number.py
+src/pretty_number.egg-info/PKG-INFO
+src/pretty_number.egg-info/SOURCES.txt
+src/pretty_number.egg-info/dependency_links.txt
+src/pretty_number.egg-info/top_level.txt
+test/test_basic.py
