@@ -1,0 +1,3 @@
+[console_scripts]
+volatility_profile_builder = volatility_profile_builder.volatility_profile_builder:main
+
