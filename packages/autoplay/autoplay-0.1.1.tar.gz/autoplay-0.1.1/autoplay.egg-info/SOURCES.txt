@@ -1,0 +1,16 @@
+MANIFEST.in
+README.rst
+setup.py
+autoplay/autoplay.yml
+autoplay/cli.py
+autoplay/executor.py
+autoplay/schema.py
+autoplay.egg-info/PKG-INFO
+autoplay.egg-info/SOURCES.txt
+autoplay.egg-info/dependency_links.txt
+autoplay.egg-info/entry_points.txt
+autoplay.egg-info/requires.txt
+autoplay.egg-info/top_level.txt
+autoplay/executors/docker.py
+autoplay/executors/linux.py
+autoplay/executors/venv.py
