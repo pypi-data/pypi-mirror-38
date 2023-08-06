@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: ml-cli
+Version: 0.0.1
+Summary: A group of cli commands that helps with machine learning and docker commands
+Home-page: https://github.com/devyhia/ml-cli
+Author: Yehya Abouelnaga
+Author-email: yehya.abouelnaga@gmail.com
+License: MIT
+Keywords: machine learning cli
+Platform: UNKNOWN
+Requires-Dist: Click
+Requires-Dist: pyfiglet
+Requires-Dist: clint
+Requires-Dist: pyaml
+
+UNKNOWN
+
+
