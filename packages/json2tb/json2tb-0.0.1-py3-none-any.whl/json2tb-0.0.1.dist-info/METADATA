@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: json2tb
+Version: 0.0.1
+Summary: A tiny utility for loading a json and translating into tensorboard format
+Home-page: UNKNOWN
+Author: Sotetsu KOYAMADA
+Author-email: koyamada-s@sys.i.kyoto-u.ac.jp
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Requires-Dist: argparse
+Requires-Dist: numpy
+Requires-Dist: tensorboard
+Requires-Dist: tensorboardx
+
+UNKNOWN
+
+
