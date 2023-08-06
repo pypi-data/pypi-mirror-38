@@ -1,0 +1,5 @@
+include volatility_profile_builder/docker/*
+include volatility_profile_builder/libdwarf-20180809.tar.gz
+global-exclude *.pyc
+global-exclude *.swp
+global-exclude *.egg-info
