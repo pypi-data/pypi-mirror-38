@@ -1,0 +1,152 @@
+#!/usr/bin/python
+
+import argparse
+import atexit
+import getpass
+import logging
+import os
+import sys
+
+parent_dir = os.path.split(os.path.dirname(__file__))[-1]
+if dir == 'scripts':
+    sys.path.append(os.path.join(parent_dir, '..'))
+
+from prvsnlib.packager import Packager
+from prvsnlib.provisioner import Provisioner
+from prvsnlib.remote import Remote
+from prvsnlib.runbook import Runbook, init_runbook
+
+from prvsnlib.utils.timer import Timer
+
+from prvsnlib.utils.validation import (
+    validate_runbook,
+    validate_roles,
+    validate_hostname,
+    validate_username,
+)
+
+
+def main():
+    t = Timer()
+    atexit.register(t.get)
+
+    parser = argparse.ArgumentParser(description='Simple machine provisioning tool.')
+
+    parser.add_argument('-b', '--runbook',
+                        action='store', default='.',
+                        help='Path to the runbook (default: .)')
+
+    parser.add_argument('-n', '--hostname',
+                        action='store', default=None,
+                        help='Remote hostname (default: localhost)')
+
+    parser.add_argument('-o', '--output',
+                        action='store', default='package.pyz',
+                        help='Package output file')
+
+    parser.add_argument('-r', '--roles',
+                        action='store', default='',
+                        help='Roles to provision, comma-separated (default: none)')
+
+    parser.add_argument('-s', '--sudo',
+                        action='store_true',
+                        help='Run provisioning as root (default: logged in user)')
+
+    parser.add_argument('-u', '--username',
+                        action='store', default=getpass.getuser(),
+                        help='Remote username (default: current user)')
+
+    parser.add_argument('-v', '--verbose',
+                        action='store_true',
+                        help='Verbose output')
+
+    parser.add_argument('--no-copy-keys',
+                        action='store_true',
+                        help='Do not copy public ssh keys to remote (default: copy)')
+
+    parser.add_argument('command',
+                        nargs='?', default=None,
+                        help="Command: provision(default), init, package, remote")
+
+    args = parser.parse_args()
+
+    if args.verbose:
+        logging.root.setLevel(logging.DEBUG)
+    else:
+        logging.root.setLevel(logging.INFO)
+
+    if not args.command:
+        if args.hostname:
+            args.command = 'remote'
+        else:
+            args.command = 'provision'
+
+    if args.command == 'remote' and not args.hostname:
+        args.hostname = 'localhost'
+
+    if args.command == 'init':
+        init_runbook(args.runbook)
+
+    elif args.command == 'package':
+        runbook = Runbook(args.runbook)
+
+        validate_runbook(runbook)
+        validate_roles(runbook, args.roles)
+
+        Packager(
+            runbook,
+            roles=args.roles.split(','),
+            dest=args.output,
+            verbose=args.verbose,
+        ).build_package()
+
+    elif args.command == 'provision':
+
+        if args.sudo:
+            if os.geteuid() != 0:
+                if sys.stdout.isatty():
+                    os.execvp('sudo', ['sudo', '-p', 'sudo password:'] + sys.argv)
+                else:
+                    logging.warning('Cannot sudo; not a tty. Running as user "' + getpass.getuser() + '"')
+
+        runbook = Runbook(args.runbook)
+
+        validate_runbook(runbook)
+        validate_roles(runbook, args.roles)
+
+        Provisioner(
+            runbook,
+            args.roles.split(','),
+        ).run()
+
+    elif args.command == 'remote':
+
+        runbook = Runbook(args.runbook)
+
+        validate_runbook(runbook)
+        validate_roles(runbook, args.roles)
+        validate_hostname(args.hostname)
+        validate_username(args.username)
+
+        pkg = Packager(
+            runbook,
+            roles=args.roles.split(','),
+            dest=args.output,
+            verbose=args.verbose,
+        ).build_package()
+
+        remote = Remote(
+            hostname=args.hostname,
+            username=args.username,
+            no_copy_keys=args.no_copy_keys,
+            package=args.output,
+            sudo=args.sudo
+        ).run()
+
+    else:
+        logging.error('Invalid command.')
+        sys.exit(1)
+
+
+if __name__ == "__main__":
+    main()
