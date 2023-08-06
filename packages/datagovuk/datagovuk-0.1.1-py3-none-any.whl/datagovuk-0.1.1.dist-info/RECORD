@@ -1,0 +1,12 @@
+datagovuk/__init__.py,sha256=Q2KpqSFt1XgU29XGxTpziP1phyhme_dajoQmE5KC8mA,1493
+datagovuk/cache.py,sha256=jF1hlD5I5fRGb2Sw9epxPhZZXVa1pPYl951vgFAh28w,1393
+datagovuk/session_wrapper.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+datagovuk/data_processors/__init__.py,sha256=A0hDoslgXSchSCXb-apOYrPLpUVkAJPQJVUqf-UrJ68,1165
+datagovuk/data_processors/base.py,sha256=uORm-cO_4E-aHmzthp4ymLuzM-ZUbnv0p8Uc-HF19M8,774
+datagovuk/data_processors/csv.py,sha256=CMBf62Oq6ffjeFitKNGhZrPX4LFCn7WWksihNsA1DK4,1094
+datagovuk/data_processors/geojson.py,sha256=uRe4gSJjawG_mdbJohiMEAl_V6nKK3WNq_YG42Xhk9E,757
+datagovuk-0.1.1.dist-info/METADATA,sha256=LWUTtEofbIZ8yeB1gMUGac5_DFgDttNcfF5lqsBJxVQ,439
+datagovuk-0.1.1.dist-info/WHEEL,sha256=MYFsq5fFBwF_oyJgrOoFmYYB1K6Sw7MxY-0897ZLbdM,92
+datagovuk-0.1.1.dist-info/entry_points.txt,sha256=q3KAi0Q3iiqGclMpLN6RJFW73HD3oO1PjivMoVdXsYA,148
+datagovuk-0.1.1.dist-info/top_level.txt,sha256=hcX1nszHMzdb3ZcGO_sa0UwABm9lM-AtR1bPML55LZw,10
+datagovuk-0.1.1.dist-info/RECORD,,
