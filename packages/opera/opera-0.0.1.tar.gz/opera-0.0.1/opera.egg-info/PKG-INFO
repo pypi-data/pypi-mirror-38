@@ -1,0 +1,22 @@
+Metadata-Version: 1.1
+Name: opera
+Version: 0.0.1
+Summary: Lightweight TOSCA orchestrator
+Home-page: https://github.com/xlab-si/opera
+Author: XLAB d.o.o.
+Author-email: pypi@xlab.si
+License: Apache-2
+Description: Introduction
+        ============
+        
+        ``opera`` aims to be TOSCA-compliant orchestrator.
+        
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python
