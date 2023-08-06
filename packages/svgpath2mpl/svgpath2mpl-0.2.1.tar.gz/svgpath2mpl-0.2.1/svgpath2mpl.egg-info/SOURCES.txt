@@ -1,0 +1,14 @@
+CHANGES.rst
+LICENSE
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+svgpath2mpl.py
+svgpath2mpl.egg-info/PKG-INFO
+svgpath2mpl.egg-info/SOURCES.txt
+svgpath2mpl.egg-info/dependency_links.txt
+svgpath2mpl.egg-info/not-zip-safe
+svgpath2mpl.egg-info/requires.txt
+svgpath2mpl.egg-info/top_level.txt
+tests/test_parser.py
