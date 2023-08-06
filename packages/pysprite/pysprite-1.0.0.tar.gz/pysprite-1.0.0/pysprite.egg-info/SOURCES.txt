@@ -1,0 +1,15 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+setup.py
+pysprite/__init__.py
+pysprite/psprite.py
+pysprite/pysprite.py
+pysprite.egg-info/PKG-INFO
+pysprite.egg-info/SOURCES.txt
+pysprite.egg-info/dependency_links.txt
+pysprite.egg-info/requires.txt
+pysprite.egg-info/top_level.txt
+pysprite/test/__init__.py
+pysprite/test/generate_tests.py
+pysprite/test/test_pysprite.py
