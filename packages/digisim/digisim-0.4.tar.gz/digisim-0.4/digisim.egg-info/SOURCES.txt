@@ -1,0 +1,11 @@
+README.md
+setup.py
+digisim/__init__.py
+digisim/gate.py
+digisim/generate.py
+digisim/minimize.py
+digisim/sequential.py
+digisim.egg-info/PKG-INFO
+digisim.egg-info/SOURCES.txt
+digisim.egg-info/dependency_links.txt
+digisim.egg-info/top_level.txt
