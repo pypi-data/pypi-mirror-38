@@ -1,0 +1,24 @@
+Metadata-Version: 1.2
+Name: yaml-configuration
+Version: 0.1.0
+Summary: A python module to easily read from and write to yaml config files.
+Home-page: https://github.com/DLR-RM/python-yaml-configuration
+Author: Sebastian Brunner
+Author-email: sebastian.brunner@dlr.de
+Maintainer: Sebastian Brunner
+Maintainer-email: sebastian.brunner@dlr.de
+License: BSD
+Description: UNKNOWN
+Keywords: yaml,configuration
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Utilities
+Requires-Python: >=2.6
