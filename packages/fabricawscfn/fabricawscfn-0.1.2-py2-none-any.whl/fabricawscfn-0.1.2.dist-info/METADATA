@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: fabricawscfn
+Version: 0.1.2
+Summary: Fabric task generator for AWS CloudFormation.
+Home-page: https://github.com/crossroad0201/fabric-awscfn
+Author: Yohei TSUJI
+Author-email: UNKNOWN
+License: MIT
+Keywords: fabric aws cloudformation
+Platform: UNKNOWN
+Requires-Dist: fabric (<2.0)
+Requires-Dist: boto3 (>=1.9.43)
+Requires-Dist: prettytable
+
+UNKNOWN
+
+
