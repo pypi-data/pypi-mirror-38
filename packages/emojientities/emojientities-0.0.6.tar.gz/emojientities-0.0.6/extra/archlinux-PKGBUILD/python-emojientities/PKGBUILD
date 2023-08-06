@@ -1,0 +1,33 @@
+# Maintainer: peippo <christoph.fink@gmail.com>
+
+pkgname=python-emoji-range
+pkgver=0.0.9
+pkgrel=0
+
+pkgdesc="retrieves all emoji character identifiers from unicode.org"
+url="https://gitlab.com/DigitalGeographyLab/SocialMediaDataDownloader"
+license=("GPLv2")
+
+arch=("any")
+makedepends=("python-setuptools" "python-gitpython")
+depends=(
+    "python-requests"
+)
+
+source=("https://gitlab.com/DigitalGeographyLab/SocialMediaData/SocialMediaDataDownloader/uploads/3b8b54e42d3cb2c19d664589a2435f9d/SocialMediaDataDownloader-0.0.2.tar.gz")
+sha256sums=("1f55d70fb34590538ec73afa5381817bd84c63ff069b77d8c1a3d73339157762")
+
+prepare() {
+   rm -Rf "${srcdir}/*/*.egg-info"
+}
+
+build() {
+   cd "${srcdir}/python-emoji-range-${pkgver}"
+   python setup.py build
+}
+
+package() {
+   cd "${srcdir}/python-emoji-range-${pkgver}"
+   python setup.py install --root="${pkgdir}" --optimize=1 --skip-build
+
+}
