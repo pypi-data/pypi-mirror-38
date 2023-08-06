@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: diamond-add-taxonomy
+Version: 0.1.1
+Summary: Tools for working with the NCBI taxonomy database (and DIAMOND output)
+Home-page: https://github.com/pvanheus/diamond_add_taxonomy
+Author: Peter van Heusden
+Author-email: pvh@sanbi.ac.za
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: click (>=7.0,<8.0)
+Requires-Dist: ete3 (>=3.1,<4.0)
+Requires-Dist: six (>=1.11,<2.0)
+Project-URL: Repository, https://github.com/pvanheus/diamond_add_taxonomy

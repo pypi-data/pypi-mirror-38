@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "diamond_add_taxonomy"
+version = "0.1.1"
+description = "Tools for working with the NCBI taxonomy database (and DIAMOND output)"
+authors = ["Peter van Heusden <pvh@sanbi.ac.za>"]
+license = 'MIT'
+repository = "https://github.com/pvanheus/diamond_add_taxonomy"
+
+[tool.poetry.dependencies]
+python = "^3.6"
+ete3 = "^3.1"
+click = "^7.0"
+six = "^1.11"
+
+[tool.poetry.dev-dependencies]
+pytest = "^3.0"
+
+[tool.poetry.scripts]
+diamond_add_taxonomy = 'diamond_add_taxonomy.cli:annotate_diamond'
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
