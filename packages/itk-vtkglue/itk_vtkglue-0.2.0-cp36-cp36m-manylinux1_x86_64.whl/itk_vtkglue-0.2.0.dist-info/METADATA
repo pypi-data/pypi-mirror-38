@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: itk-vtkglue
+Version: 0.2.0
+Summary: This module contains classes that bridge and ITK and VTK image processing and visualization pipeline.
+Home-page: https://www.itk.org/
+Author: Insight Software Consortium
+Author-email: itk+community@discourse.itk.org
+License: Apache
+Download-URL: https://github.com/Kitware/ITKVtkGlue
+Keywords: ITK InsightToolkit
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: C++
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Healthcare Industry
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Medical Science Apps.
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Operating System :: Android
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS
+Requires-Dist: itk (>=5.0b01)
+Requires-Dist: vtk (==8.1.*)
+
+ITK is an open-source, cross-platform library that provides developers with an extensive suite of software tools for image analysis. VTK enables visualization of images in three dimension. This module converts ITK and VTK image data structures in a processing pipelining without copying the pixel buffer.
+
+
