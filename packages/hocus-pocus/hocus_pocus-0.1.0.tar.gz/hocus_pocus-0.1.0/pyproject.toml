@@ -1,0 +1,36 @@
+[build-system]
+requires = ["poetry"]
+
+[tool.poetry]
+name = "hocus_pocus"
+version = "0.1.0"
+description = ""
+license = "MIT"
+authors = ["Markus Quade <info@markusqua.de>"]
+readme = "README.md"
+repository = "https://github.com/Ohjeah/invocations"
+
+[tool.poetry.dependencies]
+python = "^3.6"
+invoke = "*"
+
+[tool.poetry.dev-dependencies]
+pytest = "*"
+
+[tool.black]
+line-length = 111
+py36 = true
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
