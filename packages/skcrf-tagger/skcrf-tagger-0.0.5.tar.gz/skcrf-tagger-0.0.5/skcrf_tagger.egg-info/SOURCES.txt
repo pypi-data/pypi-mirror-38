@@ -1,0 +1,15 @@
+MANIFEST.in
+README.md
+setup.py
+version.txt
+skcrf_tagger/__init__.py
+skcrf_tagger/tagger.py
+skcrf_tagger/utils.py
+skcrf_tagger.egg-info/PKG-INFO
+skcrf_tagger.egg-info/SOURCES.txt
+skcrf_tagger.egg-info/dependency_links.txt
+skcrf_tagger.egg-info/requires.txt
+skcrf_tagger.egg-info/top_level.txt
+tests/__init__.py
+tests/__main__.py
+tests/ner.py

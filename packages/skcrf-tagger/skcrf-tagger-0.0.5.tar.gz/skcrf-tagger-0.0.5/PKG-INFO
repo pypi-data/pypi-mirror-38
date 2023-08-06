@@ -1,0 +1,11 @@
+Metadata-Version: 1.0
+Name: skcrf-tagger
+Version: 0.0.5
+Summary: NLP tool
+Home-page: https://github.com/infinity-future/skcrf-tagger
+Author: infinityfuture
+Author-email: infinityfuture@foxmail.com
+License: MIT Licence
+Description: NLP tool, NER, POS
+Keywords: pip,scikit-learn,sklearn-crfsuite,CRF,NER,tagger
+Platform: any
