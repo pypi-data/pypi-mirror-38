@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: modelvis
+Version: 0.1.7
+Summary: Visualising Machine Learning Models
+Home-page: UNKNOWN
+Author: Amit Kapoor
+Author-email: amitkaps@gmail.com
+License: MIT
+Platform: any
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: scikit-learn
+Requires-Dist: matplotlib
+Requires-Dist: requests
+Requires-Dist: seaborn
+Requires-Dist: requests
+
+UNKNOWN
+
+
