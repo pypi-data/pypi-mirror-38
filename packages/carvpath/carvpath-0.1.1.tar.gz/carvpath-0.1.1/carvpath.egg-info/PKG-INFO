@@ -1,0 +1,21 @@
+Metadata-Version: 1.1
+Name: carvpath
+Version: 0.1.1
+Summary: CarvPath designations library
+Home-page: https://github.com/pibara-utopian/pycarvpath
+Author: Rob J Meijer
+Author-email: pibara@gmail.com
+License: BSD
+Description: A simple library for using and manipulating CarvPath designations.
+        
+            Python library for manipulating MattockFS/CarvFS style CarvPath data archive designations.
+            
+Keywords: forensics carvpath
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: Environment :: Other Environment
