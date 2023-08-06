@@ -1,0 +1,17 @@
+ssm_acquire/__init__.py,sha256=-p0mSTC3KV1Q81VhIhrX-KfAlGTojQl-CW4xhBno0GQ,332
+ssm_acquire/analyze.py,sha256=L57Pz4LmeRSIynYUrVs2xdToxzDDebXLYx5MqLoRuoo,7937
+ssm_acquire/cli.py,sha256=2m-ZT1MMcR1xFTjk9d-R9oFOAHeXHz4239TyxWlkpa8,6770
+ssm_acquire/common.py,sha256=2NvE3Z3s65RfFyUafSQCLjivnIuLciML2dqwzeBoJfc,6105
+ssm_acquire/credential.py,sha256=8mEfpfTSwM5IxtiTpfet-JhHytzM9bNSCWElE3wD48Q,3957
+ssm_acquire/acquire-plans/linpmem.yml,sha256=pDpTa9pwO6uf8KqZJyktTBQmxtQpsTgTbmxUbHvVXnY,360
+ssm_acquire/build-plans/linpmem.yml.j2,sha256=ypSnjJuwZj7o5i8vvOV6BbDKYfXkgwCt7IIjAU7L2PI,837
+ssm_acquire/interrogate-plans/osquery.yml.j2,sha256=4F1UEQq_P5Xj7dtu1TrsxjqT0VK9qSnhqVuovdce74o,1969
+ssm_acquire/polices/instance-scoped-policy.yml,sha256=G7CImVWHE2s-lTjUCdH_CnR4bbvHevoditxL_GHWtog,945
+ssm_acquire/transfer-plans/linpmem.yml.j2,sha256=1tiv5MWxw3Sczt0aAlaDzR5hAFAkWUwC3y9RHbGVhAI,366
+ssm_acquire-0.1.0.4.dist-info/AUTHORS.rst,sha256=dZCYvZDfMYyOttrH5cehZZJf7WUbNc2M66GXh9QEUBw,159
+ssm_acquire-0.1.0.4.dist-info/LICENSE,sha256=HyVuytGSiAUQ6ErWBHTqt1iSGHhLmlC8fO7jTCuR8dU,16725
+ssm_acquire-0.1.0.4.dist-info/METADATA,sha256=QNy7ev4pbP07y9rlwKarVUI0yTGGYPP4vQ8-oRdeS-U,3282
+ssm_acquire-0.1.0.4.dist-info/WHEEL,sha256=CihQvCnsGZQBGAHLEUMf0IdA4fRduS_NBUTMgCTtvPM,110
+ssm_acquire-0.1.0.4.dist-info/entry_points.txt,sha256=yh1tZ30OTi1KqaaRM9SvXzGMqZK6mVr6El1FuVeXUbY,54
+ssm_acquire-0.1.0.4.dist-info/top_level.txt,sha256=PY1Hcw0k7G4CyFpYsz5fzgRtFDqunI6ZZO9cCGey5JM,12
+ssm_acquire-0.1.0.4.dist-info/RECORD,,

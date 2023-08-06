@@ -1,0 +1,3 @@
+[console_scripts]
+ssm_acquire = ssm_acquire.cli:main
+
