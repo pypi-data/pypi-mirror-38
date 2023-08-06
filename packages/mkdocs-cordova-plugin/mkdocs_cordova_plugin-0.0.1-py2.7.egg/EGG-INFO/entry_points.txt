@@ -1,0 +1,3 @@
+[mkdocs.plugins]
+cordova = cordova:CordovaPlugin
+

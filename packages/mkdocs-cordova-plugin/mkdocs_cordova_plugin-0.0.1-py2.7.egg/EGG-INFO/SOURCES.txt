@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+cordova/__init__.py
+cordova/index.js
+cordova/templates/config.xml
+cordova/templates/head.html
+cordova/templates/package.json
+mkdocs_cordova_plugin.egg-info/PKG-INFO
+mkdocs_cordova_plugin.egg-info/SOURCES.txt
+mkdocs_cordova_plugin.egg-info/dependency_links.txt
+mkdocs_cordova_plugin.egg-info/entry_points.txt
+mkdocs_cordova_plugin.egg-info/not-zip-safe
+mkdocs_cordova_plugin.egg-info/requires.txt
+mkdocs_cordova_plugin.egg-info/top_level.txt
