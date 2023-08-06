@@ -1,0 +1,4 @@
+mbed-ls==1.*,>=1.5.1
+six
+pyserial
+pyOCD==0.12.0
