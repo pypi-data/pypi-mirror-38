@@ -1,0 +1,3 @@
+[console_scripts]
+awsme-test = awsme.cli:main
+
