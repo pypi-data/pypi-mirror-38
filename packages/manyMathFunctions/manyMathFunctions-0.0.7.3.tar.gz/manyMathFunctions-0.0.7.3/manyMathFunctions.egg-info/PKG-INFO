@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: manyMathFunctions
+Version: 0.0.7.3
+Summary: See long description / README.md
+Home-page: https://manymathfunctions.readthedocs.io/en/latest/
+Author: TheOnlyWalrus
+License: UNKNOWN
+Description: # Many Math Functions
+        
+        ## This module is made for Python 3
+        
+        ### Feel free to explore the package source code on [GitHub][1] or download directly from [PyPi][2]
+        
+        ### Or you can [Read the Docs][3]
+        
+        [1]: https://github.com/TheOnlyWalrus/manymathfunctions
+        [2]: https://pypi.org/project/manyMathFunctions
+        [3]: https://manymathfunctions.readthedocs.io/en/latest/
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Education
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Education
+Classifier: Natural Language :: English
+Description-Content-Type: text/markdown
