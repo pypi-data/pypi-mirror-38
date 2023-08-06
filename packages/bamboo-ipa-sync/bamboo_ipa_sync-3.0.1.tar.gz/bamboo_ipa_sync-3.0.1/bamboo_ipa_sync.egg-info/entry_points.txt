@@ -1,0 +1,3 @@
+[console_scripts]
+bamboo_ipa_sync = bamboo_ipa_sync.bamboo_ipa_sync:main
+
