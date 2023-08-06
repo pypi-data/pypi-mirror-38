@@ -1,0 +1,18 @@
+Metadata-Version: 1.2
+Name: hannibal
+Version: 0.0.7
+Summary: A light-weight crawler framework based on asyncio, aiohttp and redis.
+Home-page: https://github.com/JorgenLiu/hannibal
+Author: JorgenLiu
+Author-email: avalon852456@gmail.com
+Maintainer: JorgenLiu
+Maintainer-email: avalon852456@gmail.com
+License: MIT License
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Software Development :: Libraries
