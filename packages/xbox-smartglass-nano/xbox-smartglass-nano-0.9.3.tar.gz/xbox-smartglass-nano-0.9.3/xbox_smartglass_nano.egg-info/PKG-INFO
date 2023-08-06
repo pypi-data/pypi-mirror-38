@@ -1,0 +1,100 @@
+Metadata-Version: 1.1
+Name: xbox-smartglass-nano
+Version: 0.9.3
+Summary: The NANO part of the xbox smartglass library
+Home-page: https://github.com/OpenXbox/xbox-smartglass-nano-python
+Author: OpenXbox
+Author-email: UNKNOWN
+License: GPL
+Description: ====================
+        Xbox-Smartglass-Nano
+        ====================
+        
+        .. image:: https://pypip.in/version/xbox-smartglass-nano/badge.svg
+            :target: https://pypi.python.org/pypi/xbox-smartglass-nano/
+            :alt: Latest Version
+        
+        .. image:: https://readthedocs.org/projects/xbox-smartglass-nano-python/badge/?version=latest
+            :target: http://xbox-smartglass-nano-python.readthedocs.io/en/latest/?badge=latest
+            :alt: Documentation Status
+        
+        .. image:: https://travis-ci.com/OpenXbox/xbox-smartglass-nano-python.svg?branch=master
+            :target: https://travis-ci.com/OpenXbox/xbox-smartglass-nano-python
+        
+        .. image:: https://img.shields.io/badge/discord-OpenXbox-blue.svg
+            :target: https://discord.gg/E8kkJhQ
+            :alt: Discord chat channel
+        
+        The gamestreaming part of the smartglass library
+        
+        
+        For in-depth information, check out the documentation: (https://openxbox.github.io)
+        
+        Dependencies
+        ------------
+        * Python >= 3.5
+        * xbox-smartglass-core
+        * pyav (https://mikeboers.github.io/PyAV/installation.html)
+        * pysdl2 (http://pysdl2.readthedocs.io/en/rel_0_9_4/install.html)
+        
+        How to use
+        ----------
+        
+        Install::
+        
+          pip install xbox-smartglass-nano
+        
+        Usage::
+        
+          xbox-nano-client
+        
+        Known issues
+        ------------
+        * Video / Audio / Input is not smooth yet
+        * ChatAudio and Input Feedback not implemented
+        * Docstrings could use some help
+        * others
+        
+        Contribute
+        ----------
+        * Report bugs/suggest features
+        * Add/update docs
+        * Enhance functionality
+        
+        Credits
+        -------
+        This package uses parts of Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+        
+        .. _Cookiecutter: https://github.com/audreyr/cookiecutter
+        .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+        
+        
+        =======
+        History
+        =======
+        
+        0.9.3 (2018-11-14)
+        ------------------
+        
+        * Python 3.7 compatibility
+        
+        0.9.2 (2018-09-30)
+        ------------------
+        
+        * Fix TravisCI dependency on ffmpeg
+        
+        0.9.1 (2018-09-29)
+        ------------------
+        
+        * First release on PyPI.
+        
+Keywords: xbox one smartglass nano gamestreaming
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
