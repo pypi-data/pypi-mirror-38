@@ -1,0 +1,7 @@
+-r requirements.txt
+discover
+flake8
+mock
+requests-mock
+six
+tox
