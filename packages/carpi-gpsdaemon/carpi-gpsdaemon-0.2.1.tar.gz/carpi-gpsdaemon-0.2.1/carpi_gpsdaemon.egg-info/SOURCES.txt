@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+carpi_gpsdaemon.egg-info/PKG-INFO
+carpi_gpsdaemon.egg-info/SOURCES.txt
+carpi_gpsdaemon.egg-info/dependency_links.txt
+carpi_gpsdaemon.egg-info/not-zip-safe
+carpi_gpsdaemon.egg-info/requires.txt
+carpi_gpsdaemon.egg-info/top_level.txt
+gpsdaemon/__init__.py
+gpsdaemon/client.py
+gpsdaemon/daemon.py
+gpsdaemon/keys.py
