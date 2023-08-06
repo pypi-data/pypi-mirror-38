@@ -1,0 +1,16 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+setup.py
+src/twomartens/__init__.py
+src/twomartens.calendarsync.egg-info/PKG-INFO
+src/twomartens.calendarsync.egg-info/SOURCES.txt
+src/twomartens.calendarsync.egg-info/dependency_links.txt
+src/twomartens.calendarsync.egg-info/entry_points.txt
+src/twomartens.calendarsync.egg-info/namespace_packages.txt
+src/twomartens.calendarsync.egg-info/requires.txt
+src/twomartens.calendarsync.egg-info/top_level.txt
+src/twomartens/calendarsync/__init__.py
+src/twomartens/calendarsync/__main__.py
+src/twomartens/calendarsync/calendarsync.py
+src/twomartens/calendarsync/event_template.markdown
