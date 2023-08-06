@@ -1,0 +1,77 @@
+Metadata-Version: 2.1
+Name: foot
+Version: 0.1.0
+Summary: Fetches a list of URLs and silly walks through each site to gather information.
+Home-page: https://github.com/cakinney/foot
+Author: Caleb Kinney
+Author-email: cakinney@gmail.com
+License: MIT license
+Description: # foot
+        
+        Web Crawling Project
+        
+        Foot is a library that fetches a list of URLs and silly walks through each site to gather information.
+        
+        ## Usage
+        ### Install   
+        
+        `pip install foot`  
+        
+        #### foot (cli)
+        
+        - `-u` URL(s) (encapsulated in quotes, separated by commas) 
+        - `-f` filename (list of urls on new lines)
+        
+        ##### Options (not required)
+        
+        - `-c` : Specify chunk size (default=10)
+        - `--recursive` : Enable one level of recursion 
+        
+        ##### Examples:
+        
+        Array of URLS:  
+        `foot -u 'http://example.com, http://example1.com'`  
+        
+        Array of URLS with Options:  
+        `foot 'http://example.com, http://example1.com' -c 5 --recursive`  
+        
+        File:  
+        `foot -f 'example.txt`
+        
+        File with Options:  
+        `foot -f 'example.txt' -c 5 --recursive`   
+        
+        ## Module
+        
+        Import:  
+        `import foot`  
+        
+        
+        ### Functions
+        
+        The `get` function takes an array of URLS and options. 
+        
+        ```javascript
+        foot.get(["http://www.example`.com", "http://www.example2.com"], options);
+            => Data output in ./foot/url.json and foot-date.txt
+        ```
+        
+        The `file` function takes a filename and options. 
+        
+        ```python
+        foot.file("./test.txt", recursive=True)
+            => Data output in ./foot/url.json and foot-date.txt
+        ```
+Keywords: crawler,scraping
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Unix
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
