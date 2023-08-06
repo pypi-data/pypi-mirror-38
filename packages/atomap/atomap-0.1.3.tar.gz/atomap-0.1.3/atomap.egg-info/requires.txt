@@ -1,0 +1,8 @@
+h5py
+hyperspy>=1.4
+matplotlib>=2.0
+numpy>=1.13
+pillow>=5.3
+scikit-learn
+scipy
+tqdm

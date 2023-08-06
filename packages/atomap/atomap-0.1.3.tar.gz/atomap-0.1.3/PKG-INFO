@@ -1,0 +1,52 @@
+Metadata-Version: 2.1
+Name: atomap
+Version: 0.1.3
+Summary: Library for analysing atomic resolution images
+Home-page: http://atomap.org/
+Author: Magnus Nord
+Author-email: magnunor@gmail.com
+License: GPL v3
+Download-URL: https://gitlab.com/atomap/atomap/repository/archive.tar?ref=0.1.3
+Description: # Atomap
+        
+        ## Webpage: http://atomap.org
+        
+        Webpage (development version): https://gitlab.com/atomap/atomap/builds/artifacts/master/file/pages_development/index.html?job=pages_development_branch
+        
+        Atomap is a Python library for analysing atomic resolution
+        scanning transmission electron microscopy images.
+        It relies on fitting 2-D Gaussian functions to every atomic
+        column in an image, and automatically finding all the atomic
+        planes with the largest spacings.
+        
+        Installing
+        ----------
+        
+        The easiest way is via PyPI:
+        
+        ```bash
+        pip3 install atomap
+        ```
+        
+        More install instructions: http://atomap.org/install.html
+        
+        Using
+        -----
+        
+        ```python
+        import atomap.api as am
+        sublattice = am.dummy_data.get_simple_cubic_sublattice()
+        sublattice.construct_zone_axes()
+        sublattice.refine_atom_positions_using_center_of_mass()
+        sublattice.plot()
+        ```
+        
+        More information on how to use Atomap: http://atomap.org/start_atomap.html
+        
+Keywords: STEM,data analysis,microscopy
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
