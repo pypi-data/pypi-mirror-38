@@ -1,0 +1,47 @@
+Metadata-Version: 1.1
+Name: prosemirror-python
+Version: 0.0.1
+Summary: Python translation of prosemirror parts needed to modify a document in Python
+Home-page: https://www.github.org/fiduswriter/prosemirror-python
+Author: Johannes Wilm
+Author-email: johannes@fiduswriter.org
+License: AGPL License
+Description: =====
+        Prosemirror-python
+        =====
+        
+        This is an unofficial and not production ready package. Contributions and improvements are welcome.
+        
+        This package does not attempt at importing all of Prosemirror in Python. It is merely trying to use those parts of
+        prosemirror-model and prosemirror-transform that are needed for serverside operations.
+        
+        
+        **This package has not yet been tested!**
+        
+        How to use
+        -----------
+        
+        1. Install with `pip install prosemirror`
+        
+        2. In your python code, import the two included functions with:
+        
+        ```
+        from prosemirror import create_doc, transform_doc
+        ```
+        
+        First use `doc = create_doc(doc_data, schema_spec)` to create a Document object.
+        
+        Then use `updated_doc = transform_doc(steps_data, doc)` to create a new Document object with the given steps applied.
+        
+        Use `updated_doc.toJSON()` to get the JSON version of the updated document.
+        
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
