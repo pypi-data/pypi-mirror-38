@@ -1,0 +1,15 @@
+infix==1.2
+
+[dev]
+flake8==3.6.0
+flake8-per-file-ignores==0.6
+pytest
+pytest-cov
+
+[docs]
+Sphinx
+sphinx_rtd_theme
+flake8==3.6.0
+flake8-per-file-ignores==0.6
+pytest
+pytest-cov
