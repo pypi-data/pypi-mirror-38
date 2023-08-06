@@ -1,0 +1,55 @@
+Metadata-Version: 1.1
+Name: primed-avro
+Version: 0.0.1
+Summary: A python package that provides functionality to interface with the Confluent Schema Registtry
+Home-page: https://gitlab.com/primedio/primed-avro
+Author: Matthijs van der Kroon
+Author-email: matthijs@primed.io
+License: BSD
+Download-URL: https://gitlab.com/primedio/primed-avro/tarball/0.0.1
+Description: primed-avro
+        ===============================
+        
+        version number: 0.0.1
+        author: Matthijs van der Kroon
+        
+        Overview
+        --------
+        
+        A python package that provides Avro serialisation and deserialisation compatible with the Confluent Schema Registry.
+        
+        WARNING: python2.7 not supported
+        
+        Installation / Usage
+        --------------------
+        
+        To install use pip:
+        
+            $ pip install primed_avro
+        
+        
+        Or clone the repo:
+        
+            $ git clone https://github.com/mvanderkroon/primed_avro.git
+            $ python setup.py install
+            
+        Contributing
+        ------------
+        
+        TBD
+        
+        Example
+        -------
+        
+        	from primed_avro.writer import Writer
+        	from primed_avro.registry import ConfluentSchemaRegistryClient
+        
+        
+        	csr = ConfluentSchemaRegistryClient(url="http://localhost:8081")
+        	schemaMeta = csr.get_schema(subject=topic)
+        	writer = Writer(schema=schemaMeta.schema)
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
