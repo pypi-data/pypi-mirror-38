@@ -1,0 +1,17 @@
+README.md
+setup.py
+ticket_universe/__init__.py
+ticket_universe/charsets.py
+ticket_universe/cli.py
+ticket_universe/cli_test.py
+ticket_universe/errors.py
+ticket_universe/position.py
+ticket_universe/position_test.py
+ticket_universe/universe.py
+ticket_universe/universe_test.py
+ticket_universe.egg-info/PKG-INFO
+ticket_universe.egg-info/SOURCES.txt
+ticket_universe.egg-info/dependency_links.txt
+ticket_universe.egg-info/entry_points.txt
+ticket_universe.egg-info/not-zip-safe
+ticket_universe.egg-info/top_level.txt
