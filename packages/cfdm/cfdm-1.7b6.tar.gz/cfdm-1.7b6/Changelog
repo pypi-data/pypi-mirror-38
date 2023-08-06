@@ -1,0 +1,14 @@
+version 1.7b7 - 2018-??-??
+==========================
+
+version 1.7b6 - 2018-11-27
+==========================
+
+* Moved test directory into cfdm directory
+* Fields output by cfdm.read are now sorted by their netCDF
+  variable names
+	
+version 1.7b5 - 2018-11-22
+==========================
+
+* Initial version
