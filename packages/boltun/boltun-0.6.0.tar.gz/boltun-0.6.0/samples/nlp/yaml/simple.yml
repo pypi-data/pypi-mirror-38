@@ -1,0 +1,4 @@
+entities:
+  intents: !boltun '[[> include("intents/*.yml")]]'
+  aliases: !boltun '[[> include("aliases/*.yml")]]'
+  slots: !boltun '[[> include("slots/*.yml")]]'
