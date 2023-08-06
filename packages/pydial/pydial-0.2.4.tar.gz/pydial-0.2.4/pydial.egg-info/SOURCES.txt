@@ -1,0 +1,11 @@
+setup.py
+pydial/__init__.py
+pydial/marc.py
+pydial/model.py
+pydial.egg-info/PKG-INFO
+pydial.egg-info/SOURCES.txt
+pydial.egg-info/dependency_links.txt
+pydial.egg-info/requires.txt
+pydial.egg-info/top_level.txt
+test/__init__.py
+test/test.py
