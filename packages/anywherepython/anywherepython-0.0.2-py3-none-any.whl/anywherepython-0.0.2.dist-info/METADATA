@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: anywherepython
+Version: 0.0.2
+Summary: Python library for interacting with the pythonanywhere API!
+Home-page: https://github.com/r3ap3rpy/anywherepython
+Author: Szabó Dániel Ernő
+Author-email: r3ap3rpy@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Dist: requests
+
+This package provides a convenient way to interact with the official API, there are very few steps to set it up and after that you can schedule tasks based on this!
+
+
