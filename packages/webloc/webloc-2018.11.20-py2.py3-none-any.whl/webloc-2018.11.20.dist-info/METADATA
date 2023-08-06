@@ -1,0 +1,58 @@
+Metadata-Version: 2.1
+Name: webloc
+Version: 2018.11.20
+Summary: read/write .webloc files
+Home-page: https://github.com/looking-for-a-job/webloc.py
+License: UNKNOWN
+Keywords: webloc
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: MacOS
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Software Development
+Description-Content-Type: text/markdown
+Requires-Dist: Click
+Requires-Dist: public
+Requires-Dist: setuptools
+
+[![](https://img.shields.io/badge/OS-MacOS-blue.svg?longCache=True)]()
+[![](https://img.shields.io/pypi/pyversions/webloc.svg?longCache=True)](https://pypi.org/pypi/webloc/)
+
+#### Install
+```bash
+$ [sudo] pip install webloc
+```
+
+#### Functions
+function|description
+-|-
+`webloc.read(path)`|return webloc url
+`webloc.write(path, url)`|write url to webloc file
+
+#### CLI
+usage|description
+-|-
+`python -m webloc [url]`|read/write webloc url
+
+#### Examples
+```python
+>>> import webloc
+>>> webloc.write("path.webloc","https://www.google.com/")
+>>> webloc.read("path.webloc")
+'https://www.google.com/'
+```
+
+```bash
+$ python -m webloc "path.webloc" "https://www.github.com/"
+$ python -m webloc "path.webloc"
+https://www.github.com/
+```
+
+<p align="center"><a href="https://pypi.org/project/readme-md/">readme-md</a> - README.md generator</p>
+
