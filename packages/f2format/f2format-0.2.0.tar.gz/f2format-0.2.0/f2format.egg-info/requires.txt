@@ -1,0 +1,7 @@
+setuptools
+
+[:python_version < "3.5"]
+pathlib2
+
+[:python_version < "3.6"]
+typed_ast
