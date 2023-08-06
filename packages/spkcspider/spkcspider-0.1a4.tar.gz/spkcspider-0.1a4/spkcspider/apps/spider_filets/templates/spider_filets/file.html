@@ -1,0 +1,4 @@
+{% load i18n %}
+<div>
+  <a href="{% url 'spider_base:ucontent-access' id=content.id nonce=content.nonce access='download' %}?{{spider_GET.urlencode}}">{% trans "Download" %}</a>
+</div>

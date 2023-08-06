@@ -1,0 +1,35 @@
+{% extends "registration/base.html" %}
+{% load i18n static spider_protections %}
+{% extract_protections "protections" as protections %}
+
+{% block content %}
+  <h2>Login</h2>
+  {{form.media}}
+  <form action="{{ request.get_full_path }}" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="next" value="{{ next }}" />
+    <fieldset>
+      {% include "spider_base/base_form.html" with form=form %}
+    </fieldset>
+
+    <fieldset>
+      <legend><h1>{% trans 'Authenticate with' %}</h1></legend>
+      {% extract_protections "protections" as protections %}
+      <div>
+        {% for prot in protections %}
+          <div class="w3-padding">
+            <div class="w3-padding w3-card w3-white">
+              <h1 class="w3-center">{{prot.1.auth_localize_name}}</h1>
+              {% render_protection prot %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </fieldset>
+    <button class="w3-button w3-grey" type="submit">Login</button><br/>
+    {% if OPEN_FOR_REGISTRATION %}
+      <a href="{% url 'auth:signup' %}">{% trans 'No account? Signup?' %}</a>
+    {% endif %}
+  </form>
+
+{% endblock %}

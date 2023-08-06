@@ -1,0 +1,74 @@
+{% extends "spider_base/assignedcontent_access.html" %}
+{% load i18n spider_rdf %}
+
+{% block render_content %}
+{% include "spider_base/form_errors.html" with form=form %}
+
+<form class="w3-padding" action="{{ request.get_full_path }}" enctype="{{enctype}}" method="post">
+  {% csrf_token %}
+  <data hidden="hidden" property="type">Content</data>
+  <fieldset>
+    <legend><h2>{% trans 'Content Settings' %}</h2></legend>
+    {% include "spider_base/base_form.html" with form=form %}
+  </fieldset>
+  {% if content %}
+    <fieldset typeof="{% if scope == 'add' %}add{% else %}update{% endif %}" about="{{ request.path }}">
+      <legend><h2>{% if scope == "add" %}{{object}}{% else %}{{object.ctype}}{% endif %}</h2></legend>
+      {{content.0|safe}}
+    </fieldset>
+  {% endif %}
+  <button class="w3-button w3-grey">
+    {% if scope == "add" %}
+      {% trans 'Create' %}
+    {% else %}
+      {% trans 'Update' %}
+    {% endif %}
+  </button>
+  {% if scope == "update" and raw_update_type in object.ctype.ctype %}
+    <a class="w3-button w3-grey" onclick="if(document.readyState === 'complete'){open_qrmodal_raw_update();}; return false;" href="#">
+      <i class="fa fa-settings" aria-hidden="true"></i>
+      {% trans 'Update Raw Content' %}
+    </a>
+  {% endif %}
+
+  {% if scope != "add" %}
+    <a class="w3-right" href="{% url 'spider_base:ucontent-access' id=object.id nonce=object.nonce access='view' %}?{{request.GET.urlencode}}">
+      {% trans "View" %}
+    </a>
+  {% endif %}
+</form>
+{% endblock %}
+
+
+{% block outercontent %}
+{{block.super}}
+{# FIXME: fix not availabe UserContentType #}
+{% if scope == "update" and raw_update_type in object.ctype.ctype %}
+  {% url 'spider_base:ucontent-access' id=object.id nonce=object.nonce access='raw_update' as raw_updatelink %}
+  <script type="text/javascript">
+    var raw_updatelink = "{{hostpart}}{{raw_updatelink}}";
+    function open_qrmodal_raw_update(){
+      let _qrcanvas = document.getElementById('qrcanvas');
+      let remotelink_link = document.getElementById('remotelink');
+      let rawlink_link = document.getElementById('rawlink');
+      let rawlink_wrapper = document.getElementById('rawlink_wrapper');
+      let exportlink_link = document.getElementById('exportlink');
+      rawlink_wrapper.style.display = "none";
+      if (remotelink_link.href != raw_updatelink){
+        remotelink_link.href = raw_updatelink;
+        remotelink_link.text = raw_updatelink;
+        QRCode.toCanvas(
+          _qrcanvas, raw_updatelink, {  },
+          function (error) {
+            if (error)
+              console.error(error)
+          }
+        )
+      }
+      exportlink_link.href = ""
+      exportlink_link.style.display = "none";
+      document.getElementById('qrpresenter').style.display='block';
+    }
+  </script>
+{% endif %}
+{% endblock %}

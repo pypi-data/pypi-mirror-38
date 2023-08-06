@@ -1,0 +1,16 @@
+django>=2
+django-simple-jsonfield
+certifi
+requests
+bleach
+rdflib
+html5lib
+django-widget-tweaks
+
+[debug]
+Werkzeug
+pyOpenSSL
+django-extensions
+
+[fcgi]
+flipflop

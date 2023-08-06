@@ -1,0 +1,94 @@
+{% extends "spider_base/uc_base.html" %}
+{% load i18n static spider_base %}
+
+{% block title %}{% if scope == "add" %}{% blocktrans trimmed with name=object %}
+  Create Content: {{name}}
+{% endblocktrans %}{% elif scope == "update" %}{% blocktrans trimmed with name=object %}
+  Update Content: {{name}}
+{% endblocktrans %}{% else %}{% blocktrans trimmed with name=object %}
+  Content: {{name}}
+{% endblocktrans %}{% endif %}{% endblock %}
+
+
+{% block extrahead %}
+{{block.super}}
+<script src="{% static 'node_modules/qrcode/build/qrcode.min.js' %}"></script>
+{% if form %}
+  {{form.media|safe}}
+{% endif %}
+{% if content %}
+  {{content.1|safe}}
+{% endif %}
+{% endblock %}
+
+{% block main_classes %}{{block.super}}{% if not object %} w3-animate-bottom{% endif %}{% endblock %}
+
+{% block content %}
+  <div class="w3-padding">
+    {% if request.user == uc.user or uc.public %}
+      {# index is redirected in view #}
+      <a class="w3-left" href="{% url 'spider_base:ucontent-list' id=uc.id nonce=uc.nonce %}?{{request.GET.urlencode}}">{% trans 'Index' %}</a>
+    {% endif %}
+    <span class="w3-right">
+      {% if scope != "add" and request.user == uc.user %}
+      <div class="actionbar_user" style="margin-bottom:5px">
+        <a href="{% url 'spider_base:ucontent-remove' user=uc.username name=uc.name nonce=object.nonce id=object.id %}">
+          {% trans 'Delete' %}
+        </a>
+        {% if scope != "view" %}
+          <a  style="margin-left:5px" href="{% url 'spider_base:ucontent-access' id=object.id nonce=object.nonce access='view' %}?{{spider_GET.urlencode}}">
+            {% trans "View" %}
+          </a>
+        {% endif %}
+        {% if scope != "update" %}
+          <a  style="margin-left:5px" href="{% url 'spider_base:ucontent-access' id=object.id nonce=object.nonce access='update' %}?{{spider_GET.urlencode}}">
+            {% trans "Update" %}
+          </a>
+        {% endif %}
+      </div>
+      {% endif %}
+      {% if scope != "add" %}
+      <div style="margin-bottom:5px; text-align:right">
+        <a class="" onclick="if(document.readyState === 'complete'){open_qrmodal();}; return false;" href="#">{% trans 'Link/Export' %}</a>
+      </div>
+      {% endif %}
+      <div style="text-align:right">
+        {% trans "Strength:" %} {{uc.strength}}
+      </div>
+    </span>
+    <h1 class="w3-center">
+      {% if scope == "add" %}
+        {% trans object.name as local_name %}
+        {% blocktrans trimmed with name=local_name %}
+          Create Content: <em>{{name}}</em>
+        {% endblocktrans %}
+      {% elif scope == "update" %}
+        {% trans object.ctype.name as local_name %}
+        {% blocktrans trimmed %}
+          Update
+        {% endblocktrans %} "<b>{{object}}</b>" <small {% if uc.public or uc.user == request.user %}title="{% trans 'User Component:' %} {{uc}}"{% endif %}><em>({{local_name}})</em></small>
+      {% else %}
+        {% trans object.ctype.name as local_name %}
+        <b>{{object}}</b> <small {% if uc.public or uc.user == request.user %}title="{% trans 'User Component:' %} {{uc}}"{% endif %}><em>({{local_name}})</em></small>
+      {% endif %}
+    </h1>
+    {% if request.token_expires %}
+    <div>
+      {% include 'spider_base/token_lifetime.html' with rtime=request.token_expires %}
+    </div>
+    {% endif %}
+  </div>
+{% block render_content %}
+{{content.0|safe}}
+{% endblock %}
+{% endblock %}
+
+{% block outercontent %}
+{% if request.user == uc.user %}
+{% url 'spider_base:ucontent-access' id=object.id nonce=object.nonce access='export' as exportlink %}
+{% endif %}
+{% if scope != "add" %}
+  {# remotelink generated in view #}
+  {% include "spider_base/modalpresenter.html" %}
+{% endif %}
+{% endblock %}

@@ -1,0 +1,112 @@
+{% extends "spider_base/base.html" %}
+
+{% load i18n static spider_rdf %}
+
+{% block title %}{% if object %}{% if object.is_index %}{% blocktrans trimmed %}
+Change Login Protection{% endblocktrans %}{% else %}{% blocktrans trimmed %}
+    Change Component
+  {% endblocktrans %}{% endif %}{% else %}{% blocktrans trimmed %}
+  Create Component
+{% endblocktrans %}{% endif %}{% endblock %}
+
+
+{% block extrahead %}
+{{block.super}}
+<script src="{% static 'node_modules/qrcode/build/qrcode.min.js' %}"></script>
+{{form.media|safe}}
+{% endblock %}
+
+{% block main_classes %}{% if not object %}{{block.super}}{% else %} w3-content w3-card-4 color-front-{{object.strength}}{% endif %}{% endblock %}
+{% block body_class %}{% if not object %}{{block.super}}{% else %} color-back-{{object.strength}}{% endif %}{% endblock %}
+
+
+{% block content %}
+  <div class="w3-padding">
+    <a class="w3-left" href="{% url 'spider_base:ucomponent-list' %}">{% trans 'Index' %}</a>
+    {% if object %}
+      <span class="w3-right">
+        <div style="margin-bottom:5px">
+          <a class="" href="{% url 'spider_base:ucontent-list' id=object.id nonce=object.nonce %}">
+            {% trans "Contents" %}
+          </a>
+        </div>
+        <div style="margin-bottom:5px">
+          <a class="" onclick="if(document.readyState === 'complete'){open_qrmodal();}; return false;" href="#">{% trans 'Link/Export' %}</a>
+        </div>
+        {% if not object.is_index %}
+          <div style="margin-bottom:5px">
+            <a href="{% url 'spider_base:ucomponent-delete' user=object.user name=object.name nonce=object.nonce %}">{% trans 'Delete' %}</a>?
+          </div>
+        {% endif %}
+        <div>
+          {% trans "Strength:" %} {{object.strength}}
+        </div>
+      </span>
+    {% endif %}
+    <h1 class="w3-center">
+      {% if form.instance.id and form.instance.is_index %}
+        {% trans 'Change Login Protection' %}
+      {% elif form.instance.id %}
+        {% blocktrans trimmed %}
+          Change Component:
+        {% endblocktrans %} <b>{{form.instance}}</b>
+      {% else %}
+        {% trans 'Create new Component' %}
+      {% endif %}
+    </h1>
+  </div>
+
+  {% include "spider_base/form_errors.html" with form=form %}
+  <form class="w3-padding" action="{{ request.get_full_path }}" encdata="multipart/form-data" method="post">
+    {% csrf_token %}
+    <data hidden="hidden" property="type">Component</data>
+    <fieldset>
+      <legend>
+        <h1>
+        {% if form.instance.id and form.instance.is_index %}
+          {% trans 'Login Protection' %}
+        {% else %}
+          {% trans 'User Component' %}
+        {% endif %}
+        </h1>
+      </legend>
+      {% include "spider_base/base_form.html" with form=form %}
+    </fieldset>
+    {% if form.instance.id %}
+    <button class="w3-button w3-grey">
+      {% trans "Change" %}
+    </button>
+    {% endif %}
+    <fieldset>
+      <legend><h1>{% trans 'Protections' %}</h1></legend>
+      <div class="">
+        {% for prot in form.protections %}
+          <div class="w3-padding">
+            <div class="w3-padding w3-card w3-white">
+              <h1 class="w3-center">{{prot}}</h1>
+              {% include "spider_base/base_form.html" with form=prot %}
+            </div>
+          </div>
+        {% empty%}
+          <div class="w3-padding">
+            <div class="w3-padding w3-card w3-orange">{% trans 'No protections: create component first' %}</div>
+          </div>
+        {% endfor %}
+    </fieldset>
+    <button class="w3-button w3-grey">
+      {% if form.instance.id %}{% trans "Change" %}{% else %}{% trans "Create" %}{% endif %}
+    </button>
+    {% if object %}
+      <a class="w3-right" href="{% url 'spider_base:ucontent-list' id=object.id nonce=object.nonce %}">
+        {% trans "Contents" %}
+      </a>
+    {% endif %}
+  </form>
+{% endblock %}
+
+{% block outercontent %}
+{% if object %}
+  {% url 'spider_base:ucontent-export' id=object.id nonce=object.nonce as exportlink %}
+  {% include "spider_base/modalpresenter.html" %}
+{% endif %}
+{% endblock %}
