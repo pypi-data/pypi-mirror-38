@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: page_scrapers
+Version: 2.0.4
+Summary: Scrapes wikipedia pages for for url, description, plot, images, genre, and year data.
+Home-page: https://github.com/alexseitsinger/page_scrapers
+Author: Alex Seitsinger
+Author-email: alexseitsinger@gmail.com
+License: BSD 2-Clause License
+Description: # Page Scrapers
+        
+        ## Description
+        
+        Scrapes wikipedia pages for for url, description, plot, images, genre, and year data.
+        
+        ## Installation
+        
+        ```
+        pip install page-scrapers
+        ```
+        
+        or
+        
+        ```
+        pipenv install page-scrapers
+        ```
+        
+        ## Usage
+        
+        ```python
+        from page_scrapers.wikipedia.scrapers.film import WikipediaFilmScraper
+        
+        scraper = WikipediaFilmScraper("hellraiser 2")
+        scraped = scraper.scrape()
+        filtered = scraper.filter()
+        ```
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Utilities
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: License :: OSI Approved :: BSD License
+Description-Content-Type: text/markdown
