@@ -1,0 +1,12 @@
+---
+- name: Create haproxystats group
+  group:
+     name: haproxystats
+     state: present
+
+- name : Create new user for haproxystats service and add to haproxystats and haproxy group
+  user:
+    name: haproxystats
+    group: haproxystats
+    groups: haproxy
+    append: yes

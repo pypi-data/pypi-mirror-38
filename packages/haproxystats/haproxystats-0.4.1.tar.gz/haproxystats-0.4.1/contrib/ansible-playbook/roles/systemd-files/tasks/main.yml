@@ -1,0 +1,12 @@
+---
+- name: Make haproxystats-pull systemd file
+  template:
+    src: haproxystats-pull.service.j2
+    dest: /etc/systemd/system/haproxystats-pull.service
+    backup: yes
+
+- name: Make haproxystats-process systemd file
+  template:
+    src: haproxystats-process.service.j2
+    dest: /etc/systemd/system/haproxystats-process.service
+    backup: yes

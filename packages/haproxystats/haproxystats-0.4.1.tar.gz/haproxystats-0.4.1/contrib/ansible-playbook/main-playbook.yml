@@ -1,0 +1,11 @@
+# Installation haproxystats
+- hosts: haproxy-servers
+  remote_user: root
+  gather_facts: False
+  roles:
+  - install-dependency-package
+  - install-haproxystats
+  - create-newuser
+  - haproxy-socket-dir-permission
+  - systemd-files
+  - haproxystats-config-file
