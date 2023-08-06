@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "carly"
+version = "0.1.0"
+description = ""
+authors = ["A tool for putting messages into and collecting responses from Twisted servers using real networking.Chris Withers <chris@withers.org>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "*"
+Twisted = "^18.9"
+
+[tool.poetry.dev-dependencies]
+testfixtures = "^6.3"
+autobahn = "^18.11"
