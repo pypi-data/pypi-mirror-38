@@ -1,0 +1,30 @@
+include README.rst
+include CHANGES.rst
+include LICENSE
+include tox.ini
+
+graft src
+exclude src/jt/py4j/*.my
+exclude src/jt/py4j/*.py
+include src/jt/py4j/__about__.py
+include src/jt/py4j/__config__.py
+include src/jt/py4j/__init__.py
+include src/jt/py4j/version.py
+recursive-exclude src/jt/py4j/_java *.java
+prune   src/jt/py4j/_java/py4j
+prune   src/jt/py4j/_java/py4j-org
+exclude src/jt/py4j/_java/py4j.jar
+prune   src/jt/py4j!
+prune   src/jt/py4j-org
+
+graft docs
+prune docs/_build
+prune docs/docs-org
+recursive-exclude docs *.org *.old *.new
+
+graft tests
+exclude tests/_info_.txt
+recursive-exclude tests *.org *.old *.new
+
+global-exclude .build .build.*
+global-exclude *.py[co] __pycache__
