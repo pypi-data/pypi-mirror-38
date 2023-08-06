@@ -1,0 +1,17 @@
+README.md
+setup.cfg
+setup.py
+libvmi/__init__.py
+libvmi/event.py
+libvmi/events_cdef.h
+libvmi/glib_cdef.h
+libvmi/libvmi.py
+libvmi/libvmi_build.py
+libvmi/libvmi_cdef.h
+libvmi/libvmi_extra_cdef.h
+libvmi/slat_cdef.h
+libvmi.egg-info/PKG-INFO
+libvmi.egg-info/SOURCES.txt
+libvmi.egg-info/dependency_links.txt
+libvmi.egg-info/requires.txt
+libvmi.egg-info/top_level.txt
