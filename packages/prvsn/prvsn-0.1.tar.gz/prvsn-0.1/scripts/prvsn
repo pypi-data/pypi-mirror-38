@@ -1,0 +1,64 @@
+#!/usr/bin/python
+
+import argparse
+import logging
+import os
+import sys
+
+dir = os.path.dirname(__file__)
+if dir == 'scripts':
+    sys.path.append(os.path.join(dir, '..'))
+
+from prvsnlib.packager import Packager
+from prvsnlib.provisioner import Provisioner
+from prvsnlib.runbook import Runbook
+
+from prvsnlib.utils.validation import validate_runbook, validate_roles
+
+
+def main():
+    parser = argparse.ArgumentParser(description='Simple machine provisioning tool.')
+    parser.add_argument('-b', '--runbook', action='store', default='.', help='Path to the runbook (default: .)')
+    parser.add_argument('-o', '--output', action='store', help='Package output')
+    parser.add_argument('-r', '--roles', action='store', default='', help='Roles to provision, comma-separated (default: none)')
+    parser.add_argument('-v', '--verbose', action='store_true', help='Verbose output')
+    parser.add_argument('command', nargs='?', default='provision', help="Command: provision(default), init, package")
+    args = parser.parse_args()
+
+    if args.verbose:
+        logging.root.setLevel(logging.DEBUG)
+    else:
+        logging.root.setLevel(logging.INFO)
+
+    if args.command == 'init':
+        Runbook('runbook', args.runbook).create_scaffolding()
+
+    elif args.command == 'package':
+        runbook = Runbook('runbook', args.runbook)
+
+        validate_runbook(runbook)
+        validate_roles(runbook, args.roles)
+
+        Packager(
+            runbook,
+            roles=args.roles.split(','),
+            dest=args.output,
+            # tmpdir='/Users/arnaud/Desktop/tmp',
+        ).build_package()
+
+    elif args.command == 'provision':
+        runbook = Runbook('runbook', args.runbook)
+
+        validate_runbook(runbook)
+        validate_roles(runbook, args.roles)
+
+        Provisioner(
+            runbook,
+            args.roles.split(',')
+        ).run()
+    else:
+        logging.error('Invalid command.')
+        sys.exit(1)
+
+if __name__ == "__main__":
+    main()
