@@ -1,0 +1,60 @@
+Metadata-Version: 2.1
+Name: dwave-tabu
+Version: 0.1.2
+Summary: Optimized Tabu solver for QUBOs
+Home-page: https://github.com/dwavesystems/dwave-tabu
+Author: D-Wave Systems Inc.
+Author-email: tools@dwavesys.com
+License: Apache 2.0
+Platform: UNKNOWN
+Requires-Dist: numpy (>=1.14)
+Requires-Dist: dimod (>=0.7.9)
+Provides-Extra: test
+Requires-Dist: coverage; extra == 'test'
+
+==========
+dwave-tabu
+==========
+
+.. index-start-marker
+
+An implementation of the `MST2 multistart tabu search algorithm
+<https://link.springer.com/article/10.1023/B:ANOR.0000039522.58036.68>`_
+for quadratic unconstrained binary optimization (QUBO) problems
+with a `dimod <https://dimod.readthedocs.io/en/latest/>`_ Python wrapper.
+
+.. index-end-marker
+
+Installation or Building
+========================
+
+.. installation-start-marker
+
+Install from a wheel on PyPI::
+
+    pip install dwave-tabu
+
+Alternatively, you can build the library with setuptools. This build requires that
+your system has a C++ compiler toolchain installed, as well as `SWIG <http://www.swig.org/>`_.
+
+.. code-block:: bash
+
+    pip install -r requirements.txt
+    python setup.py build_ext --inplace
+    python setup.py install
+
+.. installation-end-marker
+
+Example
+=======
+
+.. example-start-marker
+
+This example solves a two-variable Ising model.
+
+>>> from tabu import TabuSampler
+>>> response = TabuSampler().sample_ising({'a': -0.5, 'b': 1.0}, {('a', 'b'): -1})
+
+.. example-end-marker
+
+
