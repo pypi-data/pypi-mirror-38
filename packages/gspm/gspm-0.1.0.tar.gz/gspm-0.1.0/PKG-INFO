@@ -1,0 +1,21 @@
+Metadata-Version: 1.1
+Name: gspm
+Version: 0.1.0
+Summary: A Command Line Utility to Assist in Managing your GODOT projects.
+Home-page: https://gitlab.com/godot-stuff/gs-project-manager.git
+Author: Paul Hocker
+Author-email: paul@spocker.net
+License: MIT
+Description: 
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Utilities
+Classifier: Topic :: Games/Entertainment
+Classifier: Environment :: Console
