@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: ovccg
+Version: 0.8
+Summary: OVCCG - OpenVpn client config generator
+Home-page: https://dev.metatron.com.pl
+Author: Mikolaj Niedbala
+Author-email: kontakt@mikolajniedbala.pl
+License: GNU Library or Lesser General Public License (LGPL)
+Description: # OVCCG
+        ### OpenVpn client config generator
+        
+        Script generates __*.ovpn__ config file with certs included
+        
+        ## Installation
+        ```console
+        sudo pip3 install git+https://github.com/inthuriel/ovccg.git
+        ```
+        
+        ### Configuration
+        Configuration file is stored by default in `/usr/share/ovccg/config.yaml` - all variables are described in comments.
+        
+        ### Usage
+        ```console
+        ~# ovccg --help
+        usage: ovccg [-h] [-c CONFIG] [-o OUTPUT]
+        
+        Script to autogenerate OPENvpn config alongside with certs
+        
+        optional arguments:
+          -h, --help            show this help message and exit
+          -c CONFIG, --config CONFIG
+                                Path to script config
+          -o OUTPUT, --output OUTPUT
+                                Path to save output [full, inc. filename]
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)
+Classifier: Operating System :: POSIX :: Linux
+Description-Content-Type: text/markdown
