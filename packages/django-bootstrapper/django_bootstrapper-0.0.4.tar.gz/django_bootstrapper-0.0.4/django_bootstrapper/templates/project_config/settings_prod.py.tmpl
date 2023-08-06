@@ -1,0 +1,25 @@
+import os
+
+ALLOWED_HOSTS = [
+    # Allowed domains for env
+    "${project_name}.contraslash.com",
+]
+
+DATABASE_NAME = os.environ.get("${project_prefix}_DATABASE_DATABASE", "")
+DATABASE_USERNAME = os.environ.get("${project_prefix}_DATABASE_USERNAME", "")
+DATABASE_PASSWORD = os.environ.get("${project_prefix}_DATABASE_PASSWORD", "")
+DATABASE_HOST = os.environ.get("${project_prefix}_DATABASE_HOST", "")
+DATABASE_PORT = os.environ.get("${project_prefix}_DATABASE_PORT", "")
+
+
+DATABASES = {
+    'default': {
+        #
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': DATABASE_NAME,
+        'USER': DATABASE_USERNAME,
+        'PASSWORD': DATABASE_PASSWORD,
+        'HOST': DATABASE_HOST,
+        'PORT': DATABASE_PORT
+    }
+}
