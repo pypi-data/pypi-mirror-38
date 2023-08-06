@@ -1,0 +1,3 @@
+[console_scripts]
+timeit = shell_timeit._timeit:entry
+

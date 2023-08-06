@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: shell-timeit
+Version: 0.0.2
+Summary: Time a shell command
+Home-page: https://github.com/horta/shell-timeit
+Author: Danilo Horta
+Author-email: danilo.horta@gmail.com
+Maintainer: Danilo Horta
+Maintainer-email: danilo.horta@gmail.com
+License: MIT
+Download-URL: https://github.com/horta/shell-timeit
+Description: # shell-timeit
+        
+        Command-line utility for estimating elapsed time for shell commands.
+        
+        ## Authors
+        
+        * [Danilo Horta](https://github.com/horta)
+        
+        ## License
+        
+        This project is licensed under the [MIT License](https://raw.githubusercontent.com/horta/shell-timeit/master/LICENSE.md).
+        
+Keywords: time,shell,command
+Platform: Windows
+Platform: MacOS
+Platform: Linux
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Description-Content-Type: text/markdown
