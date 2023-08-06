@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: treelock
+Version: 0.0.1
+Summary: Constant-time read/write sub-tree locking for asyncio Python
+Home-page: https://github.com/michalc/treelock
+Author: Michal Charemza
+Author-email: michal@charemza.name
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Framework :: AsyncIO
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: fifolock
+
+# treelock
+Constant-time read/write sub-tree locking for asyncio Python
+
+
