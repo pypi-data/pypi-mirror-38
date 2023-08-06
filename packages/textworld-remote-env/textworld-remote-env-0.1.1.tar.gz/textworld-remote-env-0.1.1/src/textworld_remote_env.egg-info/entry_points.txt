@@ -1,0 +1,3 @@
+[console_scripts]
+textworld-remote-evaluator-service = textworld_remote_env.service:main
+
