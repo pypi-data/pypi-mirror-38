@@ -1,0 +1,7 @@
+
+        [console_scripts]
+        gpipe = gpipe.cli:main
+
+        [gpipe_executors]
+        sge = gpipe.workflow.execution:SGEWorkflowExecutor
+    
