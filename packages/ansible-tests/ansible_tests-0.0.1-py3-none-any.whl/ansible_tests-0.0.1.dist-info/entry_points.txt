@@ -1,0 +1,3 @@
+[console_scripts]
+ansible_tests = ansible_tests.__main__:run
+
