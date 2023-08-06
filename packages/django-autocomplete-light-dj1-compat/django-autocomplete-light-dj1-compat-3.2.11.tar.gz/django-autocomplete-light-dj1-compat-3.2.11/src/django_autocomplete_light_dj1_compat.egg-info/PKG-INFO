@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: django-autocomplete-light-dj1-compat
+Version: 3.2.11
+Summary: Fresh autocompletes for Django
+Home-page: http://django-autocomplete-light.rtfd.org
+Author: James Pic
+Author-email: jamespic@gmail.com
+License: MIT
+Description: 3.2.11 release for Django 1.11 compatibility. Intended to be temporary.
+Keywords: django autocomplete
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 1.8
+Classifier: Framework :: Django :: 1.9
+Classifier: Framework :: Django :: 1.10
+Classifier: Framework :: Django :: 1.11
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Provides-Extra: gfk
+Provides-Extra: genericm2m
+Provides-Extra: tags

@@ -1,0 +1,1 @@
+3.2.11 release for Django 1.11 compatibility. Intended to be temporary.
