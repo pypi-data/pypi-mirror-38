@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: YarpTp
+Version: 0.0.4
+Summary: YarpTp module for Raspberry Pi
+Home-page: https://github.com/IngenieriaDeSistemasUTB/YarpTp
+Author: Universidad Tecnológica de Bolívar
+Author-email: dirsis@utb.edu.co
+License: UNKNOWN
+Description: # YarpTp Python Module
+        
+        YarpTp es un mÃ³dulo para Python construido para un fÃ¡cil control de la plataforma robÃ³tica YarpTp. Con Ã©l, cualquiera podrÃ¡ construir scripts que ejecuten movimientos del robot de forma fÃ¡cil.
+        
+        ## InstalaciÃ³n
+        
+        ### Requerimientos
+        
+        El mÃ³dulo estÃ¡ diseÃ±ado para usarse sobre la plataforma robÃ³tica YarpTp cuyo controlador es una Raspberry Pi. Por lo tanto, el mÃ³dulo sÃ³lo tendrÃ¡ efecto si se usa en la arquitectura de una Raspberry Pi.
+        
+        La librerÃ­a requerida por el mÃ³dulo es:
+        
+         * RPi.GPIO (versiÃ³n mÃ­nima 0.6.3) mÃ³dulo de python para el control de los pines GPIO.
+        
+        ### InstalaciÃ³n
+        
+        El paquete puede descargarse desde PyPi o usando el gestor de paquetes pip a travÃ©s del comando:
+        
+          ``$ pip install YarpTp``
+        
+        ## DocumentaciÃ³n
+        
+        Para mayor informaciÃ³n, puede visitar la documentaciÃ³n alojada [aquÃ­](https://documentacion-del-modulo-yarptp.readthedocs.io).
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Development Status :: 3 - Alpha
+Description-Content-Type: text/markdown
