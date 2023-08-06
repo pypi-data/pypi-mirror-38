@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+bitrix/__init__.py
+bitrix/main.py
+bitrix.egg-info/PKG-INFO
+bitrix.egg-info/SOURCES.txt
+bitrix.egg-info/dependency_links.txt
+bitrix.egg-info/not-zip-safe
+bitrix.egg-info/requires.txt
+bitrix.egg-info/top_level.txt
+requirements/requirements.txt
+requirements/test.txt
