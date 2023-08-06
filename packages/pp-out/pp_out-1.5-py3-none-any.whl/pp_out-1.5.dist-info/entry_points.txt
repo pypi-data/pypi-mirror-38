@@ -1,0 +1,4 @@
+[console_scripts]
+go = pp_out.command_line:go
+run = pp_out.command_line:main
+
