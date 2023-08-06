@@ -1,0 +1,21 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+requests = "*"
+google-api-python-client = "*"
+"oauth2client" = "*"
+
+[dev-packages]
+twine = "*"
+setuptools = "*"
+wheel = "*"
+pylint = "*"
+"flake8" = "*"
+"flake8-bugbear" = "*"
+"flake8-comprehensions" = "*"
+
+[requires]
+python_version = "3.6"
