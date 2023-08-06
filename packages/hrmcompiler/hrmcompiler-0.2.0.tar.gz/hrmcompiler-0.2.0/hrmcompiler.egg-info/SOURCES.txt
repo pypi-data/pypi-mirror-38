@@ -1,0 +1,14 @@
+README.md
+setup.py
+hrmcompiler/__init__.py
+hrmcompiler/assembler.py
+hrmcompiler/conversion.py
+hrmcompiler/jsonassembler.py
+hrmcompiler/main.py
+hrmcompiler/parser.py
+hrmcompiler/semantic_check.py
+hrmcompiler.egg-info/PKG-INFO
+hrmcompiler.egg-info/SOURCES.txt
+hrmcompiler.egg-info/dependency_links.txt
+hrmcompiler.egg-info/entry_points.txt
+hrmcompiler.egg-info/top_level.txt
