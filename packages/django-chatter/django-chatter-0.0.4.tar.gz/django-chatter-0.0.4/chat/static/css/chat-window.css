@@ -1,0 +1,131 @@
+/*
+AI-------------------------------------------------------------------
+	Chat section of a chat window
+-------------------------------------------------------------------AI
+*/
+
+/*Container of chat box. Includes the dialog and input field and button*/
+.chat-container {
+	display: inline-block;
+	vertical-align: top;
+	height: 80vh;
+	width: 90%;
+	padding: 0;
+}
+
+/*This is the setting for the chat history dialog.*/
+#chat-dialog {
+	margin: 0 auto;
+	width: 100%;
+	height: 90%;
+	border: 2px solid #35b88f;
+	border-radius: 5px;
+	background-color: white;
+	overflow: auto;
+}
+
+/*
+AI-------------------------------------------------------------------
+	The messages inside the chat-dialog have the following settings
+-------------------------------------------------------------------AI
+*/
+
+/*Generic message setting that applies to all messages*/
+.message {
+	max-width: 60%;
+	padding: 0.5em 0.5em 0.5em 0.5em;
+	margin: 0.2em 0.2em 0.2em 0.2em;
+	border-radius: 2em;
+	vertical-align: bottom;
+	clear: both;
+	word-wrap: break-word;
+}
+
+/*Messages sent by current user has these settings.*/
+.message-sent {
+	background: #35b88f;
+	color: white;
+	float: right;
+}
+
+.message-receiver {
+	color: grey;
+	font-size: 0.7em;
+	float: left;
+	padding: 0.2em;
+	margin: 0;
+}
+
+/*Messages received by other users in the chat have these settings.*/
+.message-received {
+	background: #dcdcdc;
+	color: black;
+	float: left;
+}
+
+/*
+AI-------------------------------------------------------------------
+	The following contains settings for the input field and button.
+-------------------------------------------------------------------AI
+*/
+.input-container {
+	margin: 0 auto;
+	margin-top: 5px;
+	text-align: center;
+	position: relative;
+	border: 2px solid #35b88f;
+	border-radius: 5px;
+}
+
+/*This is the text box where the user inputs the messages to send.
+It's a textarea element to enable scroll.*/
+#send-message {
+	width: calc(100% - 4em);
+	font-size: 1rem;
+	padding-left: 10px;
+	overflow: auto;
+	resize: none;
+	display: inline;
+	border: none;
+	margin-top: 5px;
+	font-family: 'Raleway', sans-serif;
+}
+
+/*Send button settings*/
+#send-button {
+	background: transparent;
+	font-weight: bold;
+	font-size: 1rem;
+	color: #35b88f;
+	border: none;
+	display: inline;
+	vertical-align: top;
+	padding-top: 5px;
+}
+
+.fa-arrow-left {
+	float: left;
+	padding-top: 0.2em;
+	padding-bottom: 0.2em;
+	color: #35b88f;
+}
+
+@media only screen and (max-width: 768px) {
+	body {
+		text-align: center;
+	}
+	.chat-container {
+		max-width: 90%;
+	}
+}
+
+@media only screen and (min-width: 769px) {
+	.fa-arrow-left {
+		display: none;
+	}
+	.chat-container {
+		width: 70%;
+		display: inline-block;
+		height: 80vh;
+	}
+}
