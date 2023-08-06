@@ -1,0 +1,46 @@
+Metadata-Version: 1.1
+Name: iec60870-5
+Version: 0.0.2
+Summary: IEC60870-5
+Home-page: https://github.com/muumlover/iec60870-5
+Author: MUUMLOVER
+Author-email: muumlover@live.com
+License: BSD
+Download-URL: https://github.com/muumlover/iec60870-5/tarball/0.0.2
+Description: IEC60870-5
+        ===============================
+        
+        version number: 0.0.1
+        author: MUUMLOVER
+        
+        Overview
+        --------
+        
+        IEC60870-5
+        
+        Installation / Usage
+        --------------------
+        
+        To install use pip:
+        
+            $ pip install iec60870-5
+        
+        
+        Or clone the repo:
+        
+            $ git clone https://github.com/muumlover/iec60870-5.git
+            $ python setup.py install
+            
+        Contributing
+        ------------
+        
+        TBD
+        
+        Example
+        -------
+        
+        TBD
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3

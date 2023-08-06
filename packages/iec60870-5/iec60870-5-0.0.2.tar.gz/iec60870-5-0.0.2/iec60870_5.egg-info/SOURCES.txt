@@ -1,0 +1,11 @@
+MANIFEST.in
+README.md
+requirements.txt
+setup.cfg
+setup.py
+iec60870-5/__init__.py
+iec60870_5.egg-info/PKG-INFO
+iec60870_5.egg-info/SOURCES.txt
+iec60870_5.egg-info/dependency_links.txt
+iec60870_5.egg-info/requires.txt
+iec60870_5.egg-info/top_level.txt
