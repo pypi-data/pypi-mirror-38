@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: mongoct
+Version: 0.1.1
+Summary: MongoDB Change Streams tracker
+Home-page: https://github.com/bufferapp/mongoct
+Author: David Gasquez
+Author-email: davidgasquez@buffer.com
+License: MIT
+Keywords: mongodb,change-stream,crawler
+Platform: UNKNOWN
+Requires-Dist: pymongo
+Requires-Dist: click
+Requires-Dist: dnspython
+
+UNKNOWN
+
+
