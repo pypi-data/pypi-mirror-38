@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.rst
+requirements.txt
+setup.py
+ckanext/__init__.py
+ckanext/hdfs/__init__.py
+ckanext/hdfs/controller.py
+ckanext/hdfs/plugin.py
+ckanext/hdfs/uploader.py
+ckanext_hdfs.egg-info/PKG-INFO
+ckanext_hdfs.egg-info/SOURCES.txt
+ckanext_hdfs.egg-info/dependency_links.txt
+ckanext_hdfs.egg-info/entry_points.txt
+ckanext_hdfs.egg-info/namespace_packages.txt
+ckanext_hdfs.egg-info/top_level.txt
