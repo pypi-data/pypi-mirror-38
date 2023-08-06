@@ -1,0 +1,3 @@
+[console_scripts]
+aqipy = aqipy.__main__:main
+
