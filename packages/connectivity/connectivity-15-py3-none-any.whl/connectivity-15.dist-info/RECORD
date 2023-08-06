@@ -1,0 +1,17 @@
+connectivity/FileMover.py,sha256=lJ8-7SeYImZcR1p1UDEPJbHHROkAG25_IpOboHdPHJ4,1567
+connectivity/FileSender.py,sha256=vvY5WnPdewCnI3csOyO-fcsNCBBlZMV3f022PETub2Y,572
+connectivity/MessageOrganizer.py,sha256=8QzA8UQN8rYafUC0VCeqWV_xq12GfLjJtKLS9W22Odw,6090
+connectivity/__init__.py,sha256=-ekIo56WndDqOxd5W-uMYCqJB28zHcEsR8LeVeiSEzw,252
+connectivity/client/Client.py,sha256=gIB9Ll0sNLosbwTFxLEYk8NVEn6Dh-lIu2fdH3YUTZ8,2853
+connectivity/client/FileClient.py,sha256=H1GaDjCZha8XiK6Hl0JmrQSlO3kTRYoHaHHwcABTENk,1284
+connectivity/client/MessageClient.py,sha256=5vMyFepRNHqvVNio1avVjpaecM5HHApXWLROfVAolRs,724
+connectivity/client/__init__.py,sha256=k5mr_j04ZXc7JD-ENfv-z10ecs_HtbYlkTMywfNAE3E,15
+connectivity/server/FileServer.py,sha256=9y8m0lQVHiKYVgYf1gqXrQHDCW2uC-el0-U7dUdsSh0,1431
+connectivity/server/MessageServer.py,sha256=2vIVV7aOp8MpdGhJayJFuA1OYskhd63iU4kiqM6V-nE,1457
+connectivity/server/Server.py,sha256=LI2G_PMfHObfAkA8meQ6xEDi7NCVlARmYzGwX210ago,5273
+connectivity/server/__init__.py,sha256=0c2DevnBhhiX5oKw69ihkWNoDCgWjHEunIpLq5SCoKU,15
+connectivity-15.dist-info/LICENSE,sha256=7yShCh2xMUKra51ajwApckVxVkcSpoCRHwG0J5la6xg,1060
+connectivity-15.dist-info/METADATA,sha256=JG4sz67WSvJ20WDM91JAEtFGZfFlfyWmjGIYxoo0_-k,603
+connectivity-15.dist-info/WHEEL,sha256=MYFsq5fFBwF_oyJgrOoFmYYB1K6Sw7MxY-0897ZLbdM,92
+connectivity-15.dist-info/top_level.txt,sha256=JLSDs1bjFEvioiM4kOZUAxsmOW92D3VXV16NxRJ5xDQ,13
+connectivity-15.dist-info/RECORD,,
