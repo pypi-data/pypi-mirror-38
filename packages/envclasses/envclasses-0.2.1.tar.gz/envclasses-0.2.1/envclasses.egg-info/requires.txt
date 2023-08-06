@@ -1,0 +1,13 @@
+dataclasses
+pyyaml
+
+[docs]
+pdoc
+
+[test]
+coverage
+pytest
+pytest-cov
+pytest-flake8
+mypy
+flake8
