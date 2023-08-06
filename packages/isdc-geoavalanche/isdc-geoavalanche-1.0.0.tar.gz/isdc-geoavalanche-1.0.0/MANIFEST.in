@@ -1,0 +1,4 @@
+include README.md 
+include VERSION
+include Changelog.md
+recursive-include isdc_geoavalanches/static *
