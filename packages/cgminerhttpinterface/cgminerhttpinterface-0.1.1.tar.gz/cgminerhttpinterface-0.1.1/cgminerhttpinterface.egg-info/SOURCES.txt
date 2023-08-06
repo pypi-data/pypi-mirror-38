@@ -1,0 +1,13 @@
+MANIFEST.in
+README.rst
+setup.py
+cgminerhttpinterface/__init__.py
+cgminerhttpinterface/command_line.py
+cgminerhttpinterface/httprequesthandler.py
+cgminerhttpinterface/rpcinterface.py
+cgminerhttpinterface.egg-info/PKG-INFO
+cgminerhttpinterface.egg-info/SOURCES.txt
+cgminerhttpinterface.egg-info/dependency_links.txt
+cgminerhttpinterface.egg-info/entry_points.txt
+cgminerhttpinterface.egg-info/not-zip-safe
+cgminerhttpinterface.egg-info/top_level.txt
