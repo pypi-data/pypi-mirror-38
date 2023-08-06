@@ -1,0 +1,10 @@
+aiobotocore==0.9.4
+aiohttp==3.4.4
+bleach==2.1.4
+dsnparse==0.1.12
+pymongo>=3.6.0
+motor==2.0.0
+python-dateutil==2.7.3
+PyYAML==3.13
+sqlalchemy-aio==0.13.0
+websockets==6.0
