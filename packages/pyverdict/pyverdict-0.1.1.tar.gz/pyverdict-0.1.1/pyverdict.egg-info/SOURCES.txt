@@ -1,0 +1,17 @@
+README.md
+setup.py
+pyverdict/__init__.py
+pyverdict/verdictcommon.py
+pyverdict/verdictcontext.py
+pyverdict/verdictexception.py
+pyverdict/verdictresult.py
+pyverdict.egg-info/PKG-INFO
+pyverdict.egg-info/SOURCES.txt
+pyverdict.egg-info/dependency_links.txt
+pyverdict.egg-info/requires.txt
+pyverdict.egg-info/top_level.txt
+tests/__init__.py
+tests/test_mysql_datatypes.py
+tests/test_mysql_simple_queries.py
+tests/test_presto_datatypes.py
+tests/test_presto_simple_queries.py
