@@ -1,0 +1,9 @@
+pytest>=3.5.0
+
+[linting]
+flake8
+flake8-quotes
+pep8-naming
+
+[testing]
+pytest-cov

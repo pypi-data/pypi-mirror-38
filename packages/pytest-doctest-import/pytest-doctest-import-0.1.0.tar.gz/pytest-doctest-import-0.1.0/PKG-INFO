@@ -1,0 +1,88 @@
+Metadata-Version: 2.1
+Name: pytest-doctest-import
+Version: 0.1.0
+Summary: A simple pytest plugin to import names and add them to the doctest namespace.
+Home-page: https://github.com/rossmacarthur/pytest-doctest-import
+Author: Ross MacArthur
+Author-email: macarthur.ross@gmail.com
+Maintainer: Ross MacArthur
+Maintainer-email: macarthur.ross@gmail.com
+License: MIT
+Description: pytest-doctest-import
+        =====================
+        
+        .. image:: https://img.shields.io/pypi/v/pytest-doctest-import.svg?style=flat-square&colorB=4c1
+            :target: https://pypi.org/project/pytest-doctest-import/
+            :alt: PyPI Version
+        
+        .. image:: https://img.shields.io/travis/rossmacarthur/pytest-doctest-import.svg?style=flat-square
+            :target: https://travis-ci.org/rossmacarthur/pytest-doctest-import
+            :alt: Build Status
+        
+        .. image:: https://img.shields.io/codecov/c/github/rossmacarthur/pytest-doctest-import.svg?style=flat-square
+            :target: https://codecov.io/gh/rossmacarthur/pytest-doctest-import
+            :alt: Code Coverage
+        
+        A simple pytest plugin to import names and add them to the doctest namespace.
+        
+        Installing
+        ----------
+        
+        Install this package with
+        
+        ::
+        
+            pip install pytest-doctest-import
+        
+        
+        Usage
+        -----
+        
+        Simply pass the import names to ``--doctest-import`` when instantiating `pytest`.
+        
+        To get the equivalent of ``import package.module`` use
+        
+        ::
+        
+            pytest --doctest-modules --doctest-import "package.module"
+        
+        
+        To get the equivalent of ``from package import *`` use
+        
+        ::
+        
+            pytest --doctest-modules --doctest-import "*<package"
+        
+        
+        To get the equivalent of ``from package import module as mymodule`` use
+        
+        ::
+        
+            pytest --doctest-modules --doctest-import "module@mymodule<package"
+        
+        
+        License
+        -------
+        
+        This project is licensed under the MIT License.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Framework :: Pytest
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Testing
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*
+Provides-Extra: testing
+Provides-Extra: linting
