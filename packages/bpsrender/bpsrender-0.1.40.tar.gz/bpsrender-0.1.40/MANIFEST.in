@@ -1,0 +1,5 @@
+include assets/bpsrender.gif
+include bpsrender/bscripts/*.py
+include LICENSE
+include README.rst
+include bscripts
