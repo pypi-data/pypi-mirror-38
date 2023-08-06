@@ -1,0 +1,144 @@
+*****
+RGB Notes Python Library
+*****
+
+The RGB Notes Python library provides convenient access to the RGB Notes
+API from applications written in the Python language. It includes a
+pre-defined set of classes for API resources that initialize themselves
+dynamically from API responses.
+
+Documentation
+####
+See the API docs here: `https://rgbnotes.com/help?section=api`
+
+
+Installation
+####
+You don't need this source code unless you want to modify the package.
+If you just want to use the package, just run:
+
+.. codeblock:: bash
+
+    pip install --upgrade rgbnotes
+
+Install from source with:
+
+.. codeblock:: bash
+
+    python setup.py install
+
+
+Requirements
+####
+-  Python 2.6+ or Python 3.3+ (PyPy supported)
+-  Requests Module (PyPy supported)
+
+
+Usage
+####
+The library needs to be configured with your account's secret key which
+is available in your `RGB Notes
+Settings <https://rgbnotes.com/login.php?r=/settings.php>`__.
+
+*****
+For Developers
+*****
+
+API v1
+####
+.. codeblock:: python
+
+    import rgbnotes
+    rgbnotes.client_key = "your client key"
+    rgbnotes.client_id = "your client id"
+    # request a client or project token. Refer to the API
+    # documentation to see the difference in scope
+    rgbnotes.Token.client()
+    rgbnotes.Token.project(project_id=2, client_id=7)
+
+
+API Methods
+####
+
+All methods are encapsulated in it's own class.
+The method names used on classes are:
+
+.. codeblock:: python
+
+    CLS.create()
+    CLS.list()
+    CLS.retrieve(id)
+    CLS.modify(id, **data)
+    CLS.delete(id)
+
+
+Projects Request
+####
+.. codeblock:: python
+
+    rgbnotes.Project.create(title="New Project")
+    rgbnotes.Project.list()
+    rgbnotes.Project.modify(2, title="New Project Title")
+    rgbnotes.Project.delete(2)
+
+
+Assets Request
+####
+.. codeblock:: python
+
+    # requires a project Token or project_id parameter
+    rgbnotes.Asset.list()
+    rgbnotes.Asset.create(title="New Asset")
+    rgbnotes.Asset.version(asset_id=422)
+
+
+Notes Request
+####
+.. codeblock:: python
+
+    # requires a project Token or project_id parameter
+    rgbnotes.Note.list()
+
+
+Users Request
+####
+.. codeblock:: python
+
+    rgbnotes.User.create(name="John Doe", email="john@doe.com")
+    rgbnotes.User.list()
+
+
+File Request
+####
+.. codeblock:: python
+
+    with open("/path/to/file", "rb") as fp:
+        rgbnotes.File.create(file=fp)
+    rgbnotes.File.list()
+
+
+Snapshot Request
+####
+.. code-block:: python
+
+    rgbnotes.Snapshot.retrieve(id)
+
+
+Account Request
+####
+.. codeblock:: python
+
+    rgbnotes.Account.retrieve()
+
+
+Webhook Request
+####
+.. codeblock:: python
+
+    rgbnotes.Webhook.modify(url="http://myurl.com/webhook",
+                                    secret_header_field="",
+                                    secret_header_value="")
+    rgbnotes.Webhook.list()
+    rgbnotes.Webhook.delete(id)
+
+
