@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: zuzuvibhu
+Version: 1.0.3
+Summary: Zuzu Package of Vibhu Agarwal
+Home-page: https://github.com/Vibhu-Agarwal/zuzuvibhu
+Author: Vibhu Agarwal
+Author-email: vibhu4agarwal@gmail.com
+License: MIT
+Keywords: zuzu vibhu agarwal vibhuagarwal
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: Click (==7.0)
+Requires-Dist: Flask (==1.0.2)
+Requires-Dist: itsdangerous (==1.1.0)
+Requires-Dist: Jinja2 (==2.10)
+Requires-Dist: MarkupSafe (==1.1.0)
+Requires-Dist: Werkzeug (==0.14.1)
+
+# ZuzuVibhu
+
+The module provides the zuzu package for Vibhu Agarwal.\
+Zuzu are standard objects defined by Vibhu Agarwal himself.\
+The objects are in no way related to other zuzus understood in public which is not specifically defined by Vibhu Agarwal.\
+The specific definition will be specified in upcoming future releases.\
+
+Happy Go Zuzus!
+
