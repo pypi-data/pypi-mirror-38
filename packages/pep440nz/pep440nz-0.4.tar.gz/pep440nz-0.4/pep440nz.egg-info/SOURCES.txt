@@ -1,0 +1,11 @@
+README.rst
+setup.py
+pep440nz/__init__.py
+pep440nz/__version__.py
+pep440nz/git.py
+pep440nz/version.py
+pep440nz.egg-info/PKG-INFO
+pep440nz.egg-info/SOURCES.txt
+pep440nz.egg-info/dependency_links.txt
+pep440nz.egg-info/entry_points.txt
+pep440nz.egg-info/top_level.txt
