@@ -1,0 +1,30 @@
+swagger: "2.0"
+info:
+  version: 0.0.1
+  title: Friends Recommendations
+paths:
+  /recommendations:
+    get:
+      operationId: friendsreco.api_instance.get_recommendations
+      responses:
+        200:
+          description: Get recommendations for all people registered
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Recommendations"
+definitions:
+  Recommendations:
+    type: object
+    properties:
+      person:
+        $ref: "#/definitions/Person"
+      suggested_friends:
+        type: array
+        items:
+          $ref: "#/definitions/Person"
+  Person:
+    type: object
+    properties:
+      name:
+        type: string
