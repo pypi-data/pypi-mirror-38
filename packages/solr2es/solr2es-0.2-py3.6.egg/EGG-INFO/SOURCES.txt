@@ -1,0 +1,15 @@
+README.rst
+setup.py
+solr2es/__init__.py
+solr2es/solr2es.py
+solr2es.egg-info/PKG-INFO
+solr2es.egg-info/SOURCES.txt
+solr2es.egg-info/dependency_links.txt
+solr2es.egg-info/not-zip-safe
+solr2es.egg-info/requires.txt
+solr2es.egg-info/top_level.txt
+solr2es/test/__init__.py
+solr2es/test/test_migration.py
+solr2es/test/test_migration_async.py
+solr2es/test/test_redis_consumer.py
+solr2es/test/test_redis_consumer_async.py
