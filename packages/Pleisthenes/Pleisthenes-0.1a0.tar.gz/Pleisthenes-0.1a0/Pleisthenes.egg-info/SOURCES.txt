@@ -1,0 +1,12 @@
+README.rst
+setup.py
+Pleisthenes.egg-info/PKG-INFO
+Pleisthenes.egg-info/SOURCES.txt
+Pleisthenes.egg-info/dependency_links.txt
+Pleisthenes.egg-info/entry_points.txt
+Pleisthenes.egg-info/requires.txt
+Pleisthenes.egg-info/top_level.txt
+pleisthenes/__init__.py
+pleisthenes/weatherservice.py
+tests_manual/__init__.py
+tests_unit/__init__.py
