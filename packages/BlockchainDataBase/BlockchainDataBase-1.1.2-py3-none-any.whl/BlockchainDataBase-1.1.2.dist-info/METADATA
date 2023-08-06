@@ -1,0 +1,109 @@
+Metadata-Version: 2.1
+Name: BlockchainDataBase
+Version: 1.1.2
+Summary: A Simple Blockchain Database.
+Home-page: https://github.com/DEMG-DEV/SimpleBlockchainDataBase
+Author: David Mendez Guardado
+Author-email: demg@outlook.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+# SimpleBlockchainDatabase [![Open Source Helpers](https://www.codetriage.com/demg-dev/simpleblockchaindatabase/badges/users.svg)](https://www.codetriage.com/demg-dev/simpleblockchaindatabase)
+In this repository you can found a simple Database based on blockchain technology.
+
+> **IN THIS MOMENT THE DATABASE JUST WORK AS LOCALLY AND ONE DEVICE**
+
+## Version
+**1.1.0**
+
+## LICENSE
+[MIT License](LICENSE)
+
+## Requirements
+Python >= 3.6
+
+## Project structure
+```bash
+â”œâ”€â”€ BlockchainDataBase
+â”‚Â Â  â”œâ”€â”€ Data
+â”‚Â Â  â”‚Â Â  â”œâ”€â”€ __init__.py
+â”‚Â Â  â”‚Â Â  â”œâ”€â”€ DBManage.py
+â”‚Â Â  â”‚Â Â  â”œâ”€â”€ config.json
+â”‚Â Â  â”œâ”€â”€ __init__.py
+â”‚Â Â  â”œâ”€â”€ Block.py
+â”‚Â Â  â”œâ”€â”€ Blockchain.py
+â”œâ”€â”€ Test
+â”‚Â Â  â”œâ”€â”€ Test1.py
+â”‚Â Â  â”œâ”€â”€ Test2.py
+â”‚Â Â  â”œâ”€â”€ Test3.py
+â”‚Â Â  â”œâ”€â”€ Test4.py
+â”œâ”€â”€ LICENSE
+â”œâ”€â”€ README.md
+â”œâ”€â”€ setup.py
+```
+
+## Test
+- **Test1.py**, This test just creates the genesis block of the blockchain.
+- **Test2.py**, This test add a one block to the blockchain and prints the blocks.
+- **Test3.py**, This test add 2 blocks into the blockchain, prints the blocks and validate the blockchain.
+- **Test4.py**, This shows all the blocks. 
+
+## Install
+From test.pypi.org
+```
+python -m pip install --index-url https://test.pypi.org/simple/ BlockchainDataBase
+```
+
+From official pypi.org
+```
+python -m pip install BlockchainDataBase
+```
+
+## Configuration
+On the folder you found a configuration file in a JSON format, if you want to change the folder on the database or database name you do in this file.
+```
+# The data saves on %APPDATA% directory.
+â”œâ”€â”€ BlockchainDataBase
+â”‚Â Â  â”œâ”€â”€ Data
+â”‚Â Â  â”‚Â Â  â”œâ”€â”€ config.json
+```
+```
+config.json
+
+{
+  "DEFAULT": {
+    "DATABASE_LOCATION": "/blockchain/",
+    "DATABASE_NAME": "blockchain_database.bc"
+  }
+}
+```
+
+## Examples
+Initialize the Blockchain.
+```
+from BlockchainDataBase.Blockchain import Blockchain
+
+bc = Blockchain()
+```
+
+Add one block into Blockchain.
+```
+data = {"Data": "dataResult"}
+bc.add_block(data)
+```
+
+Shows all the blocks in the Blockchain.
+```
+bc.print_blocks()
+```
+
+Validates the blockchain to check if not was corrupted
+```
+bc.validate_chain()
+```
+
+
