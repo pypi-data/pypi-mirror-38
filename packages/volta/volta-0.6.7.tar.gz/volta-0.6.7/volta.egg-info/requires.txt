@@ -1,0 +1,15 @@
+tornado
+pandas>=0.18.0
+seaborn
+numpy>=1.11.0
+scipy
+matplotlib
+requests
+pyserial
+progressbar2
+pyusb
+pyyaml
+cerberus<1.2
+future
+netort>=0.2.8
+retrying
