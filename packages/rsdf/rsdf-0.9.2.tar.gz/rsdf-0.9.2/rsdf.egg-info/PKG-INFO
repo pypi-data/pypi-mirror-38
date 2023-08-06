@@ -1,0 +1,11 @@
+Metadata-Version: 1.0
+Name: rsdf
+Version: 0.9.2
+Summary: Redshift interface to Pandas DataFrames
+Home-page: https://github.com/bufferapp/rsdf
+Author: Michael Erasmus
+Author-email: michael@buffer.com
+License: MIT
+Description: UNKNOWN
+Keywords: redshift,pandas,upsert
+Platform: UNKNOWN
