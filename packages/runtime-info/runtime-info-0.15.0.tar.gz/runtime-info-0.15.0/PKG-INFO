@@ -1,0 +1,21 @@
+Metadata-Version: 1.1
+Name: runtime-info
+Version: 0.15.0
+Summary: TODO
+Home-page: UNKNOWN
+Author: Tibor Arpas
+Author-email: tibor.arpas@infinit.sk
+License: MIT
+Description: TODO
+Platform: linux
+Platform: osx
+Platform: win32
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Topic :: Software Development :: Testing
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Utilities
+Classifier: Programming Language :: Python
