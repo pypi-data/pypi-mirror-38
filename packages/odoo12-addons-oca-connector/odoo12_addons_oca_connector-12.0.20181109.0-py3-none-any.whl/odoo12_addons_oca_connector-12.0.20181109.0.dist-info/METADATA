@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: odoo12-addons-oca-connector
+Version: 12.0.20181109.0
+Summary: Meta package for oca-connector Odoo addons
+Home-page: UNKNOWN
+Author: UNKNOWN
+Author-email: UNKNOWN
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Framework :: Odoo
+Requires-Dist: odoo12-addon-component
+Requires-Dist: odoo12-addon-test-component
+
+UNKNOWN
+
+
