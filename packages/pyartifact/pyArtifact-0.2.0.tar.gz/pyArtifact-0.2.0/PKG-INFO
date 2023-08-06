@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: pyartifact
+Version: 0.2.0
+Summary: Pythonic wrapper around Valve's Artifact API
+Home-page: https://github.com/iscre4m/pyartifact
+Author: David Jetelina
+Author-email: david@djetelina.cz
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: mypy_extensions (>=0.4.1,<0.5.0)
+Requires-Dist: requests (>=2.20,<3.0)
