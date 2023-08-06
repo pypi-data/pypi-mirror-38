@@ -1,0 +1,28 @@
+Metadata-Version: 1.1
+Name: supersqlite
+Version: 0.0.38
+Summary: A supercharged SQLite library for Python.
+Home-page: https://gitlab.com/Plasticity/supersqlite
+Author: Plasticity
+Author-email: opensource@plasticity.ai
+License: MIT
+Description: 
+            About
+            -----
+            A feature-packed Python package and for utilizing SQLite in Python by `Plasticity <https://www.plasticity.ai/>`_. It is intended to be a drop-in replacement to Python's built-in `SQLite API <https://docs.python.org/3/library/sqlite3.html>`_, but without any limitations. It offers unique features like remote streaming over HTTP and bundling of extensions like JSON, R-Trees (geospatial indexing), and Full Text Search.
+        
+            Documentation
+            -------------
+            You can see the full documentation and README at the `GitLab repository <https://gitlab.com/Plasticity/supersqlite>`_ or the `GitHub repository <https://github.com/plasticityai/supersqlite>`_.
+                
+Keywords: supersqlite,sqlite,sqlite3,apsw,pysqlite,sql,embedded,database,db,http,remote,stream,full,text,fulltext,full-text,json,lsm,blob,vfs,fts4,fts5
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.0
+Classifier: Programming Language :: Python :: 3.7
