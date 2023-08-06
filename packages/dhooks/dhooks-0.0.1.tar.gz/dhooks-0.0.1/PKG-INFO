@@ -1,0 +1,22 @@
+Metadata-Version: 1.2
+Name: dhooks
+Version: 0.0.1
+Summary: An (a)sync wrapper for discord webhooks
+Home-page: UNKNOWN
+License: MIT
+Project-URL: Source Code, https://github.com/4rqm/dhooks/tree/rewrite
+Project-URL: Issue Tracker, https://github.com/4rqm/dhooks/issues
+Description: UNKNOWN
+Keywords: discord,webhooks,discordwebhooks,discordhooks
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Natural Language :: English
+Classifier: Topic :: Communications :: Chat
+Requires-Python: >=3.5
