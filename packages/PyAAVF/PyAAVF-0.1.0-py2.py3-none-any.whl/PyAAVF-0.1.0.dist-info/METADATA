@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: PyAAVF
+Version: 0.1.0
+Summary: An Amino Acid Variant Format parser for Python.
+Home-page: https://github.com/winhiv/PyAAVF.git
+Author: Matthew Fogel
+Author-email: matthew.fogel@canada.ca
+License: Apache License, Version 2.0
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: setuptools
+
+UNKNOWN
+
+
