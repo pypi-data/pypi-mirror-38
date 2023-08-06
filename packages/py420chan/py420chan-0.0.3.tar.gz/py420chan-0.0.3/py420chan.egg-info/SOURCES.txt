@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.py
+py420chan/__init__.py
+py420chan/board.py
+py420chan/file.py
+py420chan/post.py
+py420chan/thread.py
+py420chan/url.py
+py420chan/util.py
+py420chan.egg-info/PKG-INFO
+py420chan.egg-info/SOURCES.txt
+py420chan.egg-info/dependency_links.txt
+py420chan.egg-info/requires.txt
+py420chan.egg-info/top_level.txt
