@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: swmtools
+Version: 1.1
+Summary: util tools for daily dev
+Home-page: https://github.com/Octoberr/swmpackages
+Author: october
+Author-email: sepjudy@gmail.com
+License: UNKNOWN
+Project-URL: Source, https://github.com/Octoberr/swmpackages
+Keywords: daily work setup tools
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
+
+# 前言
+  自己常用的函数平常是在是太多了，经常会重复性编写
+
+  索性就自己编写一个python包
+
+  create by swm 2018/11/20
+
+### 2018/11/20
+增加判断操作系统的方法
+
+修改名字为swmtools
+
+help(swmtools.manytools)查看目前已有方法
+
+
+### 使用方法
+线下安装：python setup.py bdist_wheel
+
+线上安装：pip install -i https://test.pypi.org/simple/ swmtools
+
+
