@@ -1,0 +1,13 @@
+recursive-include bCNC/icons *
+recursive-include bCNC/images *
+recursive-include bCNC/locale *
+recursive-include bCNC/pendant *
+include bCNC/bCNC
+include bCNC/bCNC.bat
+include bCNC/bCNC.desktop
+include bCNC/bCNC.ico
+include bCNC/bCNC.ini
+include bCNC/bCNC.png
+include bCNC/bCNC.pot
+include bCNC/bCNC.xbm
+include bCNC/bCNC.ini
