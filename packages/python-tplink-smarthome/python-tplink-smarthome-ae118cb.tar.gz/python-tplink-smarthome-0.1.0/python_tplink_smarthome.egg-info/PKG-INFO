@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: python-tplink-smarthome
+Version: 0.1.0
+Summary: A package to communicate with TP-Link smart devices.
+Home-page: https://github.com/j-muller/python-tplink-smarthome
+Author: Jeffrey Muller
+Author-email: jeffrey.muller92@gmail.com
+License: UNKNOWN
+Description: TP-Link Smart Home
+        ------------------
+        
+        `tplink_smarthome` is a library to communicate with your TP-Link smart devices in a user friendly way.
+        
+        Installation
+        ------------
+        
+        .. code-block:: bash
+        
+        		$ pip install python-tplink-smarthome
+        
+        Author
+        ------
+        
+        - Jeffrey Muller <jeffrey.muller92@gmail.com>
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.5
+Description-Content-Type: text/x-rst
