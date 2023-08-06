@@ -1,0 +1,11 @@
+click
+ped_parser
+pymongo>=3.7.1
+mongomock
+vcftoolbox==1.5
+cyvcf2<0.10
+coloredlogs
+mongo_adapter>=0.2
+
+[tests]
+pytest
