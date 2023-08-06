@@ -1,0 +1,131 @@
+# -*- coding: utf-8 -*-
+# Description:
+# Script for gvm-pyshell
+#
+# Authors:
+# Joshua Schwartz <joshua.schwartz@greenbone.net>
+#
+# Copyright:
+# Copyright (C) 2018 Greenbone Networks GmbH
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+# requires python-dateutil
+
+import sys
+
+from lxml import etree as e
+
+import dateutil.parser
+
+
+def check_args(args):
+    len_args = len(args.script) - 1
+    if len_args is not 1:
+        message = """
+        This script pulls schedule data from an xml document and feeds it to \
+    a desired GSM
+        One parameter after the script name is required.
+
+        1. <xml_doc>  -- .xml file containing schedules
+
+        Example:
+            $ gvm-pyshell ssh --hostname=hostname --gmp-username=name \
+    --gmp-password=pass scripts/send-schedules.gmp targethost example_file.xml
+
+        Note: In order to use this script python-dateutil must first be installed:
+            $ pip install python-dateutil
+        """
+        print(message)
+        quit()
+
+
+def error_and_exit(msg):
+    print("Error: {}\n".format(msg), file=sys.stderr)
+    sys.exit(1)
+
+
+def create_xml_tree(xml_doc):
+    try:
+        xml_tree = e.parse(xml_doc)
+        xml_tree = e.tostring(xml_tree)
+        xml_tree = e.XML(xml_tree)
+    except IOError as err:
+        error_and_exit("Failed to read xml_file: {} (exit)".format(str(err)))
+
+    if len(xml_tree) == 0:
+        error_and_exit("XML file is empty (exit)")
+
+    return xml_tree
+
+
+def parse_send_xml_tree(gmp, xml_tree):
+    for schedule in xml_tree.xpath('schedule'):
+        name = schedule.find('name').text
+
+        comment = schedule.find('comment').text
+        if comment is None:
+            comment = ''
+
+        first_time = {}
+        f_time = schedule.find('first_time').text
+        f_time = dateutil.parser.parse(f_time)
+        first_time['day_of_month'] = f_time.day
+        first_time['hour'] = f_time.hour
+        first_time['minute'] = f_time.minute
+        first_time['month'] = f_time.month
+        first_time['year'] = f_time.year
+
+        duration = schedule.find('simple_duration').text
+        duration_unit = schedule.find('simple_duration').find('unit').text
+
+        period = schedule.find('simple_period').text
+        period_unit = schedule.find('simple_period').find('unit').text
+
+        timezone_abbrev = schedule.find('timezone_abbrev').text
+
+        gmp.create_schedule(
+            name=name,
+            first_time_minute=f_time.minute,
+            first_time_hour=f_time.hour,
+            first_time_day_of_month=f_time.day,
+            first_time_month=f_time.month,
+            first_time_year=f_time.year,
+            duration=duration,
+            duration_unit=duration_unit,
+            period=period,
+            period_unit=period_unit,
+            comment=comment,
+            timezone=timezone_abbrev
+        )
+
+
+def main():
+    # pylint: disable=undefined-variable
+
+    check_args(args)
+
+    xml_doc = args.script[2]
+
+    print('\nSending schedules...')
+
+    xml_tree = create_xml_tree(xml_doc)
+    parse_send_xml_tree(gmp, xml_tree)
+
+    print('\n  Schedule(s) created!\n')
+
+
+
+if __name__ == '__gmp__':
+    main()
