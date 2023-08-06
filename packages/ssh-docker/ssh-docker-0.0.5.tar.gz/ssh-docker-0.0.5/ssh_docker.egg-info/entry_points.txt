@@ -1,0 +1,4 @@
+
+        [console_scripts]
+        ssh-docker=sshdocker.api:main
+    
