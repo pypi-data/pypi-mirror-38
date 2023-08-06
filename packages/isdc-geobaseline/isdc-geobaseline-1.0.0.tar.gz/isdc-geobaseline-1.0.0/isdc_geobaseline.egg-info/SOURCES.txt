@@ -1,0 +1,15 @@
+Changelog.md
+MANIFEST.in
+README.md
+VERSION
+setup.py
+isdc_geobaseline/__init__.py
+isdc_geobaseline.egg-info/PKG-INFO
+isdc_geobaseline.egg-info/SOURCES.txt
+isdc_geobaseline.egg-info/dependency_links.txt
+isdc_geobaseline.egg-info/not-zip-safe
+isdc_geobaseline.egg-info/top_level.txt
+isdc_geobaseline/static/isdc_baseline/js/addbaseline.js
+isdc_geobaseline/static/isdc_baseline/js/baseline.min.js
+isdc_geobaseline/static/isdc_geobaseline/js/addbaseline.js
+isdc_geobaseline/static/isdc_geobaseline/js/baseline.min.js
