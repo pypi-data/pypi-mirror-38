@@ -1,0 +1,7 @@
+[plover.command]
+JAWS_function = plover_jaws:runFunction
+JAWS_script = plover_jaws:runScript
+
+[plover.extension]
+jaws = plover_jaws:PloverJAWS
+
