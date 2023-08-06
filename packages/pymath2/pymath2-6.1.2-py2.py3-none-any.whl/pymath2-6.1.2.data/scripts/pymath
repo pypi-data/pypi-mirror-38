@@ -1,0 +1,55 @@
+#!python
+
+import subprocess
+import sys
+from pathlib import Path
+import pymath
+
+import decimal as dec
+import fractions as frac
+import itertools as it
+import math
+import statistics as stats
+import matplotlib.pyplot as plt
+import numpy as np
+from pymath import *
+
+VERSION = '6.1.1'
+
+IMPORTS = ['decimal as dec', 'fractions as frac', 'itertools as it', 'math',
+           'statistics as stats', 'matplotlib.pyplot as plt', 'numpy as np']
+
+REMOVE_GLOBALS = {
+    '__name__',
+    '__doc__',
+    '__package__',
+    '__loader__',
+    '__spec__',
+    '__path__',
+    '__file__',
+    '__cached__',
+    '__builtins__',
+
+    'counting',
+    'number_theory',
+    'factor',
+    'number_types',
+    'other',
+}
+
+if __name__ == '__main__':
+    if len(sys.argv) == 2:
+        if sys.argv[1] in ['-v', '-V', '--version']:
+            print(VERSION)
+        else:
+            if sys.argv[1] == '-l':
+                print("Imports:")
+                print("\n".join(IMPORTS))
+                print()
+                print("pymath functions:")
+                print("\n".join([key for key in vars(pymath).keys() if key not in REMOVE_GLOBALS]))
+            else:
+                print(eval(sys.argv[1]))
+    else:
+        pymath_path = Path(pymath.__file__).resolve().parent / '__main__.py'
+        subprocess.call(['python', '-i', pymath_path])
