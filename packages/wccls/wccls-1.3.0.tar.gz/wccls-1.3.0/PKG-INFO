@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: wccls
+Version: 1.3.0
+Summary: Scraper for the WCCLS account page
+Home-page: https://github.com/rkhwaja/wccls
+Author: Rehan Khwaja
+Author-email: rehan@khwaja.name
+Requires-Python: >=3.6
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: requests-html (>=0.9.0,<0.10.0)
