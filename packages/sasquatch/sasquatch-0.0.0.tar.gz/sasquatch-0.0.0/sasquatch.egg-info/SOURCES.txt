@@ -1,0 +1,16 @@
+README.md
+setup.py
+sasquatch/__init__.py
+sasquatch/data.py
+sasquatch/entry.py
+sasquatch/error.py
+sasquatch/eval.py
+sasquatch.egg-info/PKG-INFO
+sasquatch.egg-info/SOURCES.txt
+sasquatch.egg-info/dependency_links.txt
+sasquatch.egg-info/entry_points.txt
+sasquatch.egg-info/top_level.txt
+sasquatch/grammar/__init__.py
+sasquatch/grammar/lex.py
+sasquatch/grammar/parse.py
+sasquatch/grammar/verb.py
