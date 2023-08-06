@@ -1,0 +1,27 @@
+Metadata-Version: 1.1
+Name: amqcfg
+Version: 0.7.0
+Summary: Template based configuration generator
+Home-page: https://bitbucket.org/msgqe/amqcfg
+Author: Zdenek Kraus
+Author-email: zkraus@redhat.com
+License: Apache-2.0
+Description: Template based configuration files generator based on jinja2 and yaml mainly focused on Apache ActiveMQ Artemis and related projects
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: MacOS
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Software Development :: Code Generators
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development :: Testing
+Classifier: Topic :: System :: Installation/Setup
+Classifier: Topic :: System :: Systems Administration
+Classifier: Topic :: Text Processing
+Classifier: Topic :: Utilities
