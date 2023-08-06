@@ -1,0 +1,31 @@
+===============
+String Coercion
+===============
+
+`StringCoercion`:t: interprets values typed into the console (or similar text-input) as fields for objects or parameters for functions via PEP484_ style reflection.
+
+Object fields or method parameters are reflected and an interpreter generated for each field or parameter.
+For instance an ``int`` field is simply interpreted using ``int(text)``.
+
+Please see the `Editorium`:t: project for the GUI equivalent. 
+
+--------------------
+Default interpreters
+--------------------
+
+* ``int``
+* ``str``
+* ``Optional``
+* ``bool`` 
+* ``Enum``
+* ``Flags``
+* ``List`` or ``Tuple``
+* ``Password``
+
+.. note::
+
+    * `Optional[T]` is a PEP484_ annotation supplied by :t:`Python`'s `Typing`:t: library and indicates that a value may be `None`.
+    * `Filename` is a PEP484_ -style annotation provided by the `MHelper`:t: library and provides hints on an acceptable filename e.g. `Filename[".txt", EMode.SAVE]`.
+
+
+.. _PEP484: https://www.python.org/dev/peps/pep-0484/
