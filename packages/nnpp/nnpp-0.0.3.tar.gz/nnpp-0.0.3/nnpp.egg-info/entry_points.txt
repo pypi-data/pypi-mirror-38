@@ -1,0 +1,3 @@
+[console_scripts]
+nnpp = nnpp.cli:main
+

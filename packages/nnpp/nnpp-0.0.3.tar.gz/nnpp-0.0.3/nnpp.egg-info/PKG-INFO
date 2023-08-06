@@ -1,0 +1,56 @@
+Metadata-Version: 1.1
+Name: nnpp
+Version: 0.0.3
+Summary: Neural Network Pre Processing Collection
+Home-page: https://github.com/gazlln/nnpp
+Author: Gareth Long For Headgear LTD
+Author-email: gazlong@me.com
+License: UNKNOWN
+Description: ====
+        NNPP
+        ====
+        
+        
+        
+        
+        
+        
+        Neural Network Pre Processing Collection
+        
+        
+        
+        Features
+        --------
+        
+        * TODO
+        
+        Credits
+        -------
+        
+        This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+        
+        .. _Cookiecutter: https://github.com/audreyr/cookiecutter
+        .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+        
+        
+        =======
+        History
+        =======
+        
+        0.0.1 (2018-11-23)
+        ------------------
+        
+        * First release on PyPI.
+        
+Keywords: nnpp
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
