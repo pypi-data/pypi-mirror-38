@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: connectivity
+Version: 18
+Summary: Library containing Server and Client for transferring messages and files via TCP
+Home-page: https://gitlab.com/nevolution.developers/libs/connectivity
+Author: nevolution.developers
+Author-email: basti.neubert@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.6
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+# connectivity
+
+library containing server and client classes for transferring messages and files
+
