@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: stilus
+Version: 0.4.0
+Summary: A Stylus css compiler in Python.
+Home-page: https://github.com/jw/stilus
+Author: Jan Willems
+Author-email: jw@elevenbits.com
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown
+
+
+
+# Stilus
+
+[![image](https://travis-ci.org/jw/stilus.svg?branch=master)](https://travis-ci.org/jw/stilus)
+[![codecov](https://codecov.io/gh/jw/stilus/branch/master/graph/badge.svg)](https://codecov.io/gh/jw/stilus)
+
+A Stylus css compiler in Python.  Very much a work in progress...
+
+
