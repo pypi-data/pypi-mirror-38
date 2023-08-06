@@ -1,0 +1,13 @@
+MANIFEST.in
+README.rst
+setup.py
+admin_location/__init__.py
+admin_location/fields.py
+admin_location/location.py
+admin_location.egg-info/PKG-INFO
+admin_location.egg-info/SOURCES.txt
+admin_location.egg-info/dependency_links.txt
+admin_location.egg-info/top_level.txt
+admin_location/static/BaiduMapDemo.html
+admin_location/templates/BaiduMapDemo.html
+admin_location/templates/location.html

@@ -1,0 +1,47 @@
+
+{% load static %}
+<div class="django-location-widget" data-field-id="{{id}}" style="display: inline-block;">
+<input{{ final_attrs }} data-processed="0"  type="text"  data-external-plugin-resources="{{ external_plugin_resources }}" data-id="{{id}}" input-type="location" value="{{ value }}"><input type="button" id="bt_select_location" value="获取位置">
+</div>
+<style>
+    .django-location-widget
+    {
+        width: 100%;
+        display: flex;
+    }
+    .django-location-widget input
+    {
+        max-width: 300px;
+        float: left;
+        height: 34px;
+    }
+    #bt_select_location
+    {
+        margin-left: 15px;
+    }
+</style>
+<script src="http://www.yuemia.com/layer/layer.js"></script>
+<script>
+    $("#bt_select_location").click(function () {
+
+        var a=$("input[input-type='location']").val();
+
+        layer.open({
+          type: 2,
+          title: '点击医院所在位置，点击保存即可',
+          shadeClose: true,
+          shade: false,
+          maxmin: true, //开启最大化最小化按钮
+          area: ['893px', '600px'],
+          content: '/static/BaiduMapDemo.html?a='+a
+        });
+    });
+    function savedata(a,b) {
+        
+    }
+    function saveDataList(lon_lat) {
+        layer.closeAll();
+
+        $("input[input-type='location']").val(lon_lat);
+    }
+</script>

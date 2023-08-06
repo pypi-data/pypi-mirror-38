@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<style type="text/css">
+		body, html {width: 100%;height: 100%;margin:0;font-family:"微软雅黑";font-family:"微软雅黑";}
+		#allmap{width:100%;height:500px;}
+		p{margin-left:5px; font-size:14px;}
+	</style>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=usjgs6CxHdGiSGYc2lImGiej"></script>
+	<title>地图单击事件</title>
+    
+</head>
+<body>
+    <div style="position:absolute; left:0px; top:0px; z-index:9999;width:100%;background:#cccccc">
+        医院名称或地址：<input type="text" name="txt" id="txt" style="width:50%;height:30px;" />
+        <input type="button" onclick="search();" value="搜索" />
+        <input type="button" value="保存" onclick="saveDataList()" />
+    </div><br />
+    <!--<div id="xuanzed" style="padding: 2px 2px; background-color: #4B4B4B;color:#fff;width:100%;">
+        <span>你当前选择的位置是：</span>
+        <span id="xuanzed"></span>
+    </div>-->
+    
+	<div id="allmap"></div>
+	<p><!--添加点击地图监听事件，点击地图后显示当前经纬度--></p>
+</body>
+</html>
+<script type="text/javascript">
+    var xuanzed = document.getElementById("xuanzed");
+    var txt = document.getElementById("txt");
+    var mapstr = "";
+    var mapstr2 = "";
+    // 百度地图API功能
+    var map = new BMap.Map("allmap");
+    map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);
+    var jwd="";
+    var geoc = new BMap.Geocoder();
+    map.addEventListener("click", function (e) {
+        var pt = e.point;
+        geoc.getLocation(pt, function (rs) {
+            var addComp = rs.addressComponents;
+            
+            //var falg = confirm("你当前选择的位置是：" + addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
+            //alert("你当前选择的位置是："+addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
+            mapstr2 = addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber;
+            txt.value = "";
+           txt.value = addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber;
+        //    txt.value = e.point.lng + "," + e.point.lat;
+            //xuanzed.innerHTML = "你当前选择的位置是：" + addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber;
+            savedata(mapstr, mapstr2);
+        });
+        mapstr = e.point.lng + "," + e.point.lat;
+        //alert(e.point.lng + "," + e.point.lat);
+        
+    });
+    
+    function savedata(mapstr, mapstr2) {
+         alert(mapstr);
+        jwd = mapstr;
+        {#window.parent.savedata(mapstr, mapstr2);#}
+    }
+
+    map.enableScrollWheelZoom();   //启用滚轮放大缩小，默认禁用
+    map.enableContinuousZoom();    //启用地图惯性拖拽，默认禁用
+    //apiconsole/key#
+
+    var geolocation = new BMap.Geolocation();
+
+    geolocation.getCurrentPosition(function (r) {
+        if (this.getStatus() == BMAP_STATUS_SUCCESS) {
+            var mk = new BMap.Marker(r.point);
+            //map.addOverlay(mk);
+            map.panTo(r.point);
+            //alert('您的位置：' + r.point.lng + ',' + r.point.lat);
+        }
+        else {
+            alert('failed' + this.getStatus());
+        }
+    }, { enableHighAccuracy: true })
+
+
+    var local = new BMap.LocalSearch(map, {
+        renderOptions: { map: map }
+    });
+    
+
+
+    function search() {
+        var txt = document.getElementById("txt").value;
+        local.search(txt);
+    }
+
+    function saveDataList() {
+
+
+        window.parent.saveDataList(jwd);
+
+
+    }
+</script>
