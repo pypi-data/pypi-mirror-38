@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: baybars
+Version: 0.0.11
+Summary: Python Common Packages
+Home-page: http://pypi.org/project/baybars/
+Author: Bugra Akyildiz
+Author-email: bugra.akyildiz@jet.com
+License: Apache 2.0
+Keywords: azure kafka blob documentdb cosmosdb queue tar
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.5
+Requires-Dist: python-consul (==1.1.0)
+Requires-Dist: azure-storage-blob (==1.4.0)
+Requires-Dist: azure-storage-queue (==1.4.0)
+Requires-Dist: confluent-kafka (==0.11.6)
+Requires-Dist: azure-cosmos (==3.0.2)
+Requires-Dist: pysftp (==0.2.9)
+Requires-Dist: requests (==2.20.1)
+Requires-Dist: numpy (==1.15.4)
+Requires-Dist: pandas (==0.23.4)
+Requires-Dist: PyHive (==0.6.1)
+Requires-Dist: elasticsearch (==6.3.1)
+
+UNKNOWN
+
+
