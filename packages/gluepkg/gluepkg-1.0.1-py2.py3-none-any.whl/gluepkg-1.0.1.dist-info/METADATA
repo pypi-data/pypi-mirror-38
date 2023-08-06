@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: gluepkg
+Version: 1.0.1
+Summary: Package for AWS Glue Library
+Home-page: UNKNOWN
+Author: Andreas
+Author-email: suekto.andreas@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: boto3
+
+gluepkg
+=======
+
+AWS Glue Packaging Helper. To prepare packaging according to AWS Glue required 
+setup for external libraries dependencies.
+
+This is based on the specification laid down at:
+https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-libraries.html
+
+Usage
+-----
+
+Build
+-----
+1. Build distribution
+    ::
+
+        python setup.py bdist_wheel --universal
+
+2. Distribute to pypi
+    ::
+
+        twine upload dist/*
+
+3. project install (development)
+    ::
+
+        python setup.py install
+
+    afterward you can run the command `gluepkg --src_dir <src> --pkg_s3_path <target>`
+    during development of this package
+
+
+
