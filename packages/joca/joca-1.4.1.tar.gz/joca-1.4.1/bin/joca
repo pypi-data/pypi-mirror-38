@@ -1,0 +1,249 @@
+#!/usr/bin/env python
+"""
+    JOCA -- Jira On Call Assignee -- Change project lead based on an ical event.
+    Copyright (C) 2018 Bryce McNab
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+"""
+
+import json
+import sys
+import re
+import datetime
+import time
+import logging
+import os
+
+def exit_code(exception):
+    """Turn an exception into an exit code and error message.
+
+    Args:
+        exception   exception   This is the exception object.
+
+    Returns:
+        Tuple in the form of (exit code, description).
+        Most descriptions are just the exception text."""
+    codes = {
+        "IOError": (2, exception),
+        "ValidationError": (8, exception),
+        "IndexError": (22, "Cannot find user."),
+        "JIRAError": (71, exception),
+        "ImportError": (79, exception),
+    }
+    return codes[exception.__class__.__name__]
+
+try:
+    import requests
+except ImportError as exc:
+    logging.critical("%s: %s", exc.__class__.__name__, exc)
+    sys.exit(exit_code(exc)[0])
+
+try:
+    from icalendar import Calendar
+except ImportError as exc:
+    logging.critical("%s: %s", exc.__class__.__name__, exc)
+    sys.exit(exit_code(exc)[0])
+
+try:
+    from jira import JIRA, JIRAError
+except ImportError as exc:
+    logging.critical("%s: %s", exc.__class__.__name__, exc)
+    sys.exit(exit_code(exc)[0])
+
+try:
+    import jsonschema
+except ImportError as exc:
+    logging.critical("%s: %s", exc.__class__.__name__, exc)
+    sys.exit(exit_code(exc)[0])
+
+def get_current_project_lead(jira_config):
+    """Polls Jira for the current project lead.
+
+    Args:
+        jira_config     dict    Server, username, password and project
+                                key.
+    Returns:
+        String: user key."""
+    logging.info("Project: %s", jira_config['project_key'])
+    try:
+        jira = JIRA(jira_config['server'],
+                    basic_auth=(jira_config['username'],
+                                jira_config['password']))
+        project = jira.project(jira_config['project_key'])
+        current_lead = project.lead._session['key']
+        logging.info("Current project lead: %s", current_lead)
+    except JIRAError as exc:
+        logging.critical("%s: %s", exc.__class__.__name__, exc)
+        sys.exit(exit_code(exc)[0])
+    return current_lead
+
+def get_supposed_lead(jira_config, url, regex):
+    """Downloads current ICS file for parsing.
+
+    Args:
+        jira_config     dict    Server, username, password and project
+                                key.
+        url             str     URL for the ical file.
+        regex           str     Regex string for parsing event
+                                subjects.
+    """
+    jira = JIRA(jira_config['server'],
+                basic_auth=(jira_config['username'],
+                            jira_config['password']))
+    project = jira_config["project_key"]
+    cal = Calendar.from_ical(requests.get(url).text)
+    for event in cal.walk():
+        if event.name == "VEVENT":
+            now = time.mktime(datetime.datetime.now().utcnow().timetuple())
+            start = time.mktime(event.get('dtstart').dt.timetuple())
+            end = time.mktime(event.get('dtend').dt.timetuple())
+            if now > start and now < end:
+                supposed_lead = re.search(regex, event.get('summary')).group(1)
+                logging.debug("Event summary: %s", event.get('summary'))
+                logging.info("Regex find: %s", supposed_lead)
+                logging.debug("End time of event: %s", event.get('dtend').dt.timetuple())
+    if ' ' in supposed_lead:
+        supposed_lead = usernameify(supposed_lead)
+    try:
+        assignee = jira.search_allowed_users_for_issue(supposed_lead,
+                                                       projectKey=project)[0].key
+    except IndexError as exc:
+        logging.critical("%s: %s", exc.__class__.__name__, exit_code(exc)[1])
+        sys.exit(exit_code(exc)[0])
+    logging.info("Supposed project lead: %s", assignee)
+    return assignee
+
+def usernameify(name):
+    """Turn full names into usernames
+
+    Args:
+        name    str     Name like "John Smith" or "jane doe".
+
+    Returns:
+        username string in the form of "jsmith" or "jdoe".
+    """
+    first_name = name.split()[0]
+    last_name = name.split()[1]
+    username = first_name.lower()[0] + last_name.lower()
+    return username
+
+def assign_new_project_lead(jira_config, lead):
+    """
+    Args:
+        jira_config     dict    Server, username, password and project
+                                key.
+        lead            str     User key to change to.
+    """
+    update_project_lead = requests.put(jira_config['server'] + \
+                                       "/rest/api/latest/project/" + \
+                                       jira_config['project_key'],
+                                       json={"lead": lead},
+                                       auth=(jira_config['username'],
+                                             jira_config['password']))
+    if update_project_lead.status_code == 200:
+        logging.info("Assignee update successful.")
+        return True
+    else:
+        logging.critical("Assignee update failed: %s", update_project_lead.status_code)
+        sys.exit(5)
+
+def main(): # pylint: disable=too-many-locals,too-many-branches,too-many-statements
+    # Disabled the 3 warnings from pylint that I don't think should apply to
+    # 'main' functions. A lot of this is unable to broken out into other
+    # functions.
+    """Main function, all work is done here."""
+
+    try:
+        config_file = os.environ["JOCA_CONFIG_FILE"]
+    except KeyError:
+        config_file = "/var/joca.config.json"
+
+    config_schema_file = "joca.config.json.schema"
+
+    try:
+        with open(config_file) as config_data_file:
+            config_data = json.load(config_data_file)
+    except IOError as exc:
+        logging.critical("%s: %s", exc.__class__.__name__, exit_code(exc)[1])
+        sys.exit(exit_code(exc)[0])
+
+    try:
+        # Check if log file can be opened
+        # If it cannot, log a warning and log to stdout/stderr
+        log_file = config_data['local']['logging'].get("file", "/var/log/joca.log")
+        # Only tests if the file can be opened, nothing more.
+        with open(log_file) as log_file_data: # pylint: disable=unused-variable
+            pass
+        # Set defaults if there is no local/logging section in the config.
+        log_format = config_data['local']['logging'].get("format", None)
+        log_level = config_data['local']['logging'].get("level", "CRITICAL")
+        if log_format is None:
+            logging.basicConfig(filename=log_file,
+                                level=log_level.upper())
+        else:
+            logging.basicConfig(filename=log_file,
+                                format=log_format,
+                                level=log_level.upper())
+    except IOError as exc:
+        if log_format is None:
+            logging.basicConfig(stream=sys.stdout,
+                                level=log_level.upper())
+        else:
+            logging.basicConfig(stream=sys.stdout,
+                                format=log_format,
+                                level=log_level.upper())
+        logging.warning("%s: %s", exc.__class__.__name__, exit_code(exc)[1])
+
+
+    logging.info("=== Starting sync ===")
+
+    try:
+        # Open and validate config.
+        with open(os.path.dirname(__file__) + \
+                  '/../resources/' + \
+                  config_schema_file) as config_schema_open:
+            config_schema = json.load(config_schema_open)
+        jsonschema.validate(config_data, config_schema)
+        logging.info("Configuration file passed validation.")
+    except IOError as exc:
+        logging.warning("%s: %s", exc.__class__.__name__, exit_code(exc)[1])
+    except ValidationError as exc: # pylint: disable=undefined-variable
+        # Disabled undefined-variable because ValidationError is
+        # a Python exception from jsonschema, not a variable.
+        logging.critical("%s: %s", exc.__class__.__name__, exit_code(exc)[1])
+        sys.exit(exit_code(exc)[0])
+
+    for project in config_data['projects']:
+        jira_config = {
+            "server": config_data['jira']['server'],
+            "username": config_data['jira']['username'],
+            "password": config_data['jira']['password'],
+            "project_key": project['key'].upper()
+        }
+        current_lead_key = get_current_project_lead(jira_config)
+        supposed_lead_key = get_supposed_lead(jira_config,
+                                              project['ical'],
+                                              project['regex'])
+        if current_lead_key == supposed_lead_key:
+            logging.info("No change is necessary, current assignee matches ical.")
+        else:
+            assign_new_project_lead(jira_config,
+                                    supposed_lead_key)
+            confirm_current_lead_key = get_current_project_lead(jira_config)
+            if confirm_current_lead_key == supposed_lead_key:
+                logging.info("Confirmed project lead was changed.")
+    logging.info("=== Sync complete ===")
+
+if __name__ == "__main__":
+    main()

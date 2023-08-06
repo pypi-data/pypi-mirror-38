@@ -1,0 +1,55 @@
+.TH joca 1 2018-08-27 "version 1.3.17"
+.SH NAME
+joca - Jira On Call Assignee
+.SH SYNOPSIS
+joca is run from the command line, and has not stdout output, unless there is a problem with the log file.
+.SH DESCRIPTION
+joca reads a calendar file (ical) from a URL, finds the event that is currently going on, and uses a custom REGEX string to extract the name of the person who is to be the default assignee in the Jira project. It then polls Jira to find the current Project Lead and changes it if necessary.
+.SH OPTIONS
+Options have no yet been implemented yet.
+.SH EXIT STATUS
+.IP 2
+IOError: "No such file or directory", This is raised if the config file cannot be found.
+.IP 8
+ValidationError: "Exec format error", If the configuration file (json) fails validation with the included json schema, this is raised.
+.IP 22
+IndexError: "Invalid argument", The supposed lead cannot be found in Jira.
+.IP 71
+JIRAError: "Protocol error", A generic error from the Jira Python SDK.
+.IP 79
+ImportError: "Can not access a needed shared library", One of the 4 required imports, that are not a part of the python standard library, is missing from the system.
+.SH CONFIG
+The configuration file default location: /etc/joca.config.json. Per the name, this is json. You can change this with the environment variable JOCA_CONFIG_FILE.
+
+Fields in the configuration:
+.IP local
+All configuration options pertaining to the local machine.
+.IP local["logging"]
+Currently the only sub-section for local, all logging options go here.
+.IP local["logging"]["file"]
+The specified file to write logs to, defaults to "/var/log/joca.log".
+.IP local["logging"]["format"]
+Specifies the log format, defaults to python's logging module's default format.
+.IP local["logging"]["level"]
+Specifies the level of message to log, defaults to "CRITICAL".
+.IP jira
+Encapsulates all of the information for authenticating with Jira.
+.IP jira["server"]
+The URL to the server, if you use a cloud hosted Jira instance, it will be like "https://contoso.jira.com".
+.IP jira["username"]
+The username for the account to use in Jira, this acount must be an admin for all projects in the config.
+.IP jira["password"]
+Please don't use "hunter2".
+.IP projects
+A list (array) of json objects that each describes what project and where to get the ical from.
+.IP projects[#]["key"]
+The project key, like "PROJ". It is the string before the hyphen in issue IDs, like "PROJ-1234".
+.IP projects[#]["ical"]
+The URL for the ical. joca only supports ical URLs and not files on the filesystem yet.
+.IP projects[#]["regex"]
+The regex to extract the name of the on-call user from the VEVENT summary. Ensure the actual name is in the first capture group.
+.SH BUGS
+There are no known bugs (yet).
+.SH AUTHOR
+Bryce McNab (me@brycemcnab.com)
+.SH SEE ALSO
