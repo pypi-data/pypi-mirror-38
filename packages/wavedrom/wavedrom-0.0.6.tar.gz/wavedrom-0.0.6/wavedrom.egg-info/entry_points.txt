@@ -1,0 +1,3 @@
+[console_scripts]
+wavedrompy = wavedrompy.wavedrom:main
+
