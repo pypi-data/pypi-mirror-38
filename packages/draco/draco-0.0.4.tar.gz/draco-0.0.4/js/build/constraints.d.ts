@@ -1,0 +1,9 @@
+export declare const TOPK_LUA: string;
+export declare const DEFINE: string;
+export declare const GENERATE: string;
+export declare const HARD: string;
+export declare const SOFT: string;
+export declare const WEIGHTS: string;
+export declare const ASSIGN_WEIGHTS: string;
+export declare const OPTIMIZE: string;
+export declare const OUTPUT: string;
