@@ -1,0 +1,11 @@
+*.pyc
+.coverage
+.idea
+.installed.cfg
+.tox
+__pycache__
+bin
+develop-eggs
+docs
+parts
+src/*.egg-info
