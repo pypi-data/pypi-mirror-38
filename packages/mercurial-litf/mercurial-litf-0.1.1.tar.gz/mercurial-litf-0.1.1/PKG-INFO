@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: mercurial-litf
+Version: 0.1.1
+Summary: A litf plugin for the Mercurial test runner
+Home-page: https://bitbucket.org/lothiraldan/mercurial_litf
+Author: Boris Feld
+Author-email: lothiraldan@gmail.com
+Requires-Python: >=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Project-URL: Repository, https://bitbucket.org/lothiraldan/mercurial_litf
