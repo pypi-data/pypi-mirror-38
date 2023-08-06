@@ -1,0 +1,13 @@
+setuptools>=39.2.0
+jtypes.jvm
+jtypes.jtypes
+
+[doc]
+Sphinx>=1.7.8
+
+[test]
+mock>=2.0.0
+numpy
+
+[test:python_version < "3.0"]
+unittest2
