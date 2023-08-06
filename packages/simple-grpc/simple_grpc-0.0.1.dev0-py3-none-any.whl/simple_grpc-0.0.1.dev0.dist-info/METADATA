@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: simple-grpc
+Version: 0.0.1.dev0
+Summary: A simple way to define gRPC patterns
+Home-page: https://github.com/shuttl-io/simple-grpc
+Author: Shuttl, LLC
+Author-email: hello@shuttl.io
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+
+# Simple gRPC [![Build Status](https://travis-ci.org/shuttl-io/simple-grpc.svg?branch=master)](https://travis-ci.org/shuttl-io/simple-grpc)
+
+A python to implement gRPC based serives easily.
+
+## Inspiration
+
+This python library is heavily inspired by Flask.
+
