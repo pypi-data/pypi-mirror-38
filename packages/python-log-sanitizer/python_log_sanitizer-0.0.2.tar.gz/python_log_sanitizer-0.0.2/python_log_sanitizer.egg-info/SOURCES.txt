@@ -1,0 +1,10 @@
+README.md
+setup.py
+python_log_sanitizer/__init__.py
+python_log_sanitizer.egg-info/PKG-INFO
+python_log_sanitizer.egg-info/SOURCES.txt
+python_log_sanitizer.egg-info/dependency_links.txt
+python_log_sanitizer.egg-info/not-zip-safe
+python_log_sanitizer.egg-info/top_level.txt
+test/__init__.py
+test/test_sanitizer_filter.py
