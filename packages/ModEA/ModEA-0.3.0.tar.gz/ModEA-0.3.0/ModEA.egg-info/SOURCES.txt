@@ -1,0 +1,15 @@
+README.md
+setup.py
+ModEA.egg-info/PKG-INFO
+ModEA.egg-info/SOURCES.txt
+ModEA.egg-info/dependency_links.txt
+ModEA.egg-info/top_level.txt
+modea/Algorithms.py
+modea/Individual.py
+modea/Mutation.py
+modea/Parameters.py
+modea/Recombination.py
+modea/Sampling.py
+modea/Selection.py
+modea/Utils.py
+modea/__init__.py
