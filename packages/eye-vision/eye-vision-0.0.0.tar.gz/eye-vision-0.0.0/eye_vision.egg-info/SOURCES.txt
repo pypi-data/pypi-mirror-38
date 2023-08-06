@@ -1,0 +1,16 @@
+CHANGES.txt
+LICENSE.txt
+MANIFEST.in
+README.md
+setup.py
+eye_vision.egg-info/PKG-INFO
+eye_vision.egg-info/SOURCES.txt
+eye_vision.egg-info/dependency_links.txt
+eye_vision.egg-info/top_level.txt
+ziso/__init__.py
+ziso/zen.py
+ziso/read/__init__.py
+ziso/read/read.py
+ziso/view/__init__.py
+ziso/view/gray.py
+ziso/view/rgb.py
