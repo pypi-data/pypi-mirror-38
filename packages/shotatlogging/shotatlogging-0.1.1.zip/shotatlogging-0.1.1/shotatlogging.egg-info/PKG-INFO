@@ -1,0 +1,62 @@
+Metadata-Version: 1.1
+Name: shotatlogging
+Version: 0.1.1
+Summary: Provide simple way to initialize logging module with default environment
+Home-page: https://github.com/starofrainnight/shotatlogging
+Author: Hong-She Liang
+Author-email: starofrainnight@gmail.com
+License: Apache Software License
+Description: =============
+        shotatlogging
+        =============
+        
+        
+        .. image:: https://img.shields.io/pypi/v/shotatlogging.svg
+            :target: https://pypi.python.org/pypi/shotatlogging
+        
+        .. image:: https://travis-ci.org/starofrainnight/shotatlogging.svg?branch=master
+            :target: https://travis-ci.org/starofrainnight/shotatlogging
+        
+        .. image:: https://ci.appveyor.com/api/projects/status/github/starofrainnight/shotatlogging?svg=true
+            :target: https://ci.appveyor.com/project/starofrainnight/shotatlogging
+        
+        Provide simple way to initialize logging module with default environment
+        
+        
+        * License: Apache-2.0
+        * Documentation: https://shotatlogging.readthedocs.io.
+        
+        
+        Features
+        --------
+        
+        * TODO
+        
+        Credits
+        ---------
+        
+        This package was created with Cookiecutter_ and the `PyPackageTemplate`_ project template.
+        
+        .. _Cookiecutter: https://github.com/audreyr/cookiecutter
+        .. _`PyPackageTemplate`: https://github.com/starofrainnight/rtpl-pypackage
+        
+        
+        
+        =======
+        History
+        =======
+        
+        0.0.1 (2018-02-11)
+        ------------------
+        
+        * First release on PyPI.
+        
+Keywords: shotatlogging
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
