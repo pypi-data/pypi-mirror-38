@@ -1,0 +1,53 @@
+#!/usr/bin/python2
+# -*- coding: utf-8 -*-
+
+#imports
+import sys
+import re
+import datetime
+import time
+import random
+import os.path
+from os.path import expanduser
+
+#set deafult folder
+home = expanduser("~")
+
+if os.path.exists(home+"/journaly/entries.txt")==False:
+    print "\nCreating file at ~/journaly/entries.txt to store entries..."
+    #create a folder
+    try:
+        if not os.path.exists(home+"/journaly/"):
+            os.makedirs(home+"/journaly/")
+            print("Directory created.")
+    except OSError:
+        print ("Error creating directory")
+
+if len(sys.argv) > 2:
+    print "too  many arguments"
+elif len(sys.argv) < 2:
+    print "no arguments given"
+else:
+    if sys.argv[1]=="help":
+        print("* `journaly new` to enter new journal entry.\n* `journaly show` to see all entries")
+    elif sys.argv[1]=="new":
+      f = open(home+"/journaly/entries.txt", "a+")
+      userstrin=str(raw_input("Enter entry: "))
+      now = datetime.datetime.now()
+      date=now.strftime("%Y-%m-%d %H:%M")
+      f.write("\n-------------------------\n"+date+"\n-------------------------\n"+userstrin+"\n")
+      f.close()
+
+    elif sys.argv[1]=="show":
+      try:
+        r = open(home+"/journaly/entries.txt")
+        line = r.readline()
+        while line:
+            print line
+            line = r.readline()
+        r.close()
+      except IOError:
+        print "Nothing is logged yet."
+
+    else:
+        print "I don't know that command."
