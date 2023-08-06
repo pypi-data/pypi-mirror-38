@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: django-class-settings
+Version: 0.1.0
+Summary: Effortless class-based settings for Django.
+Home-page: https://github.com/orlnub123/django-class-settings
+Author: orlnub123
+Author-email: orlnub123@gmail.com
+Keywords: django,settings,configuration
+Requires-Python: >=3.4,<4.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 1.11
+Classifier: Framework :: Django :: 2.0
+Classifier: Framework :: Django :: 2.1
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Utilities
+Requires-Dist: django
+Project-URL: Repository, https://github.com/orlnub123/django-class-settings

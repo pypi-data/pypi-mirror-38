@@ -1,0 +1,29 @@
+# https://github.com/sdispater/poetry/issues/321#issuecomment-406623290
+[build-system]
+requires = ["poetry"]
+build-backend = "poetry.masonry.api"
+
+[tool.poetry]
+name = "django-class-settings"
+version = "0.1.0"
+description = "Effortless class-based settings for Django."
+license = "MIT"
+authors = ["orlnub123 <orlnub123@gmail.com>"]
+readme = "README.md"
+repository = "https://github.com/orlnub123/django-class-settings"
+keywords = ["django", "settings", "configuration"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Framework :: Django",
+    "Framework :: Django :: 1.11",
+    "Framework :: Django :: 2.0",
+    "Framework :: Django :: 2.1",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Utilities"
+]
+packages = [{include = "class_settings"}]
+
+[tool.poetry.dependencies]
+python = "^3.4"
+django = "*"
