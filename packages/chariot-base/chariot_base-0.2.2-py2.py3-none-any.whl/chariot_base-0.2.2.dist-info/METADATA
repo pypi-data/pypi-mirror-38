@@ -1,0 +1,106 @@
+Metadata-Version: 2.1
+Name: chariot-base
+Version: 0.2.2
+Summary: Chariot base micro-service
+Home-page: https://gitlab.com/chariot-h2020/chariot_base
+Author: George Theofilis
+Author-email: g.theofilis@clmsuk.com
+License: EPL-1.0
+Keywords: chariot_base
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: Eclipse Public License 1.0 (EPL-1.0)
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Description-Content-Type: text/markdown
+Requires-Dist: paho-mqtt
+Requires-Dist: asyncio
+Requires-Dist: gmqtt
+Requires-Dist: influxdb
+Requires-Dist: cloudant
+Requires-Dist: ibmiotf
+Requires-Dist: pytest
+Requires-Dist: fastecdsa
+Requires-Dist: ecdsa
+Requires-Dist: pycrypto
+Requires-Dist: pytest-asyncio
+
+======================
+Chariot Base
+======================
+
+.. image:: https://img.shields.io/pypi/v/chariot-base.svg
+        :target: https://pypi.python.org/pypi/chariot-base
+
+.. image:: https://readthedocs.org/projects/chariot-base/badge/?version=latest
+        :target: https://chariot-base.readthedocs.io/en/latest/?badge=latest
+
+Base utilities for chariot micro-services.
+
+* Free software: Eclipse Public License 1.0
+* Documentation: https://chariot-northbound-dispatcher.readthedocs.io.
+
+Development
+-----------
+
+```
+sudo apt-get install python-dev libgmp3-dev
+```
+
+Encrypt application secrets
+```
+gpg -c --batch --passphrase test config.json
+```
+
+Features
+--------
+
+* Connection to Influx DB
+* Connection to MQTT broker
+* Connection to Cloudant
+* Connection to IBM Watson IoT service
+
+Credits
+-------
+
+This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+
+.. _Cookiecutter: https://github.com/audreyr/cookiecutter
+.. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+
+
+0.2.0 / 2018-11-12
+==================
+
+* ✅💥Pass connection options to cloudant data storage
+* ✅💥Pass connection options to watson connector
+* ✅💥🏗 Modify how I write to the local storage
+* ✅Add test for data point
+* Add test for sign & verify
+* Custom (Integrated Encryption Scheme) IES encrypt/decrypt
+* Bitwise permission checking
+
+=======
+History
+=======
+
+0.1.10 / 2018-10-01
+------------------
+
+* Add connector
+* Update model
+* Add various data source utilities
+
+0.1.1 / 2018-10-01
+------------------
+
+* Add common model files
+
+0.1.0 / 2018-09-28
+------------------
+
+* First release on GitLab.
+
+
