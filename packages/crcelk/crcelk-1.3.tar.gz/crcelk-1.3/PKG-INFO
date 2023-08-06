@@ -1,0 +1,59 @@
+Metadata-Version: 1.2
+Name: crcelk
+Version: 1.3
+Summary: CrcElk is an updated fork of the CrcMoose module for recent versions of Python. It provides a pure Python implementation of the CRC algorithm and allows for variants to easily be defined by providing their parameters such as width, starting polynomial, etc. Python versions 2.6+ and 3.1+ are supported.
+Home-page: https://github.com/zeroSteiner/crcelk
+Author: Ray Burr
+Maintainer: Spencer McIntyre
+Maintainer-email: zeroSteiner@gmail.com
+License: MIT
+Description: CrcElk
+        ======
+        
+        |Github Issues| |PyPi Release|
+        
+        CrcElk is an updated fork of the `CrcMoose <http://www.nightmare.com/~ryb/>`__
+        module for recent versions of Python. It provides a pure Python implementation
+        of the CRC algorithm and allows for variants to easily be defined by providing
+        their parameters such as width, starting polynomial, etc. Python versions 2.6+
+        and 3.1+ are supported.
+        
+        Usage Example
+        -------------
+        
+        .. code:: python
+        
+            >>> import crcelk
+            >>> import struct
+            >>> crc = crcelk.CRC_CCITT.calc_bytes(b'Hello World')
+            >>> print("{0} (0x{0:04x})".format(crc))
+            19749 (0x4d25)
+        
+        License
+        -------
+        
+        CrcElk is released under the same MIT license as the original CrcMoose
+        source. Details are available in the `file
+        header <https://github.com/zeroSteiner/crcelk/blob/master/crcelk.py#L4-L24>`__.
+        
+        .. |Github Issues| image:: http://img.shields.io/github/issues/zerosteiner/crcelk.svg?style=flat-square
+           :target: https://github.com/zerosteiner/crcelk/issues
+        .. |PyPi Release| image:: https://img.shields.io/pypi/v/crcelk.svg?style=flat-square
+           :target: https://pypi.python.org/pypi/crcelk
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.1
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
