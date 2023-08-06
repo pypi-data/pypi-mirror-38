@@ -1,0 +1,13 @@
+README.md
+setup.py
+bseq/__init__.py
+bseq/alignment.py
+bseq/formatter.py
+bseq/marker.py
+bseq/reader.py
+bseq/sequence.py
+bseq.egg-info/PKG-INFO
+bseq.egg-info/SOURCES.txt
+bseq.egg-info/dependency_links.txt
+bseq.egg-info/requires.txt
+bseq.egg-info/top_level.txt
