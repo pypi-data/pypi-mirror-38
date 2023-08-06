@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: lunafind
+Version: 0.5.1
+Summary: Search, filter and download posts from Danbooru-based sites and local dirs.
+Home-page: https://github.com/mirukan/lunafind
+Author: miruka
+Author-email: miruka@disroot.org
+License: LGPLv3
+Keywords: lunakit lunasync booru danbooru api client image ugoira anime cli terminal scrap tag search filter order download
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Environment :: Console
+Classifier: Topic :: Utilities
+Classifier: Topic :: Internet :: WWW/HTTP :: Indexing/Search
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX
+Requires-Python: >=3.6, <4
+Description-Content-Type: text/markdown
+Requires-Dist: appdirs
+Requires-Dist: atomicfile
+Requires-Dist: blessed
+Requires-Dist: cached-property
+Requires-Dist: docopt
+Requires-Dist: fastnumbers
+Requires-Dist: logzero
+Requires-Dist: pendulum
+Requires-Dist: pybooru
+Requires-Dist: requests
+Requires-Dist: setuptools
+Requires-Dist: simplejson
+Requires-Dist: urllib3
+Requires-Dist: whratio
+Requires-Dist: dataclasses; python_version < "3.7"
+
+Work in progress
+
+
