@@ -1,0 +1,34 @@
+Metadata-Version: 1.1
+Name: mnctools
+Version: 0.2
+Summary: MNC support module for MITgcm
+Home-page: http://github.com/marshallward/mnctools
+Author: Marshall Ward
+Author-email: mnctools@marshallward.org
+License: UNKNOWN
+Description-Content-Type: UNKNOWN
+Description: MNC Tools
+        =========
+        
+        Python-based tools for netCDF output from MITgcm using the MNC package
+        
+        Notes
+        -----
+        
+        Early development, only collation support at the moment (and the code is ugly)
+        
+        Contact
+        -------
+        
+        Marshall Ward (marshall.ward@gmail.com)
+        
+Keywords: MITgcm
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Utilities
