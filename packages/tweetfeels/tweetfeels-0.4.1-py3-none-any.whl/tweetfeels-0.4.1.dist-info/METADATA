@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: tweetfeels
+Version: 0.4.1
+Summary: Real-time sentiment analysis for twitter.
+Home-page: https://github.com/uclatommy/tweetfeels
+Author: Thomas Chen
+Author-email: tkchen@gmail.com
+License: UNKNOWN
+Download-URL: https://github.com/uclatommy/tweetfeels/tarball/0.4.1
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Dist: tweepy
+Requires-Dist: h5py
+Requires-Dist: nltk
+Requires-Dist: numpy
+Requires-Dist: oauthlib
+Requires-Dist: pandas
+Requires-Dist: python-dateutil
+Requires-Dist: pytz
+Requires-Dist: requests
+Requires-Dist: requests-oauthlib
+Requires-Dist: six
+Requires-Dist: twython
+
+Real-time sentiment analysis for twitter.
+
+
