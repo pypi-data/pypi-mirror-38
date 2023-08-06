@@ -1,0 +1,11 @@
+gulpio>=500
+pandas
+moviepy
+numpy
+
+[dev]
+Sphinx
+pygments
+sphinx_rtd_theme
+pytest
+mypy
