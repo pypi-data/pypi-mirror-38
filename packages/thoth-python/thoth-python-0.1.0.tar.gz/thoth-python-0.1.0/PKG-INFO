@@ -1,0 +1,26 @@
+Metadata-Version: 1.2
+Name: thoth-python
+Version: 0.1.0
+Summary: A Python ecosystem specific library
+Home-page: https://github.com/thoth-station/python
+Author: Fridolin Pokorny
+Author-email: fridolin@redhat.com
+Maintainer: Fridolin Pokorny
+Maintainer-email: fridolin@redhat.com
+License: GPLv3+
+Description: Thoth Python
+        ------------
+        
+        A Python ecosystem specific library
+        
+Keywords: python dependency pypi dependencies tool library thoth
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: Implementation :: CPython
