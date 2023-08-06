@@ -1,0 +1,42 @@
+Metadata-Version: 1.1
+Name: aws-parallelcluster
+Version: 2.0.0rc1
+Summary: A tool to launch and manage HPC clusters on AWS
+Home-page: https://github.com/aws/aws-parallelcluster
+Author: Amazon Web Services
+Author-email: UNKNOWN
+License: Apache License 2.0
+Description: pcluster is an example framework for launching clusters.
+        
+            usage: pcluster [-h]
+                              {create,update,delete,start,stop,status,list,instances,ssh,configure,version}
+                              ...
+        
+            pcluster is a tool to launch and manage a cluster.
+        
+            positional arguments:
+              {create,update,delete,start,stop,status,list,instances,ssh,configure,version}
+                create              creates a cluster
+                update              update a running cluster
+                delete              delete a cluster
+                start               start the compute fleet that has been stopped
+                stop                stop the compute fleet, but leave the master server
+                                    running for debugging/development
+                status              pull the current status of the cluster
+                list                display a list of stacks associated with AWS ParallelCluster
+                instances           display a list of all instances in a cluster
+                ssh                 connect to the master server using SSH
+                configure           creating initial pcluster configuration
+                version             display version of aws-parallelcluster
+        
+            optional arguments:
+              -h, --help            show this help message and exit
+        
+            For command specific flags run pcluster [command] --help
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Programming Language :: Python
+Classifier: Topic :: Scientific/Engineering
+Classifier: License :: OSI Approved :: Apache Software License
