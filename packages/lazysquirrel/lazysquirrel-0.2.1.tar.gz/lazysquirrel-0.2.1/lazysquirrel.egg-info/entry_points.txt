@@ -1,0 +1,3 @@
+[console_scripts]
+lazysquirrel = lazysquirrel.command_line:main
+

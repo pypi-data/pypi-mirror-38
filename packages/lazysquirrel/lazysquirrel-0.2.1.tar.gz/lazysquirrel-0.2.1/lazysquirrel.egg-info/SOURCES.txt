@@ -1,0 +1,12 @@
+setup.py
+lazysquirrel/__init__.py
+lazysquirrel/command_line.py
+lazysquirrel/helper.py
+lazysquirrel/progressbar.py
+lazysquirrel/test.py
+lazysquirrel.egg-info/PKG-INFO
+lazysquirrel.egg-info/SOURCES.txt
+lazysquirrel.egg-info/dependency_links.txt
+lazysquirrel.egg-info/entry_points.txt
+lazysquirrel.egg-info/not-zip-safe
+lazysquirrel.egg-info/top_level.txt
