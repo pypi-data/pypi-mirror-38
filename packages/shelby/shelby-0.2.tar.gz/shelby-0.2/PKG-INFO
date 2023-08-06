@@ -1,0 +1,17 @@
+Metadata-Version: 1.1
+Name: shelby
+Version: 0.2
+Summary: Framework for tabular data ML competitions
+Home-page: https://github.com/Taborater/shelby
+Author: Alexander Isaev
+Author-email: alexanderisaev23@gmail.com
+License: GPL-3.0
+Download-URL: https://github.com/Taborater/shelby/archive/v01.tar.gz
+Description: UNKNOWN
+Keywords: ML,Kaggle,Pipeline
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3.6
