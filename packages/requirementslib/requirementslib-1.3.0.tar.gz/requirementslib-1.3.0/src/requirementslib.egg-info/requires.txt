@@ -1,0 +1,24 @@
+appdirs
+attrs
+distlib
+first
+packaging
+pep517
+pip-shims>=0.3.2
+plette[validation]
+requests
+setuptools>=38.2.5
+six
+tomlkit>=0.5.2
+vistir[spinner]>=0.2.3
+
+[:python_version < "3.5"]
+scandir
+
+[tests]
+pytest
+coverage
+readme-renderer
+pytest-xdist
+pytest-cov
+pytest-timeout
