@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: pyaftership
+Version: 0.1.2
+Summary: UNKNOWN
+Home-page: https://github.com/ludeeus/pyaftership
+Author: Joakim Sorensen
+Author-email: ludeeus@gmail.com
+License: UNKNOWN
+Description: # pyaftership [![Build Status][travis_status]][travis] [![PyPI version][pypi_badge]][pypi]
+        
+        _Python wrapper package for the AfterShip API._
+        
+        ## Install
+        
+        ```bash
+        pip install pyaftership
+        ```
+        
+        Look at the file `example.py` for a usage example.
+        
+        [travis_status]: https://travis-ci.org/ludeeus/pyaftership.svg?branch=master
+        [travis]: https://travis-ci.org/ludeeus/pyaftership
+        [pypi]:https://pypi.org/project/pyaftership/
+        [pypi_badge]: https://badge.fury.io/py/pyaftership.svg
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
