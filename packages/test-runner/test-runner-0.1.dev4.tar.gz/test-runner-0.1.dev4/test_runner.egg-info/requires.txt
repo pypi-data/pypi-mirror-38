@@ -1,0 +1,10 @@
+GitPython
+virtualenv
+lxml
+coverage
+pytest
+pytest-cov
+pypandoc
+flake8
+black
+twine
