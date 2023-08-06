@@ -1,0 +1,102 @@
+# visdom-wrapper
+A wrapper to use visdom with python 'with' statement.
+
+## Setup
+```
+pip3 install visdom-wrapper
+```
+
+## Example
+```
+import numpy as np
+import time
+import os.path
+import getpass
+from sys import platform as _platform
+from six.moves import urllib
+
+from visdom_wrapper import VizWrapper
+from visdom import  Visdom
+
+# Images
+for i in range(5):
+    var = np.random.randn(20, 3, 64, 64)
+    with VizWrapper("random_images") as viz_wrapper:
+        viz_wrapper.update_wins(
+            viz_wrapper.viz.images(var,
+                                   opts=dict(title=viz_wrapper.name),
+                                   win=viz_wrapper.win)) # Indispensable
+    time.sleep(1)
+
+# Change server port
+VizWrapper.viz = Visdom(port=8098, server="http://localhost")
+
+for i in range(5):
+    var = np.random.randn(10, 3, 64, 64)
+    with VizWrapper("random_images_1") as viz_wrapper:
+        viz_wrapper.update_wins(
+            viz_wrapper.viz.images(var,
+                                   opts=dict(title=viz_wrapper.name),
+                                   win=viz_wrapper.win)) # Indispensable
+    time.sleep(1)
+
+# Histogram
+for i in range(5):
+    var = np.random.rand(10000)
+    with VizWrapper("histogram") as viz_wrapper:
+        viz_wrapper.update_wins(
+            viz_wrapper.viz.histogram(X=var,
+                                      opts=dict(numbins=20),
+                                      win=viz_wrapper.win)) # Indispensable
+    time.sleep(1)
+
+# Line updates
+X = np.column_stack((np.arange(0, 10), np.arange(0, 10)))
+Y = np.column_stack((np.linspace(5, 10, 10), np.linspace(5, 10, 10) + 5))
+with VizWrapper("line") as viz_wrapper:
+    viz_wrapper.update_wins(
+        viz_wrapper.viz.line(X=X,
+                             Y=Y,
+                             win=viz_wrapper.win)) # Indispensable
+time.sleep(2)
+X = np.column_stack((np.arange(10, 20), np.arange(10, 20)))
+Y = np.column_stack((np.linspace(5, 10, 10), np.linspace(5, 10, 10) + 5))
+with VizWrapper("line") as viz_wrapper:
+    viz_wrapper.update_wins(
+        viz_wrapper.viz.line(X=X,
+                             Y=Y,
+                             win=viz_wrapper.win, # Indispensable
+                             update='append'))
+
+# Video
+video = np.empty([256, 250, 250, 3], dtype=np.uint8)
+for n in range(256):
+    video[n, :, :, :].fill(n)
+with VizWrapper("vedio") as viz_wrapper:
+    viz_wrapper.update_wins(
+        viz_wrapper.viz.video(tensor=video,
+                              win=viz_wrapper.win)) # Indispensable
+
+
+video_url = 'http://media.w3.org/2010/05/sintel/trailer.ogv'
+# linux
+if _platform == "linux" or _platform == "linux2":
+    videofile = '/home/%s/trailer.ogv' % getpass.getuser()
+# MAC OS X
+elif _platform == "darwin":
+    videofile = '/Users/%s/trailer.ogv' % getpass.getuser()
+# download video
+urllib.request.urlretrieve(video_url, videofile)
+
+if os.path.isfile(videofile):
+    with VizWrapper("vedio_1") as viz_wrapper:
+        viz_wrapper.update_wins(
+            viz_wrapper.viz.video(videofile=videofile,
+                                  win=viz_wrapper.win)) # Indispensable
+```
+With visdom-wrapper, you can use visdom in a more convinent way.
+1. you don't have to create Visdom object explicitly.
+2. you don't have to manage visdom windows explicitly. VizWrapper with the 
+same name will be updated to the same visdom window implicitly.
+3. all visdom apis are still avaiable and you can still configure visdom in a
+ flexiable way.  
