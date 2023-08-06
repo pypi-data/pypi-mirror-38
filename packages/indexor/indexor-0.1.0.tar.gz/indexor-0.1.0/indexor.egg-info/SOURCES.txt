@@ -1,0 +1,13 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+README.rst
+setup.cfg
+setup.py
+examples/first_example.py
+indexor/__init__.py
+indexor/indexor.py
+indexor.egg-info/PKG-INFO
+indexor.egg-info/SOURCES.txt
+indexor.egg-info/dependency_links.txt
+indexor.egg-info/top_level.txt
