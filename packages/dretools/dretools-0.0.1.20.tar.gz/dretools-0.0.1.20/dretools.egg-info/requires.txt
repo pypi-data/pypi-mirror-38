@@ -1,0 +1,7 @@
+numpy>=1.9.2
+rpy2>=2.9.3
+scipy>=0.16.0
+statsmodels>=0.8.0
+intervaltree>=2.1.0
+pysam>=0.13
+behave
