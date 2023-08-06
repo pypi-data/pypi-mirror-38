@@ -1,0 +1,56 @@
+Metadata-Version: 2.1
+Name: lccnorm
+Version: 0.0.1
+Summary: Normalize Library of Congress Control Numbers.
+Home-page: https://github.com/seanredmond/lccnorm-py
+Author: Sean Redmond
+Author-email: github-smr@sneakemail.com
+License: MIT
+Description: 
+        # Lccnorm
+        
+        [![Build Status](http://img.shields.io/travis/seanredmond/lccnorm-py.svg)][travis]
+        
+        [travis]: http://travis-ci.org/seanredmond/lccnorm-py
+        
+        ## Installation
+        
+            pip install lccnorm
+            
+        ## Usage
+        
+        Import the package
+        
+            >>> import lccnorm
+        
+        Get a normalized version of an LCCN:
+        
+            >>> lccnorm.normalize("75-425165//r75")
+            '75425165'
+             
+        Check that an LCCN is valid:
+        
+            >>> Lccnorm.is_valid("75425165")
+            True
+            >>> lccnorm.is_valid("not even a number")
+            False
+        
+        ## Contributing
+        
+        Bug reports and pull requests are welcome on GitHub at https://github.com/seanredmond/lccnorm-py. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+        
+        ## License
+        
+        The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+        
+        ## Code of Conduct
+        
+        Everyone interacting in the Lccnorm project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/seanredmond/lccnorm-py/blob/master/CODE_OF_CONDUCT.md).
+        
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Requires-Python: >=2.6.0
+Description-Content-Type: text/markdown
