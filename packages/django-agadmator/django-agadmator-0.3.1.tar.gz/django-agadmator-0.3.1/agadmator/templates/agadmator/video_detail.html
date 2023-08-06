@@ -1,0 +1,127 @@
+{% extends 'agadmator/base.html' %}
+{% load humanize static %}
+
+{% block base_container_class %}container-fluid{% endblock %}
+
+{% block content %}
+
+  <div class=" my-3">
+
+    <h2>{{ video.title }}</h2>
+    <p>
+      <span title="{{ video.time_published }}">{{ video.time_published|timesince }} ago</span> &middot;
+      <code class="text-muted">{{ video.youtube_id }}</code> &middot;
+      {% for tag in video.tags %}
+        <a href="{{ tag.link }}" class="badge badge-dark">{{ tag.text }}</a>
+      {% endfor %}
+      {% if video.game_id %}
+        <a class="badge badge-primary" href="http://www.chessgames.com/perl/chessgame?gid={{ video.game_id }}"
+           target="_blank">view on chessgames.com</a>
+      {% endif %}
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="text-center embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item"
+                src="https://www.youtube-nocookie.com/embed/{{ video.youtube_id }}?rel=0"
+                frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
+      <div style="max-width: 600px; margin: 2rem auto 0">
+        <div>{{ video.description|linebreaks|urlize }}</div>
+      </div>
+
+    </div>
+    <div class="col-md-6 col-xl-3">
+      {% if video.pgn_markup %}
+        <div class="blue merida" id="viewer">
+          <div id="chessground"></div>
+        </div>
+        <div class="mt-3" style="margin-left: 44px; font-family: monospace" id="controls">
+          <button class="btn btn-sm btn-dark" onclick="moveToFirst()" title="first">&lt;&lt;</button>
+          <button class="btn btn-sm btn-dark" onclick="moveToPrevious()" title="previous">&lt;</button>
+          <button class="btn btn-sm btn-dark" onclick="move()" title="return to main line">&mdash;</button>
+          <button class="btn btn-sm btn-dark" onclick="moveToNext()" title="next">&gt;</button>
+          <button class="btn btn-sm btn-dark" onclick="moveToLast()" title="last">&gt;&gt;</button>
+        </div>
+
+        <div class="mt-3 p-3 bg-light" style="font-family: monospace; width: 320px">{{ video.pgn_markup|safe }}</div>
+      {% endif %}
+    </div>
+  </div>
+
+  {% if video.pgn_markup %}
+    <link rel="stylesheet" href="{% static 'agadmator/chessground/chessground.css' %}">
+    <link rel="stylesheet" href="{% static 'agadmator/chessground/theme.css' %}">
+    <script src="{% static 'agadmator/chessground.min.js' %}"></script>
+    <script>
+
+      var positions =
+      {{ video.fen_list|safe }}
+      var moveIx = 0
+      var pnodes = document.querySelectorAll('.cp')
+
+      function moveToFirst() {
+        moveIx = 0
+        move()
+      }
+
+      function moveToLast() {
+        moveIx = positions.length - 1
+        move()
+      }
+
+      function moveToNext() {
+        moveIx = Math.min(moveIx + 1, positions.length - 1)
+        move()
+      }
+
+      function moveToPrevious() {
+        moveIx = Math.max(0, moveIx - 1)
+        move()
+      }
+
+      function move() {
+        ground.set({fen: positions[moveIx]})
+        clearActive()
+        document.getElementById('p-' + moveIx).classList.add('active')
+      }
+
+      function clearActive() {
+        for (var i = 0; i < pnodes.length; i++) {
+          pnodes[i].classList.remove('active')
+        }
+      }
+
+      var ground = Chessground(document.getElementById('chessground'), {})
+
+      window.addEventListener('keydown', function (event) {
+        if (event.key === 'ArrowLeft') moveToPrevious()
+        else if (event.key === 'ArrowRight') moveToNext()
+      })
+
+      for (var i = 0; i < pnodes.length; i++) {
+        pnodes[i].addEventListener('click', function (e) {
+          moveIx = e.target.dataset.i
+          move()
+        })
+      }
+
+    </script>
+
+    <style>
+      #controls .btn {
+        width: 40px;
+      }
+
+      .cp {
+        cursor: pointer;
+      }
+
+      .cp.active {
+        background-color: yellow;
+      }
+    </style>
+  {% endif %}
+
+{% endblock content %}

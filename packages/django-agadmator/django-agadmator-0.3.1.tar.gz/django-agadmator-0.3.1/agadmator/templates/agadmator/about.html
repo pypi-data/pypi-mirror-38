@@ -1,0 +1,15 @@
+{% extends 'agadmator/base.html' %}
+
+
+{% block content %}
+
+  <h2>About</h2>
+  <hr>
+
+  <p>This is a fan page for agadmator's chess channel.</p>
+
+  <div>
+    {{ channel.description|linebreaks }}
+  </div>
+
+{% endblock content %}

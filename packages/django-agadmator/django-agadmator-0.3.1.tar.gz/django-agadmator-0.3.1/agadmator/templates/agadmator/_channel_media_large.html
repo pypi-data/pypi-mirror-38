@@ -1,0 +1,12 @@
+{% load humanize %}
+
+<div class="media my-3">
+  <a href="{{ channel.get_absolute_url }}">
+    <img class="mr-3" src="{{ channel.thumbnail_medium }}">
+  </a>
+  <div class="media-body">
+    <h2>{{ channel.title }}</h2>
+    <h4 class="mb-2 text-muted">{{ channel.subscriber_count|intcomma }} subs, {{ channel.view_count|intcomma }} views</h4>
+    <div>{{ channel.description|linebreaks }}</div>
+  </div>
+</div>

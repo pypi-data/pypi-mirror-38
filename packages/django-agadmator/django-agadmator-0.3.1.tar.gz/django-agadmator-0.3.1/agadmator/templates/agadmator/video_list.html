@@ -1,0 +1,36 @@
+{% extends 'agadmator/base.html' %}
+
+{% load agadmator %}
+
+{% block content %}
+
+  {% if request.GET.q %}
+    <h2>Results for query "{{ request.GET.q }}"</h2>
+  {% else %}
+    <h2>Videos</h2>
+  {% endif %}
+  <hr>
+  <div class="row">
+    {% for video in videos %}
+      {% include 'agadmator/_video_card.html' with video_cols='col-sm-12 col-md-12 col-lg-4' %}
+    {% endfor %}
+  </div>
+
+
+  {% if is_paginated %}
+    <ul class="pagination justify-content-center align-items-center">
+    {% if page_obj.has_previous %}
+      <li class="page-item">
+       <a href="{% set_qsarg 'page' page_obj.previous_page_number %}" class="btn btn-sm btn-outline-dark">Previous</a>
+      </li>
+    {% endif %}
+    <li class="page-item mx-3">
+      Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+    </li>
+    {% if page_obj.has_next %}
+      <li class="page-item">
+        <a href="{% set_qsarg 'page' page_obj.next_page_number %}" class="btn btn-sm btn-outline-dark">Next</a>
+      </li>
+    {% endif %}
+  {% endif %}
+{% endblock content %}

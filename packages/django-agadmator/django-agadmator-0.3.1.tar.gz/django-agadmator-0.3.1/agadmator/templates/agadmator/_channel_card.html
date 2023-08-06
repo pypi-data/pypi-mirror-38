@@ -1,0 +1,12 @@
+<div class="card">
+  <a href="{{ channel.get_absolute_url }}">
+    <img class="card-img-top" src="{{ channel.thumbnail_medium }}" alt="">
+  </a>
+  <div class="card-body">
+    <h5 class="card-title">{{ channel.title }}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{ channel.subscriber_count }} subs, {{ channel.view_count }} views</h6>
+    <p class="card-text">{{ channel.description|truncatewords:'20' }}</p>
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
+</div>
