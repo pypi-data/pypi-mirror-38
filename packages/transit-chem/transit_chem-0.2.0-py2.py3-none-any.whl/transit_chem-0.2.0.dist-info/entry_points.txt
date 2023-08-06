@@ -1,0 +1,3 @@
+[console_scripts]
+transit_chem = transit_chem.cli:main
+
