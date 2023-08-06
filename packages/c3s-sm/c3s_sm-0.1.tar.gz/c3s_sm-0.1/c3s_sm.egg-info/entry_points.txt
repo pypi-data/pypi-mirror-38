@@ -1,0 +1,3 @@
+[console_scripts]
+c3s_repurpose = c3s_sm.reshuffle:run
+

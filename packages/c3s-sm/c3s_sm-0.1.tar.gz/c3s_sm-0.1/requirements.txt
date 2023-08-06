@@ -1,0 +1,13 @@
+# Add your requirements here like:
+# numpy
+# scipy>=0.9
+numpy
+pandas
+pygeobase
+netcdf4==1.2.2
+pyresample
+repurpose
+pynetcf
+repurpose
+parse
+smecv_grid
