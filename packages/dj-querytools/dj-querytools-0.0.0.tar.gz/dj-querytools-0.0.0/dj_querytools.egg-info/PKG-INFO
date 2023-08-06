@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: dj-querytools
+Version: 0.0.0
+Summary: Some utility functions to perform complex queries with the Django ORM
+Home-page: https://gitlab.com/SchoolOrchestration/libs/dj-querytools
+Author: AppointmentGuru
+Author-email: tech@appointmentguru.co
+License: UNKNOWN
+Description: # dj-querytools
+        
+        A collection of functions to make it a little easier to build aggregation SQL queries for Django projects
+        
+        ## Installation
+        
+        ```
+        pip install dj-querytools
+        ```
+        
+        ## Usage
+        
+        ## Contributing
+        
+        **Update the spec:**
+        
+        ```
+        python manage.py test --testrunner=testreporter.runner.BDDTestRunner
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
