@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+dgenome.egg-info/PKG-INFO
+dgenome.egg-info/SOURCES.txt
+dgenome.egg-info/dependency_links.txt
+dgenome.egg-info/top_level.txt
+dgenome/tests/__init__.py
+dgenome/tests/create_data.py
+dgenome/tests/settings.py
+dgenome/tests/test_models.py
+dgenome/tests/test_response.py
+dgenome/tests/urls.py
