@@ -1,0 +1,14 @@
+LICENSE.md
+MANIFEST.in
+README.md
+setup.py
+auto_coverage_report/__init__.py
+auto_coverage_report/command_line.py
+auto_coverage_report.egg-info/PKG-INFO
+auto_coverage_report.egg-info/SOURCES.txt
+auto_coverage_report.egg-info/dependency_links.txt
+auto_coverage_report.egg-info/entry_points.txt
+auto_coverage_report.egg-info/requires.txt
+auto_coverage_report.egg-info/top_level.txt
+tests/__init__.py
+tests/test_runtests.py
