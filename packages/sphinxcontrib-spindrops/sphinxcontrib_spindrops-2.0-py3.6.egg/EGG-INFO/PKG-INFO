@@ -1,0 +1,40 @@
+Metadata-Version: 1.1
+Name: sphinxcontrib-spindrops
+Version: 2.0
+Summary: SpinDrops Sphinx extension
+Home-page: https://gitlab.com/tesch1/sphinxcontrib-spindrops
+Author: Michael Tesch
+Author-email: tesch1@gmail.com
+License: GPL
+Download-URL: http://pypi.python.org/pypi/sphinxcontrib-spindrops
+Description: 
+        This package contains the SpinDrops_ Sphinx_ extension.
+        
+        .. _SpinDrops: https://spindrops.org
+        .. _Sphinx: http://sphinx.pocoo.org/
+        .. _DROPS: https://doi.org/10.1103/PhysRevA.91.042122
+        
+        SpinDrops_ is a program and a reStructuredText_ directive to allow embededed
+        DROPS_ figures to be rendered as nice images in sphinx documentation. The
+        ``drops`` directive takes a number of options to control the generated images.
+        
+        This extension adds the ``drops`` directive that generates a DROPS_
+        image, and a ``pton`` directive that converts plain-text operator
+        notation into nicely formatted math display.
+        
+        Usage example::
+        
+            .. drops:: I1z
+               :nspin: 1; v1=1
+        
+        
+Platform: any
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Documentation
+Classifier: Topic :: Utilities
