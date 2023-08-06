@@ -1,0 +1,97 @@
+Metadata-Version: 2.1
+Name: imginit
+Version: 1.0a1
+Summary: CLI application for bulk image instantiation with basic feature support
+Home-page: https://github.com/issuemeaname/imginit
+Author: issuemeaname
+Author-email: issuemeaname@gmail.com
+License: UNKNOWN
+Description: # imginit
+        `imginit` is a CLI (Command-Line Interface) application made in Python that creates images and allows customisation for what they contain. You can customise the size, colour and the output directory (what folder the images will be placed in after creation). 
+        
+        `imginit` also comes with built-in default argument values, making the creation of test material more efficient when using `imginit`.
+        
+        
+        ## Installation
+        ### Requirements
+        * **Python 3.7.1** or later
+        
+        #### Python
+        You can get the latest version of Python 3 for your OS (Operating System) by clicking [here](https://wiki.python.org/moin/BeginnersGuide/Download), However, if you would like the exact version that `imginit` was made in, you can download the set-up files for that version [here](https://www.python.org/downloads/release/python-371/).
+        
+        After installation, or if you already have Python installed, you can use `pip` to install `imginit` like so:
+        
+        ```python
+        pip install imginit
+        ```
+        
+        ## Usage
+        
+        ```
+        imginit n [--size/-s width height] [--colour/-c rg b] [--dir/-d path] 
+        ```
+        
+        Using `imginit` on its own creates 10 white, 800x600, .PNG images within the directory the command was run in. This can be helpful for creating images made for testing purposes both quickly and efficiently.
+        
+        #### n
+        Using the `n` argument defines how many images will be made. It cannot be less than or equal to 0 and must be an integer, otherwise the program will not work accordingly.
+        
+        ```
+        imginit 100
+        ```
+        
+        Creates 100 of the same images as described above.
+        
+        #### size
+        Using `imginit --size` enables size manipulation for all of the images being generated. The parameter requires 2 arguments: the width and the height.
+        
+        ```
+        imginit 100 --size 1920 1080 
+        ```
+        
+        You can also use the shortened alias `-s` for faster queries.
+        
+        ```
+        imginit 100 -s 1920 1080
+        ```
+        
+        #### colour
+        To change the colour of the image, you can use the `--colour` parameter followed by 3 numbers, all of which must be a number between 0 - 255. The colour mode used is RGB, so if you would like the image to be red then you would do
+        
+        ```
+        imginit 50 --colour 255 0 0
+        ```
+        
+        Colour is spelled this way due to my being in the UK, but it also supports US spelling so you can do `--color` instead and `imginit` will still work accordingly.
+        
+        The shortened alias  `-c` can also be used as a replacement.
+        
+        ```
+        imginit 50 -c 255 0 0
+        ```
+        
+        #### directory
+        `imginit` uses the CLI's current working directory as the output directory. This can be changed by using the `--dir` parameter and supplying a path to a directory that exists.
+        
+        ```
+        imginit 25 --dir C:\Users\Me\Pictures
+        ```
+        
+        You can always use `-d` as the shortened alias for `--dir`.
+        
+        ```
+        imginit 25 -d C:\Users\Me\Pictures
+        ```
+        
+        ## Note
+        Currently the only OS I have tested `imginit` on is Windows 7, so if there are any issues then feel free to report the issue [here](https://github.com/issuemeaname/imginit/issues).
+        
+        ## License
+        
+        `imginit` goes by the MIT License as shown in [LICENSE](LICENSE).
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
