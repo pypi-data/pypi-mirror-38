@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: kipoi-interpret
+Version: 0.1.1
+Summary: Kipoi interpret: interepretation plugin for Kipoi
+Home-page: https://github.com/kipoi/kipoi-interpret
+Author: Kipoi team
+Author-email: avsec@in.tum.de
+License: MIT license
+Description: Kipoi interpret: interepretation plugin for Kipoi
+Keywords: model zoo,deep learning,computational biology,bioinformatics,genomics
+Platform: UNKNOWN
+Provides-Extra: develop
