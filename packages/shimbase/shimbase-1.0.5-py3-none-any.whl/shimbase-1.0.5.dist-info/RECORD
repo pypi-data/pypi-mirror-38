@@ -1,0 +1,17 @@
+shimbase/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+shimbase/bar.py,sha256=4ul64DcrfDyjZVxZNuSeJW9l-yrTm5eX6CKVkbHmGwk,4953
+shimbase/database.py,sha256=dJY_LEsbTwTJ8OKyGirHEzgfzBEt_uHu0tq7Mwnjcts,10084
+shimbase/dbimpl.py,sha256=sY5JYmW7aN5TmwJTEZXKnaHa4Jake223r760_HC5Nf8,3297
+shimbase/foo.py,sha256=LJNvCktpKm944U8DNHHq3nbbMHJJ-lqMeAG6MuY8Q58,4474
+shimbase/gendbo.py,sha256=dQW016jpXEWtqSRvpdeY_uy6Ga-6W5e4bKUS3LHLWeA,15947
+shimbase/sqlite3impl.py,sha256=MlPFfgKBZeorYP7GfoJZbrMeHRnyRuXGIF-LcSqJLiE,6565
+shimbase/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+shimbase/tests/test_bar.py,sha256=hdKPGM1VYtdyLwOaOMxF5kD5HLuVBTrCuDDVv495GsE,5686
+shimbase/tests/test_database.py,sha256=Ek8WcWsXAAoiPcxW6b8TSnjFQl3CqkJyYpiOWiv4tCg,7528
+shimbase/tests/test_foo.py,sha256=rgCS2zNK8jkipG6UdKB_0Dr6L0oGsCMTeVa2__WEluE,5641
+shimbase/tests/test_sqlite3impl.py,sha256=ujfr86_K_h04gW08_TZudwxDrpgLg-eLQTQsY6H-PzE,7788
+shimbase-1.0.5.dist-info/LICENSE.txt,sha256=2B0jcsnvquOz7206sZBYVTKyKKBRFlzfH-w7IksdIF8,1096
+shimbase-1.0.5.dist-info/METADATA,sha256=UmIZo3ihkG3-IKV1_3_X46rMk1nMjf9nui89Q-ELn6M,605
+shimbase-1.0.5.dist-info/WHEEL,sha256=NvLheO0f8_uAcwoMijaCN7IVIIaldpzEnN1plXS6P6E,97
+shimbase-1.0.5.dist-info/top_level.txt,sha256=R5eeFqiiXaimjfjBdrt95chbgrB8dAJA162j825PuvI,9
+shimbase-1.0.5.dist-info/RECORD,,
