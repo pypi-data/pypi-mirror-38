@@ -1,0 +1,6 @@
+[bio2bel]
+mesh = bio2bel_mesh
+
+[console_scripts]
+bio2bel_mesh = bio2bel_mesh.cli:main
+
