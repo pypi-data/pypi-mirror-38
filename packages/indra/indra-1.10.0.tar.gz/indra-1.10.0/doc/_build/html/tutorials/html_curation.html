@@ -1,0 +1,543 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>The Statement curation interface &mdash; INDRA 1.10.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="INDRA 1.10.0 documentation" href="../index.html"/>
+        <link rel="up" title="Tutorials" href="index.html"/>
+        <link rel="next" title="Large-Scale Machine Reading with Starcluster" href="machine_reading.html"/>
+        <link rel="prev" title="Using natural language to build models" href="nl_modeling.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> INDRA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License and funding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with INDRA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/index.html">INDRA modules reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="nl_modeling.html">Using natural language to build models</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">The Statement curation interface</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#curating-a-statement">Curating a Statement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#submitting-a-curation">Submitting a Curation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#curation-guidelines">Curation Guidelines</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#basic-principles">Basic principles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#types-of-errors-to-curate">Types of errors to curate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#general-notes-on-curation">General notes on curation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="machine_reading.html">Large-Scale Machine Reading with Starcluster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine_reading_aws.html">Large-Scale Machine Reading with Amazon Batch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gene_network.html">Assembling everything known about a particular gene</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../rest_api.html">REST API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">INDRA</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Tutorials</a> &raquo;</li>
+        
+      <li>The Statement curation interface</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/tutorials/html_curation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="the-statement-curation-interface">
+<h1>The Statement curation interface<a class="headerlink" href="#the-statement-curation-interface" title="Permalink to this headline">¶</a></h1>
+<p>You will usually access this interface from an INDRA application that
+exposes statements to you. However if you just want to try out the interface
+or don’t want to take the detour through any of the applications, you can
+follow the format below to access the interface directly in your browser from
+the INDRA-DB REST API:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>http://api.host/statements/from_agents?subject=SUBJ&amp;object=OBJ&amp;api_key=12345&amp;format=html
+</pre></div>
+</div>
+<p>where <em>api.host</em> should be replaced with the address to the REST API service
+(see the <a class="reference external" href="https://github.com/indralab/indra_db/blob/master/rest_api/README.md">documentation</a>).
+Entering the whole address in your browser will query for statements where
+<em>SUBJ</em> is the subject and <em>OBJ</em> is the object of the statements.</p>
+<p>For more details about what options are available when doing curation, please
+refer to the <a class="reference external" href="https://github.com/indralab/indra_db/blob/master/rest_api/README.md#curation">curation section</a>
+of the documentation.</p>
+<div class="section" id="curating-a-statement">
+<h2>Curating a Statement<a class="headerlink" href="#curating-a-statement" title="Permalink to this headline">¶</a></h2>
+<p>Let’s assume you want to check any statements were ROS1 is an agent for
+errors. Let’s also limit the number of statements to 100 and the number of
+evidences per statements to 10. This will speed up the query and page loading.
+The appropriate address to enter in your browser would then be:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>http://api.host/statements/from_agents?agent=ROS1&amp;format=html&amp;ev_limit=10&amp;max_stmts=100
+</pre></div>
+</div>
+<p>To start curating a statement, <strong>click the pen icon (circled)</strong> on the far left
+side of the statement. This will produce a row below the statement with a
+dropdown menu, a text box and a submit button:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure align-center" style="width: 75%">
+<img alt="../_images/curation_row_created_circled.png" src="../_images/curation_row_created_circled.png" />
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The <strong>dropdown menu</strong> contains common errors and also the possibility to mark
+the statement as ‘correct’. If none of the types fit, select the <em>other…</em>
+option, and describe the error with one or a few words in the provided
+textbox. Note that if you pick <em>other…</em>, describing the error is mandatory.
+In our example, we see that <em>reactive oxygen species</em> is incorrectly grounded
+to <em>ROS</em>, so we pick <em>grounding</em> from the dropdown menu:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure align-center" style="width: 75%">
+<img alt="../_images/curation_select_error_circled.png" src="../_images/curation_select_error_circled.png" />
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>In the textbox, you can add a short optional description to clarify why you
+marked this piece of evidence with the error type you chose. When you are
+done, you are ready to submit your curation.</p>
+</div>
+<div class="section" id="submitting-a-curation">
+<h2>Submitting a Curation<a class="headerlink" href="#submitting-a-curation" title="Permalink to this headline">¶</a></h2>
+<p>To <strong>submit a curation</strong>, there are three minimum requirements:</p>
+<ol class="arabic simple">
+<li>A valid <strong>API key</strong> (at the top of the page, see image)</li>
+<li>A <strong>curator ID</strong>, such as name or email (at the top of the page, see image)</li>
+<li>A <strong>selection in the dropdown menu</strong> (by the curated statement)</li>
+</ol>
+<p>If you selected <em>other…</em> in the dropdown menu, you must <em>also</em> describe the
+error in the textbox.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure align-center" style="width: 75%">
+<img alt="../_images/apikey_curatorID.png" src="../_images/apikey_curatorID.png" />
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>When you have entered the necessary information, click the <strong>Submit button</strong> by
+the statement that you curated:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure align-center" style="width: 75%">
+<img alt="../_images/curation_submit_circled.png" src="../_images/curation_submit_circled.png" />
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>A status message will appear once the server has processed the submission,
+indicating if the submission was successful or which problem arose if not.
+The pen icon will also change color based in the returned status. <strong>Green</strong>
+indicates a successful submission:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure align-center" id="id1" style="width: 75%">
+<img alt="../_images/curation_submitted_successfully.png" src="../_images/curation_submitted_successfully.png" />
+<p class="caption"><span class="caption-text"><em>A green icon indicates a successfully submitted curation</em></span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>while a <strong>red</strong> indicates something went wrong with the submission:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure align-center" id="id2" style="width: 75%">
+<img alt="../_images/bad_submission.png" src="../_images/bad_submission.png" />
+<p class="caption"><span class="caption-text"><em>A red icon indicates that something went wrong during the submission</em></span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="curation-guidelines">
+<h2>Curation Guidelines<a class="headerlink" href="#curation-guidelines" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="basic-principles">
+<h3>Basic principles<a class="headerlink" href="#basic-principles" title="Permalink to this headline">¶</a></h3>
+<p>The main question to ask when deciding whether a given Statement is correct
+with respect to a given piece of evidence is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Is there support in the evidence sentence for the Statement?
+</pre></div>
+</div>
+<p>If the answer is <strong>Yes</strong>, then the given sentence
+is a valid piece of evidence for the Statement. In fact, you can assert this
+correctness by choosing the “Correct” option from the curation drop-down list.
+Curations that assert correctness are just as valuable as curations of
+incorrectness so the use of this option is encouraged.</p>
+<p>Assuming the answer to the above question is <strong>No</strong>, one needs to determine
+what the error can be attributed to. The following section describes the
+specific error types that can be flagged.</p>
+</div>
+<div class="section" id="types-of-errors-to-curate">
+<h3>Types of errors to curate<a class="headerlink" href="#types-of-errors-to-curate" title="Permalink to this headline">¶</a></h3>
+<p>There are currently the following options to choose from when curating
+incorrect Statement-sentence relationships:</p>
+<ul>
+<li><p class="first"><strong>Entity Boundaries</strong>: this is applicable if the bounderies of one of the named
+entities was incorrectly recognized. Example: “gap” is highlighted as an
+entity, when in fact, the entity mentioned in the sentence was
+“gap junction”. These errors in entity boundaries almost always result in
+incorrect grounding, since the wrong string is attempted to be grounded.
+Therefore this error “subsumes” grounding errors.
+Note: to help correct entity boundaries, add the following to the
+Optional description text box: [gap junction], i.e. the desired entity
+name inside square brackets.</p>
+</li>
+<li><p class="first"><strong>Grounding</strong>: this is applicable if a named entity is assigned an incorrect
+database identifier. Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Assume</span> <span class="n">that</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">sentence</span><span class="p">,</span> <span class="s2">&quot;ER&quot;</span> <span class="ow">is</span> <span class="n">mentioned</span> <span class="n">referring</span> <span class="n">to</span> <span class="n">endoplasmic</span>
+<span class="n">reticulum</span><span class="p">,</span> <span class="n">but</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">Statement</span> <span class="n">extracted</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">sentence</span><span class="p">,</span> <span class="n">it</span> <span class="ow">is</span>
+<span class="n">grounded</span> <span class="n">to</span> <span class="n">the</span> <span class="n">ESR1</span> <span class="p">(</span><span class="n">estrogen</span> <span class="n">receptor</span> <span class="n">alpha</span><span class="p">)</span> <span class="n">gene</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Note: to help correct grounding, add the following to the Optional
+description text box:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">ER</span><span class="p">]</span> <span class="o">-&gt;</span> <span class="n">MESH</span><span class="p">:</span><span class="n">D004721</span>
+</pre></div>
+</div>
+<p>where [ER] is the entity string,
+MESH is the namespace of a database/ontology, and D004721 is the unique ID
+corresponding to endoplasmic reticulum in MESH.
+A list of commonly used namespaces in INDRA are given in:
+<a class="reference external" href="https://indra.readthedocs.io/en/latest/modules/statements.html">https://indra.readthedocs.io/en/latest/modules/statements.html</a>.
+Note that you can also add multiple groundings separated by “|”, e.g.
+HGNC:11998|UP:P04637.</p>
+</li>
+<li><p class="first"><strong>Polarity</strong>: this is applicable if an essentially correct Statement was
+extracted but the Statement has the wrong polarity, e.g. Activation
+instead of Inhibition, of Phosphorylation instead of Dephosphorylation.
+Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Sentence</span><span class="p">:</span> <span class="s2">&quot;NDRG2 overexpression specifically inhibits SOCS1 phosphorylation&quot;</span>
+<span class="n">Statement</span><span class="p">:</span> <span class="n">Phosphorylation</span><span class="p">(</span><span class="n">NDRG2</span><span class="p">(),</span> <span class="n">SOCS1</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>has incorrect polarity. It should be Dephosphorylation instead of
+Phosphorylation.</p>
+</li>
+<li><p class="first"><strong>No Relation</strong>: this is applicable if the sentence does not imply a
+relationship between the agents appearing in the Statement. Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Sentence</span><span class="p">:</span> <span class="s2">&quot;Furthermore, triptolide mediated inhibition of NF-kappaB</span>
+    <span class="n">activation</span><span class="p">,</span> <span class="n">Stat3</span> <span class="n">phosphorylation</span> <span class="ow">and</span> <span class="n">increase</span> <span class="n">of</span> <span class="n">SOCS1</span> <span class="n">expression</span> <span class="ow">in</span>
+    <span class="n">DC</span> <span class="n">may</span> <span class="n">be</span> <span class="n">involved</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">inhibitory</span> <span class="n">effect</span> <span class="n">of</span> <span class="n">triptolide</span><span class="o">.</span><span class="s2">&quot;</span>
+<span class="n">Statement</span><span class="p">:</span> <span class="n">Phosphorylation</span><span class="p">(</span><span class="n">STAT3</span><span class="p">(),</span> <span class="n">SOCS1</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>can be flagged as No Relation.</p>
+</li>
+<li><p class="first"><strong>Wrong Relation Type</strong>: this is applicable if the sentence implies a
+relationship between agents appearing in the Statement but the type of
+Statement is inconsistent with the sentence. Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Sentence</span><span class="p">:</span> <span class="s2">&quot;We report the interaction between tacrolimus and chloramphenicol</span>
+    <span class="ow">in</span> <span class="n">a</span> <span class="n">renal</span> <span class="n">transplant</span> <span class="n">recipient</span><span class="o">.</span><span class="s2">&quot;</span>
+<span class="n">Statement</span><span class="p">:</span> <span class="n">Complex</span><span class="p">(</span><span class="n">tacrolimus</span><span class="p">(),</span> <span class="n">chloramphenicol</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>can be flagged as Wrong Relation Type since the sentence implies a drug
+interaction that does not involve complex formation.</p>
+</li>
+<li><p class="first"><strong>Activity vs. Amount</strong>: this is applicable when the sentence implies a
+regulation of amount but the corresponding Statement implies regulation
+of activity or vice versa. Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Sentence</span><span class="p">:</span> <span class="s2">&quot;NFAT upregulates IL2&quot;</span>
+<span class="n">Sentence</span><span class="p">:</span> <span class="n">Activation</span><span class="p">(</span><span class="n">NFAT</span><span class="p">(),</span> <span class="n">IL2</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>Here the sentence implies upregulation of the amount of IL2 but the
+corresponding Statement is of type Activation rather than IncreaseAmount.</p>
+</li>
+<li><p class="first"><strong>Negative Result</strong>: this is applicable if the sentence implies the lack of
+or opposite of a relationship. Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Sentence</span><span class="p">:</span> <span class="s2">&quot;These results indicate that CRAF, but not BRAF phosphorylates</span>
+    <span class="n">MEK</span> <span class="ow">in</span> <span class="n">NRAS</span> <span class="n">mutated</span> <span class="n">cells</span><span class="o">.</span><span class="s2">&quot;</span>
+<span class="n">Statement</span><span class="p">:</span> <span class="n">Phosphorylation</span><span class="p">(</span><span class="n">BRAF</span><span class="p">(),</span> <span class="n">MEK</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>Here the sentence does not support the Statement due to a negation and
+should therefore be flagged as a Negative Result.</p>
+</li>
+<li><p class="first"><strong>Hypothesis</strong>: this is applicable if the sentence describes a hypothesis or
+an experiment rather than a result or mechanism. Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Sentence</span><span class="p">:</span> <span class="s2">&quot;We tested whether EGFR activates ERK.&quot;</span>
+<span class="n">Statement</span><span class="p">:</span> <span class="n">Activation</span><span class="p">(</span><span class="n">EGFR</span><span class="p">(),</span> <span class="n">ERK</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>Here the sentence describes a hypothesis with respect to the Statement, and
+should therefore be flagged as a Hypothesis upon curation (unless of course
+the Statement already has a correct <em>hypothesis</em> flag).</p>
+</li>
+<li><p class="first"><strong>Agent Conditions</strong>: this is applicable if one of the Agents in the Statement
+is missing relevant conditions that are mentioned in the sentence, or has
+incorrect conditions attached to it. Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Sentence</span><span class="p">:</span> <span class="s2">&quot;Mutant BRAF activates MEK&quot;</span>
+<span class="n">Statement</span><span class="p">:</span> <span class="n">Activation</span><span class="p">(</span><span class="n">BRAF</span><span class="p">(),</span> <span class="n">MEK</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>can be curated to be missing Agent conditions since the mutation on BRAF is
+not captured.</p>
+</li>
+<li><p class="first"><strong>Modification Site</strong>: this is applicable if an amino-acid site is
+missing or incorrect in a modification Statement. Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Sentence</span><span class="p">:</span> <span class="s2">&quot;MAP2K1 phosphorylates MAPK1 at T185.&quot;</span>
+<span class="n">Statement</span><span class="p">:</span> <span class="n">Phosphorylation</span><span class="p">(</span><span class="n">MAP2K1</span><span class="p">(),</span> <span class="n">MAPK1</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>Here the obvious modification site is missing from MAPK1.</p>
+</li>
+<li><p class="first"><strong>Other</strong>: this is an option you can choose whenever the problem isn’t
+well captured by any of the more specific options. In this case you need
+to add a note to explain what the issue is.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="general-notes-on-curation">
+<h3>General notes on curation<a class="headerlink" href="#general-notes-on-curation" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>If you spot multiple levels of errors in a Statement-sentence pair,
+use the most relevant error type in the dropdown menu. E.g. if you see both
+a grounding error and a polarity error, you should pick the grounding
+error since a statement with a grounding error generally would not exist
+if the grounding was correct.</li>
+<li>If you still feel like multiple errors are appropriate for the curation,
+select a new next error from the dropdown menu and make a new submission.</li>
+<li>Please be consistent in using your email address as your curator ID.
+Keeping track of who curated what helps us to faster track down
+issues with readers and the assembly processes that generate statements.</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="machine_reading.html" class="btn btn-neutral float-right" title="Large-Scale Machine Reading with Starcluster" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="nl_modeling.html" class="btn btn-neutral" title="Using natural language to build models" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, B. M. Gyori, J. A. Bachman.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

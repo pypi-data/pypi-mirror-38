@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: indra
+Version: 1.10.0
+Summary: Integrated Network and Dynamical Reasoning Assembler
+Home-page: http://github.com/sorgerlab/indra
+Author: Benjamin Gyori
+Author-email: benjamin_gyori@hms.harvard.edu
+License: UNKNOWN
+Description: INDRA is a framework for assembling rule-based mathematical models and mechanistic networks of biochemical systems from natural language and pathway databases.
+Keywords: systems,biology,model,pathway,assembler,nlp,mechanism,biochemistry,network
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Topic :: Scientific/Engineering :: Chemistry
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Provides-Extra: trips_offline
+Provides-Extra: sofia
+Provides-Extra: plot
+Provides-Extra: geneways
+Provides-Extra: machine
+Provides-Extra: sbml
+Provides-Extra: explanation
+Provides-Extra: all
+Provides-Extra: biopax
+Provides-Extra: eidos_offline
+Provides-Extra: hume
+Provides-Extra: isi
+Provides-Extra: graph
+Provides-Extra: reach_offline
+Provides-Extra: bel
+Provides-Extra: aws

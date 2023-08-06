@@ -1,0 +1,562 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>indra.assemblers.html.assembler &mdash; INDRA 1.10.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../search.html"/>
+    <link rel="top" title="INDRA 1.10.0 documentation" href="../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> INDRA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../license.html">License and funding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started.html">Getting started with INDRA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modules/index.html">INDRA modules reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rest_api.html">REST API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">INDRA</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>indra.assemblers.html.assembler</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for indra.assemblers.html.assembler</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Format a set of INDRA Statements into an HTML-formatted report which also</span>
+<span class="sd">supports curation.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">absolute_import</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span> <span class="n">unicode_literals</span>
+<span class="kn">from</span> <span class="nn">builtins</span> <span class="k">import</span> <span class="nb">dict</span><span class="p">,</span> <span class="nb">str</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">from</span> <span class="nn">os.path</span> <span class="k">import</span> <span class="n">abspath</span><span class="p">,</span> <span class="n">dirname</span><span class="p">,</span> <span class="n">join</span>
+<span class="kn">from</span> <span class="nn">jinja2</span> <span class="k">import</span> <span class="n">Template</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;html_assembler&#39;</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">indra.statements</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">indra.assemblers.english</span> <span class="k">import</span> <span class="n">EnglishAssembler</span>
+<span class="kn">from</span> <span class="nn">indra.databases</span> <span class="k">import</span> <span class="n">get_identifiers_url</span>
+
+
+<span class="c1"># Create a template object from the template file, load once</span>
+<span class="n">template_path</span> <span class="o">=</span> <span class="n">join</span><span class="p">(</span><span class="n">dirname</span><span class="p">(</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)),</span> <span class="s1">&#39;template.html&#39;</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">template_path</span><span class="p">,</span> <span class="s1">&#39;rt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">template_str</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">template</span> <span class="o">=</span> <span class="n">Template</span><span class="p">(</span><span class="n">template_str</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="HtmlAssembler"><a class="viewcode-back" href="../../../../modules/assemblers/html_assembler.html#indra.assemblers.html.assembler.HtmlAssembler">[docs]</a><span class="k">class</span> <span class="nc">HtmlAssembler</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Generates an HTML-formatted report from INDRA Statements.</span>
+
+<span class="sd">    The HTML report format includes statements formatted in English</span>
+<span class="sd">    (by the EnglishAssembler), text and metadata for the Evidence</span>
+<span class="sd">    object associated with each Statement, and a Javascript-based curation</span>
+<span class="sd">    interface linked to the INDRA database (access permitting). The interface</span>
+<span class="sd">    allows for curation of statements at the evidence level by letting the</span>
+<span class="sd">    user specify type of error and (optionally) provide a short description of</span>
+<span class="sd">    of the error.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    statements : Optional[list[indra.statements.Statement]]</span>
+<span class="sd">        A list of INDRA Statements to be added to the assembler. Statements</span>
+<span class="sd">        can also be added using the add_statements method after the assembler</span>
+<span class="sd">        has been instantiated.</span>
+<span class="sd">    summary_metadata : Optional[dict]</span>
+<span class="sd">        Dictionary of statement corpus metadata such as that provided by the</span>
+<span class="sd">        INDRA REST API. Default is None. Each value should be a concise</span>
+<span class="sd">        summary of O(1), not of order the length of the list, such as the</span>
+<span class="sd">        evidence totals. The keys should be informative human-readable strings.</span>
+<span class="sd">    ev_totals : Optional[dict]</span>
+<span class="sd">        A dictionary of the total evidence available for each</span>
+<span class="sd">        statement indexed by hash. Default: None</span>
+<span class="sd">    db_rest_url : Optional[str]</span>
+<span class="sd">        The URL to a DB REST API to use for links out to further evidence.</span>
+<span class="sd">        If given, this URL will be prepended to links that load additional</span>
+<span class="sd">        evidence for a given Statement. One way to obtain this value is from</span>
+<span class="sd">        the configuration entry indra.config.get_config(&#39;INDRA_DB_REST_URL&#39;).</span>
+<span class="sd">        If None, the URLs are constructed as relative links.</span>
+<span class="sd">        Default: None</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    statements : list[indra.statements.Statement]</span>
+<span class="sd">        A list of INDRA Statements to assemble.</span>
+<span class="sd">    model : str</span>
+<span class="sd">        The HTML report formatted as a single string.</span>
+<span class="sd">    metadata : dict</span>
+<span class="sd">        Dictionary of statement list metadata such as that provided by the</span>
+<span class="sd">        INDRA REST API.</span>
+<span class="sd">    ev_totals : dict</span>
+<span class="sd">        A dictionary of the total evidence available for each</span>
+<span class="sd">        statement indexed by hash.</span>
+<span class="sd">    db_rest_url : str</span>
+<span class="sd">        The URL to a DB REST API.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">statements</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">summary_metadata</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ev_totals</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">title</span><span class="o">=</span><span class="s1">&#39;INDRA Results&#39;</span><span class="p">,</span> <span class="n">db_rest_url</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="n">title</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">statements</span> <span class="o">=</span> <span class="p">[]</span> <span class="k">if</span> <span class="n">statements</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">statements</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">metadata</span> <span class="o">=</span> <span class="p">{}</span> <span class="k">if</span> <span class="n">summary_metadata</span> <span class="ow">is</span> <span class="kc">None</span> \
+            <span class="k">else</span> <span class="n">summary_metadata</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ev_totals</span> <span class="o">=</span> <span class="p">{}</span> <span class="k">if</span> <span class="n">ev_totals</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">ev_totals</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">db_rest_url</span> <span class="o">=</span> <span class="n">db_rest_url</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="HtmlAssembler.add_statements"><a class="viewcode-back" href="../../../../modules/assemblers/html_assembler.html#indra.assemblers.html.assembler.HtmlAssembler.add_statements">[docs]</a>    <span class="k">def</span> <span class="nf">add_statements</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">statements</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Add a list of Statements to the assembler.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        statements : list[indra.statements.Statement]</span>
+<span class="sd">            A list of INDRA Statements to be added to the assembler.</span>
+<span class="sd">        &quot;&quot;&quot;</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">statements</span> <span class="o">+=</span> <span class="n">statements</span>
+
+
+<div class="viewcode-block" id="HtmlAssembler.make_model"><a class="viewcode-back" href="../../../../modules/assemblers/html_assembler.html#indra.assemblers.html.assembler.HtmlAssembler.make_model">[docs]</a>    <span class="k">def</span> <span class="nf">make_model</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the assembled HTML content as a string.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        str</span>
+<span class="sd">            The assembled HTML as a string.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">stmts_formatted</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">stmt</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">statements</span><span class="p">:</span>
+            <span class="n">stmt_hash</span> <span class="o">=</span> <span class="n">stmt</span><span class="o">.</span><span class="n">get_hash</span><span class="p">(</span><span class="n">shallow</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">ev_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_format_evidence_text</span><span class="p">(</span><span class="n">stmt</span><span class="p">)</span>
+            <span class="n">english</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_format_stmt_text</span><span class="p">(</span><span class="n">stmt</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ev_totals</span><span class="p">:</span>
+                <span class="n">total_evidence</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ev_totals</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">stmt_hash</span><span class="p">),</span> <span class="s1">&#39;?&#39;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">total_evidence</span> <span class="o">==</span> <span class="s1">&#39;?&#39;</span><span class="p">:</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;The hash </span><span class="si">%s</span><span class="s1"> was not found in the &#39;</span>
+                                   <span class="s1">&#39;evidence totals dict.&#39;</span> <span class="o">%</span> <span class="n">stmt_hash</span><span class="p">)</span>
+                <span class="n">evidence_count_str</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> / </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ev_list</span><span class="p">),</span> <span class="n">total_evidence</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">evidence_count_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ev_list</span><span class="p">))</span>
+            <span class="n">stmts_formatted</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                <span class="s1">&#39;hash&#39;</span><span class="p">:</span> <span class="n">stmt_hash</span><span class="p">,</span>
+                <span class="s1">&#39;english&#39;</span><span class="p">:</span> <span class="n">english</span><span class="p">,</span>
+                <span class="s1">&#39;evidence&#39;</span><span class="p">:</span> <span class="n">ev_list</span><span class="p">,</span>
+                <span class="s1">&#39;evidence_count&#39;</span><span class="p">:</span> <span class="n">evidence_count_str</span><span class="p">})</span>
+        <span class="n">metadata</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">():</span> <span class="n">v</span>
+                    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_rest_url</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_rest_url</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;statements&#39;</span><span class="p">):</span>
+            <span class="n">db_rest_url</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_rest_url</span> <span class="o">+</span> <span class="s1">&#39;/statements&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">db_rest_url</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">statements</span><span class="o">=</span><span class="n">stmts_formatted</span><span class="p">,</span>
+                                     <span class="n">metadata</span><span class="o">=</span><span class="n">metadata</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">title</span><span class="p">,</span>
+                                     <span class="n">db_rest_url</span><span class="o">=</span><span class="n">db_rest_url</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span>
+
+<div class="viewcode-block" id="HtmlAssembler.append_warning"><a class="viewcode-back" href="../../../../modules/assemblers/html_assembler.html#indra.assemblers.html.assembler.HtmlAssembler.append_warning">[docs]</a>    <span class="k">def</span> <span class="nf">append_warning</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Append a warning message to the model to expose issues.&quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;You must already have run make_model!&quot;</span>
+        <span class="n">addendum</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&lt;span style=&quot;color:red;&quot;&gt;(CAUTION: </span><span class="si">%s</span><span class="s1"> occurred when &#39;</span>
+                    <span class="s1">&#39;creating this page.)&lt;/span&gt;&#39;</span> <span class="o">%</span> <span class="n">msg</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">title</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">+</span> <span class="n">addendum</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span>
+
+<div class="viewcode-block" id="HtmlAssembler.save_model"><a class="viewcode-back" href="../../../../modules/assemblers/html_assembler.html#indra.assemblers.html.assembler.HtmlAssembler.save_model">[docs]</a>    <span class="k">def</span> <span class="nf">save_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fname</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Save the assembled HTML into a file.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        fname : str</span>
+<span class="sd">            The path to the file to save the HTML into.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">make_model</span><span class="p">()</span>
+
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fh</span><span class="p">:</span></div>
+            <span class="n">fh</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_format_evidence_text</span><span class="p">(</span><span class="n">stmt</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns evidence metadata with highlighted evidence text.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        stmt : indra.Statement</span>
+<span class="sd">            The Statement with Evidence to be formatted.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        list of dicts</span>
+<span class="sd">            List of dictionaries corresponding to each Evidence object in the</span>
+<span class="sd">            Statement&#39;s evidence list. Each dictionary has keys &#39;source_api&#39;,</span>
+<span class="sd">            &#39;pmid&#39; and &#39;text&#39;, drawn from the corresponding fields in the</span>
+<span class="sd">            Evidence objects. The text entry of the dict includes</span>
+<span class="sd">            `&lt;span&gt;` tags identifying the agents referenced by the Statement.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">def</span> <span class="nf">get_role</span><span class="p">(</span><span class="n">ag_ix</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">stmt</span><span class="p">,</span> <span class="n">Complex</span><span class="p">)</span> <span class="ow">or</span> \
+               <span class="nb">isinstance</span><span class="p">(</span><span class="n">stmt</span><span class="p">,</span> <span class="n">SelfModification</span><span class="p">)</span> <span class="ow">or</span> \
+               <span class="nb">isinstance</span><span class="p">(</span><span class="n">stmt</span><span class="p">,</span> <span class="n">ActiveForm</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">stmt</span><span class="p">,</span> <span class="n">Conversion</span><span class="p">)</span> <span class="ow">or</span>\
+               <span class="nb">isinstance</span><span class="p">(</span><span class="n">stmt</span><span class="p">,</span> <span class="n">Translocation</span><span class="p">):</span>
+                <span class="k">return</span> <span class="s1">&#39;other&#39;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">stmt</span><span class="o">.</span><span class="n">agent_list</span><span class="p">())</span> <span class="o">==</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">stmt</span><span class="o">.</span><span class="n">agent_list</span><span class="p">()),</span>
+                                                     <span class="nb">type</span><span class="p">(</span><span class="n">stmt</span><span class="p">))</span>
+                <span class="k">return</span> <span class="s1">&#39;subject&#39;</span> <span class="k">if</span> <span class="n">ag_ix</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="s1">&#39;object&#39;</span>
+
+        <span class="n">ev_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">ix</span><span class="p">,</span> <span class="n">ev</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">stmt</span><span class="o">.</span><span class="n">evidence</span><span class="p">):</span>
+            <span class="c1"># Expand the source api to include the sub-database</span>
+            <span class="k">if</span> <span class="n">ev</span><span class="o">.</span><span class="n">source_api</span> <span class="o">==</span> <span class="s1">&#39;biopax&#39;</span> <span class="ow">and</span> \
+               <span class="s1">&#39;source_sub_id&#39;</span> <span class="ow">in</span> <span class="n">ev</span><span class="o">.</span><span class="n">annotations</span> <span class="ow">and</span> \
+               <span class="n">ev</span><span class="o">.</span><span class="n">annotations</span><span class="p">[</span><span class="s1">&#39;source_sub_id&#39;</span><span class="p">]:</span>
+               <span class="n">source_api</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">:</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">ev</span><span class="o">.</span><span class="n">source_api</span><span class="p">,</span>
+                                       <span class="n">ev</span><span class="o">.</span><span class="n">annotations</span><span class="p">[</span><span class="s1">&#39;source_sub_id&#39;</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">source_api</span> <span class="o">=</span> <span class="n">ev</span><span class="o">.</span><span class="n">source_api</span>
+            <span class="c1"># Prepare the evidence text</span>
+            <span class="k">if</span> <span class="n">ev</span><span class="o">.</span><span class="n">text</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">format_text</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">indices</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">for</span> <span class="n">ix</span><span class="p">,</span> <span class="n">ag</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">stmt</span><span class="o">.</span><span class="n">agent_list</span><span class="p">()):</span>
+                    <span class="k">if</span> <span class="n">ag</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="k">continue</span>
+                    <span class="c1"># If the statement has been preassembled, it will have</span>
+                    <span class="c1"># this entry in annotations</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="n">ag_text</span> <span class="o">=</span> <span class="n">ev</span><span class="o">.</span><span class="n">annotations</span><span class="p">[</span><span class="s1">&#39;agents&#39;</span><span class="p">][</span><span class="s1">&#39;raw_text&#39;</span><span class="p">][</span><span class="n">ix</span><span class="p">]</span>
+                        <span class="k">if</span> <span class="n">ag_text</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                            <span class="k">raise</span> <span class="ne">KeyError</span>
+                    <span class="c1"># Otherwise we try to get the agent text from db_refs</span>
+                    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                        <span class="n">ag_text</span> <span class="o">=</span> <span class="n">ag</span><span class="o">.</span><span class="n">db_refs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;TEXT&#39;</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">ag_text</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="k">continue</span>
+                    <span class="n">role</span> <span class="o">=</span> <span class="n">get_role</span><span class="p">(</span><span class="n">ix</span><span class="p">)</span>
+                    <span class="c1"># Get the tag with the correct badge</span>
+                    <span class="n">tag_start</span> <span class="o">=</span> <span class="s1">&#39;&lt;span class=&quot;label label-</span><span class="si">%s</span><span class="s1">&quot;&gt;&#39;</span> <span class="o">%</span> <span class="n">role</span>
+                    <span class="n">tag_close</span> <span class="o">=</span> <span class="s1">&#39;&lt;/span&gt;&#39;</span>
+                    <span class="c1"># Build up a set of indices</span>
+                    <span class="n">indices</span> <span class="o">+=</span> <span class="p">[(</span><span class="n">m</span><span class="o">.</span><span class="n">start</span><span class="p">(),</span> <span class="n">m</span><span class="o">.</span><span class="n">start</span><span class="p">()</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">ag_text</span><span class="p">),</span>
+                                 <span class="n">ag_text</span><span class="p">,</span> <span class="n">tag_start</span><span class="p">,</span> <span class="n">tag_close</span><span class="p">)</span>
+                                 <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">ag_text</span><span class="p">),</span>
+                                                      <span class="n">ev</span><span class="o">.</span><span class="n">text</span><span class="p">)]</span>
+                <span class="n">format_text</span> <span class="o">=</span> <span class="n">tag_text</span><span class="p">(</span><span class="n">ev</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">indices</span><span class="p">)</span>
+
+            <span class="n">ev_list</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;source_api&#39;</span><span class="p">:</span> <span class="n">source_api</span><span class="p">,</span>
+                            <span class="s1">&#39;pmid&#39;</span><span class="p">:</span> <span class="n">ev</span><span class="o">.</span><span class="n">pmid</span><span class="p">,</span>
+                            <span class="s1">&#39;text_refs&#39;</span><span class="p">:</span> <span class="n">ev</span><span class="o">.</span><span class="n">text_refs</span><span class="p">,</span>
+                            <span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="n">format_text</span><span class="p">,</span>
+                            <span class="s1">&#39;source_hash&#39;</span><span class="p">:</span> <span class="n">ev</span><span class="o">.</span><span class="n">source_hash</span> <span class="p">})</span>
+
+        <span class="k">return</span> <span class="n">ev_list</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_format_stmt_text</span><span class="p">(</span><span class="n">stmt</span><span class="p">):</span>
+        <span class="c1"># Get the English assembled statement</span>
+        <span class="n">ea</span> <span class="o">=</span> <span class="n">EnglishAssembler</span><span class="p">([</span><span class="n">stmt</span><span class="p">])</span>
+        <span class="n">english</span> <span class="o">=</span> <span class="n">ea</span><span class="o">.</span><span class="n">make_model</span><span class="p">()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">english</span><span class="p">:</span>
+            <span class="n">english</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">stmt</span><span class="p">)</span>
+        <span class="n">indices</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">ag</span> <span class="ow">in</span> <span class="n">stmt</span><span class="o">.</span><span class="n">agent_list</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">ag</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">ag</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">url</span> <span class="o">=</span> <span class="n">id_url</span><span class="p">(</span><span class="n">ag</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">url</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="c1"># Build up a set of indices</span>
+            <span class="n">tag_start</span> <span class="o">=</span> <span class="s2">&quot;&lt;a href=&#39;</span><span class="si">%s</span><span class="s2">&#39;&gt;&quot;</span> <span class="o">%</span> <span class="n">url</span>
+            <span class="n">tag_close</span> <span class="o">=</span> <span class="s2">&quot;&lt;/a&gt;&quot;</span>
+            <span class="c1"># FIXME: the EnglishAssembler capitalizes the first letter of</span>
+            <span class="c1"># each sentence. In some cases this causes no match here</span>
+            <span class="c1"># and not produce agent links.</span>
+            <span class="n">indices</span> <span class="o">+=</span> <span class="p">[(</span><span class="n">m</span><span class="o">.</span><span class="n">start</span><span class="p">(),</span> <span class="n">m</span><span class="o">.</span><span class="n">start</span><span class="p">()</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">ag</span><span class="o">.</span><span class="n">name</span><span class="p">),</span> <span class="n">ag</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                         <span class="n">tag_start</span><span class="p">,</span> <span class="n">tag_close</span><span class="p">)</span>
+                         <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">ag</span><span class="o">.</span><span class="n">name</span><span class="p">),</span> <span class="n">english</span><span class="p">)]</span></div>
+        <span class="k">return</span> <span class="n">tag_text</span><span class="p">(</span><span class="n">english</span><span class="p">,</span> <span class="n">indices</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">id_url</span><span class="p">(</span><span class="n">ag</span><span class="p">):</span>
+    <span class="c1"># Return identifier URLs in a prioritized order</span>
+    <span class="k">for</span> <span class="n">db_name</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;HGNC&#39;</span><span class="p">,</span> <span class="s1">&#39;FPLX&#39;</span><span class="p">,</span> <span class="s1">&#39;UP&#39;</span><span class="p">,</span> <span class="s1">&#39;IP&#39;</span><span class="p">,</span> <span class="s1">&#39;PF&#39;</span><span class="p">,</span> <span class="s1">&#39;NXPFA&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;MIRBASEM&#39;</span><span class="p">,</span> <span class="s1">&#39;MIRBASE&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;MESH&#39;</span><span class="p">,</span> <span class="s1">&#39;GO&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;HMDB&#39;</span><span class="p">,</span> <span class="s1">&#39;PUBCHEM&#39;</span><span class="p">,</span> <span class="s1">&#39;CHEBI&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;NCIT&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;UN&#39;</span><span class="p">,</span> <span class="s1">&#39;HUME&#39;</span><span class="p">,</span> <span class="s1">&#39;CWMS&#39;</span><span class="p">,</span> <span class="s1">&#39;SOFIA&#39;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">db_name</span> <span class="ow">in</span> <span class="n">ag</span><span class="o">.</span><span class="n">db_refs</span><span class="p">:</span>
+            <span class="c1"># Handle a special case where a list of IDs is given</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ag</span><span class="o">.</span><span class="n">db_refs</span><span class="p">[</span><span class="n">db_name</span><span class="p">],</span> <span class="nb">list</span><span class="p">):</span>
+                <span class="n">db_id</span> <span class="o">=</span> <span class="n">ag</span><span class="o">.</span><span class="n">db_refs</span><span class="p">[</span><span class="n">db_name</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">db_name</span> <span class="o">==</span> <span class="s1">&#39;CHEBI&#39;</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="n">db_id</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;CHEBI&#39;</span><span class="p">):</span>
+                        <span class="n">db_id</span> <span class="o">=</span> <span class="s1">&#39;CHEBI:</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">db_id</span>
+                <span class="k">elif</span> <span class="n">db_name</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;UN&#39;</span><span class="p">,</span> <span class="s1">&#39;HUME&#39;</span><span class="p">):</span>
+                    <span class="n">db_id</span> <span class="o">=</span> <span class="n">db_id</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">db_id</span> <span class="o">=</span> <span class="n">ag</span><span class="o">.</span><span class="n">db_refs</span><span class="p">[</span><span class="n">db_name</span><span class="p">]</span>
+            <span class="k">return</span> <span class="n">get_identifiers_url</span><span class="p">(</span><span class="n">db_name</span><span class="p">,</span> <span class="n">db_id</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="tag_text"><a class="viewcode-back" href="../../../../modules/assemblers/html_assembler.html#indra.assemblers.html.assembler.tag_text">[docs]</a><span class="k">def</span> <span class="nf">tag_text</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">tag_info_list</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Apply start/end tags to spans of the given text.</span>
+
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    text : str</span>
+<span class="sd">        Text to be tagged</span>
+<span class="sd">    tag_info_list : list of tuples</span>
+<span class="sd">        Each tuple refers to a span of the given text. Fields are `(start_ix,</span>
+<span class="sd">        end_ix, substring, start_tag, close_tag)`, where substring, start_tag,</span>
+<span class="sd">        and close_tag are strings. If any of the given spans of text overlap,</span>
+<span class="sd">        the longest span is used.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    str</span>
+<span class="sd">        String where the specified substrings have been surrounded by the</span>
+<span class="sd">        given start and close tags.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Check to tags for overlap and if there is any, return the subsumed</span>
+    <span class="c1"># range. Return None if no overlap.</span>
+    <span class="k">def</span> <span class="nf">overlap</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">range</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">t1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">t2</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">min</span><span class="p">(</span><span class="n">t1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">t2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">t1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">t1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">t2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">t2</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+                <span class="k">return</span> <span class="n">t2</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">t1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+    <span class="c1"># Remove subsumed tags</span>
+    <span class="k">for</span> <span class="n">t1</span><span class="p">,</span> <span class="n">t2</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">combinations</span><span class="p">(</span><span class="n">tag_info_list</span><span class="p">,</span> <span class="mi">2</span><span class="p">)):</span>
+        <span class="n">subsumed_tag</span> <span class="o">=</span> <span class="n">overlap</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">subsumed_tag</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># Delete the subsumed tag from the list</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">tag_ix</span> <span class="o">=</span> <span class="n">tag_info_list</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">subsumed_tag</span><span class="p">)</span>
+                <span class="k">del</span> <span class="n">tag_info_list</span><span class="p">[</span><span class="n">tag_ix</span><span class="p">]</span>
+            <span class="c1"># Ignore case where tag has already been deleted</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="k">pass</span>
+    <span class="c1"># Sort the indices by their start position</span>
+    <span class="n">tag_info_list</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="c1"># Now, add the marker text for each occurrence of the strings</span>
+    <span class="n">format_text</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="n">start_pos</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">ag_text</span><span class="p">,</span> <span class="n">tag_start</span><span class="p">,</span> <span class="n">tag_close</span> <span class="ow">in</span> <span class="n">tag_info_list</span><span class="p">:</span>
+        <span class="c1"># Add the text before this agent, if any</span>
+        <span class="n">format_text</span> <span class="o">+=</span> <span class="n">text</span><span class="p">[</span><span class="n">start_pos</span><span class="p">:</span><span class="n">i</span><span class="p">]</span>
+        <span class="c1"># Add wrapper for this entity</span>
+        <span class="n">format_text</span> <span class="o">+=</span> <span class="n">tag_start</span> <span class="o">+</span> <span class="n">ag_text</span> <span class="o">+</span> <span class="n">tag_close</span>
+        <span class="c1"># Now set the next start position</span>
+        <span class="n">start_pos</span> <span class="o">=</span> <span class="n">j</span>
+    <span class="c1"># Add the last section of text</span>
+    <span class="n">format_text</span> <span class="o">+=</span> <span class="n">text</span><span class="p">[</span><span class="n">start_pos</span><span class="p">:]</span></div>
+    <span class="k">return</span> <span class="n">format_text</span>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, B. M. Gyori, J. A. Bachman.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'1.10.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
