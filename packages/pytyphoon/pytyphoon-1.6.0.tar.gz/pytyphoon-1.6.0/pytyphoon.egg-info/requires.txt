@@ -1,0 +1,11 @@
+aiohttp==3.0.9
+aioredis==1.1.0
+argparse==1.4.0
+asyncio==3.4.3
+jsonschema==2.6.0
+pynsq==0.8.2
+python-socketio==1.9.0
+requests==2.18.4
+tornado==4.5.3
+urllib3==1.22
+watchdog==0.8.3
