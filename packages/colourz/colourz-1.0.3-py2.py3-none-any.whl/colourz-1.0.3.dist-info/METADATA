@@ -1,0 +1,66 @@
+Metadata-Version: 2.1
+Name: colourz
+Version: 1.0.3
+Summary: Print in colour, with no extra charge!
+Home-page: https://github.com/alexmacniven/colourz.git
+Author: Alex Macniven
+Author-email: apmacniven@outlook.com
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
+Requires-Dist: colorama
+
+# colourz
+Print in colour, with no extra charge!
+
+## Installation
+
+`$ pipenv install colourz`
+
+## Usage
+
+```python
+import colourz
+
+# Print in bold text
+print(colourz.bold("Bold text"))
+
+# Print text in red
+print(colourz.normal("Red text", "RED"))
+
+# Print text in bold red
+print(colourz.bold("Bold red text", "RED"))
+
+# Use Bullets when waiting on a long task
+import time
+
+def main():
+    s = colourz.Bullets()
+    print("Doing long task...")
+    s.start()
+    long_task()
+    s.stop()
+    print("Success!")
+
+# CAUTION: As Bullets is threaded, we need to watch out for exceptions
+def long_task():
+    raise LongTaskError
+
+def main():
+    s = colourz.Bullets()
+    print("Doing long task...")
+    s.start()
+    try:
+        long_task()
+        msg = "Success!"
+    except LongTaskError:
+        msg = "Fail!"
+    finally:
+        s.stop()
+        print(msg)
+```
+
+
