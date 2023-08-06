@@ -1,0 +1,25 @@
+Metadata-Version: 2.0
+Name: bhpq
+Version: 1.0.0
+Summary: Binary Heap Priority Queue
+Home-page: https://github.com/aayushuppal/bhpq
+Author: Aayush Uppal
+Author-email: aayuppal@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
+
+# BHPQ - Binary Heap Priority Queue
+
+
+## Test
+
+```
+make test
+```
+
+
