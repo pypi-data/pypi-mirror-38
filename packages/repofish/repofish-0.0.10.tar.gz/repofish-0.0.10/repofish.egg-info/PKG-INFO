@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: repofish
+Version: 0.0.10
+Summary: Command line tool for working with container storage
+Home-page: http://www.github.com/vsoch/repofish
+Author: Vanessa Sochat
+Author-email: vsochat@stanford.edu
+Maintainer: Vanessa Sochat
+Maintainer-email: vsochat@stanford.edu
+License: LICENSE
+Description: # RepoFish
+        
+        search github repos for python functions and generate standard data structures for them. Find functions in online places. Under Development!
+        
+        ### Install
+        
+              pip install repofish
+        
+        
+        ### Generate Lib
+        
+              cd scripts
+              python generate_database.py
+        
+Keywords: search repositories for functions and generate data structures for them
+Platform: UNKNOWN
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development
+Classifier: Topic :: Scientific/Engineering
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Provides-Extra: all
+Provides-Extra: pubmed
+Provides-Extra: wikipedia
+Provides-Extra: github

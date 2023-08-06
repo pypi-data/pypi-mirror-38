@@ -1,0 +1,3 @@
+recursive-include repofish lib *.json
+recursive-include repofish lib *
+global-exclude zenodo.py
