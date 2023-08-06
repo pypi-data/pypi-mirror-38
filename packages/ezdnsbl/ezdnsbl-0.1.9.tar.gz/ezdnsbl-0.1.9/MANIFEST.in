@@ -1,0 +1,11 @@
+# Include the README
+include README.rst
+
+# Include license file
+include LICENSE.txt
+
+# Include credential file template
+include ezdnsbl/provider/httpbl_apikey.py.sample
+
+# Exclude credentials
+exclude ezdnsbl/provider/httpbl_apikey.py
