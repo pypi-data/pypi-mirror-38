@@ -1,0 +1,206 @@
+Metadata-Version: 2.1
+Name: sphinx-markdown-builder
+Version: 0.0.5
+Summary: sphinx builder that outputs markdown files
+Home-page: https://github.com/codejamninja/sphinx-markdown-builder
+Author: Jam Risser
+Author-email: jam@codejam.ninja
+License: MIT
+Keywords: sphinx docs documentation markdown
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Utilities
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Requires-Dist: alabaster (==0.7.12)
+Requires-Dist: appnope (==0.1.0)
+Requires-Dist: Babel (==2.6.0)
+Requires-Dist: backcall (==0.1.0)
+Requires-Dist: bleach (==3.0.2)
+Requires-Dist: certifi (==2018.10.15)
+Requires-Dist: chardet (==3.0.4)
+Requires-Dist: cycler (==0.10.0)
+Requires-Dist: decorator (==4.3.0)
+Requires-Dist: defusedxml (==0.5.0)
+Requires-Dist: docutils (==0.14)
+Requires-Dist: entrypoints (==0.2.3)
+Requires-Dist: idna (==2.7)
+Requires-Dist: imagesize (==1.1.0)
+Requires-Dist: ipykernel (==5.1.0)
+Requires-Dist: ipython (==7.1.1)
+Requires-Dist: ipython-genutils (==0.2.0)
+Requires-Dist: ipywidgets (==7.4.2)
+Requires-Dist: jedi (==0.13.1)
+Requires-Dist: Jinja2 (==2.10)
+Requires-Dist: jsonschema (==2.6.0)
+Requires-Dist: jupyter-client (==5.2.3)
+Requires-Dist: jupyter-core (==4.4.0)
+Requires-Dist: kiwisolver (==1.0.1)
+Requires-Dist: MarkupSafe (==1.1.0)
+Requires-Dist: matplotlib (==3.0.2)
+Requires-Dist: mistune (==0.8.4)
+Requires-Dist: nb2plots (==0.6)
+Requires-Dist: nbconvert (==5.4.0)
+Requires-Dist: nbformat (==4.4.0)
+Requires-Dist: notebook (==5.7.0)
+Requires-Dist: numpy (==1.15.4)
+Requires-Dist: packaging (==18.0)
+Requires-Dist: pandocfilters (==1.4.2)
+Requires-Dist: parso (==0.3.1)
+Requires-Dist: pexpect (==4.6.0)
+Requires-Dist: pickleshare (==0.7.5)
+Requires-Dist: prometheus-client (==0.4.2)
+Requires-Dist: prompt-toolkit (==2.0.7)
+Requires-Dist: ptyprocess (==0.6.0)
+Requires-Dist: Pygments (==2.2.0)
+Requires-Dist: pyparsing (==2.3.0)
+Requires-Dist: python-dateutil (==2.7.5)
+Requires-Dist: pytz (==2018.7)
+Requires-Dist: pyzmq (==17.1.2)
+Requires-Dist: requests (==2.20.1)
+Requires-Dist: Send2Trash (==1.5.0)
+Requires-Dist: six (==1.11.0)
+Requires-Dist: snowballstemmer (==1.2.1)
+Requires-Dist: Sphinx (==1.8.1)
+Requires-Dist: sphinxcontrib-websupport (==1.1.0)
+Requires-Dist: sphinxtesters (==0.2.1)
+Requires-Dist: terminado (==0.8.1)
+Requires-Dist: testpath (==0.4.2)
+Requires-Dist: texext (==0.6.1)
+Requires-Dist: tornado (==5.1.1)
+Requires-Dist: traitlets (==4.3.2)
+Requires-Dist: typing (==3.6.6)
+Requires-Dist: urllib3 (==1.24.1)
+Requires-Dist: wcwidth (==0.1.7)
+Requires-Dist: webencodings (==0.5.1)
+Requires-Dist: widgetsnbextension (==3.4.2)
+
+sphinx-markdown-builder
+=======================
+
+|GitHub stars|
+
+   sphinx builder that outputs markdown files
+
+Please ★ this repo if you found it useful ★ ★ ★
+
+Features
+--------
+
+-  Generates markdown
+
+Installation
+------------
+
+.. code:: sh
+
+   pip3 install sphinx-markdown-builder
+
+Dependencies
+------------
+
+-  `Python 3 <https://www.python.org>`__
+
+Usage
+-----
+
+Load extension in configuration.
+
+*conf.py*
+
+.. code:: py
+
+   extensions = [
+       'sphinx_markdown_builder'
+   ]
+
+If using `recommonmark <https://github.com/rtfd/recommonmark>`__, make
+sure you explicitly ignore the build files as they will conflict with
+the system.
+
+*conf.py*
+
+.. code:: py
+
+   exclude_patterns = [
+       'build/*'
+   ]
+
+Build markdown files with Makefile
+
+.. code:: sh
+
+   make markdown
+
+Build markdown files with ``sphinx-build`` command
+
+.. code:: sh
+
+   cd docs
+   sphinx-build -M markdown ./ build
+
+Support
+-------
+
+Submit an
+`issue <https://github.com/codejamninja/sphinx-markdown-builder/issues/new>`__
+
+Screenshots
+-----------
+
+`Contribute <https://github.com/codejamninja/sphinx-markdown-builder/blob/master/CONTRIBUTING.md>`__
+a screenshot
+
+Contributing
+------------
+
+Review the `guidelines for
+contributing <https://github.com/codejamninja/sphinx-markdown-builder/blob/master/CONTRIBUTING.md>`__
+
+License
+-------
+
+`MIT
+License <https://github.com/codejamninja/sphinx-markdown-builder/blob/master/LICENSE>`__
+
+`Jam Risser <https://codejam.ninja>`__ © 2018
+
+Changelog
+---------
+
+Review the
+`changelog <https://github.com/codejamninja/sphinx-markdown-builder/blob/master/CHANGELOG.md>`__
+
+Credits
+-------
+
+-  `Jam Risser <https://codejam.ninja>`__ - Author
+-  `Matthew
+   Brett <https://github.com/matthew-brett/nb2plots/blob/master/nb2plots/doctree2md.py>`__
+   - doctree2md
+
+Support on Liberapay
+--------------------
+
+A ridiculous amount of coffee ☕ ☕ ☕ was consumed in the process of
+building this project.
+
+`Add some fuel <https://liberapay.com/codejamninja/donate>`__ if you’d
+like to keep me going!
+
+|Liberapay receiving| |Liberapay patrons|
+
+.. |GitHub stars| image:: https://img.shields.io/github/stars/codejamninja/sphinx-markdown-builder.svg?style=social&label=Stars
+   :target: https://github.com/codejamninja/sphinx-markdown-builder
+.. |Liberapay receiving| image:: https://img.shields.io/liberapay/receives/codejamninja.svg?style=flat-square
+   :target: https://liberapay.com/codejamninja/donate
+.. |Liberapay patrons| image:: https://img.shields.io/liberapay/patrons/codejamninja.svg?style=flat-square
+   :target: https://liberapay.com/codejamninja/donate
+
+
