@@ -1,0 +1,5 @@
+nltk>=3.3
+pandas>=0.23.4
+pbr
+scikit-learn>=0.20.0
+scopus>=1.2.0

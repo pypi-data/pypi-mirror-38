@@ -1,0 +1,26 @@
+Metadata-Version: 1.2
+Name: sosia
+Version: 0.1.0
+Summary: Find control groups for academics in Scopus
+Home-page: UNKNOWN
+Author: Stefano H. Barruffaldi and Michael E. Rose
+Author-email: Michael.Ernst.Rose@gmail.com
+Maintainer: Michael E. Rose
+Maintainer-email: Michael.Ernst.Rose@gmail.com
+License: MIT
+Description: # sosia
+        Sosia: Find scientists control groups using scopus
+        
+        
+Keywords: sosia
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
