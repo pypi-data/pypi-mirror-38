@@ -1,0 +1,2 @@
+# SCV
+Python project manager
