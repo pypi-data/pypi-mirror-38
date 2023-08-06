@@ -1,0 +1,212 @@
+{% extends 'supporttools/base.html' %}
+
+{% load staticfiles %}
+{% load compress %}
+{% load i18n %}
+
+{% block content %}
+<!-- page header -->
+<div role="main" class="container-fluid">
+    <h2>Academic Import Utility</h2>
+
+    <div class="row">
+        <div class="col-md-8">
+
+		<form role="form" class="form-inline course-search">
+			
+            <div class="form-group inputs-row">
+            <h4 id="selected-quarter" class="quarter">
+                <span class="sr-only"> Get academic usage for</span> {{term_quarter}} {{term_year}}
+            </h4>
+
+            <span class="lcra-styled-select">
+                <label for="qtr-select" class="sr-only">Select a quarter</label>
+                <select id="qtr-select"></select>
+            </span>
+			</div>
+
+			<button type="submit" class="btn btn-primary">Search </button>
+		</form>
+        </div>
+
+        <div class="col-md-4">
+            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#helpModal">Help
+            </button>
+
+            <div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="helpModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="helpModalLabel">Academic Import Utility Help</h4>
+                        </div>
+                        <div class="modal-body">
+                            <ol>
+                                <li>Select the quarter to import and click Search</li>
+                                <li>The course data will take some time to fetch and compile</li>
+                                <li>Click "Download TSV" to save the tab-separated file</li>
+                            </ol>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+		
+        <div class="result-display-container course-search-result"></div>
+
+{% verbatim %}
+<script id="course-search-result-template" type="text/x-handlebars-template">
+    <div class="aiu-header"><!-- Rslt Header -->
+        <h3><span class="sr-only">Scheduled in</span> {{ term_name }}: {{term_start}} &mdash; {{term_end}}</h3>
+    </div>	<!-- .Rslt Header -->
+
+  <div class="result-list-container">
+  	<div class="result-header">
+		<div class="pull-right clearfix batchswitch">
+<!--
+          <a href="{{tsv_url}}"><button type="button" class="btn btn-default btn-xs download-quarter" {{#if disabled}}disabled{{/if}} title="click to download quarter calendar">Download</button></a>
+ -->
+        </div>
+  	</div>
+
+    {{> reservation-list}}
+
+  </div>
+</script>
+{% endverbatim %}
+
+
+{% verbatim %}
+<script id="reservation-list-partial" type="text/x-handlebars-template">
+
+    <table class="table">
+        <thead>
+            <th>Department</th>
+            <th>Course</th>
+            <th>Section</th>
+            <th>CourseTitle</th>
+            <th>Instructor</th>
+            <th>Days</th>
+            <th>Building</th>
+            <th>Room</th>
+            <th>BegTime</th>
+            <th>EndTime</th>
+            <th>StartDate</th>
+            <th>EndDate</th>
+            <th>Attendance</th>
+        </thead>
+        <tbody>
+    {{#each schedule}}
+            <tr>
+                <td>{{ Department }}</td>
+                <td>{{ Course }}</td>
+                <td>{{ Section }}</td>
+                <td>{{ CourseTitle }}</td>
+                <td>{{ Instructor }}</td>
+                <td>{{ Days }}</td>
+                <td>{{ Building }}</td>
+                <td>{{ Room }}</td>
+                <td>{{ BegTime }}</td>
+                <td>{{ EndTime }}</td>
+                <td>{{ StartDate }}</td>
+                <td>{{ EndDate }}</td>
+                <td>{{ Attendance }}</td>
+            </tr>
+    {{/each}}
+        </tbody>
+    </table>
+</script>
+{% endverbatim %}
+
+
+</div> <!-- .container-fluid -->
+<hr>
+
+{% verbatim %}
+<script id="ajax-waiting" type="text/x-handlebars-template">
+  <div class="waiting">
+    <i class="fa fa-spinner fa-4 fa-spin"></i>
+  </div>
+</script>
+{% endverbatim %}
+
+{% verbatim %}
+<script id="ajax-state-waiting" type="text/x-handlebars-template">
+  <span class="state-waiting">
+    <i class="fa fa-spinner fa-spin"></i>
+  </span>
+</script>
+{% endverbatim %}
+
+{% verbatim %}
+<script id="ajax-state-successful" type="text/x-handlebars-template">
+  <span class="state-successful">
+    <i class="fa fa-check" title="update successful"></i>
+  </span>
+</script>
+{% endverbatim %}
+
+{% verbatim %}
+<script id="ajax-fail-tmpl" type="text/x-handlebars-template">
+<div class="modal fade" id="failure-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <!-- Failure modal -->
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h3 class="modal-title" id="myModalLabel">{{ failure_title }}</h3>
+      </div>
+      <div class="modal-body">
+		<p>{{{ failure_message }}}</p>
+		<div style="display: none;">
+          {{ full_failure_message }}
+		</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+</script>
+{% endverbatim %}
+
+<script type="text/javascript">
+window.scheduler = {
+  csrftoken: '{{ csrf_token }}',
+  term: { quarter: '{{term_quarter}}', year: {{term_year}} },
+  app_url: "{% url 'aiu' %}",
+};
+</script>
+
+{% endblock content %}
+
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/dataTables.bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/buttons/1.1.2/css/buttons.bootstrap.min.css"/>
+{% compress css %}
+<link rel="stylesheet" type="text/less" href="{% static "emsaiu/css/mobile.less" %}"/>
+{% endcompress %}
+{% if not request.is_mobile and not request.is_tablet %}
+{% compress css %}
+<link rel="stylesheet" type="text/less" href="{% static "emsaiu/css/desktop.less" %}"/>
+{% endcompress %}
+{% endif %}
+{% endblock extra_css %}
+
+{% block extra_js %}
+<script type="text/javascript" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="//cdn.datatables.net/1.10.11/js/dataTables.bootstrap.min.js"></script>
+<script type="text/javascript" src="//cdn.datatables.net/buttons/1.1.2/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" src="//cdn.datatables.net/buttons/1.1.2/js/buttons.bootstrap.min.js"></script>
+<script type="text/javascript" src="//cdn.datatables.net/buttons/1.1.2/js/buttons.html5.min.js"></script>
+{% compress js %}
+<script src="{% static "vendor/js/moment.min.js" %}"></script>
+<script src="{% static "emsaiu/js/main.js" %}"></script>
+{% endcompress %}
+{% endblock extra_js %}

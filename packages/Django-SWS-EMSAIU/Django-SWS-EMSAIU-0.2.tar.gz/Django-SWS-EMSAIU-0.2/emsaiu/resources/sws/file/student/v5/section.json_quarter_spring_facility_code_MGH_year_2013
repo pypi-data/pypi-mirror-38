@@ -1,0 +1,36 @@
+{
+    "Current": {
+        "ChangedSinceDate": null, 
+        "CourseNumber": null, 
+        "CurriculumAbbreviation": null, 
+        "DeleteFlag": null, 
+        "FacilityCode": "KNE", 
+        "FutureTerms": 0, 
+        "Href": "/student/v5/section.json?year=2013&quarter=spring&future_terms=0&curriculum_abbreviation=&course_number=&reg_id=&search_by=&include_secondaries=&delete_flag=&changed_since_date=&transcriptable_course=yes&page_size=10&page_start=1&facility_code=KNE&room_number=&sln=", 
+        "IncludeSecondaries": false, 
+        "PageSize": "10", 
+        "PageStart": "1", 
+        "Quarter": "spring", 
+        "RegID": null, 
+        "RoomNumber": null, 
+        "SLN": null, 
+        "SearchBy": null, 
+        "TranscriptableCourse": "yes", 
+        "Year": "2013"
+    }, 
+    "Next": null, 
+    "PageSize": "10", 
+    "PageStart": "1", 
+    "Previous": null, 
+    "Sections": [
+        {
+            "CourseNumber": "098", 
+            "CurriculumAbbreviation": "TEST", 
+            "Href": "/student/v5/course/2013,spring,TEST,098/T.json", 
+            "Quarter": "spring", 
+            "SectionID": "T", 
+            "Year": 2013
+        }
+    ], 
+    "TotalCount": 1
+}

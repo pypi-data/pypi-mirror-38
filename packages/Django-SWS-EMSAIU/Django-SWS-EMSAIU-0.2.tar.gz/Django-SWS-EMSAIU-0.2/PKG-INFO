@@ -1,0 +1,23 @@
+Metadata-Version: 1.1
+Name: Django-SWS-EMSAIU
+Version: 0.2
+Summary: Django app to aid in the import of the academic schedule from the UW Student Web Service
+Home-page: https://github.com/uw-it-cte/django-sws-emsaiu
+Author: UNKNOWN
+Author-email: UNKNOWN
+License: Apache License, Version 2.0
+Description: [![Build Status](https://travis-ci.org/uw-it-cte/django-sws-emsaiu.svg?branch=master)](https://travis-ci.org/uw-it-cte/django-sws-emsaiu)
+        [![Coverage Status](https://coveralls.io/repos/github/uw-it-cte/django-sws-emsaiu/badge.svg?branch=master)](https://coveralls.io/github/uw-it-cte/django-sws-emsaiu?branch=master)
+        
+        # django-sms-emsaiu
+        Export course schedules from SWS, for import to EMS.
+        
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.6
