@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: pypika-gis
+Version: 0.0.3
+Summary: SpatialTypes functions for extend PyPika with GIS
+Home-page: https://github.com/eduardogspereira/pypika-gis
+Author: Eduardo G. S. Pereira
+Author-email: edu_vcd@hotmail.com
+License: UNKNOWN
+Keywords: pypika gis postgis mysql sql query builder
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Dist: PyPika (==0.18.1)
+
+UNKNOWN
+
+
