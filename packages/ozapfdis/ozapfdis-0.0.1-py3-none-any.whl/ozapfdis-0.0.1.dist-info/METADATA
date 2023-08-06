@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: ozapfdis
+Version: 0.0.1
+Summary: Open Zippy Analysis Project For Data In Software: A helper library that let's you import all kinds of software related data into the data analysis framework pandas.
+Home-page: https://github.com/feststelltaste/ozapfdis
+Author: Markus Harrer
+Author-email: ozapfdis@markusharrer.de
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: pandas
+Requires-Dist: gitpython
+
+# ozapfdis
+Open Zippy Analysis Plattform For Data In Software
+
+
