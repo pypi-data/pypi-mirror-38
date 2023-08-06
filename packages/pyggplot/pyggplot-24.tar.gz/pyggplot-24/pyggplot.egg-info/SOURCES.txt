@@ -1,0 +1,13 @@
+README.md
+setup.cfg
+setup.py
+pyggplot/__init__.py
+pyggplot/base.py
+pyggplot/plot_nine.py
+pyggplot/plot_r.py
+pyggplot/svg_stack.py
+pyggplot.egg-info/PKG-INFO
+pyggplot.egg-info/SOURCES.txt
+pyggplot.egg-info/dependency_links.txt
+pyggplot.egg-info/requires.txt
+pyggplot.egg-info/top_level.txt
