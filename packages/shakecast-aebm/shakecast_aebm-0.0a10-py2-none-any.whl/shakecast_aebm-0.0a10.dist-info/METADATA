@@ -1,0 +1,52 @@
+Metadata-Version: 2.1
+Name: shakecast-aebm
+Version: 0.0a10
+Summary: Potential impact calculation for well defined facilities due to an input earthquake hazard
+Home-page: https://github.com/usgs/shakecast-aebm
+Author: Daniel Slosky
+Author-email: dslosky@usgs.gov
+License: MIT
+Keywords: impact hazus aebm earthquake damage
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.6
+Provides-Extra: dev
+Requires-Dist: alabaster (==0.7.11) ; extra == 'dev'
+Requires-Dist: Babel (==2.6.0) ; extra == 'dev'
+Requires-Dist: backports.functools-lru-cache (==1.5) ; extra == 'dev'
+Requires-Dist: certifi (==2018.8.24) ; extra == 'dev'
+Requires-Dist: chardet (==3.0.4) ; extra == 'dev'
+Requires-Dist: cycler (==0.10.0) ; extra == 'dev'
+Requires-Dist: docutils (==0.14) ; extra == 'dev'
+Requires-Dist: idna (==2.7) ; extra == 'dev'
+Requires-Dist: imagesize (==1.0.0) ; extra == 'dev'
+Requires-Dist: Jinja2 (==2.10) ; extra == 'dev'
+Requires-Dist: kiwisolver (==1.0.1) ; extra == 'dev'
+Requires-Dist: MarkupSafe (==1.0) ; extra == 'dev'
+Requires-Dist: matplotlib (==2.2.2) ; extra == 'dev'
+Requires-Dist: numpy (==1.15.0) ; extra == 'dev'
+Requires-Dist: packaging (==17.1) ; extra == 'dev'
+Requires-Dist: Pygments (==2.2.0) ; extra == 'dev'
+Requires-Dist: pylint (==1.9.3) ; extra == 'dev'
+Requires-Dist: pyparsing (==2.2.0) ; extra == 'dev'
+Requires-Dist: python-dateutil (==2.7.3) ; extra == 'dev'
+Requires-Dist: pytz (==2018.5) ; extra == 'dev'
+Requires-Dist: requests (==2.19.1) ; extra == 'dev'
+Requires-Dist: six (==1.11.0) ; extra == 'dev'
+Requires-Dist: snowballstemmer (==1.2.1) ; extra == 'dev'
+Requires-Dist: Sphinx (==1.7.7) ; extra == 'dev'
+Requires-Dist: sphinxcontrib-websupport (==1.1.0) ; extra == 'dev'
+Requires-Dist: subprocess32 (==3.5.2) ; extra == 'dev'
+Requires-Dist: typing (==3.6.4) ; extra == 'dev'
+Requires-Dist: urllib3 (==1.23) ; extra == 'dev'
+
+[![Build Status](https://travis-ci.org/usgs/shakecast-aebm.svg?branch=master)](https://travis-ci.org/usgs/shakecast-aebm)
+[![codecov](https://codecov.io/gh/usgs/shakecast-aebm/branch/master/graph/badge.svg)](https://codecov.io/gh/usgs/shakecast-aebm) 
+
+A Python package for estimating potential impact to a structure using HAZUS's Advanced Engineering Building Module. Potentially useful for engineering research, but developed for integration with [ShakeCast](www.github.com/usgs/shakecast)
+
+
