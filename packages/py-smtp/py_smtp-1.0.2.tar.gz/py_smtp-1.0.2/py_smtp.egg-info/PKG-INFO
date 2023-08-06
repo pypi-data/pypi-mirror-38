@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: py-smtp
+Version: 1.0.2
+Summary: color log terminal and file
+Home-page: https://gitee.com/haifengat
+Author: HaiFeng
+Author-email: haifengat@vip.qq.com
+License: MIT License
+Description: # 颜色日志
+        
+        ## 使用说明
+        
+        ```python
+        from py_smtp.smtp_send import send
+        
+        send('smtp服务器:端口', ['测试员', 'wujh@ebfcn.com.cn'], '密码', ['收件人1','收件人2'], ['抄送人1','抄送人2'], '标题', '内容', ['附件1','附件2'])
+        ```
+        
+        linux系统使用 `tail -F -s5 logs/log` 实时监控日志变化
+Platform: any
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.4.0
+Description-Content-Type: text/markdown
