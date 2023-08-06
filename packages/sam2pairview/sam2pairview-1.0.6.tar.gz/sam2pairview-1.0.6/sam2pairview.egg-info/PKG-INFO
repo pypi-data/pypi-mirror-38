@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: sam2pairview
+Version: 1.0.6
+Summary: sam2pairview takes a SAM|BAM file and uses the CIGAR and MD tag to reconstruct the pairwise alignment of each read.
+Home-page: UNKNOWN
+Author: Yong Deng
+Author-email: yodeng@tju.edu.com
+License: MIT
+Description: UNKNOWN
+Platform: UNKNOWN
