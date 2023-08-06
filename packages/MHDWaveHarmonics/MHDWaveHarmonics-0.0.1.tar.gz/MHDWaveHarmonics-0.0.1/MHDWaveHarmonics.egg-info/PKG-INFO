@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: MHDWaveHarmonics
+Version: 0.0.1
+Summary: Some simple tools for modelling MHD wave harmonics in an arbitrary magnetic field geometry.
+Home-page: https://github.com/mattkjames7/MHDWaveHarmonics
+Author: Matthew Knight James
+Author-email: mattkjames7@gmail.com
+License: UNKNOWN
+Description: # MHDWaveHarmonics
+        Some simple tools for modelling MHD wave harmonics in an arbitrary magnetic field geometry.
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX
+Description-Content-Type: text/markdown
