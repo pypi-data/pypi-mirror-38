@@ -1,0 +1,11 @@
+MANIFEST.in
+README.md
+setup.py
+cantocut/__init__.py
+cantocut.egg-info/PKG-INFO
+cantocut.egg-info/SOURCES.txt
+cantocut.egg-info/dependency_links.txt
+cantocut.egg-info/requires.txt
+cantocut.egg-info/top_level.txt
+cantocut/vocab/cmn.vocab
+cantocut/vocab/yue.vocab
