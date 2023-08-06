@@ -1,0 +1,396 @@
+Metadata-Version: 2.1
+Name: govcf
+Version: 0.8.0
+Summary: govcf
+Home-page: UNKNOWN
+Author: Ian Maurer
+Author-email: ian@genomoncology.com
+License: Proprietary
+Keywords: Bioinformatics HGVS VCF Clinical Trials Genomics
+Platform: UNKNOWN
+Classifier: License :: Other/Proprietary License
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Description-Content-Type: text/markdown
+Requires-Dist: pysam (>=0.14.1)
+Requires-Dist: intervaltree
+Requires-Dist: related
+
+govcf - Variant Call File "call" generator
+==========================================
+
+This is a proprietary package that is available from [GenomOncology][GenomOncology] and works
+with our [Knowledge Management System][Knowledge Management System].
+
+For more information about licensing please contact us at:
+
+info@genomoncology.com
+
+
+Additional proprietary projects available for download via pypi include:
+
+* [GO SDK][GO SDK] - GenomOncology Software Development Kit
+* [GO CLI][GO CLI] - GenomOncology Command Line Interface
+
+Our open source projects include:
+
+* [Related][Related] - Nested Object Models in Python with dictionary, YAML, and JSON transformation support
+* [Specd][Specd] - Swagger v2 Specification Directories
+* [Rigor][Rigor] - HTTP-based DSL for for validating RESTful APIs
+
+
+Overview
+--------
+
+GenomOncology Variant Call File (VCF) generator built on top of the VCF parser
+within the [pysam] project. The generator yields two record types as indicated by
+the `__type__` dictionary attribute:
+
+* **Header** (1 per VCF file)
+* **Call** (1 per unique sample alt)
+
+The header includes the following information:
+
+* `__child__`: the type of the records that will follow the header.
+* `config`: any configuration fields provided to the generator.
+* `file_path`: the file location of the VCF.
+* `formats`: the meta data of the FORMAT fields in the header.
+* `info`: the meta data of the INFO fields in the header.
+* `types`: the field type of all of the fields found in the INFO or FORMAT.
+
+A call is the representation of a single ALT allele for a given sample. The
+calls are generated for each VCF record by iterating each of the samples and
+yielding a call for each unique ALT index specified by the GT (genotype) field.
+
+A call includes the following fields:
+
+* `alt`: alternate allele
+* `chr`: chromosome
+* `filters`: filters provided, including None for '.'
+* `info`: info value fields
+* `is_het`: boolean that is true when allele is heterozygous (e.g. 0/1)
+* `is_phased`: boolean that indicates whether phased (|) or unphased (/)
+* `quality`: quality value
+* `ref`: reference allele
+* `rs_id`: ID field
+* `sample_name`: name of the sample column
+* `start`: start position
+
+This package also has a class called `BedFilter` which can be passed into
+the iterator functions that filters records by chromosome and start position
+and only yields calls that fall within the range specified by the BED file.
+
+
+Quick Example
+-------------
+
+The following example is what the parsing of the example provided at the top
+of the VCF Specification document here:
+
+https://samtools.github.io/hts-specs/VCFv4.2.pdf
+
+Here is the VCF:
+
+```text
+##fileformat=VCFv4.2
+##fileDate=20090805
+##source=myImputationProgramV3.1
+##reference=file:///seq/references/1000GenomesPilot-NCBI36.fasta
+##contig=<ID=20,length=62435964,assembly=B36,md5=f126cdf8a6e0c7f379d618ff66beb2da,species="Homo sapiens",taxonomy=x>
+##phasing=partial
+##INFO=<ID=NS,Number=1,Type=Integer,Description="Number of Samples With Data">
+##INFO=<ID=DP,Number=1,Type=Integer,Description="Total Depth">
+##INFO=<ID=AF,Number=A,Type=Float,Description="Allele Frequency">
+##INFO=<ID=AA,Number=1,Type=String,Description="Ancestral Allele">
+##INFO=<ID=DB,Number=0,Type=Flag,Description="dbSNP membership, build 129">
+##INFO=<ID=H2,Number=0,Type=Flag,Description="HapMap2 membership">
+##FILTER=<ID=q10,Description="Quality below 10">
+##FILTER=<ID=s50,Description="Less than 50% of samples have data">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FORMAT=<ID=GQ,Number=1,Type=Integer,Description="Genotype Quality">
+##FORMAT=<ID=DP,Number=1,Type=Integer,Description="Read Depth">
+##FORMAT=<ID=HQ,Number=2,Type=Integer,Description="Haplotype Quality">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	NA00001	NA00002	NA00003
+20	14370	rs6054257	G	A	29	PASS	NS=3;DP=14;AF=0.5;DB;H2	GT:GQ:DP:HQ	0|0:48:1:51,51	1|0:48:8:51,51	1/1:43:5:.,.
+20	17330	.	T	A	3	q10	NS=3;DP=11;AF=0.017	GT:GQ:DP:HQ	0|0:49:3:58,50	0|1:3:5:65,3	0/0:41:3
+20	1110696	rs6040355	A	G,T	67	PASS	NS=2;DP=10;AF=0.333,0.667;AA=T;DB	GT:GQ:DP:HQ	1|2:21:6:23,27	2|1:2:0:18,2	2/2:35:4
+20	1230237	.	T	.	47	PASS	NS=3;DP=13;AA=T	GT:GQ:DP:HQ	0|0:54:7:56,60	0|0:48:4:51,51	0/0:61:2
+20	1234567	microsat1	GTC	G,GTCT	50	PASS	NS=3;DP=9;AA=G;H2	GT:GQ:DP	0/1:35:4	0/2:17:2	1/1:40:3
+```
+
+
+Here is some example python code:
+
+```python
+
+from govcf import iterate_vcf_calls, BEDFilter
+from pprint import pprint
+
+bed_filter = BEDFilter("panel.bed")
+
+for record in iterate_vcf_calls("tests/vcfs/spec.vcf", bed_filter=bed_filter):
+    pprint(record)
+```
+
+Yields the following results:
+
+```
+{'__child__': 'CALL',
+ '__type__': 'HEADER',
+ 'config': {'include_vaf': True},
+ 'file_path': '/Users/ian/code/govcf/tests/vcfs/spec.vcf',
+ 'formats': {'DP': {'description': 'Read Depth',
+                    'id': 2,
+                    'name': 'DP',
+                    'number': 1,
+                    'type': 'Integer'},
+             'GQ': {'description': 'Genotype Quality',
+                    'id': 10,
+                    'name': 'GQ',
+                    'number': 1,
+                    'type': 'Integer'},
+             'GT': {'description': 'Genotype',
+                    'id': 9,
+                    'name': 'GT',
+                    'number': 1,
+                    'type': 'String'},
+             'HQ': {'description': 'Haplotype Quality',
+                    'id': 11,
+                    'name': 'HQ',
+                    'number': 2,
+                    'type': 'Integer'}},
+ 'info': {'AA': {'description': 'Ancestral Allele',
+                 'id': 4,
+                 'name': 'AA',
+                 'number': 1,
+                 'type': 'String'},
+          'AF': {'description': 'Allele Frequency',
+                 'id': 3,
+                 'name': 'AF',
+                 'number': 'A',
+                 'type': 'Float'},
+          'DB': {'description': 'dbSNP membership, build 129',
+                 'id': 5,
+                 'name': 'DB',
+                 'number': 0,
+                 'type': 'Flag'},
+          'DP': {'description': 'Total Depth',
+                 'id': 2,
+                 'name': 'DP',
+                 'number': 1,
+                 'type': 'Integer'},
+          'H2': {'description': 'HapMap2 membership',
+                 'id': 6,
+                 'name': 'H2',
+                 'number': 0,
+                 'type': 'Flag'},
+          'NS': {'description': 'Number of Samples With Data',
+                 'id': 1,
+                 'name': 'NS',
+                 'number': 1,
+                 'type': 'Integer'}},
+ 'types': {'AA': 'string',
+           'AF': 'float',
+           'DB': 'boolean',
+           'DP': 'int',
+           'GQ': 'int',
+           'H2': 'boolean',
+           'HQ': 'mint',
+           'NS': 'int'}}
+{'__type__': 'CALL',
+ 'alt': 'A',
+ 'chr': '20',
+ 'filters': ['PASS'],
+ 'info': {'AF': 0.5,
+          'DB': True,
+          'DP': 8,
+          'GQ': 48,
+          'H2': True,
+          'HQ': (51, 51),
+          'NS': 3},
+ 'is_het': True,
+ 'is_phased': True,
+ 'quality': 29.0,
+ 'ref': 'G',
+ 'rs_id': 'rs6054257',
+ 'sample_name': 'NA00002',
+ 'start': 14370}
+{'__type__': 'CALL',
+ 'alt': 'A',
+ 'chr': '20',
+ 'filters': ['PASS'],
+ 'info': {'AF': 0.5,
+          'DB': True,
+          'DP': 5,
+          'GQ': 43,
+          'H2': True,
+          'HQ': (None, None),
+          'NS': 3},
+ 'is_het': False,
+ 'is_phased': False,
+ 'quality': 29.0,
+ 'ref': 'G',
+ 'rs_id': 'rs6054257',
+ 'sample_name': 'NA00003',
+ 'start': 14370}
+{'__type__': 'CALL',
+ 'alt': 'A',
+ 'chr': '20',
+ 'filters': ['q10'],
+ 'info': {'AF': 0.017000000923871994,
+          'DP': 5,
+          'GQ': 3,
+          'HQ': (65, 3),
+          'NS': 3},
+ 'is_het': True,
+ 'is_phased': True,
+ 'quality': 3.0,
+ 'ref': 'T',
+ 'rs_id': None,
+ 'sample_name': 'NA00002',
+ 'start': 17330}
+{'__type__': 'CALL',
+ 'alt': 'G',
+ 'chr': '20',
+ 'filters': ['PASS'],
+ 'info': {'AA': 'T',
+          'AF': 0.3330000042915344,
+          'DB': True,
+          'DP': 6,
+          'GQ': 21,
+          'HQ': (23, 27),
+          'NS': 2},
+ 'is_het': True,
+ 'is_phased': True,
+ 'quality': 67.0,
+ 'ref': 'A',
+ 'rs_id': 'rs6040355',
+ 'sample_name': 'NA00001',
+ 'start': 1110696}
+{'__type__': 'CALL',
+ 'alt': 'T',
+ 'chr': '20',
+ 'filters': ['PASS'],
+ 'info': {'AA': 'T',
+          'AF': 0.6669999957084656,
+          'DB': True,
+          'DP': 6,
+          'GQ': 21,
+          'HQ': (23, 27),
+          'NS': 2},
+ 'is_het': True,
+ 'is_phased': True,
+ 'quality': 67.0,
+ 'ref': 'A',
+ 'rs_id': 'rs6040355',
+ 'sample_name': 'NA00001',
+ 'start': 1110696}
+{'__type__': 'CALL',
+ 'alt': 'G',
+ 'chr': '20',
+ 'filters': ['PASS'],
+ 'info': {'AA': 'T',
+          'AF': 0.3330000042915344,
+          'DB': True,
+          'DP': 0,
+          'GQ': 2,
+          'HQ': (18, 2),
+          'NS': 2},
+ 'is_het': True,
+ 'is_phased': True,
+ 'quality': 67.0,
+ 'ref': 'A',
+ 'rs_id': 'rs6040355',
+ 'sample_name': 'NA00002',
+ 'start': 1110696}
+{'__type__': 'CALL',
+ 'alt': 'T',
+ 'chr': '20',
+ 'filters': ['PASS'],
+ 'info': {'AA': 'T',
+          'AF': 0.6669999957084656,
+          'DB': True,
+          'DP': 0,
+          'GQ': 2,
+          'HQ': (18, 2),
+          'NS': 2},
+ 'is_het': True,
+ 'is_phased': True,
+ 'quality': 67.0,
+ 'ref': 'A',
+ 'rs_id': 'rs6040355',
+ 'sample_name': 'NA00002',
+ 'start': 1110696}
+{'__type__': 'CALL',
+ 'alt': 'T',
+ 'chr': '20',
+ 'filters': ['PASS'],
+ 'info': {'AA': 'T',
+          'AF': 0.6669999957084656,
+          'DB': True,
+          'DP': 4,
+          'GQ': 35,
+          'HQ': (None,),
+          'NS': 2},
+ 'is_het': False,
+ 'is_phased': False,
+ 'quality': 67.0,
+ 'ref': 'A',
+ 'rs_id': 'rs6040355',
+ 'sample_name': 'NA00003',
+ 'start': 1110696}
+{'__type__': 'CALL',
+ 'alt': 'G',
+ 'chr': '20',
+ 'filters': ['PASS'],
+ 'info': {'AA': 'G', 'DP': 4, 'GQ': 35, 'H2': True, 'NS': 3},
+ 'is_het': True,
+ 'is_phased': False,
+ 'quality': 50.0,
+ 'ref': 'GTC',
+ 'rs_id': 'microsat1',
+ 'sample_name': 'NA00001',
+ 'start': 1234567}
+{'__type__': 'CALL',
+ 'alt': 'GTCT',
+ 'chr': '20',
+ 'filters': ['PASS'],
+ 'info': {'AA': 'G', 'DP': 2, 'GQ': 17, 'H2': True, 'NS': 3},
+ 'is_het': True,
+ 'is_phased': False,
+ 'quality': 50.0,
+ 'ref': 'GTC',
+ 'rs_id': 'microsat1',
+ 'sample_name': 'NA00002',
+ 'start': 1234567}
+{'__type__': 'CALL',
+ 'alt': 'G',
+ 'chr': '20',
+ 'filters': ['PASS'],
+ 'info': {'AA': 'G', 'DP': 3, 'GQ': 40, 'H2': True, 'NS': 3},
+ 'is_het': False,
+ 'is_phased': False,
+ 'quality': 50.0,
+ 'ref': 'GTC',
+ 'rs_id': 'microsat1',
+ 'sample_name': 'NA00003',
+ 'start': 1234567}
+```
+
+
+
+[GenomOncology]: https://genomoncology.com/
+[Knowledge Management System]: https://genomoncology.com/solutions/clinical-oncology/
+[pysam]: https://pysam.readthedocs.io/
+[Related]: https://github.com/genomoncology/related
+[Specd]: https://github.com/genomoncology/specd 
+[Rigor]: https://github.com/genomoncology/rigor 
+[GO SDK]: https://pypi.org/project/gosdk/
+[GO CLI]: https://pypi.org/project/gocli/
+
+
