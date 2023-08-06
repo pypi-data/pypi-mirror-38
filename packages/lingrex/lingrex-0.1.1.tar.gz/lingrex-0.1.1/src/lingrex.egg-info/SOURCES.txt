@@ -1,0 +1,13 @@
+README.md
+setup.py
+src/lingrex/__init__.py
+src/lingrex/colex.py
+src/lingrex/copar.py
+src/lingrex/evaluate.py
+src/lingrex/semirex.py
+src/lingrex/util.py
+src/lingrex.egg-info/PKG-INFO
+src/lingrex.egg-info/SOURCES.txt
+src/lingrex.egg-info/dependency_links.txt
+src/lingrex.egg-info/requires.txt
+src/lingrex.egg-info/top_level.txt
