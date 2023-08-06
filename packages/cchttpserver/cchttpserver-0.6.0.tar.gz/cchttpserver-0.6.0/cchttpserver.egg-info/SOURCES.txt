@@ -1,0 +1,16 @@
+CHANGELOG.rst
+LICENSE
+MANIFEST.in
+README.rst
+ccfilestore.py
+cchttpserver.py
+setup.py
+test_ccfilestore.py
+test_cchttpserver.py
+tox.ini
+cchttpserver.egg-info/PKG-INFO
+cchttpserver.egg-info/SOURCES.txt
+cchttpserver.egg-info/dependency_links.txt
+cchttpserver.egg-info/not-zip-safe
+cchttpserver.egg-info/requires.txt
+cchttpserver.egg-info/top_level.txt
