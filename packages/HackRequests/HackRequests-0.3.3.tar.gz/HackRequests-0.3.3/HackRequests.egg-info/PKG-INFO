@@ -1,0 +1,11 @@
+Metadata-Version: 1.0
+Name: HackRequests
+Version: 0.3.3
+Summary: The hack-requests is an HTTP network library for hackers.
+Home-page: https://github.com/boy-hack/hack-requests/
+Author: w8ay
+Author-email: w8ay@qq.com
+License: MIT
+Description: HackRequests is an HTTP network library for hackers. Based on python3.x. If you need a less bulky and like requests design, and provide the request/response package to facilitate your next analysis, if you use the Burp Suite, you can copy and replay the original message directly, and for a large number of HTTP requests, the HackRequests's threadpool can help you implement the quickest response.
+Keywords: http requests hacker
+Platform: UNKNOWN
