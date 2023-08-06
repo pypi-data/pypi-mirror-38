@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: django-test-utils3
+Version: 0.11.9
+Summary: A package to help testing in Django
+Home-page: https://github.com/phroiland/django-test-utils
+Author: Jon Froiland
+Author-email: jon@crowdkeep.com
+License: UNKNOWN
+Download-URL: https://github.com/phroiland/django-test-utils
+Platform: UNKNOWN
+Requires-Dist: BeautifulSoup4
+Requires-Dist: twill-3
+Requires-Dist: django
+Requires-Dist: six
+Requires-Dist: django-celery
+
+UNKNOWN
+
+
