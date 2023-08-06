@@ -1,0 +1,13 @@
+Metadata-Version: 1.0
+Name: zklibweb
+Version: 0.1
+Summary: Library for read data from zklib maquines, using selenium and requests
+Home-page: http://github.com/storborg/funniest
+Author: Franz Emil Eulate Chacolla
+Author-email: franzemil35@gmail.com
+License: MIT
+Description: # ZKLIB web
+        
+        This package allow access to attendace maquines using a web interface using selenium
+Keywords: zklib web mopsv
+Platform: UNKNOWN
