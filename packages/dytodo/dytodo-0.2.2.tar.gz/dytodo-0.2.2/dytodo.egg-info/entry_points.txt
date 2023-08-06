@@ -1,0 +1,5 @@
+
+        [console_scripts]
+        todo=todo:maintodo
+        sign=todo:mainsign
+    
