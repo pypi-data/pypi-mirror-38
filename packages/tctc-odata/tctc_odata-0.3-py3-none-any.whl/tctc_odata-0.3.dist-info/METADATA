@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: tctc-odata
+Version: 0.3
+Summary: A simple library for read/write access to OData services.
+Home-page: UNKNOWN
+Author: Tuomas Mursu
+Author-email: tuomas.mursu@kapsi.fi
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: requests (>=2.0)
+Requires-Dist: python-dateutil
+
+UNKNOWN
+
+
