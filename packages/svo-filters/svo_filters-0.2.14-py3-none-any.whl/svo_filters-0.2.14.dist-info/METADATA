@@ -1,0 +1,22 @@
+Metadata-Version: 2.0
+Name: svo-filters
+Version: 0.2.14
+Summary: A Python wrapper for the SVO Filter Profile Service
+Home-page: https://github.com/hover2pi/svo_filters
+Author: Joe Filippazzo
+Author-email: jfilippazzo@stsci.edu
+License: MIT
+Description-Content-Type: UNKNOWN
+Keywords: astrophysics
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Requires-Dist: astropy
+Requires-Dist: bokeh
+Requires-Dist: numpy
+
+A Python wrapper for the SVO Filter Profile Service
+
+
