@@ -1,0 +1,10 @@
+python-dateutil
+six
+
+[:python_version < "3"]
+CommonConf<1.0
+UW-RestClients-Core<1.0,>0.8
+
+[:python_version >= "3"]
+CommonConf
+UW-RestClients-Core>0.8
