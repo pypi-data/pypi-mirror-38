@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: cache_tables
+Version: 0.1
+Summary: Create cache tables for direct mapped and fully associative methods, usefull for computer architecture classes.
+Home-page: https://github.com/NotZombieFood/CacheSimulator
+Author: Gerardo Cruz
+Author-email: gerardocd1000@gmail.com
+License: MIT
+Download-URL: https://github.com/NotZombieFood/CacheSimulator/archive/v0.1.tar.gz
+Description: UNKNOWN
+Keywords: cache,table,simulator,computer architecture,full associative,direct mapped
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Education
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
