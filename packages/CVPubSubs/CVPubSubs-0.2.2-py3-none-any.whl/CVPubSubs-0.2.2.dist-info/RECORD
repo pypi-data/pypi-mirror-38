@@ -1,0 +1,17 @@
+CVPubSubs-0.2.2.dist-info/METADATA,sha256=VVxXTYGmqRuIQJ14b33zaiUyQr-2_rjoaX3gSGS5q9E,3461
+CVPubSubs-0.2.2.dist-info/RECORD,,
+CVPubSubs-0.2.2.dist-info/WHEEL,sha256=cScVKDQXc_cp1jHmxFDq9fIOIg17a2BsmfS6J39H6Eo,97
+CVPubSubs-0.2.2.dist-info/top_level.txt,sha256=xw2D-VxgipqaiQToPcH63gVgsX9vM6yqZ5Cz23wqYis,16
+cvpubsubs/__init__.py,sha256=Mgz08fr8tY-8mhsBCgrKWOz7pu_-v4kgS4rNrtcwGxM,23
+cvpubsubs/listen_default.py,sha256=4jO1L216Wh5pNcyF2ROgtX9quNeDBCm3rUrPhLkSHQA,529
+cvpubsubs/webcam_pub/__init__.py,sha256=uJNkf2iTXVi3VoyXxS_tdiEoPQUvzTqBWEDvEeX4890,171
+cvpubsubs/webcam_pub/camctrl.py,sha256=PVwWYoam2UEJbI9O1h-0qE9aCUNIV6jD-7J4ePkbKdE,243
+cvpubsubs/webcam_pub/frame_handler.py,sha256=L4cuM1lz_EA3CrF5f1rXPYoq159LvycS_R_xuXrHIFs,3649
+cvpubsubs/webcam_pub/get_cam_ids.py,sha256=CS83iRZwl4BkgoeqRIGcZC34dAQ7HqDPvjF8iZARzG8,302
+cvpubsubs/webcam_pub/pub_cam.py,sha256=SiNlqkWsrG492zRkH_2YgM9XkJS7HG1CxTsDnMBzRs4,2819
+cvpubsubs/window_sub/__init__.py,sha256=Kkc2-BzaWzoPOBtY1yYN1bODQLp4_GHgioHq4tMYL5c,46
+cvpubsubs/window_sub/cv_window_sub.py,sha256=8uqp3bg0va-dZqIcjLtUp1Y3gKlRdWO09j5mKNYYDTg,2968
+cvpubsubs/window_sub/winctrl.py,sha256=59HINgfSDu9TZrSKX9ISxk-kMaSOD0o9Qt_LdXA6eCc,224
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_pub_cam.py,sha256=8jmczoIfop_wdbdrYGwmod4EnRljtE2H_31WhoWjUd8,573
+tests/test_sub_win.py,sha256=WlhxPtXGjZOkLBN-tE_uCflU84w7y3hCZsMQle-zcCI,2643
