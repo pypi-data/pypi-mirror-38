@@ -1,0 +1,13 @@
+README.md
+setup.py
+google_cloud_logger/__init__.py
+google_cloud_logger.egg-info/PKG-INFO
+google_cloud_logger.egg-info/SOURCES.txt
+google_cloud_logger.egg-info/dependency_links.txt
+google_cloud_logger.egg-info/not-zip-safe
+google_cloud_logger.egg-info/requires.txt
+google_cloud_logger.egg-info/top_level.txt
+test/__init__.py
+test/google_cloud_logger/__init__.py
+test/google_cloud_logger/conftest.py
+test/google_cloud_logger/test_google_cloud_formatter.py
