@@ -1,0 +1,15 @@
+pacifica_proxy-0.1.0-py2.7-nspkg.pth,sha256=D3iBWN0sQfyYHlyK1b54AmsNexyR1L2R1mNEdQLAsCo,549
+pacifica/proxy/__init__.py,sha256=dkGkXUUHewK9VV2ZQ6BEdvG4DmzNysathJn2SgO0T_o,76
+pacifica/proxy/__main__.py,sha256=-pM5JUqbU8M_ZuN2CE9g4txSmeo_zQTKwIpl1LsH-80,2568
+pacifica/proxy/config.py,sha256=1PLc25IF3Vk_B789cLiMn9Zm8TIOxTIoompGrOgU3Z4,1232
+pacifica/proxy/files.py,sha256=lXAVdFo6Ksf9gVCbk5Hg1aW5AQQKbpr7AcoO2nj3rUM,2263
+pacifica/proxy/globals.py,sha256=Sw7a5Kkv-1fmqV0ggGwpKOLoQMq0usL8K3ldsgpN2mg,377
+pacifica/proxy/rest.py,sha256=aaTOHFtNgSERgsc_3lfJF_FOOwUX3eVtqR3ajVU5M5E,803
+pacifica/proxy/wsgi.py,sha256=yVYUrFZOjlkA0eBz4PNOC_rfbrRbxl1ds0RCDOmniuw,448
+pacifica_proxy-0.1.0.dist-info/LICENSE,sha256=2ylvL381vKOhdO-w6zkrOxe9lLNBhRQpo9_0EbHC_HM,18046
+pacifica_proxy-0.1.0.dist-info/METADATA,sha256=Xz9M5jPpsHR7YEOw4Ao_64CGifk9J_H9qhskniR9PPI,3068
+pacifica_proxy-0.1.0.dist-info/WHEEL,sha256=oAVPkyAEF4ax3tnqlvKYGy8JOdoAihZXbcM6C6xJNOI,92
+pacifica_proxy-0.1.0.dist-info/entry_points.txt,sha256=hSDDEijmkZawTfMXNSjmGi-LdB6TZG0TnIRzw_OXmIo,65
+pacifica_proxy-0.1.0.dist-info/namespace_packages.txt,sha256=97BgCdNVxU-31S58qvZcRI0NGHH7Zk4ZBB-KSTnEIpk,9
+pacifica_proxy-0.1.0.dist-info/top_level.txt,sha256=97BgCdNVxU-31S58qvZcRI0NGHH7Zk4ZBB-KSTnEIpk,9
+pacifica_proxy-0.1.0.dist-info/RECORD,,
