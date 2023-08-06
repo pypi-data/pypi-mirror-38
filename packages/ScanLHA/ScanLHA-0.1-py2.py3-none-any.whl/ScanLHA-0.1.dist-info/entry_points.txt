@@ -1,0 +1,6 @@
+[console_scripts]
+EditLHA=ScanLHA.EditLHA:Edit
+MergeLHA=ScanLHA.MergeLHA:Merge
+PlotLHA=ScanLHA.PlotLHA:Plot
+ScanLHA=ScanLHA.ScanLHA:ScanLHA
+
