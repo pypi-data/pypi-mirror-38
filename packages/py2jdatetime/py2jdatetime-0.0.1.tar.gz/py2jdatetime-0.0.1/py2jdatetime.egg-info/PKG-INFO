@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: py2jdatetime
+Version: 0.0.1
+Summary: A package for converting python datetime patterns to java patterns
+Home-page: https://github.com/Iddoyadlin/Py2JDatetime
+Author: Iddo Yadlin
+Author-email: iddoyadlin@gmail.com
+License: UNKNOWN
+Description: # PythonToJavaDatetime
+        A library for converting datetime patterns between C standard (Python) to ISO-8601 standard (java).
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
