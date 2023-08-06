@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: solr2es
+Version: 0.1
+Summary: Python solr/elasticsearch migration script
+Home-page: https://github.com/ICIJ/solr2es
+Author: Anne L'Hôte, Bruno Thomas
+Author-email: alhote@icij.org, bthomas@icij.org
+License: GPL-3.0
+Description: solr2es
+        -------
+        
+        .. image:: https://circleci.com/gh/ICIJ/solr2es.png?style=shield&circle-token=846c844f540fb3746b80b8f12656ddde665b5037
+           :alt: Circle CI
+           :target: https://circleci.com/gh/ICIJ/solr2es
+        
+        Migration script from solr to elasticsearch
+Keywords: migration search engine solr elasticsearch
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
