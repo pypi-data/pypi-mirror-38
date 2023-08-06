@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: harmonique
+Version: 0.0.1
+Summary: a sad little personal static blog generator
+Home-page: http://github.com/poudel/harmonique
+Author: Keshab Paudel
+Author-email: self@keshab.net
+License: MIT
+Keywords: static-site blog markdown python
+Platform: UNKNOWN
+Requires-Dist: htmlmin (==0.1.12)
+Requires-Dist: jinja2 (==2.10)
+Requires-Dist: markdown2 (==2.3.5)
+Requires-Dist: markupsafe (==1.0)
+Requires-Dist: python-frontmatter (==0.4.2)
+Requires-Dist: pyyaml (==4.2b4)
+Requires-Dist: rcssmin (==1.0.6)
+Requires-Dist: six (==1.11.0)
+
+# Introduction
+
+A sad little static blog generator. Nothing fancy.
+
+## Installation
+
+Run:
+
+```
+pip install harmonique
+```
+
+## Example
+
+Clone/download this repository and check out the `example` directory.
+
+
