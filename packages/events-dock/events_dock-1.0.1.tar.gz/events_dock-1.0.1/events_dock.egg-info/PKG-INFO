@@ -1,0 +1,17 @@
+Metadata-Version: 1.1
+Name: events-dock
+Version: 1.0.1
+Summary: Application used to control docker events.
+Home-page: https://github.com/todstoychev/events-dock
+Author: Todor Todorov
+Author-email: todstoychev@gmail.com
+License: UNKNOWN
+Description: UNKNOWN
+Keywords: docker containers control
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7

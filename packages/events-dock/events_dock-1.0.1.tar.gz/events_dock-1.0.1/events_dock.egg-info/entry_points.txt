@@ -1,0 +1,3 @@
+[console_scripts]
+events-dock = events_dock.__main__:main
+
