@@ -1,0 +1,272 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pyaxis &#8212; pyaxis 0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to pyaxis documentation!" href="index.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to pyaxis documentation!"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyaxis 0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="pyaxis">
+<h1>pyaxis<a class="headerlink" href="#pyaxis" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<span class="target" id="module-pyaxis"></span><p>Pcaxis Parser module</p>
+<p>This module obtains a pandas DataFrame of tabular data from a PC-Axis
+file or URL. Reads data and metadata from PC-Axis <a class="footnote-reference" href="#id2" id="id1">[1]</a> into a dataframe and
+dictionary, and returns a dictionary containing both structures.</p>
+<p class="rubric">Example</p>
+<p>from pyaxis import pyaxis</p>
+<p>px = pyaxis.parse(self.base_path + ‘px/2184.px’, encoding=’ISO-8859-2’)</p>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td><a class="reference external" href="https://www.scb.se/en/services/statistical-programs-for-px-files/">https://www.scb.se/en/services/statistical-programs-for-px-files/</a></td></tr>
+</tbody>
+</table>
+<p>..todo:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">meta_split</span><span class="p">:</span> <span class="s2">&quot;NOTE&quot;</span> <span class="n">attribute</span> <span class="n">can</span> <span class="n">be</span> <span class="n">multiple</span><span class="p">,</span> <span class="n">but</span> <span class="n">only</span> <span class="n">the</span> <span class="n">last</span> <span class="n">one</span>
+<span class="ow">is</span> <span class="n">added</span> <span class="n">to</span> <span class="n">the</span> <span class="n">dictionary</span>
+</pre></div>
+</div>
+<dl class="function">
+<dt id="pyaxis.build_dataframe">
+<code class="descclassname">pyaxis.</code><code class="descname">build_dataframe</code><span class="sig-paren">(</span><em>dimension_names</em>, <em>dimension_members</em>, <em>data_values</em><span class="sig-paren">)</span><a class="headerlink" href="#pyaxis.build_dataframe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds a dataframe by adding the cartesian product of dimension members,
+plus the series of data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>dimension_names</strong> (<em>list of string</em>) – </li>
+<li><strong>dimension_members</strong> (<em>list of string</em>) – </li>
+<li><strong>data_values</strong> (<em>list of string</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">data (pandas dataframe)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyaxis.get_dimensions">
+<code class="descclassname">pyaxis.</code><code class="descname">get_dimensions</code><span class="sig-paren">(</span><em>metadata</em><span class="sig-paren">)</span><a class="headerlink" href="#pyaxis.get_dimensions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads STUB and HEADING values from metadata dictionary.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>metadata</strong> – dictionary of metadata</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">dimension_names (list)
+dimension_members (list)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyaxis.metadata_extract">
+<code class="descclassname">pyaxis.</code><code class="descname">metadata_extract</code><span class="sig-paren">(</span><em>pc_axis</em><span class="sig-paren">)</span><a class="headerlink" href="#pyaxis.metadata_extract" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extracts metadata and data from pc-axis file contents.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pc_axis</strong> (<em>str</em>) – pc_axis file contents.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">each item conforms to an                                              ATTRIBUTE=VALUES pattern
+data (string): data values</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">metadata_attributes (list of string)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyaxis.metadata_split_to_dict">
+<code class="descclassname">pyaxis.</code><code class="descname">metadata_split_to_dict</code><span class="sig-paren">(</span><em>metadata_elements</em><span class="sig-paren">)</span><a class="headerlink" href="#pyaxis.metadata_split_to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Splits the list of metadata elements into a dictionary
+of multi-valued keys.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>metadata_elements</strong> (<em>list of string</em>) – pairs ATTRIBUTE=VALUES</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">{‘attribute1’: [‘value1’, ‘value2’, … ], …}</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">metadata (dictionary)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyaxis.parse">
+<code class="descclassname">pyaxis.</code><code class="descname">parse</code><span class="sig-paren">(</span><em>uri</em>, <em>encoding</em>, <em>timeout=10</em><span class="sig-paren">)</span><a class="headerlink" href="#pyaxis.parse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extracts metadata and data sections from pc-axis.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>uri</strong> (<em>str</em>) – file name or URL</li>
+<li><strong>encoding</strong> (<em>str</em>) – charset encoding</li>
+<li><strong>timeout</strong> (<em>int</em>) – request timeout in seconds; optional</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>dictionary of metadata and pandas df.</dt>
+<dd><p class="first last">METADATA: dictionary of metadata
+DATA: pandas dataframe</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">pc_axis_dict (dictionary)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyaxis.read">
+<code class="descclassname">pyaxis.</code><code class="descname">read</code><span class="sig-paren">(</span><em>uri</em>, <em>encoding</em>, <em>timeout=10</em><span class="sig-paren">)</span><a class="headerlink" href="#pyaxis.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads a text file from file system or URL.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>uri</strong> (<em>str</em>) – file name or URL</li>
+<li><strong>encoding</strong> (<em>str</em>) – charset encoding</li>
+<li><strong>timeout</strong> (<em>int</em>) – request timeout; optional</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">file contents.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">raw_pcaxis (str)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyaxis.uri_type">
+<code class="descclassname">pyaxis.</code><code class="descname">uri_type</code><span class="sig-paren">(</span><em>uri</em><span class="sig-paren">)</span><a class="headerlink" href="#pyaxis.uri_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines the type of URI.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>uri</strong> (<em>str</em>) – pc-axis file name or URL</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">‘URL’ | ‘FILE’</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">uri_type (str)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Welcome to pyaxis documentation!</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/modules.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to pyaxis documentation!"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyaxis 0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, ICANE.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1.
+    </div>
+  </body>
+</html>
