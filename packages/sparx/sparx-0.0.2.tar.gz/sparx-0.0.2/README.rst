@@ -1,0 +1,105 @@
+Sparx
+============
+.. image:: http://sparx.readthedocs.io/en/latest/_images/logo.png
+   :target: https://sparx.readthedocs.io/en/latest/
+
+Sparx is a Python module for data preprocessing and wrangling built on top of
+Pandas, Numpy, SciPy, Scikit-Learn and distributed under the 1-Clause BSD license.
+
+The project was started in 2017 by **Bastin Robins**, **Vandana Bhagat**, **Pallavi Murthy** as a CleverInsight Hack Challenge, and since then many volunteers have contributed. See
+the `AUTHORS.rst <AUTHORS.rst>`_ file for a complete list of contributors.
+
+It is currently maintained by a team of volunteers.
+
+Website: http://sparx.readthedocs.org
+
+
+Installation
+------------
+
+Dependencies
+~~~~~~~~~~~~
+
+sparx requires:
+
+- Python-dateutil (>=2.6.0)
+- Geopy (<=1.11.0)
+- Pandas (>=0.19.2)
+- NumPy (>=1.13.1)
+- Blaze (>=0.10.1)
+- SciPy (>=0.18.1)
+- Scikit-Learn (>=0.18.1)
+
+User installation
+~~~~~~~~~~~~~~~~~
+
+If you already have a working installation of pandas, numpy,geopy, python_dateutil, scikit-learn and scipy,
+the easiest way to install scikit-learn is using ``pip`` ::
+
+    pip install -U sparx
+
+
+Development
+-----------
+
+We welcome new contributors of all experience levels. The sparx
+community goals are to be helpful, welcoming, and effective. 
+
+Important links
+~~~~~~~~~~~~~~~
+
+- Official source code repo: https://gitlab.com/cleverinsight-community/sparx
+- Download releases: https://pypi.python.org/pypi/sparx
+- Issue tracker: https://gitlab.com/cleverinsight-community/sparx/issues
+
+Source code
+~~~~~~~~~~~
+
+You can check the latest sources with the command::
+
+    git clone https://gitlab.com/cleverinsight-community/sparx.git
+
+Setting up a development environment
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Quick tutorial on how to go about setting up your environment to
+contribute to sparx: http://sparx.readthedocs.io/en/latest/contributing.html
+
+Testing
+~~~~~~~
+
+After installation, you can launch the test suite from outside the
+source directory (you will need to have the ``pytest`` package installed)::
+
+    python -m pytest -v 
+
+Submitting a Pull Request
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Before opening a Pull Request, have a look at the
+full Contributing page to make sure your code complies
+with our guidelines: http://sparx.readthedocs.io/en/latest/contributing.html
+
+
+Project History
+---------------
+
+The project was started in 2017 by Bastin Robins, Vandana Bhagat, Pallavi Murthi as a CleverInsight Hack Challenge, and since then many volunteers have contributed. See
+the `AUTHORS.rst <AUTHORS.rst>`_ file for a complete list of contributors.
+
+Help and Support
+----------------
+
+Documentation
+~~~~~~~~~~~~~
+
+- HTML documentation (stable release): http://sparx.readthedocs.io
+- HTML documentation (development version): http://sparx.readthedocs.io/dev
+- FAQ: http://sparx.readthedocs.io
+
+Communication
+~~~~~~~~~~~~~
+
+- IRC channel: ``#sparx`` at ``webchat.freenode.net``
+- Website: http://sparx.cleverinsight.co
+
