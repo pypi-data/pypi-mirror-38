@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: euchre
+Version: 0.0
+Summary: Sample project generated from jacebrowning/template-python.
+Home-page: https://coverage.space/client/
+Author: Euchre
+Author-email: jacebrowning@gmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: Development Status :: 1 - Planning
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: click (>=6.0,<7.0)
+Requires-Dist: minilog (>=0.4,<0.5)
+Project-URL: Documentation, https://cli.coverage.space
+Project-URL: Repository, https://github.com/jacebrowning/coverage-space-cli
