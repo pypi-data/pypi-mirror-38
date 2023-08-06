@@ -1,0 +1,18 @@
+Metadata-Version: 2.0
+Name: ooeevv
+Version: 0.0.7
+Summary: A simple library for ooeevv
+Home-page: http://www.ooeevv.com
+Author: marco domenichetti
+Author-email: info@ooeevv.com
+License: MIT
+Keywords: ooeevv simple privat
+Platform: UNKNOWN
+
+# prova10
+raspberry:
+==========
+
+    sudo apt-get install sqlite3
+
+
