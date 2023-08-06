@@ -1,0 +1,4 @@
+[console_scripts]
+redrum = redrum.redrum:main
+redrum_tune = redrum.tune_gui:main [tune]
+
