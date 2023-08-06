@@ -1,0 +1,12 @@
+jupyterhub (0.9.4-1~stretch) stretch; urgency=low
+
+  * Update to 0.9.4
+  * Set spawner class in config (not in launcher)
+
+ -- Juergen Hermann <jh@web.de>  Wed, 14 Nov 2018 10:30:51 +0100
+
+jupyterhub (0.9.3-1~stretch) stretch; urgency=low
+
+  * Initial release of "debianized-jupyterhub"
+
+ -- Juergen Hermann <jh@web.de>  Mon, 17 Sep 2018 17:32:00 +0200
