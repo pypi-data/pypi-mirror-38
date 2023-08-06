@@ -1,0 +1,11 @@
+MANIFEST.in
+README.md
+setup.py
+spacy_german_preprocess.egg-info/PKG-INFO
+spacy_german_preprocess.egg-info/SOURCES.txt
+spacy_german_preprocess.egg-info/dependency_links.txt
+spacy_german_preprocess.egg-info/requires.txt
+spacy_german_preprocess.egg-info/top_level.txt
+spacy_preprocessing/__init__.py
+spacy_preprocessing/preprocess.py
+spacy_preprocessing/data/IWNLP.Lemmatizer_20181001.json
