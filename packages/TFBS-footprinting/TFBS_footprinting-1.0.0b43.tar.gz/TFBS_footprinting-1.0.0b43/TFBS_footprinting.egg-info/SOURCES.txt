@@ -1,0 +1,26 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.py
+TFBS_footprinting.egg-info/PKG-INFO
+TFBS_footprinting.egg-info/SOURCES.txt
+TFBS_footprinting.egg-info/dependency_links.txt
+TFBS_footprinting.egg-info/entry_points.txt
+TFBS_footprinting.egg-info/requires.txt
+TFBS_footprinting.egg-info/top_level.txt
+sample_analysis/TFBS_footprinter.log
+sample_analysis/cichlid.txt
+sample_analysis/pig.txt
+sample_analysis/sample_analysis_list.csv
+sample_analysis/sample_analysis_list2.csv
+sample_analysis/sample_ensembl_ids.testing_gerp.txt
+sample_analysis/sample_ensembl_ids.txt
+sample_analysis/sample_jaspar_tf_ids.txt
+sample_analysis/spiny.txt
+tfbs_footprinter/__init__.py
+tfbs_footprinter/__main__.py
+tfbs_footprinter/tfbs_footprinter (another copy).py
+tfbs_footprinter/tfbs_footprinter (copy).py
+tfbs_footprinter/tfbs_footprinter.moving_towards_genome_locs.py
+tfbs_footprinter/tfbs_footprinter.pre_gerp.py
+tfbs_footprinter/tfbs_footprinter.py
