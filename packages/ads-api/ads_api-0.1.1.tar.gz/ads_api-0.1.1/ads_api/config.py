@@ -1,0 +1,4 @@
+LOCAL = True
+GOOGLE_ADS_VERSION = 'v201710'
+ACCOUNTSTATS = ['Active']
+ENVIRONMENT = 'production'
