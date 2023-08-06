@@ -1,0 +1,16 @@
+README.rst
+setup.cfg
+setup.py
+colicoords.egg-info/PKG-INFO
+colicoords.egg-info/SOURCES.txt
+colicoords.egg-info/dependency_links.txt
+colicoords.egg-info/top_level.txt
+test/test_basic_functions.py
+test/test_cell.py
+test/test_data_models.py
+test/test_fileio.py
+test/test_fitting.py
+test/test_functions.py
+test/test_rdist_fitting.py
+test/test_synthetic_data.py
+test/testcase.py
