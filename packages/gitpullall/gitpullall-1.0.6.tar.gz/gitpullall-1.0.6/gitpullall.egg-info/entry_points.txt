@@ -1,0 +1,4 @@
+[console_scripts]
+gitpullall = gitpullall.gitpullall:main
+gpa = gitpullall.gitpullall:main
+
