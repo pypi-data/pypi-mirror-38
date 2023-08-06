@@ -1,0 +1,9 @@
+numpy>=1.11.3
+six
+future
+
+[:python_version<"3.4"]
+enum34
+
+[pytorch]
+pytorch
