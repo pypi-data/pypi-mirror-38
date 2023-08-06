@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: gnuhealth-caldav
+Version: 3.4.0
+Summary: CalDAV package for GNU Health and Python3
+Home-page: http://health.gnu.org
+Author: GNU Solidario
+Author-email: health@gnusolidario.org
+License: GPL-3
+Download-URL: http://ftp.gnu.org/gnu/health/
+Description: GNU Health Calendar for WebDAV3
+        ===============================
+        
+        The package is the continuation of the CalDAV functionality
+        for the discontinued Tryton package.
+        
+        It has been ported to Python 3 and GNU Health.
+        
+Keywords: GNUHealth calendar caldav
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Plugins
+Classifier: Framework :: Tryton
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Financial and Insurance Industry
+Classifier: Intended Audience :: Legal Industry
+Classifier: Intended Audience :: Manufacturing
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Topic :: Scientific/Engineering :: Medical Science Apps.
+Provides-Extra: test
