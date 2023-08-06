@@ -1,0 +1,15 @@
+README.rst
+setup_service.py
+Hippodamia.egg-info/PKG-INFO
+Hippodamia.egg-info/SOURCES.txt
+Hippodamia.egg-info/dependency_links.txt
+Hippodamia.egg-info/entry_points.txt
+Hippodamia.egg-info/requires.txt
+Hippodamia.egg-info/top_level.txt
+hippodamia_agent/__init__.py
+hippodamia_agent/monitoringagent.py
+hippodamia_agent/test_cpu_percentage.py
+hippodamia_agent/testservice.py
+hippodamia_service/Monitoringservice.py
+hippodamia_service/__init__.py
+tests_unit/__init__.py
