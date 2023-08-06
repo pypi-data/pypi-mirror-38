@@ -1,0 +1,14 @@
+MANIFEST.in
+README.md
+setup.py
+reviewboard_ipynb/__init__.py
+reviewboard_ipynb/extension.py
+reviewboard_ipynb.egg-info/PKG-INFO
+reviewboard_ipynb.egg-info/SOURCES.txt
+reviewboard_ipynb.egg-info/dependency_links.txt
+reviewboard_ipynb.egg-info/entry_points.txt
+reviewboard_ipynb.egg-info/not-zip-safe
+reviewboard_ipynb.egg-info/requires.txt
+reviewboard_ipynb.egg-info/top_level.txt
+reviewboard_ipynb/static/css/notebook.css
+reviewboard_ipynb/templates/ipynb.html

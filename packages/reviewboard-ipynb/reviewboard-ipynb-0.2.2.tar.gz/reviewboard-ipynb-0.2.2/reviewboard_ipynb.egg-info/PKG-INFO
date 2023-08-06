@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: reviewboard-ipynb
+Version: 0.2.2
+Summary: Display ipynb in a better format
+Home-page: https://github.com/lydian/reviewboard-ipynb
+Author: Lydian Lee
+Author-email: lydianly@gmail.com
+Maintainer: Lydian Lee
+Maintainer-email: lydianly@gmail.com
+License: UNKNOWN
+Description: # Reviewboard Extension for review jupyter notebook
+        
+        - This extension renders jupyter notebook so that it is easier to code review jupyter notebook.
+        - The extension use nbconvert locally for render, there's no need to convert the notebook to different format by yourself.
+        - The template kept the javascript definition, namely, if your jupyter notebook is using external library (plotly, MathJax), it will still show it for you.
+        
+        
+        ## Limitiation:
+        - Due to the limitation of reviewboard plugin, this only render the file attachement
+        
+        ## TODO:
+        - Add tests
+        - Better support for diff (probably use nbdime) instead of the current built-in differ.
+        
+        
+        ## Screenshot:
+        - render ipynb
+        ![Render Ipynb](https://github.com/lydian/reviewboard-ipynb/blob/master/screenshots/comment.png?raw=true "Render Ipynb")
+        - comment
+        ![Comment](https://github.com/lydian/reviewboard-ipynb/blob/master/screenshots/comment.png?raw=true "Comment")
+        - diff
+        ![diff](https://github.com/lydian/reviewboard-ipynb/blob/master/screenshots/diff.png?raw=true "diff")
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Review Board
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Description-Content-Type: text/markdown
