@@ -1,0 +1,17 @@
+README.md
+setup.py
+dictionary/__init__.py
+dictionary/lookalikes.py
+dictionary/lowercase.py
+dictionary/numbers.py
+dictionary/prevent_misreadings.py
+dictionary/uppercase.py
+nanoid/__init__.py
+nanoid/complex_generate.py
+nanoid/non_secure_generate.py
+test_nid.egg-info/PKG-INFO
+test_nid.egg-info/SOURCES.txt
+test_nid.egg-info/dependency_links.txt
+test_nid.egg-info/not-zip-safe
+test_nid.egg-info/requires.txt
+test_nid.egg-info/top_level.txt
