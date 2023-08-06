@@ -1,0 +1,12 @@
+import logging
+from $APP_NAME import app
+
+# ==================================================================================================
+
+logging.getLogger().setLevel("DEBUG")
+
+# ==================================================================================================
+
+def test_$APP_NAME():
+    logging.debug("testing main app")
+    assert app(a=1) == 1
