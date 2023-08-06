@@ -1,0 +1,4 @@
+[datagovuk.plugins.processors]
+csv = datagovuk.data_processors.csv:CSVProcessor
+geojson = datagovuk.data_processors.geojson:GeoJSONProcessor [gis]
+
