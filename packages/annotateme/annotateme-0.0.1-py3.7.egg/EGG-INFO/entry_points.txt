@@ -1,0 +1,3 @@
+[console_scripts]
+annotateme = annotateme.standalone.manage:main [standalone]
+
