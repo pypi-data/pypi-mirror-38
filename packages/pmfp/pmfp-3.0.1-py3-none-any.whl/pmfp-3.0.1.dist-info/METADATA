@@ -1,0 +1,80 @@
+Metadata-Version: 2.0
+Name: pmfp
+Version: 3.0.1
+Summary: a simple package manager for python like npm.
+Home-page: https://github.com/Python-Tools/pmfp
+Author: hsz
+Author-email: hsz1273327@gmail.com
+License: MIT
+Description-Content-Type: UNKNOWN
+Keywords: tools,project_manager
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Documentation :: Sphinx
+Requires-Dist: wheel
+Requires-Dist: pep8
+Requires-Dist: coverage
+Requires-Dist: mypy
+Requires-Dist: lxml
+Requires-Dist: mypy-extensions
+Requires-Dist: pydocstyle
+Requires-Dist: autopep8
+Requires-Dist: sphinx
+Requires-Dist: wheel
+Requires-Dist: coverage
+Requires-Dist: recommonmark
+Requires-Dist: sphinxcontrib-napoleon
+Requires-Dist: mypy
+Requires-Dist: lxml
+Requires-Dist: mypy-extensions
+Requires-Dist: boom
+Requires-Dist: voluptuous
+
+pmfp
+===============================
+* version: 3.0.1
+* status: dev
+* author: hsz
+* email: hsz1273327@gmail.com
+
+
+Desc
+--------------------------------
+a simple package manager for python like npm.
+keywords:['tools', 'project_manager']
+
+
+Feature
+----------------------
+* Feature1
+* Feature2
+
+
+Example
+-------------------------------
+.. code:: python
+
+
+Install
+--------------------------------
+- ``python -m pip install pmfp``
+
+
+Documentation
+--------------------------------
+`Documentation on Readthedocs <https://github.com/Python-Tools/pmfp>`_.
+
+
+TODO
+-----------------------------------
+* todo
+
+
+Limitations
+-----------
+* limit
+
