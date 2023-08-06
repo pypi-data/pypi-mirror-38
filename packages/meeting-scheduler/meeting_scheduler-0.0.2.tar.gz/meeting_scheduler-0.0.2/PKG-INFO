@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: meeting_scheduler
+Version: 0.0.2
+Summary: A meeting scheduler package
+Home-page: https://github.com/wesyoung9987/meetingscheduler
+Author: Wes Young
+Author-email: wes.young14@gmail.com
+License: UNKNOWN
+Description: # Meeting Scheduler
+        
+        A Python library for team meeting scheduling.
+        
+        ## Installation
+        
+        ## Usage
+        
+        ## Testing locally
+        
+        Clone the repository:
+        
+        ```
+        $ git clone https://github.com/wesyoung9987/meetingscheduler.git
+        ```
+        
+        Run the tests from inside the project:
+        
+        ```
+        $ cd meetingscheduler
+        $ python -m unittest discover
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
