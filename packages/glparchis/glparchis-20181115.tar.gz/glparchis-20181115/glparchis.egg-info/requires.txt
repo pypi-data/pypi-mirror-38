@@ -1,0 +1,7 @@
+setuptools
+pyopengl
+
+[:platform_system == "Windows"]
+PyQtChart
+PyQt5
+pywin32
