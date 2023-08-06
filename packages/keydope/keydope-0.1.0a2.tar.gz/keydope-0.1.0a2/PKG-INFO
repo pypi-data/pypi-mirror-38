@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: keydope
+Version: 0.1.0a2
+Summary: 
+Home-page: https://github.com/infokiller/keydope
+Author: infokiller
+Author-email: None
+Keywords: keyboard
+Requires-Python: >=3.6
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: evdev (>=1.1,<2.0)
+Requires-Dist: inotify_simple (>=1.1,<2.0)
+Requires-Dist: python-xlib (>=0.23.0,<0.24.0)
+Requires-Dist: pyyaml (>=3.13,<4.0)
+Requires-Dist: tabulate (>=0.8.2,<0.9.0)
+Project-URL: Repository, https://github.com/infokiller/keydope
