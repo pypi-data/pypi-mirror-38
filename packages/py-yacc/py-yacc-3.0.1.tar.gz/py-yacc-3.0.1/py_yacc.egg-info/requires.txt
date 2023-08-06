@@ -1,0 +1,8 @@
+PyYAML>=3.12
+safeoutput
+
+[test]
+mock
+nose>=1.0
+coverage
+nosexcover

@@ -1,0 +1,5 @@
+[console_scripts]
+pyyacc = pyyacc.scripts.compile:validate_main
+pyyacc.validate = pyyacc.scripts.compile:validate_main
+pyyacc3 = pyyacc3.compile:main
+
