@@ -1,0 +1,3 @@
+[console_scripts]
+skopy = skopy.command:command
+
