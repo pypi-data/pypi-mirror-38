@@ -1,0 +1,16 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+setup.py
+fits_align/__init__.py
+fits_align/align.py
+fits_align/ident.py
+fits_align/imgcat.py
+fits_align/quad.py
+fits_align/star.py
+fits_align/utils.py
+fits_align.egg-info/PKG-INFO
+fits_align.egg-info/SOURCES.txt
+fits_align.egg-info/dependency_links.txt
+fits_align.egg-info/requires.txt
+fits_align.egg-info/top_level.txt
