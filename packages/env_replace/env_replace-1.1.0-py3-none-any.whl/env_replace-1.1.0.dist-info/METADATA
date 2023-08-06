@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: env_replace
+Version: 1.1.0
+Summary: env-replace: un-expand environment variables for more compact output
+Home-page: https://github.com/minrk/env_replace
+License: UNKNOWN
+Author: Min RK
+Author-email: benjaminrk@gmail.com
+Requires-Python: >=3
+Description-Content-Type: text/markdown
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+
+# env-replace
+
+Pipe commands that produce lots of output through `env-replace` to replace expanded environment variables
+(especially prefix paths in build output) with the environment variables themselves.
+
+Install:
+
+```bash
+python3 -m pip install env-replace
+```
+
+Usage:
+
+```bash
+export PREFIX="/super-long-prefix-path"
+echo "cc -I$PREFIX/include -L$PREFIX/lib ..." | env-replace
+```
+
+reverses environment variable expansion so that the output is:
+
+```
+cc -I$PREFIX/include -L$PREFIX/lib ...
+```
+
+instead of
+
+```
+cc -I/super-long-prefix-path/include -L/super-long-prefix-path/lib ...
+```
+
