@@ -1,0 +1,3 @@
+[console_scripts]
+rchain-keygen = rchain_keygen.__main__:main
+
