@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+Tagsnag.egg-info/PKG-INFO
+Tagsnag.egg-info/SOURCES.txt
+Tagsnag.egg-info/dependency_links.txt
+Tagsnag.egg-info/entry_points.txt
+Tagsnag.egg-info/requires.txt
+Tagsnag.egg-info/top_level.txt
+tagsnag/__init__.py
+tagsnag/__main__.py
+tagsnag/snag.py
+tagsnag/tagsnag.py
