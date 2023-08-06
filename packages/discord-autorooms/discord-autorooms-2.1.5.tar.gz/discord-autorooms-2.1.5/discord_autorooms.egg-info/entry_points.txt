@@ -1,0 +1,3 @@
+[console_scripts]
+discord-autorooms = autorooms.__main__:main
+
