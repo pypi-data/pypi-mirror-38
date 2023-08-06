@@ -1,0 +1,18 @@
+click
+cookiecutter
+jupyter
+networkx
+numpy
+pandas
+tornado >= 4.2, < 5.0.0
+tqdm
+
+[dev]
+coverage
+flake8
+pytest
+pytest-cov
+sphinx
+
+[docs]
+sphinx
