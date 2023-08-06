@@ -1,0 +1,13 @@
+azure/__init__.py,sha256=ACgdTCPVpFSrDhMom8E5xDMBxH_nvndKbECs5Ph9zmU,408
+azure/cli/__init__.py,sha256=ACgdTCPVpFSrDhMom8E5xDMBxH_nvndKbECs5Ph9zmU,408
+azure/cli/command_modules/__init__.py,sha256=ACgdTCPVpFSrDhMom8E5xDMBxH_nvndKbECs5Ph9zmU,408
+azure/cli/command_modules/cognitiveservices/__init__.py,sha256=ScTenmZrEo8YHWrZAU73xcXU0dRyWJIjChgpRThEDvg,1582
+azure/cli/command_modules/cognitiveservices/_client_factory.py,sha256=60OTdY3PvN3CVqw9fjH5MLzCY5qW7RBeE4GGh4AqyXE,854
+azure/cli/command_modules/cognitiveservices/_help.py,sha256=LyxtdWCal3ZkDAwDpHKxk8_Lh_-It16Nh9jQPDWsrqE,7890
+azure/cli/command_modules/cognitiveservices/_params.py,sha256=UFc8oaLKCeS3nga9ecu7XiGkPJrdlvHnO58mahDXQ-g,5126
+azure/cli/command_modules/cognitiveservices/commands.py,sha256=fpfF2QIEab4OxfIhUCmij7djy6bGD-4uTtfw5fbBkbQ,1619
+azure/cli/command_modules/cognitiveservices/custom.py,sha256=AIXhfXwXC5scnO7mQzdwupMhXK-Vc5uJqwHt82_jgOw,4367
+azure_cli_cognitiveservices-0.2.4.dist-info/METADATA,sha256=I4IMY1ezkS3DYc6Vf7AKZ_JNtoZZVgcqQ0IrkQJvlG8,2702
+azure_cli_cognitiveservices-0.2.4.dist-info/WHEEL,sha256=CihQvCnsGZQBGAHLEUMf0IdA4fRduS_NBUTMgCTtvPM,110
+azure_cli_cognitiveservices-0.2.4.dist-info/top_level.txt,sha256=S7DhWV9m80TBzAhOFjxDUiNbKszzoThbnrSz5MpbHSQ,6
+azure_cli_cognitiveservices-0.2.4.dist-info/RECORD,,
