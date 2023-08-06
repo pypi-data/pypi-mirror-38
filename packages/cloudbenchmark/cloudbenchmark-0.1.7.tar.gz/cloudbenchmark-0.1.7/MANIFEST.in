@@ -1,0 +1,4 @@
+include README.md
+include LICENSE
+recursive-include cloudbenchmark/playbook *
+recursive-include cloudbenchmark/template *
