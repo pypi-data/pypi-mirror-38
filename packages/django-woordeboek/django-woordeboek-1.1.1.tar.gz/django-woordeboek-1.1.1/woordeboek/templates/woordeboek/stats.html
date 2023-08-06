@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stats</title>
+  <style>
+    html { font-family: monospace }
+	  table { border-collapse: collapse; border: 1px solid }
+	  th { text-align: left; padding-left: 0.4rem; padding-right: 0.4rem; background-color:#ccc; font-weight: bold }
+    tr {border-bottom: 1px solid #aaa}
+    tr:hover { background-color: #ddd }
+    td:nth-of-type(1), td:nth-of-type(2) { padding-right: 20px }
+  </style>
+</head>
+<body>
+  <table>
+    <thead>
+    <tr>
+      <th>query</th>
+      <th>time</th>
+      <th>num_results</th>
+      <th>query_time</th>
+      <th>country</th>
+      <th>source</th>
+    </tr>
+    </thead>
+    <tbody>
+      {% for q in queries %}
+      <tr>
+        <td>{{ q.query }}</td>
+        <td>{{ q.time_created|date:"Y-m-d H:i" }}</td>
+        <td>{{ q.num_results }}</td>
+        <td>{{ q.response_time }}</td>
+        <td>{{ q.country }}</td>
+        <td>{{ q.source }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>
