@@ -1,0 +1,8 @@
+requests
+jsonschema==3.0.0a3
+rfc3987
+future
+
+[dev]
+pytest-cov
+codecov
