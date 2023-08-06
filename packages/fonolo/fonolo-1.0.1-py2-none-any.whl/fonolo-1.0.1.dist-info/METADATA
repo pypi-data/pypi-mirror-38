@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: fonolo
+Version: 1.0.1
+Summary: A Python wrapper for the Fonolo Call-Back Service
+Home-page: https://fonolo.com/
+Author: Mike Pultz
+Author-email: mike@fonolo.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: requests (>=2.1.0)
+Requires-Dist: six (>=1.9.0)
+
+UNKNOWN
+
+
