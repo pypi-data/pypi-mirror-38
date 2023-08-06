@@ -1,0 +1,3 @@
+[console_scripts]
+coinselectpy = coinselectpy.cli:main
+
