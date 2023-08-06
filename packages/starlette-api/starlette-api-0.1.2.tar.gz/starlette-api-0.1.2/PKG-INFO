@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: starlette-api
+Version: 0.1.2
+Summary: Starlette API layer inherited from APIStar
+Home-page: https://github.com/PeRDy/starlette-api
+Author: José Antonio Perdiguero López
+Author-email: perdy@perdy.io
+Keywords: starlette,api,apistar,components,schema
+Requires-Python: >3.6
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: pyyaml (>3.13)
+Requires-Dist: starlette (>0.7.0)
