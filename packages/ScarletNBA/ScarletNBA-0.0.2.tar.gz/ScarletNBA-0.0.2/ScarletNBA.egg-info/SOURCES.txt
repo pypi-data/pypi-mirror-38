@@ -1,0 +1,10 @@
+README.md
+setup.py
+ScarletNBA.egg-info/PKG-INFO
+ScarletNBA.egg-info/SOURCES.txt
+ScarletNBA.egg-info/dependency_links.txt
+ScarletNBA.egg-info/top_level.txt
+scrape_foos/__init__.py
+scrape_foos/bbrefToGBQ.py
+scrape_foos/playerinfo_utils.py
+scrape_foos/utils.py
