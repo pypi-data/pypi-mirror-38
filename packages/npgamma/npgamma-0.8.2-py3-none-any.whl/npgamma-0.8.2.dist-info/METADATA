@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: npgamma
+Version: 0.8.2
+Summary: `npgamma` is deprecated. Please use `gamma` module within the `pymedphys` package instead.
+Home-page: https://github.com/SimonBiggs/npgamma/
+Author: Simon Biggs
+Author-email: me@simonbiggs.net
+License: AGPL3+
+Keywords: radiotherapy,gamma evaluation,gamma index,distance to agreement,medical physics
+Platform: UNKNOWN
+
+
+`npgamma` is deprecated. A known bug in this version
+of `npgamma` is that the evaluation and reference grid
+definitions are flipped. This has flow on effects
+to parameters such as the `lower_dose_threshold` and
+simply swapping evaluation and reference grids may
+not achieve the desired results.
+
+`npgamma` is superceded by `pymedphys.gamma`.
+
+To install `pymedphys` see https://pymedphys.com/en/latest/getting-started/installation.html
+
+On usage of the gamma function within `pymedphys` see
+https://pymedphys.com/en/latest/user/gamma.html
+
+
