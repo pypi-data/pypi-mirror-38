@@ -1,0 +1,3 @@
+[console_scripts]
+tagscrape = tagscraper.bin:run
+
