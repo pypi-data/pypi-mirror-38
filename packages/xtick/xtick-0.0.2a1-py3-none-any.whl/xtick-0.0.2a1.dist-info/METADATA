@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: xtick
+Version: 0.0.2a1
+Summary: Visualization for intraday data
+Home-page: https://github.com/alpha-xone/xtick
+Author: Alpha x1
+Author-email: alpha.xone@outlook.com
+License: Apache
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Description-Content-Type: text/markdown
+Requires-Dist: numpy (>=1.15.0)
+Requires-Dist: pandas (>=0.23.4)
+Requires-Dist: pyarrow (>=0.11.1)
+Requires-Dist: python-dateutil (>=2.7.5)
+Requires-Dist: pytz (>=2018.7)
+
+# xtick
+
+[![PyPI version](https://badge.fury.io/py/xtick.svg)](https://badge.fury.io/py/xtick)
+[![Documentation Status](https://readthedocs.org/projects/xtick/badge/?version=latest)](https://xtick.readthedocs.io/en/latest)
+
+Visualization for intraday data
+
+## Jupyter notebook in `pipenv`
+
+```
+python -m ipykernel install --user --name=xtick
+jupyter notebook /studies
+```
+
+
