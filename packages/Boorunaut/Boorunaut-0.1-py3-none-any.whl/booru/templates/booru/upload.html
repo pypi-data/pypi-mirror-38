@@ -1,0 +1,96 @@
+{% extends 'booru/base.html' %}
+
+{% block css %}
+    {% load staticfiles %}
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div id="upload" class="col">
+            <h1>Upload</h1>
+            
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <div class="form-group row">
+                    <label class="col-1 col-form-label">{{ form.image.label }}</label>
+                    
+                    <div class="col-4">
+                        {{form.image}}
+                        <span class="custom-file-control"></span>
+                        <label class="custom-file-label ml-3 mr-3" for="{{ form.image.auto_id }}">Choose file</label>
+                    </div>
+
+                    {% if form.image.errors %}
+                    <div class="col-md-offset-2 col-8 has-errors text-danger small">
+                        {{form.image.errors}}
+                    </div>
+                    {% endif %}
+                </div>
+
+                <div class="form-group row">
+                    <label for="{{ form.tags.auto_id }}" class="col-1 col-form-label">{{ form.tags.label }}</label>
+                    
+                    <div class="col-4">
+                        {{form.tags}}
+                    </div>
+
+                    {% if form.tags.errors %}
+                    <div class="col-md-offset-2 col-8 has-errors text-danger small">
+                        {{form.tags.errors}}
+                    </div>
+                    {% endif %}
+                </div>
+
+                <div class="form-group row">
+                    <label for="{{ form.rating.auto_id }}" class="col-1 col-form-label">{{ form.rating.label }}</label>
+                    
+                    <div class="col-4">
+                        {{form.rating}}
+                    </div>
+
+                    {% if form.rating.errors %}
+                    <div class="col-md-offset-2 col-8 has-errors text-danger small">
+                        {{form.rating.errors}}
+                    </div>
+                    {% endif %}
+                </div>
+
+                <div class="form-group row">
+                    <label for="{{ form.source.auto_id }}" class="col-1 col-form-label">{{ form.source.label }}</label>
+                    
+                    <div class="col-4">
+                        {{form.source}}
+                    </div>
+
+                    {% if form.source.errors %}
+                    <div class="col-md-offset-2 col-8 has-errors text-danger small">
+                        {{form.source.errors}}
+                    </div>
+                    {% endif %}
+                </div>
+
+                <div class="form-group row">
+                    <label for="{{ form.description.auto_id }}" class="col-1 col-form-label">{{ form.description.label }}</label>
+                    
+                    <div class="col-4">
+                        {{form.description}}
+                    </div>
+
+                    {% if form.description.errors %}
+                    <div class="col-md-offset-2 col-8 has-errors text-danger small">
+                        {{form.description.errors}}
+                    </div>
+                    {% endif %}
+                </div>
+
+                <button type="submit" class="btn btn-primary">Post</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
