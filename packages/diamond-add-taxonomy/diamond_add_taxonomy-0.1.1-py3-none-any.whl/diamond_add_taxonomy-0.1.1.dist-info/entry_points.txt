@@ -1,0 +1,3 @@
+[console_scripts]
+diamond_add_taxonomy=diamond_add_taxonomy.cli:annotate_diamond
+
