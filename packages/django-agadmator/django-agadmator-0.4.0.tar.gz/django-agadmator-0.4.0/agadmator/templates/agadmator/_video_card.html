@@ -1,0 +1,22 @@
+{% load humanize %}
+<div class="{{ video_cols|default:'col-sm-12 col-md-6 col-lg-4 ' }} mb-4">
+  <div class="card">
+    <a href="{{ video.get_absolute_url }}">
+      <img class="card-img-top" src="{{ video.thumbnail_medium }}" alt="">
+    </a>
+    <div class="card-body">
+      <h5 class="card-title"><a class="text-dark" href="{{ video.get_absolute_url }}">{{ video.title }}</a></h5>
+      {#      <h6 class="card-subtitle mb-2 text-muted">{{ video.channel.title }}</h6>#}
+      <p class="card-subtitle" title="{{ video.time_published }}"><strong>{{ video.time_published|timesince }}
+        ago</strong></p>
+      {#      <p><code class="text-muted">{{ video.youtube_id }}</code></p>#}
+
+      <p>
+        {% for tag in video.tags %}
+          <a href="{{ tag.link }}" class="badge badge-dark">{{ tag.text }}</a>
+        {% endfor %}
+        {% if video.rank %}<p>{{ video.rank }}</p>{% endif %}
+      </p>
+    </div>
+  </div>
+</div>

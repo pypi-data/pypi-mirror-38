@@ -1,0 +1,42 @@
+{% extends 'agadmator/base.html' %}
+
+{% block content %}
+
+  <h1>Contact</h1>
+  <hr>
+  <p>Have feedback, an idea, suggestions or comments? Send a message using the form below.</p>
+
+  <p class="text-muted">All fields are optional. Your details will only be used
+    to respond to your message.</p>
+  <form method="post">
+    {% csrf_token %}
+
+    {{ form.non_field_errors }}
+    <div class="form-group">
+      {{ form.name.errors }}
+      <label for="{{ form.name.id_for_label }}">Name</label>
+      {{ form.name }}
+    </div>
+    <div class="form-group">
+      {{ form.email.errors }}
+      <label for="{{ form.email.id_for_label }}">Email</label>
+      {{ form.email }}
+    </div>
+    <div class="form-group">
+      {{ form.content.errors }}
+      <label for="{{ form.content.id_for_label }}">Message</label>
+      {{ form.content }}
+    </div>
+    <input type="submit" class="btn btn-primary" value="Submit">
+  </form>
+
+
+  <script>
+    (function() {
+      var els = document.querySelectorAll('input:not([type="submit"]),textarea')
+      for (var i = 0; i < els.length; i++) {
+        els[i].classList.add('form-control')
+      }
+    })()
+  </script>
+{% endblock content %}

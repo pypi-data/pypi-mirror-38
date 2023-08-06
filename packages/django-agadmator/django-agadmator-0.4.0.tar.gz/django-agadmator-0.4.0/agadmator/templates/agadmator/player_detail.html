@@ -1,0 +1,18 @@
+{% extends 'agadmator/base.html' %}
+
+{% block content %}
+
+    <h2 style="display: inline;margin-right: 1rem">{{ name }}</h2>
+
+    {% if chessgames_id %}
+    <a href="http://www.chessgames.com/perl/chessplayer?pid={{ chessgames_id }}" target="_blank">view profile on chessgames.com</a>
+    {% endif %}
+
+  <hr>
+  <div class="row">
+    {% for video in videos %}
+      {% include 'agadmator/_video_card.html' with video=video %}
+    {% endfor %}
+  </div>
+  <p class="text-center my-3"></p>
+{% endblock content %}

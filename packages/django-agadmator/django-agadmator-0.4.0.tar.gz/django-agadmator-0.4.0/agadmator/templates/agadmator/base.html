@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Chess Videos</title>
+  <link rel="stylesheet" href="{% static 'agadmator/bootstrap.min.css' %}">
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+{% include 'agadmator/_nav.html' %}
+{% include 'agadmator/_messages.html' %}
+<div class="{% block base_container_class %}container{% endblock %}" style="padding-top: 1rem">
+  {% block content %}{% endblock %}
+</div>
+<div class="p-4 mt-5 text-center">
+    <a href="{% url 'agadmator:contact' %}" class="text-dark"><strong>contact</strong></a>
+</div>
+</body>
+</html>
