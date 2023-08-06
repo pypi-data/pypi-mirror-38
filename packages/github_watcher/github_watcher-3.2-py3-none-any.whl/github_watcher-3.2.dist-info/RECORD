@@ -1,0 +1,17 @@
+github_watcher/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+github_watcher/settings.py,sha256=T3p28950hQELV5xzyqQIfhTj7BI-tCKL3PCFGDL-eVk,192
+github_watcher/util.py,sha256=CPKEPtFsUdPWg-naapcrMCEXd7VGnRs8E4qSPIq-dh4,1218
+github_watcher/commands/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+github_watcher/commands/check.py,sha256=quB2gmYaOI33OsIl3eV6auDiL7iTMjpCa9H3RbPZthc,183
+github_watcher/commands/config.py,sha256=dYbo8XjPkLxkE6RY3u9aWiUlawwPtLWGkgtuqqWm6bk,4462
+github_watcher/commands/run.py,sha256=q0pIX4a-OrZdsf-zqrlND0sPLH8iQErnKiaGbBVl0Kg,4707
+github_watcher/services/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+github_watcher/services/git.py,sha256=B4V7qP39MgYWtiTHOOmE_eoVPVck1G6hsGo-c9UHA9s,1947
+github_watcher-3.2.data/scripts/github-watcher,sha256=M0uvPLZZZL1NLdtUHTW4Xf9kobVmNWqKJudVtM4Jlgo,3662
+tests/__init__.py,sha256=ZOUPj56-DOjwhHH-oaDjDFJFkTaLahazyy9ULhU9QLU,51
+tests/test_git.py,sha256=12gXmeKU0Zzs1fjA3FvReVJiCPeIRb20Jc3qQ0iYQuE,4835
+tests/test_util.py,sha256=dz6yiLvrIjItMVqDKV0AMto1Jcj3WSA1swUBBdqijDw,1073
+github_watcher-3.2.dist-info/METADATA,sha256=HkOFb-SUwFSZgNtYWBcR1L98eT0NzpnV_Xd7qkHuyxM,481
+github_watcher-3.2.dist-info/WHEEL,sha256=_NOXIqFgOaYmlm9RJLPQZ13BJuEIrp5jx5ptRD5uh3Y,92
+github_watcher-3.2.dist-info/top_level.txt,sha256=LNUrTR_qT_0IYfp-yOku7_2F_cZy_2R6lMTp3p70sVs,21
+github_watcher-3.2.dist-info/RECORD,,
