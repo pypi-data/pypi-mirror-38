@@ -1,0 +1,63 @@
+Metadata-Version: 2.1
+Name: mdown
+Version: 2018.11.20
+Summary: markdown generator
+Home-page: https://github.com/looking-for-a-job/mdown.py
+License: UNKNOWN
+Description: [![](https://img.shields.io/pypi/pyversions/mdown.svg?longCache=True)](https://pypi.org/pypi/mdown/)
+        
+        #### Install
+        ```bash
+        $ [sudo] pip install mdown
+        ```
+        
+        #### Functions
+        function|description
+        -|-
+        `mdown.code(code, language=None)`|return string with markdown code block
+        `mdown.header(title, lvl)`|return string with markdown header
+        `mdown.image(url, link='', title='', alt='')`|return string with markdown image
+        `mdown.table(headers, matrix)`|return string with markdown table (one-line cells only)
+        
+        #### Examples
+        **header**
+        ```python
+        >>> import mdown
+        >>> mdown.header("title", 6)
+        '###### Title'
+        ```
+        **code**
+        ```python
+        >>> mdown.code("$ [sudo] pip install readme_md", "bash")
+        # look Install section :)
+        ```
+        
+        **image**
+        ```python
+        >>> mdown.image("https://domain.com/image.png", title="title text", alt="alt text")
+        '![alt text](https://domain.com/image.png "title text")'
+        ```
+        
+        **table**
+        ```python
+        >>> mdown.table(("header1","header2"),(("cell11","cell12"), ("cell21","cell22")))
+        'header1|header2
+        -|-
+        cell11|cell12
+        cell21|cell22'
+        ```
+        
+        <p align="center"><a href="https://pypi.org/project/readme-md/">readme-md</a> - README.md generator</p>
+Keywords: markdown
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Software Development
+Description-Content-Type: text/markdown
