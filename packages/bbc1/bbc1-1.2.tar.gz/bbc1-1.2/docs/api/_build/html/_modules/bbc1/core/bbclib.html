@@ -1,0 +1,335 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>bbc1.core.bbclib &mdash; BBc1 1.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> BBc1
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../bbc1.html">bbc1 package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">BBc1</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>bbc1.core.bbclib</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for bbc1.core.bbclib</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Copyright (c) 2017 beyond-blockchain.org.</span>
+
+<span class="sd">Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="sd">you may not use this file except in compliance with the License.</span>
+<span class="sd">You may obtain a copy of the License at</span>
+
+<span class="sd">    http://www.apache.org/licenses/LICENSE-2.0</span>
+
+<span class="sd">Unless required by applicable law or agreed to in writing, software</span>
+<span class="sd">distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="sd">WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="sd">See the License for the specific language governing permissions and</span>
+<span class="sd">limitations under the License.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">binascii</span>
+
+<span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">current_dir</span><span class="p">,</span> <span class="s2">&quot;../..&quot;</span><span class="p">))</span>
+
+<span class="kn">import</span> <span class="nn">bbc1.core.bbc_error</span> <span class="k">as</span> <span class="nn">bbc_error</span>
+
+
+<span class="n">domain_global_0</span> <span class="o">=</span> <span class="n">binascii</span><span class="o">.</span><span class="n">a2b_hex</span><span class="p">(</span><span class="s2">&quot;0000000000000000000000000000000000000000000000000000000000000000&quot;</span><span class="p">)</span>
+
+<span class="n">error_code</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="n">error_text</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+
+<span class="kn">import</span> <span class="nn">bbc1.core.libs.bbclib_utils</span> <span class="k">as</span> <span class="nn">bbclib_utils</span>
+<span class="kn">import</span> <span class="nn">bbc1.core.libs.bbclib_transaction</span> <span class="k">as</span> <span class="nn">bbclib_transaction</span>
+<span class="kn">import</span> <span class="nn">bbc1.core.libs.bbclib_signature</span> <span class="k">as</span> <span class="nn">bbclib_signature</span>
+<span class="kn">import</span> <span class="nn">bbc1.core.libs.bbclib_keypair</span> <span class="k">as</span> <span class="nn">bbclib_keypair</span>
+<span class="kn">import</span> <span class="nn">bbc1.core.libs.bbclib_asset</span> <span class="k">as</span> <span class="nn">bbclib_asset</span>
+<span class="kn">import</span> <span class="nn">bbc1.core.libs.bbclib_crossref</span> <span class="k">as</span> <span class="nn">bbclib_crossref</span>
+<span class="kn">import</span> <span class="nn">bbc1.core.libs.bbclib_event</span> <span class="k">as</span> <span class="nn">bbclib_event</span>
+<span class="kn">import</span> <span class="nn">bbc1.core.libs.bbclib_msgtype</span> <span class="k">as</span> <span class="nn">bbclib_msgtype</span>
+<span class="kn">import</span> <span class="nn">bbc1.core.libs.bbclib_pointer</span> <span class="k">as</span> <span class="nn">bbclib_pointer</span>
+<span class="kn">import</span> <span class="nn">bbc1.core.libs.bbclib_relation</span> <span class="k">as</span> <span class="nn">bbclib_relation</span>
+<span class="kn">import</span> <span class="nn">bbc1.core.libs.bbclib_reference</span> <span class="k">as</span> <span class="nn">bbclib_reference</span>
+<span class="kn">import</span> <span class="nn">bbc1.core.libs.bbclib_witness</span> <span class="k">as</span> <span class="nn">bbclib_witness</span>
+<span class="kn">import</span> <span class="nn">bbc1.core.compat.bbclib</span> <span class="k">as</span> <span class="nn">bbclib_compat</span>
+<span class="kn">import</span> <span class="nn">bbc1.core.libs.bbclib_wire</span> <span class="k">as</span> <span class="nn">bbclib_wire</span>
+
+
+<span class="k">def</span> <span class="nf">_set_error</span><span class="p">(</span><span class="n">code</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">txt</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">error_code</span>
+    <span class="k">global</span> <span class="n">error_text</span>
+    <span class="n">error_code</span> <span class="o">=</span> <span class="n">code</span>
+    <span class="n">error_text</span> <span class="o">=</span> <span class="n">txt</span>
+
+
+<span class="k">def</span> <span class="nf">_reset_error</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">error_code</span>
+    <span class="k">global</span> <span class="n">error_text</span>
+    <span class="n">error_code</span> <span class="o">=</span> <span class="n">bbc_error</span><span class="o">.</span><span class="n">ESUCCESS</span>
+    <span class="n">error_text</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+
+<div class="viewcode-block" id="deserialize"><a class="viewcode-back" href="../../../bbc1.core.bbclib.html#bbc1.core.bbclib.deserialize">[docs]</a><span class="k">def</span> <span class="nf">deserialize</span><span class="p">(</span><span class="n">txdata</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Deserialize binary data with 2-byte wire header</span>
+
+<span class="sd">    :param txdata:</span>
+<span class="sd">    :returns:</span>
+<span class="sd">        BBcTransaction: BBcTransaction object</span>
+<span class="sd">        int: 2-byte value of BBcFormat type</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">dat</span><span class="p">,</span> <span class="n">fmt_type</span> <span class="o">=</span> <span class="n">bbclib_wire</span><span class="o">.</span><span class="n">BBcFormat</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="n">txdata</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">bbclib_transaction</span><span class="o">.</span><span class="n">BBcTransaction</span><span class="p">(</span><span class="n">unpack</span><span class="o">=</span><span class="n">dat</span><span class="p">),</span> <span class="n">fmt_type</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="c1"># -- for backward compatibility</span>
+        <span class="n">txobj</span> <span class="o">=</span> <span class="n">bbclib_compat</span><span class="o">.</span><span class="n">BBcTransaction</span><span class="p">(</span><span class="n">deserialize</span><span class="o">=</span><span class="n">txdata</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">txobj</span><span class="p">,</span> <span class="n">txobj</span><span class="o">.</span><span class="n">format_type</span></div>
+
+
+<div class="viewcode-block" id="serialize"><a class="viewcode-back" href="../../../bbc1.core.bbclib.html#bbc1.core.bbclib.serialize">[docs]</a><span class="k">def</span> <span class="nf">serialize</span><span class="p">(</span><span class="n">txobj</span><span class="p">,</span> <span class="n">format_type</span><span class="o">=</span><span class="n">bbclib_wire</span><span class="o">.</span><span class="n">BBcFormat</span><span class="o">.</span><span class="n">FORMAT_PLAIN</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Serialize transaction object with 2-byte wire header</span>
+
+<span class="sd">    :param txobj: BBcTransaction object</span>
+<span class="sd">    :param format_type: value defined in bbclib_wire.BBcFormat</span>
+<span class="sd">    :return: binary</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">txobj</span><span class="o">.</span><span class="n">transaction_data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">txobj</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">bbclib_wire</span><span class="o">.</span><span class="n">BBcFormat</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">txobj</span><span class="p">,</span> <span class="n">format_type</span><span class="o">=</span><span class="n">format_type</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="c1"># -- for backward compatibility</span>
+        <span class="k">return</span> <span class="n">txobj</span><span class="o">.</span><span class="n">transaction_data</span></div>
+
+
+<span class="c1"># ----</span>
+<span class="c1"># Codes below are for backward compatibility with v1.1.x or earlier</span>
+<span class="c1"># These codes will be removed in the future.</span>
+
+<span class="n">DEFAULT_CURVETYPE</span> <span class="o">=</span> <span class="n">bbclib_signature</span><span class="o">.</span><span class="n">DEFAULT_CURVETYPE</span>
+
+<span class="n">get_new_id</span> <span class="o">=</span> <span class="n">bbclib_utils</span><span class="o">.</span><span class="n">get_new_id</span>
+<span class="n">get_random_id</span> <span class="o">=</span> <span class="n">bbclib_utils</span><span class="o">.</span><span class="n">get_random_id</span>
+<span class="n">get_random_value</span> <span class="o">=</span> <span class="n">bbclib_utils</span><span class="o">.</span><span class="n">get_random_value</span>
+<span class="n">convert_id_to_string</span> <span class="o">=</span> <span class="n">bbclib_utils</span><span class="o">.</span><span class="n">convert_id_to_string</span>
+<span class="n">convert_idstring_to_bytes</span> <span class="o">=</span> <span class="n">bbclib_utils</span><span class="o">.</span><span class="n">convert_idstring_to_bytes</span>
+<span class="n">deep_copy_with_key_stringify</span> <span class="o">=</span> <span class="n">bbclib_utils</span><span class="o">.</span><span class="n">deep_copy_with_key_stringify</span>
+<span class="n">make_transaction</span> <span class="o">=</span> <span class="n">bbclib_utils</span><span class="o">.</span><span class="n">make_transaction</span>
+<span class="n">add_relation_asset</span> <span class="o">=</span> <span class="n">bbclib_utils</span><span class="o">.</span><span class="n">add_relation_asset</span>
+<span class="n">add_relation_pointer</span> <span class="o">=</span> <span class="n">bbclib_utils</span><span class="o">.</span><span class="n">add_relation_pointer</span>
+<span class="n">add_reference_to_transaction</span> <span class="o">=</span> <span class="n">bbclib_utils</span><span class="o">.</span><span class="n">add_reference_to_transaction</span>
+<span class="n">add_event_asset</span> <span class="o">=</span> <span class="n">bbclib_utils</span><span class="o">.</span><span class="n">add_event_asset</span>
+<span class="n">make_relation_with_asset</span> <span class="o">=</span> <span class="n">bbclib_utils</span><span class="o">.</span><span class="n">make_relation_with_asset</span>
+<span class="n">add_pointer_in_relation</span> <span class="o">=</span> <span class="n">bbclib_utils</span><span class="o">.</span><span class="n">add_pointer_in_relation</span>
+<span class="n">recover_signature_object</span> <span class="o">=</span> <span class="n">bbclib_utils</span><span class="o">.</span><span class="n">recover_signature_object</span>
+<span class="n">validate_transaction_object</span> <span class="o">=</span> <span class="n">bbclib_utils</span><span class="o">.</span><span class="n">validate_transaction_object</span>
+<span class="n">verify_using_cross_ref</span> <span class="o">=</span> <span class="n">bbclib_utils</span><span class="o">.</span><span class="n">verify_using_cross_ref</span>
+
+<span class="n">KeyType</span> <span class="o">=</span> <span class="n">bbclib_keypair</span><span class="o">.</span><span class="n">KeyType</span>
+<span class="n">MsgType</span> <span class="o">=</span> <span class="n">bbclib_msgtype</span><span class="o">.</span><span class="n">MsgType</span>
+
+<span class="n">BBcFormat</span> <span class="o">=</span> <span class="n">bbclib_compat</span><span class="o">.</span><span class="n">BBcFormat</span>
+
+<span class="n">KeyPair</span> <span class="o">=</span> <span class="n">bbclib_keypair</span><span class="o">.</span><span class="n">KeyPair</span>
+<span class="n">BBcSignature</span> <span class="o">=</span> <span class="n">bbclib_signature</span><span class="o">.</span><span class="n">BBcSignature</span>
+<span class="n">BBcTransaction</span> <span class="o">=</span> <span class="n">bbclib_transaction</span><span class="o">.</span><span class="n">BBcTransaction</span>
+<span class="n">BBcEvent</span> <span class="o">=</span> <span class="n">bbclib_event</span><span class="o">.</span><span class="n">BBcEvent</span>
+<span class="n">BBcReference</span> <span class="o">=</span> <span class="n">bbclib_reference</span><span class="o">.</span><span class="n">BBcReference</span>
+<span class="n">BBcRelation</span> <span class="o">=</span> <span class="n">bbclib_relation</span><span class="o">.</span><span class="n">BBcRelation</span>
+<span class="n">BBcPointer</span> <span class="o">=</span> <span class="n">bbclib_pointer</span><span class="o">.</span><span class="n">BBcPointer</span>
+<span class="n">BBcWitness</span> <span class="o">=</span> <span class="n">bbclib_witness</span><span class="o">.</span><span class="n">BBcWitness</span>
+<span class="n">BBcAsset</span> <span class="o">=</span> <span class="n">bbclib_asset</span><span class="o">.</span><span class="n">BBcAsset</span>
+<span class="n">BBcCrossRef</span> <span class="o">=</span> <span class="n">bbclib_crossref</span><span class="o">.</span><span class="n">BBcCrossRef</span>
+
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, beyond-blockchain.org
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
