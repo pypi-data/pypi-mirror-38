@@ -1,0 +1,11 @@
+Flask_Executor-0.7.0.dist-info/METADATA,sha256=sPAF6Gc27kDq7olKpoQ5MPS2w1qcXm25oU_bYeVZntI,3760
+Flask_Executor-0.7.0.dist-info/RECORD,,
+Flask_Executor-0.7.0.dist-info/WHEEL,sha256=NzFAKnL7g-U64xnS1s5e3mJnxKpOTeOtlXdFwS9yNXI,92
+Flask_Executor-0.7.0.dist-info/top_level.txt,sha256=NFjU0yY-ziUFUY2U8HcmbgfwXxMfGOojLvut38JxmEc,21
+flask_executor/__init__.py,sha256=VHN2kjKHnZ2r-gfzlg6F839BTPNB5V7uO3P2Dy3e2kg,93
+flask_executor/executor.py,sha256=L715qpuAgD1T_ENtiAN5eOqBJiuAiqpI7ziUPeJvDVw,9563
+flask_executor/futures.py,sha256=mqAWSLGycAo1s4ZD4tvPTPZX0hnuprAESs2wOvx_xTQ,2971
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/conftest.py,sha256=9XjpJv4vh2wN0Kjsq7zVm1axOftnVff8xi3gXWZHE08,307
+tests/test_executor.py,sha256=U5wv6QoRAiINsh2BSf285bBCvcZr2cOrEGk96cVbnUg,7644
+tests/test_futures.py,sha256=wN4a27bFk3huzylcBjuO9N9nEUo_Aj5MTR-enAtgDjQ,1427
