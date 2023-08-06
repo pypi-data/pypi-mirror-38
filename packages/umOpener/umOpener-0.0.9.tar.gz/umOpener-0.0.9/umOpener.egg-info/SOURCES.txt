@@ -1,0 +1,13 @@
+setup.py
+umOpener/__init__.py
+umOpener/drawTools.py
+umOpener/geotiffreader.py
+umOpener/grib2reader.py
+umOpener/localTest.py
+umOpener/netcdf4reader.py
+umOpener/openUtils.py
+umOpener.egg-info/PKG-INFO
+umOpener.egg-info/SOURCES.txt
+umOpener.egg-info/dependency_links.txt
+umOpener.egg-info/requires.txt
+umOpener.egg-info/top_level.txt

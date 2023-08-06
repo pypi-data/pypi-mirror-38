@@ -1,0 +1,28 @@
+Metadata-Version: 1.0
+Name: umOpener
+Version: 0.0.9
+Summary: netcdf4/GeoTiff/ENVI/grib(only read) read and wirte
+Home-page: https://github.com/XiaoXiaowukong/opener
+Author: neo
+Author-email: james_neo@163.com
+License: MIT Licence
+Description: 
+        umOpener
+        =====
+        
+        netcdf4/GeoTiff/ENVI/ read and wirte
+        ------------
+        
+        1. nc<--->nc
+        2. tif<--->tif
+        3. img<--->img
+        4. nc<--->tif
+        5. nc<--->img
+        6. tif<--->nc
+        7. tif<--->img
+        8. img<--->nc
+        9. img<--->tif
+        10.read grib2
+        
+Keywords: pip,umOpener,opener
+Platform: any
