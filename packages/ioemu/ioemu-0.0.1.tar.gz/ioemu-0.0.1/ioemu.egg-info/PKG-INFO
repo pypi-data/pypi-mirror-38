@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: ioemu
+Version: 0.0.1
+Summary: IO Emulator with LEDs and buttons
+Home-page: https://github.com/tbs1-bo/ioemu
+Author: Marco Bakera
+Author-email: marco@bakera.de
+License: UNKNOWN
+Description: # IO Emulator for simple hardware projects
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
