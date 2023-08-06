@@ -1,0 +1,11 @@
+MANIFEST.in
+README.rst
+requirements.txt
+setup.cfg
+setup.py
+pyaop/__init__.py
+pyaop.egg-info/PKG-INFO
+pyaop.egg-info/SOURCES.txt
+pyaop.egg-info/dependency_links.txt
+pyaop.egg-info/top_level.txt
+pyaop.egg-info/zip-safe
