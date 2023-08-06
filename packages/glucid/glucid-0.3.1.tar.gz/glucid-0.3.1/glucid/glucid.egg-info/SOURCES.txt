@@ -1,0 +1,13 @@
+LICENSE.txt
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+glucid/__init__.py
+glucid/glucid8824.py
+glucid/glucid.egg-info/PKG-INFO
+glucid/glucid.egg-info/SOURCES.txt
+glucid/glucid.egg-info/dependency_links.txt
+glucid/glucid.egg-info/entry_points.txt
+glucid/glucid.egg-info/not-zip-safe
+glucid/glucid.egg-info/top_level.txt
