@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: agora-graphql
+Version: 0.1.10
+Summary: A GraphQL-based interface for Agora
+Home-page: https://github.com/fserena/agora-graphql
+Author: Fernando Serena
+Author-email: kudhmud@gmail.com
+License: Apache 2
+Download-URL: https://github.com/fserena/agora-graphql/tarball/0.1.10
+Keywords: agora,discovery,linked data,graphql
+Platform: UNKNOWN
+Requires-Dist: requests
+Requires-Dist: futures
+Requires-Dist: python-dateutil
+Requires-Dist: graphql-core
+Requires-Dist: Flask-Cors
+Requires-Dist: Flask-GraphQL (>=2.0)
+Requires-Dist: agora-gw
+Requires-Dist: agora-wot
+Requires-Dist: agora-py
+Requires-Dist: shortuuid
+Requires-Dist: expiringdict
+
+UNKNOWN
+
+
