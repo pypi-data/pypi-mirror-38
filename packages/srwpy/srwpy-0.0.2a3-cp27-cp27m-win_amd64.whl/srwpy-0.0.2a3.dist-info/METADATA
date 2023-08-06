@@ -1,0 +1,51 @@
+Metadata-Version: 2.1
+Name: srwpy
+Version: 0.0.2a3
+Summary: Synchrotron Radiation Workshop
+Home-page: https://github.com/srwpy/srwpy
+Author: NSLS-II, Brookhaven National Lab
+Author-email: mrakitin@bnl.gov
+License: BSD (3-clause)
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: MacOS
+Requires-Dist: matplotlib
+Requires-Dist: numpy
+Requires-Dist: scipy
+
+===============================
+srwpy
+===============================
+
+.. image:: https://img.shields.io/travis/srwpy/srwpy.svg
+        :target: https://travis-ci.org/srwpy/srwpy
+
+.. image:: https://ci.appveyor.com/api/projects/status/8e0gwxyn27ookg8s?svg=true
+        :target: https://ci.appveyor.com/project/mrakitin/srwpy
+
+.. image:: https://img.shields.io/pypi/v/srwpy.svg
+        :target: https://pypi.python.org/pypi/srwpy
+
+
+Synchrotron Radiation Workshop
+
+Based on:
+
+* https://github.com/ochubar/SRW for the source code
+* https://github.com/NSLS-II/scientific-python-cookiecutter for the structure and features
+
+
+Licensing and documentation:
+
+* Free software: 3-clause BSD license
+* Documentation: (COMING SOON!) https://srwpy.github.io/srwpy.
+
+Features
+--------
+
+* TODO
+
+
