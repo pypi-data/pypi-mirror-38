@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: lhe2sqlite
+Version: 0.1.0
+Summary: Simple utility to convert LesHouchesEvents files to a sqlite database
+Home-page: https://github.com/cfangmeier/lhe2sqlite
+Author: Caleb Fangmeier
+Author-email: caleb@fangmeier.tech
+License: MIT
+Description: # lhe2sqlite
+        Simple utility to convert LesHouchesEvents files to a sqlite database
+        
+        To run, simply install the package and execute
+        
+        ```sh
+        lhe2sqlite input.lhe output.sqlite3
+        ```
+        
+Keywords: lhe sqlite
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.6
+Description-Content-Type: text/markdown
