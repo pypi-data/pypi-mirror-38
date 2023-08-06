@@ -1,0 +1,17 @@
+blis-0.2.2.dist-info/top_level.txt,sha256=yqZIBDPqq9RefHu0PWPWmOQfhhKsBy120eoLTMlmXkA,5
+blis-0.2.2.dist-info/RECORD,,
+blis-0.2.2.dist-info/METADATA,sha256=Fjx-db28UXAix6KavVkBUyP1XNjHKc9rR3O1-qS5Bmc,7061
+blis-0.2.2.dist-info/WHEEL,sha256=c8uKbdQypV832y6wpTaH7LmB9UQOPgqCSt-bcR7krHw,109
+blis/cy.pxd,sha256=N_ifuVqD85PvC3aHMT_959lTY0TMLkbfYbxdIgF_KG8,2438
+blis/about.py,sha256=DafppkDt4oeGxBY7hYr5LFgvUntpFSyrduR_G2QOKXg,536
+blis/benchmark.py,sha256=-k36wSYiudV3hwnb6uqvawHJp3U8gM4_4NnCrl24qnc,2579
+blis/py.cpython-35m-x86_64-linux-gnu.so,sha256=K883NS5m-jMqodugPOojstr3T1GqjfVjuMLPSIBxYEk,5719592
+blis/cy.pyx,sha256=jHlRyMLBg8CPIGbJgRwXnA50EyVtuxsr2Q9ll_rnMuo,13682
+blis/cy.cpython-35m-x86_64-linux-gnu.so,sha256=LeVKrt8VeFDcB6W7xfUGC3cB6WFTmxKxrvEjH1-zEvc,5577480
+blis/py.pyx,sha256=bFUmVmsHPJkG4i911NuDWBm7QM09O6F7GsCTcVD887o,6403
+blis/__init__.py,sha256=v3gLYQTccvtvQSssF_pCtN2hq-HUZAW9fjvbOv9_ahw,29
+blis/__init__.pxd,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+blis/tests/common.py,sha256=HJlete9CPEFs2RPQWGtJk1MAyYDyR5k0H5rKshRpVlk,2536
+blis/tests/test_dotv.py,sha256=PWSg8VlF0xjB4YhgvZ-Mk90bZAslHlIEuGVnn7Clq2M,1189
+blis/tests/test_gemm.py,sha256=QcFWDjyh0nkNJQhpAoFyfhUYvernBRWmYqgL_R-QjkU,2464
+blis/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
