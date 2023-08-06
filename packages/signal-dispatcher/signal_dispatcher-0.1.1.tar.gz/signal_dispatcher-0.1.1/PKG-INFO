@@ -1,0 +1,17 @@
+Metadata-Version: 1.1
+Name: signal_dispatcher
+Version: 0.1.1
+Summary: Simple PyQt signal dispatcher. Used to connect signals with handlers.
+Home-page: https://github.com/todstoychev/signal-dispatcher
+Author: Todor Todorov
+Author-email: todstoychev@gmail.com
+License: UNKNOWN
+Description: UNKNOWN
+Keywords: PyQt5,signals,handlers,signal,handler,dispatcher,dispatch,handle,emit,connect
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7

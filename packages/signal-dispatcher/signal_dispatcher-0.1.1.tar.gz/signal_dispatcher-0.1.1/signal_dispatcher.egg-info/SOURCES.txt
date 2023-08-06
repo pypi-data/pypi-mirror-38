@@ -1,0 +1,12 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+signal_dispatcher/__init__.py
+signal_dispatcher/signal_dispatcher.py
+signal_dispatcher.egg-info/PKG-INFO
+signal_dispatcher.egg-info/SOURCES.txt
+signal_dispatcher.egg-info/dependency_links.txt
+signal_dispatcher.egg-info/requires.txt
+signal_dispatcher.egg-info/top_level.txt
