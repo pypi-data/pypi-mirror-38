@@ -1,0 +1,3 @@
+[console_scripts]
+voctokey = voctokey.__main__:main
+
