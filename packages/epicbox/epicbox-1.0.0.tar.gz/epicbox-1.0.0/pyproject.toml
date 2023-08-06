@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "epicbox"
+version = "1.0.0"
+description = "Run untrusted code in secure Docker based sandboxes"
+authors = ["Pavel Sviderski <ps@stepik.org>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/StepicOrg/epicbox"
+keywords = ["docker", "sandbox"]
+classifiers = [
+    "Topic :: Software Development :: Libraries :: Python Modules"
+]
+
+[tool.poetry.dependencies]
+python = "^3.4"
+docker = ">=2"
+python-dateutil = "^2.4"
+requests = "^2.14.2"
+structlog = ">=15.3"
+
+[tool.poetry.dev-dependencies]
+pytest = "^3.10"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
