@@ -1,0 +1,51 @@
+Metadata-Version: 1.1
+Name: pytesting-utils
+Version: 0.1.dev2
+Summary: Utilites for the PyTesting project
+Home-page: https://github.com/pytesting/utils
+Author: Stephan Lukasczyk
+Author-email: python-test-runner@googlegroups.com
+License: GNU General Public License (GPLv3)
+Description: PyTesting Utils
+        ===============
+        
+        PyTesting utils is a collection of utilities for the
+        `PyTesting <https://github.com/pytesting>`__ project.
+        
+        |Build Status| |codecov| |License GPL v3| |Code style: black| |PyPI
+        version|
+        
+        .. |Build Status| image:: https://travis-ci.com/pytesting/utils.svg?branch=master
+           :target: https://travis-ci.com/pytesting/utils
+        .. |codecov| image:: https://codecov.io/gh/pytesting/utils/branch/master/graph/badge.svg
+           :target: https://codecov.io/gh/pytesting/utils
+        .. |License GPL v3| image:: https://img.shields.io/badge/License-GPL%20v3-blue.svg
+           :target: https://www.gnu.org/licenses/gpl-3.0
+        .. |Code style: black| image:: https://img.shields.io/badge/code%20style-black-000000.svg
+           :target: https://github.com/ambv/black
+        .. |PyPI version| image:: https://badge.fury.io/py/pytesting-utils.svg
+           :target: https://badge.fury.io/py/pytesting-utils
+        
+Keywords: test runner unittest nose pytest utils
+Platform: Linux
+Platform: macOS
+Platform: POSIX
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Education
+Classifier: Topic :: Education :: Testing
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Testing
+Classifier: Topic :: Software Development :: Testing :: Unit
+Classifier: Topic :: Utilities
