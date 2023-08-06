@@ -1,0 +1,35 @@
+{
+    "timestamp": {
+        "f50ec0b7-f960-400d-91f0-c42a6d44e3d0": {
+            "start_time": "2018-11-13T23:29:02.689652",
+            "end_time": "2018-11-13T23:29:05.158943"
+        }
+    },
+    "version": "ldt v. 0.3.9",
+    "class": "experiment",
+    "embeddings": [
+        {
+            "class": "embeddings",
+            "model": "sample_embeddings",
+            "uuid": "f50ec0b7-f960-400d-91f0-c42a6d44e3d0",
+            "window": 2,
+            "dimensionality": 25,
+            "context": "linear_unbound",
+            "epochs": 2,
+            "path": "/home/anna/PycharmProjects/ldt/ldt/tests/sample_files/sample_embeddings"
+        }
+    ],
+    "dataset": {
+        "class": "dataset",
+        "uuid": "f50ec0b7-f960-400d-91f0-c42a6d44e3d1",
+        "task": "get_neighbors",
+        "language": [
+            "english"
+        ],
+        "name": "test_sample",
+        "description": "just a few words for testing"
+    },
+    "task": "get_neighbors",
+    "uuid": "7dbcfde0-ed8f-4c1e-a99f-b18569e67ea4",
+    "top_n": 2
+}
