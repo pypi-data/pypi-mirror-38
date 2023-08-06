@@ -1,0 +1,154 @@
+#!/home/miranda/.virtualenvs/vf_utils/bin/python
+
+"""
+Copyright (2017) Raydel Miranda 
+
+This file is part of "VillaFlores Product Creator".
+
+    "VillaFlores Product Creator" is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    "VillaFlores Product Creator" is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with "VillaFlores Product Creator".  If not, see <http://www.gnu.org/licenses/>.
+"""
+
+import argparse
+import sys
+
+from vf_createproducts_core.composers.bundle_composer import compose_bundles
+from vf_createproducts_core.composers.flower_composer import compose_flowers
+from vf_createproducts_core.config import settings
+from vf_createproducts_core.workers import *
+
+# -----------------------------------------------------------------------------
+# Arg parser definitions.
+# -----------------------------------------------------------------------------
+
+parser = argparse.ArgumentParser(
+    description='Application for obtain the result of combining all the '
+                'flowers and all background templates.',
+)
+
+subparsers = parser.add_subparsers(
+    dest='subparser_name',
+    help='Sub-command help'
+)
+
+parser_compose_flowers = subparsers.add_parser(
+    'compose_flowers',
+    help='Compose images containing flowers and vases, can contain bundles too.'
+)
+
+parser_compose_bundles = subparsers.add_parser(
+    'compose_bundles',
+    help='Compose images that only contain bundles.'
+)
+
+# -----------------------------------------------------------------------------
+# Common related params.
+# -----------------------------------------------------------------------------
+
+parser.add_argument(
+    '--background-code-pattern', action="store",
+    help="Regex pattern for extracting the fragment of the background's name "
+         "that will be used in the output.",
+    default=settings.background_code_pattern
+)
+
+parser.add_argument(
+    'background_root_folder', action="store",
+    help="Folder where to search for backgrounds."
+)
+parser.add_argument(
+    '--bundles-number', action="store",
+    help="Number of bundles per composition",
+    default=settings.bundles_number
+)
+# -----------------------------------------------------------------------------
+# Flower composer related params.
+# -----------------------------------------------------------------------------
+parser_compose_flowers.add_argument(
+    'flowers_root_folder', action="store",
+    help="Folder where to search for flowers."
+)
+parser_compose_flowers.add_argument(
+    '--flower-code-pattern',
+    action="store",
+    help="Regex pattern for extracting the fragment of the flower's name that "
+         "will be used in the output.",
+    default=settings.flower_code_pattern,
+)
+parser_compose_flowers.add_argument(
+    'bundles_folder', action="store",
+    help="Folder where to search for bundles."
+)
+parser_compose_flowers.add_argument(
+    '--bundles-code-pattern', action="store",
+    help="Regex pattern for extracting the fragment of the bundle's name that "
+         "will beused in the output.",
+    default=settings.bundles_code_pattern
+)
+
+parser_compose_flowers.add_argument(
+    '--bundles-number', action="store",
+    help="Number of bundles per composition",
+    default=settings.bundles_number
+)
+
+parser.add_argument(
+    '--flower-layer-id', action="store",
+    default=settings.flower_layer_id,
+    help="The layer to replace in the svg file."
+)
+
+# -----------------------------------------------------------------------------
+# Bundles related params.
+# -----------------------------------------------------------------------------
+parser_compose_bundles.add_argument(
+    'bundles_folder', action="store",
+    help="Folder where to search for bundles."
+)
+
+parser_compose_bundles.add_argument(
+    '--bundles-code-pattern', action="store",
+    help="Regex pattern for extracting the fragment of the bundle's name that "
+         "will beused in the output.",
+    default=settings.bundles_code_pattern
+)
+# -----------------------------------------------------------------------------
+# Misc related params.
+# -----------------------------------------------------------------------------
+parser.add_argument('-o', action="store", dest='output',
+                    help="Path where to save the result, it will be saved "
+                         "in the working directory if not specified.")
+parser.add_argument('--verbose', action="store_true",
+                    help="Show verbose logs where processing images.")
+
+parser.add_argument('--base-url', action="store", default='',
+                    help="Base URL to store")
+
+
+parser.add_argument('--format', action="store", default='jpg',
+                    help="The output image extension")
+
+parser.add_argument('--num-threads', action="store",
+                    default=settings.num_threads, type=int,
+                    help="The number of threads")
+
+if __name__ == '__main__':
+    try:
+        cli_args = parser.parse_args(sys.argv[1:])
+    except Exception as err:
+        print(Fore.RED + parser.parse_args() + Style.RESET_ALL)
+    else:
+        if cli_args.subparser_name == 'compose_flowers':
+            compose_flowers(cli_args, settings)
+        if cli_args.subparser_name == 'compose_bundles':
+            compose_bundles(cli_args, settings)
