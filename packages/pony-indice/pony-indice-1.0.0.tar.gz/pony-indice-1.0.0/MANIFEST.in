@@ -1,0 +1,10 @@
+recursive-include pony_indice *.py
+recursive-include pony_indice/locales *.po *.mo
+
+recursive-exclude pony_indice *.pyc *swp
+recursive-exclude pony_indice *.sqlite3
+
+include requirements*.txt
+include README.rst
+include LICENSE.txt
+include runtests.py
