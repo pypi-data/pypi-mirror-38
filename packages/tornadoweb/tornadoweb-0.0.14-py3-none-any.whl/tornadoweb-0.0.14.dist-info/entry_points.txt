@@ -1,0 +1,4 @@
+
+	[console_scripts]
+	tornadoweb_init=tornadoweb.tornadoweb_init:go
+    
