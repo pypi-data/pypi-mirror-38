@@ -1,0 +1,17 @@
+python-gnupg
+dulwich
+Click
+appdirs
+PyQRCode
+Pillow
+pypng
+pyperclip
+PyAutoGUI
+
+[test]
+os
+shutil
+json
+unittest
+mock
+tempfile
