@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: kuro
+Version: 0.0.3
+Summary: Run Black (Python code formatter) only on Git unstaged/untracked files
+Home-page: https://github.com/BamBalaam/kuro
+Author: André Madeira Cortes
+Author-email: amadeiracortes@gmail.com
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: black (==18.9b0)
+Requires-Dist: click (>=7.0.0,<8.0.0)
+Project-URL: Repository, https://github.com/BamBalaam/kuro
