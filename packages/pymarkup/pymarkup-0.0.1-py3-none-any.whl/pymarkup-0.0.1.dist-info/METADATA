@@ -1,0 +1,82 @@
+Metadata-Version: 2.1
+Name: pymarkup
+Version: 0.0.1
+Summary: A basic internal XML-generating DSL in Python 3.
+Home-page: https://github.com/bluepython508/PyMarkup
+Author: Ben Soroos
+Author-email: ben@soroos.net
+License: MIT license
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Unix
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Requires-Dist: pytest; extra == 'dev'
+Requires-Dist: black; extra == 'dev'
+Requires-Dist: twine; extra == 'dev'
+Requires-Dist: sphinx; extra == 'dev'
+Requires-Dist: sphinx-rtd-theme; extra == 'dev'
+Provides-Extra: docs
+Requires-Dist: sphinx; extra == 'docs'
+Requires-Dist: sphinx-rtd-theme; extra == 'docs'
+Requires-Dist: dataclasses; extra == 'docs'
+Provides-Extra: tests
+Requires-Dist: pytest; extra == 'tests'
+
+# PyMarkup
+[![Build Status](https://travis-ci.org/bluepython508/PyMarkup.svg?branch=master)](https://travis-ci.org/bluepython508/PyMarkup)
+[![Documentation Status](https://readthedocs.org/projects/pymarkup/badge/?version=latest)](https://pymarkup.readthedocs.io/en/latest/?badge=latest)
+
+An internal DSL for generating XML-like markup in Python 3.7
+
+### Installation
+Installation is as simple as `pip install pymarkup`.
+To develop, download the source, and run `pip install -e .[dev]`
+
+### Usage
+A basic example:
+```python
+from pymarkup import MarkupBuilder
+
+t = MarkupBuilder()
+
+with t:  # <html> tag
+    with t.h1(id='HelloWorld'):  # Attribute access creates new element, and call adds attributes to tag
+        t + 'Hello World!'  # Add child text to tag
+
+    with t.a(href="github.com"):
+        t + t.img(src="i_am_an_image.png")  # Self-closing tags are added with +
+    with t.ul:
+        for x in range(2):
+            with t.li:
+                t + x
+```
+`repr(t)` gives:
+```html
+<html>
+<h1 id="HelloWorld">
+Hello World!
+</h1>
+<a href="github.com"><img src="i_am_an_image.png"/>
+</a>
+<ul>
+<li>
+0
+</li>
+<li>
+1
+</li>
+</html>
+```
+
+For more information, see the [docs](https://pymarkup.readthedocs.io/en/latest/)
+
+
+
