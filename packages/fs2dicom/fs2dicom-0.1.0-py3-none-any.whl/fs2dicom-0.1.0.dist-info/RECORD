@@ -1,0 +1,16 @@
+fs2dicom/__init__.py,sha256=JOl41NviMN-qDV0Z8ZPmhNIxvgyauGGJHdB4A-8MhqM,93
+fs2dicom/_version.py,sha256=xhsYvD8O8X_yg8tBaqZZOA4YFgQ3MNBEU1XaKxdDEl4,497
+fs2dicom/fs2dicom.py,sha256=GX0Mr-tknd4iSXKxTBFbkfPfayxqMFenbHXqRWjMoew,12606
+fs2dicom/seg.py,sha256=EFvcMEmrADfnDYzk48Ew-A7MFXz3JjYd88t1UnSRI_w,1267
+fs2dicom/sr.py,sha256=NN1sl3rbN-ZlXRAkvAR_POKM4QXmBfjh33JmAcUns5o,5985
+fs2dicom/utils.py,sha256=19J_7-0UCBDEH4Q9liN5pHGntVkChtyjIoyTBgHG6qw,2667
+fs2dicom/templates/fs-aseg-sr-template.json,sha256=oAYosogXXSll0mtMMAU3MVqL-7Pw3_SUJFNv6THL0IE,2740
+fs2dicom/templates/fs-aseg.json,sha256=Wan2i6u1WnsmsbRTHxafzxiqcKJMESXd6rl5-nx3EeA,39075
+fs2dicom/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+fs2dicom/tests/conftest.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+fs2dicom/tests/test_examples.py,sha256=Hm1x01HZ9BiYYw4dS44uo0o_ku16oFRwSMjIh8_Uu-s,99
+fs2dicom-0.1.0.dist-info/METADATA,sha256=MZ8-lBYK_SRav6n_M9NZsHS0yfBIPDGscXQE3hnZ8D0,8600
+fs2dicom-0.1.0.dist-info/RECORD,,
+fs2dicom-0.1.0.dist-info/WHEEL,sha256=NzFAKnL7g-U64xnS1s5e3mJnxKpOTeOtlXdFwS9yNXI,92
+fs2dicom-0.1.0.dist-info/entry_points.txt,sha256=y5ckTEcyCqYxSljBMRrroRF0ODXk0zYtX5aGlQIiX5Y,70
+fs2dicom-0.1.0.dist-info/top_level.txt,sha256=AW3GS48rGeKwHZgW0KGyeIhoNrPGN0e5M1K-UcExNhs,9

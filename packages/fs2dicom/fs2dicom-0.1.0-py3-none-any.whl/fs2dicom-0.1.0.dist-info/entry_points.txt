@@ -1,0 +1,4 @@
+
+        [console_scripts]
+        fs2dicom=fs2dicom.fs2dicom:cli
+    
