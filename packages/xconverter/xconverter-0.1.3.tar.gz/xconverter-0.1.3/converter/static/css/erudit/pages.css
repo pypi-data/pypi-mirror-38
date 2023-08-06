@@ -1,0 +1,63 @@
+@media print {
+    @page :first {
+        margin-left: 0cm;
+        margin-right: 0cm;
+        @top-left {
+            content: '';
+        }
+        @top-center {
+            content: '';
+        }
+        @top-right {
+            content: '';
+        } 
+        @bottom-left {
+            content: '';
+        }
+        @bottom-center {
+            content: '';
+        }
+        @bottom-right {
+            content: '';
+        }
+    }
+
+    @page {
+        margin-left: 1cm;
+        margin-right: 1cm;
+
+        @top-left {
+            font-size: 9pt;
+            content: string(journal-title);
+        }
+        @top-center {
+        }
+        @top-right {
+            content: string(issue-number);
+            font-size: 9pt;
+        } 
+        @bottom-left {
+        }
+        @bottom-center {
+            content: string(license);
+            font-size: 9pt;
+            text-align: center;
+        }
+        @bottom-right {
+            content: counter(page);
+        }
+    }
+
+    .cover .journal-meta .journal-title {
+        string-set: journal-title content(text);
+    }
+
+    .cover .issue-meta .issue-number {
+        string-set: issue-number content(text);
+    }
+
+    .cover .license {
+        string-set: license content(text);
+        color: #FFFFFF; 
+    }
+}

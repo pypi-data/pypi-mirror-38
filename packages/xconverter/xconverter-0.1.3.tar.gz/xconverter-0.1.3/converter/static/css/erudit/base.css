@@ -1,0 +1,544 @@
+@charset "UTF-8";
+
+p {
+    text-align: justify;
+    line-height: 18pt;
+}
+
+div {
+    padding: 3pt;
+}
+
+img {
+    max-width: 80%;
+    max-height: 20cm;
+    margin-left: 10%;
+    margin-right: 20%;
+}
+
+.body {
+   
+}
+
+.cover {
+    margin-top: 5cm;
+    margin-left: 0cm;
+    margin-right: 0cm;
+    break-after: page;
+} 
+.cover .journal-meta {
+    background-color: #ff4242;
+    color: #FFFFFF;
+    font-size: 30pt;    
+}
+
+.cover .journal-meta .journal-subtitle {
+    font-size: 20pt;
+}
+
+.cover .issue-meta {
+    background-color: #0a2463;
+    color: #FFFFFF;
+    font-size: 15pt;
+    margin-top: 1cm;    
+}
+
+.cover .issue-meta .issue-number {
+    font-size: 12pt;
+}
+
+.cover .issue-meta .issue-number dl * {
+    padding: 0;
+    margin: 0;
+    display: inline;
+}
+
+.cover .issue-meta .issue-number dl dt {
+    font-weight: bold;
+}
+
+.cover .issue-meta .issue-number dl dt:after {
+    content: ':';
+}
+
+.cover .article-meta {
+    background-color: #F7F7F7;
+    margin-top: 1cm;
+    text-align: center;
+}
+
+.cover .article-meta .article-title {
+    font-size: 30pt;
+}
+
+.cover .article-meta .subtitle {
+    margin-top: 1cm;
+    font-size: 20pt;
+    color: #555555;
+}
+
+.article {
+    font-family: arial;
+    font-size: 11pt;
+}
+.article .title-group {
+    width: 100%;
+    font-size: 20pt;
+    text-align: center;
+}
+
+.article .title-group .subtitle {
+    color: #555555;
+    font-size: 17pt;
+}
+
+.article-id {
+    font-size: 10pt;
+    text-align: center;
+}
+
+.contrib-group {
+    text-align: center;
+    padding-top: 20pt;
+    font-size: 10pt;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+.contrib-group .contrib {
+    text-align: center;
+}
+
+.contrib-group .contrib .name {
+    font-weight: bold;
+}
+
+.contrib-group .contrib .alias::before {
+    content: "alias: ";
+    
+}
+
+.contrib-group .contrib .alias {
+    font-style: italic;
+}
+
+.contrib-group .contrib .institution {
+    font-size: 80%;
+}
+
+.contrib-group .contrib .email {
+    font-size: 80%;
+}
+
+.abstract-group {
+
+}
+
+.abstract {
+}
+
+.abstract .title {
+    font-weight: bold;
+}
+
+.kwd-group {
+    font-size: 90%;
+}
+
+.kwd-group * {
+    display: inline;
+    padding: 0px;
+    margin: 0px;
+}
+
+.kwd-group ul {
+}
+
+
+.kwd-group ul li {
+    display: inline;
+}
+
+.ref-list {
+
+}
+
+.ref-list .title {
+    font-weight: bold;
+}
+
+.ref-list .ref {
+    text-align: justify;
+    margin-bottom: 1mm;
+    break-inside: avoid !important;
+}
+
+.annexes {
+
+}
+
+.annexes .title {
+    font-weight: bold;
+}
+
+.footnotes .title {
+    font-weight: bold;
+}
+
+.footnote * {
+    display: inline;
+}
+
+.footnote {
+    margin-top: 1mm;
+    text-align: justify;
+}
+
+.ack-group {
+    break-inside: avoid !important;
+}
+
+.ack-group .title {
+    font-weight: bold;
+}
+
+.bio-notes {
+    break-inside: avoid !important;
+}
+
+.bio-notes .title {
+    font-weight: bold;
+}
+
+
+.block-citation {
+    width: 80%;
+    margin: auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #888888;
+    break-inside: avoid !important;
+}
+
+.disp-quote {
+    width: 80%;
+    margin: auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #888888;
+    break-inside: avoid !important;
+}
+
+.verbatim {
+    width: 80%;
+    margin: auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #888888;
+    break-inside: avoid !important;
+}
+
+.dedicatory {
+    width: 50%;
+    margin-left: 40%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #888888;
+    font-style: italic;
+    break-inside: avoid !important;
+}
+
+.epigraph {
+    width: 50%;
+    margin-left: 40%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #888888;
+    break-inside: avoid !important;
+}
+
+.attrib {
+    text-align: right;
+    margin-left: 30%;
+    font-size: 90%;
+    color: #888888;
+}
+
+.sec .title {
+    font-size: 22pt;
+    font-weight: bold;
+    break-inside: avoid !important;
+}
+
+.sec .sec .title {
+    font-size: 18pt;
+    font-weight: bold;
+    break-inside: avoid !important;
+}
+
+.sec .sec .sec .title {
+    font-size: 12pt;
+    font-weight: bold;
+    break-inside: avoid !important;
+}
+
+.sec .sec .sec .sec .title {
+    font-size: 12pt;
+    font-weight: bold;
+    font-style: italic;
+    break-inside: avoid !important;
+}
+
+.sec .sec .sec .sec .sec .title {
+    font-size: 12pt;
+    color: #555555;
+    font-style: italic;
+    break-inside: avoid !important;
+}
+
+.xref {
+    font-size: 9pt;
+}
+
+.article ul li {
+    margin-bottom: 5px;
+    line-height: 18pt;
+}
+
+.article ol li {
+    margin-bottom: 5px;
+    line-height: 18pt;
+}
+
+.boxed-text {
+    background-color: #EEEEEE;
+    width: 80%;
+    margin: auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-size: 16px;
+    border: solid 2px #DDDDDD;
+    break-inside: avoid !important;
+}
+
+.boxed-text .boxed-header {
+    border-bottom: solid 1px #DDDDDD;
+}
+
+.boxed-text .boxed-header * {
+    display: inline;
+}
+
+.boxed-text .boxed-header .label {
+    color: #666666;
+}
+
+.boxed-text .boxed-header .caption .title {
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.boxed-text .boxed-content {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.boxed-text .boxed-content .sec .title {
+    font-weight: bold;
+}
+
+.inline-graphic {
+    display: inline-block;
+}
+
+.inline-graphic img {
+    vertical-align: bottom;
+    margin: 0px;
+    padding: 0px;
+    height: 16pt;
+}
+
+.inline-formula {
+    display: inline-block;
+}
+
+.inline-formula img {
+    vertical-align: bottom;
+    margin: 0px;
+    padding: 0px;
+    height: 16pt;
+}
+
+.fig-group {
+    break-inside: avoid !important;
+    margin-bottom: 10px
+}
+
+.fig-group .fig-group-header {
+    font-size: 16px;
+    text-align: center;
+}
+
+.fig-group .fig-group-header * {
+    font-size: 16px;
+    display: inline;
+}
+
+.fig-group .fig-group-header .label {
+    font-weight: bold;
+}
+
+.fig-group .fig-group-header .caption .title {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.fig {
+    break-inside: avoid !important;
+    margin-bottom: 10px
+}
+
+.fig .fig-header {
+    font-size: 16px;
+    text-align: center;
+
+}
+
+.fig .fig-header * {
+    font-size: 16px;
+    display: inline;
+    margin-bottom: 10px;
+}
+
+.fig .fig-header .label {
+    font-weight: bold;
+}
+
+.fig .fig-header .caption .title {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.fig .fig-content {
+    font-size: 16px;
+    text-align: center;
+}
+
+.table-wrap {
+    break-inside: avoid !important;
+    margin-bottom: 20px;
+}
+
+.table-wrap .table-wrap-header {
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 10px;
+
+}
+
+.table-wrap .table-wrap-header * {
+    font-size: 16px;
+    display: inline;
+}
+
+.table-wrap .table-wrap-header .label {
+    font-weight: bold;
+}
+
+.table-wrap .table-wrap-header .caption .title {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.table-wrap .table-wrap-content {
+    font-size: 16px;
+}
+
+.table-wrap .table-wrap-content table {
+    margin: auto;
+
+}
+
+table th {
+    border-bottom: solid 1px #000000;
+    border-top: solid 1px #CCCCCC;
+    padding: .25em;
+    margin: 0;
+    color: #888888;
+    white-space: nowrap;
+}
+
+table td {
+    border-bottom: solid 1px #CCCCCC;
+    padding: .25em;
+    margin: 0;
+}
+
+.image-float {
+    text-align: center;
+}
+
+.image-float img {
+
+}
+
+.disp-formula-group {
+
+}
+
+.disp-formula {
+
+}
+
+.disp-formula .label {
+    color: #888888;
+
+}
+
+.disp-formula * {
+    display: inline;
+    vertical-align: middle;
+}
+
+.example {
+    background-color: #EEEEEE;
+    width: 80%;
+    margin: auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-size: 16px;
+    border: solid 2px #DDDDDD;
+    color: #888888;
+    break-inside: avoid !important;
+
+}
+
+.example .label {
+    border-bottom: solid 1px #DDDDDD;
+    color: #666666;
+
+}
+
+.article dl {  }
+
+.article dt {
+    float: left;
+    clear: left;
+    width: 100px;
+    text-align: right;
+    font-weight: bold;
+}
+
+.article dt::after {
+    content: ":";
+}
+
+.atticle dd {
+    margin-left: 110px;
+}
