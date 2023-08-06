@@ -1,0 +1,17 @@
+.gitignore
+.travis.yml
+COPYING
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+tox.ini
+seep/__init__.py
+seep/core.py
+seep.egg-info/PKG-INFO
+seep.egg-info/SOURCES.txt
+seep.egg-info/dependency_links.txt
+seep.egg-info/requires.txt
+seep.egg-info/top_level.txt
+seep/tests/__init__.py
+seep/tests/test_core.py
