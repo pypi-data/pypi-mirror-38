@@ -1,0 +1,25 @@
+include CHANGELOG.md
+include LICENSE.txt
+include requirements.txt
+include README.rst
+include pyfftw/pyfftw.pyx
+include pyfftw/pyfftw.pxd
+include pyfftw/cpu.pxd
+include pyfftw/utils.pxi
+include test/*.py
+recursive-include include *.h
+
+# All documentation
+recursive-include docs *
+
+# Exclude built docs
+prune docs/_build
+
+# exclude built libraries, swap files, etc.
+prune build
+prune */__pycache__
+global-exclude *.py[cod] *.so *.dll *.dylib
+global-exclude *~ *.bak *.swp
+
+include versioneer.py
+include pyfftw/_version.py
