@@ -1,0 +1,17 @@
+construct==2.5.1
+
+[all]
+jinja2
+netcdf4
+numpy
+pytz
+plac
+
+[scripts_linux]
+jinja2
+netcdf4
+numpy
+pytz
+
+[scripts_win32]
+plac
