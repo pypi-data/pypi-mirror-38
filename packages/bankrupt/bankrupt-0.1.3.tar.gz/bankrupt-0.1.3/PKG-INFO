@@ -1,0 +1,41 @@
+Metadata-Version: 1.1
+Name: bankrupt
+Version: 0.1.3
+Summary: Allocator of the bankruptcy problem.
+Home-page: https://github.com/xianqiu/Bankrupt
+Author: qx3501332
+Author-email: x.qiu@qq.com
+License: MIT License
+Description: # bankrupt
+        
+        
+        Installation
+        ---------------
+        
+        Use one of the following method:
+        
+        * pip install
+        ```bash
+        pip --install bankrupt
+        pip --install bankrupt --upgrade
+        ```
+        * clone repository and install with:
+        ```bash
+        python setup.py install
+        ```        
+        Usage
+        -------
+        
+        ```python
+        >>> import bankrupt
+        >>> d = [100, 200, 300]
+        >>> x = bankrupt.allocate(100, d)
+        ```
+        
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
