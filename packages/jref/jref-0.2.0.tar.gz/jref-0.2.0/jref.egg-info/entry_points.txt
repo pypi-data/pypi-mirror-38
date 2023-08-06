@@ -1,0 +1,3 @@
+[console_scripts]
+jref = jref.__main__:main
+
