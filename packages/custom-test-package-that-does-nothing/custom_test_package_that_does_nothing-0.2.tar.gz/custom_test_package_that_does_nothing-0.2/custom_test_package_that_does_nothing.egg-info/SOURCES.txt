@@ -1,0 +1,8 @@
+README.md
+setup.py
+custom_test_package_that_does_nothing/__init__.py
+custom_test_package_that_does_nothing.egg-info/PKG-INFO
+custom_test_package_that_does_nothing.egg-info/SOURCES.txt
+custom_test_package_that_does_nothing.egg-info/dependency_links.txt
+custom_test_package_that_does_nothing.egg-info/not-zip-safe
+custom_test_package_that_does_nothing.egg-info/top_level.txt
