@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: pymoss
+Version: 0.0.4
+Summary: Library for interfacting with Stanford MOSS.
+Home-page: https://github.com/DMOJ/pymoss
+Author: Tudor Brindus
+Author-email: me@tbrindus.ca
+License: UNKNOWN
+Description: # pymoss
+        
+        Python library for interfacing with MOSS.
+        
+        
+Keywords: moss,plagarism-detection
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 2
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Classifier: Operating System :: OS Independent
