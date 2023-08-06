@@ -1,0 +1,11 @@
+pyyaml
+
+[dev]
+twine
+rope
+pylint
+pytest
+flake8
+pycodestyle
+
+[test]
