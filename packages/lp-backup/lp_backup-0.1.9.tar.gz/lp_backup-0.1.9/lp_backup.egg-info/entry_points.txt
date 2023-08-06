@@ -1,0 +1,3 @@
+[console_scripts]
+lp-backup = lp_backup.interface:cli
+

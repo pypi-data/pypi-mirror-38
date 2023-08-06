@@ -1,0 +1,26 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+cryptography = "*"
+"ruamel.yaml" = "*"
+fs = "*"
+"fs-s3fs" = "*"
+fs-webdavfs = {file = "https://github.com/damndam/webdavfs/tarball/master"}
+click = "*"
+
+[dev-packages]
+ptpython = "*"
+pyperclip = "*"
+pytest-mock = "*"
+pytest-cov = "*"
+sphinx = "*"
+recommonmark = "*"
+freezegun = "*"
+sphinx-rtd-theme = "*"
+twine = "*"
+
+[requires]
+python_version = "3.6"
