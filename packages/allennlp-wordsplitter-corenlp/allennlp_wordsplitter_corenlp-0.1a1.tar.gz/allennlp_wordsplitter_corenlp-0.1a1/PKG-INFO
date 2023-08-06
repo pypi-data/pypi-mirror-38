@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: allennlp_wordsplitter_corenlp
+Version: 0.1a1
+Summary: CoreNLP word splitter for AllenNLP
+Home-page: https://github.com/tanbro/allennlp_wordsplitter_corenlp
+Author: liu xue yan
+Author-email: liu_xue_yan@foxmail.com
+License: UNKNOWN
+Description: # allennlp_wordsplitter_corenlp
+        
+        Add a [CoreNLP] `WordSplitter` into [AllenNLP]'s tokenizers.
+        
+        ## config
+        
+        ```js
+        {
+          "dataset_reader": {
+        
+            // ... ...
+        
+            "tokenizer": {
+              "word_splitter": {
+                "type": "corenlp_remote",
+                "url": "http://10.1.1.174:9000"
+              }
+            },
+        
+            // ... ...
+        
+          },
+        
+          // ... ...
+        
+        }
+        ```
+        
+        ## CLI
+        
+        ```sh
+        allennlp train --include-package allennlp_wordsplitter_corenlp -s /your/output/dir /your/training/config/file
+        ```
+        
+        ------
+        [AllenNLP]: https://allennlp.org/
+        [CoreNLP]: https://stanfordnlp.github.io/CoreNLP/
+        
+Platform: UNKNOWN
+Description-Content-Type: text/markdown

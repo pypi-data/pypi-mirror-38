@@ -1,0 +1,17 @@
+.gitignore
+AUTHORS.md
+CHANGELOG.md
+INSTALL.md
+README.md
+setup.cfg
+setup.py
+src/allennlp_wordsplitter_corenlp/__init__.py
+src/allennlp_wordsplitter_corenlp/_version.py
+src/allennlp_wordsplitter_corenlp/version.py
+src/allennlp_wordsplitter_corenlp/wordspliters.py
+src/allennlp_wordsplitter_corenlp.egg-info/PKG-INFO
+src/allennlp_wordsplitter_corenlp.egg-info/SOURCES.txt
+src/allennlp_wordsplitter_corenlp.egg-info/dependency_links.txt
+src/allennlp_wordsplitter_corenlp.egg-info/namespace_packages.txt
+src/allennlp_wordsplitter_corenlp.egg-info/requires.txt
+src/allennlp_wordsplitter_corenlp.egg-info/top_level.txt
