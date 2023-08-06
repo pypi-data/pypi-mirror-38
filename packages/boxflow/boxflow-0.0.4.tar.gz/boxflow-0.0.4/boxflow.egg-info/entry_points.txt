@@ -1,0 +1,3 @@
+[console_scripts]
+boxflow = boxflow.server:console_script
+
