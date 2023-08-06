@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: terminal-text
+Version: 1.0
+Summary: Its a simple commandline tool that allows you send text messages and mms to your phone using terminal
+Home-page: UNKNOWN
+License: UNKNOWN
+Description: # Terminal Text
+        A simple python module that allows you send text messages to your phone.
+        
+Platform: UNKNOWN
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Description-Content-Type: text/markdown
