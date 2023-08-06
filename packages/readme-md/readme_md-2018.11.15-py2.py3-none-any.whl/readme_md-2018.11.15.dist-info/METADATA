@@ -1,0 +1,87 @@
+Metadata-Version: 2.1
+Name: readme-md
+Version: 2018.11.15
+Summary: README.md generator
+Home-page: https://github.com/looking-for-a-job/readme-md.py
+License: UNKNOWN
+Keywords: readme markdown
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Documentation
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Documentation
+Description-Content-Type: text/markdown
+Requires-Dist: public
+Requires-Dist: setuptools
+
+[![](https://img.shields.io/pypi/pyversions/readme-md.svg?longCache=True)](https://pypi.org/pypi/readme-md/)
+
+#### Install
+```bash
+$ [sudo] pip install readme-md
+```
+
+#### Features
++   **auto headers** (if section 1st line not empty and not `#` header) - section name as header title
++   **`<section>.md` files as sections**. use [Markdown Preprocessor](https://github.com/jreese/markdown-pp) to compile complex sections
++   `readme_md.Readme` **attrs and properties as sections**
++   predefined sections and order - `Readme.order` (see below)
++   `install`, `classes`, `functions`, `cli` sections for projects with [`setup.cfg`](https://setuptools.readthedocs.io/en/latest/setuptools.html#configuring-setup-using-setup-cfg-files)
+    +   **classes, functions** listed in [`__all__`](https://stackoverflow.com/questions/44834/can-someone-explain-all-in-python) (use [`@public.add`](https://pypi.org/project/public/) decorator)
+    +   **class attrs, methods, properties** listed in class `__readme__`
+    +   **cli** - modules with `if __name__ == "__main__"` and **`scripts`** (`script --help` output)
+
+#### Classes
+
+###### `readme_md.Readme`
+
+README.md generator
+
+attr|default value
+-|-
+`header_lvl`|`4`
+`order`|`['badges', 'description', 'install', 'features', 'requirements', 'index', 'how', 'config', 'classes', 'functions', 'cli', 'examples', 'todo', 'links', 'generator']`
+
+method|description
+-|-
+`load(path='.')`|load sections from .md files (filename as section name)
+`render()`|render to string
+`save(path)`|save to file
+`__init__(path=None, **kwargs)`|
+
+#### CLI
+usage|description
+-|-
+`python -m readme_md [path ...]`|generate README.md
+
+#### Examples
+```bash
+# .data/README/examples.md, .data/README/features.md
+$ python -m readme_md .data/README > README.md
+```
+
+```python
+>>> class Readme_npm(readme_md.Readme):
+    order = ["description","features","install", ...]
+    disabled = ["generator"]
+
+    @property
+    def install(self):
+        return "`$ [sudo] npm i -g %s`" % json.loads(path)["name"]
+```
+
+```python
+>>> Readme(".data/README").save("README.md") # load sections and create README.md
+```
+
+<p align="center"><a href="https://pypi.org/project/readme-md/">readme-md</a> - README.md generator</p>
+
