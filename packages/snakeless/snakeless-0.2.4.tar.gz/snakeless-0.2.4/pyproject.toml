@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "snakeless"
+version = "0.2.4"
+description = "Write true serverless apps with joy"
+authors = ["German Ivanov <germivanov@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/Tasyp/snakeless"
+homepage = "https://github.com/Tasyp/snakeless"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+fs = "^2.1"
+cliff = "^2.14"
+halo = "^0.0.21"
+PyYAML = "^3.13"
+schema = "^0.6.8"
+setuptools = ">=39"
+
+[tool.poetry.dev-dependencies]
+
+[tool.poetry.scripts]
+snakeless = "snakeless:main"
+
+[tool.poetry.plugins."snakeless.cli"]
+check = "snakeless.commands:Check"
+deploy = "snakeless.commands:Deploy"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
