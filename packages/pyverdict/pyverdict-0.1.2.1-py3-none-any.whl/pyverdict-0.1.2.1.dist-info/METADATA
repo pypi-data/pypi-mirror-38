@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: pyverdict
+Version: 0.1.2.1
+Summary: Python interface for VerdictDB
+Home-page: http://verdictdb.org
+Author: Barzan Mozafari, Yongjoo Park
+Author-email: mozafari@umich.edu, pyongjoo@umich.edu
+License: Apache License, Version 2.0
+Platform: UNKNOWN
+Requires-Dist: py4j (>=0.10.7)
+Requires-Dist: numpy (>=1.9)
+
+UNKNOWN
+
+
