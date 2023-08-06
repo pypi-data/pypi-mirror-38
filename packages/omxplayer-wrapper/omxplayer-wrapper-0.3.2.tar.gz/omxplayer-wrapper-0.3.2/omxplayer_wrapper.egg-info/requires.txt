@@ -1,0 +1,16 @@
+dbus-python
+evento
+decorator
+pathlib2
+
+[docs]
+Sphinx
+alabaster
+pygments
+
+[test]
+mock
+pytest
+pytest-cov
+nose
+parameterized
