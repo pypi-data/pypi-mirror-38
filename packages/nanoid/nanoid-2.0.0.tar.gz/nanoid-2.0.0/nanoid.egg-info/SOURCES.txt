@@ -1,0 +1,13 @@
+README.md
+setup.py
+nanoid/__init__.py
+nanoid/algorithm.py
+nanoid/generate.py
+nanoid/method.py
+nanoid/non_secure_generate.py
+nanoid/resources.py
+nanoid.egg-info/PKG-INFO
+nanoid.egg-info/SOURCES.txt
+nanoid.egg-info/dependency_links.txt
+nanoid.egg-info/not-zip-safe
+nanoid.egg-info/top_level.txt
