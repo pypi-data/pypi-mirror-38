@@ -1,0 +1,2 @@
+recursive-include libprio/build *.a
+include libprio/include/*
