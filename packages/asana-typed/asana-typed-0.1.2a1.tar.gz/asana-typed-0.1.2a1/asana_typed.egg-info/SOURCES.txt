@@ -1,0 +1,13 @@
+MANIFEST.in
+setup.cfg
+setup.py
+versioneer.py
+asana_typed/__init__.py
+asana_typed/_version.py
+asana_typed/asana.py
+asana_typed/query.py
+asana_typed.egg-info/PKG-INFO
+asana_typed.egg-info/SOURCES.txt
+asana_typed.egg-info/dependency_links.txt
+asana_typed.egg-info/top_level.txt
+asana_typed.egg-info/zip-safe
