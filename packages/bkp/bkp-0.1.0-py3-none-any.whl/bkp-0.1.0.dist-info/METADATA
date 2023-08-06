@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: bkp
+Version: 0.1.0
+Summary: Creates backups of your files and directories.
+Home-page: https://pypi.org/project/bkp/
+Author: Grzegorz Krason
+Author-email: grzegorz.krason@gmail.com
+License: MIT
+Keywords: backup
+Platform: UNKNOWN
+Requires-Dist: click
+
+UNKNOWN
+
+
