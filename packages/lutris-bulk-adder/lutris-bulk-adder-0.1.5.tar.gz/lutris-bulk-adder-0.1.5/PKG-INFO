@@ -1,0 +1,15 @@
+Metadata-Version: 1.0
+Name: lutris-bulk-adder
+Version: 0.1.5
+Summary: Python script to bulk import a directory of ROM files into Lutris
+Home-page: https://github.com/hwangeug/lutris-bulk-adder
+Author: Eugene Hwang
+Author-email: hwang.eug@gmail.com
+License: MIT
+Description: 
+        This is a simple Python script to import a directory of ROM files into Lutris.
+        The directory must contain only games from one platform.  I have only tested this
+        on my own computer for a limited number of platforms.
+        
+Keywords: Lutris,ROMs,Emulation
+Platform: UNKNOWN
