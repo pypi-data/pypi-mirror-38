@@ -1,0 +1,3 @@
+# Logging
+
+Logging into Papertrail
