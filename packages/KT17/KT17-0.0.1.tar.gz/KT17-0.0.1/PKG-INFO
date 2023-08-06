@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: KT17
+Version: 0.0.1
+Summary: KT17/KT14 magnetic field model for Mercury written in C++ with a Python wrapper. See Korth et al., 2015 (JGR) and Korth et al., 2017 (GRL) for more details.
+Home-page: https://github.com/mattkjames7/KT17
+Author: Matthew Knight James
+Author-email: mattkjames7@gmail.com
+License: UNKNOWN
+Description: # KT17
+        KT17/KT14 magnetic field model for Mercury written in C++ with a Python wrapper. See Korth et al., 2015 (JGR) and Korth et al., 2017 (GRL) for more details.
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX
+Description-Content-Type: text/markdown
