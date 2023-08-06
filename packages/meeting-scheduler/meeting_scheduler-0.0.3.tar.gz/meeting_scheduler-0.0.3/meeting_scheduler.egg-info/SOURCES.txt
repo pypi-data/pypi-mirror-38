@@ -1,0 +1,10 @@
+README.md
+setup.py
+meeting_scheduler/__init__.py
+meeting_scheduler/scheduler.py
+meeting_scheduler.egg-info/PKG-INFO
+meeting_scheduler.egg-info/SOURCES.txt
+meeting_scheduler.egg-info/dependency_links.txt
+meeting_scheduler.egg-info/top_level.txt
+tests/__init__.py
+tests/test_scheduler.py
