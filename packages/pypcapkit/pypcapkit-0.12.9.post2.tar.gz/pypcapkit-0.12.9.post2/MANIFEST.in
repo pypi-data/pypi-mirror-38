@@ -1,0 +1,15 @@
+global-include *.py
+
+include doc/*
+include const/*/*.py
+
+prune NotImplemented
+prune deprecated
+prune testbench
+prune archive
+prune vendor
+prune sample
+prune build
+prune dist
+prune test
+prune src
