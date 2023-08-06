@@ -1,0 +1,3 @@
+[console_scripts]
+ctrlf = ctrlf.command:command_main
+
