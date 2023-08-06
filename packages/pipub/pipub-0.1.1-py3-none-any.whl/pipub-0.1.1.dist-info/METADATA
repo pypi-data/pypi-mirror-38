@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: pipub
+Version: 0.1.1
+Summary: Pipe data from the command line to Google Pubsub.
+Home-page: https://github.com/bufferapp/pipub
+Author: David Gasquez
+Author-email: davidgasquez@buffer.com
+License: MIT
+Keywords: pubsub,pipe,stream,google
+Platform: UNKNOWN
+Requires-Dist: google-cloud-pubsub
+Requires-Dist: click
+
+UNKNOWN
+
+
