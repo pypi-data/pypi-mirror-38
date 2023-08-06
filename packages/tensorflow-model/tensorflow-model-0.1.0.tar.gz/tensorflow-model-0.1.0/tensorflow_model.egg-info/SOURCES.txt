@@ -1,0 +1,13 @@
+README.md
+setup.py
+tensorflow_model.egg-info/PKG-INFO
+tensorflow_model.egg-info/SOURCES.txt
+tensorflow_model.egg-info/dependency_links.txt
+tensorflow_model.egg-info/entry_points.txt
+tensorflow_model.egg-info/not-zip-safe
+tensorflow_model.egg-info/requires.txt
+tensorflow_model.egg-info/top_level.txt
+tfmodel/__init__.py
+tfmodel/command.py
+tfmodel/savedmodel_analyst.py
+tfmodel/utils.py
