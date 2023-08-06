@@ -1,0 +1,9 @@
+pytango
+pytango
+click
+treelib
+gevent
+tabulate
+
+[:python_version < "3.4"]
+enum34
