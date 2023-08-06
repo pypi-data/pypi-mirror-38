@@ -1,0 +1,14 @@
+MANIFEST.in
+README.md
+setup.py
+simp13/__init__.py
+simp13/test.py
+simp13.egg-info/PKG-INFO
+simp13.egg-info/SOURCES.txt
+simp13.egg-info/dependency_links.txt
+simp13.egg-info/entry_points.txt
+simp13.egg-info/requires.txt
+simp13.egg-info/top_level.txt
+simp13/dl/__init__.py
+simp13/dl/cv/__init__.py
+simp13/dl/cv/detector.py
