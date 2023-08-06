@@ -1,0 +1,14 @@
+MANIFEST.in
+README.md
+setup.py
+poeditor_api_wrapper/__init__.py
+poeditor_api_wrapper/api_config.py
+poeditor_api_wrapper/api_interface.py
+poeditor_api_wrapper/api_request.py
+poeditor_api_wrapper/demo.py
+poeditor_api_wrapper.egg-info/PKG-INFO
+poeditor_api_wrapper.egg-info/SOURCES.txt
+poeditor_api_wrapper.egg-info/dependency_links.txt
+poeditor_api_wrapper.egg-info/not-zip-safe
+poeditor_api_wrapper.egg-info/requires.txt
+poeditor_api_wrapper.egg-info/top_level.txt

@@ -1,0 +1,18 @@
+Metadata-Version: 1.1
+Name: poeditor_api_wrapper
+Version: 0.1
+Summary: Python Wrapper for POEditor V2 API
+Home-page: http://bitbucket.org/asmuth444/poeditor_api_wrapper
+Author: Abhishek Roul
+Author-email: asmuth444@gmail.com
+License: MIT
+Description: POEditor V2 API Wrapper
+        =======================
+        
+        Description
+        -----------
+        This a python wrapper for the POEditor V2 APIs. To allow a easily available package to work with API's programmatically.
+Keywords: poeditor api v2
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
