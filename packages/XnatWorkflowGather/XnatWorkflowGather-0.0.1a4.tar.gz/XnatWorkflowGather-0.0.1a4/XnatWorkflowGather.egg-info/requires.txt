@@ -1,0 +1,4 @@
+psycopg2-binary
+ConfigArgParse>=0.13.0
+ConfigParser
+datadog

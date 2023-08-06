@@ -1,0 +1,16 @@
+Metadata-Version: 1.2
+Name: XnatWorkflowGather
+Version: 0.0.1a4
+Summary: Tool for gathering workflow data from xnat postgres db and posting metrics to datadog using local statsd
+Home-page: https://bitbucket.org/beholt-radiologics/radiologics-workflow-metric-gatherer
+Author: Brian Holt
+Author-email: brian@radiologics.com
+License: BSD 3-Clause License
+Description: UNKNOWN
+Keywords: xnat
+Platform: UNKNOWN
+Classifier: Topic :: Scientific/Engineering :: Medical Science Apps.
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 2
+Requires-Python: >=2.6

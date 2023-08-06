@@ -1,0 +1,11 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.py
+XnatWorkflowGather/__init__.py
+XnatWorkflowGather.egg-info/PKG-INFO
+XnatWorkflowGather.egg-info/SOURCES.txt
+XnatWorkflowGather.egg-info/dependency_links.txt
+XnatWorkflowGather.egg-info/requires.txt
+XnatWorkflowGather.egg-info/top_level.txt
+scripts/xnat-workflow-gather
