@@ -1,0 +1,14 @@
+guillotina>=4.3.2
+aioredis>=1.0.0
+ujson
+
+[test]
+pytest
+pytest-benchmark
+lru-dict
+docker
+backoff
+pytest-asyncio
+pytest-aiohttp
+pytest-cov
+pytest-docker-fixtures>=1.1.0

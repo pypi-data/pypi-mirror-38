@@ -1,0 +1,9 @@
+.cache/
+.eggs/
+include/
+lib/
+__pycache__
+profile.output
+*.so
+build
+*.egg-info
