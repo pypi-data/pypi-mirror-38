@@ -1,0 +1,9 @@
+[DEFAULT]
+start_time = 2018-09-24T14:31:48
+unique_id = 4502efa1963cdca
+sendbox_path = ./xmpp_data/output/4502efa1963cdca
+processbot_pid = 1103
+cmd_line = "python wpsagent.py -r ./xmpp_data/configs/remote.config -s ./xmpp_data/configs/myservice/service.config -p /tmp/wps_params__QR156.tmp process"
+spawned_process_pids = [1107]
+spawned_process_cmd = ["python /mnt/d/work/code/python/remote-wps/RemoteWPS/src/wpsremote/./xmpp_data/configs/myservice/code/test.py -i 350 -w ./xmpp_data/output//4502efa1963cdca"]
+
