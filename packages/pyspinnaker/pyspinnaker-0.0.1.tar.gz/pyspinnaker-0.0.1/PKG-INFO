@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: pyspinnaker
+Version: 0.0.1
+Summary: A python implementation of the Spinnaker API
+Home-page: https://github.com/jdewinne/pyspinnaker
+Author: Joris De Winne
+Author-email: joris.dewinne@gmail.com
+License: UNKNOWN
+Description: # pyspinnaker
+        
+        [![Build Status][pyspinnaker-travis-image] ][pyspinnaker-travis-url]
+        [![License: MIT][pyspinnaker-license-image] ][pyspinnaker-license-url]
+        
+        [pyspinnaker-travis-image]: https://travis-ci.org/jdewinne/pyspinnaker.svg?branch=master
+        [pyspinnaker-travis-url]: https://travis-ci.org/jdewinne/pyspinnaker
+        [pyspinnaker-license-image]: https://img.shields.io/badge/License-MIT-yellow.svg
+        [pyspinnaker-license-url]: https://opensource.org/licenses/MIT
+        
+        A python implementation of the Spinnaker API
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
