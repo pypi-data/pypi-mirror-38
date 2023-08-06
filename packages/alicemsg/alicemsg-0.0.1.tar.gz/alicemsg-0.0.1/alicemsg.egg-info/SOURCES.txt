@@ -1,0 +1,13 @@
+README.md
+setup.py
+alicemsg/__init__.py
+alicemsg/alice_client.py
+alicemsg/errors.py
+alicemsg.egg-info/PKG-INFO
+alicemsg.egg-info/SOURCES.txt
+alicemsg.egg-info/dependency_links.txt
+alicemsg.egg-info/top_level.txt
+alicemsg/models/__init__.py
+alicemsg/models/messages.py
+alicemsg/models/requests.py
+alicemsg/models/responses.py
