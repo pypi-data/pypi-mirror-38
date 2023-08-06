@@ -1,0 +1,3 @@
+[console_scripts]
+bobsled = bobsled.cli:cli
+
