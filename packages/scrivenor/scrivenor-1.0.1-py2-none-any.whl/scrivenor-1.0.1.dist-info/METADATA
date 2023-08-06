@@ -1,0 +1,17 @@
+Metadata-Version: 2.0
+Name: scrivenor
+Version: 1.0.1
+Summary: A configurable image and document processing tool.
+Home-page: https://github.com/phenicle/scrivenor
+Author: Phenicle
+Author-email: pheniclebeefheart@gmail.com
+License: Mozilla Public License 2.0 (MPL 2.0)
+Platform: UNKNOWN
+Requires-Dist: cfgpy
+Requires-Dist: filespherapy
+Requires-Dist: enginepy
+Requires-Dist: eventropy
+
+A configurable Python image and document processing module
+
+
