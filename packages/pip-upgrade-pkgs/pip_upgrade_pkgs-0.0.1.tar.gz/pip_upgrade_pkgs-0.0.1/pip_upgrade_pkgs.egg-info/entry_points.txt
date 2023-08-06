@@ -1,0 +1,3 @@
+[console_scripts]
+pip_upgrade_pkgs = pip_upgrade_pkgs.pip_upgrade_pkgs:main
+

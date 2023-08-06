@@ -1,0 +1,11 @@
+README.md
+setup.py
+pip_upgrade_pkgs/__init__.py
+pip_upgrade_pkgs/pip_upgrade_pkgs.py
+pip_upgrade_pkgs/upgrade_pip_packages.py
+pip_upgrade_pkgs.egg-info/PKG-INFO
+pip_upgrade_pkgs.egg-info/SOURCES.txt
+pip_upgrade_pkgs.egg-info/dependency_links.txt
+pip_upgrade_pkgs.egg-info/entry_points.txt
+pip_upgrade_pkgs.egg-info/requires.txt
+pip_upgrade_pkgs.egg-info/top_level.txt
