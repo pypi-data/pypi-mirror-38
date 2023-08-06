@@ -1,0 +1,15 @@
+Metadata-Version: 1.0
+Name: pygameboycore
+Version: 0.0.4
+Summary: Python bindings for GameboyCore
+Home-page: UNKNOWN
+Author: Cory Monroe
+Author-email: cory.s.monroe@gmail.com
+License: UNKNOWN
+Description: # pygameboycore
+        
+        Python bindings for [gameboycore](https://github.com/nnarain/gameboycore)
+        
+        See [pygameboycolor](https://github.com/corymonroe/pygameboycolor) for a simple example
+        
+Platform: UNKNOWN
