@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: pyfil
+Version: 1.9.1
+Summary: Python one-liners in the shell in the spirit of Perl and AWK
+Home-page: https://github.com/ninjaaron/pyfil
+Author: Aaron Christianson
+Author-email: ninjaaron@gmail.com
+Requires-Python: >=3.5,<4.0
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Project-URL: Repository, https://github.com/ninjaaron/pyfil
