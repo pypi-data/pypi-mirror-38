@@ -1,0 +1,9 @@
+Jinja2
+boto3
+jsonschema
+ruamel.yaml==0.15.42
+datadog
+slackclient
+sendgrid
+ldap3
+redis
