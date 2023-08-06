@@ -1,0 +1,14 @@
+tables
+pydicom
+pynrrd
+nibabel
+pyyaml
+six
+imageio
+matplotlib
+pydot
+scipy
+scikit-image==0.12.3
+tqdm
+lycon
+numpy
