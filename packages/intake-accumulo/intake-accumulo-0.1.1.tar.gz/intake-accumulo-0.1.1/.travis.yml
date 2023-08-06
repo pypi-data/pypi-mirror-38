@@ -1,0 +1,61 @@
+language: generic
+
+services:
+  - docker
+
+git:
+  depth: false
+
+env:
+  global:
+  - secure: zLU9Y6Ltcn8Rdbo/NceAef1ri+txQIqsW3Ftfp4aJHrF8ntGqnbXM2mxDmbzT6eQyLUNZ70Zga1gT4k8STF/I9KH07qlxE2HrwZKEvaEKAtjxi7yGsR8lJb8zpvG1IMBC9gZvwmHO8vOJjFGDZwm/fecf58YEFR0vRFYq2EfiN10YVzQOfKKhvikIdGYiJbjOG4uTOKMQ58LPct5ieAmn6i/lqghske4KWK0Vw58zqmq294dKQSbOeUpgUEU1LDtfZiMK7RlWYpGGDV9V2zqKNMPrsStbicqKOVp3GcqnAbRjuBE4yXIJQoGEbZZgX5qmef/4ssWQTFcqqaxRh4nSqSY/hULPtcw+0VpAA8zFQAZffdxtK5s5tgYdAfL2SgJdgdBmPhIVDyWUwASpx7pXVuolx27zD9x7fizLnwOCv4fZGomxy7+pgi6TvuWMhjbUDf8hKY/vVpfFyGK3Wca5d4wjbJ68ze3vmaUd4CHRanB93hpNzPyOcl3nsCu86B7MhUgrGWAitbjq9XxO6sa0AHUwovOYqs/aEYrfEll7pzVhP9uxqUeYFLuc7mS18boqpant+4pCRC1zFRIGQpZyRzZfgDZupHMRhKoJDOaNkWoFLl8VNw0CnHeYegSizO2zsZpkCIvYRxUYJ+4DqyQWTH2uqdpQtBF0h3AvUBw7DI=
+
+# Skipping docker tests for now
+matrix:
+  include:
+    - os: linux
+      sudo: required
+      env: CONDA_PY=27
+    - os: linux
+      sudo: required
+      env: CONDA_PY=35
+    - os: linux
+      sudo: required
+      env: CONDA_PY=36 CONDA_UPLOAD=1
+
+install:
+- |
+  echo "Installing a fresh version of Miniconda."
+  MINICONDA_URL="https://repo.continuum.io/miniconda"
+  MINICONDA_FILE="Miniconda3-latest-$(case $TRAVIS_OS_NAME in (linux) echo Linux;; (osx) echo MacOSX;;esac)-x86_64.sh"
+  curl -L -O "${MINICONDA_URL}/${MINICONDA_FILE}"
+  bash $MINICONDA_FILE -b
+- |
+  echo "Configuring conda."
+  source $HOME/miniconda3/bin/activate root
+  conda install -y conda-build anaconda-client flake8
+
+script:
+- |
+  flake8 --exclude=intake_accumulo/accumulo/proxy .
+  if [ -n "$CONDA_TEST" ]; then
+    conda build -c intake -c defaults -c conda-forge --python "${CONDA_PY:0:1}.${CONDA_PY:1:2}" ./conda
+  else
+    # Workaround for Travis-CI bug #2: https://github.com/travis-ci/travis-ci/issues/7773
+    conda build -c intake -c defaults -c conda-forge --no-test --python "${CONDA_PY:0:1}.${CONDA_PY:1:2}" ./conda
+  fi
+- |
+  if [ -n "$CONDA_UPLOAD" ]; then
+    if [ -n "$TRAVIS_TAG" ]; then
+      # If tagged git version, upload package to main channel
+      anaconda -t ${ANACONDA_TOKEN} upload -u intake --force `conda build --output ./conda`
+    else
+      # Otherwise upload package to dev channel
+      anaconda -t ${ANACONDA_TOKEN} upload -u intake --label dev --force `conda build --output ./conda`
+    fi
+  fi
+
+notifications:
+  email: false
+  on_success: change
+  on_failure: always

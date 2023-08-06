@@ -1,0 +1,8 @@
+include versioneer.py
+include intake_accumulo/_version.py
+include LICENSE
+include README.md
+include requirements.txt
+recursive-include . *.html
+recursive-include . *.csv
+recursive-include . *.yml
