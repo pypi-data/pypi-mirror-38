@@ -1,0 +1,11 @@
+README.md
+setup.py
+AnalysisDataLink.egg-info/PKG-INFO
+AnalysisDataLink.egg-info/SOURCES.txt
+AnalysisDataLink.egg-info/dependency_links.txt
+AnalysisDataLink.egg-info/requires.txt
+AnalysisDataLink.egg-info/top_level.txt
+analysisdatalink/__init__.py
+analysisdatalink/connectomeanalysis.py
+analysisdatalink/datalink.py
+analysisdatalink/datalink_base.py
