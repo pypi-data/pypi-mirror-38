@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: sg_module_queues
+Version: 0.0.1
+Summary: Input, processing and output queues for SG
+Home-page: UNKNOWN
+Author: Viral Communications
+Author-email: viral-grads@media.mit.edu
+License: UNKNOWN
+Description: # Module Queues
+        
+        Implements logic for using Redis queues to queue input tasks, transfer them into processing queue and into ouput queue upon completion.
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
