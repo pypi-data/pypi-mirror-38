@@ -1,0 +1,13 @@
+README.md
+setup.cfg
+setup.py
+aliceplex/schema/__init__.py
+aliceplex/schema/format.py
+aliceplex/schema/model.py
+aliceplex/schema/patch.py
+aliceplex/schema/verify.py
+aliceplex_schema.egg-info/PKG-INFO
+aliceplex_schema.egg-info/SOURCES.txt
+aliceplex_schema.egg-info/dependency_links.txt
+aliceplex_schema.egg-info/requires.txt
+aliceplex_schema.egg-info/top_level.txt

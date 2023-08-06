@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: aliceplex-schema
+Version: 3.0.0b1
+Summary: Schema library for Plex
+Home-page: https://github.com/aliceplex/schema
+Author: Alice Plex
+License: UNKNOWN
+Description: # aliceplex-schema
+        
+        [![Documentation Status](https://readthedocs.org/projects/aliceplex-schema/badge/?version=latest)](https://aliceplex-schema.readthedocs.io/en/latest/?badge=latest) 
+        [![License](https://img.shields.io/github/license/aliceplex/schema.svg)](https://github.com/aliceplex/schema/blob/master/LICENSE)
+        
+        
+        aliceplex-schema is a schema library for Plex. It provides basic Plex related model.
+        This can be used to develop other Plex library.
+        
+        ## Install
+        
+        ```bash
+        pip install -i aliceplex-schema
+        ```
+        
+        ## Documentation
+        
+        See [documentation](http://aliceplex-schema.readthedocs.io/).
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
