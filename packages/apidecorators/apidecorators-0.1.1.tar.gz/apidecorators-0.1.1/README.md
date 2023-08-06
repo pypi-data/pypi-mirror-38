@@ -1,0 +1,201 @@
+# API Decorators
+
+```python
+# budget.py
+from apidecorators.api import jwt_auth, get, insert, update, push, aggregate, db, ObjectId, \
+                              validate, get_many, write_access, read_access, collection, has_role
+from apidecorators.hooks import on_insert
+from cerberus import Validator
+import time
+
+schema = {
+    'demand_id': {'type': 'string', 'required': True},
+    'applicant': {'type': 'string', 'required': True},
+    'applicant_id': {'type': 'string', 'required': True},
+    'offerer': {'type': 'string'},
+    'offerer_id': {'type': 'string'},
+    'description': {'type': 'string', 'required': True},
+    'min_amount': {'type': 'float', 'required': True},
+    'max_amount': {'type': 'float', 'required': True},
+    'stars': {'type': 'integer', 'min': 0, 'max': 5},
+    'min_term': {'type': 'integer', 'required': True},
+    'max_term': {'type': 'integer', 'required': True},
+    'status': {'type': 'string', 'allowed': ['created', 'accepted', 'finished', 'canceled']},
+    'date': {'type': 'float'},
+    'applicant_comment': {'type': 'string'},
+    #'public': {'type': 'boolean'}
+}
+
+validator = Validator(schema)
+
+schema_messages = {
+    'author': {'type': 'string'},
+    'message': {'type': 'string'},
+    'created_at': {'type': 'float'}
+}
+
+validator_messages = Validator(schema_messages)
+
+#@on_insert("budget")
+async def after_insert_budget(budget):    
+    demand_id = ObjectId(budget["demand_id"])
+    offerer_id = budget["offerer_id"]
+    await db.demand.update({"_id": demand_id}, {"$push": {"offerers": offerer_id}})
+
+def set_routes_budget(routes):
+
+    @routes.get('/api/budget/aggregate/min-max')
+    @jwt_auth
+    @collection('budget')
+    @aggregate
+    async def get_aggr_min_max(col, query, payload):  
+        demand_id = query["demand_id"]
+        pipeline = [{"$project": {"demand_id": 1, "min_amount": 1, "max_amount": 1}},
+                    {"$match": {"demand_id": demand_id}}, 
+                    {"$group": {"_id": "$demand_id", "min": {"$min": "$min_amount"}, "max": {"$max": "$max_amount"}}}]
+        return col.aggregate(pipeline)
+
+    @routes.get('/api/budget/aggregate/stars')
+    @jwt_auth
+    @has_role('basic')
+    @collection('budget')
+    @aggregate
+    async def get_aggr_stars(col, query, payload):  
+        offerers = query["offerers"].split(',')
+        pipeline = [{"$project": {"status": 1, "offerer": 1, "stars": 1, "applicant": 1, "applicant_comment": 1}},
+                    {"$match": {"status": "accepted", "offerer": {"$in": offerers}}}, 
+                    {"$group": {"_id": {"offerer":"$offerer", "num": "$stars"},
+                     "stars": {"$sum": 1}}}]
+        return col.aggregate(pipeline)
+
+    @routes.get('/api/budget/aggregate/comments')
+    @jwt_auth
+    @has_role('user')
+    @collection('budget')
+    @aggregate
+    async def get_aggr_stars(col, query, payload):  
+        offerer = query["offerer_id"]
+        pipeline = [{"$project": {"status": 1, "offerer_id": 1, "offerer": 1, "applicant": 1, "applicant_comment": 1}},
+                    {"$match": {"status": "accepted", "offerer_id": offerer}}, 
+                    {"$group": {"_id": "$applicant",
+                    "comments": {"$push": {"comment": "$applicant_comment"}},
+                    }}]
+        return col.aggregate(pipeline)
+
+    @routes.get('/api/budgets-as-offerer')
+    @jwt_auth
+    @collection('budget')
+    @read_access({'offerer': '*'})
+    @get_many
+    async def get_many_budgets(col, query, payload):  
+        return col.find({"offerer": payload['user']}).limit(100)
+
+    @routes.get('/api/budgets-for-a-demand')
+    @jwt_auth
+    @collection('budget')
+    @read_access({'applicant': '*'})
+    @get_many
+    async def get_many_budgets(col, query, payload):  
+        demand_id = query["demand_id"]
+        return col.find({"demand_id": demand_id})
+        #return col.find({"demand_id": demand_id, "$or": [{"applicant": payload["user"]}, {"public": True}]})        
+
+    @routes.get('/api/budget/{_id}')
+    @jwt_auth
+    @collection('budget')
+    @read_access({'__owner': '*', 'applicant': '*'})
+    @get
+    async def get_budget(document, payload):      
+        return document
+
+    @routes.put('/api/budget/{_id}/messages')
+    @jwt_auth
+    @collection('budget')
+    @write_access({'__owner': '*', 'applicant': '*'})
+    @validate(validator=validator_messages)
+    @push('messages')
+    async def push_comment(document, request, payload):   
+        document['author'] = payload['user']   
+        document['created_at'] = time.time()
+        return document    
+
+    @routes.post('/api/budget')
+    @jwt_auth
+    @collection('budget')
+    @write_access({'*': '*'})
+    @validate(validator=validator)
+    @insert
+    async def handle_post(document, request, payload):
+        document['stars'] = 0
+        document['status'] = 'created'
+        document['offerer'] = payload["user"]
+        document['offerer_id'] = payload["user_id"]
+        await after_insert_budget(document)
+        return document   
+    
+    @routes.put('/api/budget/{_id}')
+    @jwt_auth
+    @collection('budget')
+    @write_access({'__owner': ['description', 'min_amount', 'max_amount', 'min_term', 'max_term'], 'applicant': ['stars', 'status', 'applicant_comment']})
+    @validate(update=True, validator=validator)
+    @update
+    async def handle_put(old_doc, document, request, payload):      
+        return document  
+
+#app.py
+import asyncio
+from budget import set_routes_budget
+from aiohttp import web
+from apidecorators.api import cors_factory
+
+
+async def handle(loop):
+    app = web.Application(loop=loop, middlewares=[cors_factory])
+    routes = web.RouteTableDef()
+
+    set_routes_budget(routes)
+    app.router.add_routes(routes)
+    await loop.create_server(app.make_handler(), '0.0.0.0', 8888)
+
+def main():    
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(handle(loop))
+    print("Server started at port 8888")
+    loop.run_forever()
+    loop.close()
+
+if __name__ == '__main__':
+    main()
+```
+
+docker-compose.yml
+```yml
+version: '3'
+services:
+  api:
+    build: .
+    environment:
+    - DB_URI=mongodb://<user>:<password>@url:port/data-base
+    - DB=data-base
+    - SECRET=secret
+    stdin_open: true
+    tty: true
+    ports:
+    - "8089:8089"
+    volumes:
+    - ./:/usr/src/app
+    command: python -m watchgod app.main 
+```
+
+```python
+# added update_array in version 0.1.1
+
+    @routes.put('/api/book/{_id}/comments/{sub_id}')
+    @jwt_auth
+    @collection('book')
+    @write_access({'__owner': ['*']})
+    @validate(update=True, validator=validator_comments)
+    @update_array('comments')
+    async def handle_push(document, request, payload):      
+        return document
+```
