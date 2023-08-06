@@ -1,0 +1,3 @@
+[console_scripts]
+dfs = dataflows_shell.cli:dfs
+
