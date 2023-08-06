@@ -1,0 +1,8 @@
+dill<=0.2.8.5
+numpy<1.16,>=1.7.0
+pandas<0.24,>=0.18.0
+pyomo<5.6,>=4.4.0
+networkx<2.3
+
+[datapackage]
+datapackage
