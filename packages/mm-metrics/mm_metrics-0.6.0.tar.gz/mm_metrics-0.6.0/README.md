@@ -1,0 +1,89 @@
+# metrics-python
+Morgan & Morgan wrapper for application metrics instrumentation. 
+
+## Installation
+```bash
+pip install mm-metrics
+```
+
+## Core API
+#### Increment
+Increment a counter for a metric.
+
+```increment(metric)```
+
+#### Gauge
+Set the magnitude of a metric to a value
+
+```gauge(metric, value)```
+
+#### Timer
+Time the execution of a task, via either decorator or context manager
+
+```
+# as decorator
+@timer(metric)
+
+# as contextmanager
+with timer(metric):
+```
+
+## Environment Variables
+| Name | Default | Description |
+| --- | --- | --- |
+| METRICS_DEFAULT_BACKEND | 'metrics.backends.DataDogMetricsBackend' | The dot-notation path to a metrics backend to default to |
+| DD_API_KEY | None | DataDog API Key |
+| DD_APP_KEY | None | DataDog App Key |
+| DD_SERVICE_NAME | None | The name of the current service. If set, every metric will be tagged by this value like 'service:<service name>' |
+| DD_SERVICE_PRIORITY | None | The priority of the current service, on a scale of 1-3 with 1 being highest priority. If set, every metric will be tagged by this value like 'priority:<service priority>' |
+| DD_GLOBAL_TAGS | None | Any additional global tags to apply when metrics are sent. For instance, global tags like 'foobar:1,baz:2' would send tags `['foobar:1', 'baz:2']` with every metric |
+  
+## Examples
+
+1. Time the execution of a task
+
+```python
+from metrics.decorators import timer
+import requests
+
+@timer(metric='mm.connections.sf.sync.timer')
+def sync_to_sf(data):
+  resp = requests.post('https://sf-url.com', data=data)
+  return resp.ok
+```
+
+2. Increment an error counter when a function hits an error, increment a count counter when a function completes successfully
+
+```python
+from metrics.decorators import increment
+
+
+@increment(on_complete_metric='mm.connections.aws.secrets.count', on_error_metric='mm.connections.aws.secrets.errors.count')
+def secrets():
+  # get AWS secrets handle
+  return boto3.client('secrets')
+```
+
+3. Send some extra tags to attach to a metric (note: some backends might not support tagging and will simply disregard the parameter)
+
+```python
+from metrics.decorators import increment
+
+
+@increment(on_complete_metric='mm.requests.get.count', on_error_metric='mm.connections.get.errors.count', tags=['path:/'])
+def get(self):
+  return HttpResponse(status=200)
+```
+
+## Motivation
+Given that most client's have similar (and straightforward) requirements for metric tracking,
+we wrap these common methods (as well as helper tooling) in this abstract Python API. This 
+gives us the flexibility to:
+
+* Maintain metric tracking functionality in a central location
+* Decouple metric tracking from core application functionality
+* Swap statsD providers opaquely (e.g DogStatsD -> Vanilla StatsD)
+
+## Additional Reading
+
+* For more detail on metrics collection at MM and metric naming guidelines, see the wiki page [here](https://help.forthepeople.com/index.php/Engineering_and_Platform/Metrics_Monitoring_and_Alerting#Log_Collection)
