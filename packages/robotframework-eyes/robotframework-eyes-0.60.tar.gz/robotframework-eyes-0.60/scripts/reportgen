@@ -1,0 +1,26 @@
+#! /usr/bin/env python
+
+from RobotEyes import report_generator
+import sys, os
+
+root_folder = os.getcwd()
+
+try:
+    output_dir = sys.argv[1]
+
+except IndexError:
+    print("Assuming results stored in root..")
+    output_dir = ''
+
+if output_dir.endswith('/') or not output_dir:
+    report_path = output_dir + 'output.xml'
+    img_path = output_dir + 'visual_images'
+
+else:
+    report_path = output_dir + '/output.xml'
+    img_path = output_dir + '/visual_images'
+
+if os.path.exists(root_folder + "/" + report_path) and os.path.exists(root_folder + "/" + img_path):
+    report_generator.generate_report(root_folder, report_path, img_path, output_dir)
+else:
+    raise Exception("Please provide a valid path to results.")
