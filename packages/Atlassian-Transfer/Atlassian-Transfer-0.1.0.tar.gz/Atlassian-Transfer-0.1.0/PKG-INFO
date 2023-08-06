@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: Atlassian-Transfer
+Version: 0.1.0
+Summary: An API wrapper for transfer.atlassian.com
+Home-page: https://bitbucket.org/dchevell/atlassian-transfer
+Author: Dave Chevell
+Author-email: chevell@gmail.com
+License: MIT
+Description: Atlassian-Transfer
+        ==============
+        
+        An API wrapper for Atlassian's https://transfer.atlassian.com file upload site.
+        
+        Installation
+        ------------
+        
+        Atlassian-Transfer is available on PyPI and can be installed with:
+        
+            pip install atlassian-transfer
+        
+        
+        Quick start
+        -----------
+        
+Keywords: requests,transfer,atlassian
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
