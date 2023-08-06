@@ -1,0 +1,13 @@
+README.md
+setup.py
+pycoQC/__init__.py
+pycoQC/cli.py
+pycoQC/common.py
+pycoQC/pycoQC.py
+pycoQC.egg-info/PKG-INFO
+pycoQC.egg-info/SOURCES.txt
+pycoQC.egg-info/dependency_links.txt
+pycoQC.egg-info/entry_points.txt
+pycoQC.egg-info/requires.txt
+pycoQC.egg-info/top_level.txt
+pycoQC/templates/spectre.html.j2
