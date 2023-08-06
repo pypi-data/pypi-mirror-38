@@ -1,0 +1,9 @@
+Generate tmuxinator configuration files from minos configuration files for FDS(will add for other services like EMQ)
+
+Usage:
+
+  mm --help
+  mm generate --help
+  mm config --help
+
+Thanks: Good Idea from FDS/EMQ/EMR组的大神yepeng1

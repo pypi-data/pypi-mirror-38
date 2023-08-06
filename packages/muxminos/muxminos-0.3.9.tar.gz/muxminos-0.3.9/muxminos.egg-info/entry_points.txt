@@ -1,0 +1,4 @@
+[console_scripts]
+mm = muxminos.cmd:cli
+muxminos = muxminos.cmd:cli
+
