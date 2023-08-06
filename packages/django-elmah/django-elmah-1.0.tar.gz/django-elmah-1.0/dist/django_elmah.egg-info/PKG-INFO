@@ -1,0 +1,24 @@
+Metadata-Version: 1.1
+Name: django-elmah
+Version: 1.0
+Summary: Django Error Logging Modules and Handlers
+Home-page: https://github.com/rickjordan/django-elmah
+Author: Rick Jordan
+Author-email: jordan.rick.d@gmail.com
+License: GNU Affero General Public License v3
+Description: # djELMAH
+        
+        djELMAH catches unhandled exceptions in production-ready Django applications (i.e., `DEBUG=False`) and generates detailed error logs that can be saved locally and/or to any number of remote hosts.
+        
+        ## Acknowledgments
+        
+        * Inspired by [Elmah](https://github.com/elmah/Elmah) error logging for ASP.NET
+        
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python

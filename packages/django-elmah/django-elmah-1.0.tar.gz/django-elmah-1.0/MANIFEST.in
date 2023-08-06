@@ -1,0 +1,4 @@
+include LICENSE
+include README.md
+recursive-include djelmah/static *
+recursive-include djelmah/templates *

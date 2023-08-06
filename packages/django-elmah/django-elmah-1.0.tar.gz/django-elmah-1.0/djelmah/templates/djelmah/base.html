@@ -1,0 +1,44 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <title>djELMAH</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    {% if DJELMAH_INCLUDE_BUNDLE %}
+        {% include 'djelmah/bundle.html' %}
+    {% else %}
+        {% load static %}
+        <script src="{% static 'djelmah/script.min.js' %}"></script>
+    {% endif %}
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <a class="navbar-brand" href="/djelmah">djELMAH</a>
+    
+    {% if request.user.is_authenticated %}
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link" href="#" data-toggle="dropdown">
+                    <i class="fas fa-bars"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right text-right">
+                    <a class="dropdown-item" href="/djelmah/logs">View Logs</a>
+                    <a class="dropdown-item" href="/djelmah/keys">Manage Keys</a>
+                    <div class="dropdown-divider"></div>
+                {% if request.user.is_staff %}
+                    <a class="dropdown-item" href="/admin" target="_blank">Administration</a>
+                {% endif %}
+                    <a class="dropdown-item" href="/logout">Logout</a>
+                </div>
+            </li>
+        </ul>
+    {% endif %}
+    </nav>
+
+    <div class="container-fluid" style="padding-top:20px">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
