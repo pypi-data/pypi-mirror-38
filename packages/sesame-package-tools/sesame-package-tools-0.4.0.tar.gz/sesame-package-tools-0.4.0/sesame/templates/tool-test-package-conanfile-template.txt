@@ -1,0 +1,16 @@
+# -*- coding: utf-8 -*-
+
+import io
+from conans import ConanFile
+
+class {package_name}TestConan(ConanFile):
+
+    def build(self):
+        pass # just silence the 'WARN: This conanfile has no build step'
+
+    def test(self):
+        output = io.StringIO()
+        self.run('<tool> --version', output=output)
+        self.output.info(f'Installed:\n{{str(output.getvalue())}}')
+        ver = str(self.requires['{name}'].conan_reference.version)
+        assert(ver in str(output.getvalue()))

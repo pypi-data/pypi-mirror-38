@@ -1,0 +1,71 @@
+# -*- coding: utf-8 -*-
+
+import os
+from conans import ConanFile, CMake, tools
+
+class {package_name}Conan(ConanFile):
+    name = '{name}'
+    version = '{version}'
+    description = '<Description of {package_name} here>.'
+    url = 'https://github.com/birsoyo/conan-{name}'
+    homepage = 'https://github.com/original_author/original_lib'
+    author = 'Orhun Birsoy <orhunbirsoy@gmail.com>'
+
+    license = '<Indicates License type of the packaged library>'
+
+    # Packages the license for the conanfile.py
+    exports = ['LICENSE.md']
+
+    # Remove following lines if the target lib does not use cmake.
+    exports_sources = ['CMakeLists.txt']
+    generators = 'cmake'
+
+    settings = 'os', 'compiler', 'build_type', 'arch'
+    options = {{'shared': [True, False], 'fPIC': [True, False]}}
+    default_options = 'shared=False', 'fPIC=True'
+
+    # Custom attributes for Bincrafters recipe conventions
+    source_subfolder = 'source_subfolder'
+    build_subfolder = 'build_subfolder'
+
+    def config_options(self):
+        if self.settings.os == 'Windows':
+            del self.options.fPIC
+
+    def source(self):
+        source_url = 'https://github.com/libauthor/{name}'
+        tools.get(f'{{source_url}}/archive/v{{self.version}}.tar.gz')
+        extracted_dir = f'{{self.name}}-{{self.version}}'
+
+        #Rename to "source_subfolder" is a convention to simplify later steps
+        os.rename(extracted_dir, self.source_subfolder)
+
+    def build(self):
+        cmake = self._configure_cmake()
+        cmake.build()
+
+    def package(self):
+        self.copy(pattern='LICENSE', dst='licenses', src=self.source_subfolder)
+        cmake = self._configure_cmake()
+        cmake.install()
+        # If the CMakeLists.txt has a proper install method, the steps below may be redundant
+        # If so, you can just remove the lines below
+        include_folder = os.path.join(self.source_subfolder, 'include')
+        self.copy(pattern='*', dst='include', src=include_folder)
+        self.copy(pattern='*.dll', dst='bin', keep_path=False)
+        self.copy(pattern='*.lib', dst='lib', keep_path=False)
+        self.copy(pattern='*.a', dst='lib', keep_path=False)
+        self.copy(pattern='*.so*', dst='lib', keep_path=False)
+        self.copy(pattern='*.dylib', dst='lib', keep_path=False)
+
+    def package_info(self):
+        self.cpp_info.libs = tools.collect_libs(self)
+
+    def _configure_cmake(self):
+        cmake = CMake(self)
+        cmake.verbose = True
+        cmake.definitions['BUILD_TESTS'] = False # example
+        if self.settings.os != 'Windows':
+            cmake.definitions['CMAKE_POSITION_INDEPENDENT_CODE'] = self.options.fPIC
+        cmake.configure(source_folder=self.source_subfolder, build_folder=self.build_subfolder)
+        return cmake
