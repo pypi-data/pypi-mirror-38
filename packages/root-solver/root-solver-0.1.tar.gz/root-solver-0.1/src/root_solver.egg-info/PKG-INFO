@@ -1,0 +1,42 @@
+Metadata-Version: 1.2
+Name: root-solver
+Version: 0.1
+Summary: Root solver for polynomial equations
+Home-page: https://root-solver.readthedocs.io
+Author: James Tocknell
+Author-email: aragilar@gmail.com
+License: 3-clause BSD
+Project-URL: Source, https://github.com/aragilar/root-solver/
+Project-URL: Documentation, https://root-solver.readthedocs.io
+Project-URL: Tracker, https://github.com/aragilar/root-solver/issues
+Description: root-solver provides solvers for polynomials of orders 2 and 3 (with plans for 4
+        and possibly higher), using the algorithms of Kahan and others. See
+        http://www.cs.berkeley.edu/~wkahan/Math128/Cubic.pdf for more information about
+        the algorithms included.
+        
+        Additionally root-solver includes support for tracking a single root as the
+        coefficients of the polynomial changes.
+        
+        |Documentation Status| |Build Status| |Coverage Status|
+        
+        
+        .. |Documentation Status| image:: https://readthedocs.org/projects/root-solver/badge/?version=latest
+           :target: https://root-solver.readthedocs.org/en/latest/?badge=latest
+        .. |Build Status| image:: https://travis-ci.org/root-solver/root-solver.svg?branch=master
+           :target: https://travis-ci.org/root-solver/root-solver
+        .. |Coverage Status| image:: https://codecov.io/github/aragilar/root-solver/coverage.svg?branch=master
+           :target: https://codecov.io/github/aragilar/root-solver?branch=master
+        
+Keywords: root solver
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Topic :: Scientific/Engineering
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.4
