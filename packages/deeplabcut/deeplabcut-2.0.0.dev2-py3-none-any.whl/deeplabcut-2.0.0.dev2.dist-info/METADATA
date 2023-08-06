@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: deeplabcut
+Version: 2.0.0.dev2
+Summary: Markerless pose-estimation of user-defined features with deep learning
+Home-page: https://github.com/AlexEMG/DeepLabCut
+Author: Alexander Mathis, Tanmay Nath, Mackenzie Mathis
+Author-email: alexander.mathis@bethgelab.org
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Operating System :: OS Independent
+Requires-Dist: certifi
+Requires-Dist: chardet (==3.0.4)
+Requires-Dist: click
+Requires-Dist: easydict (~=1.7)
+Requires-Dist: h5py (~=2.7)
+Requires-Dist: imageio (==2.3.0)
+Requires-Dist: intel-openmp
+Requires-Dist: ipython (~=6.0.0)
+Requires-Dist: ipython-genutils (==0.2.0)
+Requires-Dist: matplotlib (==2.2.2)
+Requires-Dist: moviepy (~=0.2.3.5)
+Requires-Dist: numpy (~=1.14.5)
+Requires-Dist: opencv-python (~=3.4)
+Requires-Dist: pandas (~=0.20.0)
+Requires-Dist: patsy
+Requires-Dist: python-dateutil (==2.7.3)
+Requires-Dist: pyyaml (~=3.12)
+Requires-Dist: requests
+Requires-Dist: setuptools
+Requires-Dist: scikit-image (~=0.14.0)
+Requires-Dist: scikit-learn (==0.19.2)
+Requires-Dist: scipy (~=1.1.0)
+Requires-Dist: six (==1.11.0)
+Requires-Dist: statsmodels (==0.9.0)
+Requires-Dist: tables (==3.4.4)
+Requires-Dist: tqdm (>4)
+Requires-Dist: wheel (==0.31.1)
+
+UNKNOWN
+
+
