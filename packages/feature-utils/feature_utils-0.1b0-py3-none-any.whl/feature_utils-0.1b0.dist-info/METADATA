@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: feature-utils
+Version: 0.1b0
+Summary: Utilities for generating features for machine learning pipelines
+Home-page: UNKNOWN
+Author: Gautam Borgohain
+Author-email: gautamborgohain90@gmail.com
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: sklearn
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: tqdm
+Requires-Dist: lightgbm
+
+UNKNOWN
+
+
