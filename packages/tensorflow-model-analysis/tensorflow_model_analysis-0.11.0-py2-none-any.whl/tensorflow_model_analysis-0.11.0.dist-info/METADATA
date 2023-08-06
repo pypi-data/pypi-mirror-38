@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: tensorflow-model-analysis
+Version: 0.11.0
+Summary: A library for analyzing TensorFlow models
+Home-page: https://www.tensorflow.org/tfx/model_analysis
+Author: Google LLC
+Author-email: tensorflow-extended-dev@googlegroups.com
+License: Apache 2.0
+Download-URL: https://pypi.org/project/tensorflow-model-analysis
+Keywords: tensorflow model analysis tfx
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 2 :: Only
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=2.7,<3
+Requires-Dist: apache-beam[gcp] (<3,>=2.8)
+Requires-Dist: numpy (<2,>=1.10)
+Requires-Dist: jupyter (<2,>=1.0)
+Requires-Dist: ipywidgets (<8,>=7.0)
+Requires-Dist: protobuf (<4,>=3.6.0)
+Requires-Dist: six (<2,>=1.9)
+Requires-Dist: tensorflow-transform (<1,>=0.11)
+
+UNKNOWN
+
+
