@@ -1,0 +1,3 @@
+include Cutter/abbr/*.list
+include Cutter/init/*.list
+include Cutter/rule/*.yaml
