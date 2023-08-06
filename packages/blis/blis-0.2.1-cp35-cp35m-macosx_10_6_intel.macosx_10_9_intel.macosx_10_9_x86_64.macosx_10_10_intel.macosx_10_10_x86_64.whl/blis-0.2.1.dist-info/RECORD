@@ -1,0 +1,17 @@
+blis/__init__.pxd,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+blis/__init__.py,sha256=v3gLYQTccvtvQSssF_pCtN2hq-HUZAW9fjvbOv9_ahw,29
+blis/about.py,sha256=jAMWbmvL85hB41KEo88e_cjUdSjmc1sh_RGBW-A1Z5k,536
+blis/benchmark.py,sha256=-k36wSYiudV3hwnb6uqvawHJp3U8gM4_4NnCrl24qnc,2579
+blis/cy.cpython-35m-darwin.so,sha256=rJh5wryoaQ8CdZ7MU4OEWd1A4Dgk3VXBU5e928l3MpY,5920716
+blis/cy.pxd,sha256=N_ifuVqD85PvC3aHMT_959lTY0TMLkbfYbxdIgF_KG8,2438
+blis/cy.pyx,sha256=jHlRyMLBg8CPIGbJgRwXnA50EyVtuxsr2Q9ll_rnMuo,13682
+blis/py.cpython-35m-darwin.so,sha256=nYcvAergeScU_cqDCFeMDEQ89-MDTASsowElD-jfS7A,6182796
+blis/py.pyx,sha256=bFUmVmsHPJkG4i911NuDWBm7QM09O6F7GsCTcVD887o,6403
+blis/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+blis/tests/common.py,sha256=HJlete9CPEFs2RPQWGtJk1MAyYDyR5k0H5rKshRpVlk,2536
+blis/tests/test_dotv.py,sha256=PWSg8VlF0xjB4YhgvZ-Mk90bZAslHlIEuGVnn7Clq2M,1189
+blis/tests/test_gemm.py,sha256=QcFWDjyh0nkNJQhpAoFyfhUYvernBRWmYqgL_R-QjkU,2464
+blis-0.2.1.dist-info/METADATA,sha256=efVCIX50VUng4BdKM7OqBG9HruYzR2Jb3i7oftuUTfQ,7066
+blis-0.2.1.dist-info/RECORD,,
+blis-0.2.1.dist-info/top_level.txt,sha256=yqZIBDPqq9RefHu0PWPWmOQfhhKsBy120eoLTMlmXkA,5
+blis-0.2.1.dist-info/WHEEL,sha256=ydkBELDrr9W8Qd-L-_tE7DzY1lybOjDsSsHhe-RORfQ,249
