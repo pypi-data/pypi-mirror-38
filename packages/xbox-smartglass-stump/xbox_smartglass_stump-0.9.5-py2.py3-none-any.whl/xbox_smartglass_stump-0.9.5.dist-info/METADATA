@@ -1,0 +1,112 @@
+Metadata-Version: 2.1
+Name: xbox-smartglass-stump
+Version: 0.9.5
+Summary: A library to handle stump smartglass stuff, related to TV streaming.
+Home-page: https://github.com/OpenXbox/xbox-smartglass-stump-python
+Author: OpenXbox
+License: GPL
+Keywords: xbox one smartglass stump tv streaming
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: xbox-smartglass-core (>=1.0.12)
+Requires-Dist: marshmallow-objects
+Provides-Extra: dev
+Requires-Dist: bumpversion; extra == 'dev'
+Requires-Dist: watchdog; extra == 'dev'
+Requires-Dist: coverage; extra == 'dev'
+Requires-Dist: Sphinx; extra == 'dev'
+Requires-Dist: wheel; extra == 'dev'
+Requires-Dist: twine; extra == 'dev'
+
+=====================
+Xbox-Smartglass-Stump
+=====================
+
+.. image:: https://pypip.in/version/xbox-smartglass-stump/badge.svg
+    :target: https://pypi.python.org/pypi/xbox-smartglass-stump/
+    :alt: Latest Version
+
+.. image:: https://readthedocs.org/projects/xbox-smartglass-stump-python/badge/?version=latest
+    :target: http://xbox-smartglass-stump-python.readthedocs.io/en/latest/?badge=latest
+    :alt: Documentation Status
+
+.. image:: https://travis-ci.com/OpenXbox/xbox-smartglass-stump-python.svg?branch=master
+    :target: https://travis-ci.com/OpenXbox/xbox-smartglass-stump-python
+
+.. image:: https://img.shields.io/badge/discord-OpenXbox-blue.svg
+    :target: https://discord.gg/E8kkJhQ
+    :alt: Discord chat channel
+
+Library to handle SmartGlass Stump (TV Streaming / IR control) messages.
+
+For in-depth information, check out the documentation: (https://openxbox.github.io)
+
+Dependencies
+------------
+* Python >= 3.5
+* xbox-smartglass-core
+
+
+How to use
+----------
+
+Install::
+
+  pip install xbox-smartglass-stump
+
+
+Known issues
+------------
+* others
+
+Contribute
+----------
+* Report bugs/suggest features
+* Add/update docs
+
+Credits
+-------
+This package uses parts of Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+
+.. _Cookiecutter: https://github.com/audreyr/cookiecutter
+.. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+
+
+=======
+History
+=======
+
+0.9.5 (2018-11-14)
+------------------
+
+* Python 3.7 compatibility
+
+0.9.4 (2018-08-14)
+------------------
+
+* Bump required xbox-smartglass-core version to v1.0.10
+
+0.9.3 (2018-08-11)
+------------------
+
+* Metadata changes
+* Version pinning
+
+0.9.1-0.9.2 (2018-05-16)
+------------------------
+
+* Fixing CI deployment
+
+0.9.0 (2018-05-16)
+------------------
+
+* Initial commit
+
+
