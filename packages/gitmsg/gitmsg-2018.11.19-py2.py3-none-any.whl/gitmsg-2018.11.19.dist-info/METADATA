@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: gitmsg
+Version: 2018.11.19
+Summary: autogenerate git commit message
+Home-page: https://github.com/looking-for-a-job/gitmsg
+License: UNKNOWN
+Keywords: git
+Platform: UNKNOWN
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: Unix
+Classifier: Topic :: Software Development :: Version Control
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
+Requires-Dist: setuptools
+
+[![](https://img.shields.io/badge/OS-Unix-blue.svg?longCache=True)]()
+[![](https://img.shields.io/pypi/pyversions/gitmsg.svg?longCache=True)](https://pypi.org/pypi/gitmsg/)
+
+#### Install
+```bash
+$ [sudo] pip install gitmsg
+```
+
+#### CLI
+```bash
+usage: gitmsg
+```
+
+#### Examples
+```bash
+$ cd /path/to/repo/
+$ touch new_file
+$ rm deleted_file
+$ echo "new" > modified_file
+$ git add -A
+$ gitmsg
+'+new_file; -deleted_file; ^modified_file'
+```
+
+<p align="center"><a href="https://pypi.org/project/readme-md/">readme-md</a> - README.md generator</p>
+
