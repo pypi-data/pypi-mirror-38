@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: py-module-boilerplate
+Version: 0.0.4
+Summary: 
+Provides-Extra: develop
+Requires-Dist: coverage; extra == 'develop'
+Requires-Dist: flake8-import-order; extra == 'develop'
+Requires-Dist: pylama; extra == 'develop'
+Requires-Dist: pytest-asyncio; extra == 'develop'
+Requires-Dist: pytest-cov; extra == 'develop'
+Requires-Dist: pytest; extra == 'develop'
+Requires-Dist: tox; extra == 'develop'
+Requires-Dist: twine; extra == 'develop'
+
+Python module boilerplate
+
+Home-page: UNKNOWN
+Author: Alexander Vasin
+Author-email: hi@alvass.in
+License: ('Proprietary License',)
+Description: Python module boilerplate
+        ===============================
+        
+        .. image:: https://coveralls.io/repos/github/alvassin/py-module-bootstrap/badge.svg?branch=master
+            :target: https://coveralls.io/github/alvassin/py-module-bootstrap
+            :alt: Coveralls
+        
+        .. image:: https://travis-ci.org/alvassin/py-module-bootstrap.svg
+            :target: https://travis-ci.org/alvassin/py-module-bootstrap
+            :alt: Travis CI
+        
+        .. image:: https://img.shields.io/pypi/v/py-module-bootstrap.svg
+            :target: https://pypi.python.org/pypi/py-module-bootstrap/
+            :alt: Latest Version
+        
+        .. image:: https://img.shields.io/pypi/wheel/py-module-bootstrap.svg
+            :target: https://pypi.python.org/pypi/py-module-bootstrap/
+        
+        .. image:: https://img.shields.io/pypi/pyversions/py-module-bootstrap.svg
+            :target: https://pypi.python.org/pypi/py-module-bootstrap/
+        
+        .. image:: https://img.shields.io/pypi/l/py-module-bootstrap.svg
+            :target: https://pypi.python.org/pypi/py-module-bootstrap/
+        
+Platform: all
+Classifier: Intended Audience :: Developers
+Classifier: License :: Other/Proprietary License
+Classifier: Natural Language :: Russian
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Provides-Extra: develop
