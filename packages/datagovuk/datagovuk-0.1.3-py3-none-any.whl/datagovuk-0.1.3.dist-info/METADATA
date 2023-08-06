@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: datagovuk
+Version: 0.1.3
+Summary: Tool to allow easy importing to data from data.gov.uk
+Home-page: https://github.com/drewsonne/datagovuk
+Author: Drew J. Sonne
+Author-email: drew.sonne@gmail.com
+License: LGPLv3
+Platform: UNKNOWN
+Requires-Dist: ckanapi
+Requires-Dist: pandas
+Requires-Dist: pyarrow
+Provides-Extra: gis
+Requires-Dist: geopandas; extra == 'gis'
+Requires-Dist: matplotlib; extra == 'gis'
+
+UNKNOWN
+
+
