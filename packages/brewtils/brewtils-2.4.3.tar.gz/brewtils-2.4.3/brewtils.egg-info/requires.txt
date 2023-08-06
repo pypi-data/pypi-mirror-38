@@ -1,0 +1,16 @@
+lark-parser<0.7
+marshmallow<3
+marshmallow-polyfield<4
+pika<0.13
+pyjwt<2
+requests<3
+simplejson<4
+six<2
+wrapt<2
+yapconf>=0.2.1
+
+[:python_version<"3.4"]
+enum34
+
+[:python_version=="2.7"]
+futures
