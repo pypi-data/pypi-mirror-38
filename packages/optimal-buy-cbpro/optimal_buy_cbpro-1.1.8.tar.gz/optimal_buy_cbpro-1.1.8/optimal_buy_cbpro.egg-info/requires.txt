@@ -1,0 +1,8 @@
+cbpro>=1.1.4
+coinmarketcap>=5.0.3
+sqlalchemy>=1.2.14
+python-dateutil>=2.7.5
+
+[test]
+pytest-cov
+pytest>=3.5.0
