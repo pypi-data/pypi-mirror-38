@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: functoolsplus
+Version: 0.0.1
+Summary: Functional programming goodies
+Home-page: https://github.com/apragacz/functoolsplus
+Author: Andrzej Pragacz
+Author-email: apragacz@o2.pl
+License: MIT
+Keywords: functional monads functors streams immutable
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Environment :: Web Environment
+Classifier: Framework :: IPython
+Classifier: Framework :: Jupyter
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Utilities
+Requires-Python: >=3.6
+
+FuncTools+
+==========
+
+Functional programming goodies
+
+
