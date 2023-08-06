@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: asynciomeasures
+Version: 1.0.0
+Summary: Collect and send metrics to StatsD
+Home-page: https://github.com/Poogles/asynciomeasures
+Author: Sam Pegler
+Author-email: sam@sampegler.co.uk
+License: MIT
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
