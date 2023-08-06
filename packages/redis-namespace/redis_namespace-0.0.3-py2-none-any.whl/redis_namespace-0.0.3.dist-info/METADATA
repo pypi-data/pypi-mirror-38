@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: redis-namespace
+Version: 0.0.3
+Summary: redis namespace
+Home-page: https://github.com/guokr/redis-namespace
+Author: zrq495
+Author-email: zrq495@gmail.com
+License: MIT
+Keywords: redis namespace,redis prefix
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: redis
+Requires-Dist: pytest
+Requires-Dist: mock
+
+## redis-namespace
+
+[redis-namespace](https://github.com/resque/redis-namespace) for python
+
+Redis::Namespace provides an interface to a namespaced subset of your [redis][https://redis.io] keyspace (e.g., keys with a common beginning), and requires the [redis-py][https://github.com/andymccurdy/redis-py].
+
+```python
+import redis
+from redis_namespace import StrictRedis
+
+redis_connection = redis.StrictRedis()
+namespaced_redis = StrictRedis(namespace='ns:')
+namespaced_redis.set('foo', 'bar')  # redis_connection.set('ns:foo', 'bar')
+
+namespaced_redis.get('foo')
+redis_connection.get('ns:foo')
+
+namespaced_redis.delete('foo')
+namespaced_redis.get('foo')
+redis_connection.get('ns:foo')
+```
+
+
+### Installation
+
+`pip install redis-namespace`
+
+
