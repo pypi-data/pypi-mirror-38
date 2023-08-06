@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doc>
+	<Tag name="demo">
+		<Tag name="void_tag" type="void"/>
+		<Tag name="bool_tag" type="bool"/>
+		<Tag name="int_tag" type="int"/>
+		<Tag name="float_tag" type="float"/>
+		<Tag name="str_tag" type="str"/>
+	</Tag>
+</doc>
