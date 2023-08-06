@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: alicemsg
+Version: 0.0.1
+Summary: Simple but yet functional library for building Yandex Alice skills
+Home-page: https://github.com/AppVelox/alicemsg
+Author: Appvelox LLC
+Author-email: team@appvelox.ru
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3.6
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# alicemsg
+Simple but yet functional library for building Yandex Alice skills
+
