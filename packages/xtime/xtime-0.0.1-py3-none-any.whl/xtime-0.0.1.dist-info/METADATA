@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: xtime
+Version: 0.0.1
+Summary: xtime
+Home-page: https://github.com/neoctobers/xtime
+Author: @neoctobers
+Author-email: neoctobers@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+# xtime
+
+## Installation
+
+```python
+pip3 install xtime
+```
+
+## Usage
+```python
+import xtime
+
+time_string = xtime.timestamp_to_string(seconds, f='%Y-%m-%d %H:%M:%S')
+```
+
+
