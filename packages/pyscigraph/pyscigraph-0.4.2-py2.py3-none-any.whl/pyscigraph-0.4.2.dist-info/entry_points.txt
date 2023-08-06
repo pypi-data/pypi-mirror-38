@@ -1,0 +1,4 @@
+
+        [console_scripts]
+        pyscigraph = pyscigraph.main:main_cli
+    
