@@ -1,0 +1,65 @@
+Metadata-Version: 2.1
+Name: transit-chem
+Version: 0.1.0
+Summary: Quantifying electron transit in donor-bridge-acceptor systems using probabilistic confidence.
+Home-page: https://github.com/ecurtin2/transit_chem
+Author: Evan M Curtin
+Author-email: evanmcurtin@gmail.com
+License: MIT license
+Description: ============
+        transit-chem
+        ============
+        
+        
+        .. image:: https://img.shields.io/pypi/v/transit_chem.svg
+                :target: https://pypi.python.org/pypi/transit_chem
+        
+        .. image:: https://img.shields.io/travis/ecurtin2/transit_chem.svg
+                :target: https://travis-ci.org/ecurtin2/transit_chem
+        
+        .. image:: https://readthedocs.org/projects/transit-chem/badge/?version=latest
+                :target: https://transit-chem.readthedocs.io/en/latest/?badge=latest
+                :alt: Documentation Status
+        
+        
+        
+        
+        Quantifying electron transit in donor-bridge-acceptor systems using probabilistic confidence.
+        
+        
+        * Free software: MIT license
+        * Documentation: https://transit-chem.readthedocs.io.
+        
+        
+        Features
+        --------
+        
+        * TODO
+        
+        Credits
+        -------
+        
+        This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+        
+        .. _Cookiecutter: https://github.com/audreyr/cookiecutter
+        .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+        
+        
+        =======
+        History
+        =======
+        
+        0.1.0 (2018-11-12)
+        ------------------
+        
+        * First release on PyPI.
+        
+Keywords: transit_chem
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Provides-Extra: dev
