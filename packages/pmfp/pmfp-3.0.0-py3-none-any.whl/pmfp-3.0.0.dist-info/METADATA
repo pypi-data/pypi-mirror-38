@@ -1,0 +1,98 @@
+Metadata-Version: 2.0
+Name: pmfp
+Version: 3.0.0
+Summary: a simple package manager for python like npm.
+Home-page: https://github.com/Python-Tools/pmfp
+Author: hsz
+Author-email: hsz1273327@gmail.com
+License: MIT
+Description-Content-Type: UNKNOWN
+Keywords: tools,project_manager
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Documentation :: Sphinx
+Requires-Dist: alabaster (==0.7.12)
+Requires-Dist: autopep8 (==1.4.2)
+Requires-Dist: Babel (==2.6.0)
+Requires-Dist: boom (==1.0)
+Requires-Dist: certifi (==2018.10.15)
+Requires-Dist: chardet (==3.0.4)
+Requires-Dist: CommonMark (==0.5.4)
+Requires-Dist: coverage (==4.5.1)
+Requires-Dist: docutils (==0.14)
+Requires-Dist: gevent (==1.3.7)
+Requires-Dist: greenlet (==0.4.15)
+Requires-Dist: idna (==2.7)
+Requires-Dist: imagesize (==1.1.0)
+Requires-Dist: Jinja2 (==2.10)
+Requires-Dist: lxml (==4.2.5)
+Requires-Dist: MarkupSafe (==1.1.0)
+Requires-Dist: mypy (==0.641)
+Requires-Dist: mypy-extensions (==0.4.1)
+Requires-Dist: packaging (==18.0)
+Requires-Dist: pep8 (==1.7.1)
+Requires-Dist: pockets (==0.7.2)
+Requires-Dist: pycodestyle (==2.4.0)
+Requires-Dist: pydocstyle (==3.0.0)
+Requires-Dist: Pygments (==2.2.0)
+Requires-Dist: pyparsing (==2.3.0)
+Requires-Dist: pytz (==2018.7)
+Requires-Dist: recommonmark (==0.4.0)
+Requires-Dist: requests (==2.20.0)
+Requires-Dist: six (==1.11.0)
+Requires-Dist: snowballstemmer (==1.2.1)
+Requires-Dist: Sphinx (==1.8.1)
+Requires-Dist: sphinxcontrib-napoleon (==0.7)
+Requires-Dist: sphinxcontrib-websupport (==1.1.0)
+Requires-Dist: typed-ast (==1.1.0)
+Requires-Dist: urllib3 (==1.24.1)
+Requires-Dist: voluptuous (==0.11.5)
+
+pmfp
+===============================
+* version: 3.0.0
+* status: dev
+* author: hsz
+* email: hsz1273327@gmail.com
+
+
+Desc
+--------------------------------
+a simple package manager for python like npm.
+keywords:['tools', 'project_manager']
+
+
+Feature
+----------------------
+* Feature1
+* Feature2
+
+
+Example
+-------------------------------
+.. code:: python
+
+
+Install
+--------------------------------
+- ``python -m pip install pmfp``
+
+
+Documentation
+--------------------------------
+`Documentation on Readthedocs <https://github.com/Python-Tools/pmfp>`_.
+
+
+TODO
+-----------------------------------
+* todo
+
+
+Limitations
+-----------
+* limit
+
