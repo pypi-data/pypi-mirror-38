@@ -1,0 +1,10 @@
+setup.cfg
+setup.py
+streamsx.testing.egg-info/PKG-INFO
+streamsx.testing.egg-info/SOURCES.txt
+streamsx.testing.egg-info/dependency_links.txt
+streamsx.testing.egg-info/entry_points.txt
+streamsx.testing.egg-info/requires.txt
+streamsx.testing.egg-info/top_level.txt
+streamsx/testing/__init__.py
+streamsx/testing/nose.py
