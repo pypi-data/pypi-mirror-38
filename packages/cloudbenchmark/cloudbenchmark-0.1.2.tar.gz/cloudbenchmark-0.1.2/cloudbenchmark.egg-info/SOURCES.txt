@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+cloudbenchmark/__init__.py
+cloudbenchmark/bench.py
+cloudbenchmark/main.py
+cloudbenchmark.egg-info/PKG-INFO
+cloudbenchmark.egg-info/SOURCES.txt
+cloudbenchmark.egg-info/dependency_links.txt
+cloudbenchmark.egg-info/requires.txt
+cloudbenchmark.egg-info/top_level.txt
