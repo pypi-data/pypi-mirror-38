@@ -1,0 +1,75 @@
+Metadata-Version: 2.1
+Name: rev-reader
+Version: 0.0.3
+Summary: Convert transcriptions from rev into FAVE format.
+Home-page: https://github.com/patrickschu/rev-reader
+Author: Patrick
+Author-email: patrickschultz@utexas.edu
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=2.7.11
+Description-Content-Type: text/markdown
+Requires-Dist: pandas (>=0.22.1)
+
+
+## rev-reader
+
+Parse Json of transcriptions from rev into FAVE-align format and write to CSV.
+
+### TOC
+1. [Install](#install)
+2. [How to use](#how-to-use)
+3. [Notes](#notes)
+
+### Install
+
+Pip install as outlined above. 
+
+### How to use
+Built in Python 3.6.5, should work with Python 2 as well. 
+
+
+1. Run from the command line, option I
+
+    `python -m rev_reader.rev_reader $INPUT_FOLDER $ADDITIONAL_OFFSET`
+
+    where 
+
+    - `$INPUT_FOLDER` is a path to a directory containing some JSON files of rev annotations. The output CSVs will be written to the same directory. This is a required argument.
+
+    - `$ADDITIONAL_OFFSET` is a number that will be added to / subtracted from the timestamps before the data is output as CSV. This is an optional argument. 
+
+    For example, the command below will convert all the JSON files in the folder _annotated_files_ and subtract 0.01 from each time stamp. It will write CSV files  to folder _annotated_files_. 
+
+    `python -m rev_reader.rev_reader /home/patrick/Documents/annotated_files -.01`
+
+2. Run from the command line, option II
+
+    You can run the _rev\_reader.py_ file directly by executing:
+
+    `python $PATH_TO_REV_READER.PY $INPUT_FOLDER $ADDITIONAL_OFFSET`
+
+    For example, the command below will convert all the JSON files in the folder _annotated_files_ . It will write CSV files to folder _annotated_files_. 
+
+    e.g. `python rev_reader.py /home/patrick/Documents/annotated_files -.01`
+
+3. Import into Python 
+
+    You can access the functions directly from Python by doing 
+
+    `import rev_reader`
+
+    Refer to the Github [docs](https://github.com/patrickschu/rev-reader/tree/master/rev_reader) for info. 
+
+### Notes
+
+1. The naming scheme for CSVs is $LOWERCASE_NAME_OF_INPUT_JSON + $TIMESTAMP + "_faved.csv"
+
+    For example, for input file _BE.TO.017.json_, the CSV file will be _be.to.017\_20181124-1819\_faved.csv_
+
+2. Dependencies: pandas
+
