@@ -1,0 +1,3 @@
+[console_scripts]
+momble = momblish.module:function
+
