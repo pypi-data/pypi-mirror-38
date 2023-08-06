@@ -1,0 +1,42 @@
+- project:
+    templates:
+      - check-requirements
+      - publish-openstack-docs-pti
+      - tempest-plugin-jobs
+    check:
+      jobs:
+        - ironic-dsvm-standalone
+        - ironic-dsvm-standalone-queens
+        - ironic-dsvm-standalone-pike
+        - ironic-tempest-dsvm-functional-python3
+        - ironic-tempest-dsvm-ipa-wholedisk-agent_ipmitool-tinyipa-multinode
+        - ironic-tempest-dsvm-ipa-wholedisk-agent_ipmitool-tinyipa-multinode-queens
+        - ironic-tempest-dsvm-ipa-wholedisk-agent_ipmitool-tinyipa-multinode-pike
+        - ironic-tempest-dsvm-ipa-wholedisk-agent_ipmitool-tinyipa-multinode-ocata
+        - ironic-tempest-dsvm-ironic-inspector
+        - ironic-tempest-dsvm-ironic-inspector-queens
+        - ironic-tempest-dsvm-ironic-inspector-pike
+        - ironic-tempest-dsvm-ironic-inspector-ocata
+        - ironic-inspector-tempest-dsvm-discovery
+        - ironic-inspector-tempest-dsvm-discovery-queens
+        - ironic-inspector-tempest-dsvm-discovery-pike
+        - ironic-inspector-tempest-dsvm-discovery-ocata
+    gate:
+      queue: ironic
+      jobs:
+        - ironic-dsvm-standalone
+        - ironic-dsvm-standalone-queens
+        - ironic-dsvm-standalone-pike
+        - ironic-tempest-dsvm-functional-python3
+        - ironic-tempest-dsvm-ipa-wholedisk-agent_ipmitool-tinyipa-multinode
+        - ironic-tempest-dsvm-ipa-wholedisk-agent_ipmitool-tinyipa-multinode-queens
+        - ironic-tempest-dsvm-ipa-wholedisk-agent_ipmitool-tinyipa-multinode-pike
+        - ironic-tempest-dsvm-ipa-wholedisk-agent_ipmitool-tinyipa-multinode-ocata
+        - ironic-tempest-dsvm-ironic-inspector
+        - ironic-tempest-dsvm-ironic-inspector-queens
+        - ironic-tempest-dsvm-ironic-inspector-pike
+        - ironic-tempest-dsvm-ironic-inspector-ocata
+        - ironic-inspector-tempest-dsvm-discovery
+        - ironic-inspector-tempest-dsvm-discovery-queens
+        - ironic-inspector-tempest-dsvm-discovery-pike
+        - ironic-inspector-tempest-dsvm-discovery-ocata
