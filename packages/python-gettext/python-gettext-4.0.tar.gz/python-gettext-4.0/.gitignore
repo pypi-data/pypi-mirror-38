@@ -1,0 +1,14 @@
+__pycache__
+bin
+build
+develop-eggs
+dist
+downloads
+eggs
+include
+lib
+parts
+.tox/
+*.pyc
+*.egg
+*.egg-info
