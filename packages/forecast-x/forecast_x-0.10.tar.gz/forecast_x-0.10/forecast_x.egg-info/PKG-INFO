@@ -1,0 +1,16 @@
+Metadata-Version: 1.1
+Name: forecast-x
+Version: 0.10
+Summary: Naive Models for time series forecasting
+Home-page: https://github.com/alejandrodbn/forecast
+Author: Alejandro De Barros
+Author-email: alejandrodbn@gmail.com
+License: MIT
+Description: UNKNOWN
+Keywords: Forecast,Python3,Time Series
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Manufacturing
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
