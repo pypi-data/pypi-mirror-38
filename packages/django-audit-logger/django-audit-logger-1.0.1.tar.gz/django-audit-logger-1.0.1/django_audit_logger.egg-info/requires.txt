@@ -1,0 +1,7 @@
+boto3
+celery
+django>=1.4
+redis
+
+[:python_version == "2.7"]
+mock
