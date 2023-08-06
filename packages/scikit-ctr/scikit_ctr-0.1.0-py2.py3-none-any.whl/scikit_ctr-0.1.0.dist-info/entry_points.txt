@@ -1,0 +1,3 @@
+[console_scripts]
+skctr = skctr.cli:main
+
