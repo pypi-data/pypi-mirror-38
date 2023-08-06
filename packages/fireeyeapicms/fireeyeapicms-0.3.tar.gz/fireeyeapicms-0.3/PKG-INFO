@@ -1,0 +1,20 @@
+Metadata-Version: 1.0
+Name: fireeyeapicms
+Version: 0.3
+Summary: UNKNOWN
+Home-page: https://github.com/aaronjonen/fireeyeapi
+Author: aaron jonen
+Author-email: aaron.jonen@nexteraenergy.com
+License: MIT
+Description: #Fireyeapi
+        abstracts calls to fireeye search
+        
+        #github
+        
+        
+        #packaging instructions:
+        package
+        1. change version
+        2. python setup.py sdist
+        3. twine upload dist/*
+Platform: UNKNOWN
