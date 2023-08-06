@@ -1,0 +1,16 @@
+MANIFEST.in
+README.rst
+setup.py
+django_transitions/__init__.py
+django_transitions/admin.py
+django_transitions/models.py
+django_transitions/workflow.py
+django_transitions.egg-info/PKG-INFO
+django_transitions.egg-info/SOURCES.txt
+django_transitions.egg-info/dependency_links.txt
+django_transitions.egg-info/entry_points.txt
+django_transitions.egg-info/not-zip-safe
+django_transitions.egg-info/requires.txt
+django_transitions.egg-info/top_level.txt
+django_transitions/templates/transitions/change_form.html
+django_transitions/templates/transitions/read_only_change_form.html
