@@ -1,0 +1,6 @@
+[console_scripts]
+devicesinlan = devicesinlan.devicesinlan:main_console
+
+[gui_scripts]
+devicesinlan_gui = devicesinlan.devicesinlan:main_gui
+
