@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: accordion
+Version: 0.1.1
+Summary: Make flat dict and back from dict
+Home-page: https://github.com/newmediatech/accordion
+Author: Ruslan Roskoshnyj
+Author-email: i.am.yarger@gmail.com
+License: LICENSE.txt
+Download-URL: https://github.com/newmediatech/accordion/archive/0.1.1.tar.gz
+Description: Make flat dict and back from dict
+Keywords: flat,dict
+Platform: OS Independent
+Requires-Python: >3.6.0
+Provides-Extra: tests
