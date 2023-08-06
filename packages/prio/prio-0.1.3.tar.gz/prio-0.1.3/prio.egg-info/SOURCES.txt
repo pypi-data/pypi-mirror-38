@@ -1,0 +1,16 @@
+MANIFEST.in
+README.md
+libprio_wrap.c
+setup.cfg
+setup.py
+libprio/build/mpi/libmpi.a
+libprio/build/prio/libmprio.a
+libprio/include/mprio.h
+prio/__init__.py
+prio/prio.py
+prio.egg-info/PKG-INFO
+prio.egg-info/SOURCES.txt
+prio.egg-info/dependency_links.txt
+prio.egg-info/top_level.txt
+prio/lib/__init__.py
+prio/lib/prio.py
