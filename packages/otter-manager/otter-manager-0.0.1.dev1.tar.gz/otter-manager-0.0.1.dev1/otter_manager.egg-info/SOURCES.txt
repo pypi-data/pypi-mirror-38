@@ -1,0 +1,10 @@
+LICENSE
+MANIFEST.in
+pypi-content.rst
+setup.cfg
+setup.py
+otter/__init__.py
+otter_manager.egg-info/PKG-INFO
+otter_manager.egg-info/SOURCES.txt
+otter_manager.egg-info/dependency_links.txt
+otter_manager.egg-info/top_level.txt
