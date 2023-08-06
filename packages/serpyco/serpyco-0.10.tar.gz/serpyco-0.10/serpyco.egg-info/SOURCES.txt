@@ -1,0 +1,16 @@
+README.rst
+setup.cfg
+setup.py
+serpyco/__init__.py
+serpyco/decorator.py
+serpyco/exception.py
+serpyco/field.py
+serpyco/serializer.pyx
+serpyco/util.py
+serpyco/validator.py
+serpyco.egg-info/PKG-INFO
+serpyco.egg-info/SOURCES.txt
+serpyco.egg-info/dependency_links.txt
+serpyco.egg-info/not-zip-safe
+serpyco.egg-info/requires.txt
+serpyco.egg-info/top_level.txt
