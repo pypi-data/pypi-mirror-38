@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: pyauthn
+Version: 0.0.1
+Summary: Python WebAuthn Relying Party library
+Home-page: https://github.com/kislyuk/authn
+Author: Andrey Kislyuk
+Author-email: kislyuk@gmail.com
+License: Apache Software License
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Provides-Extra: test
