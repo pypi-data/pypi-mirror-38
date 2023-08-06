@@ -1,0 +1,3 @@
+[console_scripts]
+tc2100dump = tc2100.__main__:main
+
