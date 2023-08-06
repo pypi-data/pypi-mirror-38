@@ -1,0 +1,9 @@
+requests>=2.20.0
+six>=1.11.0
+
+[dev]
+check-manifest
+flake8
+pytest
+pytest-cov
+tox

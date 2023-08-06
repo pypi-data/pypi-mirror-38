@@ -1,0 +1,13 @@
+include *.md
+include .coveragerc
+include .editorconfig
+include LICENSE
+include Makefile
+include Pipfile
+include tox.ini
+
+exclude .bandit
+exclude .gitlab-ci.yml
+
+recursive-include src *.py
+recursive-include test *.py
