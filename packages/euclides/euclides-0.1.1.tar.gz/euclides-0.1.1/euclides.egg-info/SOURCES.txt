@@ -1,0 +1,10 @@
+setup.py
+euclides/__init__.py
+euclides/euclidesproto_pb2.py
+euclides/euclidesproto_pb2_grpc.py
+euclides/services.py
+euclides.egg-info/PKG-INFO
+euclides.egg-info/SOURCES.txt
+euclides.egg-info/dependency_links.txt
+euclides.egg-info/requires.txt
+euclides.egg-info/top_level.txt
