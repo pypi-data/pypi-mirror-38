@@ -1,0 +1,5 @@
+docutils>=0.3
+beautifulsoup4==4.6.3
+pytest==3.9.3
+pytz==2018.7
+requests==2.20.0
