@@ -1,0 +1,8 @@
+six
+msgpack~=0.5.6
+
+[pycrypto]
+pycrypto~=2.6.1
+
+[pycryptodomex]
+pycryptodome~=3.6.4
