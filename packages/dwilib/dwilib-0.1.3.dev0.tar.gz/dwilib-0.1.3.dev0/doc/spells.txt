@@ -1,0 +1,9 @@
+# ???
+PYTHONUNBUFFERED=1 time doit run -v1 -n1 grid:*_42_1a_hu_* samplelist=all mode=DWI-Mono-ADCm #,DWI-Kurt-ADCk,DWI-Kurt-K
+time doit run -v1 -n30 grid:*_*_*_all samplelist=67 mode=DWI-Mono-ADCm
+  252m12.87s real  5980m54.80s user     5m14.72s system
+
+
+
+# Convert masks from DICOM to HDF5.
+#for i in $(basename -s .zip *.zip); do echo "$i"; select_voxels.py --input "$i.zip" --output "$i.h5" --astype bool; done
