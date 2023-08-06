@@ -1,0 +1,151 @@
+language: python
+sudo: true
+cache: pip
+addons:
+  apt:
+    packages:
+    - gdb
+env:
+  global:
+    - LD_PRELOAD=/lib/x86_64-linux-gnu/libSegFault.so
+    - SEGFAULT_SIGNALS=all
+    - SETUPPY_CFLAGS=-DCYTHON_TRACE=1
+    - PYTEST_ADDOPTS=--benchmark-disable
+  matrix:
+    - TOXENV=check
+    - TOXENV=docs
+matrix:
+  include:
+    - python: '2.7'
+      env:
+        - TOXENV=py27-pure-cover,report,coveralls,codecov
+    - python: '2.7'
+      env:
+        - TOXENV=py27-pure-nocov
+    - python: '2.7'
+      env:
+        - TOXENV=py27-cython-cover,report,coveralls,codecov
+    - python: '2.7'
+      env:
+        - TOXENV=py27-cython-nocov
+    - python: '3.4'
+      env:
+        - TOXENV=py34-pure-cover,report,coveralls,codecov
+    - python: '3.4'
+      env:
+        - TOXENV=py34-pure-nocov
+    - python: '3.4'
+      env:
+        - TOXENV=py34-cython-cover,report,coveralls,codecov
+    - python: '3.4'
+      env:
+        - TOXENV=py34-cython-nocov
+    - python: '3.5'
+      env:
+        - TOXENV=py35-pure-cover,report,coveralls,codecov
+    - python: '3.5'
+      env:
+        - TOXENV=py35-pure-nocov
+    - python: '3.5'
+      env:
+        - TOXENV=py35-cython-cover,report,coveralls,codecov
+    - python: '3.5'
+      env:
+        - TOXENV=py35-cython-nocov
+    - python: '3.6'
+      env:
+        - TOXENV=py36-pure-cover,report,coveralls,codecov
+    - python: '3.6'
+      env:
+        - TOXENV=py36-pure-nocov
+    - python: '3.6'
+      env:
+        - TOXENV=py36-cython-cover,report,coveralls,codecov
+    - python: '3.6'
+      env:
+        - TOXENV=py36-cython-nocov
+    - python: '3.7'
+      env:
+        - TOXENV=py37-pure-cover,report,coveralls,codecov
+      sudo: required
+      dist: xenial
+    - python: '3.7'
+      env:
+        - TOXENV=py37-pure-nocov
+      sudo: required
+      dist: xenial
+    - python: '3.7'
+      env:
+        - TOXENV=py37-cython-cover,report,coveralls,codecov
+      sudo: required
+      dist: xenial
+    - python: '3.7'
+      env:
+        - TOXENV=py37-cython-nocov
+      sudo: required
+      dist: xenial
+    - python: 'pypy'
+      env:
+        - TOXENV=pypy-pure-cover,report,coveralls,codecov
+    - python: 'pypy'
+      env:
+        - TOXENV=pypy-pure-nocov
+    - python: 'pypy'
+      env:
+        - TOXENV=pypy-cython-cover,report,coveralls,codecov
+    - python: 'pypy'
+      env:
+        - TOXENV=pypy-cython-nocov
+    - python: 'pypy3'
+      env:
+        - TOXENV=pypy3-pure-cover,report,coveralls,codecov
+    - python: 'pypy3'
+      env:
+        - TOXENV=pypy3-pure-nocov
+    - python: 'pypy3'
+      env:
+        - TOXENV=pypy3-cython-cover,report,coveralls,codecov
+    - python: 'pypy3'
+      env:
+        - TOXENV=pypy3-cython-nocov
+before_install:
+  - python --version
+  - uname -a
+  - lsb_release -a
+  - sudo sysctl -w kernel.yama.ptrace_scope=0
+install:
+  - pip install tox
+  - virtualenv --version
+  - easy_install --version
+  - pip --version
+  - tox --version
+  - |
+    set -ex
+    if [[ $TRAVIS_PYTHON_VERSION == 'pypy' ]]; then
+        (cd $HOME
+         wget https://bitbucket.org/pypy/pypy/downloads/pypy2-v6.0.0-linux64.tar.bz2
+         tar xf pypy2-*.tar.bz2
+         pypy2-*/bin/pypy -m ensurepip
+         pypy2-*/bin/pypy -m pip install -U virtualenv)
+        export PATH=$(echo $HOME/pypy2-*/bin):$PATH
+        export TOXPYTHON=$(echo $HOME/pypy2-*/bin/pypy)
+    fi
+    if [[ $TRAVIS_PYTHON_VERSION == 'pypy3' ]]; then
+        (cd $HOME
+         wget https://bitbucket.org/pypy/pypy/downloads/pypy3-v6.0.0-linux64.tar.bz2
+         tar xf pypy3-*.tar.bz2
+         pypy3-*/bin/pypy3 -m ensurepip
+         pypy3-*/bin/pypy3 -m pip install -U virtualenv)
+        export PATH=$(echo $HOME/pypy3-*/bin):$PATH
+        export TOXPYTHON=$(echo $HOME/pypy3-*/bin/pypy3)
+    fi
+    set +x
+script:
+  - tox -v
+after_failure:
+  - more .tox/log/* | cat
+  - more .tox/*/log/* | cat
+notifications:
+  email:
+    on_success: never
+    on_failure: always
