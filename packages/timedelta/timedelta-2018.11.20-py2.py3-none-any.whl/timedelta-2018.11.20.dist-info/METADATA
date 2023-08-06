@@ -1,0 +1,76 @@
+Metadata-Version: 2.1
+Name: timedelta
+Version: 2018.11.20
+Summary: datetime.timedelta replacement
+Home-page: https://github.com/looking-for-a-job/timedelta.py
+License: UNKNOWN
+Keywords: timedelta
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Software Development
+Description-Content-Type: text/markdown
+Requires-Dist: public
+Requires-Dist: setuptools
+
+[![](https://img.shields.io/pypi/pyversions/timedelta.svg?longCache=True)](https://pypi.org/pypi/timedelta/)
+
+#### Install
+```bash
+$ [sudo] pip install timedelta
+```
+
+#### Classes
+
+###### `timedelta.Timedelta`
+
+datetime.timedelta replacement
+
+###### `timedelta.Total`
+
+method|description
+-|-
+`__init__(total_seconds)`|init from total seconds count
+
+@property|description
+-|-
+`days`|return total days count
+`hours`|return total hours count
+`minutes`|return total minutes count
+`seconds`|return total seconds count
+
+#### Examples
+```python
+>>> import timedelta
+
+>>> td = timedelta.Timedelta(days=2, hours=2)
+
+# init from datetime.timedelta
+>>> td = timedelta.Timedelta(datetime1 - datetime2)
+```
+
+`total` seconds, minutes, hours, days
+```python
+>>> td = timedelta.Timedelta(days=2, hours=2)
+>>> td.total.seconds
+180000
+>>> td.total.minutes
+3000
+>>> td.total.hours
+50
+>>> td.total.days
+2
+```
+
+#### Links
++ [timedelta Objects](https://docs.python.org/3/library/datetime.html#timedelta-objects)
+
+<p align="center"><a href="https://pypi.org/project/readme-md/">readme-md</a> - README.md generator</p>
+
