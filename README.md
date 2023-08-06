@@ -3,36 +3,10 @@
 This repo contains 40000 packages uploaded to PyPI between 
 2018-11-02 07:18 and 2018-11-27 18:48.
 
-The repo is 44% (17999/40000) complete.
+The repo is 49% (19998/40000) complete.
 
-## Packages:
+Package contents can be found [in the code branch](https://github.com/pypi-data/pypi-mirror-38/tree/code/packages).
 
-| Name  | Count |
-| ----- | ----- |
-| catboost-dev | 267 |
-| OpenVisus | 240 |
-| macdaily | 202 |
-| lalsuite | 190 |
-| cs18-sidecar | 125 |
-| sickrage | 100 |
-| quilt-lang | 100 |
-| grpcio-tools | 96 |
-| srwpy | 95 |
-| amplpy | 90 |
-| ruamel.yaml | 88 |
-| stock-analysis-engine | 86 |
-| torchfun | 84 |
-| coverage | 80 |
-| gecosistema-core | 78 |
-| frida | 77 |
-| LHAPDF | 73 |
-| logwrap | 71 |
-| aggdraw | 71 |
-| pymoose | 68 |
-| pypcapkit | 66 |
-| pulumi | 64 |
-| psycopg2-binary | 60 |
-| psycopg2 | 60 |
-| multidict | 58 |
+A browsable package list for all repositories [all packages here](https://pypi-data.github.io/website/repositories/pypi-mirror-38).
 
 
