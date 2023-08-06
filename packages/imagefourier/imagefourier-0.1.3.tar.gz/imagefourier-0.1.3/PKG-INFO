@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: imagefourier
+Version: 0.1.3
+Summary: Image fourier analysis library
+Home-page: https://gitlab.com/NegaNote/imagefourier
+Author: Athena Parker
+Author-email: neganote43@gmail.com
+License: UNKNOWN
+Description: A library for fourier analysis of images. This initial commit only allows use with .svg images; other image formats technically will produce results, but they are wildly inaccurate results.
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Provides-Extra: Cython
