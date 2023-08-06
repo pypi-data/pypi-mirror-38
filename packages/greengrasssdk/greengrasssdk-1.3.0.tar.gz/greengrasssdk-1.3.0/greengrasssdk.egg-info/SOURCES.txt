@@ -1,0 +1,15 @@
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+greengrasssdk/IoTDataPlane.py
+greengrasssdk/Lambda.py
+greengrasssdk/SecretsManager.py
+greengrasssdk/__init__.py
+greengrasssdk/client.py
+greengrasssdk.egg-info/PKG-INFO
+greengrasssdk.egg-info/SOURCES.txt
+greengrasssdk.egg-info/dependency_links.txt
+greengrasssdk.egg-info/top_level.txt
+greengrasssdk/utils/__init__.py
+greengrasssdk/utils/testing.py
