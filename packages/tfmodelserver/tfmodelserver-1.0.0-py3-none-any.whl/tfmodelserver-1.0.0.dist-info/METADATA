@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: tfmodelserver
+Version: 1.0.0
+Summary: Libraries for easy bootstrapping TensorFlow server
+Home-page: UNKNOWN
+Author: Sanghoon Yoon
+Author-email: shygiants@gmail.com
+License: UNKNOWN
+Keywords: tensorflow,libraries
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 2.7
+Requires-Python: >=2.7
+Provides-Extra: dev
+Requires-Dist: Flask
+Requires-Dist: flask-cors
+Requires-Dist: opencv-python
+Requires-Dist: numpy
+Requires-Dist: requests
+Requires-Dist: pytz
+Provides-Extra: dev
+Requires-Dist: tensorflow (==1.11.0); extra == 'dev'
+
+UNKNOWN
+
+
