@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: easy-map
+Version: 0.1
+Summary: Helper functions for bing static maps
+Home-page: https://github.com/noahiscool13/easy_map
+Author: Noah Jadoenathmisier
+Author-email: n.j.m.jadoenathmisier@student.tudelft.nl
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+# Easy map
+
+The functions in this package will help with getting static maps from bing.
+
