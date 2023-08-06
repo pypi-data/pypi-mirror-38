@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: urlauth
+Version: 0.0.1
+Summary: Paswordless authentication
+Home-page: https://rpsingh_IN@bitbucket.org/rpsingh_IN/django-url-auth-package.git
+Author: Arpit Srivastava
+Author-email: arpt.svt@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: django
+Requires-Dist: PyJWT
+
+On an average, a person uses 60-90 applications, it’s not fun to enter passwords anymore.
+Plus millions of passwords get exposed and accounts get compromised each year.
+According to a survey, users admit they reuse the same password because it’s hard to remember them.
+Of course, these problems are being addressed in relatively complex ways using 2FA, password managers
+and such but a passwordless sign in is much simpler and quicker.
+
