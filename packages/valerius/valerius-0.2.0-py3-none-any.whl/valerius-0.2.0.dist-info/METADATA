@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: valerius
+Version: 0.2.0
+Summary: Biological sequence analysis tools.
+Home-page: https://valerius.samireland.com
+Author: Sam Ireland
+Author-email: mail@samireland.com
+License: MIT
+Keywords: biology bioinformatics genomes sequence
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: requests
+
+UNKNOWN
+
+
