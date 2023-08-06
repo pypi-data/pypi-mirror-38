@@ -1,0 +1,3 @@
+[console_scripts]
+openl3 = openl3.cli:main
+
