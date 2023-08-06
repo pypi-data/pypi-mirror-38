@@ -1,0 +1,15 @@
+MANIFEST.in
+README.rst
+setup.py
+pysflow.egg-info/PKG-INFO
+pysflow.egg-info/SOURCES.txt
+pysflow.egg-info/dependency_links.txt
+pysflow.egg-info/top_level.txt
+sflow/__init__.py
+sflow/base.py
+sflow/datagram.py
+sflow/types.py
+sflow/counters/__init__.py
+sflow/counters/inmon.py
+sflow/flows/__init__.py
+sflow/flows/inmon.py
