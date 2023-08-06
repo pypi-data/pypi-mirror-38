@@ -1,0 +1,5 @@
+recursive-include bCNC/icons *
+recursive-include bCNC/images *
+recursive-include bCNC/locale *
+recursive-include bCNC/pendant *
+include bCNC/bCNC.ini
