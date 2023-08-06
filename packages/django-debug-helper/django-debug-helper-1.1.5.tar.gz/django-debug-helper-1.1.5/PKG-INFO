@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: django-debug-helper
+Version: 1.1.5
+Summary: Django debug error related exception search on Google/ Stack Overflow.
+Home-page: https://github.com/shafikshaon/django-debug-helper
+Author: Mohd. Shafikur Rahman
+Author-email: shafikshaon@gmail.com
+License: MIT
+Description: # django-debug-helper
+        Django debug error related exception search on Google/ Stack Overflow.
+        
+        ### Installation
+        ```
+        $ pip install django-debug-helper
+        ```
+        
+        ### Setting it up
+        Add the custom middleware to your **MIDDLEWARE** in the ```settings.py```.
+        ```
+        if DEBUG:
+        	MIDDLEWARE += ('django-debug-helper.debug.ErrorSearchMiddleware', )
+        ```
+        Next time you get an error in your applications, you will see an external link to a custom **google/ stackoverflow** search as you defined.
+        
+        
+        By default it set to **google** search, but if you want to use **stackoverflow** search instead of **google** then add this into your ```settings.py```
+        ```
+        DJANGO_TRACE_SEARCH_SITE = "stackoverflow"
+        ```
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Classifier: Environment :: Web Environment
+Description-Content-Type: text/markdown
