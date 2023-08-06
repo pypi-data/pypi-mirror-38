@@ -1,0 +1,9 @@
+[console_scripts]
+md-install = macdaily.api.install:install
+md-launch = macdaily.api.launch:launch
+md-logging = macdaily.api.logging:logging
+md-postinstall = macdaily.api.postinstall:postinstall
+md-reinstall = macdaily.api.reinstall:reinstall
+md-uninstall = macdaily.api.uninstall:uninstall
+md-update = macdaily.api.update:update
+
