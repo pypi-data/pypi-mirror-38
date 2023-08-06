@@ -1,0 +1,9 @@
+#!/bin/bash
+set -e
+pdoc ScanLHA > README.md
+sed -i 's/Module ScanLHA/ScanLHA/' README.md
+
+rm -rf docs
+pdoc --only-pypath --html-dir docs.tmp --html --overwrite --all ScanLHA
+mv docs.tmp/ScanLHA docs
+rmdir docs.tmp
