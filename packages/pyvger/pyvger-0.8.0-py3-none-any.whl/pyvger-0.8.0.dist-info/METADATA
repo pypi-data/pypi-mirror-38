@@ -1,0 +1,22 @@
+Metadata-Version: 2.0
+Name: pyvger
+Version: 0.8.0
+Summary: Interact with Ex Libris Voyager ILS
+Home-page: UNKNOWN
+Author: Geoffrey Spear
+Author-email: geoffspear@gmail.com
+License: UNKNOWN
+Keywords: library voyager batchcat ILS cataloging MARC
+Platform: UNKNOWN
+Provides-Extra: BatchCat
+Requires-Dist: arrow
+Requires-Dist: cx-Oracle (>=5.1.2)
+Requires-Dist: pymarc (>=2.8.4)
+Requires-Dist: six
+Requires-Dist: sqlAlchemy
+Provides-Extra: BatchCat
+Requires-Dist: pywin32; extra == 'BatchCat'
+
+UNKNOWN
+
+
