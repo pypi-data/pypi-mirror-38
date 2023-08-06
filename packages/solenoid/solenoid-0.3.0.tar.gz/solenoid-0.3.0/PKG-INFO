@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: solenoid
+Version: 0.3.0
+Summary: Implementation of Spring Boot Actuator and Spring Cloud Discovery, Security and Tracing
+Home-page: https://github.com/calmseas/solenoid
+Author: Grant McDonald
+Author-email: grantmmcdonald@gmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: PyYAML (>=3.13,<4.0)
+Requires-Dist: flask (>=1.0,<2.0)
+Requires-Dist: flask-cors (>=3.0,<4.0)
+Requires-Dist: requests (>=2.20,<3.0)
