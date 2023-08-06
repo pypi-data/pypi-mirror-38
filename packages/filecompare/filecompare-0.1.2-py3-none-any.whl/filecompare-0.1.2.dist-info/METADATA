@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: filecompare
+Version: 0.1.2
+Summary: UNKNOWN
+Home-page: https://github.com/rascoro1/filecompare
+Author: rascoro1
+Author-email: andcope1995@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+# filecompare
+find duplicate files
+
+### Usage
+
+```
+usage: filecompare [-h] [--raw] [--hash HASH] directory
+
+Compare file content in directory
+
+positional arguments:
+  directory    dir to search, for all similar files
+
+optional arguments:
+  -h, --help   show this help message and exit
+  --raw        easily parsable results
+  --hash HASH  available hash algos: md5
+```
+
+
