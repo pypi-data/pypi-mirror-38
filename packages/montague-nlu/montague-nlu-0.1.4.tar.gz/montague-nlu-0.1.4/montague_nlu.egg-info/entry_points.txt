@@ -1,0 +1,3 @@
+[console_scripts]
+montague = montague.montague:run_shell
+
