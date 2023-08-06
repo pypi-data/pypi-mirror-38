@@ -1,0 +1,9 @@
+include jscatter/*
+include jscatter/source *
+recursive-include jscatter/doc *
+recursive-include jscatter/examples *
+recursive-include jscatter/examples/exampleData *
+recursive-include jscatter/data *
+recursive-include jscatter/libs *
+global-exclude *.pyc
+global-exclude *.so

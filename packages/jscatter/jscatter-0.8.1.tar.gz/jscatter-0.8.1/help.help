@@ -1,0 +1,75 @@
+# This file contains only some help for usual actions during development
+
+# install locally for developing if you have an account setup
+git https://iffgit.fz-juelich.de/biehl/jscatter.git
+
+# link the dev folder to your userpath for pip
+# this also compiles fortran or c modules
+pip install --user -e .
+
+###################################
+# old method to make a istallable
+# Make a new release
+# only for creating a manual installable file
+python setup.py build_sphinx       #update the documentation
+python setup.py test               # do test with unittest
+#create a distribution full version
+#egg_info --tag-build="" -D overrides setting in setup.cfg
+python setup.py sdist --dist-dir /path/to/Folder/repository egg_info --tag-build="" -D
+# then increase the version in setup.py if needed
+# make the distribution of development release
+python setup.py sdist --dist-dir /path/to/Folder/repository
+
+################################
+# typical install
+#upgrade to newest version install to user directory from pypi latest version
+pip install jscatter --user --upgrade
+
+#upgrade to newest development version --pre from file
+# an new hand made release (old method) is located in  /path/to/Folder/repository
+pip install jscatter --user --pre --upgrade --no-index --no-deps --find-links /path/to/Folder/repository
+
+#test the setup.py file
+#install in specific directory as test without dependencies in user
+pip install jscatter --no-deps --no-index --pre -t /path/to/Folder/temp/jdtest -f /path/to/Folder/repository
+
+#uninstall jscatter
+pip uninstall jscatter
+
+# uninstall again
+python setup.py develop --prefix=~/local --uninstall
+
+
+######################
+# uploading a new version manually to pypi (automatic done by CI Pipeline from 2017)
+# CI Pipeline does unittest, sphinx doc and uploading to Readthedocs and pypi
+pip install twine sphinx-pypi-upload readme_renderer
+
+# test the look of README in browser as displayed later on pypi
+viewdoc jscatter/README.txt
+python setup.py check -r -s
+
+# do test with unittest
+python setup.py test
+python3 setup.py test
+
+# create distribution
+python setup.py sdist egg_info --tag-build="" -D
+
+# upload to testpypi with data in .pypirc
+twine upload dist/*
+
+# update the documentation
+# Push to gitlab which is connected to readTHeDocs; buildSphinx is done automatically
+git push  gitlab master
+
+
+# debugger line
+import ipdb; ipdb.set_trace()
+
+
+# find help at
+http://www.ewencp.org/blog/a-brief-introduction-to-packaging-python/
+http://docs.python-guide.org/en/latest/shipping/packaging/
+https://tom-christie.github.io/articles/pypi/
+https://python-packaging-user-guide.readthedocs.org/en/latest/distributing.html#requirements-for-packaging-and-distributing

@@ -1,0 +1,17 @@
+#compiled modules or code
+*.o
+*.so
+*~
+*.pyc
+.DS_Store
+.idea/*
+.directory
+build/*
+jscatter/doc/doctrees
+jscatter/doc/html
+# Setuptools distribution folder.
+/dist/
+
+# Python egg metadata, regenerated from source files by setuptools.
+/*.egg-info
+
