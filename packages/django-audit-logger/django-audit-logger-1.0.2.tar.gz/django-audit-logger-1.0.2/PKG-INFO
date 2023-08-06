@@ -1,0 +1,97 @@
+Metadata-Version: 2.1
+Name: django-audit-logger
+Version: 1.0.2
+Summary: A logger to be used internally
+Home-page: UNKNOWN
+Author: Wend BV
+Author-email: info@wend.nl
+License: UNKNOWN
+Description: # Django Audit Logger
+        
+        
+        ## Install
+        
+        
+        #### Pip
+        `pip install django-audit-logger`
+        
+        
+        #### Dependencies:
+        
+        * Django
+        * Boto3
+        * Celery
+        * Redis
+        
+        Works with both python 2.7 and all versions of python that support Django 1.11 (3.6, 3.5, 3.4)
+        
+        
+        #### Settings
+        
+        
+        Add the following settings to your `settings.py` file.
+        
+        ```
+        AUDIT_LOG_REGION = ''
+        AWS_ACCESS_KEY_ID = ''
+        AWS_SECRET_ACCESS_KEY = ''
+        AUDIT_LOG_GROUP_NAME = ''
+        AUDIT_LOG_STREAM_NAME = ''
+        AUDIT_LOG_EXCLUDE = ['']
+        LOG_INTERVAL = '' (default = 5)  # Interval value represents minutes
+        ```
+        
+        Add `auditlogger` to your `INSTALLED_APPS`.
+        
+        ## Log models
+        
+        
+        The `User` model is logged by default, you can select additional models by using the `@auditlogger_update_delete` decorator.
+        
+        ```
+        @auditlogger_update_delete
+        class ModelToLog(models.Model):
+            name = models.CharField(max_length=100)
+            (...)
+        
+        ```
+        
+        ## Custom log events
+        
+        You can also link other signals used in your app to the logger like so:
+        
+        ```
+        from auditlogger.signals import send_log
+        from django.dispatch import receiver, Signal
+        from myapp.models import Organisation
+        
+        organisation_login_signal = Signal(providing_args=['date', 'instance'])
+        
+        
+        @receiver(organisation_login_signal, sender=Organisation)
+        def organisation_login(**kwargs):
+            """detect organisation logins"""
+            send_log('ORGANISATION_LOGIN', **kwargs)
+        
+        ```
+        
+        
+        ## Exclude models
+        
+        
+        ```AUDIT_LOG_EXCLUDE = ['Session']```
+        
+        
+        ## Test
+        
+        The app comes with included tests that you can run with the following command.
+        
+        `python manage.py test auditlogger`
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
