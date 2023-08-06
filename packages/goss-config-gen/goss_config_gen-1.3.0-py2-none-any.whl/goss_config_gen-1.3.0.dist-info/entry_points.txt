@@ -1,0 +1,3 @@
+[console_scripts]
+goss-config-gen = goss_config_gen.cli:main
+
