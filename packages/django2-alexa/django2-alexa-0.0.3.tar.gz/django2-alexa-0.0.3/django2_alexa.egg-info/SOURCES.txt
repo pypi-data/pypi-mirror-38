@@ -1,0 +1,13 @@
+README.md
+setup.py
+django2_alexa.egg-info/PKG-INFO
+django2_alexa.egg-info/SOURCES.txt
+django2_alexa.egg-info/dependency_links.txt
+django2_alexa.egg-info/top_level.txt
+django_alexa/__init__.py
+django_alexa/admin.py
+django_alexa/apps.py
+django_alexa/models.py
+django_alexa/tests.py
+django_alexa/views.py
+django_alexa/migrations/__init__.py
