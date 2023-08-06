@@ -1,0 +1,370 @@
+import gi
+import time
+
+gi.require_version('Gtk', '3.0')
+gi.require_version('Gdk', '3.0')
+
+from gi.repository import Gtk
+from gi.repository import Gdk
+from gi.repository import Gio
+from gi.repository import GLib
+from gi.repository import GObject
+
+from gnomehud.utils.menu import DbusMenu
+from gnomehud.utils.fuzzy import FuzzyMatch
+from gnomehud.utils.fuzzy import normalize_string
+from gnomehud.utils.fuzzy import match_replace
+
+
+def normalize_markup(text):
+  return text.replace('&', '&amp;')
+
+
+def run_generator(function):
+  priority  = GLib.PRIORITY_LOW
+  generator = function()
+
+  GLib.idle_add(lambda: next(generator, False), priority=priority)
+
+
+def inject_custom_style(widget, style_string):
+  provider = Gtk.CssProvider()
+  provider.load_from_data(style_string.encode())
+
+  screen   = Gdk.Screen.get_default()
+  priority = Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+  Gtk.StyleContext.add_provider_for_screen(screen, provider, priority)
+
+
+def add_style_class(widget, class_string):
+  context = widget.get_style_context()
+  context.add_class('tiled')
+
+
+class CommandListItem(Gtk.ListBoxRow):
+
+  value = GObject.Property(type=str)
+  index = GObject.Property(type=int)
+  query = GObject.Property(type=str)
+
+  def __init__(self, *args, **kwargs):
+    super(Gtk.ListBoxRow, self).__init__(*args, **kwargs)
+
+    self.set_can_focus(False)
+
+    self.query = self.get_property('query')
+    self.value = self.get_property('value')
+    self.index = self.get_property('index')
+    self.fuzzy = FuzzyMatch(text=self.value)
+
+    self.label = Gtk.Label(margin=6, margin_left=10, margin_right=10)
+    self.label.set_justify(Gtk.Justification.LEFT)
+    self.label.set_halign(Gtk.Align.START)
+
+    self.connect('notify::query', self.on_query_notify)
+
+    self.add(self.label)
+    self.set_label(self.value)
+
+    self.show_all()
+
+  def get_label(self):
+    return self.label.get_label()
+
+  def set_label(self, text):
+    self.label.set_label(normalize_markup(text))
+
+  def set_markup(self, markup):
+    self.label.set_markup(normalize_markup(markup))
+
+  def position(self):
+    return self.fuzzy.score if bool(self.query) else -1
+
+  def visibility(self):
+    return self.fuzzy.score > -1 if bool(self.query) else True
+
+  def highlight_match(self, match):
+    return '<u><b>%s</b></u>' % match.group(0)
+
+  def highlight_matches(self):
+    words = self.query.replace(' ', '|')
+    value = match_replace(words, self.highlight_match, self.value)
+
+    self.set_markup(value)
+
+  def do_label_markup(self):
+    if bool(self.query):
+      self.highlight_matches()
+
+    elif '<u>' in self.get_label():
+      self.set_label(self.value)
+
+  def on_query_notify(self, *args):
+    self.fuzzy.set_query(self.query)
+
+    if self.visibility():
+      GLib.idle_add(self.do_label_markup, priority=GLib.PRIORITY_HIGH_IDLE)
+
+
+class CommandList(Gtk.ListBox):
+
+  menu_actions = GObject.Property(type=object)
+
+  def __init__(self, *args, **kwargs):
+    super(Gtk.ListBox, self).__init__(*args, **kwargs)
+
+    self.menu_actions = self.get_property('menu-actions')
+    self.select_value = ''
+    self.filter_value = ''
+    self.visible_rows = []
+    self.selected_row = 0
+    self.selected_obj = None
+
+    self.set_sort_func(self.sort_function)
+    self.set_filter_func(self.filter_function)
+
+    self.connect('row-selected', self.on_row_selected)
+    self.connect('notify::menu-actions', self.on_menu_actions_notify)
+
+  def set_filter_value(self, value=None):
+    self.visible_rows = []
+    self.filter_value = normalize_string(value)
+
+    GLib.idle_add(self.invalidate_filter_value, priority=GLib.PRIORITY_LOW)
+
+  def invalidate_filter_value(self):
+    self.invalidate_filter()
+
+    GLib.idle_add(self.invalidate_sort, priority=GLib.PRIORITY_HIGH)
+    GLib.idle_add(self.invalidate_selection, priority=GLib.PRIORITY_LOW)
+
+  def invalidate_selection(self):
+    self.select_row_by_index(0)
+
+  def reset_selection_state(self, index):
+    if index == 0:
+      self.invalidate_selection()
+      return True
+
+  def append_visible_row(self, row, visibility):
+    if visibility:
+      self.visible_rows.append(row)
+      return True
+
+  def select_row_by_index(self, index):
+    if index in range(0, len(self.visible_rows)):
+      self.selected_row = index
+      self.selected_obj = self.visible_rows[index]
+
+      self.selected_obj.activate()
+
+  def select_prev_row(self):
+    self.select_row_by_index(self.selected_row - 1)
+
+  def select_next_row(self):
+    self.select_row_by_index(self.selected_row + 1)
+
+  def sort_function(self, row1, row2):
+    score_diff = row1.position() - row2.position()
+    index_diff = row1.index - row2.index
+
+    return score_diff or index_diff
+
+  def filter_function(self, item):
+    item.set_property('query', self.filter_value)
+
+    visible = item.visibility()
+    self.append_visible_row(item, visible)
+
+    return visible
+
+  def do_list_item(self, value, index):
+    command = CommandListItem(value=value, index=index)
+    self.add(command)
+
+  def do_list_items(self):
+    for index, value in enumerate(self.menu_actions):
+      self.do_list_item(value, index)
+      self.reset_selection_state(index)
+      yield True
+
+  def on_row_selected(self, listbox, item):
+    self.select_value = item.value if item else ''
+
+  def on_menu_actions_notify(self, *args):
+    self.foreach(lambda item: item.destroy())
+    run_generator(self.do_list_items)
+
+
+class CommandWindow(Gtk.ApplicationWindow):
+
+  def __init__(self, *args, **kwargs):
+    kwargs['type'] = Gtk.WindowType.POPUP
+    super(Gtk.ApplicationWindow, self).__init__(*args, **kwargs)
+
+    self.set_keep_above(True)
+    self.set_resizable(False)
+
+    self.set_type_hint(Gdk.WindowTypeHint.UTILITY)
+    self.set_position(Gtk.WindowPosition.NONE)
+    self.set_custom_position()
+
+    self.set_default_size(800, 309)
+    self.set_size_request(800, 309)
+
+    self.set_skip_pager_hint(True)
+    self.set_skip_taskbar_hint(True)
+    self.set_destroy_with_parent(True)
+
+    self.command_list = CommandList()
+    self.command_list.invalidate_selection()
+
+    self.search_entry = Gtk.SearchEntry(hexpand=True, margin=2)
+    self.search_entry.connect('search-changed', self.on_search_entry_changed)
+    self.search_entry.set_has_frame(False)
+
+    self.scrolled_window = Gtk.ScrolledWindow(hadjustment=None, vadjustment=None)
+    self.scrolled_window.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)
+    self.scrolled_window.add(self.command_list)
+
+    self.header_bar = Gtk.HeaderBar(spacing=0)
+    self.header_bar.set_custom_title(self.search_entry)
+
+    self.set_titlebar(self.header_bar)
+    self.add(self.scrolled_window)
+
+    self.set_dark_variation()
+    self.set_custom_styles()
+
+    Gdk.event_handler_set(self.on_gdk_event)
+
+    self.connect('show', self.on_window_show)
+    self.connect('button-press-event', self.on_button_press_event)
+
+  def set_custom_position(self):
+    width = self.get_screen().width()
+    self.move((width - 800) / 2, 10)
+
+  def set_dark_variation(self):
+    settings = Gtk.Settings.get_default()
+    settings.set_property('gtk-application-prefer-dark-theme', True)
+
+  def set_custom_styles(self):
+    styles = """entry.search.flat { border: 0; outline: 0;
+      border-image: none; box-shadow: none; }
+    """
+
+    inject_custom_style(self, styles)
+    add_style_class(self, 'tiled')
+
+  def grab_keyboard(self, window, status, tstamp):
+    while Gdk.keyboard_grab(window, True, tstamp) != status:
+      time.sleep(0.1)
+
+  def grab_pointer(self, window, status, tstamp):
+    mask = Gdk.EventMask.BUTTON_PRESS_MASK
+
+    while Gdk.pointer_grab(window, True, mask, window, None, tstamp) != status:
+      time.sleep(0.1)
+
+  def emulate_focus_out_event(self):
+    tstamp = Gdk.CURRENT_TIME
+    Gdk.keyboard_ungrab(tstamp)
+    Gdk.pointer_ungrab(tstamp)
+
+    fevent = Gdk.Event(Gdk.EventType.FOCUS_CHANGE)
+    self.emit('focus-out-event', fevent)
+
+  def clicked_inside(self, event):
+    size    = self.get_size()
+    x_range = range(0, size.width)
+    y_range = range(0, size.height)
+
+    return int(event.x) in x_range and int(event.y) in y_range
+
+  def on_gdk_event(self, event):
+    Gtk.main_do_event(event)
+
+  def on_window_show(self, window):
+    window = self.get_window()
+    status = Gdk.GrabStatus.SUCCESS
+    tstamp = Gdk.CURRENT_TIME
+
+    self.grab_keyboard(window, status, tstamp)
+    self.grab_pointer(window, status, tstamp)
+
+    self.search_entry.grab_focus()
+
+  def on_button_press_event(self, widget, event):
+    win_type = event.get_window().get_window_type()
+    tmp_type = Gdk.WindowType.TEMP
+
+    if win_type == tmp_type and not self.clicked_inside(event):
+      self.emulate_focus_out_event()
+      return True
+
+  def on_search_entry_changed(self, *args):
+    search_value = self.search_entry.get_text()
+
+    self.scrolled_window.unset_placement()
+    self.command_list.set_filter_value(search_value)
+
+
+class HudMenu(Gtk.Application):
+
+  def __init__(self, *args, **kwargs):
+    kwargs['application_id'] = 'org.hardpixel.gnomeHUD'
+    super(Gtk.Application, self).__init__(*args, **kwargs)
+
+    self.dbus_menu = DbusMenu()
+
+    self.set_accels_for_action('app.start', ['<Ctrl><Alt>space'])
+    self.set_accels_for_action('app.quit', ['Escape'])
+    self.set_accels_for_action('app.prev', ['Up'])
+    self.set_accels_for_action('app.next', ['Down'])
+    self.set_accels_for_action('app.execute', ['Return'])
+
+  def add_simple_action(self, name, callback):
+    action = Gio.SimpleAction.new(name, None)
+
+    action.connect('activate', callback)
+    self.add_action(action)
+
+  def do_startup(self):
+    Gtk.Application.do_startup(self)
+
+    self.add_simple_action('start', self.on_show_window)
+    self.add_simple_action('quit', self.on_hide_window)
+    self.add_simple_action('prev', self.on_prev_command)
+    self.add_simple_action('next', self.on_next_command)
+    self.add_simple_action('execute', self.on_execute_command)
+
+  def do_activate(self):
+    self.window = CommandWindow(application=self, title='Gnome HUD')
+    self.window.connect('focus-out-event', self.on_hide_window)
+    self.window.show_all()
+
+    self.commands = self.window.command_list
+    self.commands.set_property('menu-actions', self.dbus_menu.actions)
+    self.commands.connect_after('button-press-event', self.on_commands_click)
+
+  def on_show_window(self, *args):
+    self.window.show()
+
+  def on_hide_window(self, *args):
+    self.window.destroy()
+    self.quit()
+
+  def on_prev_command(self, *args):
+    self.commands.select_prev_row()
+
+  def on_next_command(self, *args):
+    self.commands.select_next_row()
+
+  def on_commands_click(self, widget, event):
+    if event.type == Gdk.EventType._2BUTTON_PRESS:
+      self.on_execute_command()
+
+  def on_execute_command(self, *args):
+    self.dbus_menu.activate(self.commands.select_value)
+    self.on_hide_window()
