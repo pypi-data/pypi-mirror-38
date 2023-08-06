@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: arteria
+Version: 1.1.2
+Summary: Helper classes for the arteria project
+Home-page: UNKNOWN
+Author: SNP&SEQ Technology Platform, Uppsala University
+Author-email: UNKNOWN
+License: UNKNOWN
+Keywords: bioinformatics
+Platform: UNKNOWN
+Requires-Dist: tornado (>=4.2.1)
+Requires-Dist: PyYAML (>=3.13)
+Requires-Dist: requests (>=2.20.0)
+
+The arteria python module is a library of helper classes for the Arteria project.
+
+
