@@ -1,0 +1,143 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+"""
+Inspired by http://habilis.net/cronic/
+"""
+from __future__ import print_function
+
+import os
+import re
+import sys
+import socket
+import time
+import datetime
+import tempfile
+import traceback
+import subprocess
+from sender import Mail, Message
+from configobj import ConfigObj
+
+socket.setdefaulttimeout(60)
+
+from pycronic.constants import default_config_file, error_report_tmpl, default_mail_title
+
+config_path = '/etc/pycronic.conf'
+
+
+class SMTPMailSender(object):
+    """
+    Simple helper sending emails via SMTP
+    """
+    def __init__(self, config):
+        self.config = config
+
+    def send(self, receivers, subject, content):
+        """
+        Send email via SMTP
+        """
+        use_tls = False
+        use_ssl = False
+        smtp_debug_level = None
+        if 'use_tls' in self.config:
+            use_tls = self.config['use_tls']
+        if 'use_ssl' in self.config:
+            use_ssl = self.config['use_ssl']
+        if 'smtp_debug_level' in self.config:
+            smtp_debug_level = self.config['smtp_debug_level']
+
+        s = Mail(self.config['host'], port=int(self.config['port']),\
+            username=self.config['username'], \
+            password=self.config['password'], \
+            use_tls=use_tls, use_ssl=use_ssl, debug_level=smtp_debug_level
+        )
+
+        s.fromadd = self.config.get('from')
+        msg = Message(subject)
+        msg.fromaddr = self.config.get('from')
+        msg.body = content
+        msg.date = time.time()
+        for receiver in receivers:
+            msg.to = receiver
+            s.send(msg)
+
+
+def main():
+    command = sys.argv[1:]
+    command_str = ' '.join(command)
+    if not command:
+        print('Usage: cronic YOUR_COMMAND')
+        sys.exit(1)
+    # Init a config file
+    if len(command) == 1 and command[0] == 'init':
+        fp = False
+        try:
+            fp = open(config_path, 'w')
+        except IOError as e:
+            print('Error occured when creating default config file: {}'.format(e))
+            return False
+        else:
+           fp.write(default_config_file)
+           fp.close()
+        return True
+
+    if not os.path.exists(config_path):
+        print('Config file "/etc/pycronic.conf" does not exist!\n'
+               'Run "cronic init" to create a default one."')
+        sys.exit(1)
+    else:
+        config = ConfigObj(infile=config_path, interpolation=False)
+
+    log_path = config.get('log_path')
+    if log_path:
+        if not os.path.exists(log_path):
+            os.makedirs(log_path)
+        log_filename = os.path.join(log_path, '%s.log' %
+                os.path.basename(command[0]).split('.', 1)[0])
+    else:
+        log_filename = None
+
+
+    stdout = tempfile.TemporaryFile()
+    stderr = tempfile.TemporaryFile()
+    # Catch the OSError
+    try:
+        ret_code = subprocess.call(command, stdout=stdout, stderr=stderr)
+    except OSError as e:
+        ret_code = 99
+        stderr.write(traceback.format_exc())
+    stdout.seek(0)
+    stderr.seek(0)
+    stdout_content = stdout.read().strip()
+    stderr_content = stderr.read().strip()
+    # Write result to log file
+    if log_filename:
+        with open(log_filename, 'a') as fp:
+            fp.write('Running %s at %s\n' % (command_str, datetime.datetime.now()))
+            fp.write('STDOUT:\n%s\n' % stdout_content)
+            fp.write('STDERR:\n%s\n' % stderr_content)
+
+    # Check return code and stderr output
+    # Also check if "ERROR" are in the stdout
+    if ret_code != 0 or stderr_content or re.search(r'\bERROR\b', stdout_content.decode()):
+        content = error_report_tmpl % {
+               'command': command_str, 'ret_code': ret_code,
+               'stderr_content': stderr_content or 'None',
+               'stdout_content': stdout_content or 'None',
+               'now': datetime.datetime.now()}
+        print(content)
+        # Send an error email
+        if 'send_alert_email' not in config or not config.as_bool('send_alert_email'):
+            return
+
+        title = config.get('mail_title', default_mail_title) % {
+                'command': command_str, 'host': socket.gethostname()}
+        receivers = config.get('receivers', '')
+        receivers = [receivers] if receivers and isinstance(receivers, str) else receivers
+        smtp_config = config.get('email_config_smtp')
+        if receivers:
+            SMTPMailSender(smtp_config).send(receivers, title, content)
+
+if __name__ == '__main__':
+    main()
+
+
