@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: pyeon
+Version: 0.0.2
+Summary: Generates some phrases when someone goes to the convenience store.
+Home-page: http://github.com/qria/pyeon
+Author: MinJune Kim
+Author-email: qria@qria.net
+License: MIT
+Description: # pyeon
+        
+        The most advanced (and probably only) convienient store announcement generator!
+        
+        ## Usage
+        
+        ```python
+        import pyeon
+        
+        pyeon.jeom()
+        ```
+        
+        ## Why?
+        
+        Why not?
+        
+        ## Credits
+        
+        Phrases by spoqa creators.
+        
+        Packaging idea by @nellag.
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
