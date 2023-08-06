@@ -1,0 +1,45 @@
+.TH coko 1
+.SH NAME
+coko \- Copy over files keeping ownership permission at destination.
+.SH SYNOPSYS
+.B coko
+SOURCE_FOLDER DESTINATION_FOLDER [\fB-c\fR \fIUID\fR \fIGID\fR \fIPERMISSION\fR] [\fB--create\fR \fIUID\fR \fIGID\fR \fIPERMISSION\fR]
+.SH DESCRIPTION
+Sometimes you have a directory full of files you want to overwrite periodically.
+.PP
+You may not want to edit those files directly but let other users edit their own copy of those files to sync them
+over original ones afterwards.
+.PP
+Problem there is that local copies may have changed their owners or permissions after being edited by user so those
+metadata are carried over original directory overwriting them.
+.PP
+\fBcoko\fR let you take an snapshot of your files metadata in DESTINATION_FOLDER in order to copy files over that
+directory from SOURCE_FOLDER and restoring those metadata after the copy process.
+.SH OPTIONS
+.TP
+\fB-c, --create\fR UID GID PERMISSION
+By default, coko does not copy files not present yet at DESTINATION_FOLDER but if you set this flag then those files
+present at SOURCE_FOLDER that are not at DESTINATION_FOLDER will be copied and its metadata will be set to those you
+gave after the flag. Be aware that PERMISSION should be entered in octal entering not only the digits you enter
+in chmod but upper part of filetype too (i.e. if you enter at chmod 755 for a regular file to make it executable,
+here you should enter 100755). To get a list of possible upper parts you could enter have a look to miku answer at:
+https://stackoverflow.com/questions/5337070/how-can-i-get-a-files-permission-mask/5337329
+.SH AUTHOR
+Written by Dante Signal31 <dante.signal31@gmail.com>.
+.SH REPORTING BUGS
+Report issues at: <https://github.com/dante-signal31/coko/issues>
+.SH COPYRIGHT
+Copyright 2018 <Dante Signal31>
+.PP
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
+following conditions are met:
+.PP
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+.PP
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+.PP
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+.PP
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+.SH SEE ALSO
+Website: <https://github.com/dante-signal31/coko>
