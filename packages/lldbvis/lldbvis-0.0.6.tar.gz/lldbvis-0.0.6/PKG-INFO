@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: lldbvis
+Version: 0.0.6
+Summary: A GUI application to visualize debug data.
+Home-page: https://github.com/campoe/lldbvis
+Author: Coen van Kampen
+Author-email: c.m.vankampen14@gmail.com
+License: MIT
+Description: # lldbvis
+        
+Keywords: lldbvis,lldb,python,debugger,visualization,qt4,GUI
+Platform: UNKNOWN
+Classifier: Environment :: X11 Applications :: Qt
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 2 :: Only
+Classifier: Topic :: Utilities
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development :: User Interfaces
+Description-Content-Type: text/markdown
