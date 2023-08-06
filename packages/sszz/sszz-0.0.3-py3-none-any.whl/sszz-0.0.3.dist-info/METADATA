@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: sszz
+Version: 0.0.3
+Summary: Tool to retrieve the a future commit that has refactored a given commit (simple SZZ).
+Home-page: https://github.com/luiscruz/sszz
+Author: Luis Cruz
+Author-email: luismirandacruz@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: Click (==7.0)
+Requires-Dist: GitPython (==2.1.11)
+
+# SSZZ
+Simple SZZ
+
+### Install
+
+```
+pip install sszz
+```
+
+### Usage:
+
+```
+python -m sszz.sszz --repo "/local/path/to/repo" --commit 270239a53ffdc00ece5a9a92f19880a1f50020d2
+```
+
+### Contact
+
+Feel free to send me an email if you need help using the tool.
+
+
+
