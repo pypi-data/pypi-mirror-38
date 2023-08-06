@@ -1,0 +1,71 @@
+Metadata-Version: 2.1
+Name: eye-vision
+Version: 0.0.2
+Summary: Computer Vision library that makes simple the new powerful.
+Home-page: https://simbatmotsi.github.io/eye-vision/
+Author: Simbarashe Timothy Motsi
+Author-email: simbamotsi1@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Image Recognition
+Classifier: Topic :: Software Development
+Description-Content-Type: text/markdown
+Requires-Dist: opencv-python
+Requires-Dist: matplotlib
+
+
+**Eye Vision**
+===========
+
+[![Downloads](https://pepy.tech/badge/eye-vision)](https://pepy.tech/project/eye-vision)
+
+Eye Vision provides a simple but powerful python library for Computer Vision. It uses
+well know libraries like OpenCv and Matplotlib. Typical usage
+often looks like this::
+
+    import ziso
+    from ziso import read
+    from ziso import view
+
+    # to read the image in the rgb color scale
+    file = read.rgb("test.jpg")
+    # to view the image
+    view.im(file)
+
+    # to view the easter egg in the library
+    from ziso import zen
+
+Speed
+=========
+
+Your favourite libraries compressed:
+
+* OpenCV
+
+* Matplotlib
+
+* etc
+
+Note:
+-------------
+
+Things to expect and know:
+
+1. Easy implementation
+
+2. Rapid Scalability
+
+3. Portability
+
+Read the Docs:-> Urls are https://eye-vision.readthedocs.io <br>
+Eye-vision webpage:-> https://simbatmotsi.github.io/eye-vision/ <br>
+Personal webpage:-> <http://bit.ly/simbatmotsi>
+
