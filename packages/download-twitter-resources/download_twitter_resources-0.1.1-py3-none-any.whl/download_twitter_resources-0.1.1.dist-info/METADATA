@@ -1,0 +1,26 @@
+Metadata-Version: 2.0
+Name: download-twitter-resources
+Version: 0.1.1
+Summary: Download tweet images and videos
+Home-page: https://github.com/weaming/download-twitter-resources
+Author: weaming
+Author-email: garden.yuen@gmail.com
+License: UNKNOWN
+Project-URL: Source, https://github.com/weaming/download-twitter-resources
+Project-URL: Bug Reports, https://github.com/weaming/download-twitter-resources
+Keywords: math
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: python-dateutil (>=2.7.3)
+Requires-Dist: requests (>=2.20.0)
+
+# Download twitter resources
+
+Download tweet images and videos
+
+```
+pip3 install download-twitter-resources
+```
+
+
+
