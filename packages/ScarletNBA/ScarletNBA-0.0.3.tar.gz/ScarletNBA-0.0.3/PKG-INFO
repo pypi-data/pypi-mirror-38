@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: ScarletNBA
+Version: 0.0.3
+Summary: A small NBA prediction package
+Home-page: https://github.com/meirelon/NBA-NHL
+Author: Michael Nestel
+Author-email: nestelm@gmail.com
+License: UNKNOWN
+Description: **_PLEASE put all exploratory work in the notebooks directory_**
+        
+        ## NBA Player Prediction and Optimization
+        Pipeline for NBA Optimization (NHL TBD)
+        
+        ## Dry Run
+        ```
+        python dk_prod/optimize.py --dk_link="https://www.draftkings.com/lineup/getavailableplayerscsv?contestTypeId=70&draftGroupId=22401"
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
