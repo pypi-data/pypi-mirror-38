@@ -1,0 +1,46 @@
+# Mkdocs Cordova Plugin
+
+Deploy documentation to any mobile device via [Apache Cordova][cordova].
+
+---
+
+[![MIT License][license-badge]][license]
+[![Gitlab pipeline status][gitlab-ci-badge]][gitlab-ci]
+[![PyPI][pypi-badge]][pypi]
+
+## Resources
+
+**Mkdocs**
+
+- View the [MkDocs documentation][mkdocs].
+- Visit the [MkDocs wiki](https://github.com/mkdocs/mkdocs/wiki) for community
+  resources, including third party themes and a list of MkDocs users.
+- IRC channel: `#mkdocs` on freenode.
+- Discussions and support: <https://groups.google.com/forum/#!forum/mkdocs>
+
+**Apache Cordova**
+
+- View the [Apache Cordova documentation][cordova-docs].
+- Join `cordova` on [Slack][cordova-slack]!
+- Join the [mailing list][cordova-mailing-list].
+- Discussions and support: <https://stackoverflow.com/questions/tagged/cordova>
+
+### Code of Conduct
+
+Everyone interacting in the MkDocs project's codebases, issue trackers, chat
+rooms, and mailing lists is expected to follow the [PyPA Code of Conduct].
+
+[cordova]: https://cordova.apache.org
+[cordova-docs]: https://cordova.apache.org/docs
+[cordova-slack]: https://slack-cordova-io.herokuapp.com
+[cordova-mailing-list]: https://cordova.apache.org/contact
+[license]: https://mit-license.org
+[license-badge]: https://img.shields.io/badge/license-MIT-brightgreen.svg
+[mkdocs]: https://www.mkdocs.org
+[gitlab-ci]: https://gitlab.com/lramage94/mkdocs-cordova-plugin/pipelines
+[gitlab-ci-badge]: https://img.shields.io/gitlab/pipeline/lramage94/mkdocs-cordova-plugin.svg
+[PyPA Code of Conduct]: https://www.pypa.io/en/latest/code-of-conduct/
+[pypi]: https://pypi.python.org/pypi/mkdocs-cordova-plugin
+[pypi-badge]: https://img.shields.io/pypi/v/mkdocs-cordova-plugin.svg
+
+

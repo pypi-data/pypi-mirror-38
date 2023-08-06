@@ -1,0 +1,12 @@
+{
+  "name": "{{ config.extra.package_name }}",
+  "displayName": "{{ config.site_name }}",
+  "version": "{{ config.extra.version }}",
+  "description": "{{ config.site_description }}",
+  "main": "js/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "{{ config.site_author }}",
+  "license": "{{ config.extra.license }}"
+}
