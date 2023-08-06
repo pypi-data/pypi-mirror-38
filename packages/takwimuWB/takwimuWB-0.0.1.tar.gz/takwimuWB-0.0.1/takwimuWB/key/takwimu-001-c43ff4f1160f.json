@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "takwimu-001",
+  "private_key_id": "c43ff4f1160f74f757e113fb47c55880907b31b8",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDZu0juky+Zcq0B\nP6v1cvXqP5Wm9Euh2+gAoLTGnaJe1ZR1BlzeWW7ub4bKEJ19RMOn5IxZaDpFjBbJ\n+gn9gBgQoEDVGC4wsKjVK1+R9XJ00HvBvhea2WAiOWhv3Wn/59dJuAWzBYay8hyx\nrJIVmSIqVEs39oN4VIRfZJaP1jnbjeFSM7uPYSKQ9QBVb01YuFWsd0tcvfJkQfKz\nfc89hXHUpkYXz7EnKdTLk7GGheS5WhVweQuy98pt+Xb64BkrDHh17XRSc0zsdOaY\nyRtMt2zBI0lAez/f9i82YB9CyCZUHsdFrCwLY23Isr1qkDmvNWT43uDd3q4TcSIh\n2YmXpkoHAgMBAAECggEABLysNbM9E1++f4BKS6Dwfw6wFlL1UZ8DrqklwGEjQbXw\nMMBD2qXjzHXftFtlLxmvugzhDXw/hvjTxsQqXc9gy/0jO/T2jaJM91+mCM+9aZOJ\nmxRO1inJi3pn7nBzmG42WF5pEqqER4tjRW2lkKkQEw9aGEHEPXof69ANQzGGzmMp\ntkG+zLqOGCCXEd7OgFQIurOvfnzm4gQrudcW8vFqaFiSRpEoBpXiUISufYeoRvlz\ngczZSmsCTbXqHZV+55aRwqZz8C1wQ1xwTiY5vK2osqr/kTaxddRWaEzdES252+Bo\nY/GXrQOgnKN8U2IjjcxBHc8s1DFRfyEupOBeBf3hMQKBgQD6zifjOIiIY5jaW6Wv\nAgojR1FW5tIbT4FQLhss+8xtvAc9E2a63atpjHE1Q79BOA5jpNRmwBloDiZYPTa9\nKTWXEpUmZgNOq4h5EBkOBzAEbRYiXJLL/ZTCVareIlURPn+n4m8pzPro1XvzWJn2\nt/+eWteuBnN7z3NetZQGEBFulwKBgQDePcMt7TXglelLY0q72XEr459Z9jG8Z02f\njnxBt0ngBUtJNZZevQRJet0etdZS1g8xBGesO3DDQkAic6O0r9orWcpy2zku2zSa\nyw28A+TxO1vW/CjZDag2gtFRKJDwlrIi4rATOLK8+ttoZEoPY1R+R44hkbMCi86G\nKG6HFgHeEQKBgCONWaYh+2iqBZ7eYuwd8+XwVB1ndt0cNg5xmrSTtPTRNI151JQk\nnAnIOLv+MHxEP/XsBZfTH0bayqCzfLDvyILzxWS+DTX3ps7Sc1rDthDKjdqtGLoF\n5jJuBlyarUhWfa4EsRFR1zduG7XxF1Ib3wZJhk1K6M/iJk6EmskJOg9dAoGAGktg\nbmykdUAHbD4BN5yQgUrbLb+tPsdSLdCj7vqKqRC3SaAnfGoMuczpoJqPExn0ji4h\nPgWCX/fUsr7P3a74tyxWgaRibaLN5Iqlw1sKmWgWg6cuBhBRmLF9poaQL4cE6I+9\nmWiZ7TYZA47qHEv6UT6SGHKupVx5QPJDsYPvEKECgYBHkC6bvBll7Ca+JN2rMWQ+\nmN+r3G6cO9W1z9rl59yin6a1B/zle0RMVh+/gbFphwMdU1h/FoEQkjCEJT+dW8VH\nAWj1ZKFG0aAW0TXwHuMGKVFrgV6BuQD1/7cllOO5fMlv4myMaUYYLGIgmjb59tro\nXhbcJnL5vRwjLQwrZy5D8A==\n-----END PRIVATE KEY-----\n",
+  "client_email": "takwimu@takwimu-001.iam.gserviceaccount.com",
+  "client_id": "100115117550294211883",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/takwimu%40takwimu-001.iam.gserviceaccount.com"
+}
