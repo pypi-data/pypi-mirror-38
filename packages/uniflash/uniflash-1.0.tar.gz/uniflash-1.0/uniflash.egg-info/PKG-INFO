@@ -1,0 +1,22 @@
+Metadata-Version: 1.0
+Name: uniflash
+Version: 1.0
+Summary: Reflash Logitech Unifying Receivers easily
+Home-page: UNKNOWN
+Author: athn
+Author-email: jem@seethis.link
+License: MIT
+Description: Reflash Logitech Unifying Receivers easily
+        
+        Windows users please install libusb first. (Go to https://sourceforge.net/projects/libusb-win32/files/libusb-win32-releases/1.2.6.0, download libusb-win32-devel-filter-1.2.6.0.exe and install it)
+        
+        Usage: uniflash <command> [<args>]
+        
+        command is one of:
+            icp         reset the unifying firmware into its bootloader mode
+            reset       reset from the bootloader
+            flash       when in icp mode flash the given hexfile
+            info        print info about bootloader (nRF24LU1+)
+            info_ti     print info about bootloader (CC2544)
+        
+Platform: UNKNOWN
