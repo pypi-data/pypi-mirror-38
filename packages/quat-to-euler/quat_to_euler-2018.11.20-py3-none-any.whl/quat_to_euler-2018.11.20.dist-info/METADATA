@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: quat-to-euler
+Version: 2018.11.20
+Summary: Adds a quaternion to Euler Unity-like convention method to NumPy
+Home-page: https://github.com/javigonzalo/quat_to_euler
+Author: Javier Gonzalez Alonso
+Author-email: javigonzauva@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+# Quat_to_euler
+Adds a quaternion-to-Euler Unity-like method to numpy-quaternion module.
+
+
+Originally based on code by Mike Boyle ("https://github.com/moble/quaternion")
+
+
+The basic requirements for this code are current versions of python, numpy and 
+moble numpy-quaternion.
+
+
+## Quick install
+
+```sh
+pip install --user quat_to_euler
+```
+
+
