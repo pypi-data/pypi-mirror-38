@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: plp.IDL
+Version: 0.0.0a1
+Summary: Parser for OMG IDL interface definition language.
+Home-page: http://pypi.python.org/pypi/plp.IDL/
+Author: Adam Karpierz
+Author-email: adam@karpierz.net
+Maintainer: Adam Karpierz
+Maintainer-email: adam@karpierz.net
+License: Apache License, Version 2.0 ; http://www.apache.org/licenses/LICENSE-2.0
+Download-URL: http://pypi.python.org/pypi/plp.IDL/
+Description: plp.IDL
+        =======
+        
+        Changelog
+        =========
+        
+        0.0.0a1 (2003-10-05)
+        --------------------
+        - Initial version.
+        
+Keywords: plp,parsing
+Platform: any
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: Polish
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: IronPython
+Classifier: Programming Language :: Python :: Implementation :: Jython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Programming Language :: Python :: Implementation :: Stackless
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=2.7.0,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*
+Description-Content-Type: text/x-rst
+Provides-Extra: test
+Provides-Extra: doc
