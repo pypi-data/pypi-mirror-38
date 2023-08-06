@@ -1,0 +1,11 @@
+*./idea
+*.idea/*
+*.idea/
+*.pyc
+*.xml
+*.iml
+*.sqlite3
+statifiles/
+__pycache__/
+*.so
+dist/
