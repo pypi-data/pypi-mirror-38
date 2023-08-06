@@ -1,0 +1,109 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <title>Concatenate</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/style.css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="next" title="Select by Data Index" href="select-by-data-index.html" />
+    <link rel="prev" title="Randomize" href="randomize.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="concatenate">
+<h1>Concatenate</h1>
+<p>Concatenates data from multiple sources.</p>
+<dl class="docutils">
+<dt>Inputs</dt>
+<dd><dl class="first last docutils">
+<dt>Primary Data</dt>
+<dd>dataset that defines the attribute set</dd>
+<dt>Additional Data</dt>
+<dd>additional dataset</dd>
+</dl>
+</dd>
+<dt>Outputs</dt>
+<dd><dl class="first last docutils">
+<dt>Data</dt>
+<dd>concatenated data</dd>
+</dl>
+</dd>
+</dl>
+<p>The widget concatenates multiple sets of instances (datasets). The
+merge is “vertical”, in a sense that two sets of 10 and 5 instances
+yield a new set of 15 instances.</p>
+<div class="figure">
+<img alt="../../_images/Concatenate-stamped.png" src="../../_images/Concatenate-stamped.png" />
+</div>
+<ol class="arabic simple">
+<li>Set the attribute merging method.</li>
+<li>Add the identification of source datasets to the output dataset.</li>
+<li>Produce a report.</li>
+<li>If <em>Apply automatically</em> is ticked, changes are communicated automatically. Otherwise, click <em>Apply</em>.</li>
+</ol>
+<p>If one of the tables is connected to the widget as the primary table,
+the resulting table will contain its own attributes. If there is no
+primary table, the attributes can be either a union of all attributes
+that appear in the tables specified as <em>Additional Tables</em>, or their
+intersection, that is, a list of attributes common to all the connected
+tables.</p>
+<div class="section" id="example">
+<h2>Example</h2>
+<p>As shown below, the widget can be used for merging data from two separate files. Let’s say we have two datasets with the
+same attributes, one containing instances from the first experiment and the other
+instances from the second experiment and we wish to join the two data
+tables together. We use the <strong>Concatenate</strong> widget to merge the datasets by
+attributes (appending new rows under existing attributes).</p>
+<p>Below, we used a modified <em>Zoo</em> dataset. In the
+<a class="reference download internal" download="" href="../../_downloads/8e2c34548858951ae7f80d3b44b1c0d1/zoo-first.tab"><code class="xref download docutils literal notranslate"><span class="pre">first</span></code></a> <a class="reference internal" href="file.html"><span class="doc">File</span></a> widget, we loaded only the animals
+beginning with the letters A and B and in the <a class="reference download internal" download="" href="../../_downloads/a7a3bf5966c865c13e064bd22103dee1/zoo-second.tab"><code class="xref download docutils literal notranslate"><span class="pre">second</span></code></a>
+one only the animals beginning with the letter C. Upon concatenation, we
+observe the new data in the <a class="reference internal" href="datatable.html"><span class="doc">Data Table</span></a> widget, where we see the
+complete table with animals from A to C.</p>
+<div class="figure">
+<img alt="../../_images/Concatenate-Example.png" src="../../_images/Concatenate-Example.png" />
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
+      
+      |
+      <a href="../../_sources/widgets/data/concatenate.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,129 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <title>Merge Data</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/style.css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="next" title="Outliers" href="outliers.html" />
+    <link rel="prev" title="Impute" href="impute.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="merge-data">
+<h1>Merge Data</h1>
+<p>Merges two datasets, based on values of selected attributes.</p>
+<dl class="docutils">
+<dt>Inputs</dt>
+<dd><dl class="first last docutils">
+<dt>Data</dt>
+<dd>input dataset</dd>
+<dt>Extra Data</dt>
+<dd>additional dataset</dd>
+</dl>
+</dd>
+<dt>Outputs</dt>
+<dd><dl class="first last docutils">
+<dt>Data</dt>
+<dd>dataset with features added from extra data</dd>
+</dl>
+</dd>
+</dl>
+<p>The <strong>Merge Data</strong> widget is used to horizontally merge two datasets, based
+on values of selected attributes. In the input, two datasets are
+required, data and extra data. The widget allows selection of an attribute from each
+domain, which will be used to perform the merging. The widget produces
+one output. It corresponds to instances from the input data
+to which attributes from input extra data are appended.</p>
+<p>Merging is done by values of selected (merging) attributes. First,
+the value of the merging attribute from Data is taken and instances from Extra
+Data are searched for matching values. If more than a single instance from Extra
+Data was to be found, the attribute is removed from available merging attributes.</p>
+<div class="figure">
+<img alt="../../_images/MergeData-stamped.png" src="../../_images/MergeData-stamped.png" />
+</div>
+<ol class="arabic simple">
+<li>Information on Data</li>
+<li>Information on Extra Data</li>
+<li>Merging type.
+<strong>Append columns from Extra Data</strong> outputs all instances from
+Data appended by matching instances from Extra Data. When no match is found,
+unknown values are appended.
+<strong>Find matching rows</strong> outputs only matching instances.
+<strong>Concatenate tables, merge rows</strong> outputs all instances from both inputs,
+even though the match may not be found. In that case unknown values are
+assigned.</li>
+<li>List of comparable attributes from Data</li>
+<li>List of comparable attributes from Extra Data</li>
+<li>Produce a report.</li>
+</ol>
+<div class="section" id="example">
+<h2>Example</h2>
+<p>Merging two datasets results in appending new attributes to the
+original file, based on a selected common attribute. In the example
+below, we wanted to merge the <strong>zoo.tab</strong> file containing only factual
+data with <a class="reference download internal" download="" href="../../_downloads/0df802ddaf0eb6af7ab0e35cd2b20293/zoo-with-images.tab"><code class="xref download docutils literal notranslate"><span class="pre">zoo-with-images.tab</span></code></a>
+containing images. Both files share a common string attribute <em>names</em>. Now, we
+create a workflow connecting the two files. The <em>zoo.tab</em> data is
+connected to <strong>Data</strong> input of the <strong>Merge Data</strong> widget, and the
+<em>zoo-with-images.tab</em> data to the <strong>Extra Data</strong> input. Outputs of the
+<strong>Merge Data</strong> widget is then connected to the <a class="reference internal" href="datatable.html"><span class="doc">Data Table</span></a> widget.
+In the latter, the <strong>Merged Data</strong> channels are shown, where image attributes
+are added to the original data.</p>
+<div class="figure">
+<img alt="../../_images/MergeData-Example.png" src="../../_images/MergeData-Example.png" />
+</div>
+<p>The case where we want to include all instances in the output, even those
+where no match by attribute <em>names</em> was found, is shown in the following workflow.</p>
+<div class="figure">
+<img alt="../../_images/MergeData-Example2.png" src="../../_images/MergeData-Example2.png" />
+</div>
+<p>The third type of merging is shown in the next workflow. The output consist of
+both inputs, with unknown values assigned where no match was found.</p>
+<div class="figure">
+<img alt="../../_images/MergeData-Example3.png" src="../../_images/MergeData-Example3.png" />
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
+      
+      |
+      <a href="../../_sources/widgets/data/mergedata.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,122 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <title>Outliers</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/style.css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="next" title="Preprocess" href="preprocess.html" />
+    <link rel="prev" title="Merge Data" href="mergedata.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="outliers">
+<h1>Outliers</h1>
+<p>Simple outlier detection by comparing distances between instances.</p>
+<dl class="docutils">
+<dt>Inputs</dt>
+<dd><dl class="first last docutils">
+<dt>Data</dt>
+<dd>input dataset</dd>
+<dt>Distances</dt>
+<dd>distance matrix</dd>
+</dl>
+</dd>
+<dt>Outputs</dt>
+<dd><dl class="first last docutils">
+<dt>Outliers</dt>
+<dd>instances scored as outliers</dd>
+<dt>Inliers</dt>
+<dd>instances not scored as outliers</dd>
+</dl>
+</dd>
+</dl>
+<p>The <strong>Outliers</strong> widget applies one of the two methods for outlier
+detection. Both methods apply classification to the dataset, one with
+SVM (multiple kernels) and the other with elliptical envelope.
+<em>One-class SVM with non-linear kernels (RBF)</em> performs well with
+non-Gaussian distributions, while <em>Covariance estimator</em> works only for
+data with Gaussian distribution.</p>
+<div class="figure">
+<img alt="../../_images/Outliers-stamped.png" src="../../_images/Outliers-stamped.png" />
+</div>
+<ol class="arabic simple">
+<li>Information on the input data, number of inliers and outliers based
+on the selected model.</li>
+<li>Select the <em>Outlier detection method</em>:<ul>
+<li><strong>One class SVM with non-linear kernel (RBF)</strong>: classifies data as
+similar or different from the core class<ul>
+<li><strong>Nu</strong> is a parameter for the upper bound on the fraction of
+training errors and a lower bound of the fraction of support
+vectors</li>
+<li><strong>Kernel coefficient</strong> is a gamma parameter, which specifies how
+much influence a single data instance has</li>
+</ul>
+</li>
+<li><strong>Covariance estimator</strong>: fits ellipsis to central points with
+Mahalanobis distance metric<ul>
+<li><strong>Contamination</strong> is the proportion of outliers in the dataset</li>
+<li><strong>Support fraction</strong> specifies the proportion of points included
+in the estimate</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Produce a report.</li>
+<li>Click <em>Detect outliers</em> to output the data.</li>
+</ol>
+<div class="section" id="example">
+<h2>Example</h2>
+<p>Below, is a simple example of how to use this widget. We used the <em>Iris</em>
+dataset to detect the outliers. We chose the <em>one class SVM with
+non-linear kernel (RBF)</em> method, with Nu set at 20% (less training
+errors, more support vectors). Then we observed the outliers in the
+<a class="reference internal" href="datatable.html"><span class="doc">Data Table</span></a> widget, while we sent the inliers to the <a class="reference internal" href="../visualize/scatterplot.html"><span class="doc">Scatter
+Plot</span></a>.</p>
+<div class="figure">
+<img alt="../../_images/Outliers-Example.png" src="../../_images/Outliers-Example.png" />
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
+      
+      |
+      <a href="../../_sources/widgets/data/outliers.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,162 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <title>Test &amp; Score</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/style.css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="prev" title="ROC Analysis" href="rocanalysis.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="test-score">
+<h1>Test &amp; Score</h1>
+<p>Tests learning algorithms on data.</p>
+<dl class="docutils">
+<dt>Inputs</dt>
+<dd><dl class="first last docutils">
+<dt>Data</dt>
+<dd>input dataset</dd>
+<dt>Test Data</dt>
+<dd>separate data for testing</dd>
+<dt>Learner</dt>
+<dd>learning algorithm(s)</dd>
+</dl>
+</dd>
+<dt>Outputs</dt>
+<dd><dl class="first last docutils">
+<dt>Evaluation Results</dt>
+<dd>results of testing classification algorithms</dd>
+</dl>
+</dd>
+</dl>
+<p>The widget tests learning algorithms. Different sampling schemes are
+available, including using separate test data. The widget does two
+things. First, it shows a table with different classifier performance
+measures, such as <a class="reference external" href="https://en.wikipedia.org/wiki/Accuracy_and_precision" target="_blank">classification accuracy</a>
+and <a class="reference external" href="https://en.wikipedia.org/wiki/Receiver_operating_characteristic#Area_under_the_curve" target="_blank">area under the curve</a>.
+Second, it outputs evaluation results, which can be used by other
+widgets for analyzing the performance of classifiers, such as <a class="reference internal" href="rocanalysis.html"><span class="doc">ROC Analysis</span></a> or <a class="reference internal" href="confusionmatrix.html"><span class="doc">Confusion Matrix</span></a>.</p>
+<p>The <em>Learner</em> signal has an uncommon property: it can be connected to more
+than one widget to test multiple learners with the same procedures.</p>
+<div class="figure">
+<img alt="../../_images/TestLearners-stamped.png" src="../../_images/TestLearners-stamped.png" />
+</div>
+<ol class="arabic simple">
+<li>The widget supports various sampling methods.<ul>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Cross-validation_(statistics)" target="_blank">Cross-validation</a>
+splits the data into a given number of folds (usually 5 or 10). The
+algorithm is tested by holding out examples from one fold at a time;
+the model is induced from other folds and examples from the held out
+fold are classified. This is repeated for all the folds.</li>
+<li><strong>Leave-one-out</strong> is similar, but it holds out one instance at a
+time, inducing the model from all others and then classifying the
+held out instances. This method is obviously very stable, reliable …
+and very slow.</li>
+<li><strong>Random sampling</strong> randomly splits the data into the training and
+testing set in the given proportion (e.g. 70:30); the whole procedure
+is repeated for a specified number of times.</li>
+<li><strong>Test on train data</strong> uses the whole dataset for training and then
+for testing. This method practically always gives wrong results.</li>
+<li><strong>Test on test data</strong>: the above methods use the data from <em>Data</em>
+signal only. To input another dataset with testing examples (for
+instance from another file or some data selected in another widget),
+we select <em>Separate Test Data</em> signal in the communication channel
+and select Test on test data.</li>
+</ul>
+</li>
+<li>For classification, <em>Target class</em> can be selected at the bottom of the widget.
+When <em>Target class</em> is (Average over classes),
+methods return scores that are weighted averages over all classes.
+For example, in case of the classifier with 3 classes,
+scores are computed for class 1 as a target class, class 2 as a target class,
+and class 3 as a target class. Those scores are averaged with weights
+based on the class size to retrieve the final score.</li>
+<li>Produce a report.</li>
+<li>The widget will compute a number of performance statistics:</li>
+</ol>
+<div class="section" id="classification">
+<h2>Classification</h2>
+<div class="figure">
+<img alt="../../_images/TestLearners.png" src="../../_images/TestLearners.png" />
+</div>
+<ul class="simple">
+<li><a class="reference external" href="http://gim.unmc.edu/dxtests/roc3.htm" target="_blank">Area under ROC</a> is the
+area under the receiver-operating curve.</li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Accuracy_and_precision" target="_blank">Classification accuracy</a>
+is the proportion of correctly classified examples.</li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/F1_score" target="_blank">F-1</a> is a weighted harmonic mean of precision and recall (see below).</li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Precision_and_recall" target="_blank">Precision</a> is the proportion of true positives among instances classified as positive, e.g. the proportion of <em>Iris virginica</em> correctly identified as Iris virginica.</li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Precision_and_recall" target="_blank">Recall</a> is the proportion of true positives among all positive instances in
+the data, e.g. the number of sick among all diagnosed as sick.</li>
+</ul>
+</div>
+<div class="section" id="regression">
+<h2>Regression</h2>
+<div class="figure">
+<img alt="../../_images/TestLearners-regression.png" src="../../_images/TestLearners-regression.png" />
+</div>
+<ul class="simple">
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Mean_squared_error" target="_blank">MSE</a> measures the average of the squares of the errors or deviations (the difference between the estimator and what is estimated).</li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Root_mean_square" target="_blank">RMSE</a> is the square root of the arithmetic mean of the squares of a set of numbers (a measure of imperfection of the fit of the estimator to the data)</li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Mean_absolute_error" target="_blank">MAE</a> is used to measure how close forecasts or predictions are to eventual outcomes.</li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Coefficient_of_determination" target="_blank">R2</a> is interpreted as the proportion of the variance in the dependent variable that is predictable from the independent variable.</li>
+</ul>
+</div>
+<div class="section" id="example">
+<h2>Example</h2>
+<p>In a typical use of the widget, we give it a dataset and a few learning
+algorithms and we observe their performance in the table inside the
+<strong>Test &amp; Score</strong> widget and in the <a class="reference internal" href="rocanalysis.html"><span class="doc">ROC</span></a>. The data is often
+preprocessed before testing; in this case we did some manual feature
+selection (<a class="reference internal" href="../data/selectcolumns.html"><span class="doc">Select Columns</span></a> widget) on <em>Titanic</em> dataset, where we
+want to know only the sex and status of the survived and omit the age.</p>
+<div class="figure">
+<img alt="../../_images/TestLearners-example-classification.png" src="../../_images/TestLearners-example-classification.png" />
+</div>
+<p>Another example of using this widget is presented in the documentation
+for the <a class="reference internal" href="confusionmatrix.html"><span class="doc">Confusion Matrix</span></a> widget.</p>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
+      
+      |
+      <a href="../../_sources/widgets/evaluation/testandscore.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

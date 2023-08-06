@@ -1,0 +1,132 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <title>Color</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/style.css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="next" title="Feature Statistics" href="featurestatistics.html" />
+    <link rel="prev" title="Correlations" href="correlations.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="color">
+<h1>Color</h1>
+<p>Set color legend for variables.</p>
+<dl class="docutils">
+<dt>Inputs</dt>
+<dd><dl class="first last docutils">
+<dt>Data</dt>
+<dd>input dataset</dd>
+</dl>
+</dd>
+<dt>Outputs</dt>
+<dd><dl class="first last docutils">
+<dt>Data</dt>
+<dd>dataset with a new color legend</dd>
+</dl>
+</dd>
+</dl>
+<p>The <strong>Color</strong> widget enables you to set the color legend in your visualizations
+according to your own preferences. This option provides you with the tools for
+emphasizing your results and offers a great variety of color options for presenting your data. It can be combined with most visualizations widgets.</p>
+<div class="figure">
+<img alt="../../_images/Color-stamped.png" src="../../_images/Color-stamped.png" />
+</div>
+<ol class="arabic simple">
+<li>A list of discrete variables. You can set the color of each variable by double-clicking on it and opening the <em>Color palette</em> or the <em>Select color</em> window. The widget also enables text-editing. By clicking on a variable, you can change its name.</li>
+<li>A list of continuous variables. You can customize the color gradients by double-clicking on them. The widget also enables text-editing. By clicking on a variable, you can change its name. If you hover over the right side side of the gradient, <em>Copy to all</em> appears. You can then apply your customized color gradient to all variables.</li>
+<li>Produce a report.</li>
+<li>Apply changes. If <em>Apply automatically</em> is ticked, changes will be communicated automatically. Alternatively, just click <em>Apply</em>.</li>
+</ol>
+<div class="section" id="discrete-variables">
+<h2>Discrete variables</h2>
+<div class="figure">
+<img alt="../../_images/Color-palette-discrete-stamped.png" src="../../_images/Color-palette-discrete-stamped.png" />
+</div>
+<ol class="arabic simple">
+<li>Choose a desired color from the palette of basic colors.</li>
+<li>Move the cursor to choose a custom color from the color palette.</li>
+<li>Choose a custom color from your previously saved color choices.</li>
+<li>Specify the custom color by:</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li>entering the red, green, and blue components of the color as values between 0 (darkest) and 255 (brightest)</li>
+<li>entering the hue, saturation and luminescence components of the color as values in the range 0 to 255</li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="5">
+<li>Add the created color to your custom colors.</li>
+<li>Click <em>OK</em> to save your choices or <em>Cancel</em> to exit the the color palette.</li>
+</ol>
+</div>
+<div class="section" id="numeric-variables">
+<h2>Numeric variables</h2>
+<div class="figure">
+<img alt="../../_images/Color-palette-numeric-stamped.png" src="../../_images/Color-palette-numeric-stamped.png" />
+</div>
+<ol class="arabic simple">
+<li>Choose a gradient from your saved profiles. The default profile is already set.</li>
+<li>The gradient palette</li>
+<li>Select the left side of the gradient. Double clicking the color opens the <em>Select Color</em> window.</li>
+<li>Select the right side of the gradient. Double clicking the color opens the <em>Select Color</em> window.</li>
+<li>Pass through black.</li>
+<li>Click <em>OK</em> to save your choices or <em>Cancel</em> to exit the color palette.</li>
+</ol>
+</div>
+<div class="section" id="example">
+<h2>Example</h2>
+<p>We chose to work with the <em>Iris</em> dataset. We opened the color palette and selected three new colors for the three types of Irises. Then we opened the <a class="reference internal" href="../visualize/scatterplot.html"><span class="doc">Scatter Plot</span></a> widget and viewed the changes made to the scatter plot.</p>
+<div class="figure">
+<img alt="../../_images/Color-Example-1.png" src="../../_images/Color-Example-1.png" />
+</div>
+<p>For our second example, we wished to demonstrate the use of the <strong>Color</strong> widget with continuous variables. We put different types of Irises on the x axis and petal length on the y axis. We created a new color gradient and named it greed (green + red).
+In order to show that sepal length is not a deciding factor in differentiating between different types of Irises, we chose to color the points according to sepal width.</p>
+<div class="figure">
+<img alt="../../_images/Color-Example-2.png" src="../../_images/Color-Example-2.png" />
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
+      
+      |
+      <a href="../../_sources/widgets/data/color.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
