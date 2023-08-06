@@ -1,0 +1,4 @@
+io/jenkins/jenkinsfile/runner/bootstrap/Bootstrap.class
+io/jenkins/jenkinsfile/runner/bootstrap/IApp.class
+io/jenkins/jenkinsfile/runner/bootstrap/ClassLoaderBuilder.class
+io/jenkins/jenkinsfile/runner/bootstrap/SideClassLoader.class
