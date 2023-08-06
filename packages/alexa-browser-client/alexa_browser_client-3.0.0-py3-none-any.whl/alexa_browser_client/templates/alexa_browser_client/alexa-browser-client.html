@@ -1,0 +1,82 @@
+<html>
+  <head>
+    <title>Alexa Browser Client</title>
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+  </head>
+  <body>
+    <h1 id="status-label" style="font-size: 60px;"></h1>
+    <script type="text/javascript">
+      var statusLabel = document.getElementById('status-label');
+
+      function sendAudio(event) {
+        if (socket.readyState == WebSocket.OPEN) {
+          var samples = event.inputBuffer.getChannelData(0);
+          socket.send(samples);
+        }
+      }
+
+      function playAudio(samples) {
+        var source = context.createBufferSource();
+        context.decodeAudioData(samples, function(audioDataBuffer) {
+          source.buffer = audioDataBuffer;
+          source.connect(context.destination);
+          source.start(0);
+        });
+      }
+
+      function handleGetUserMediaSuccess(stream) {
+        var audioInput = context.createMediaStreamSource(stream);
+        var recorder = context.createScriptProcessor(4096, 1, 1);
+        recorder.onaudioprocess = sendAudio;
+        audioInput.connect(recorder);
+        recorder.connect(context.destination);
+      }
+
+      function handleWebsocketMessage(event) {
+        if (event.data instanceof ArrayBuffer) {
+          playAudio(event.data);
+        } else {
+          var message = JSON.parse(event.data);
+          if (message.type == 'EXPECTING_COMMAND') {
+            statusLabel.innerText = 'Listening...';
+          } else if (message.type == 'EXPECTING_WAKEWORD') {
+            statusLabel.innerText = 'Say "Alexa"';
+          } else if (message.type == 'CONNECTING') {
+            statusLabel.innerText = 'Connecting to Alexa';
+          }
+        }
+      }
+
+      function handleWebsocketClose(event) {
+         if (event.code == 3000) {
+            statusLabel.innerText = 'Login required. redirecting...'
+            setTimeout(handleLoginRequired, 1000);
+          }
+      }
+
+      function handleLoginRequired() {
+        window.location.href = '{% url "refreshtoken" %}'
+      }
+
+      function createWebsocket(){
+        socket = new WebSocket('{{ websocket_url }}') ;
+        socket.binaryType = 'arraybuffer';
+        socket.onmessage = handleWebsocketMessage;
+        socket.onclose = handleWebsocketClose;
+      }
+
+      function websocketReconnectionMangaer(){
+        socket.readyState == WebSocket.CLOSED && createWebsocket();
+      }
+
+      var context = new window.AudioContext();
+      var statusLabel = document.getElementById('status-label');
+      var socket;
+      createWebsocket();
+      setInterval(websocketReconnectionMangaer, 1000);
+      navigator.mediaDevices.getUserMedia({audio:true})
+        .then(handleGetUserMediaSuccess);
+
+    </script>
+  </body>
+</html>
