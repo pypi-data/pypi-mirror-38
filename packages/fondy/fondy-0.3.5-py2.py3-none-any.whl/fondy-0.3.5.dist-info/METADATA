@@ -1,0 +1,60 @@
+Metadata-Version: 2.1
+Name: fondy
+Version: 0.3.5
+Summary: Python library for the Fondy API
+Home-page: https://github.com/shalakhin/fondy
+Author: Olexandr Shalakhin
+Author-email: olexandr@shalakhin.com
+License: UNKNOWN
+Download-URL: https://github.com/shalakhin/fondy/archive/0.3.5.tar.gz
+Keywords: testing,logging,example
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires: requests
+Description-Content-Type: text/markdown
+
+# fondy
+
+Fondy.eu Python SDK
+
+## Install
+
+```shell
+pip install fondy
+```
+
+## Usage example
+
+```python
+from fondy import API
+api = API(merchant_id, merchant_key, server_callback_url)
+# generate Fondy payment url to checkout 200 UAH for "123456" order id
+api.checkout('123456', 200 * 100)
+```
+
+## Supported API endpoints
+
+|Endpoint        |Explanation           |
+|----------------|----------------------|
+|order_status    |Check order status    |
+|p2pcredit       |Pay to credit card    |
+|checkout        |Generate checkout URL |
+
+## Requirements
+
+- requests
+
+
