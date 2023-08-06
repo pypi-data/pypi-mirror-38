@@ -1,0 +1,13 @@
+README.rst
+setup.cfg
+setup.py
+pymysql_split_tool/__init__.py
+pymysql_split_tool/__main__.py
+pymysql_split_tool/controller.py
+pymysql_split_tool/db.py
+pymysql_split_tool/input.py
+pymysql_split_tool.egg-info/PKG-INFO
+pymysql_split_tool.egg-info/SOURCES.txt
+pymysql_split_tool.egg-info/dependency_links.txt
+pymysql_split_tool.egg-info/requires.txt
+pymysql_split_tool.egg-info/top_level.txt
