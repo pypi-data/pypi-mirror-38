@@ -1,0 +1,3 @@
+[console_scripts]
+pygis = pygis.cli:main
+
