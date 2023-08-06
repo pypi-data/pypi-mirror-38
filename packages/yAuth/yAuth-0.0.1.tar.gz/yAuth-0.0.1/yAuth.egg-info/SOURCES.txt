@@ -1,0 +1,11 @@
+MANIFEST.in
+README.md
+setup.py
+tests/__init__.py
+tests/tests.py
+yAuth/__init__.py
+yAuth.egg-info/PKG-INFO
+yAuth.egg-info/SOURCES.txt
+yAuth.egg-info/dependency_links.txt
+yAuth.egg-info/requires.txt
+yAuth.egg-info/top_level.txt
