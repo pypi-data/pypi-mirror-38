@@ -1,0 +1,11 @@
+MANIFEST.in
+README.md
+setup.py
+kutils4pygame/__init__.py
+kutils4pygame/pkg_utils.py
+kutils4pygame.egg-info/PKG-INFO
+kutils4pygame.egg-info/SOURCES.txt
+kutils4pygame.egg-info/dependency_links.txt
+kutils4pygame.egg-info/requires.txt
+kutils4pygame.egg-info/top_level.txt
+kutils4pygame/test/__init__.py
