@@ -1,0 +1,10 @@
+flask
+requests
+unidecode
+beautifulsoup4
+
+[:platform_system == "Darwin"]
+pyobjc
+
+[:platform_system == "Windows"]
+pywin32
