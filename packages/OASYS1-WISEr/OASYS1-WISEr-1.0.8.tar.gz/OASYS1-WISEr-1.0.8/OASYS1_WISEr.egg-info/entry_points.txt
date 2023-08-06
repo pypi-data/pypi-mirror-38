@@ -1,0 +1,11 @@
+[oasys.addons]
+wise = orangecontrib.wise
+
+[oasys.menus]
+wisemenu = orangecontrib.wise2.menu
+
+[oasys.widgets]
+WISEr Light Sources = orangecontrib.wise2.widgets.light_sources
+WISEr Optical Elements = orangecontrib.wise2.widgets.optical_elements
+WISEr Tools = orangecontrib.wise2.widgets.tools
+
