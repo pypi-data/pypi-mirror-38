@@ -1,0 +1,12 @@
+appdirs
+BlazeUtils
+blinker
+Click>=3.0
+Flask<1.0.0
+Flask-SQLAlchemy
+pathlib
+python-json-logger
+six
+
+[i18n]
+morphi
