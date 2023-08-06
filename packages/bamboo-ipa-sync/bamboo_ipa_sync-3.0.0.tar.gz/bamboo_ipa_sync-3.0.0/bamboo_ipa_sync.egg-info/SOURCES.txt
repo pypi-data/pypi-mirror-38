@@ -1,0 +1,13 @@
+README.rst
+setup.cfg
+setup.py
+bamboo_ipa_sync/__init__.py
+bamboo_ipa_sync/__main__.py
+bamboo_ipa_sync/__version__.py
+bamboo_ipa_sync/bamboo_ipa_sync.py
+bamboo_ipa_sync.egg-info/PKG-INFO
+bamboo_ipa_sync.egg-info/SOURCES.txt
+bamboo_ipa_sync.egg-info/dependency_links.txt
+bamboo_ipa_sync.egg-info/entry_points.txt
+bamboo_ipa_sync.egg-info/requires.txt
+bamboo_ipa_sync.egg-info/top_level.txt
