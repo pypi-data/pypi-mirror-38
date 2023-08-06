@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: ghx
+Version: 0.1
+Summary: Run scripts from Github on the fly
+Home-page: https://github.com/rshk/ghx
+Author: Samuele Santi
+Author-email: sam@reinventsoftware.io
+License: BSD License
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Dist: click
+
+ghx
+###
+
+Run scripts on the fly from a Github repository.
+
+
