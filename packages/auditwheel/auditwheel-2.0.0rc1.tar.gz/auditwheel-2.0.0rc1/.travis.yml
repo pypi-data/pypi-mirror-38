@@ -1,0 +1,30 @@
+language: python
+dist: xenial
+matrix:
+  include:
+  - python: "3.5"
+  - python: "3.5"
+    env: WHEELHOUSE=1
+  - python: "3.6"
+  - python: "3.7"
+  allow_failures:
+  - python: "3.5"
+    env: WHEELHOUSE=1
+
+sudo: required
+services:
+  - docker
+
+notifications:
+  email: false
+
+before_install:
+  - pip install --upgrade pip
+
+install:
+  - pip install -r test-requirements.txt
+  - pip install .
+
+
+script:
+  - tests/travis.sh
