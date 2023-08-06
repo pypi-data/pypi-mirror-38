@@ -1,0 +1,65 @@
+Metadata-Version: 2.1
+Name: easyregress
+Version: 0.0.1
+Summary: framework for regression modelling under cross-validation
+Home-page: https://github.com/raamana/easyregress
+Author: Pradeep Reddy Raamana
+Author-email: raamana@gmail.com
+License: Apache Software License 2.0
+Keywords: easyregress
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+
+===============
+easy regression
+===============
+
+
+.. image:: https://img.shields.io/pypi/v/easyregress.svg
+        :target: https://pypi.python.org/pypi/easyregress
+
+.. image:: https://img.shields.io/travis/raamana/easyregress.svg
+        :target: https://travis-ci.org/raamana/easyregress
+
+.. image:: https://readthedocs.org/projects/easyregress/badge/?version=latest
+        :target: https://easyregress.readthedocs.io/en/latest/?badge=latest
+        :alt: Documentation Status
+
+
+
+
+framework for regression modelling under cross-validation
+
+
+* Free software: Apache Software License 2.0
+* Documentation: https://easyregress.readthedocs.io.
+
+
+Features
+--------
+
+* TODO
+
+
+
+
+=======
+History
+=======
+
+0.0.1 (2018-11-16)
+------------------
+
+* First release on PyPI.
+
+
