@@ -1,0 +1,6 @@
+numpy==1.15.4
+deap==1.2.2
+optunity==1.1.1
+
+[testing]
+pytest
