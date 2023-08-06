@@ -1,0 +1,17 @@
+cached-property~=1.5
+fs~=2.1.0
+six~=1.10
+paramiko~=2.0
+
+[:python_version < "3"]
+configparser~=3.2
+
+[dev]
+docutils
+Pygments
+codecov
+
+[test]
+green
+coverage
+docker
