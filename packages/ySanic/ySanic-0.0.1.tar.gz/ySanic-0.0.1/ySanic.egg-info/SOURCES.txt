@@ -1,0 +1,15 @@
+MANIFEST.in
+README.md
+setup.py
+tests/__init__.py
+tests/testApp.py
+tests/app/__init__.py
+tests/app/app.py
+tests/app/config.py
+tests/app/models.py
+ySanic/__init__.py
+ySanic.egg-info/PKG-INFO
+ySanic.egg-info/SOURCES.txt
+ySanic.egg-info/dependency_links.txt
+ySanic.egg-info/requires.txt
+ySanic.egg-info/top_level.txt
