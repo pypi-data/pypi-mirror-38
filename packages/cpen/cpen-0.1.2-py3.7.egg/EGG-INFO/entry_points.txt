@@ -1,0 +1,3 @@
+[console_scripts]
+cpen = cpen.codepen_downloader:main
+
