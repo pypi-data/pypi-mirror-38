@@ -1,0 +1,170 @@
+INSTALL=$(BASIS)/bin/basisinstall
+MPPL_FILES=mppl.sys mppl.std mppl.BASIS
+
+SCORE=-lscore$(ThreadExt)
+THREAD=-lpthread
+
+$(ARCH)/code: check_arch 
+	@ (cd $(ARCH); $(MAKE) -f Makefile.$(ARCH) code)
+
+install: check_arch $(BASIS)/bin/mppl $(BASIS)/man/man1/mppl.1 
+
+$(BASIS)/bin/mppl: $(ARCH)/code 
+	@ $(INSTALL) $? $@
+	@ for i in $(MPPL_FILES); do \
+	  $(INSTALL) $$i $(BASIS)/bin/$$i; \
+	done
+$(BASIS)/man/man1/mppl.1: mppl.1
+	@ $(INSTALL) $? $@
+clean::
+	@ /bin/rm -f code code.err code.map nextline.c init0.f
+
+dotfs: 
+	$(BASIS)/bin/mppl mppl.m > mppl.f
+
+mppl.o : ../mppl.f
+	${FORT} ${OPT} -c ../mppl.f
+
+nextline.o: nextline.c
+	$(CC) -I.. -I. $(CF) $(OPT) -D$(ARCH) -c -g nextline.c
+
+makeskel : ../makeskel
+	cp ../makeskel .
+
+init0.f : ../init.sh makeskel
+	../init.sh
+	rm makefile
+
+init0.o : init0.f
+	$(FORT) $(OPT) -c init0.f
+#
+# the sed is because some dope at SUN used lex as part of the Fortran compiler
+# support library....(!)
+# we rename all the yy stuff uu so as not to collide
+nextline.c: ../nextline.l
+	lex $(LEXFLAGS) -t ../nextline.l | /bin/sed 's/yy/uu/g' >nextline.c
+#nextline.l: ../nextline.l
+#	/bin/cp ../nextline.l nextline.l
+
+SYSTEM AXP
+INCLUDE = -DPACT -I$(PACT)/include -I/usr/include
+#FF=-integer_size 64 -real_size 64 -recursive -automatic -V
+FF=-align dcommons -recursive -V
+code: mppl.o pkgmppl.o nextline.o init0.o
+	$(FORT) -call_shared $(OPT) -L$(PACT)/lib -L/usr/shlib -o $@ mppl.o pkgmppl.o nextline.o init0.o -temp=. $(SCORE) $(THREAD) 1>code.map 2>code.err
+	touch $@
+
+SYSTEM C90
+OPT=
+code: c90.o mpplt.o nameme.o nextline.o init0.o
+	$(FORT) $(OPT) c90.o mpplt.o nameme.o nextline.o init0.o -o code
+	touch $@
+
+SYSTEM CRAY2
+OPT=
+code: cray2.o mpplt.o    nameme.o   nextline.o init0.o
+	$(FORT) $(OPT) cray2.o mpplt.o nameme.o nextline.o init0.o -o code
+	touch $@
+
+SYSTEM CS2
+code: mppl.o pkgmppl.o nextline.o init0.o
+	$(FORT) $(OPT) -z muldefs -L/opt/SUNWspro/lib -Bdynamic -lF77 -Bstatic -o $@ mppl.o pkgmppl.o nextline.o init0.o -temp=.  1>code.map 2>code.err
+	touch $@
+
+SYSTEM GENERIC
+code: mppl.o pkgmppl.o nextline.o init0.o
+	$(FORT) $(OPT) -o $@ mppl.o pkgmppl.o nextline.o init0.o 1>code.map 2>code.err
+	touch $@
+
+SYSTEM HP700
+CF=-Ae +DAportable
+FF=+DAportable +U77
+INCLUDE = -DPACT -I$(PACT)/include -I/usr/include
+code: mppl.o pkgmppl.o nextline.o init0.o
+	$(FORT) +U77 $(OPT) -Wl,-L$(PACT)/lib -o $@ mppl.o pkgmppl.o nextline.o init0.o $(SCORE) -lm 1>code.map 2>code.err
+	touch $@
+#	$(FORT) $(OPT) -Wl,-L$(PACT)/lib -o $@ mppl.o pkgmppl.o nextline.o init0.o /opt/fortran/lib/libU77.a $(SCORE) -lm 1>code.map 2>code.err
+
+SYSTEM IRIX64
+INCLUDE = -DPACT -I$(PACT)/include -I/usr/include
+FF=-64 -woff 2290
+OPT=-g -G 0 -64
+CF=-common -64 -woff 1167
+code: mppl.o pkgmppl.o nextline.o init0.o
+	$(FORT) $(OPT) -L$(PACT)/lib -o $@ mppl.o pkgmppl.o nextline.o init0.o $(SCORE) 1>code.map 2>code.err
+	touch $@
+
+SYSTEM RS6000
+INCLUDE = -DPACT -I$(PACT)/include -I/usr/include
+FF=-qfixed -qnosave
+code: mppl.o pkgmppl.o nextline.o init0.o
+	$(FORT) $(OPT) -L$(PACT)/lib -o $@ mppl.o pkgmppl.o nextline.o init0.o $(SCORE) -lpthread 1>code.map 2>code.err
+	touch $@
+
+SYSTEM SGI
+INCLUDE = -DPACT -I$(PACT)/include -I/usr/include
+FF=-mips2
+OPT=-O2
+code: mppl.o pkgmppl.o nextline.o init0.o
+	$(FORT) $(OPT) -L/usr/lib -L$(PACT)/lib -o $@ mppl.o pkgmppl.o nextline.o init0.o $(SCORE) -temp=. 1>code.map 2>code.err
+	touch $@
+
+SYSTEM SOL
+FF=-stackvar
+OPT=-g
+INCLUDE = -DPACT -I$(PACT)/include -I/usr/include
+code: mppl.o pkgmppl.o nextline.o init0.o
+	$(FORT) -z muldefs $(OPT) -L/opt/SUNWspro/lib -L$(PACT)/lib -Bdynamic -lF77 -Bstatic -o $@ mppl.o pkgmppl.o nextline.o init0.o $(SCORE) -temp=.  1>code.map 2>code.err
+	touch $@
+#    Use the following lines for SunOS 5.3 (Solaris 2.3) and earlier. (FNF)
+#	$(FORT) $(OPT) -L/opt/SUNWspro/lib -Bdynamic -lF77 -Bstatic -o $@ mppl.o pkgmppl.o nextline.o init0.o -temp=.  1>code.map 2>code.err
+#	touch $@
+
+SYSTEM SUN4
+INCLUDE = -DPACT -I$(PACT)/include -I/usr/include
+code: mppl.o pkgmppl.o nextline.o init0.o
+	$(FORT) $(OPT) -Bstatic -L$(PACT)/lib -o $@ mppl.o pkgmppl.o nextline.o init0.o -temp=. $(SCORE)  1>code.map 2>code.err
+	touch $@
+
+SYSTEM LINUX
+INCLUDE = -DPACT -I$(PACT)/include -I/usr/include
+# Assume that f77 is the Absoft compiler; pgf77 is the Portland Group compiler.
+# Note that pgf77 is the default.
+#CF= -gdwarf # Good only for Absoft compiler
+LEXFLAGS = -l
+GCCLib =
+PLibs = $(SCORE) `$(PACT)/bin/pact -info MachDepLib`
+OPT=-g
+code: mppl.o pkgmppl.o nextline.o init0.o
+	@if [ "$(FORT)" = "f77" ]; then \
+	  f77 $(OPT) $(CGGLib) -L$(PACT)/lib -o $@ mppl.o pkgmppl.o nextline.o init0.o -lU77 $(PLibs) 1>code.map 2>code.err; \
+	elif [ "$(FORT)" = "pgf90" ]; then \
+	  pgf90 $(OPT) $(CGGLib) -L$(PACT)/lib -o $@ mppl.o pkgmppl.o nextline.o init0.o $(PLibs) 1>code.map 2>code.err; \
+	elif [ "$(FORT)" = "pgf77" ]; then \
+	  pgf77 $(OPT) $(CGGLib) -L$(PACT)/lib -o $@ mppl.o pkgmppl.o nextline.o init0.o $(PLibs) 1>code.map 2>code.err; \
+	fi
+	touch $@
+
+SYSTEM VP2000
+code: mppl.o pkgmppl.o nextline.o init0.o
+	$(FORT) $(OPT) -o $@ mppl.o pkgmppl.o nextline.o init0.o 1>code.map 2>code.err
+	touch $@
+
+SYSTEM XMP
+OPT=
+code: xmp.o mpplt.o    nameme.o   nextline.o init0.o
+	$(FORT) $(OPT) xmp.o mpplt.o nameme.o nextline.o init0.o -o code
+	touch $@
+
+SYSTEM YMP
+OPT=
+code: ymp.o mpplt.o nameme.o nextline.o init0.o
+	$(FORT) $(OPT) ymp.o mpplt.o nameme.o nextline.o init0.o -o code
+	touch $@
+
+SYSTEM J90
+INCLUDE = -DPACT -I$(PACT)/include -I/usr/include
+OPT=
+code: j90.o mpplt.o nameme.o nextline.o init0.o
+	$(FORT) $(OPT) -L$(PACT)/lib j90.o mpplt.o nameme.o nextline.o init0.o $(SCORE) -o code
+	touch $@

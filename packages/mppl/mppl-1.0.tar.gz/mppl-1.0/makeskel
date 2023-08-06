@@ -1,0 +1,60 @@
+############
+OBJ = mppl.o hash.o nameme.o nextline.o init0.o scon.o
+MP = $(MPPL) $(MFLAGS) $(MDEF) $(MINC)
+FCOMP = $(FC) $(FFLAGS) $(FDEF) $(FINC) $(FOPT) $(DEBUG)
+CCOMP = $(CC) $(CFLAGS) $(CDEF) $(CINC) $(COPT) $(DEBUG)
+FLD   = $(FC) $(FOPT) $(DEBUG) $(LOADFLAGS) $(FLINC)
+
+.SUFFIXES :
+.SUFFIXES : .o .c .f .l .m
+
+.m.o:
+	$(MP) $< > $*.f
+	$(FCOMP) -c -o $@ $*.f
+.l.o:
+	$(LEX) $(LEXFLAGS) -t $< | sed 's/yy/uu/g' > $*.c
+	$(CCOMP) -c -o $@ $*.c
+.c.o:
+	$(CCOMP) -c -o $@ $<
+.f.o:
+	$(FCOMP) -c -o $@ $<
+.l.c:
+	$(LEX) $(LEXFLAGS) -t $< | sed 's/yy/uu/g' > $@
+.m.f:
+	$(MP) $< > $@
+
+############
+mppl: $(OBJ)
+	$(FLD) -o $@ $(OBJ) $(LOADLIBS)
+
+CLEAN1 = core mppl makefile init0.f nextline.c junk mppl.ps mppl.cat
+CLEAN2 = test/check
+clean:
+	rm -f $(OBJ) $(CLEAN1)
+	rm -rf $(CLEAN2)
+
+R = /wherever/you/like
+install:
+	@ echo "copy mppl mppl.sys mppl.std mppl.BASIS $(R)/bin"
+	@ echo "copy mppl.1 $(R)/man/man1"
+	@ echo "copy mppldoc.pdf mppl2f90.pdf $(R)/docs"
+	@ echo "copy PORTING README $(R)/docs"
+
+manpage:
+	groff -t -man mppl.1 > mppl.ps
+	groff -Tascii -t -man mppl.1 > mppl.cat
+
+check:
+	@ echo $(MINUSN) Test0.....$(CESC); \
+	./mppl mppl.m > junk; \
+	if cmp -s mppl.f junk; \
+	then echo "OK"; \
+	else echo "FAILED"; \
+	fi
+	@ (cd ./test && ./do-test -c ../mppl)
+
+hash.c nameme.c nextline.c scon.c: mppl.h
+nameme.c nextline.c scon.c: scon.h
+mppl.f: mppl.m mppl.i
+
+.PRECIOUS: mppl.f

@@ -1,0 +1,333 @@
+# Standard mppl startup macros.  This file is read second, after
+# mppl.sys, and before mppl.BASIS.  SYSTEM, WORDSIZE, IntSize, and
+# RealSize have been set already, and may not be changed in this
+# file or subsequently.
+#-----------------------------------------------------------------------------
+# Fortran 90 kind selector emulation macros, plus bit operators, etc.
+# "Size" definitions should essentially never change.
+define Size1 1
+define Size2 2
+define Size4 4
+define Size8 8
+define Size16 16
+
+# Handle instances of the word "real".  This macro handles both
+# declarations and the intrinsic function by counting arguments
+# (0, 1, or 2) and checking their values.  The abominable lack
+# of indenting is sadly necessary because "real" sometimes is
+# used as an argument to "Quote", and extra whitespace in the
+# quoted name will result if this macro is indented.
+ifelse(WORDSIZE,64,\
+[define(real,\
+[ifelse($2,,\
+[ifelse($1,,[[real]],\
+[ifelse($1,Size4,[[real]],\
+[ifelse($1,Size8,[[real]],\
+[ifelse($1,Size16,doubleprecision,\
+[[real]([$*])]\
+)]\
+)]\
+)]\
+)],
+[ifelse($2,Size4,[[real]([$1])],\
+[ifelse($2,Size8,[[real]([$1])],\
+[ifelse($2,Size16,[[dble]([$1])],\
+[Errprint(Syntax Error: >>> [real]([$*]) <<<)]\
+)]\
+)]\
+)]\
+)]\
+)],\
+[define(real,\
+[ifelse($2,,\
+[ifelse($1,,[ifelse(RealSize,Size4,[[real]],[doubleprecision])],\
+[ifelse($1,Size4,[[real]],\
+[ifelse($1,Size8,doubleprecision,\
+[ifelse($1,Size16,doubleprecision,\
+[ifelse(RealSize,Size4,[[real]([$*])],[[dble]([$*])])]\
+)]\
+)]\
+)]\
+)],\
+[ifelse($2,Size4,[[real]([$1])],\
+[ifelse($2,Size8,[[dble]([$1])],\
+[ifelse($2,Size16,[[dble]([$1])],\
+[Errprint(Syntax Error: >>> [real]([$*]) <<<)]\
+)]\
+)]\
+)]\
+)]\
+)]\
+)
+Setsuppress([real],[*])
+
+# Handle integer declarations.  The syntax accepted is "integer(Size2)",
+# "integer(Size4)", "integer(Size8)", or the default form.  Sun
+# Fortran 1.3.1 will accept a Size2 integer.
+ifelse(WORDSIZE,64,\
+[define(integer,\
+[ifelse($1,,[[integer]],\
+[ifelse($1,Size2,[[integer]],\
+[ifelse($1,Size4,[[integer]],\
+[ifelse($1,Size8,[[integer]],\
+[Errprint(Syntax Error: >>> [integer]([$*]) <<<)]\
+)]\
+)]\
+)]\
+)]\
+)],\
+[define(integer,\
+[ifelse($1,,[ifelse(IntSize,Size2,[[integer*2]],[[integer]])],\
+[ifelse($1,Size2,[[integer*2]],\
+[ifelse($1,Size4,[[integer]],\
+[ifelse($1,Size8,[[integer]],\
+[Errprint(Syntax Error: >>> [integer]([$*]) <<<)]\
+)]\
+)]\
+)]\
+)]\
+)]\
+)
+Setsuppress([integer],[*])
+
+# Handle intrinsic function "int", which takes an optional
+# kind-selector in Fortran 90.  Although there is an "idint()"
+# intrinsic which takes a double precision argument, I don't
+# bother with it here, just output the generic "int()" for
+# all cases.
+ifelse(WORDSIZE,64,\
+[define(int,\
+[ifelse($1,,[[int]],\
+[ifelse($2,,[[int]]($1),\
+[ifelse($2,Size2,[[int]]($1),\
+[ifelse($2,Size4,[[int]]($1),\
+[ifelse($2,Size8,[[int]]($1),\
+[Errprint(Syntax Error: >>> [int]([$*]) <<<)]\
+)]\
+)]\
+)]\
+)]\
+)]\
+)],\
+[define(int,\
+[ifelse($1,,[[int]],\
+[ifelse($2,,[ifelse(IntSize,Size2,[[int]]($1),[[int]]($1))],\
+[ifelse($2,Size2,[[int]]($1),\
+[ifelse($2,Size4,[[int]]($1),\
+[ifelse($2,Size8,[[int]]($1),\
+[Errprint(Syntax Error: >>> [int]([$*]) <<<)]\
+)]\
+)]\
+)]\
+)]\
+)]\
+)]\
+)
+
+# Handle intrinsic function "nint", which takes an optional
+# kind-selector in Fortran 90.  Again, (see comments on "int"
+# above) just output the generic name for all cases.
+ifelse(WORDSIZE,64,\
+[define(nint,\
+[ifelse($1,,[[nint]],\
+[ifelse($2,,[[nint]]($1),\
+[ifelse($2,Size2,[[nint]]($1),\
+[ifelse($2,Size4,[[nint]]($1),\
+[ifelse($2,Size8,[[nint]]($1),\
+[Errprint(Syntax Error: >>> [nint]([$*]) <<<)]\
+)]\
+)]\
+)]\
+)]\
+)]\
+)],\
+[define(nint,\
+[ifelse($1,,[[nint]],\
+[ifelse($2,,[ifelse(IntSize,Size2,[[nint]]($1),[[nint]]($1))],\
+[ifelse($2,Size2,[[nint]]($1),\
+[ifelse($2,Size4,[[nint]]($1),\
+[ifelse($2,Size8,[[nint]]($1),\
+[Errprint(Syntax Error: >>> [nint]([$*]) <<<)]\
+)]\
+)]\
+)]\
+)]\
+)]\
+)]\
+)
+
+# Handle intrinsic function "aint", which takes an optional
+# kind-selector in Fortran 90.  Note that this returns a floating
+# point object, so takes Sizes 4, 8, or 16 instead of 2, 4, 8.
+# Since "Aint" is the generic name, I have to simulate the function
+# by explicitly type-casting its argument using "real" or "dble".
+ifelse(WORDSIZE,64,\
+[define(aint,\
+[ifelse($1,,[[aint]],\
+[ifelse($2,,[aint_r([$1])],\
+[ifelse($2,Size4,[aint_r([$1])],\
+[ifelse($2,Size8,[aint_r([$1])],\
+[ifelse($2,Size16,[aint_d([$1])],\
+[Errprint(Syntax Error: >>> [aint]([$*]) <<<)]\
+)]\
+)]\
+)]\
+)]\
+)]\
+)],\
+[define(aint,\
+[ifelse($1,,[[aint]],\
+[ifelse($2,,[ifelse(RealSize,Size4,[aint_r([$1])],[aint_d([$1])])],\
+[ifelse($2,Size4,[aint_r([$1])],\
+[ifelse($2,Size8,[aint_d([$1])],\
+[ifelse($2,Size16,[aint_d([$1])],\
+[Errprint(Syntax Error: >>> [aint]([$*]) <<<)]\
+)]\
+)]\
+)]\
+)]\
+)]\
+)]\
+)
+define aint_r [aint]([real]([$1]))
+define aint_d [aint]([dble]([$1]))
+
+# Handle intrinsic function "anint", which takes an optional
+# kind-selector in Fortran 90.  Note that this returns a floating
+# point object, so takes Sizes 4, 8, or 16 instead of 2, 4, 8.
+# "Anint" is again the generic name, so requires type-casting argument.
+ifelse(WORDSIZE,64,\
+[define(anint,\
+[ifelse($1,,[[anint]],\
+[ifelse($2,,[anint_r([$1])],\
+[ifelse($2,Size4,[anint_r([$1])],\
+[ifelse($2,Size8,[anint_r([$1])],\
+[ifelse($2,Size16,[anint_d([$1])],\
+[Errprint(Syntax Error: >>> [anint]([$*]) <<<)]\
+)]\
+)]\
+)]\
+)]\
+)]\
+)],\
+[define(anint,\
+[ifelse($1,,[[anint]],\
+[ifelse($2,,[ifelse(RealSize,Size4,[anint_r([$1])],[anint_d([$1])])],\
+[ifelse($2,Size4,[anint_r([$1])],\
+[ifelse($2,Size8,[anint_d([$1])],\
+[ifelse($2,Size16,[anint_d([$1])],\
+[Errprint(Syntax Error: >>> [anint]([$*]) <<<)]\
+)]\
+)]\
+)]\
+)]\
+)]\
+)]\
+)
+define anint_r [anint]([real]([$1]))
+define anint_d [anint]([dble]([$1]))
+
+# Handle intrinsic function "cmplx", which takes 1, 2, or 3
+# arguments in Fortran 90.  Only the optional third argument
+# is allowed to be a kind-selector.  Sun Fortran 1.3 defines
+# "dcmplx" for double complex arguments.
+ifelse(WORDSIZE,64,\
+[define(cmplx,\
+[ifelse($1,,[[cmplx]],\
+[ifelse($2,,[[cmplx]([$1])],\
+[ifelse($3,,[[cmplx]([$*])],\
+[ifelse($3,Size4,[[cmplx]([$1,$2])],\
+[ifelse($3,Size8,[[cmplx]([$1,$2])],\
+[ifelse($3,Size16,[[cmplx]([$1,$2])],\
+[Errprint(Syntax Error: >>> [cmplx]([$*]) <<<)]\
+)]\
+)]\
+)]\
+)]\
+)]\
+)]\
+)],\
+[define(cmplx,\
+[ifelse($1,,[[cmplx]],\
+[ifelse($2,,[ifelse(RealSize,Size4,[[cmplx]([$*])],[[dcmplx]([$*])])],\
+[ifelse($3,,[ifelse(RealSize,Size4,[[cmplx]([$*])],[[dcmplx]([$*])])],\
+[ifelse($3,Size4,[[cmplx]([$1,$2])],\
+[ifelse($3,Size8,[[dcmplx]([$1,$2])],\
+[ifelse($3,Size16,[[dcmplx]([$1,$2])],\
+[Errprint(Syntax Error: >>> [cmplx]([$*]) <<<)]\
+)]\
+)]\
+)]\
+)]\
+)]\
+)]\
+)]\
+)
+
+# Handle intrinsic function "aimag".  In Fortran 90, this is both
+# the generic and specific name.  Sun Fortran 1.3 has two specific
+# functions "aimag" and "dimag", and a new generic name "imag".
+# No kind selector is required or accepted.
+ifelse(WORDSIZE,64,
+[define(aimag,[[aimag]([$*])])],
+[define(aimag,[ifelse(RealSize,Size4,[[aimag]([$*])],[[dimag]([$*])])])])
+
+# Handle intrinsic function "conjg".  In Fortran 90, this is both
+# the generic and specific name.  Sun Fortran 1.3 has two specific
+# functions "conjg" and "dconjg".  No kind selector is required or accepted.
+ifelse(WORDSIZE,64,
+[define(conjg,[[conjg]([$*])])],
+[define(conjg,[ifelse(RealSize,Size4,[[conjg]([$*])],[[dconjg]([$*])])])])
+
+# Handle complex declarations.
+ifelse(WORDSIZE,64,\
+[define(complex,\
+[ifelse($1,,[[complex]],\
+[ifelse($1,Size4,[[complex]],\
+[ifelse($1,Size8,[[complex]],\
+[ifelse($1,Size16,[[complex]],\
+[Errprint(Syntax Error: >>> [complex]([$*]) <<<)]\
+)]\
+)]\
+)]\
+)]\
+)],\
+[define(complex,\
+[ifelse($1,,[ifelse(RealSize,Size4,[[complex]],[[double complex]])],\
+[ifelse($1,Size4,[[complex]],\
+[ifelse($1,Size8,[[double complex]],\
+[ifelse($1,Size16,[[double complex]],\
+[Errprint(Syntax Error: >>> [complex]([$*]) <<<)]\
+)]\
+)]\
+)]\
+)]\
+)]\
+)
+Setsuppress([complex],[*])
+
+ifdef([NO_MIL_STD_1753],,[\
+define shiftl ishft($1,$2)
+define shiftr ishft($1,-($2))
+ifelse(SYSTEM,SUNOS,[\
+define iand and($*)
+define ior or($*)
+define ieor xor($*)
+define HAS_BTEST_PROBLEM
+])\
+ifelse(SYSTEM,HPUX,[\
+define HAS_BTEST_PROBLEM
+])\
+ifelse(SYSTEM,AIX,[\
+# AIX's xlf compiler only has the ishft intrinsic
+define shiftl ishft($1,$2)
+define shiftr ishft($1,-($2))
+])\
+ifdef([HAS_BTEST_PROBLEM],[\
+define btest (iand($1,ishft(1,$2)).ne.0)
+])\
+])\
+define(Save,[
+      save $1
+      ifelse(SYSTEM,SUNOS,static $1)
+])\

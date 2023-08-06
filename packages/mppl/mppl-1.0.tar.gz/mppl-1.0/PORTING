@@ -1,0 +1,60 @@
+			Porting codes using mppl
+			 Lynda Lo Destro, LLNL
+
+Mppl has several features that permit the robust and easy porting of old
+codes, particularly those developed on Cray computers and that have been
+little changed since, to a wide variety of platforms often with no changes
+at all (exceptions noted below) to the old Fortran source.
+
+The first of these is the mppl execute line option -rN, where N=4, 8, or 16.
+On machines with word-size 32, mppl translates "real" as
+   "real", "doubleprecision", or "doubleprecision," respectively,
+and on machines with word-size 64, as
+   "real", "real", or "doubleprecision."
+Similarly with complex and implicit real(...).
+Real constants such as 1. or 1.e0 are converted to 1.d0 in the appropriate
+circumstances. (Constructs such as real*8 or 1.d0 are left as they are.)
+In addition, Mppl has a special macro named Prolog, which is invoked near
+the top of every function and subroutine, and which can be defined, for
+example, as
+       implicit none
+or
+       implicit real(a-h)
+       implicit real(o-z)
+
+A second important feature for precision control is mppl's macro facility.
+This can be used to select single- vs. double-precision versions of
+library routines. See test/numeric8 for an example showing how to do this
+in a fairly general way.
+
+Thus fortran codes written with real (as opposed to real*8) declarations
+can be reliably ported to 32-bit machines with 8-byte arithmetic without
+relying on the not-always-available -r8 or similar compiler option.
+Furthermore, such codes retain the capability, selectable at compile time,
+of running with 16-byte precision on 64-bit machines.
+
+Qualifications:
+   -- integers are never converted to reals by mppl.
+   -- there is no provision for limiting the source-code line-length to
+      n columns, so the reserved use of columns 73:80 for comments employed
+      by some codes will fail. This option may be added in the future.
+      At present, one can apply a simple unix script to such codes to
+      insert a # or ! (comment characters recognized by mppl) in column 73
+      prior to running mppl.
+
+Final note: these remarks have been addressed to the porting of old
+codes in particular. Mppl, however, also provides most Fortran 90 syntax
+for real and integer declarations, literal constants, and intrinsic
+functions---the more modern approach to portability.  In circumstances
+where you need to use library functions with one precision in a code at
+a higher or lower precision, Mppl has the tools that allow this to be
+expressed both precisely and portably:
+
+      real(Size8) function foobar
+      external libfunc
+      real(Size4) libfunc
+      real(Size4) a
+      a = 1.0_Size4
+      foobar = real(libfunc(a), Size8)
+      return
+      end

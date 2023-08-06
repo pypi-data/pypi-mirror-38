@@ -1,0 +1,67 @@
+define Point p$1
+define([Use],[ifelse($1,,[Errprint([use statement error])],[ifdef([Use$1],[Use$1],[Errprint(group unknown: $1)])])])\
+define TRUE .true.
+define FALSE .false.
+define STDIN 5
+define STDOUT 6
+define YES 1
+define NO 0
+define OK 0
+define ERR -1
+define DONE 1
+define DEFAULT -999999
+define Pi  3.14159265358979323
+define Pi8 3.14159265358979323_Size8
+define PiD 3.14159265358979323d00
+define _integer integer
+define _real real
+define _complex complex
+define _logical logical
+define _character character
+define Ch ifelse($1,,character,character*($1))
+define _Ch Ch($1)
+define _double double
+define Filename character*(FILENAMESIZE)
+define _Filename Filename
+define Filedes integer
+define _Filedes Filedes
+define Varname ifelse([$1],,[character*(VARNAMESIZE)],[character*(Evaluate($1*VARNAMESIZE))])
+define _Varname Varname($*)
+define Address ifelse(BYTES_PER_ADDRESS,8,[integer*8],[integer])
+define _Address Address
+define longint Address
+define _longint Address
+define SLEEPING 0
+define GENERATE 1
+define UP 2
+define FINISHED 3
+define Quote '$*'
+define SS_WIDTH 26
+define SS_N 1
+define SS_TC 2
+define SS_PTR 3
+define SS_NAML 4
+define SS_NS 5
+define SS_N1 6
+define SS_M1 13
+define SS_I1 20
+
+define([Dynamic],[\
+ifdef([NEED_PTR_DECL], [Address Point([$1])])
+[$2] [$1] ifelse([$3],,,([$3]));\
+pointer(Point([$1]),[$1])\
+])
+
+define CHAR_PER_WORD Evaluate(WORDSIZE/8)
+define LOCS_PER_WORD ifelse(WORDSIZE,64,1,4)
+define(mppl_ignore_select, [\
+Undefine([select])\
+Undefine([case])\
+Undefine([default])\
+Undefine([endselect])\
+])
+define(Allocate,[[allocate]($1$2, stat=err)
+       if (stat <> 0) call baserror(Quote(Error allocating $1 in Module))
+       call register_address($1)])
+define(Deallocate,[call deregister_address($1)
+      [deallocate]($1)])

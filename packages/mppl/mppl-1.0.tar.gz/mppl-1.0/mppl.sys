@@ -1,0 +1,53 @@
+# This is the first file read by mppl.  It sets WORDSIZE and any values
+# that stem from it.  SYSTEM is set from the compiled-in default, or
+# from the command line.  RealSize and IntSize are set from WORDSIZE,
+# but may be over-ridden by the command line.  WORDSIZE should only
+# be set in this file.
+#-----------------------------------------------------------------------------
+# General default values, may be modified later in this file
+define WORDSIZE 32
+define BYTES_PER_ADDRESS 4
+define CHAR_PER_WORD Evaluate(WORDSIZE/8)
+define HAS_DOUBLE_COMPLEX YES
+define LOCS_PER_WORD ifelse(WORDSIZE,64,1,4)
+define NOTSET -8192
+define STDERR 0
+define STDIN 5
+define STDOUT 6
+# End general defaults
+
+#-----------------------------------------------------------------------------
+# Some particular modifications to the general defaults
+ifelse(SYSTEM,AXP|LINUXA|IRIX64|C90|CRAY2|J90|XMP|YMP|UNICOS,[
+define BYTES_PER_ADDRESS 8
+])
+
+ifelse(SYSTEM,           C90|CRAY2|J90|XMP|YMP|UNICOS,[
+define WORDSIZE 64
+define HAS_DOUBLE_COMPLEX NO
+define COMPILER CFT77
+])
+
+ifelse(SYSTEM,AXP|LINUX|LINUXA,[
+define LITTLE_ENDIAN 1
+])
+
+ifelse(SYSTEM,SGI|IRIX64,[
+define NOTSET 0
+])
+
+ifelse(SYSTEM,HP700,[
+define STDERR 7
+])
+# End particular modifications
+
+#-----------------------------------------------------------------------------
+# Deprecated: Do not write code that depends on the value of these macros.
+define TYPE UNIX
+define HPUX HP700
+define AIX RS6000
+###define MACHINE UNKNOWN
+###define MPI 1
+###define PARALLEL 1
+###define SMP 1
+# End deprecated macros

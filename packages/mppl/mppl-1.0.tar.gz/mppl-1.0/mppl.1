@@ -1,0 +1,900 @@
+'\" t
+.de Sh
+.br
+.ne 5
+.PP
+\fI\s+1\\$1\s-1\fR
+.PP
+..
+.de Sp
+.if t .sp .5v
+.if n .sp
+..
+.TH MPPL 1 "August 2002" "MPPL"
+.SH NAME
+mppl \- More Productive Programming Language
+.SH SYNOPSIS
+.B mppl
+[
+.I opts
+]
+[
+.I files
+\&.\|.\|.
+]
+.Sp
+.I opts =
+.BI \- N
+.B \-bdflmuvw
+.BI \-c S
+.BI \-C compiler
+\fB\-D\fIname\fR[\fI=def\fR]
+.BI \-i N
+.BI \-I directory
+.BI \-M machine
+.BI \-r N
+.BI \-S site
+.BI \-t Sys
+.BI \-\-langf77
+.BI \-\-langf90
+.BI \-\-nolang
+.SH DESCRIPTION
+.B Mppl
+allows programmers to write in a language more
+convenient and powerful than Fortran 77.  
+.B Mppl 
+transforms statements written in the 
+.I MPPL
+language into standard
+Fortran 77.
+.I MPPL
+is an extension to Fortran 77 that
+provides free-form input and structured constructs such as ``while''
+and ``for'' loops.  
+It provides most Fortran 90 syntax for real
+and integer declarations,
+literal constants, and intrinsic functions,
+making it easy to write portable code for machines
+with different wordsizes.
+.B Mppl\fRs
+macro preprocessor and  file-inclusion facility
+encourages structured, easy-to-read programs with
+fewer labels.   
+.B Mppl
+is available for most Unix variants.
+.SH OPTIONS
+.PP
+Options are entered first on the command line.
+Options and filenames may not be interspersed.
+If no \fIfiles\fP are given,
+or if a `\-' alone is given,
+.B mppl
+reads from \fIstdin\fP.
+All output is written to \fIstdout\fP,
+and error output to \fIstderr\fP.
+.TP
+.BI \- N
+Where 
+.I N
+is a 1-5 digit integer,
+specifies the beginning value for \fBmppl\fP-generated statement labels.
+The value should be chosen
+to prevent duplication of existing labels in your code.
+\fBMppl\fP restarts the sequence in each subroutine.
+The default value of 
+.I N
+is 23000.
+.TP
+.B \-b
+Turn off the output of blank lines and comments.
+The default is to pass
+blank and comment lines to the output.
+.TP
+.BI \-c string
+Set the column 1 comment character to be any of the characters in 
+.I string
+(up to three characters may be specified).
+The default value of this option
+is "cC*".
+.TP
+.BI \-C compiler
+Specify the compiler to be used on the \fBmppl\fP output. This sets
+the macro \fICOMPILER\fP to have the value
+.I compiler.
+.TP
+.B \-d
+Convert literal character constants enclosed with
+quotation (") characters to Fortran 77 standard
+constants using the apostrophe character (') for quoting.
+.TP
+.BI \-D "name[=def]"
+Define the macro 
+.I name
+to have the value
+.I def,
+as if \fBmppl\fP had read the statement
+.Sp
+	define name def
+.Sp
+This option may be repeated.
+Careful quoting is required to embed blanks into \fIdef\fP:
+.Sp
+	\-Dname="'this is a string'"
+.Sp
+is typical.
+.TP
+.B \-f
+Set free-form input. This disables the usual column 1 comment
+convention and the column 6 continuation convention. MPPL "#" comments
+may still be used in any column.
+If you only want to disable the 
+column 6 continuation convention, specify a "-ccC*" (or similar "-c"
+option) after the "-f" option.
+.TP
+.BI \-i N
+Set the \fIIntegerSize\fP to \fIN\fP.
+Legal values are 2, 4, or 8,
+and imply that an \fIinteger\fP variable
+without \fIkind-selector\fP,
+or literal integer constant
+will be stored in at least 2, 4, or 8 bytes, respectively.
+.TP
+.BI \-I directory
+Insert
+.I directory
+into the search path for include files. 
+Usage is similar
+to the UNIX C preprocessor. For instance, the options
+.Sp
+        \-I.. -I/usr/local/vbasis/pkg
+.Sp
+tells \fBmppl\fP to search the parent directory and
+/usr/local/vbasis/pkg
+for include files, in addition to the current directory.
+The current directory is always searched first.
+.TP
+.B \-l
+Set the length limit for output lines to 80 instead of the standard 72
+columns. This limit does not apply to comment lines.
+.TP
+.B \-m
+Prevent \fBmppl\fP from activating the \fIBasis\fP definitions.
+Non-Basis users of \fBmppl\fP should use this option if
+problems develop from the Basis definitions.
+See \fImppl.BASIS\fP in the \fIFILES\fP section below.
+.TP
+.BI \-M machine
+Specify the machine we intend to compile on.  This sets the 
+value of the macro \fIMACHINE\fP to
+.I machine,
+and may affect the definition of other predefined macros.
+.TP
+.BI \-r N
+Set the \fIRealSize\fP to \fIN\fP.
+Legal values are 4, 8, or 16,
+implying that a \fIreal\fP variable
+with no \fIkind-selector\fP (see \fIType Conversions\fP below)
+or literal floating point constant
+of the form \fI0.0e0\fP
+will be stored in an element of at least 4, 8, or 16 bytes, respectively.
+.TP
+.BI \-t Sys
+Set the intrinsic macro \fISYSTEM\fP to \fISys\fP,
+and set the value of other intrinsic macros to the default
+values for the system named. 
+This allows you to ``cross-compile'' source
+for a Fortran compiler on another system.
+This option sets the macros MACHINE, COMPILER, 
+TYPE, CHAR_PER_WORD, LOCS_PER_WORD, and WORDSIZE to the 
+defaults for the target system.
+Use the
+\fB\-C\fP, \fB\-D\fP, or \fB\-M\fP
+options to over-ride these defaults as required.
+.TP
+.B \-u
+Provide "case insensitivity" for macro names.
+Either all upper or all lower case (not a mixture)
+may be used to invoke a macro.
+This option is required if Fortran keywords in your
+source code are in upper case.
+.TP
+.B \-v
+Turn on verbose output.
+Note each input file as it is processed.
+.TP
+.B \-w
+Turn on extra warning messages.
+In particular, warn if \fISize\fP requests cannot be satisfied
+in the given target compiler.
+E.g., if the compiler has no 16 byte wide floating point type,
+then a request for a \fISize16\fP real object will be
+mapped into \fISize8\fP,
+and,
+if the flag was given,
+a warning message will be printed to \fIstderr\fP.
+.TP
+.B \-\-langf77
+Convert mppl language macros into Fortran 77. (default)
+.TP
+.B \-\-langf90
+Convert mppl language macros into Fortran 90 using the free source form.
+.TP
+.B \-\-nolang
+Do not convert mppl language macros.
+.SH SYNTAX
+Most Fortran 77 conforming programs are also legal \fIMPPL\fP input files.
+(However, \fIMPPL\fP is whitespace- and case-sensitive, see below.)
+In addition, \fIMPPL\fP extends Fortran in several areas.
+.SS "Token Processing"
+.Sh "Comments"
+The characters `#' and `!' may appear anywhere,
+and mark the beginning of a comment
+which extends to the end of the physical line.
+Comments which appear on a line after meaningful program text are output before the statement itself.
+Within a macro definition body, such comments are discarded. However, a comment which is made using the 
+"column 1" convention is kept in a macro definition body. Dollar-sign substitution does not 
+occur within such a comment when the macro body is expanded.
+
+The Immediate macro can be used to force inclusion of anything, including a comment, in a macro body.
+.Sh "Continuation Characters"
+\fIMPPL\fP recognizes the following characters as \fIcontinuation
+characters\fP
+(indicating that the logical input line extends over more than
+one physical line)
+when they occur as the last non-blank token
+on a line:
+.Sp
+	\fB\e\0+\0\-\0*\0(\0,\0&\0|\0~\0>\0<\0=\fP
+.Sp
+Forward slash (\fB/\fP) is not a continuation character
+because it is normally the final character in a \fIDATA\fP
+statement.
+The semi-colon character (\fB;\fP) is a logical newline
+in \fIMPPL\fP,
+and may be used to place more than one statement
+on a physical line.
+.Sh "Quoting"
+\fIMPPL\fP allows character strings in its input to
+be quoted with either the \fIquote\fP character (\fB"\fP)
+or the \fIapostrophe\fP character (\fB\'\fP),
+and they may be alternated \- e.g.,
+.I
+\&\'Quoth he, "what a mess!"\'
+It normally passes literal character constants without
+change to the target compiler.
+Use the \fB\-d\fP option if your Fortran compiler
+does not allow quoted strings.
+.Sh "Relational Operators"
+\fIMPPL\fP recognizes the following relational operators,
+and translates them as shown:
+.Sp
+.ne 11
+.TS
+ll
+cc.
+Symbol	Translation
+\&>	.gt.
+\&>=	.ge.
+\&<	.lt.
+\&<=	.le.
+\&~=	.ne.
+\&<>	.ne.
+\&~	.not.
+\&=	.eq.
+\&==	.eq.
+\&|	.or.
+\&&	.and.
+.TE
+.Sp
+.DT
+.Sh "Other Special Characters"
+The left and right square bracket characters \fB[\0]\fP
+are legal in \fIMPPL\fP,
+and are generally used to quote (delay expansion of)
+macro names or arguments.
+Each time brackets are encountered, the outermost pair is stripped off,
+with no further evaluation of their contents at that time.
+It is not possible to change the quote characters to other than
+square brackets.
+.PP
+The dollar sign character \fB$\fP is used to interpolate
+arguments when macros are expanded.
+A dollar sign followed by digits 1\-9
+in a \fIdefine\fP statement (see below)
+is replaced by the
+corresponding argument
+when the macro is expanded.
+\fB$0\fP is the name of macro being expanded.
+\fB$\(**\fP expands to the complete, comma-separated argument list.
+\fB$\-\fP is all arguments save the first.
+This can be useful for recursive definitions.
+\fB$$\fP is replaced with a literal dollar-sign.
+Dollar-sign followed by any other character results
+in the insertion of that character into the expansion text.
+.PP
+The combination of an \fIat\fP sign \fB@\fP followed by a
+digit 1\-9 is replaced by the next available
+automatically generated label number,
+and generally is used in macro definitions.
+Each occurrence of \fB@\fIn\fR is replaced by the same
+number within a particular expansion of the macro.
+.Sh "Incompatibilities With Fortran"
+Whitespace (space, tab, or newline with continuation) is
+generally significant in \fIMPPL\fP.
+Input tokens
+(keywords, literal constants, macro names, etc.)
+must not have embedded white space nor be broken
+across a continuation line.
+In Fortran 77, keywords (\fBif\fP, \fBdo\fP, etc.) are not reserved.
+In contrast, \fIMPPL\fP treats many Fortran keywords as reserved words.
+For example, the statement ``real if'' is a legal variable declaration
+in Fortran 77,
+but is an error in \fIMPPL\fP.
+.SS "Macros"
+A macro name is a string of upper or lowercase letters, digits,
+or underscore characters,
+beginning with a non-digit.
+The maximum length of a macro name and definition are limited
+by available memory.
+.Sh "Fortran Keywords"
+The following Fortran keywords are incorporated as macros
+in \fIMPPL\fP, and may not be used in any other than their
+normal context:
+block,
+do,
+else,
+elseif,
+end,
+endif,
+function,
+if,
+program,
+return,
+subroutine,
+then.
+.Sh "New Keywords"
+\fIMPPL\fP has additional (reserved) keywords which are not part
+of Fortran 77.
+They are translated into one or more standard Fortran
+statements during processing.
+See \fIStatements\fP below for details on their use.
+They are treated as macros during processing and are
+listed as follows:
+break,
+case,
+default,
+enddo,
+endfor,
+endselect,
+endwhile,
+for,
+next,
+select,
+until,
+while.
+.Sh "Built\-in Macros"
+The remaining built-in macros extend the \fIMPPL\fP
+language by allowing the user to create and manipulate
+their own macros,
+test their values,
+incorporate external files, and so on.
+.Sp
+define \fIname value\fP
+.br
+define(\fIname\fP,\fIvalue\fP)
+.br
+Undefine([\fIname\fP])
+.RS
+In the first form, the next token after \fIdefine\fP is
+taken as the macro name.
+Its translation is taken as \fIvalue\fP,
+with leading and trailing whitespace removed.
+Neither \fIname\fP nor \fIvalue\fP are scanned
+for further macros to expand.
+.PP
+The second form is expanded and then rescanned for additional
+macros in the expansion.
+Also, \fIvalue\fP may extend over several physical
+input lines.
+When a macro is expanded, quoted strings in the macro definition
+do not protect
+arguments ($1,$2, etc.) inside them.
+However, quoted strings in the input (outside of a macro) \fIdo\fP
+protect macro names
+inside of them from expansion.
+.PP
+The third form removes \fIname\fP from the list of known macros.
+The square brackets are required.
+Any macro may be undefined,
+including built-in macros,
+but undefined built-ins cannot be restored.
+Macros can also be redefined at any point,
+and the new definition will replace the old.
+.RE
+.Sp
+ifdef([\fIa\fP],\fIb\fP,\fIc\fP)
+.br
+ifelse(\fIa\fP,\fIb\fP,\fIc\fP,\fId\fP)
+.RS
+The first form is replaced by \fIb\fP, if \fIa\fP is
+currently a defined macro name,
+otherwise the result is \fIc\fP.
+Either \fIb\fP or \fIc\fP may be null,
+and either may incorporate additional macros.
+The square brackets are required.
+.PP
+In the second form, if \fIa\fP is identical to \fIb\fP
+(possibly after macro expansion and stripping leading or trailing whitespace),
+then the result is \fIc\fP,
+otherwise the result is \fId\fP.
+The second argument may be of the form \fIb1\||\|b2\fP,
+which implies comparison of \fIa\fP successively against \fIb1\fP,\fIb2\fP,
+etc.
+.RE
+.Sp
+Errprint(\fImessage\fP)
+.br
+Infoprint(\fImessage\fP)
+.br
+Immediate([\fIcomment\fP])
+.RS
+\fIErrprint\fP writes the message to \fIstderr\fP
+along with extra information detailing the current
+location in the input file,
+and increments an
+internal error counter,
+which will normally cause the \fBmppl\fP process
+to exit later with a non-zero status value.
+\fIInfoprint\fP simply writes its argument to \fIstderr\fP.
+.P
+The \fIImmediate\fP macro writes its argument to \fIstdout\fP
+and is typically used to embed Fortran comment lines
+in the body of a macro expansion.
+.RE
+.TP
+Dumpdef([\fImacroname\fP])
+With no argument, display all current macro names and their
+definitions to \fIstderr\fP.
+Otherwise, show the definition of the given name.
+The square brackets are required.
+.TP
+Evaluate(\fIarg\fP)
+If \fIarg\fP is an integer expression,
+the output is the value of that expression.
+Otherwise the argument is emitted verbatim.
+.TP
+include \fIfilename\fP
+Include the named file at the current point in the input stream.
+The new file is then processed immediately,
+and may itself have \fIinclude\fP statements,
+to a depth of five files.
+The current working directory is always searched
+first for \fIfilename\fP,
+after which any additional directories given via
+the \fB\-I\fP option are searched.
+.TP
+Module
+This is an internal macro which always contains the name
+of the current subroutine, function, or program module being processed.
+It can be incorporated into user-defined macros as desired.
+.TP
+Prolog
+The value of \fIProlog\fP is interpolated by \fIMPPL\fP
+immediately after the first line of each Fortran module,
+and is by default simply a comment.
+The user may re-define it as desired.
+.Sh "Invocation\-Specific Manifest Constants"
+\fBMppl\fP defines many additional macros
+for use in making source code more portable.
+These are read in when \fBmppl\fP starts up;
+their values change according
+to the operating system
+and other parameters.
+(See \fIFILES\fP below.)
+Some of the more important constants are listed here.
+To see all the pre-defined macros, run \fBmppl\fP interactively and enter
+\fBDumpdef\fP,
+followed by a newline and \fIControl\-D\fP.
+Each pair of lines printed is a macro and its definition.
+.Sp
+.TS
+ll
+ll
+.
+Name	Definition
+_	_
+COMPILER	The target compiler name
+Dynamic	Shorthand aid for declaring dynamic arrays
+LOCS_PER_WORD	Number of addressable locations per word
+MACHINE	Hardware name
+Point	Shorthand aid for declaring pointers
+STDERR	Unit number of the pre-opened standard error stream
+STDIN	Unit number of the pre-opened standard input stream
+STDOUT	Unit number of the pre-opened standard output stream
+SYSTEM	Operating system name
+WORDSIZE	Number of bits in a Fortran \fIreal\fP element
+.TE
+.DT
+.SS "Type Conversions"
+Fortran 90 allows declarators,
+real and integer literal constants,
+and some intrinsic functions
+to receive
+an optional \fIkind-selector\fP argument to indicate which "kind"
+(size or width) of object is desired.
+.PP
+The \fIkind-selector\fP is a non-negative integer which
+may vary from compiler to compiler and therefore is
+usually written with a parameter.
+\fBMppl\fP accepts the symbols "Size4", "Size8", "Size16"
+(or "4", "8", "16") as kind-selectors for
+the \fIreal\fP and \fIcomplex\fP data types,
+and "Size2", "Size4", "Size8" (or "2", "4", "8") for the \fIinteger\fP
+type.
+The kind-selector states
+that an object of the given size will be
+stored in a space of at least that many bytes,
+or possibly more.
+.Sh "Declarations"
+Declarations of type \fIreal\fP, \fIcomplex\fP, and \fIinteger\fP
+accept an optional \fIkind-selector\fP:
+.Sp
+.nf
+	real(Size4) x
+	complex(Size8) z
+	integer(Size4) i
+.fi
+.Sp
+These forms are translated by \fBmppl\fP into equivalent Fortran 77
+statements,
+or possibly into syntax specific to the target compiler
+(e.g., \fIreal*16\fP) if there is no standard Fortran 77
+representation of the desired form.
+If no kind-selector is given,
+translation depends upon the target \fISYSTEM\fP
+and the prevailing \fIRealSize\fP
+(see the \fB\-r\fP flag discussion under OPTIONS).
+.Sh "Literal Constants"
+Literal constants of type \fIreal\fP, \fIinteger\fP, or \fIcomplex\fP
+may have an optional \fIkind-selector\fP appended with
+a trailing underscore character:
+.Sp
+.nf
+	x = 1.0e23_Size4
+	z = (1.0_Size8, 2.0_Size8)
+	i = \-123_Size4
+.fi
+.Sp
+\fBMppl\fP translates the \fIreal\fP form into a standard
+single- or double-precision Fortran 77 literal constant.
+If no kind-selector is given,
+translation depends upon the target machine
+and the prevailing \fIRealSize\fP.
+At the present time,
+there are no alternative output forms for literal
+integer constants \- translation simply removes
+the kind-selector, if present.
+.PP
+\fBMppl\fP will complain about literal double-precision
+constants in its input if the \fB\-w\fP flag is given,
+and request the user to convert them to the machine-independent forms
+shown above.
+(Output to stdout is not affected by the \fB\-w\fP flag, however.)
+.Sh "Intrinsic Functions"
+Currently,
+the following (generic) intrinsic functions are accepted with an optional
+kind-selector as a final argument to denote the
+return type of the function:
+.Sp
+.nf
+	aint()	# Truncation to whole number
+	anint()	# Nearest whole number
+	cmplx()	# Conversion to complex type
+	int()	# Conversion to integer type
+	nint()	# Nearest integer
+	real()	# Conversion to real type
+.fi
+.PP
+Two functions which are specific intrinsic names in Fortran 77,
+\fIaimag\fP and \fIconjg\fP,
+have become the generic names in Fortran 90.
+In order to support the \fIdouble complex\fP type,
+\fBmppl\fP will translate these names to \fIdimag\fP
+and \fIdconjg\fP if the target compiler accepts them and
+the \fIRealSize\fP is greater than 4.
+No kind-selector is required or accepted for those two.
+.Sh "Bit Manipulation Functions"
+\fBMppl\fP provides translation from (a subset of) the Fortran 90
+bit manipulation procedures into target-specific forms,
+as listed:
+.Sp
+.ne 10
+.TS
+aa
+.
+btest()	# Bit testing
+iand()	# Logical AND
+ibclr()	# Clear bit
+ibits()	# Bit extraction
+ibset()	# Set bit
+ieor()	# Exclusive OR
+ior()	# Inclusive OR
+ishft()	# Logical shift
+ishftc()	# Circular shift
+not()	# Logical complement
+.TE
+.DT
+.SS "Statements"
+.Sh "Iteration" 
+do \fIdolist\fP; \fIblock\fP; enddo
+.br
+while(\fIlexp\fP); \fIblock\fP; endwhile
+.br
+do; \fIblock\fP; until(\fIlexp\fP)
+.br
+for(\fIinit_block\fP,\fIlexp\fP,\fIiter_block\fP); \fIblock\fP; endfor
+.RS
+These four statements expand the range of looping constructs
+available to the Fortran programmer.
+The first form is a label-less \fBdo\fP loop,
+where \fIdolist\fP is an expression of the form
+``k=start,end[,stepsize]''.
+\fIBlock\fP is any sequence of executable statements
+up to the \fBenddo\fP statement.
+As a special case, \fIdolist\fP can be empty,
+in which case the loop is infinite, (but see \fBbreak\fP below).
+The \fBdo...enddo\fP construction is translated to a standard
+Fortran labeled doloop by \fBmppl\fP.
+.PP
+The \fBwhile\fP statement implies execution of the
+enclosed \fIblock\fP zero or more times,
+as long as the logical expression \fIlexp\fP evaluates
+to \fITRUE\fP.
+It is translated to a block-if statement
+with an enclosing goto by \fBmppl\fP.
+Its alternate form is the \fBdo...until\fP construct,
+which always executes its block at least one time.
+.PP
+The \fBfor\fP statement is essentially equivalent to the sequence
+.Sp
+.nf
+	\fIinit_block\fP
+	while(\fIlexp\fP)
+	\fIblock\fP
+	\fIiter_block\fP
+	endwhile
+.fi
+.Sp
+Either \fIinit_block\fP or \fIiter_block\fP may be empty,
+or may have multiple statements separated by semi-colons.
+.RE
+.Sh "Conditional Execution"
+select(\fIiexp\fP); case \fIilist\fP: \fIblock\fP; .\|.\|.; default: ; endselect
+.RS
+The \fBselect\fP statement compares the integer expression
+\fIiexp\fP to the values listed in the \fBcase\fP statements
+following,
+and executes at most one case.
+The \fBdefault:\fP section is optional,
+and will be executed only if all other cases fail to match.
+The \fIilist\fP is a single integer,
+a range (e.g., 1\-5), or a comma-separated list of
+integers and ranges.
+The trailing colon is required.
+\fBSelect\fP is translated to either a series of
+\fBif\fP statements or to a "computed goto",
+depending on the number of consecutive case values.
+.RE
+.Sh "Branching"
+break [(\fIN\fP)]
+.br
+next [(\fIN\fP)]
+.br
+return [(\fIvalue\fP)]
+.RS
+The \fBbreak\fP and \fBnext\fP statements can be used inside any of the
+looping constructs above.
+\fBBreak\fP causes execution to be transferred to the first statement
+following the \fIN\fP'th enclosing loop.
+The value of \fIN\fP defaults to 1 if not given.
+Parentheses are optional.
+.PP
+The \fBnext\fP statement causes the next iteration of
+the \fIN\fP'th enclosing loop to begin immediately.
+If used in a \fBfor\fP loop,
+the \fIiter_block\fP is executed before beginning
+the next iteration.
+It may also be used inside a traditional Fortran do-loop,
+but note that control transfers to the labeled statement,
+which may or may not be a \fIcontinue\fP statement.
+.PP
+\fBReturn\fP is used inside a function to return a
+value to the caller.
+For convenience,
+\fIMPPL\fP allows the two enhanced usages shown below:
+.Sp
+.nf
+	return(\fIexpression\fP)
+	if(\fIcondition\fP) return(\fIexpression\fP)
+.fi
+.RE
+.SP
+.SH AUTHORS
+Paul F. Dubois, Lee Busby, Peter Willmann, Janet Takemoto,
+Lawrence Livermore National Laboratory.
+.SH FILES
+.PP
+The following files are normally located in the same directory
+as the
+.B mppl
+executable.
+.TP
+mppl.sys
+Macros for initializing values dependent on the \fISYSTEM\fP.
+This file is read first.
+In particular, the \fIWORDSIZE\fP parameter must be set in this file,
+and nowhere else.
+.TP
+mppl.std
+Standard startup macros,
+and macros for emulating Fortran 90 declaration syntax,
+MIL-STD-1753 bit operations,
+and several other things that don't fit anywhere else.
+.TP
+mppl.BASIS
+MPPL macros which customize
+.B mppl
+for use with the \fIBasis\fP code development system.
+.TP
+BASIS_VERSION
+This file is optional.
+If it exists and is readable (and the \fB\-m\fP flag is \fInot\fP present),
+.B mppl
+opens it and reads it as MPPL input.
+It typically defines three macros,
+BASIS_MAJOR_VERSION,
+BASIS_MINOR_VERSION,
+and BASIS_VERSION.
+.SH REMINDERS, EXAMPLES AND BASIS TRICKS
+.I Mppl
+works at the source code level,
+by translating \fIreal\fP to \fIdouble precision\fP,
+or \fIimplicit real\fP to \fIimplicit double precision\fP,
+etc., before the Fortran compiler ever sees the code.
+\fIMppl\fP can't translate anything that's not explicitly present.
+You cannot use default implicit declarations if you want
+to take advantage of \fImppl\fP's automatic type interpretation.
+This requires that, at a minimum,
+you insert the following \fIimplicit\fP
+statement into any module which previously used default
+implicit typing:
+.Sp
+	implicit real(a-h,o-z),integer(i-n)
+.Sp
+(If you use the \fIProlog\fP macro of \fImppl\fP to automatically
+insert the requisite statement,
+note that you will need to hide the parentheses within square brackets:
+.Sp
+	define Prolog implicit real[(a-h,o-z)],integer[(i-n)]
+.Sp
+The requirement for explicit declarations carries over
+into the input files which are processed by the Basis utility \fImac\fP.
+.I Mac
+will apply the default Fortran typing rules
+for variables,
+function parameters and function names.
+You will need to over-ride these defaults in order for
+.I mppl
+to make an appropriate translation.
+This means that the
+.I mac
+input line which previously was
+.Sp
+	f(a,b,c)	function
+.Sp
+will need to have explicit declarations added:
+.Sp
+	f(a:real,b:real,c:real)	real function
+.Sp
+Now the word \fIreal\fP will be translated by \fImppl\fP
+according to the setting of the \fI-r\fP command line flag
+as stated above.
+Sometimes it is useful to declare certain variables or function arguments
+within an otherwise Size8 \fImac\fP input file as \fISize4\fP.
+To do this,
+add the line
+.Sp
+	usertype real4
+.Sp
+immediately after the package name,
+which is normally on line 1 of the file.
+Then add the two lines
+.nf
+.Sp
+	%define real4 real(Size4)
+	%define _real4 real4
+.fi
+.Sp
+to the parameter section of the file.
+(The parameter section is enclosed in curly braces,
+typically near the top of your \fI.v\fP file.
+In the example above,
+if parameter \fIb\fP and the function \fIf\fP itself
+are known to be \fISize4\fP,
+then the proper declaration statement reads as
+.Sp
+	f(a:real,b:real4,c:real)	real4 function.
+.Sp
+This approach can be extended in the obvious way to handle
+explicit declarations for \fIcomplex(Size4)\fP or other requirements.
+.PP
+\fBMppl\fP is useful for translating a single precision
+code to double precision,
+typically using the \fB\-r8\fP flag and the \fIProlog\fP
+macro as described above.
+You may also need to translate single precision versions
+of library functions to their double precision counterparts.
+Typical code to do that looks like this:
+.nf
+.Sp
+	ifelse(WORDSIZE,32,[
+	ifelse(RealSize,8,
+	[define([saxpy],[ifelse([$*],,[daxpy],[daxpy([$*])])])]
+	[define([scopy],[ifelse([$*],,[dcopy],[dcopy([$*])])])]
+	]))
+.Sp
+.fi
+.PP
+\fBMppl\fP has the \fIifdef\fP macro to match that command
+in the C pre-processor.
+It does not have any \fIifndef\fP macro.
+However, you can easily achieve this by making the first clause null:
+.nf
+.Sp
+	ifdef([foo],,[
+	\fI(This is what happens if \fRfoo\fP is NOT defined.)\fP
+	])
+.Sp
+.fi
+.SH BUGS
+Cannot read tokens split across a continuation line
+or with embedded white space.
+(Note, however,
+that \fBmppl\fP will cheerfully write its \fIown\fP
+output with tokens split across lines.)
+.Sp
+Programs which equivalence \fIreal\fP with
+\fIinteger\fP or \fIlogical\fP types
+may break after type conversion by \fBmppl\fP.
+.Sp
+.B Mppl
+does not check the argument and return types of
+externally compiled or Fortran specific intrinsic
+functions.
+As always in Fortran, "it is the programmer's responsibility" to verify
+correct type matching across subprogram interfaces.
+.Sp
+If for some twisted reason you want to write an expression
+using the intrinsic function \fIreal\fP with an argument
+which is the same as one of the built-in \fIkind-selectors\fP, e.g.
+"a = real(8)",
+you will have to use the 2-argument form: "a = real(8, Size8)".
+.Sp
+The particular kind-selectors \fISize4\fP, \fISize8\fP, etc.
+are hard wired in and cannot be redefined by the user.
+It might have been better to use names
+like \fIPrec6\fP, \fIPrec15\fP to indicate
+directly the number of decimal digits of precision desired.
+.Sp
+Certain unusual, but legal Fortran statements run afoul of
+the fact that Fortran keywords are macros in \fIMPPL\fP.
+For example,
+.Sp
+	if(x .eq. y) if(a)1,2,3
+.Sp
+will be translated incorrectly.
+Use square brackets around the second "if" in order to
+prevent this problem.
+.Sp
+Comment lines interspersed between an initial line and
+a continuation line must begin in column 2 or greater.

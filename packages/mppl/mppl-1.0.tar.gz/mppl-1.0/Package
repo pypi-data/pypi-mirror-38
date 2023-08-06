@@ -1,0 +1,42 @@
+LANGUAGE = C
+ROOT = mppl mppl
+PKG = mppl
+POINTER = cray
+Real4
+SC = hash.c nameme.c scon.c
+SL = nextline.l
+!SF = mppl.f
+
+install_bin = ../mppl.sys ../mppl.std ../mppl.BASIS
+
+RULE
+!
+! build 
+!
+! NOTE: the extra stuff at the end is fault tolerance against NFS errors
+build: init0.o mppl.o $(InstallDep) ${install_bin_dep}
+	rm -f $(BasBin)/mppl
+	$(FCompiler2) ${FFLAGS} ${LDFlags2} -o $(BasBin)/mppl init0.o mppl.o $(LibPath) $(TGTLib)
+	-sync
+	chmod a+x $(BasBin)/mppl
+	ls -l $(BasBin)/mppl
+
+dotfs: 
+	$(RM) -f mppl.f
+	$(BasBin)/mppl -I.. ../mppl.m > ../mppl.f
+
+mppl.o : ../mppl.f
+	${FCompiler2} ${FFLAGS} ${BFFlags2} ${BDFFlags2} -c ../mppl.f -o $@
+
+init0.o : ../init.sh makeskel
+	../init.sh
+	$(FCompiler2) ${FFLAGS} ${BFFlags2} -g -c init0.f
+
+makeskel : ../makeskel
+	cp ../makeskel .
+
+test :
+	(cd ../test ; ./do-test)
+
+ENDRULE
+
