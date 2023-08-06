@@ -1,0 +1,6 @@
+boto3
+fs==2.1.2
+fs.s3fs
+ruamel.yaml
+cryptography
+fs.webdavfs
