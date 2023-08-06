@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: pyatlasobscura
+Version: 0.1.0
+Summary: UNKNOWN
+Home-page: https://github.com/drewsonne/pyatlasobscura
+Author: Drew J. Sonne
+Author-email: drew.sonne@gmail.com
+License: LGPLv3
+Platform: UNKNOWN
+Requires-Python: >3.5.0
+Requires-Dist: requests
+Requires-Dist: beautifulsoup4
+Requires-Dist: latlon
+Provides-Extra: pandas
+Requires-Dist: pandas; extra == 'pandas'
+
+UNKNOWN
+
+
