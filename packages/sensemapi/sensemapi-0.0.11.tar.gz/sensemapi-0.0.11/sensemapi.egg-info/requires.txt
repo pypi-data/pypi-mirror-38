@@ -1,0 +1,7 @@
+requests
+
+[cache]
+CacheControl[filecache]>=0.12.5
+
+[pandas]
+pandas
