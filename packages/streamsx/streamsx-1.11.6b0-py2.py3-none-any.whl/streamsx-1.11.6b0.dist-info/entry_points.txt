@@ -1,0 +1,5 @@
+[console_scripts]
+spl-python-extract = streamsx.scripts.extract:main
+streams-service = streamsx.scripts.service:main
+streamsx-runner = streamsx.scripts.runner:main
+
