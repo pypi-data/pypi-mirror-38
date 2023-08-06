@@ -1,0 +1,3 @@
+[console_scripts]
+pandoc-docx-pagebreakpy = docx_pagebreak:main
+

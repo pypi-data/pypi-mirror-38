@@ -1,0 +1,12 @@
+.gitignore
+LICENSE
+README.md
+setup.cfg
+setup.py
+docx_pagebreak/__init__.py
+pandoc_docx_pagebreak.egg-info/PKG-INFO
+pandoc_docx_pagebreak.egg-info/SOURCES.txt
+pandoc_docx_pagebreak.egg-info/dependency_links.txt
+pandoc_docx_pagebreak.egg-info/entry_points.txt
+pandoc_docx_pagebreak.egg-info/requires.txt
+pandoc_docx_pagebreak.egg-info/top_level.txt
