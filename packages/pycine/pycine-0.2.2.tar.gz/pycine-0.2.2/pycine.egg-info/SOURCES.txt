@@ -1,0 +1,25 @@
+.gitattributes
+.gitignore
+LICENSE
+Pipfile
+Pipfile.lock
+README.md
+pyproject.toml
+setup.py
+notebooks/Display frames.ipynb
+pycine/__init__.py
+pycine/cine.py
+pycine/color.py
+pycine/file.py
+pycine/linLUT.py
+pycine/raw.py
+pycine.egg-info/PKG-INFO
+pycine.egg-info/SOURCES.txt
+pycine.egg-info/dependency_links.txt
+pycine.egg-info/entry_points.txt
+pycine.egg-info/requires.txt
+pycine.egg-info/top_level.txt
+pycine/cli/__init__.py
+pycine/cli/pfs_meta.py
+pycine/cli/pfs_raw.py
+testfiles/chart1.cine
