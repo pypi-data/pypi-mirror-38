@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: twitter-sentiment
+Version: 0.0.6
+Summary: Twitter sentiment is a Python library leveraging NLP and the Twitter API to determine the emotion of a tweet
+Home-page: https://github.com/TeddyCr/twitter-sentiment
+Author: Teddy Crepineau
+Author-email: teddy.crepineau@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.6
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: MacOS
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Intended Audience :: Other Audience
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Description-Content-Type: text/markdown
+
+Python library to Explore Emotions Behind Tweets
+================================================
+
+twitter-sentiment is a Python library leveraging NLP algorithm and the Twitter API to classify the sentiment of a tweet.
+
+Installation 
+------------ 
+Installing twitter-sentiment is simple, you just have to use pip.
+::
+
+    pip install twitter-sentiment
+
+
+Documentation
+-------------  
+Documentation is available at [twitter-sentiment.readthedocs.io](https://twitter-sentiment.readthedocs.io/en/latest/index.html)
+
+twitter-sentiment in a nutshel  
+------------------------------
+twitter-sentiment let you classify a tweet/list of tweets as positive (1) or negative (0). twitter-sentiment then calculate and returns the ration of positive tweets. To classify a tweet, twitter-sentiment levereage TextBlob Naive Byaise NLP library. More information can be find at [textblob.readthedocs.io](https://textblob.readthedocs.io/en/dev/advanced_usage.html#sentiment-analyzers)
+
+
+
