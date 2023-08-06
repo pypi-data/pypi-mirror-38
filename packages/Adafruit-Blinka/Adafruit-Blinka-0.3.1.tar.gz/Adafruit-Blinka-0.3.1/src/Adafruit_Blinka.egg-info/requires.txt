@@ -1,0 +1,4 @@
+Adafruit-GPIO
+
+[:platform_machine == "armv7l"]
+rpi_ws281x>=4.0.0
