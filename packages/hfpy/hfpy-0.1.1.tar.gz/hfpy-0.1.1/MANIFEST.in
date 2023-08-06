@@ -1,0 +1,12 @@
+include *.in
+include *.ini
+include README.md
+include *.txt
+include *.py
+include *.yml
+
+recursive-include hfpy *.yml
+recursive-include hfpy *.html
+
+global-exclude strategies
+global-exclude __pycache__ *.py[cod]
