@@ -1,0 +1,12 @@
+README.md
+setup.cfg
+setup.py
+authheaders/__init__.py
+authheaders/dmarc_lookup.py
+authheaders/public_suffix_list.txt
+authheaders.egg-info/PKG-INFO
+authheaders.egg-info/SOURCES.txt
+authheaders.egg-info/dependency_links.txt
+authheaders.egg-info/requires.txt
+authheaders.egg-info/top_level.txt
+test/test_authentication.py
