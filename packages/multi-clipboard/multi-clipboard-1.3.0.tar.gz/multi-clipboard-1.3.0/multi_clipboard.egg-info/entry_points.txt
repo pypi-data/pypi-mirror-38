@@ -1,0 +1,3 @@
+[console_scripts]
+multi-clipboard = multi_clipboard.__main__:run
+
