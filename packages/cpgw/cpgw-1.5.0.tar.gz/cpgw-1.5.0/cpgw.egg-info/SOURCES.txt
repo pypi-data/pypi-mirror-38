@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+cpgw/__init__.py
+cpgw/app.py
+cpgw/config.py
+cpgw/gateway.py
+cpgw/request_worker.py
+cpgw.egg-info/PKG-INFO
+cpgw.egg-info/SOURCES.txt
+cpgw.egg-info/dependency_links.txt
+cpgw.egg-info/entry_points.txt
+cpgw.egg-info/requires.txt
+cpgw.egg-info/top_level.txt
