@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: ausi
+Version: 0.0.1
+Summary: An Unified Software Integrator : A helper library that let's you output pandas DataFrames in all kinds of formats.
+Home-page: https://github.com/feststelltaste/ausi
+Author: Markus Harrer
+Author-email: ausi@markusharrer.de
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: pandas
+Requires-Dist: matplotlib
+Requires-Dist: pygal
+
+# ausi
+An Unified Software Integrator
+
+
