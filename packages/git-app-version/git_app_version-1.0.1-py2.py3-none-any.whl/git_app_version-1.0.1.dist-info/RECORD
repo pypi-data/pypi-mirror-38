@@ -1,0 +1,16 @@
+git_app_version/__init__.py,sha256=1hpaVHJ0OxvLVIZWeZpB4FLSRsrA8qiJ10T2GWvEF5A,831
+git_app_version/__main__.py,sha256=AHWA0pPJPAlJtGDpsx9VG1sDuAxQ-LpZD8KI_b-67fU,5390
+git_app_version/_version.py,sha256=hRIOuK0Bw7oUKq4rCWFABfkjngD4ucvaU9m_vAwOE4I,498
+git_app_version/dumper.py,sha256=XnLfj8pV88XmhFdPRBrOljrs6xDVYKwhf9mch9EJCiE,4868
+git_app_version/githandler.py,sha256=ACTzqYwm7_ks5BqAIsdtaTVCQEj9kwpVyDvhYWytFCc,5502
+git_app_version/helper/__init__.py,sha256=iwhKnzeBJLKxpRVjvzwiRE63_zNpIBfaKLITauVph-0,24
+git_app_version/helper/date.py,sha256=AnxGYMovVO58saDHvNQjvpZd0etKkIS0Rok_9JSK9WQ,1164
+git_app_version/helper/tools.py,sha256=SJTLj45dz1OK9WpupxR_dvjVqpLV1Tb41uI57OGHhEQ,815
+test_helpers/__init__.py,sha256=iwhKnzeBJLKxpRVjvzwiRE63_zNpIBfaKLITauVph-0,24
+test_helpers/git_utils.py,sha256=FumvveAS1ucK-qtKPyCEgzx-unxX37qKC1a4fhvpgvw,2293
+git_app_version-1.0.1.dist-info/LICENSE,sha256=GY-iKw8nbIgQRw-7POx_rG-0hHMJLa6xUGaMFhCn9S8,34494
+git_app_version-1.0.1.dist-info/METADATA,sha256=FhP9wct-BFoqGAW0ibIINnQyTXUmHNA6unKQhQBSOcE,17596
+git_app_version-1.0.1.dist-info/WHEEL,sha256=_wJFdOYk7i3xxT8ElOkUJvOdOvfNGbR9g-bf6UQT6sU,110
+git_app_version-1.0.1.dist-info/entry_points.txt,sha256=nB-MTiKhxgHRNzPh1qzT2zkEEcA7MwyfpC7Dv7ACXlQ,67
+git_app_version-1.0.1.dist-info/top_level.txt,sha256=PnvpmNuKdoJwUrbthX_m6tJfro8SklIpPeMZARaj4XU,29
+git_app_version-1.0.1.dist-info/RECORD,,
