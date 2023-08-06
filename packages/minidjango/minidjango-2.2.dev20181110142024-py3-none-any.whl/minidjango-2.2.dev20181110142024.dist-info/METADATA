@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: minidjango
+Version: 2.2.dev20181110142024
+Summary: Django stripped down
+Home-page: https://github.com/Fak3/minidjango
+Author: Evstifeev Roman
+Author-email: someuniquename@gmail.com
+License: BSD
+Project-URL: Documentation, https://docs.djangoproject.com/
+Project-URL: Funding, https://www.djangoproject.com/fundraising/
+Project-URL: Source, https://github.com/Fak3/minidjango
+Project-URL: Tracker, https://github.com/Fak3/minidjango/issues
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.5
+Requires-Dist: pytz
+Requires-Dist: sqlparse
+Provides-Extra: argon2
+Requires-Dist: argon2-cffi (>=16.1.0); extra == 'argon2'
+Provides-Extra: bcrypt
+Requires-Dist: bcrypt; extra == 'bcrypt'
+
+Minidjango is Django stripped down to 4 MB package size. Removed localizations
+and contrib packages. Main goal is to make it less heavyweight to use ORM in the
+client-side python applications.
+
+TODO: Perhaps it can be reduced even more, contributions are welcome.
+
+
