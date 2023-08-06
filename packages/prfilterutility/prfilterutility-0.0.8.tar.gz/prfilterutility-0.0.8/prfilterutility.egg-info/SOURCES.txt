@@ -1,0 +1,13 @@
+MANIFEST.in
+README.md
+setup.py
+gwrapper/__init__.py
+gwrapper/logger_interface.py
+gwrapper/number_filter.py
+gwrapper/string_filter.py
+gwrapper/wrapper.py
+gwrapper/schemas/wrapper_schema.json
+prfilterutility.egg-info/PKG-INFO
+prfilterutility.egg-info/SOURCES.txt
+prfilterutility.egg-info/dependency_links.txt
+prfilterutility.egg-info/top_level.txt

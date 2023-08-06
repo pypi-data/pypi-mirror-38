@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: prfilterutility
+Version: 0.0.8
+Summary: Package to provide utility tools for Github Pull Requests
+Home-page: https://github.com/oakbani/f3Github/gwrapper
+Author: Mariam Jamal
+Author-email: mjamal@folio3.com
+License: UNKNOWN
+Description: Package to provide find pull requests for Github reposwith commit and file filters
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Description-Content-Type: text/markdown

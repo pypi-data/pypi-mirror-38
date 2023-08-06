@@ -1,0 +1,75 @@
+{
+  "type":"object",
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "properties":{
+    "version":{
+      "type":"integer",
+      "enum":[1,2]
+    }
+  },
+  "definitions":{
+
+    "username":{
+      "type":"string"
+    },
+    "pwd":{
+      "type":"string"
+    }
+
+  },
+  "allOf":[
+    {
+      "if": {
+       "properties": {
+         "version": { "enum": [1] }
+       }
+     },
+     "then": {
+       "properties":{
+         "url": {
+           "type":"string"
+         },
+         "pwd": {
+            "$ref": "#/definitions/pwd"
+          },
+          "username": {
+            "$ref": "#/definitions/username"
+          }
+        },
+       "required":["version", "url", "username", "pwd"]
+      },
+     "else": {
+       "if": {
+         "properties":{
+           "version": { "enum": [2] }
+         }
+       },
+       "then": {
+         "properties":{
+           "url": {
+             "type":"array",
+             "items":{
+               "type": "string"
+             }
+           },
+           "credentials": {
+             "type":"array",
+             "items":{
+               "type":"object",
+               "properties":{
+                 "pwd": {
+                    "$ref": "#/definitions/pwd"
+                  },
+                  "username": {
+                    "$ref": "#/definitions/username"
+                  }
+               }
+             }
+           }
+         },
+         "required":["version", "url", "credentials"]
+       }
+      }
+    }
+  ]
+}
