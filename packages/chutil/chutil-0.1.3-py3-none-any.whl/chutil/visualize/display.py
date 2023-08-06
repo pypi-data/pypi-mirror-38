@@ -1,0 +1,33 @@
+import chainer
+from chainer.training import extensions
+from typing import Any, Iterable
+from IPython.display import Image
+from IPython.display import display as disp
+
+
+def display_test_performance(
+    model: chainer.Chain, test: Iterable[Any], enable_cupy: bool, batchsize: int
+) -> None:
+    device = -1
+    if enable_cupy:
+        model.to_gpu()
+        device = 0
+    test_iter = chainer.iterators.SerialIterator(
+        test, batchsize, repeat=False, shuffle=False
+    )
+    test_evaluator = extensions.Evaluator(test_iter, model, device=device)
+    results = test_evaluator()
+    disp("Test accuracy:", results["main/accuracy"])
+
+
+def display_graph(out_dir: str = "./out/") -> None:
+    import pydot
+
+    graph = pydot.graph_from_dot_file(out_dir + "cg.dot")  # load from .dot file
+    graph[0].write_png("graph.png")
+    disp(Image("graph.png", width=600, height=600))
+
+
+def display_loss_and_accuracy(out_dir: str = "./out/") -> None:
+    disp(Image(filename=out_dir + "loss.png"))
+    disp(Image(filename=out_dir + "accuracy.png"))
