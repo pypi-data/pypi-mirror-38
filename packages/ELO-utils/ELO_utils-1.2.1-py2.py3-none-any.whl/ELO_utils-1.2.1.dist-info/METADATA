@@ -1,0 +1,22 @@
+Metadata-Version: 2.0
+Name: ELO-utils
+Version: 1.2.1
+Summary: ELO calculations for python
+Home-page: https://github.com/danybeam/ELO_Utils
+Author: danybeam
+Author-email: danybeam@gmail.com
+License: MIT
+Description-Content-Type: text/markdown
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7.0
+
+
+# ELO Utils ![Version](https://img.shields.io/badge/v-1.1.0-blue.svg) [![Build Status](https://travis-ci.com/danybeam/ELO_Utils.svg?branch=master)](https://travis-ci.com/danybeam/ELO_Utils)
+This is a smal utility for calculating ELO scores after a match  
+It also calculates the fairest match given a certain player
+
