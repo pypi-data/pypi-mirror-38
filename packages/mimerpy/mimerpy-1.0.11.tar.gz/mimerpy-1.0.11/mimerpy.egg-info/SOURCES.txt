@@ -1,0 +1,16 @@
+LICENSE.txt
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+mimerpy/__init__.py
+mimerpy/connectionPy.py
+mimerpy/cursorPy.py
+mimerpy/mimPyExceptionHandler.py
+mimerpy/mimPyExceptions.py
+mimerpy.egg-info/PKG-INFO
+mimerpy.egg-info/SOURCES.txt
+mimerpy.egg-info/dependency_links.txt
+mimerpy.egg-info/top_level.txt
+src/connection.c
+src/cursor.c
