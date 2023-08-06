@@ -1,0 +1,14 @@
+CHANGES.txt
+LICENSE.txt
+MANIFEST.in
+README.md
+setup.py
+bin/freebox_show_status.py
+bin/freebox_to_graphite.py
+docs/fbx_info_1.5.20.log
+freebox_v5_status/__init__.py
+freebox_v5_status/freeboxstatus.py
+freebox_v5_status.egg-info/PKG-INFO
+freebox_v5_status.egg-info/SOURCES.txt
+freebox_v5_status.egg-info/dependency_links.txt
+freebox_v5_status.egg-info/top_level.txt
