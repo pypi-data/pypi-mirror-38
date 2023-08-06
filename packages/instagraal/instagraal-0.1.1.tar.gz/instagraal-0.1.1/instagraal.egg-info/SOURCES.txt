@@ -1,0 +1,15 @@
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+example/abs_fragments_contacts_weighted.txt
+example/example.gif
+example/fragments_list.txt
+example/info_contigs.txt
+instagraal.egg-info/PKG-INFO
+instagraal.egg-info/SOURCES.txt
+instagraal.egg-info/dependency_links.txt
+instagraal.egg-info/entry_points.txt
+instagraal.egg-info/requires.txt
+instagraal.egg-info/top_level.txt
+scripts/instagraal-setup
