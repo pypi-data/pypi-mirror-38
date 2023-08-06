@@ -1,0 +1,12 @@
+numpy>=1.15.1
+scipy>=1.1.0
+Cython>=0.28.5
+setuptools>=40.2.0
+lmfit>=0.9.11
+pandas>=0.23.4
+pyyaml>=3.13
+matplotlib>=2.2.3
+natsort>=5.3.3
+lmfit-varpro>=0.0.5
+typing_inspect>=0.3.1
+dataclasses>=0.6
