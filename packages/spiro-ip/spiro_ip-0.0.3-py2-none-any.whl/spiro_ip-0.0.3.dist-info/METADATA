@@ -1,0 +1,94 @@
+Metadata-Version: 2.0
+Name: spiro-ip
+Version: 0.0.3
+Summary: Salt modules for discovering and exposing minion's IP addresses
+Home-page: https://gitlab.com/saltspiro/spiro-ip
+Author: Jamie Bliss
+Author-email: jamie@ivyleav.es
+License: UNKNOWN
+Project-URL: Source, https://gitlab.com/saltspiro/spiro-ip/
+Project-URL: Bug Reports, https://gitlab.com/saltspiro/spiro-ip/issues
+Project-URL: Tip Jar, https://ko-fi.com/astraluma
+Keywords: salt saltstack
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: Environment :: Other Environment
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: System :: Systems Administration
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+Requires-Dist: setuptools
+
+spiro-ip
+========
+
+A quick and simple module to get information about the various IPs of your salt
+minions.
+
+This is meant to be installed on minions.
+
+Installation
+============
+
+On minions, run `pip install spiro-ip`
+
+Or, as a state:
+
+```
+{% if grains['pythonversion'][0] == 2 %}
+{% set pipbin = "/usr/bin/pip2" %}
+{% else %}
+{% set pipbin = "/usr/bin/pip3" %}
+{% endif %}
+
+spiro-ip:
+  pip.installed:
+    - bin_env: {{pipbin}}
+```
+
+Interface
+=========
+
+A number of things are provided:
+
+Grains
+------
+
+* `externalip4`, `externalip6`: Queries external services for your IP, useful
+  if the minion is behind a NAT or other complex network
+
+Modules
+-------
+
+* `ip.addrs4`, `ip.addrs6`: Collates information about a minion's IP address
+  from several sources. 
+
+    * `network.ipaddrs` / `network.ipaddrs6`
+    * AWS metadata (if you've set `metadata_server_grains: True`, see the [metadata grain](https://docs.saltstack.com/en/latest/ref/grains/all/salt.grains.metadata.html))
+    * `externalip4` / `externalip6` grains (above)
+
+Configuration
+=============
+
+No configuration is required. However, as mentioned above, it might be useful to
+set `metadata_server_grains: True`.
+
+You may find it useful to set `ip.addrs4` / `ip.addrs6` as mine_functions so
+that minions can get each other's IP address. Example:
+
+```
+mine_functions:
+  ip.addrs4: []
+  ip.addrs6: []
+```
+
+
