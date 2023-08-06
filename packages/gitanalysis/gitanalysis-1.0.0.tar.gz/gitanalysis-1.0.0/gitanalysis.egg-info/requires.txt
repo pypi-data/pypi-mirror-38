@@ -1,0 +1,8 @@
+click
+pandas
+
+[dev]
+pylint
+coverage
+tox
+twine
