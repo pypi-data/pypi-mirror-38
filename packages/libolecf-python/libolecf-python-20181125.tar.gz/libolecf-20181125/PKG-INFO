@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: libolecf-python
+Version: 20181125
+Summary: Python bindings module for libolecf
+Home-page: https://github.com/libyal/libolecf/
+Author: Joachim Metz
+Author-email: joachim.metz@gmail.com
+License: GNU Lesser General Public License v3 or later (LGPLv3+)
+Description: Python bindings module for libolecf
+Platform: UNKNOWN
