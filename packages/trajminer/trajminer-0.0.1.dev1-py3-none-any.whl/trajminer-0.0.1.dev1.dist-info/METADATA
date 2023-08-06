@@ -1,0 +1,24 @@
+Metadata-Version: 2.0
+Name: trajminer
+Version: 0.0.1.dev1
+Summary: A trajectory mining library
+Home-page: https://lucaspetry.github.io/trajminer/
+License: UNKNOWN
+Keywords: trajectory mining
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
+Requires-Dist: numpy (>=1.15.3)
+Requires-Dist: scikit-learn (>=0.19.1)
+Requires-Dist: keras (>=2.2.4)
+
+# Trajectory Mining Library
+
+* Docs: https://lucaspetry.github.io/trajminer/
+
+
