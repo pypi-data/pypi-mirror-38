@@ -1,0 +1,11 @@
+README.md
+setup.py
+safeword/__init__.py
+safeword/safeword.py
+safeword.egg-info/PKG-INFO
+safeword.egg-info/SOURCES.txt
+safeword.egg-info/dependency_links.txt
+safeword.egg-info/top_level.txt
+safeword/resources/wordlist.csv
+safeword/resources/wordlist.json
+safeword/tests/__init__.py

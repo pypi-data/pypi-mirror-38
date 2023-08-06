@@ -1,0 +1,29 @@
+#  Safeword : a generator of words, characters, and slugs
+[![](/ext/round1.jpg)](/)
+
+![image](https://img.shields.io/badge/license-Unlicense-orange.svg)
+
+## Predictable and fun slug generation
+
+//WIP
+
+Returns mutable objects as requested
+
+
+TODO:
+- Words, ~~nouns~~, ~~adjectives~~, ~~verbs~~, animals, names
+    - camelCase, medial capitals, camel caps
+    - snake_case, machine safe 
+- Hashes, input based md5+, ~~UUID~~ / CUID
+- append and prepend (useful for hash + file extension)
+- return int
+    - even/odd numbers
+- machine safe
+- ~~return backwards/forwards~~
+- integrate with princetonparser when it makes sense to generate/update lists on the fly
+    - importable word lists?
+- [FEATURE] Emoji returns
+- [FEATURE] return url combos
+- optimize list creation and availability. currently created during class init
+    - should be tested to see if JSON or CSV is faster to generate lists
+- [IMPORTANT] refactor request and response flow

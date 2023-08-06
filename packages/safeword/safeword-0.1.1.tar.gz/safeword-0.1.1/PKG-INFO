@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: safeword
+Version: 0.1.1
+Summary: A small utility for generating character slugs on demand.
+Home-page: https://github.com/e-ht/safeword
+Author: eht
+Author-email: jared@e.ht
+License: Unlicense
+Description: #  Safeword : a generator of words, characters, and slugs
+        [![](/ext/round1.jpg)](/)
+        
+        ![image](https://img.shields.io/badge/license-Unlicense-orange.svg)
+        
+        ## Predictable and fun slug generation
+        
+        //WIP
+        
+        Returns mutable objects as requested
+        
+        
+        TODO:
+        - Words, ~~nouns~~, ~~adjectives~~, ~~verbs~~, animals, names
+            - camelCase, medial capitals, camel caps
+            - snake_case, machine safe 
+        - Hashes, input based md5+, ~~UUID~~ / CUID
+        - append and prepend (useful for hash + file extension)
+        - return int
+            - even/odd numbers
+        - machine safe
+        - ~~return backwards/forwards~~
+        - integrate with princetonparser when it makes sense to generate/update lists on the fly
+            - importable word lists?
+        - [FEATURE] Emoji returns
+        - [FEATURE] return url combos
+        - optimize list creation and availability. currently created during class init
+            - should be tested to see if JSON or CSV is faster to generate lists
+        - [IMPORTANT] refactor request and response flow
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: POSIX :: Linux
+Classifier: License :: Public Domain
+Description-Content-Type: text/markdown
