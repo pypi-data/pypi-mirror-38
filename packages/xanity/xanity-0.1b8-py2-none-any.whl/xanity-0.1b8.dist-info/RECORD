@@ -1,0 +1,17 @@
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/common.py,sha256=wx3Gjb1YqndYUtksyFo5k3cRn_Sf4vLFz02vhlxCRI4,244
+tests/conftest.py,sha256=finJHKZpeZ2QV6z7rPHtq8t0-sDsAd8hpF6Qf-Dmv68,486
+tests/demo_test.py,sha256=nPWrtFS84eMO3PzE7Z_P6T35grx5MJCaVtzfl1b4hbA,289
+tests/units/__init__.py,sha256=M0NZuQ7-112l8K2h1eayVvSmvQrufrOcD5AYKgIf_Is,1
+tests/units/analyze_test.py,sha256=yEBITE5sqtXJ4FSbK5DCHh4bL77GQ1pZ2RdDuzr5u3A,37
+tests/units/common.py,sha256=wx3Gjb1YqndYUtksyFo5k3cRn_Sf4vLFz02vhlxCRI4,244
+tests/units/init_test.py,sha256=hjZ2SlELWIBkTJLMCWM2onooN2QvIezXAIko8cm2OBo,875
+tests/units/run_test.py,sha256=0FH6EHv4ifKwzLr2mz8oWe4CCWC8OAbgSaAOaQT107E,1144
+tests/units/setup_test.py,sha256=oJUB5keagSJnqh9BNhXx9uiKbKKwq7Ezh_BWymwxZdI,761
+xanity-0.1b8.data/scripts/xanity,sha256=RD7E20gY7IsW9c8xcVmFe7nUSMVcahNcA9NDBxUkxpI,7254
+xanity-0.1b8.data/scripts/xanity-enable-conda.sh,sha256=pkn7AprXK96wx7yd8hqh6Y-yKUo9Q7j4YYSb6GbDhcQ,1103
+xanity-0.1b8.data/scripts/xanity-run.sh,sha256=nTWFyazOArJ0bOHvjXcKngnkUtr25qPzEdXfQnv_Fm4,1932
+xanity-0.1b8.dist-info/METADATA,sha256=kV6RxKR70hEkhSRAcFV9Vrk0ArIDCLco66_8WSsyO18,5094
+xanity-0.1b8.dist-info/RECORD,,
+xanity-0.1b8.dist-info/WHEEL,sha256=_V8uWu5F_h-lvAz5Mbq4oZqV_uCfL4cHgm4IIlDevzU,92
+xanity-0.1b8.dist-info/top_level.txt,sha256=EdW7283x-lr_cbuivW8Ij7ANAP-ZJ9sLtILQseEPxXg,6
