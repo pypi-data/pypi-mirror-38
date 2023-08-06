@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: drivefiller
+Version: 1.2.1
+Summary: A Python 3 library that makes very large files very quickly. Can also return file size.
+Home-page: https://github.com/ConorMatthews/drivefiller
+Author: Conor Matthews
+Author-email: conor.matthews15@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+# DriveFiller(dot)py
+A python library that creates very large files very quickly.
+
+## Examples
+```
+fill(path, file_name, text) #path is the path to the location in example format '/home/user/name/', file_name is the name for the file (no extension and text is the text to endlessly write to the file with.
+
+size(path) #returns file size in bytes of a file with its entire path entered including the file name and extension
+```
+
