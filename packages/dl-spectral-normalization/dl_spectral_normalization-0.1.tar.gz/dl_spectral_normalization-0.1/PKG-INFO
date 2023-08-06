@@ -1,0 +1,12 @@
+Metadata-Version: 1.1
+Name: dl_spectral_normalization
+Version: 0.1
+Summary: Library for building neural networks in TensorFlow with spectrally normalized layers
+Home-page: https://github.com/dev-area/dl_spectral_normalization
+Author: Jesse Zhang, Farzan Farnia
+Author-email: jessez@stanford.edu
+License: UNKNOWN
+Download-URL: https://github.com/dev-area/dl_spectral_normalization/tarball/0.1
+Description: UNKNOWN
+Keywords: deep-learning,neural-network,adversarial-attacks,spectral-normalization,regularization
+Platform: UNKNOWN
