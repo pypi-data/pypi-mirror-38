@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: json-storage-manager
+Version: 0.1.4
+Summary: JSON Storage Manager for JSON data stored in text-files
+Home-page: https://github.com/hefnawi/json-storage-manager
+Author: Ahmed Hefnawi
+Author-email: me@ahmedhefnawi.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+[![Build Status](https://travis-ci.org/hefnawi/json-storage-manager.svg?branch=master)](https://travis-ci.org/hefnawi/json-storage-manager) [![License](https://img.shields.io/pypi/l/json-storage-manager.svg)](https://pypi.org/project/json-storage-manager) [![PyPI version](https://badge.fury.io/py/json-storage-manager.svg)](https://badge.fury.io/py/json-storage-manager) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/08b84b770a7245a9b4cf613c4eb7b857)](https://www.codacy.com/app/hefnawi/json-storage-manager?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=hefnawi/json-storage-manager&amp;utm_campaign=Badge_Grade) [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/08b84b770a7245a9b4cf613c4eb7b857)](https://www.codacy.com/app/hefnawi/json-storage-manager?utm_source=github.com&utm_medium=referral&utm_content=hefnawi/json-storage-manager&utm_campaign=Badge_Coverage) [![Documentation Status](https://readthedocs.org/projects/json-storage-manager/badge/?version=latest)](https://json-storage-manager.readthedocs.io/en/latest/?badge=latest)
+
+# json-storage-manager
+JSON Storage Manager Python Package
+
+
