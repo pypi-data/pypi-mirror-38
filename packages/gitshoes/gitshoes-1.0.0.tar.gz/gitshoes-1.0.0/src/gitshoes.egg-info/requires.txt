@@ -1,0 +1,6 @@
+PyGithub>=1.43
+click>=7.0
+
+[testing]
+pytest
+pytest-cov

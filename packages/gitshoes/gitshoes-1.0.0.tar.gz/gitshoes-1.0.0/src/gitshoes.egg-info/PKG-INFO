@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: gitshoes
+Version: 1.0.0
+Summary: gitshoes generates a CSV report of all open issues in a GitHub repo.
+Home-page: https://github.com/qapn/gitshoes
+Author: Andrew Passarello
+Author-email: apassarello@gmail.com
+License: UNKNOWN
+Description: # Gitshoes
+        
+        Generates a CSV report on all open issues in a GitHub repository. Gitshoes is written in Python 3 and uses [Click](https://github.com/pallets/click) to build a command line interface, and [PyGitHub](https://github.com/PyGithub/PyGithub) to interact with the GitHub API.
+        
+        ## Install
+        
+        ```
+        pip install gitshoes
+        ```
+        
+        ## Usage
+        
+        ```
+        gitshoes -u <USERNAME> -r <REPOSITORY> -t <TOKEN>
+        ```
+        
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Provides-Extra: testing
