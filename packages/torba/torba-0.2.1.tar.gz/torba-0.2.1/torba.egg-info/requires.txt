@@ -1,0 +1,17 @@
+aiohttp
+aiorpcx==0.9.0
+coincurve
+pbkdf2
+cryptography
+
+[server]
+attrs
+plyvel
+pylru
+
+[test]
+mock
+requests
+
+[ui]
+pyside2
