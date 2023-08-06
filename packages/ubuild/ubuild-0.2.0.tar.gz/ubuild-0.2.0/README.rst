@@ -1,0 +1,194 @@
+A no-frills build script framework.
+
+Introduction
+============
+
+This project provides a Python 3.3+ library/utility for creating build
+scripts. The main features of Ubuild are:
+
+-  Streamlines the discoverability of build steps/tasks.
+
+-  Build step/task details are captured in Python functions.
+
+-  Provides a CLI menu to show available build steps/tasks.
+
+-  Provides a CLI utility ``ubuild`` to locate and run build scripts.
+
+Status
+======
+
+Currently, this project is in the **development release** stage. While
+this project is suitable for use, please note that there may be
+incompatibilities in new releases.
+
+Release notes are maintained in the project
+`changelog <https://github.com/jeffrimko/Ubuild/blob/master/CHANGELOG.adoc>`__.
+
+Requirements
+============
+
+Ubuild should run on any Python 3.3+ interpreter with some additional
+third-party libraries (installed automatically).
+
+Installation
+============
+
+Ubuild is `available on PyPI
+here <https://pypi.python.org/pypi/ubuild>`__ and can be installed with
+pip using the following command: ``pip install ubuild``
+
+Additionally, Ubuild can be installed from source by running:
+``python setup.py install``
+
+Usage
+=====
+
+Create a ``_Build.py`` file. Import ``ubuild`` and use the ``menu``
+decorator to add functions to the build menu. Use the ``main`` function
+to show the menu. For example:
+
+.. code:: python
+
+    from ubuild import menu, main
+
+    @menu
+    def build():
+        ...
+
+    @menu
+    def clean():
+        ...
+
+    main()
+
+Running this script will show the following menu:
+
+::
+
+    -- MENU --
+      (b) Build
+      (c) Clean
+      (q) Quit
+    [!] Menu loops until quit.
+    [?] Enter menu selection:
+
+By default, the menu entry names are based off the function name. For
+example:
+
+-  ``something()`` = ``(s) Something``
+
+-  ``do_something()`` = ``(ds) Do Something``
+
+-  ``do_something_else()`` = ``(dse) Do Something Else``
+
+However the names will attempt to use the shortest available name, e.g.
+``(ds) Do Something`` will be ``(d) Do Something`` if there is no
+existing ``(d)`` entry.
+
+Because Ubuild is meant to be lightweight and capture build step
+details, often it might be useful to use
+`Auxly <https://github.com/jeffrimko/Auxly>`__ to call other utilities.
+For example:
+
+.. code:: python
+
+    @menu
+    def build():
+        return auxly.shell.call("make")
+
+Note the ``return`` on the call. This allows the exit code from the
+``make`` call to propagate up through to Ubuild, i.e. if the menu is
+quit after the call, the exit code for Ubuild will be the ``make`` exit
+code.
+
+The ``ubuild`` command line utility can be used in two different ways:
+
+1. Calling ``ubuild`` without arguments in a directory with
+   ``_Build.py`` or any of the child directories will show the Ubuild
+   menu.
+
+2. Calling ``ubuild`` with arguments in a directory with ``_Build.py``
+   or any of the child directories will run that menu entry, e.g.
+   ``ubuild b``.
+
+A few additional notes about the ``menu`` decorator:
+
+.. code:: python
+
+    @menu("x")  # (x) Build
+    def build():
+        ...
+
+    @menu(name="x")  # (x) Build
+    def build():
+        ...
+
+    @menu(desc="Something")  # (s) Something
+    def build():
+        ...
+
+    @menu("x", desc="Something")  # (x) Something
+    def build():
+        ...
+
+    @menu(desc="Flag Set", args=[True])     # (fs) Flag Set
+    @menu(desc="Flag Clear", args=[False])  # (fc) Flag Clear
+    def build(flag):
+        ...
+
+    @menu(desc="Flag Clear", kwargs={'flag':False})  # (fc) Flag Clear
+    def build(flag=True):
+        ...
+
+Here are some real-world examples of Ubuild in action:
+
+-  `Doctrine2 <https://github.com/jeffrimko/Doctrine2/blob/master/app/_Build.py>`__
+
+-  `QuickWin <https://github.com/jeffrimko/QuickWin/blob/master/app/_Build.py>`__
+
+Alternative Script Names
+------------------------
+
+The default Ubuild script name is ``_Build.py`` but occasionally it
+might make sense to have an alternative name. The script must match the
+following regex:
+
+::
+
+    _[A-Z][A-z0-9_-]*\.py$
+
+The script must also contain the following line exactly without any
+changes or trailing whitespace:
+
+::
+
+    # -*- ubuild -*-
+
+Similar
+=======
+
+The following projects are similar and may be worth checking out:
+
+-  `Invoke <https://github.com/pyinvoke/invoke/>`__
+
+FAQ
+---
+
+Why ``_Build.py`` for script names?
+
+-  This project follows the naming guidelines provided by `the Unified
+   Style Guide for naming user
+   scripts <https://github.com/jeffrimko/UnifiedStyleGuide/blob/master/doc/special_files/main.adoc#8-user-scripts>`__.
+   The name is meant to distinguish this script as being intended for
+   direct user interaction. For example, a name like ``build.py`` is not
+   clear whether it is mean for a user or if it is called by something
+   else.
+
+Is Ubuild intended to replace other build tools?
+
+-  No, not at all! In fact, Ubuild is intended to supplement other build
+   tools by providing a simple abstraction layer for performing build
+   tasks. For example, a project may start using ``make`` to organize
+   builds but later move to ``scons``. By using Ubuild to capture the
+   build step details, a user need never be aware of the change. They
+   just see the build entry in the Ubuild menu.
