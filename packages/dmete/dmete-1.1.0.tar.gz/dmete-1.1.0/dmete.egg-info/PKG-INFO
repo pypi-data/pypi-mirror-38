@@ -1,0 +1,52 @@
+Metadata-Version: 2.1
+Name: dmete
+Version: 1.1.0
+Summary: download mete data
+Home-page: http://10.110.18.201:3000/Course/dump_mete
+Author: Linhong Xiao
+Author-email: xiaoforest@lzb.ac.cn
+License: UNKNOWN
+Description: # dmete
+        
+        基于谭永强提供的自动气象站观测下载接口，下载小时气象数据，并输出成标准的文本格式
+        
+        
+        ## 用法
+        
+        ```
+        $ python -m dmete -h
+        usage: __main__.py [-h] [-b BEGTIME] [-e ENDTIME] [-o OUTPATH]
+        
+        Parameters of this program
+        
+        optional arguments:
+          -h,         --help             show this help message and exit
+          -b BEGTIME, --begTime BEGTIME  开始北京时间
+          -e ENDTIME, --endTime ENDTIME  结束北京时间
+          -o OUTPATH, --outPath OUTPATH  输出路径
+        ```
+        
+        如果不是在公司内网下载，请修改dmete/dump.py
+        ``` python
+        class NetConfigure:
+            ''' globale variables '''
+            user = 'moshi'
+            pswrd = 'ad7ed4f6730a7e784535c3b6a0becc92'
+            inner = "http://10.110.18.215:8000/dataSup/getZrAws1DataIntegral"
+            outer = "http://61.50.111.214:19008/dataSup/getZrAws1DataIntegral"
+            address = outer # inner
+        
+        ```
+        
+        例子
+        ``` bash
+        python -m dmete -b 2018090100
+        python -m dmete -b 2018090100 -e 2018090221
+        python -m dmete -b 2018090100 -e 2018090221 -o ./obs
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
