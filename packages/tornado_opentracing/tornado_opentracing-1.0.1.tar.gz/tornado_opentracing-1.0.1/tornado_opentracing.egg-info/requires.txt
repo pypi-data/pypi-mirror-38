@@ -1,0 +1,9 @@
+tornado
+opentracing>=2.0,<2.1
+wrapt
+
+[tests]
+flake8<3
+flake8-quotes
+pytest>=2.7,<3
+pytest-cov
